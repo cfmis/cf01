@@ -38,8 +38,8 @@ namespace cf01.CLS
                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                     Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 //获取第一个工作表
-                Worksheet worksheet = (Worksheet)workbook.Worksheets[2];
-                int rowCount = worksheet.UsedRange.Rows.Count;
+                Worksheet worksheet = (Worksheet)workbook.Worksheets[2];                
+                int rowCount = worksheet.UsedRange.Rows.Count; //當前Excel工作表的總行數
                 if (rowCount <= 1)
                 {
                     result = "導入的資料不可為空!";
@@ -51,15 +51,15 @@ namespace cf01.CLS
                 Range rng;
                 //檢查列是否存在
                 string strNo = "", strId = "", strStatus = "", strStatusDesc = "", strResponse = "";
-                rng = (Range)worksheet.Cells[1, 1];//NO
+                rng = (Range)worksheet.Cells[1, 25];//NO
                 strNo = rng.Value;
-                rng = (Range)worksheet.Cells[1, 2];//加工單號
+                rng = (Range)worksheet.Cells[1, 26];//加工單號
                 strId = rng.Value;
-                rng = (Range)worksheet.Cells[1, 7]; //狀態編號
+                rng = (Range)worksheet.Cells[1, 27]; //狀態編號
                 strStatus = rng.Value;
-                rng = (Range)worksheet.Cells[1, 8]; //狀態編號描述
+                rng = (Range)worksheet.Cells[1, 28]; //狀態編號描述
                 strStatusDesc = rng.Value;
-                rng = (Range)worksheet.Cells[1, 9];//部門回覆
+                rng = (Range)worksheet.Cells[1, 5];//部門回覆
                 strResponse = rng.Value;
                 if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述" || strResponse != "部門回覆")
                 {
@@ -68,29 +68,29 @@ namespace cf01.CLS
                 }
 
                 int no = 0;
-                string mo_id = "", status = "", goods_id = "", response="";
+                string mo_id = "", status = "", goods_id = "", response = "", strFilter = "";
                 DataRow dr = null;
                 for (int i = 1; i <= rowCount; i++)
                 {
                     if (i > 1)
                     {
                         no = i - 1;
-                        worksheet.Cells[i, 1] = no; //No
-                        rng = (Range)worksheet.Cells[i, 4];//自定義的狀態序號
+                        worksheet.Cells[i, 25] = no; //寫入NO
+                        rng = (Range)worksheet.Cells[i, 2];//頁數
                         mo_id = rng.Value;
-                        rng = (Range)worksheet.Cells[i, 7];//狀態編號
-                        status = rng.Value;
-                        rng = (Range)worksheet.Cells[i, 10];//貨品編號
-                        goods_id = rng.Value;
-                        rng = (Range)worksheet.Cells[i, 9];//部門回覆
+                        rng = (Range)worksheet.Cells[i, 5];//部門回覆
                         response = rng.Value;
+                        rng = (Range)worksheet.Cells[i, 6];//貨品編號
+                        goods_id = rng.Value;
+                        rng = (Range)worksheet.Cells[i, 27];//狀態編號
+                        status = rng.Value;                       
                         dr = dt.NewRow();
                         dr["no"] = no;
                         dr["vendor_id"] = "";
                         dr["mo_id"] = mo_id;
-                        dr["status"] = status;
-                        dr["goods_id"] = goods_id;
                         dr["dept_response"] = response;
+                        dr["goods_id"] = goods_id;
+                        dr["status"] = status;
                         dt.Rows.Add(dr);
                     }
                 }
@@ -101,23 +101,23 @@ namespace cf01.CLS
                 };
                 DataSet dts = clsErp.ExecuteProcedureReturnDataSet("z_plate_expired", paras1, null);
                 dt = dts.Tables[0];
-                string strFilter = "";
+                //寫入EXCEL表
                 DataRow[] drs = null;
                 for (int i = 1; i <= rowCount; i++)
                 {
                     if (i > 1)
                     {
-                        rng = (Range)worksheet.Cells[i, 1];
+                        rng = (Range)worksheet.Cells[i, 25];
                         no = (int)rng.Value;
                         strFilter = string.Format("no={0}", no);
                         drs = dt.Select(strFilter);
                         if (drs.Length > 0)
                         {
-                            rng = (Range)worksheet.Cells[i, 2]; //單據號
+                            rng = (Range)worksheet.Cells[i, 26]; //加工單號
                             rng.Value = drs[0]["id"].ToString();
-                            rng = (Range)worksheet.Cells[i, 8]; //狀態描述
+                            rng = (Range)worksheet.Cells[i, 28]; //狀態描述
                             rng.Value = drs[0]["status_desc"].ToString();
-                            rng = (Range)worksheet.Cells[i, 9]; //部門回覆
+                            rng = (Range)worksheet.Cells[i, 5]; //部門回覆
                             rng.Value = drs[0]["dept_response"].ToString();
                         }
                     }                       
