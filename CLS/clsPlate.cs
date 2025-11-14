@@ -115,6 +115,8 @@ namespace cf01.CLS
                         {
                             rng = (Range)worksheet.Cells[i, 26]; //加工單號
                             rng.Value = drs[0]["id"].ToString();
+                            rng = (Range)worksheet.Cells[i, 27]; //狀態
+                            rng.Value = drs[0]["status"].ToString();
                             rng = (Range)worksheet.Cells[i, 28]; //狀態描述
                             rng.Value = drs[0]["status_desc"].ToString();
                             rng = (Range)worksheet.Cells[i, 5]; //部門回覆
