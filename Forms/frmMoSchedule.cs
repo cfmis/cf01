@@ -53,34 +53,34 @@ namespace cf01.Forms
         {
 
             //////表格中的制單狀態標識
-            lueGvStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
+            lueGvStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule", "");
             lueGvStatus.ValueMember = "flag_id";
             lueGvStatus.DisplayMember = "flag_cdesc";
             //////批量設定中的制單狀態標識
-            cmbSetStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
+            cmbSetStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule", "");
             cmbSetStatus.ValueMember = "flag_id";
             cmbSetStatus.DisplayMember = "flag_cdesc";
             //////查詢條件中的制單狀態標識
-            cmbMoStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
+            cmbMoStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule", "");
             cmbMoStatus.ValueMember = "flag_id";
             cmbMoStatus.DisplayMember = "flag_cdesc";
             //cmbMoStatus.SelectedValue = "01";
             //////查詢條件中的完成數狀態標識
-            cmbCpStatus.DataSource = clsBaseData.loadDocFlag("CP_STATE");
+            cmbCpStatus.DataSource = clsBaseData.loadDocFlag("CP_STATE", "");
             cmbCpStatus.ValueMember = "flag_id";
             cmbCpStatus.DisplayMember = "flag_cdesc";
             cmbCpStatus.SelectedValue = "0";
             //////表格中的急單狀態標識
-            lueGvUrgentFlag.DataSource = clsBaseData.loadDocFlag("mo_urgent_status");
+            lueGvUrgentFlag.DataSource = clsBaseData.loadDocFlag("mo_urgent_status", "");
             lueGvUrgentFlag.ValueMember = "flag_id";
             lueGvUrgentFlag.DisplayMember = "flag_cdesc";
             //////批量設定中的急單狀態標識
-            lueSetUrgentMo.Properties.DataSource = clsBaseData.loadDocFlag("mo_urgent_status");
+            lueSetUrgentMo.Properties.DataSource = clsBaseData.loadDocFlag("mo_urgent_status", "");
             lueSetUrgentMo.Properties.ValueMember = "flag_id";
             lueSetUrgentMo.Properties.DisplayMember = "flag_cdesc";
 
             //////模具類型
-            lueModuleType.DataSource = clsBaseData.loadDocFlag("schedule_module_type");
+            lueModuleType.DataSource = clsBaseData.loadDocFlag("schedule_module_type", "");
             lueModuleType.ValueMember = "flag_id";
             lueModuleType.DisplayMember = "flag_cdesc";
             

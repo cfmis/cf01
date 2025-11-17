@@ -54,17 +54,21 @@ namespace cf01.CLS
         }
         //
 
-        public static DataTable loadDocFlag(string doc_type)
+        public static DataTable loadDocFlag(string doc_type,string flag)
         {
             string strSql = "Select flag_id,flag_desc,flag_cdesc" +
                 " From bs_flag_desc" +
-                " Where doc_type='" + doc_type + "'" +
-                " Order By flag_id";
+                " Where doc_type>=''";
+            if (doc_type != "")
+                strSql += "  AND doc_type = '" + doc_type + "'";
+            if (flag != "")
+                strSql += "  AND flag1 = '" + flag + "'";
+            strSql += " Order By flag_id";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
-            DataRow dr = dt.NewRow();
-            dr["flag_id"] = "";
-            dr["flag_cdesc"] = "";
-            dt.Rows.InsertAt(dr, 0);
+            //DataRow dr = dt.NewRow();
+            //dr["flag_id"] = "";
+            //dr["flag_cdesc"] = "";
+            //dt.Rows.InsertAt(dr, 0);
             return dt;
         }
         //////制單排期中用到的組別
