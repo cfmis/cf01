@@ -16,6 +16,7 @@ namespace cf01.Forms
         clsPublicOfGEO clsErp = new clsPublicOfGEO();
         clsAppPublic clsApp = new clsAppPublic();
         DataTable dtDetail = new DataTable();
+        DataTable dtFactory1 = new DataTable();
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示     
         //clsToolBar objToolbar;
 
@@ -257,12 +258,81 @@ namespace cf01.Forms
             //  WHERE trading_company_id='{0}' 
             //  Order By trading_company_id,id", trading_id);
             //dtFactory1 = clsErp.GetDataTable(sql);
+            //dgvFarmentFactory.DataSource = dtFactory1;
+            //if (dgvFarmentFactory.RowCount == 0)
+            //{
+            //    panel2.Visible = false;
+            //    return;
+            //}
+            //if (dgvFarmentFactory.CurrentRow.Index == dgvFarmentFactory.RowCount - 1)
+            //    panel2.Visible = true;
+            //else
+            //    panel2.Visible = false;
+
+
             //clFactory.DataSource = dtFactory1;
             //clFactory.ValueMember = "id";
             //clFactory.DisplayMember = "id";
-            
+
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            txtOc1.Focus();
+        }
 
+        private void dgvFarmentFactory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvFarmentFactory.RowCount > 0)
+            {
+                int curRow = gridView1.FocusedRowHandle;
+                string id = dtFactory1.Rows[dgvFarmentFactory.CurrentRow.Index]["id"].ToString();
+                gridView1.SetRowCellValue(curRow, "garment_factory",id);
+
+            }
+        }
+
+        private void dgvFarmentFactory_DoubleClick(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            txtOc1.Focus();
+        }
+
+        private void clBtnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (dtDetail.Rows.Count == 0)
+            {
+                return;
+            }
+            int curRow = gridView1.FocusedRowHandle;
+            if (curRow < 0)
+            {
+                return;
+            }
+            //獵取當前控件左下角的座標
+            DevExpress.XtraEditors.ButtonEdit button = sender as DevExpress.XtraEditors.ButtonEdit;
+            Point bottomLeft = new Point(button.Left, button.Bottom);       
+            int columnWidth = gridView1.Columns["garment_factory"].Width;
+            int panelWidth = panel2.Width;
+            Point newLocation = new Point(bottomLeft.X - panelWidth + columnWidth, bottomLeft.Y + 170);
+            panel2.Location = newLocation;
+
+            string trading_id = gridView1.GetRowCellDisplayText(curRow, "it_customer");
+            string sql = string.Format(
+            @"Select id,name,trading_company_id,trading_company_name 
+              From v_garment_factory
+              WHERE trading_company_id='{0}' 
+              Order By trading_company_id,id", trading_id);
+            dtFactory1 = clsErp.GetDataTable(sql);
+            dgvFarmentFactory.DataSource = dtFactory1;
+            if (dgvFarmentFactory.RowCount == 0)
+            {
+                panel2.Visible = false;
+                return;
+            }
+            else
+                panel2.Visible = true;
+        }
     }
 }

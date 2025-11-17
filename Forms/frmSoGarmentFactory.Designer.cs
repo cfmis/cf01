@@ -30,7 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSoGarmentFactory));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -80,10 +86,18 @@
             this.seller_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.merchandiser = new DevExpress.XtraGrid.Columns.GridColumn();
             this.garment_factory = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clFactory = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.clBtnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.season = new DevExpress.XtraGrid.Columns.GridColumn();
             this.state = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ver = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clFactory = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.dgvFarmentFactory = new System.Windows.Forms.DataGridView();
+            this.garment_factory_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.garment_factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trading_company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trading_company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueGarmentFactory.Properties)).BeginInit();
@@ -106,7 +120,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBtnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFactory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFarmentFactory)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -514,8 +531,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "remark";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn2.HeaderText = "備註";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -577,7 +594,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFactory,
-            this.clDate});
+            this.clDate,
+            this.clBtnEdit});
             this.gridControl1.Size = new System.Drawing.Size(947, 443);
             this.gridControl1.TabIndex = 54;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -746,7 +764,7 @@
             this.garment_factory.AppearanceHeader.Options.UseTextOptions = true;
             this.garment_factory.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.garment_factory.Caption = "制衣廠";
-            this.garment_factory.ColumnEdit = this.clFactory;
+            this.garment_factory.ColumnEdit = this.clBtnEdit;
             this.garment_factory.FieldName = "garment_factory";
             this.garment_factory.Name = "garment_factory";
             this.garment_factory.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
@@ -758,22 +776,14 @@
             this.garment_factory.VisibleIndex = 7;
             this.garment_factory.Width = 105;
             // 
-            // clFactory
+            // clBtnEdit
             // 
-            this.clFactory.AutoHeight = false;
-            this.clFactory.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.clFactory.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.clFactory.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", "編號", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", "名稱", 200, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("trading_company_id", "貿易公司", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("trading_company_name", "貿易公司名稱", 200, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False)});
-            this.clFactory.DropDownRows = 12;
-            this.clFactory.Name = "clFactory";
-            this.clFactory.NullText = "";
-            this.clFactory.PopupWidth = 560;
-            this.clFactory.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.clBtnEdit.AutoHeight = false;
+            this.clBtnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "", 25, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.clBtnEdit.MaxLength = 10;
+            this.clBtnEdit.Name = "clBtnEdit";
+            this.clBtnEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clBtnEdit_ButtonClick);
             // 
             // season
             // 
@@ -813,11 +823,144 @@
             this.ver.FieldName = "ver";
             this.ver.Name = "ver";
             // 
+            // clFactory
+            // 
+            this.clFactory.AutoHeight = false;
+            this.clFactory.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clFactory.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.clFactory.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", "編號", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", "名稱", 200, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("trading_company_id", "貿易公司", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("trading_company_name", "貿易公司名稱", 200, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False)});
+            this.clFactory.DropDownRows = 12;
+            this.clFactory.Name = "clFactory";
+            this.clFactory.NullText = "";
+            this.clFactory.PopupWidth = 560;
+            this.clFactory.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            // 
+            // dgvFarmentFactory
+            // 
+            this.dgvFarmentFactory.AllowUserToAddRows = false;
+            this.dgvFarmentFactory.AllowUserToDeleteRows = false;
+            this.dgvFarmentFactory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFarmentFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFarmentFactory.ColumnHeadersHeight = 30;
+            this.dgvFarmentFactory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvFarmentFactory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.garment_factory_id,
+            this.garment_factory_name,
+            this.trading_company_id,
+            this.trading_company_name});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFarmentFactory.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFarmentFactory.Location = new System.Drawing.Point(3, 3);
+            this.dgvFarmentFactory.Name = "dgvFarmentFactory";
+            this.dgvFarmentFactory.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFarmentFactory.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvFarmentFactory.RowHeadersVisible = false;
+            this.dgvFarmentFactory.RowHeadersWidth = 10;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvFarmentFactory.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFarmentFactory.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvFarmentFactory.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dgvFarmentFactory.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvFarmentFactory.RowTemplate.Height = 28;
+            this.dgvFarmentFactory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFarmentFactory.Size = new System.Drawing.Size(684, 175);
+            this.dgvFarmentFactory.TabIndex = 55;
+            this.dgvFarmentFactory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFarmentFactory_CellContentClick);
+            this.dgvFarmentFactory.DoubleClick += new System.EventHandler(this.dgvFarmentFactory_DoubleClick);
+            // 
+            // garment_factory_id
+            // 
+            this.garment_factory_id.DataPropertyName = "id";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.garment_factory_id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.garment_factory_id.HeaderText = "制衣廠編號";
+            this.garment_factory_id.Name = "garment_factory_id";
+            this.garment_factory_id.ReadOnly = true;
+            this.garment_factory_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.garment_factory_id.Width = 85;
+            // 
+            // garment_factory_name
+            // 
+            this.garment_factory_name.DataPropertyName = "name";
+            this.garment_factory_name.HeaderText = "制衣廠名稱";
+            this.garment_factory_name.Name = "garment_factory_name";
+            this.garment_factory_name.ReadOnly = true;
+            this.garment_factory_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.garment_factory_name.Width = 250;
+            // 
+            // trading_company_id
+            // 
+            this.trading_company_id.DataPropertyName = "trading_company_id";
+            this.trading_company_id.HeaderText = "貿易公司編號";
+            this.trading_company_id.Name = "trading_company_id";
+            this.trading_company_id.ReadOnly = true;
+            this.trading_company_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.trading_company_id.Width = 85;
+            // 
+            // trading_company_name
+            // 
+            this.trading_company_name.DataPropertyName = "trading_company_name";
+            this.trading_company_name.HeaderText = "貿易公司名稱";
+            this.trading_company_name.Name = "trading_company_name";
+            this.trading_company_name.ReadOnly = true;
+            this.trading_company_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.trading_company_name.Width = 300;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnClose);
+            this.panel2.Controls.Add(this.dgvFarmentFactory);
+            this.panel2.Location = new System.Drawing.Point(197, 255);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(695, 184);
+            this.panel2.TabIndex = 56;
+            this.panel2.Visible = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(651, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(36, 28);
+            this.btnClose.TabIndex = 56;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmSoGarmentFactory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 616);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
@@ -849,7 +992,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBtnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFactory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFarmentFactory)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -910,5 +1056,13 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clFactory;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit clDate;
         private DevExpress.XtraGrid.Columns.GridColumn ver;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit clBtnEdit;
+        private System.Windows.Forms.DataGridView dgvFarmentFactory;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn garment_factory_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn garment_factory_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trading_company_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trading_company_name;
     }
 }

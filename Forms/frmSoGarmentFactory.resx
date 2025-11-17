@@ -132,6 +132,29 @@
   <metadata name="bds1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>115, 17</value>
   </metadata>
+  <metadata name="garment_factory_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="garment_factory_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="trading_company_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="trading_company_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAARRJREFUOE/Fks9LAkEYhucSISS5riKRthhREka4iAcRKZIO1sEIcoN+gMcguoQE
+        /V+d9N6pwG516arQITrUJR7HcZcQdyeLoBc++Jh5n/f7GEb8mbg+xm21ouaM+wawqqszbcgA9so9+hLN
+        02HIuX8IBzuwZ/O5LIKHcFGDZh2cyxET9SpUM7ynNbAnGltwWISTfWXGkZM3LV6sCWBPHJVgNwtlG/Im
+        vYWpyWFPbC9BLsyrFfoFXJJvUTB4k2t3UyEezcIP1t/Ig21AOqygp/gKz0lBJ574PoTK2hBenR4x35mL
+        3CcEt7FocAjr8oPkZiEz72t6MIq0Y4Kb6Mz4vYJlfVhz2jVbkaQKCAxxW6184X+UEH1nY5k5K/SmKgAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>64</value>
   </metadata>
