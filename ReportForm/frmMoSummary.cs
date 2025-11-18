@@ -182,6 +182,8 @@ namespace cf01.ReportForm
                 wSheet.Cells[excelRow, 30].Value = "顏色做法";
                 wSheet.Cells[excelRow, 31].Value = "過期天數";
                 wSheet.Cells[excelRow, 32].Value = "當前部門";
+                wSheet.Cells[excelRow, 33].Value = "PMC要求交貨期";
+                int maxCol = 33;
                 wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
                 excelRow++;
                 for (int i = 0; i < dtOc.Rows.Count; i++)
@@ -232,8 +234,9 @@ namespace cf01.ReportForm
                     int period_day = dr["period_day"].ToString() != "" ? Convert.ToInt32(dr["period_day"].ToString()) : 0;
                     wSheet.Cells[excelRow, 31].Value = period_day;
                     wSheet.Cells[excelRow, 32].Value = dr["curr_dep_cdesc"].ToString();
+                    wSheet.Cells[excelRow, 33].Value = dr["pmc_req_hk_date"].ToString();
                     wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
-                    int maxCol = 32;
+                    
                     if (period_day > 0)
                     {
                         // 设置整行背景为红色
@@ -278,7 +281,7 @@ namespace cf01.ReportForm
                 wSheet.Column(30).Width = 18;
                 wSheet.Column(31).Width = 8;
                 wSheet.Column(32).Width = 18;
-
+                wSheet.Column(33).Width = 18;
                 // 设置动态范围
                 string colStr = $"E1:E{excelRow}"; // 动态计算行数
                 wSheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
@@ -323,6 +326,135 @@ namespace cf01.ReportForm
                 MessageBox.Show("Excel 文件导出成功！");
             }
 
+        }
+        
+        private void btnImpExcel_Click(object sender, EventArgs e)
+        {
+            string filePath = OpendExcel();
+            List<Dictionary<string, string>> rows = ImputExcel(filePath);
+            string Result = "";
+            if (rows.Count > 0)
+                Result=UpdateExcel(rows);
+            if (Result == "")
+                Result = "匯入記錄成功!";
+            MessageBox.Show(Result);
+        }
+        private string OpendExcel()
+        {
+            //var filePath = "頁數匯總.xlsx";
+            string filePath = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "请选择一个 Excel 文件",
+                Filter = "Excel 文件 (*.xlsx)|*.xlsx|所有文件 (*.*)|*.*",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            };
+            
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+            }
+            else
+            {
+                MessageBox.Show("沒有選擇文件!");
+                return filePath;
+            }
+            return filePath;
+        }
+        private List<Dictionary<string, string>> ImputExcel(string filePath)
+        {
+            
+            var fileInfo = new FileInfo(filePath);
+            //// EPPlus 需要设置 LicenseContext
+            //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+            try
+            {
+                using (var package = new ExcelPackage(fileInfo))
+                {
+                    if (package.Workbook.Worksheets.Count == 0)
+                    {
+                        MessageBox.Show("文件中沒有工作表!");
+                        return rows;
+                    }
+
+                    //var worksheet = package.Workbook.Worksheets[0]; // 安全访问第一个工作表
+                    var worksheet = package.Workbook.Worksheets[1]; // 获取第一个工作表
+
+                    // 遍历整个工作表
+                    int totalRows = worksheet.Dimension.Rows;
+                    int totalCols = worksheet.Dimension.Columns;
+                    int targetCol = -1;
+                    int targetCol1 = -1;
+                    // 找到列名为“新增期”的列索引（假设第一行是表头）
+                    for (int col = 1; col <= totalCols; col++)
+                    {
+                        var header = worksheet.Cells[1, col].Text.Trim();
+                        if (header == "未完成頁數" || header == "制單編號" || header == "頁數")
+                        {
+                            targetCol = col;
+                        }
+                        if (header == "PMC計劃交貨期")
+                        {
+                            targetCol1 = col;
+                        }
+                    }
+
+                    if (targetCol == -1 || targetCol1 == -1)
+                    {
+                        MessageBox.Show("未找到列名为“制單編號”或“PMC計劃交貨期”的列！");
+                        return rows;
+                    }
+
+                    // 读取该列的所有值（从第2行开始）
+                    // 每一行构建一个 Dictionary<string, string>
+
+                    for (int row = 2; row <= totalRows; row++)
+                    {
+                        var pmc_req_hk_date = worksheet.Cells[row, targetCol1].Text;
+                        if (pmc_req_hk_date != "")
+                        {
+                            Dictionary<string, string> rowData = new Dictionary<string, string>();
+                            var mo_id = worksheet.Cells[row, targetCol].Text;
+                            rowData["mo_id"] = mo_id;
+                            rowData["pmc_req_hk_date"] = pmc_req_hk_date;
+                            rows.Add(rowData);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return rows;
+        }
+
+        private string UpdateExcel(List<Dictionary<string, string>> rows)
+        {
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < rows.Count; i++)
+            {
+                var mo_id = rows[i]["mo_id"].ToString();
+                var pmc_req_hk_date = clsValidRule.ConvertDateToString(rows[i]["pmc_req_hk_date"].ToString());
+                string strSql1 = " Select mo_id From mo_summary_data Where mo_id='" + mo_id + "'";
+                DataTable dtMo = clsPublicOfCF01.GetDataTable(strSql1);
+                if (dtMo.Rows.Count == 0)
+                    strSql += string.Format(@" Insert Into mo_summary_data (mo_id,pmc_req_hk_date) Values " +
+                    "('{0}','{1}')"
+                    , mo_id, pmc_req_hk_date);
+                else
+                    strSql += string.Format(@" Update mo_summary_data Set pmc_req_hk_date='{1}' " +
+                    " Where mo_id='{0}'"
+                    , mo_id, pmc_req_hk_date);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            string Result = "";
+            Result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return Result;
         }
     }
 }

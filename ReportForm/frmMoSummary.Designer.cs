@@ -39,6 +39,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExportToExce = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnImpExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDateFrom = new DevExpress.XtraEditors.TextEdit();
             this.txtDateTo = new DevExpress.XtraEditors.TextEdit();
@@ -129,6 +131,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmdExit,
             this.toolStripSeparator1,
+            this.btnImpExcel,
+            this.toolStripSeparator4,
             this.cmdFind,
             this.toolStripSeparator2,
             this.btnExportToExce,
@@ -186,6 +190,22 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnImpExcel
+            // 
+            this.btnImpExcel.AutoSize = false;
+            this.btnImpExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImpExcel.Image")));
+            this.btnImpExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImpExcel.Name = "btnImpExcel";
+            this.btnImpExcel.Size = new System.Drawing.Size(75, 35);
+            this.btnImpExcel.Text = "匯入Excel";
+            this.btnImpExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
             // 
             // panel1
             // 
@@ -867,5 +887,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit imgArtWork;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private System.Windows.Forms.ToolStripButton btnImpExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
