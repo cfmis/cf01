@@ -19,12 +19,12 @@ namespace cf01.ReportForm
 {
     public partial class frmPrintTransfer : Form
     {
-        private clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
-        private DataTable dtDataForPrint = new DataTable();
-        private DataTable dtParts = new DataTable();
+        clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
+        DataTable dtDataForPrint = new DataTable();
+        DataTable dtParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
-        private DataTable dtPrint = new DataTable();
-        private DataTable dtDept = new DataTable();
+        DataTable dtPrint = new DataTable();
+        DataTable dtDept = new DataTable();
 
         public frmPrintTransfer()
         {
@@ -34,7 +34,6 @@ namespace cf01.ReportForm
             dtPrint.Columns.Add("mo_id", typeof(string));
             dtPrint.Columns.Add("goods_id", typeof(string));
             dtPrint.Columns.Add("per_qty", typeof(int));
-            //dtPrint.Columns.Add("id", typeof(string));
         }
 
         private void frmPrintTransfer_Load(object sender, EventArgs e)
@@ -100,11 +99,7 @@ namespace cf01.ReportForm
         {
             //dtPrint此表爲已處理掉重覆的記錄              
             dtPrint.Clear();
-            string strFilter = "";
-            string wp_id = "";
-            string mo_id = "";
-            string mat_id = "";
-            string next_wp_id = "";
+            string strFilter = "", wp_id = "", mo_id = "", mat_id = "", next_wp_id = "";
             for (int i = 0; i < dgvTransfer.Rows.Count; i++)
             {
                 if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)
@@ -114,8 +109,8 @@ namespace cf01.ReportForm
                     mat_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
                     next_wp_id = dgvTransfer.Rows[i].Cells["colIn_dept"].Value.ToString();
                     strFilter = string.Format("next_wp_id='{0}' and wp_id='{1}' and mo_id='{2}' and goods_id='{3}'",next_wp_id,wp_id, mo_id,mat_id );
-                    DataRow[] dr = dtPrint.Select(strFilter);
-                    if (dr.Length == 0)//是否已存在記錄
+                    DataRow[] drowAry = dtPrint.Select(strFilter);
+                    if (drowAry.Length == 0)//是否已存在記錄
                     {
                         dtPrint.Rows.Add(new object[] { wp_id, mo_id, mat_id, next_wp_id });
                     }
@@ -157,9 +152,7 @@ namespace cf01.ReportForm
         private void QueryData()
         {
             txtMo2.Focus();
-            string strCon_date_from = "";
-            string strCon_date_to = "";
-                 
+            string strDateFrom = "", strDateTo = "";                 
             if (txtCon_date1.Text != "" && txtCon_date2.Text!= "")
             {                
                 if (clsValidRule.CheckDateTimeFormat(txtCon_date1.Text) == false || 
@@ -170,15 +163,14 @@ namespace cf01.ReportForm
                     return;
                 }
                 else
-                {                   
-                    strCon_date_from = txtCon_date1.Text;
-                    strCon_date_to = txtCon_date2.Text;
+                {
+                    strDateFrom = txtCon_date1.Text;
+                    strDateTo = txtCon_date2.Text;
                 }
-            }
-            
+            }            
             Cursor = Cursors.WaitCursor;  //光標指為等待狀態
             DataTable dtTransfer = clsPrdTransfer.GetTransferInfo(txtIn_dept.Text.Trim(), txtOut_dept.Text.Trim(),
-                                                                    strCon_date_from, strCon_date_to, radioGroup1.SelectedIndex,
+                                                                    strDateFrom, strDateTo, radioGroup1.SelectedIndex,
                                                                     txtMo1.Text.Trim(),txtMo2.Text.Trim(),chkIsAdj.Checked);
             Cursor = Cursors.Default; //恢復光標指為正常狀態
 
@@ -188,23 +180,23 @@ namespace cf01.ReportForm
                 {
                     DataTable dtException = dtTransfer.Copy();
                     dtException.Rows.Clear();
-
+                    decimal decConQty = 0, decSecQty = 0, decActualQty = 0, decActualWeg = 0;
                     for (int i = 0; i < dtTransfer.Rows.Count; i++)
                     {
-                        double Con_qty = Convert.ToDouble(dtTransfer.Rows[i]["con_qty"].ToString());
-                        double Sec_weg = Convert.ToDouble(dtTransfer.Rows[i]["sec_qty"].ToString());
-                        double Actual_qty = Convert.ToDouble(dtTransfer.Rows[i]["actual_qty"].ToString());
-                        double Actual_weg = Convert.ToDouble(dtTransfer.Rows[i]["actual_weg"].ToString());
+                        decConQty = Convert.ToDecimal(dtTransfer.Rows[i]["con_qty"].ToString());
+                        decSecQty = Convert.ToDecimal(dtTransfer.Rows[i]["sec_qty"].ToString());
+                        decActualQty = Convert.ToDecimal(dtTransfer.Rows[i]["actual_qty"].ToString());
+                        decActualWeg = Convert.ToDecimal(dtTransfer.Rows[i]["actual_weg"].ToString());
                         if (chkPositive.Checked == true)
                         {
-                            if (Actual_qty - Con_qty > 0 || Actual_weg - Sec_weg >0)
+                            if (decActualQty - decConQty > 0 || decActualWeg - decSecQty > 0)
                             {
                                 dtException.Rows.Add(dtTransfer.Rows[i].ItemArray);
                             }
                         }
                         if (chkMinus.Checked == true)
                         {
-                            if (Actual_qty - Con_qty < 0 || Actual_weg - Sec_weg < 0)
+                            if (decActualQty - decConQty < 0 || decActualWeg - decSecQty < 0)
                             {
                                 dtException.Rows.Add(dtTransfer.Rows[i].ItemArray);
                             }
@@ -216,15 +208,16 @@ namespace cf01.ReportForm
                 }
                 else
                 {
+                    string Con_qty = "", Sec_weg = "", Package_num = "", Actual_qty = "", Actual_weg = "", Actual_pack = "";
                     dgvTransfer.DataSource = dtTransfer;
                     for (int i = 0; i < dtTransfer.Rows.Count; i++)
                     {
-                        string Con_qty = dtTransfer.Rows[i]["con_qty"].ToString();
-                        string Sec_weg = dtTransfer.Rows[i]["sec_qty"].ToString();
-                        string Package_num = dtTransfer.Rows[i]["package_num"].ToString();
-                        string Actual_qty = dtTransfer.Rows[i]["actual_qty"].ToString();
-                        string Actual_weg = dtTransfer.Rows[i]["actual_weg"].ToString();
-                        string Actual_pack = dtTransfer.Rows[i]["actual_pack"].ToString();
+                        Con_qty = dtTransfer.Rows[i]["con_qty"].ToString();
+                        Sec_weg = dtTransfer.Rows[i]["sec_qty"].ToString();
+                        Package_num = dtTransfer.Rows[i]["package_num"].ToString();
+                        Actual_qty = dtTransfer.Rows[i]["actual_qty"].ToString();
+                        Actual_weg = dtTransfer.Rows[i]["actual_weg"].ToString();
+                        Actual_pack = dtTransfer.Rows[i]["actual_pack"].ToString();
                         if (Con_qty != Actual_qty || Sec_weg != Actual_weg || Package_num != Actual_pack)
                         {
                             dgvTransfer.Rows[i].DefaultCellStyle.BackColor = Color.LightBlue;
@@ -250,22 +243,23 @@ namespace cf01.ReportForm
         private int GenerateDataForProduction()
         {
             int Result = 0;
-            string OldMo_id = "";
+            string mo_id_old = "", mo_id = "", wp_id = "", mater_id = "";
+            DataTable dtMoData = new DataTable();
             List<product_records> lsPrdRecords = new List<product_records>();
             for (int i = 0; i < dgvTransfer.Rows.Count; i++)
             {
                 if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)
                 {
-                    string mo_id = dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString();
-                    string wp_id = dgvTransfer.Rows[i].Cells["colIn_dept"].Value.ToString();
-                    string mater_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
+                    mo_id = dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString();
+                    wp_id = dgvTransfer.Rows[i].Cells["colIn_dept"].Value.ToString();
+                    mater_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
 
-                    if (mo_id != OldMo_id)   //判斷當前頁數和下個頁數是否相同
+                    if (mo_id != mo_id_old)   //判斷當前頁數和下個頁數是否相同
                     {
-                        DataTable dtMo_date = clsPrdTransfer.GetMo_dataById(mo_id, wp_id, mater_id);//從生產流程中提取生產記錄
-                        if (dtMo_date.Rows.Count > 0)
+                        dtMoData = clsPrdTransfer.GetMo_dataById(mo_id, wp_id, mater_id);//從生產流程中提取生產記錄
+                        if (dtMoData.Rows.Count > 0)
                         {
-                            for (int j = 0; j < dtMo_date.Rows.Count; j++)
+                            for (int j = 0; j < dtMoData.Rows.Count; j++)
                             {
                                 product_records objModel = new product_records();
                                 objModel.prd_id = clsPublicOfPad.GenNo("frmProductionSchedule");//自動產生序列號
@@ -273,15 +267,15 @@ namespace cf01.ReportForm
                                 objModel.prd_dep = wp_id;
                                 objModel.prd_date = DateTime.Now.ToString("yyyy/MM/dd");
                                 objModel.prd_pdate = DateTime.Now.ToString("yyyy/MM/dd");
-                                objModel.prd_item = dtMo_date.Rows[j]["goods_id"].ToString();
-                                objModel.prd_qty = Convert.ToInt32(dtMo_date.Rows[j]["prod_qty"]);
+                                objModel.prd_item = dtMoData.Rows[j]["goods_id"].ToString();
+                                objModel.prd_qty = Convert.ToInt32(dtMoData.Rows[j]["prod_qty"]);
                                 objModel.prd_work_type = "生產";
                                 objModel.crtim = DateTime.Now;
                                 objModel.crusr = DBUtility._user_id;
                                 lsPrdRecords.Add(objModel);
                             }
                         }
-                        OldMo_id = mo_id;
+                        mo_id_old = mo_id;
                     }
                 }
             }
@@ -307,7 +301,7 @@ namespace cf01.ReportForm
             dtPrint.Clear();
             string strFilter = "", wp_id = "", mo_id, mat_id = "";        
             int per_qty = 0;
-            DataRow[] aryDrw = null;
+            DataRow[] drowAry = null;
             for (int i = 0; i < dgvTransfer.Rows.Count; i++)
             {
                 if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)
@@ -316,9 +310,8 @@ namespace cf01.ReportForm
                     mo_id = dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString();
                     mat_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
                     strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",wp_id,mo_id,mat_id);
-                    //DataRow[] dr = dtPrint.Select(strFilter);
-                    aryDrw = dtPrint.Select(strFilter);
-                    if (aryDrw.Length == 0)//是否已存在記錄
+                    drowAry = dtPrint.Select(strFilter);
+                    if (drowAry.Length == 0)//是否已存在記錄
                     {
                         dtPrint.Rows.Add(new object[] { wp_id, mo_id, mat_id, per_qty });
                     }
@@ -351,7 +344,7 @@ namespace cf01.ReportForm
                 DataSet dsTempData = clsPublicOfGEO.ExecuteProcedureReturnDataSet("z_rpt_prdtranser", paras, null);
                 
                 dtTempData = dsTempData.Tables[0];//主表
-                aryDrw = null;
+                drowAry = null;
                 if (dtTempData.Rows.Count > 0)
                 {
                     if (dtDataForPrint.Rows.Count > 0)
@@ -362,9 +355,8 @@ namespace cf01.ReportForm
                             //所以有必要多作個判斷，以防重入重覆的記錄
                             strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",
                                 dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]);
-                            //DataRow[] aryDrw = dtDataForPrint.Select(strFilter);
-                            aryDrw = dtDataForPrint.Select(strFilter);
-                            if (aryDrw.Length == 0)//是否已存記錄
+                            drowAry = dtDataForPrint.Select(strFilter);
+                            if (drowAry.Length == 0)//是否已存記錄
                             {
                                 dtDataForPrint.ImportRow(dtTempData.Rows[j]);
                             }
@@ -378,14 +370,13 @@ namespace cf01.ReportForm
                     dtTempParts = dsTempData.Tables[1];                         
                     if (dtParts.Rows.Count > 0)
                     {
-                        aryDrw = null;
+                        drowAry = null;
                         for (int j = 0; j < dtTempParts.Rows.Count; j++)
                         {
                             strFilter = string.Format(@"wp_id='{0}' and mo_id='{1}' and goods_id='{2}' and part_goods_id='{3}'",
                             dtTempParts.Rows[j]["wp_id"], dtTempParts.Rows[j]["mo_id"], dtTempParts.Rows[j]["goods_id"], dtTempParts.Rows[j]["part_goods_id"]);
-                            //DataRow[] dr = dtParts.Select(strFilter);
-                            aryDrw = dtParts.Select(strFilter);
-                            if (aryDrw.Length == 0)//是否已存記錄
+                            drowAry = dtParts.Select(strFilter);
+                            if (drowAry.Length == 0)//是否已存記錄
                             {
                                 dtParts.ImportRow(dtTempParts.Rows[j]);
                             }
@@ -398,7 +389,6 @@ namespace cf01.ReportForm
                 }  
             }
         }
-
 
         //列印生產單
         private void PrintProdCard()
@@ -425,7 +415,6 @@ namespace cf01.ReportForm
                 {
                     for (int j = 0; j < dtTempData.Rows.Count; j++)
                     {
-                        // dtDataForPrint.Rows.Add(dtTempData.Rows[j].ItemArray);
                         dtDataForPrint.ImportRow(dtTempData.Rows[j]);                        
                     }
                 }
@@ -441,7 +430,6 @@ namespace cf01.ReportForm
                 {
                     for (int j = 0; j < dtTempParts.Rows.Count; j++)
                     {
-                        // dtParts.Rows.Add(dtTempParts.Rows[j].ItemArray);
                         dtParts.ImportRow(dtTempParts.Rows[j]);
                     }
                 }
@@ -497,20 +485,18 @@ namespace cf01.ReportForm
             DataTable dtvalue = clsQueryValue.GetQueryValue(this.Name, DBUtility._user_id);
             if (dtvalue.Rows.Count > 0)
             {
+                string strObj_id = "", strOjb_Value = "";
                 for (int i = 0; i < dtvalue.Rows.Count; i++)
                 {
-                    string strObj_id = dtvalue.Rows[i]["obj_id"].ToString();
-                    string strOjb_Value = dtvalue.Rows[i]["obj_value"].ToString();
-                    
+                    strObj_id = dtvalue.Rows[i]["obj_id"].ToString();
+                    strOjb_Value = dtvalue.Rows[i]["obj_value"].ToString();                    
                     if (txtIn_dept.Name == strObj_id)
                     {
                         txtIn_dept.SelectedIndex = Convert.ToInt32(strOjb_Value);
-                        //txtIn_dept.ItemIndex = Convert.ToInt32(strOjb_Value);
                     }
                     if (txtOut_dept.Name == strObj_id)
                     {
                         txtOut_dept.SelectedIndex = Convert.ToInt32(strOjb_Value);
-                        //txtOut_dept1.ItemIndex= Convert.ToInt32(strOjb_Value);
                     }
                     if (txtCon_date1.Name == strObj_id)
                     {                        
@@ -519,8 +505,7 @@ namespace cf01.ReportForm
                     if (txtCon_date2.Name == strObj_id)
                     {                       
                         txtCon_date2.Text = strOjb_Value;
-                    }                   
-
+                    }
                     if (radioGroup1.Name == strObj_id)
                     {
                         radioGroup1.SelectedIndex = Convert.ToInt32(strOjb_Value);                    
@@ -538,13 +523,7 @@ namespace cf01.ReportForm
         {
             for (int i = 0; i < dgvTransfer.RowCount; i++)
             {
-                if (chkSelect.Checked==true)
-                {
-                    //dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue = "true";
-                    dgvTransfer.Rows[i].Cells["checkbox"].Value = true;
-                }
-                else
-                    dgvTransfer.Rows[i].Cells["checkbox"].Value = false;
+                dgvTransfer.Rows[i].Cells["checkbox"].Value = (chkSelect.Checked == true) ? true : false;
             }
         }
 
@@ -612,17 +591,17 @@ namespace cf01.ReportForm
                 str += "\t" + "數量";
                 str += "\t" + "重量";
                 sw.WriteLine(str);
-                double qty, aqty;
-                double weg, aweg;
+                decimal qty, aqty, weg, aweg; 
+                string tempstr = "";
                 for (int i = 0; i < dgvTransfer.Rows.Count; i++)
                 {
-                    string tempstr = "";
+                    tempstr = "";
                     if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)//被選取的記錄才匯出
                     {
-                        qty = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colCon_qty"].Value);
-                        aqty = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colActual_qty"].Value);
-                        weg = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colSec_qty"].Value);
-                        aweg = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colActual_weg"].Value);
+                        qty = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colCon_qty"].Value);
+                        aqty = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colActual_qty"].Value);
+                        weg = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colSec_qty"].Value);
+                        aweg = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colActual_weg"].Value);
                         tempstr += dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString().Trim();//頁數;
                         tempstr += "\t" + dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString().Trim();//貨品編碼;
                         tempstr += "\t" + "=\"" + dgvTransfer.Rows[i].Cells["Collot_no"].Value.ToString().Trim() + "\"";//批號;
@@ -735,17 +714,15 @@ namespace cf01.ReportForm
                     str += "\t" + "簽收時間";
                 }
                 sw.WriteLine(str);
+                string tempstr = "";
+                decimal qty, aqty, weg, aweg;
                 for (int i = 0; i < dgvTransfer.Rows.Count; i++)
                 {
-                    string tempstr = "";
-                    double qty, aqty;
-                    double weg, aweg;
-                    //if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)//被選取的記錄才匯出
-                    //{
-                    qty = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colCon_qty"].Value);
-                    aqty = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colActual_qty"].Value);
-                    weg = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colSec_qty"].Value);
-                    aweg = Convert.ToDouble(dgvTransfer.Rows[i].Cells["colActual_weg"].Value);
+                    tempstr = "";
+                    qty = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colCon_qty"].Value);
+                    aqty = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colActual_qty"].Value);
+                    weg = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colSec_qty"].Value);
+                    aweg = Convert.ToDecimal(dgvTransfer.Rows[i].Cells["colActual_weg"].Value);
                     if (ep_type == 1)
                     {
                         tempstr += dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString().Trim();//制單編號
@@ -774,7 +751,7 @@ namespace cf01.ReportForm
                         tempstr += "\t" + "=\"" + dgvTransfer.Rows[i].Cells["colImput_time"].Value.ToString().Trim() + "\"";//簽收時間
                     }
                     sw.WriteLine(tempstr);
-                    //}
+                   
                 }
                 sw.Close();
                 myStream.Close();

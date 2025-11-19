@@ -18,7 +18,7 @@ namespace cf01.ReportForm
 {
     public partial class frmPackChanged : Form
     {
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataSet dsPackChange = new DataSet();
         DataTable dtDetails = new DataTable();
         DataTable dtFullCheck = new DataTable();
@@ -208,7 +208,7 @@ namespace cf01.ReportForm
 	                        ON B.within_code=C.within_code and B.id=C.id And B.ver =C.ver And B.sequence_id =C.upper_sequence 
                         WHERE A.within_code='0000' And A.state Not In('2','V') And B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", strMo);
                         dtItems = clsConErp.GetDataTable(strSql_f3);
-                        Fill_Combox(dtItems);
+                        FillCombox(dtItems);
                         if (!chkIsDisplayKey.Checked)
                         {
                             cmbItems.Text = strGoods_id; //如果不默認顯示主件為False,則顯示條碼中對應的貨品
@@ -227,9 +227,7 @@ namespace cf01.ReportForm
                             wForm.TopMost = true;
                             wForm.ShowDialog();
                         }).Start();//window xp系統會有影響
-
                         Load_Data(flagByMo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);//整張單移交單或發料單
-
                         wForm.Invoke((EventHandler)delegate { wForm.Close(); });
                     }
                     else
@@ -275,20 +273,22 @@ namespace cf01.ReportForm
             //處理Sales BOM,建立與主表的關聯
             dtDetails.Clear();
             string strMoId, strKey;
+            DataRow[] drowAry = null;
+            DataRow drow = null;
             for (int i = 0; i < dsPackChange.Tables["pack_h"].Rows.Count; i++)
             {
                 strMoId = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
                 strKey = dsPackChange.Tables["pack_h"].Rows[i]["pkey"].ToString();
-                DataRow[] drs = dsPackChange.Tables["pack_d"].Select(string.Format("mo_id='{0}'", strMoId));                
-                foreach (DataRow dr in drs)
+                drowAry = dsPackChange.Tables["pack_d"].Select(string.Format("mo_id='{0}'", strMoId));                
+                foreach (DataRow dr in drowAry)
                 {
-                    DataRow rs = dtDetails.NewRow();
-                    rs["pkey"] = strKey;
-                    rs["goods_id"] = dr["goods_id"].ToString();
-                    rs["name"] = dr["name"].ToString();
-                    rs["order_qty"] = dr["order_qty"];
-                    rs["department"] = dr["department"].ToString();
-                    dtDetails.Rows.Add(rs);
+                    drow = dtDetails.NewRow();
+                    drow["pkey"] = strKey;
+                    drow["goods_id"] = dr["goods_id"].ToString();
+                    drow["name"] = dr["name"].ToString();
+                    drow["order_qty"] = dr["order_qty"];
+                    drow["department"] = dr["department"].ToString();
+                    dtDetails.Rows.Add(drow);
                 }
             }
             //dgvDetails.DataSource = dsPackChange.Tables["pack_h"];
@@ -297,7 +297,7 @@ namespace cf01.ReportForm
         }
 
         
-        private void Fill_Combox(DataTable dt)
+        private void FillCombox(DataTable dt)
         {
             cmbItems.Items.Clear();
             if (dt.Rows.Count > 0)
@@ -330,33 +330,33 @@ namespace cf01.ReportForm
         private void Print(string print_type)
         {            
             if (dgvDetails.RowCount > 0)
-            {                
-                //xrPackChanged oRepot = new xrPackChanged() { DataSource = dsPackChange.Tables[0]};
+            {
                 if (cmbReport.Text == "包裝轉交單")
                 {
                     dtFullCheck.Clear();
                     string flagReport = "";
+                    DataRow drow = null;
                     for (int i = 0; i < dsPackChange.Tables["pack_h"].Rows.Count; i++)
                     {
                         flagReport = dsPackChange.Tables["pack_h"].Rows[i]["flag_report"].ToString();
                         if (flagReport == "1")
                         {
-                            DataRow rs = dtFullCheck.NewRow();
-                            rs["id"] = dsPackChange.Tables["pack_h"].Rows[i]["id"].ToString();
-                            rs["mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
-                            rs["w_mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["w_mo_id"].ToString();
-                            rs["contract_cid"] = dsPackChange.Tables["pack_h"].Rows[i]["contract_cid"].ToString();
-                            rs["table_head"] = dsPackChange.Tables["pack_h"].Rows[i]["table_head"].ToString();
-                            rs["customer_name_eng"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_name_eng"].ToString();
-                            rs["customer_goods"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_goods"].ToString();
-                            rs["customer_color_id"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_color_id"].ToString();
-                            rs["brand_desc"] = dsPackChange.Tables["pack_h"].Rows[i]["brand_desc"].ToString();
-                            rs["order_qty1"] = Int32.Parse(dsPackChange.Tables["pack_h"].Rows[i]["order_qty1"].ToString());
-                            rs["goods_unit"] = dsPackChange.Tables["pack_h"].Rows[i]["goods_unit"].ToString();
-                            rs["f_goods_id"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_id"].ToString();
-                            rs["f_goods_name"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_name"].ToString();
-                            rs["qc_result"] = dsPackChange.Tables["pack_h"].Rows[i]["qc_result"].ToString() == "True" ? "OK" : "NOT OK";
-                            dtFullCheck.Rows.Add(rs);
+                            drow = dtFullCheck.NewRow();
+                            drow["id"] = dsPackChange.Tables["pack_h"].Rows[i]["id"].ToString();
+                            drow["mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
+                            drow["w_mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["w_mo_id"].ToString();
+                            drow["contract_cid"] = dsPackChange.Tables["pack_h"].Rows[i]["contract_cid"].ToString();
+                            drow["table_head"] = dsPackChange.Tables["pack_h"].Rows[i]["table_head"].ToString();
+                            drow["customer_name_eng"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_name_eng"].ToString();
+                            drow["customer_goods"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_goods"].ToString();
+                            drow["customer_color_id"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_color_id"].ToString();
+                            drow["brand_desc"] = dsPackChange.Tables["pack_h"].Rows[i]["brand_desc"].ToString();
+                            drow["order_qty1"] = Int32.Parse(dsPackChange.Tables["pack_h"].Rows[i]["order_qty1"].ToString());
+                            drow["goods_unit"] = dsPackChange.Tables["pack_h"].Rows[i]["goods_unit"].ToString();
+                            drow["f_goods_id"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_id"].ToString();
+                            drow["f_goods_name"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_name"].ToString();
+                            drow["qc_result"] = dsPackChange.Tables["pack_h"].Rows[i]["qc_result"].ToString() == "True" ? "OK" : "NOT OK";
+                            dtFullCheck.Rows.Add(drow);
                         }
                     }
                     using (xrPackChanged mMyReport = new xrPackChanged(dsPackChange, dtDetails))
@@ -441,12 +441,11 @@ namespace cf01.ReportForm
         private void txtID_Leave(object sender, EventArgs e)
         {
             if(txtID.Text!="")
-            {               
-                string str = txtID.Text;
-                string str1, str2, id_type;
+            {
+                string str = "", str1 = "", str2 = "", id_type = "";
+                str = txtID.Text;
                 str1 = str.Substring(0, 2);//移交單:DT,LT
                 str2 = str.Substring(0, 3);
-                id_type = "";
                 txtBarCode.Text = "";
                 txtMO.Text = "";
                 cmbItems.Items.Clear();
@@ -502,9 +501,9 @@ namespace cf01.ReportForm
                 {
                     return;
                 }
-                Fill_Combox(dtItems);
+                FillCombox(dtItems);
 
-                string print_by_set = "Y";
+                string printBySet = "Y";
                 chkByMoPrintSet.Checked = true;
 
                 //frmProgress wForm = new frmProgress();
@@ -513,14 +512,14 @@ namespace cf01.ReportForm
                 //    wForm.TopMost = true;
                 //    wForm.ShowDialog();
                 //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
-                Load_Data("Y", print_by_set, "", txtID.Text, txtMO.Text, cmbItems.Text);
+                Load_Data("Y", printBySet, "", txtID.Text, txtMO.Text, cmbItems.Text);
 
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
                 if (cmbReport.SelectedIndex == 1)
                 {
-                    Select_goods_item();
+                    SelectGoodsItem();
                     chkIsDisplayKey.Checked = true;
                 }
                
@@ -537,22 +536,15 @@ namespace cf01.ReportForm
 
         private void cmbItems_Leave(object sender, EventArgs e)
         {
-            Select_goods_item();
+            SelectGoodsItem();
         }
 
-        private void Select_goods_item()
+        private void SelectGoodsItem()
         {
             chkByMoPrintSet.Checked = false;
             if (txtMO.Text != "" && cmbItems.Text != "")
             {
                 Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);
-                //if (dsPackChange.Tables[0].Rows.Count > 0)
-                //{
-                //    if (chkAutoPrint.Checked)
-                //    {
-                //        //Print("P");
-                //    }
-                //}
             }
             txtBarCode.Focus();
         }

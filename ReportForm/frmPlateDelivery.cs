@@ -19,9 +19,9 @@ namespace cf01.ReportForm
 {
     public partial class frmPlateDelivery : Form
     {
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         string strUser_id = DBUtility._user_id;
-        static string str_language = "0";
+        string str_language = "0";
         bool flag_inport;       
         string rpt_type;
         System.Data.DataTable dtRpt1 = new System.Data.DataTable();
@@ -40,8 +40,7 @@ namespace cf01.ReportForm
             //權限
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
-           
-            
+
             gridView1.BestFitColumns(); //列寬自適應
             gridView1.IndicatorWidth = 40;
             gridView2.IndicatorWidth = 40;
@@ -183,12 +182,12 @@ namespace cf01.ReportForm
             string dat1 = txtSend_Date1.Text;
             string dat2 = txtSend_Date2.Text;
             //去掉重復的數據
-            DataView view = new DataView(dtImport);
+            DataView dvw = new DataView(dtImport);
             //true表示保留原始表的结构，后面的参数是去重的列名
-            System.Data.DataTable distinctTable = view.ToTable(true, "user_id", "mo_id", "rpt_type", "mo_type", "wp_id", "mo_type_sort");
+            System.Data.DataTable distinctTable = dvw.ToTable(true, "user_id", "mo_id", "rpt_type", "mo_type", "wp_id", "mo_type_sort");
             dtImport.Clear();
             dtImport = distinctTable.Copy();
-            SqlParameter[] paras1 = new SqlParameter[]
+            SqlParameter[] parm = new SqlParameter[]
             {
                 new SqlParameter ("@type", rpt_type),
                 new SqlParameter ("@dat1", dat1),
@@ -200,25 +199,22 @@ namespace cf01.ReportForm
             switch (rpt_type)
             {
                 case "1":
-                    dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", paras1, null);
+                    dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", parm, null);
                     dtRpt1.Clear();
                     dtRpt1 = dts.Tables[0];
-                    
-                    string tempId = "",issueDate="", completeDate="",curDate="";
-                    int send_qty = 0, in_qty_total = 0;
 
+                    string issueDate = "", completeDate = "", curDate = "";
+                    int send_qty = 0, in_qty_total = 0;
                     for (int i=0;i<dtRpt1.Rows.Count;i++)
                     {
-                        tempId = dtRpt1.Rows[i]["temp_id"].ToString()+(i + 1).ToString("00000");
-
+                        //tempId = dtRpt1.Rows[i]["temp_id"].ToString()+(i + 1).ToString("00000");
                         //start 2025/10/28 add 
                         issueDate = dtRpt1.Rows[i]["issue_date"].ToString();
                         completeDate = dtRpt1.Rows[i]["t_complete_date"].ToString();
                         curDate = DateTime.Now.Date.ToString("yyyy/MM/dd");
                         send_qty = int.Parse(dtRpt1.Rows[i]["out_qty_total"].ToString());
                         in_qty_total = int.Parse(dtRpt1.Rows[i]["in_qty_total"].ToString());
-                        issueDate = DateTime.Parse(issueDate).Date.AddDays(3).ToString("yyyy/MM/dd");//發貨日期加3日
-                        object obj = DateTime.Parse(issueDate).Date;
+                        issueDate = DateTime.Parse(issueDate).Date.AddDays(3).ToString("yyyy/MM/dd");//發貨日期加3日                       
                         if (DateTime.Parse(issueDate).Date < DateTime.Parse(curDate).Date && in_qty_total < send_qty)
                         {
                             dtRpt1.Rows[i]["flag_brg"] = "1";
@@ -237,7 +233,7 @@ namespace cf01.ReportForm
                     if (rpt_type == "2")
                     {
                         dtRpt2.Clear();
-                        dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, paras1);
+                        dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, parm);
                         grdControl.DataSource = dtRpt2;
                         grdControl.MainView = gridView2;
                         chkSelectAll.Visible = false;
@@ -245,7 +241,7 @@ namespace cf01.ReportForm
                     else
                     {
                         dtRpt3.Clear();
-                        dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, paras1);
+                        dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, parm);
                         grdControl.DataSource = dtRpt3;
                         grdControl.MainView = gridView3;
                         chkSelectAll.Visible = false;
@@ -273,8 +269,8 @@ namespace cf01.ReportForm
                 SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
                 sqlconn.Open();
 
-                const string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
-                const string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
+                string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
+                string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
                 progressBar1.Value = 0;
@@ -291,7 +287,7 @@ namespace cf01.ReportForm
                     }
 
                     strmo_id = dtExcel.Rows[i]["未完成頁數"].ToString().Trim();
-                    if (String.IsNullOrEmpty(strmo_id))
+                    if (string.IsNullOrEmpty(strmo_id))
                     {
                         continue;
                     }
@@ -332,7 +328,6 @@ namespace cf01.ReportForm
                 sqlconn.Close();
                 sqlconn.Dispose();
             }
-
         }
 
         private void ExcelToDatable(string ls_files_excel)
@@ -536,17 +531,13 @@ namespace cf01.ReportForm
             }
         }
 
-        private static void CheckDate(object obj, string strdate)
+        private void CheckDate(object obj, string strdate)
         {
             bool Flag = clsValidRule.CheckDateFormat(strdate);
             if (!Flag)
             {
-                string strMsg;
-                if (str_language == "2")
-                    strMsg = "Data Fromat is Error.";
-                else
-                    strMsg = "輸入的日期有誤！";
-                MessageBox.Show(strMsg, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string strMsg = (str_language == "2") ? "Data Fromat is Error." : "輸入的日期有誤！";
+                MessageBox.Show(strMsg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ((DateEdit)obj).Focus();
                 ((DateEdit)obj).SelectAll();
             }
@@ -697,15 +688,15 @@ namespace cf01.ReportForm
                 MessageBox.Show("請選中要保存的行！","系統提示",MessageBoxButtons.OK);
                 return;
             }
-            string user_id = DBUtility._user_id, p_id = "", temp_id = "";
-            string sql_i =
+            bool flagSave = false;
+            string sql_i ="", sql_u ="", user_id = DBUtility._user_id, p_id = "", temp_id = "";
+            sql_i =
             @"INSERT INTO dbo.mo_schedule_plate(p_id, vendor_id, id, mo_id, goods_id, remark_wet,update_by,update_date)
 			VALUES (@p_id, @vendor_id, @id, @mo_id, @goods_id, @remark_wet,@user_id,getdate())";
-            string sql_u =
+            sql_u =
             @"UPDATE dbo.mo_schedule_plate
 			SET remark_wet=@remark_wet,update_by=@user_id,update_date=getdate()
-            WHERE p_id=@p_id And vendor_id=@vendor_id And id=@id And mo_id=@mo_id And goods_id=@goods_id";
-            bool flagSave = false;
+            WHERE p_id=@p_id And vendor_id=@vendor_id And id=@id And mo_id=@mo_id And goods_id=@goods_id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
             SqlTransaction myTrans = myCon.BeginTransaction();
@@ -890,12 +881,13 @@ namespace cf01.ReportForm
                     myTrans.Commit(); //數據提交
                     flagSave = true;
                     //移除已做外發強制完成的行
+                    DataRow drow = null; 
                     for (int i = dtRpt1.Rows.Count-1; i>=0; i--)
                     {
                         if(dtRpt1.Rows[i]["flag_select"].ToString()== "True")
                         {
-                            DataRow drw = dtRpt1.Rows[i];
-                            dtRpt1.Rows.Remove(drw);                               
+                            drow = dtRpt1.Rows[i];
+                            dtRpt1.Rows.Remove(drow);                               
                         }
                     }
                     chkSelectAll.Checked = false;
@@ -935,7 +927,7 @@ namespace cf01.ReportForm
                 }
             }
             string strSql = string.Empty, strSelect = string.Empty, mo_id = string.Empty, goods_id = string.Empty, wp_id = string.Empty;
-            Int32 order_qty = 0, c_qty_ok = 0;
+            int order_qty = 0, c_qty_ok = 0;
             bool flagCheck = true;
             for (int i = 0; i < dtRpt1.Rows.Count; i++)
             {
@@ -944,8 +936,8 @@ namespace cf01.ReportForm
                 {
                     mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
                     goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
-                    order_qty = Int32.Parse(dtRpt1.Rows[i]["order_qty"].ToString());
-                    c_qty_ok = Int32.Parse(dtRpt1.Rows[i]["c_qty_ok"].ToString());
+                    order_qty = int.Parse(dtRpt1.Rows[i]["order_qty"].ToString());
+                    c_qty_ok = int.Parse(dtRpt1.Rows[i]["c_qty_ok"].ToString());
                     if(c_qty_ok < order_qty)
                     {
                         MessageBox.Show($"第 【{(i + 1).ToString()}】行" + "\n\r" + $"頁數:【{mo_id}】" + "\n\r" + $"貨品:【{goods_id}】" + "\n\r" + "注意：完成數量必須大于或等于訂單數量,當前操作無效！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -992,12 +984,13 @@ namespace cf01.ReportForm
                     myTrans.Commit(); //數據提交
                     flagSave = true;
                     //移除已做外發強制完成的行
+                    DataRow drow = null;
                     for (int i = dtRpt1.Rows.Count - 1; i >= 0; i--)
                     {
                         if (dtRpt1.Rows[i]["flag_select"].ToString() == "True")
                         {
-                            DataRow drw = dtRpt1.Rows[i];
-                            dtRpt1.Rows.Remove(drw);
+                            drow = dtRpt1.Rows[i];
+                            dtRpt1.Rows.Remove(drow);
                         }
                     }
                     chkSelectAll.Checked = false;

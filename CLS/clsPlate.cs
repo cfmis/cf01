@@ -44,9 +44,7 @@ namespace cf01.CLS
                 {
                     result = "導入的資料不可為空!";
                     return result;
-                }
-                //給第1列編序號
-               
+                }  
                 
                 Range rng;
                 //檢查列是否存在
@@ -59,17 +57,17 @@ namespace cf01.CLS
                 strStatus = rng.Value;
                 rng = (Range)worksheet.Cells[1, 28]; //狀態編號描述
                 strStatusDesc = rng.Value;
-                rng = (Range)worksheet.Cells[1, 5];//部門回覆
+                rng = (Range)worksheet.Cells[1, 5];//補單頁數(原來的部門回覆)
                 strResponse = rng.Value;
-                if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述" || strResponse != "部門回覆")
+                if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述" || strResponse != "補單頁數")
                 {
-                    result = "表頭位欄名稱不正確!請參考設置:" + "\n\r" + "A欄:NO" + "\n\r" + "B欄:加工單號" + "\n\r" + "G欄:狀態編號" + "\n\r" + "H欄:狀態描述" + "\n\r" + "I欄:部門回覆";
+                    result = "表頭位欄名稱不正確!請參考設置:" + "\n\r" + "E欄:補單頁數" + "\n\r" + "Y欄:NO" + "\n\r" + "Z欄:加工單號" + "\n\r" + "AA欄:狀態編號" + "\n\r" + "AB欄:狀態描述" ;
                     return result;
                 }
 
                 int no = 0;
                 string mo_id = "", status = "", goods_id = "", response = "", strFilter = "";
-                DataRow dr = null;
+                DataRow drow = null;
                 for (int i = 1; i <= rowCount; i++)
                 {
                     if (i > 1)
@@ -78,20 +76,20 @@ namespace cf01.CLS
                         worksheet.Cells[i, 25] = no; //寫入NO
                         rng = (Range)worksheet.Cells[i, 2];//頁數
                         mo_id = rng.Value;
-                        rng = (Range)worksheet.Cells[i, 5];//部門回覆
+                        rng = (Range)worksheet.Cells[i, 5];//補單頁數
                         response = rng.Value;
                         rng = (Range)worksheet.Cells[i, 6];//貨品編號
                         goods_id = rng.Value;
                         rng = (Range)worksheet.Cells[i, 27];//狀態編號
-                        status = rng.Value;                       
-                        dr = dt.NewRow();
-                        dr["no"] = no;
-                        dr["vendor_id"] = "";
-                        dr["mo_id"] = mo_id;
-                        dr["dept_response"] = response;
-                        dr["goods_id"] = goods_id;
-                        dr["status"] = status;
-                        dt.Rows.Add(dr);
+                        status = rng.Value;
+                        drow = dt.NewRow();
+                        drow["no"] = no;
+                        drow["vendor_id"] = "";
+                        drow["mo_id"] = mo_id;
+                        drow["dept_response"] = response;
+                        drow["goods_id"] = goods_id;
+                        drow["status"] = status;
+                        dt.Rows.Add(drow);
                     }
                 }
 
@@ -102,7 +100,7 @@ namespace cf01.CLS
                 DataSet dts = clsErp.ExecuteProcedureReturnDataSet("z_plate_expired", paras1, null);
                 dt = dts.Tables[0];
                 //寫入EXCEL表
-                DataRow[] drs = null;
+                DataRow[] drowAry = null;
                 for (int i = 1; i <= rowCount; i++)
                 {
                     if (i > 1)
@@ -110,17 +108,17 @@ namespace cf01.CLS
                         rng = (Range)worksheet.Cells[i, 25];
                         no = (int)rng.Value;
                         strFilter = string.Format("no={0}", no);
-                        drs = dt.Select(strFilter);
-                        if (drs.Length > 0)
+                        drowAry = dt.Select(strFilter);
+                        if (drowAry.Length > 0)
                         {
                             rng = (Range)worksheet.Cells[i, 26]; //加工單號
-                            rng.Value = drs[0]["id"].ToString();
+                            rng.Value = drowAry[0]["id"].ToString();
                             rng = (Range)worksheet.Cells[i, 27]; //狀態
-                            rng.Value = drs[0]["status"].ToString();
+                            rng.Value = drowAry[0]["status"].ToString();
                             rng = (Range)worksheet.Cells[i, 28]; //狀態描述
-                            rng.Value = drs[0]["status_desc"].ToString();
+                            rng.Value = drowAry[0]["status_desc"].ToString();
                             rng = (Range)worksheet.Cells[i, 5]; //部門回覆
-                            rng.Value = drs[0]["dept_response"].ToString();
+                            rng.Value = drowAry[0]["dept_response"].ToString();
                         }
                     }                       
                 }                   
