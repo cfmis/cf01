@@ -62,8 +62,6 @@ namespace cf01.Forms
                 txtStatus.Items.Add(dtStatus.Rows[i]["id"].ToString());
             }
             dtStatus.Dispose();
-
-           
         }
 
         private void frmQutationFind_Load(object sender, EventArgs e)
@@ -104,21 +102,21 @@ namespace cf01.Forms
         private void btnFind_Click(object sender, EventArgs e)
         {
             txtMaterial.Focus();
-            bool blFlag = false;
-            DataRow[] drs = null;
+            bool blnFlag = false;
+            DataRow[] drowAry = null;
             if (dgvDetails.RowCount > 0)
             {             
                 for (int i = 0; i < dgvDetails.RowCount; i++)
                 {
                     if (dtFind.Rows[i]["flag_select"].ToString() == "True")
                     {
-                        blFlag = true;
+                        blnFlag = true;
                         break;
                     }
                 }
-                if (blFlag)
+                if (blnFlag)
                 {
-                    drs = dtFind.Select("flag_select=true");
+                    drowAry = dtFind.Select("flag_select=true");
                 }
             } 
             
@@ -183,27 +181,28 @@ namespace cf01.Forms
 
             //------------ 
             //導入前一次打勾的記錄
-            if (drs!=null)
+            if (drowAry != null)
             {
-                if (drs.Length > 0)
+                if (drowAry.Length > 0)
                 {
-                    DataRow[] drs_del;
-                    foreach (DataRow row in drs)
-                    {                        
-                        drs_del = dtFind.Select(string.Format("id={0}", row["id"]));
-                        foreach (DataRow row_del in drs_del)
+                    DataRow[] drowAryDel;
+                    foreach (DataRow drow in drowAry)
+                    {
+                        drowAryDel = dtFind.Select(string.Format("id={0}", drow["id"]));
+                        foreach (DataRow dr in drowAryDel)
                         {
-                            dtFind.Rows.Remove(row_del);//先移走已存在的行
+                            dtFind.Rows.Remove(dr);//先移走已存在的行
                         }
                     }
-                    drs_del = null;
+                    drowAryDel = null;
                     dtFind.Select();
+
                     //將打勾的添加進新查詢的結果中                   
-                    foreach (DataRow dr in drs)
+                    foreach (DataRow dr in drowAry)
                     {
                         dtFind.ImportRow(dr);
                     }
-                    drs = null;
+                    drowAry = null;
                 }
             }
             //------------
@@ -307,14 +306,14 @@ namespace cf01.Forms
             //處理當窗口關閉時返回給父窗本的數據
             txtMaterial.Focus();
             //returnRowIndex = dgvDetails.CurrentRow.Index; //記錄當前行2022/11/23
-            int old_row_no = dgvDetails.CurrentRow.Index; //記錄當前行
+            int intOldRowNo = dgvDetails.CurrentRow.Index; //記錄當前行
             if (dgvDetails.SortOrder.ToString() != "None")
             {
                 //如某欄位有排序,則需重新賦值,否會引起數據次序錯亂;
                 dtFind = dtFind.DefaultView.ToTable();
                 dgvDetails.DataSource = dtFind;
                 //dgvDetails數據源改變,焦點行已自動改變,需將更改前的當前行號重新賦值
-                returnRowIndex = old_row_no;
+                returnRowIndex = intOldRowNo;
             }            
             if (chkReturn.Checked)
             {
@@ -364,7 +363,7 @@ namespace cf01.Forms
         private void InitColumn()
         {
             string strCol_id, strVisible;
-            int column_width, column_sort;
+            int intColumnWidth, intColumnSort;
             string strSql = string.Format(
             @"Select user_id,window_id,obj_id,col_id,col_caption,obj_type,col_width,sort_id,isvisible
             FROM dbo.sy_custome_grid WHERE user_id='{0}' and window_id='{1}' Order by sort_id", DBUtility._user_id, this.Name);
@@ -374,16 +373,16 @@ namespace cf01.Forms
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     strCol_id=dt.Rows[i]["col_id"].ToString();
-                    column_width = int.Parse(dt.Rows[i]["col_width"].ToString());
-                    column_sort = int.Parse(dt.Rows[i]["sort_id"].ToString());
+                    intColumnWidth = int.Parse(dt.Rows[i]["col_width"].ToString());
+                    intColumnSort = int.Parse(dt.Rows[i]["sort_id"].ToString());
                     strVisible = dt.Rows[i]["isvisible"].ToString();
                     for (int j = 0; j < dgvDetails.ColumnCount; j++)
                     {
                         if (dgvDetails.Columns[j].Name == strCol_id)
                         {
-                            dgvDetails.Columns[j].Width = column_width;                         
+                            dgvDetails.Columns[j].Width = intColumnWidth;                         
                             //设定 DataGridView 的 AllowUserToOrderColumns 为 True 的时候， 用户可以自由调整列的顺序。
-                            dgvDetails.Columns[j].DisplayIndex = column_sort; //顯示順序
+                            dgvDetails.Columns[j].DisplayIndex = intColumnSort; //顯示順序
                             if (strVisible == "False")
                             {
                                 dgvDetails.Columns[j].Visible = false;
@@ -438,35 +437,35 @@ namespace cf01.Forms
         private void btnApprove_Click(object sender, EventArgs e)
         {
             txtMaterial.Focus();
-            string strDat1, strDat2, ls_crtim1, ls_crtim2, approved;
+            string strDat1, strDat2, strCrtim1, strCrtim2, approved;
             if (txtStatus.Text == "")
             {
                 MessageBox.Show("请选择SUB MO Approved 状态不可为空！", "提示信息");
                 txtStatus.Focus();
                 return;
             }
-            bool select_flag = false;
-            DataRow[] drs = null;
+            bool blnSelect = false;
+            DataRow[] drowAry = null;
             if (dgvDetails.RowCount > 0)
             {
                 for (int i = 0; i < dgvDetails.RowCount; i++)
                 {
                     if (dtFind.Rows[i]["flag_select"].ToString() == "True")
                     {
-                        select_flag = true;
+                        blnSelect = true;
                         break;
                     }
                 }
-                if (select_flag)
+                if (blnSelect)
                 {
-                    drs = dtFind.Select("flag_select=true");
+                    drowAry = dtFind.Select("flag_select=true");
                 }
             }
            
             strDat1 = txtDate1.Text;
             strDat2 = txtDate2.Text;
-            ls_crtim1 = txtCrtim1.Text;
-            ls_crtim2 = txtCrtim2.Text;
+            strCrtim1 = txtCrtim1.Text;
+            strCrtim2 = txtCrtim2.Text;
             if (strDat1 == "    /  /")
             {
                 strDat1 = "";
@@ -475,13 +474,13 @@ namespace cf01.Forms
             {
                 strDat2 = "";
             }
-            if (ls_crtim1 == "    /  /")
+            if (strCrtim1 == "    /  /")
             {
-                ls_crtim1 = "";
+                strCrtim1 = "";
             }
-            if (ls_crtim2 == "    /  /")
+            if (strCrtim2 == "    /  /")
             {
-                ls_crtim2 = "";
+                strCrtim2 = "";
             }
             approved = txtStatus.Text;
             SqlParameter[] paras = new SqlParameter[] { 
@@ -506,8 +505,8 @@ namespace cf01.Forms
                        new SqlParameter("@remark",txtRmk.Text),
                        new SqlParameter("@other_remark",txtRmk_other.Text),
                        new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text),  
-                       new SqlParameter("@crtim_s",ls_crtim1),
-                       new SqlParameter("@crtim_e",ls_crtim2)                       
+                       new SqlParameter("@crtim_s",strCrtim1),
+                       new SqlParameter("@crtim_e",strCrtim2)                       
             };
 
             //是示查詢進度
@@ -522,29 +521,26 @@ namespace cf01.Forms
             dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find_mo_approve", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-            //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
-
+            
             //------------ 
             //導入前一次打勾的記錄
-            if (drs != null)
+            if (drowAry != null)
             {
-                if (drs.Length > 0)
+                if (drowAry.Length > 0)
                 {
-                    DataRow[] drs_del;
-                    foreach (DataRow row in drs)
+                    DataRow[] drowAryDel;
+                    foreach (DataRow drow in drowAry)
                     {
-                        drs_del = dtFind.Select(string.Format("id={0}", row["id"]));
-                        foreach (DataRow row_del in drs_del)
+                        drowAryDel = dtFind.Select(string.Format("id={0}", drow["id"]));
+                        foreach (DataRow dr in drowAryDel)
                         {
-                            dtFind.Rows.Remove(row_del);//先移走已存在的行
+                            dtFind.Rows.Remove(dr);//先移走已存在的行
                         }
                     }
                     //將打勾的添加進新查詢的結果中                   
-                    foreach (DataRow dr in drs)
+                    foreach (DataRow drow in drowAry)
                     {
-                        dtFind.ImportRow(dr);
+                        dtFind.ImportRow(drow);
                     }
                 }
             }
