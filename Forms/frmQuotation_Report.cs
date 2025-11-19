@@ -1268,7 +1268,7 @@ namespace cf01.Forms
         private void BTNFIND3_Click(object sender, EventArgs e)
         {
             mdlList.Clear();//每次重新查找時清除優惠單臨時數據集中的數據
-            DataRow[] drs = null;
+            DataRow[] drowAry = null;
             if (dgvDetails.RowCount > 0)
             {
                 bool select_flag = false;
@@ -1282,7 +1282,7 @@ namespace cf01.Forms
                 }
                 if (select_flag)
                 {
-                    drs = dtFind.Select("flag_select=true");
+                    drowAry = dtFind.Select("flag_select=true");
                 }
             }
             string strDat1, strDat2, strCrtim1, strCrtim2;
@@ -1336,30 +1336,30 @@ namespace cf01.Forms
 
             //------------ 
             //導入前一次打勾的記錄
-            if (drs != null)
+            if (drowAry != null)
             {
-                if (drs.Length > 0)
+                if (drowAry.Length > 0)
                 {
-                    DataRow[] drs_del;
-                    foreach (DataRow row in drs)
+                    DataRow[] drowAryDel;
+                    foreach (DataRow drow in drowAry)
                     {
-                        drs_del = dtFind.Select(string.Format("id={0}", row["id"]));
-                        foreach (DataRow row_del in drs_del)
+                        drowAryDel = dtFind.Select(string.Format("id={0}", drow["id"]));
+                        foreach (DataRow drw in drowAryDel)
                         {
-                            dtFind.Rows.Remove(row_del);//先移走已存在的行
+                            dtFind.Rows.Remove(drw);//先移走已存在的行
                         }
                     }
 
                     //將打勾的添加進新查詢的結果中
-                    foreach (DataRow dr in drs)
+                    foreach (DataRow drw in drowAry)
                     {
-                        dtFind.ImportRow(dr);
+                        dtFind.ImportRow(drw);
                     }
                 }
             }
-            DataView dv = dtFind.DefaultView;
-            dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
-            dtFind = dv.ToTable();
+            DataView dvw = dtFind.DefaultView;
+            dvw.Sort = "flag_select DESC";  //按Flag_select列 排序            
+            dtFind = dvw.ToTable();
             //------------
                     
             dgvDetails.DataSource = dtFind;
@@ -1379,9 +1379,9 @@ namespace cf01.Forms
                 return;
             }
             bool select_flag = false;
-            DataRow[] aryRows = dtFind.Select("flag_select=true");
+            DataRow[] drowAry = dtFind.Select("flag_select=true");
             dtFind.Select();
-            if (aryRows.Length > 0)
+            if (drowAry.Length > 0)
             {
                 select_flag = true;
             }
@@ -1394,9 +1394,9 @@ namespace cf01.Forms
             if (chkIsvn.Checked)
             {
                 //越南報價單只可以添加越南報價單大于零的記錄
-                for (int i = 0; i < aryRows.Length; i++)
+                for (int i = 0; i < drowAry.Length; i++)
                 {
-                    if (Return_Float_Value(aryRows[i]["price_vnd"].ToString()) <= 0)
+                    if (Return_Float_Value(drowAry[i]["price_vnd"].ToString()) <= 0)
                     {
                         MessageBox.Show("注意:所選的記錄不是越南的報價單!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         flag_vn = false;
@@ -1412,9 +1412,9 @@ namespace cf01.Forms
             {
                 //非越南報價單
                 flag_vn = true;
-                for (int i = 0; i < aryRows.Length; i++)
+                for (int i = 0; i < drowAry.Length; i++)
                 {
-                    if (Return_Float_Value(aryRows[i]["price_vnd"].ToString()) > 0)
+                    if (Return_Float_Value(drowAry[i]["price_vnd"].ToString()) > 0)
                     {
                         MessageBox.Show("注意:所勾選的記錄中包含有越南的報價單數據,請返回主表中選中[越南報價單]!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         flag_vn = false;
@@ -1428,115 +1428,93 @@ namespace cf01.Forms
             }
 
             //生成報價單明細
-            int cur_row = 0;
+            int intCurRow = 0;
             string temp_code = "";
-            for (int i = 0; i < aryRows.Length; i++)
+            for (int i = 0; i < drowAry.Length; i++)
             {
                 gridView1.AddNewRow();//新增
-                cur_row = gridView1.FocusedRowHandle;
-                temp_code = aryRows[i]["temp_code"].ToString();
-                gridView1.SetRowCellValue(cur_row, "brand", aryRows[i]["brand"].ToString());
-                gridView1.SetRowCellValue(cur_row, "division", aryRows[i]["division"].ToString());
-                gridView1.SetRowCellValue(cur_row, "contact", aryRows[i]["contact"].ToString());
-                gridView1.SetRowCellValue(cur_row, "material", aryRows[i]["material"].ToString());
-                gridView1.SetRowCellValue(cur_row, "size", aryRows[i]["size"].ToString());
-                gridView1.SetRowCellValue(cur_row, "product_desc", aryRows[i]["product_desc"].ToString());
-                gridView1.SetRowCellValue(cur_row, "cust_code", aryRows[i]["cust_code"].ToString());
-                gridView1.SetRowCellValue(cur_row, "cf_code", aryRows[i]["cf_code"].ToString());
-                gridView1.SetRowCellValue(cur_row, "cust_color", aryRows[i]["cust_color"].ToString());
-                gridView1.SetRowCellValue(cur_row, "cf_color", aryRows[i]["cf_color"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_usd", aryRows[i]["price_usd"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_hkd", aryRows[i]["price_hkd"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_rmb", aryRows[i]["price_rmb"].ToString());
-                gridView1.SetRowCellValue(cur_row, "moq", aryRows[i]["moq"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_unit", aryRows[i]["price_unit"].ToString());
-                gridView1.SetRowCellValue(cur_row, "remark", aryRows[i]["remark"].ToString());
-                gridView1.SetRowCellValue(cur_row, "temp_code", aryRows[i]["temp_code"].ToString());
-                gridView1.SetRowCellValue(cur_row, "ver", aryRows[i]["ver"].ToString());
+                intCurRow = gridView1.FocusedRowHandle;
+                temp_code = drowAry[i]["temp_code"].ToString();
+                gridView1.SetRowCellValue(intCurRow, "brand", drowAry[i]["brand"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "division", drowAry[i]["division"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "contact", drowAry[i]["contact"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "material", drowAry[i]["material"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "size", drowAry[i]["size"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "product_desc", drowAry[i]["product_desc"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cust_code", drowAry[i]["cust_code"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cf_code", drowAry[i]["cf_code"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cust_color", drowAry[i]["cust_color"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cf_color", drowAry[i]["cf_color"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_usd", drowAry[i]["price_usd"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_hkd", drowAry[i]["price_hkd"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_rmb", drowAry[i]["price_rmb"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "moq", drowAry[i]["moq"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_unit", drowAry[i]["price_unit"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "remark", drowAry[i]["remark"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "temp_code", drowAry[i]["temp_code"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "ver", drowAry[i]["ver"].ToString());
 
-                gridView1.SetRowCellValue(cur_row, "moq_desc", aryRows[i]["moq_desc"].ToString());
-                gridView1.SetRowCellValue(cur_row, "moq_unit", aryRows[i]["moq_unit"].ToString());
-                gridView1.SetRowCellValue(cur_row, "season", aryRows[i]["season"].ToString());
-                gridView1.SetRowCellValue(cur_row, "salesman", aryRows[i]["salesman"].ToString());
-                gridView1.SetRowCellValue(cur_row, "mwq", aryRows[i]["mwq"]);
-                gridView1.SetRowCellValue(cur_row, "lead_time_min", aryRows[i]["lead_time_min"]);
-                gridView1.SetRowCellValue(cur_row, "lead_time_max", aryRows[i]["lead_time_max"]);
-                gridView1.SetRowCellValue(cur_row, "lead_time_unit", aryRows[i]["lead_time_unit"].ToString());
-                gridView1.SetRowCellValue(cur_row, "md_charge", aryRows[i]["md_charge"]);
-                gridView1.SetRowCellValue(cur_row, "md_charge_cny", aryRows[i]["md_charge_cny"].ToString());
-                gridView1.SetRowCellValue(cur_row, "number_enter", aryRows[i]["number_enter"]);
-                gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", aryRows[i]["hkd_ex_fty"]);
-                gridView1.SetRowCellValue(cur_row, "usd_ex_fty", aryRows[i]["usd_ex_fty"]);
-                gridView1.SetRowCellValue(cur_row, "sales_group", aryRows[i]["sales_group"]);
-                gridView1.SetRowCellValue(cur_row, "moq_for_test", aryRows[i]["moq_for_test"]);
-                gridView1.SetRowCellValue(cur_row, "usd_dap", aryRows[i]["usd_dap"]);
-                gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", aryRows[i]["usd_lab_test_prx"]);
-                gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", aryRows[i]["ex_fty_hkd"]);
-                gridView1.SetRowCellValue(cur_row, "ex_fty_usd", aryRows[i]["ex_fty_usd"]);
+                gridView1.SetRowCellValue(intCurRow, "moq_desc", drowAry[i]["moq_desc"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "moq_unit", drowAry[i]["moq_unit"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "season", drowAry[i]["season"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "salesman", drowAry[i]["salesman"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "mwq", drowAry[i]["mwq"]);
+                gridView1.SetRowCellValue(intCurRow, "lead_time_min", drowAry[i]["lead_time_min"]);
+                gridView1.SetRowCellValue(intCurRow, "lead_time_max", drowAry[i]["lead_time_max"]);
+                gridView1.SetRowCellValue(intCurRow, "lead_time_unit", drowAry[i]["lead_time_unit"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "md_charge", drowAry[i]["md_charge"]);
+                gridView1.SetRowCellValue(intCurRow, "md_charge_cny", drowAry[i]["md_charge_cny"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "number_enter", drowAry[i]["number_enter"]);
+                gridView1.SetRowCellValue(intCurRow, "hkd_ex_fty", drowAry[i]["hkd_ex_fty"]);
+                gridView1.SetRowCellValue(intCurRow, "usd_ex_fty", drowAry[i]["usd_ex_fty"]);
+                gridView1.SetRowCellValue(intCurRow, "sales_group", drowAry[i]["sales_group"]);
+                gridView1.SetRowCellValue(intCurRow, "moq_for_test", drowAry[i]["moq_for_test"]);
+                gridView1.SetRowCellValue(intCurRow, "usd_dap", drowAry[i]["usd_dap"]);
+                gridView1.SetRowCellValue(intCurRow, "usd_lab_test_prx", drowAry[i]["usd_lab_test_prx"]);
+                gridView1.SetRowCellValue(intCurRow, "ex_fty_hkd", drowAry[i]["ex_fty_hkd"]);
+                gridView1.SetRowCellValue(intCurRow, "ex_fty_usd", drowAry[i]["ex_fty_usd"]);
 
-                gridView1.SetRowCellValue(cur_row, "discount", aryRows[i]["discount"]);
-                gridView1.SetRowCellValue(cur_row, "disc_price_usd", aryRows[i]["disc_price_usd"]);
-                gridView1.SetRowCellValue(cur_row, "disc_price_hkd", aryRows[i]["disc_price_hkd"]);
-                gridView1.SetRowCellValue(cur_row, "disc_price_rmb", aryRows[i]["disc_price_rmb"]);
-                gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", aryRows[i]["disc_hkd_ex_fty"]);
-                gridView1.SetRowCellValue(cur_row, "die_mould_usd", aryRows[i]["die_mould_usd"]);
-                gridView1.SetRowCellValue(cur_row, "die_mould_cny", aryRows[i]["die_mould_cny"].ToString());
-                gridView1.SetRowCellValue(cur_row, "actual_price", aryRows[i]["price_salesperson"].ToString());
-                gridView1.SetRowCellValue(cur_row, "rmb_remark", aryRows[i]["rmb_remark"].ToString());
-                gridView1.SetRowCellValue(cur_row, "cust_artwork", aryRows[i]["cust_artwork"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "discount", drowAry[i]["discount"]);
+                gridView1.SetRowCellValue(intCurRow, "disc_price_usd", drowAry[i]["disc_price_usd"]);
+                gridView1.SetRowCellValue(intCurRow, "disc_price_hkd", drowAry[i]["disc_price_hkd"]);
+                gridView1.SetRowCellValue(intCurRow, "disc_price_rmb", drowAry[i]["disc_price_rmb"]);
+                gridView1.SetRowCellValue(intCurRow, "disc_hkd_ex_fty", drowAry[i]["disc_hkd_ex_fty"]);
+                gridView1.SetRowCellValue(intCurRow, "die_mould_usd", drowAry[i]["die_mould_usd"]);
+                gridView1.SetRowCellValue(intCurRow, "die_mould_cny", drowAry[i]["die_mould_cny"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "actual_price", drowAry[i]["price_salesperson"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "rmb_remark", drowAry[i]["rmb_remark"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cust_artwork", drowAry[i]["cust_artwork"].ToString());
                 //vnd 2023/02/13
-                gridView1.SetRowCellValue(cur_row, "price_vnd_usd", aryRows[i]["price_vnd_usd"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_vnd", aryRows[i]["price_vnd"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_vnd_grs", aryRows[i]["price_vnd_grs"].ToString());
-                gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", aryRows[i]["price_vnd_pcs"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_vnd_usd", drowAry[i]["price_vnd_usd"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_vnd", drowAry[i]["price_vnd"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_vnd_grs", drowAry[i]["price_vnd_grs"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "price_vnd_pcs", drowAry[i]["price_vnd_pcs"].ToString());
                 //2023/03/01
-                gridView1.SetRowCellValue(cur_row, "cf_color_id", aryRows[i]["cf_color_id"].ToString());
-                gridView1.SetRowCellValue(cur_row, "material_type", aryRows[i]["material_type"].ToString());
-                gridView1.SetRowCellValue(cur_row, "product_type", aryRows[i]["product_type"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cf_color_id", drowAry[i]["cf_color_id"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "material_type", drowAry[i]["material_type"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "product_type", drowAry[i]["product_type"].ToString());
 
                 //start 2024/11/27 更改為一次可添加多筆優惠價  
                 //var discList = from item in mdlList where item.temp_code == temp_code select item;
                 var discList = mdlList.Where(p =>p.temp_code == temp_code).ToList(); //只篩選出一條記錄
                 foreach (mdlDiscountPrice item in discList)
                 {
-                    gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
-                    gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
-                    gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
-                    gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
-                    gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
-                    gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
-                    gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
-                    gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
-                    gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
-                    gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
-                    gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
-                    gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
-                    gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
-                    gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
+                    gridView1.SetRowCellValue(intCurRow, "number_enter", item.number_enter);
+                    gridView1.SetRowCellValue(intCurRow, "price_usd", item.price_usd);
+                    gridView1.SetRowCellValue(intCurRow, "price_hkd", item.price_hkd);
+                    gridView1.SetRowCellValue(intCurRow, "price_rmb", item.price_rmb);
+                    gridView1.SetRowCellValue(intCurRow, "hkd_ex_fty", item.hkd_ex_fty);
+                    gridView1.SetRowCellValue(intCurRow, "usd_ex_fty", item.usd_ex_fty);
+                    gridView1.SetRowCellValue(intCurRow, "price_unit", item.price_unit);
+                    gridView1.SetRowCellValue(intCurRow, "vnd_bp", item.vnd_bp);
+                    gridView1.SetRowCellValue(intCurRow, "price_vnd_usd", item.price_vnd_usd);
+                    gridView1.SetRowCellValue(intCurRow, "price_vnd", item.price_vnd);
+                    gridView1.SetRowCellValue(intCurRow, "price_vnd_grs", item.price_vnd_grs);
+                    gridView1.SetRowCellValue(intCurRow, "price_vnd_pcs", item.price_vnd_pcs);
+                    gridView1.SetRowCellValue(intCurRow, "moq", item.moq_qty);
+                    gridView1.SetRowCellValue(intCurRow, "moq_unit", item.moq_unit);
                 }                
-                //foreach (mdlDiscountPrice item in mdlList)
-                //{
-                //    if (item.temp_code == temp_code)
-                //    {
-                //        //有勾選優惠價,則以優惠價替未優惠價的值
-                //        gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
-                //        gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
-                //        gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
-                //        gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
-                //        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
-                //        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
-                //        gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
-                //        gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
-                //        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
-                //        gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
-                //        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
-                //        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
-                //        gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
-                //        gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
-                //        break;
-                //    }
-                //}                
-                //--end 2024/11/27 更改為一次可添加多筆優惠價                
+                         
             } //--end for            
             //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
@@ -1622,7 +1600,6 @@ namespace cf01.Forms
         {
             Find_Data();
         }
-
 
         private void Find_Data()
         {
@@ -1768,7 +1745,7 @@ namespace cf01.Forms
                 }
                 if (ofrmCopy.dr_copy.Length > 0)
                 {
-                    int cur_row;
+                    int intCurRow;
                     string strDate;
                     for (int i = 0; i < ofrmCopy.dr_copy.Length; i++)
                     {
@@ -1803,60 +1780,60 @@ namespace cf01.Forms
                         }
 
                         gridView1.AddNewRow();//新增
-                        cur_row = gridView1.FocusedRowHandle;
-                        gridView1.SetRowCellValue(cur_row, "brand", ofrmCopy.dr_copy[i]["brand"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "division", ofrmCopy.dr_copy[i]["division"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "contact", ofrmCopy.dr_copy[i]["contact"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "material", ofrmCopy.dr_copy[i]["material"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "size", ofrmCopy.dr_copy[i]["size"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "product_desc", ofrmCopy.dr_copy[i]["product_desc"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "cust_code", ofrmCopy.dr_copy[i]["cust_code"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "cf_code", ofrmCopy.dr_copy[i]["cf_code"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "cust_color", ofrmCopy.dr_copy[i]["cust_color"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "cf_color", ofrmCopy.dr_copy[i]["cf_color"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_usd", ofrmCopy.dr_copy[i]["price_usd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_hkd", ofrmCopy.dr_copy[i]["price_hkd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);
-                        gridView1.SetRowCellValue(cur_row, "moq", ofrmCopy.dr_copy[i]["moq"]);
-                        gridView1.SetRowCellValue(cur_row, "price_unit", ofrmCopy.dr_copy[i]["price_unit"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "remark", ofrmCopy.dr_copy[i]["remark"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "temp_code", ofrmCopy.dr_copy[i]["temp_code"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "ver", ofrmCopy.dr_copy[i]["ver"].ToString());
+                        intCurRow = gridView1.FocusedRowHandle;
+                        gridView1.SetRowCellValue(intCurRow, "brand", ofrmCopy.dr_copy[i]["brand"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "division", ofrmCopy.dr_copy[i]["division"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "contact", ofrmCopy.dr_copy[i]["contact"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "material", ofrmCopy.dr_copy[i]["material"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "size", ofrmCopy.dr_copy[i]["size"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "product_desc", ofrmCopy.dr_copy[i]["product_desc"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "cust_code", ofrmCopy.dr_copy[i]["cust_code"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "cf_code", ofrmCopy.dr_copy[i]["cf_code"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "cust_color", ofrmCopy.dr_copy[i]["cust_color"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "cf_color", ofrmCopy.dr_copy[i]["cf_color"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "price_usd", ofrmCopy.dr_copy[i]["price_usd"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_hkd", ofrmCopy.dr_copy[i]["price_hkd"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);
+                        gridView1.SetRowCellValue(intCurRow, "moq", ofrmCopy.dr_copy[i]["moq"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_unit", ofrmCopy.dr_copy[i]["price_unit"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "remark", ofrmCopy.dr_copy[i]["remark"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "temp_code", ofrmCopy.dr_copy[i]["temp_code"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "ver", ofrmCopy.dr_copy[i]["ver"].ToString());
 
-                        gridView1.SetRowCellValue(cur_row, "moq_unit", ofrmCopy.dr_copy[i]["moq_unit"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "season", ofrmCopy.dr_copy[i]["season"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "salesman", ofrmCopy.dr_copy[i]["salesman"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "mwq", ofrmCopy.dr_copy[i]["mwq"]);
-                        gridView1.SetRowCellValue(cur_row, "lead_time_min", ofrmCopy.dr_copy[i]["lead_time_min"]);
-                        gridView1.SetRowCellValue(cur_row, "lead_time_max", ofrmCopy.dr_copy[i]["lead_time_max"]);
-                        gridView1.SetRowCellValue(cur_row, "lead_time_unit", ofrmCopy.dr_copy[i]["lead_time_unit"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "md_charge", ofrmCopy.dr_copy[i]["md_charge"]);
-                        gridView1.SetRowCellValue(cur_row, "md_charge_cny", ofrmCopy.dr_copy[i]["md_charge_cny"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "moq_for_test", ofrmCopy.dr_copy[i]["moq_for_test"]);
-                        gridView1.SetRowCellValue(cur_row, "number_enter", ofrmCopy.dr_copy[i]["number_enter"]);
-                        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", ofrmCopy.dr_copy[i]["hkd_ex_fty"]);
-                        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", ofrmCopy.dr_copy[i]["usd_ex_fty"]);
-                        gridView1.SetRowCellValue(cur_row, "sales_group", ofrmCopy.dr_copy[i]["sales_group"]);
-                        gridView1.SetRowCellValue(cur_row, "usd_dap", ofrmCopy.dr_copy[i]["usd_dap"]);
-                        gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", ofrmCopy.dr_copy[i]["usd_lab_test_prx"]);
-                        gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", ofrmCopy.dr_copy[i]["ex_fty_hkd"]);
-                        gridView1.SetRowCellValue(cur_row, "ex_fty_usd", ofrmCopy.dr_copy[i]["ex_fty_usd"]);
+                        gridView1.SetRowCellValue(intCurRow, "moq_unit", ofrmCopy.dr_copy[i]["moq_unit"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "season", ofrmCopy.dr_copy[i]["season"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "salesman", ofrmCopy.dr_copy[i]["salesman"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "mwq", ofrmCopy.dr_copy[i]["mwq"]);
+                        gridView1.SetRowCellValue(intCurRow, "lead_time_min", ofrmCopy.dr_copy[i]["lead_time_min"]);
+                        gridView1.SetRowCellValue(intCurRow, "lead_time_max", ofrmCopy.dr_copy[i]["lead_time_max"]);
+                        gridView1.SetRowCellValue(intCurRow, "lead_time_unit", ofrmCopy.dr_copy[i]["lead_time_unit"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "md_charge", ofrmCopy.dr_copy[i]["md_charge"]);
+                        gridView1.SetRowCellValue(intCurRow, "md_charge_cny", ofrmCopy.dr_copy[i]["md_charge_cny"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "moq_for_test", ofrmCopy.dr_copy[i]["moq_for_test"]);
+                        gridView1.SetRowCellValue(intCurRow, "number_enter", ofrmCopy.dr_copy[i]["number_enter"]);
+                        gridView1.SetRowCellValue(intCurRow, "hkd_ex_fty", ofrmCopy.dr_copy[i]["hkd_ex_fty"]);
+                        gridView1.SetRowCellValue(intCurRow, "usd_ex_fty", ofrmCopy.dr_copy[i]["usd_ex_fty"]);
+                        gridView1.SetRowCellValue(intCurRow, "sales_group", ofrmCopy.dr_copy[i]["sales_group"]);
+                        gridView1.SetRowCellValue(intCurRow, "usd_dap", ofrmCopy.dr_copy[i]["usd_dap"]);
+                        gridView1.SetRowCellValue(intCurRow, "usd_lab_test_prx", ofrmCopy.dr_copy[i]["usd_lab_test_prx"]);
+                        gridView1.SetRowCellValue(intCurRow, "ex_fty_hkd", ofrmCopy.dr_copy[i]["ex_fty_hkd"]);
+                        gridView1.SetRowCellValue(intCurRow, "ex_fty_usd", ofrmCopy.dr_copy[i]["ex_fty_usd"]);
 
-                        gridView1.SetRowCellValue(cur_row, "discount", ofrmCopy.dr_copy[i]["discount"]);
-                        gridView1.SetRowCellValue(cur_row, "disc_price_usd", ofrmCopy.dr_copy[i]["disc_price_usd"]);
-                        gridView1.SetRowCellValue(cur_row, "disc_price_hkd", ofrmCopy.dr_copy[i]["disc_price_hkd"]);
-                        gridView1.SetRowCellValue(cur_row, "disc_price_rmb", ofrmCopy.dr_copy[i]["disc_price_rmb"]);
-                        gridView1.SetRowCellValue(cur_row, "disc_price_vnd", ofrmCopy.dr_copy[i]["disc_price_vnd"]);
-                        gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", ofrmCopy.dr_copy[i]["disc_hkd_ex_fty"]);
-                        gridView1.SetRowCellValue(cur_row, "actual_price", ofrmCopy.dr_copy[i]["actual_price"]);
-                        gridView1.SetRowCellValue(cur_row, "actual_price_type", ofrmCopy.dr_copy[i]["actual_price_type"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "die_mould_usd", ofrmCopy.dr_copy[i]["die_mould_usd"]);
-                        gridView1.SetRowCellValue(cur_row, "die_mould_cny", ofrmCopy.dr_copy[i]["die_mould_cny"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "discount", ofrmCopy.dr_copy[i]["discount"]);
+                        gridView1.SetRowCellValue(intCurRow, "disc_price_usd", ofrmCopy.dr_copy[i]["disc_price_usd"]);
+                        gridView1.SetRowCellValue(intCurRow, "disc_price_hkd", ofrmCopy.dr_copy[i]["disc_price_hkd"]);
+                        gridView1.SetRowCellValue(intCurRow, "disc_price_rmb", ofrmCopy.dr_copy[i]["disc_price_rmb"]);
+                        gridView1.SetRowCellValue(intCurRow, "disc_price_vnd", ofrmCopy.dr_copy[i]["disc_price_vnd"]);
+                        gridView1.SetRowCellValue(intCurRow, "disc_hkd_ex_fty", ofrmCopy.dr_copy[i]["disc_hkd_ex_fty"]);
+                        gridView1.SetRowCellValue(intCurRow, "actual_price", ofrmCopy.dr_copy[i]["actual_price"]);
+                        gridView1.SetRowCellValue(intCurRow, "actual_price_type", ofrmCopy.dr_copy[i]["actual_price_type"].ToString());
+                        gridView1.SetRowCellValue(intCurRow, "die_mould_usd", ofrmCopy.dr_copy[i]["die_mould_usd"]);
+                        gridView1.SetRowCellValue(intCurRow, "die_mould_cny", ofrmCopy.dr_copy[i]["die_mould_cny"].ToString());
 
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", ofrmCopy.dr_copy[i]["price_vnd_usd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd", ofrmCopy.dr_copy[i]["price_vnd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", ofrmCopy.dr_copy[i]["price_vnd_grs"]);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", ofrmCopy.dr_copy[i]["price_vnd_pcs"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_vnd_usd", ofrmCopy.dr_copy[i]["price_vnd_usd"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_vnd", ofrmCopy.dr_copy[i]["price_vnd"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_vnd_grs", ofrmCopy.dr_copy[i]["price_vnd_grs"]);
+                        gridView1.SetRowCellValue(intCurRow, "price_vnd_pcs", ofrmCopy.dr_copy[i]["price_vnd_pcs"]);
                     }
                     //dsCopy.Tables.Clear();
                     ofrmCopy.dr_copy = null;
