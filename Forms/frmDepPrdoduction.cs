@@ -48,7 +48,7 @@ namespace cf01.Forms
 
         private void cmbFindDep_Leave(object sender, EventArgs e)
         {
-            cmbDepGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + cmbFindDep.SelectedValue.ToString().Trim());
+            cmbDepGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + cmbFindDep.SelectedValue.ToString().Trim(),"");
             cmbDepGroup.ValueMember = "flag_id";
             cmbDepGroup.DisplayMember = "flag_cdesc";
         }

@@ -24,18 +24,20 @@ namespace cf01.CLS
         {
             string group_name = "prd_group";
             string sheet_name_tb = "prd_group_cdesc";
-            if (prd_dep == "322" || prd_dep=="203")
+            //if (prd_dep == "322" || prd_dep=="203")
+            //{
+            //    if (rpt_type == 1)
+            //    {
+            //        group_name = "prd_dep";
+            //    }
+            //    else
+            //    {
+            //        group_name = "prd_machine";
+            //    }
+            //}
+            if(rpt_type!=1)//如果按機器匯出Excel
             {
-                if (rpt_type == 1)
-                {
-                    group_name = "prd_dep";
-                    sheet_name_tb = group_name;
-                }
-                else
-                {
-                    group_name = "prd_machine";
-                    sheet_name_tb = group_name;
-                }
+                group_name = "prd_machine";
             }
             System.Data.DataTable dtGroups = dtExcel.DefaultView.ToTable(true, group_name,sheet_name_tb);
             string picPath = DBUtility.GetArtWorkPath();// context.Server.MapPath("~/") + "images\\";

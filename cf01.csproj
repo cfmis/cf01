@@ -2007,6 +2007,12 @@
     <Compile Include="ReportForm\frmMoStockQuery.designer.cs">
       <DependentUpon>frmMoStockQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmMoSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmMoSummary.Designer.cs">
+      <DependentUpon>frmMoSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmMoTrace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3917,6 +3923,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmMoStockQuery.resx">
       <DependentUpon>frmMoStockQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmMoSummary.resx">
+      <DependentUpon>frmMoSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmMoTrace.resx">
       <DependentUpon>frmMoTrace.cs</DependentUpon>
