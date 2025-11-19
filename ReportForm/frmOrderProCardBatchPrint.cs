@@ -17,17 +17,17 @@ namespace cf01.ReportForm
 {
     public partial class frmOrderProCardBatchPrint : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtReport = new DataTable();
         DataTable dtDetails = new DataTable();
         DataTable dtExcel = new DataTable();
 
-        private DataTable dtReportMostly = new DataTable();
-        private DataTable dtReportParts = new DataTable();
+        DataTable dtReportMostly = new DataTable();
+        DataTable dtReportParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
-        private DataTable dtPrint = new DataTable();
-        private DataTable dtDept = new DataTable();
+        DataTable dtPrint = new DataTable();
+        DataTable dtDept = new DataTable();
 
         public frmOrderProCardBatchPrint()
         {
@@ -208,18 +208,18 @@ namespace cf01.ReportForm
                 return;
             }
             gridView1.CloseEditor();//使更改有效
-            bool lb_is_select = false;
-            int li_cur_row = 0;
+            bool blnIsSelect = false;
+            int intCurRow = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-                li_cur_row = gridView1.FocusedRowHandle;
-                if (gridView1.GetRowCellValue(li_cur_row, "print_select").ToString() == "True")
+                intCurRow = gridView1.FocusedRowHandle;
+                if (gridView1.GetRowCellValue(intCurRow, "print_select").ToString() == "True")
                 {
-                    lb_is_select = true;
+                    blnIsSelect = true;
                     break;
                 }
             }
-            if (!lb_is_select)
+            if (!blnIsSelect)
             {
                 MessageBox.Show("請選擇需要列印的頁數資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 gridView1.Focus();
@@ -228,37 +228,36 @@ namespace cf01.ReportForm
             dtReport.Clear();
             dtReport = dtDetails.Clone();
             dtReport.Columns.Add("report_name", typeof(string));
-            int li_total_page;
 
-            DataRow drs;
+            int intTotalPage;
+            DataRow drow;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
                 if (gridView1.GetRowCellValue(i, "print_select").ToString() == "True")
                 {
-                    drs = gridView1.GetDataRow(i);                   
+                    drow = gridView1.GetDataRow(i);                   
                     if (string.IsNullOrEmpty(dtDetails.Rows[i]["total_page"].ToString()))
                     {
-                        li_total_page = 1;
-                        drs["total_page"] = li_total_page;
+                        intTotalPage = 1;
+                        drow["total_page"] = intTotalPage;
                     }
-                    li_total_page = int.Parse(dtDetails.Rows[i]["total_page"].ToString());
-                    if (li_total_page < 0)
+                    intTotalPage = int.Parse(dtDetails.Rows[i]["total_page"].ToString());
+                    if (intTotalPage < 0)
                     {
-                        li_total_page = Math.Abs(li_total_page);
-                        drs["total_page"] = li_total_page;
+                        intTotalPage = Math.Abs(intTotalPage);
+                        drow["total_page"] = intTotalPage;
                     }                    
-                    for (int j = 1; j <= li_total_page; j++)
+                    for (int j = 1; j <= intTotalPage; j++)
                     {
-                        drs["page_num"] = j;
-                        dtReport.Rows.Add(drs.ItemArray);
+                        drow["page_num"] = j;
+                        dtReport.Rows.Add(drow.ItemArray);
                     }                    
                 }
             }
 
             for (int i = 0; i < dtReport.Rows.Count; i++)
             {               
-                dtReport.Rows[i]["report_name"] = "工序卡" + "(" + dtReport.Rows[i]["wp_id"] + ")";
-                //2024/03/13 add qc information by allen
+                dtReport.Rows[i]["report_name"] = "工序卡" + "(" + dtReport.Rows[i]["wp_id"] + ")";                
                 if (dtReport.Rows[i]["next_wp_id"].ToString() == "702")
                 {
                     dtReport.Rows[i]["qc_dept"] = "";
@@ -310,7 +309,7 @@ namespace cf01.ReportForm
             }
 
             //if (old_print_flag == "True" && (goods_id != old_goods_id ||prod_qty != old_prod_qty))
-            if (print_flag=="True" && old_print_flag == "True" )
+            if (print_flag == "True" && old_print_flag == "True" )
             {
                 e.Appearance.ForeColor = Color.Black;
                 e.Appearance.BackColor = Color.MistyRose;//.Salmon;
@@ -331,83 +330,82 @@ namespace cf01.ReportForm
                 return;
             }
             gridView1.CloseEditor();//使更改有效
-            bool lb_print_flag = false;
-            int li_cur_row = 0;
+            bool IsPrint = false;
+            int intCurRow = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-                li_cur_row = gridView1.FocusedRowHandle;
-                if (gridView1.GetRowCellValue(li_cur_row, "print_flag").ToString() == "True" && gridView1.GetRowCellValue(li_cur_row, "old_print_flag").ToString() == "False")
+                intCurRow = gridView1.FocusedRowHandle;
+                if (gridView1.GetRowCellValue(intCurRow, "print_flag").ToString() == "True" && gridView1.GetRowCellValue(intCurRow, "old_print_flag").ToString() == "False")
                 {
-                    lb_print_flag = true;
+                    IsPrint = true;
                     break;
                 }
             }
-            if (!lb_print_flag)
+            if (!IsPrint)
             {
                 MessageBox.Show("請選擇需要設置列印標識的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 gridView1.Focus();
                 return;
             }
-           
-            string ls_sql_f,ls_sql_i="",ls_sql_u="",ls_id, ls_mo_id, ls_mo_ver, ls_goods_id, ls_sequence_id;
-            int li_count=0,li_prod_qty=0;
-            bool lb_save_flag=false ;
-            ls_sql_i = @"Insert Into rpt_dept_production_plan_report_print(within_code,id,sequence_id,print_flag,mo_id,old_jo_ver,old_prod_qty,old_goods_id,create_date,create_by)
+            string strSql, strSql_I = "", strSql_U = "", id, mo_id, mo_ver, goods_id, sequence_id;
+            int intCount = 0, intProdQty = 0;
+            bool blnSaveFlag = false;
+            strSql_I = @"Insert Into rpt_dept_production_plan_report_print(within_code,id,sequence_id,print_flag,mo_id,old_jo_ver,old_prod_qty,old_goods_id,create_date,create_by)
 		                 Values(@within_code,@id,@sequence_id,@print_flag,@mo_id,@ver,@prod_qty,@goods_id,GetDate(),@user_id)";
-            ls_sql_u = @"Update rpt_dept_production_plan_report_print SET print_flag=@print_flag,mo_id=@mo_id,old_jo_ver=@ver,old_prod_qty=@prod_qty,
+            strSql_U = @"Update rpt_dept_production_plan_report_print SET print_flag=@print_flag,mo_id=@mo_id,old_jo_ver=@ver,old_prod_qty=@prod_qty,
                             old_goods_id=@goods_id,update_date=getdate(),update_by=@user_id
                             Where within_code=@within_code and id=@id and sequence_id=@sequence_id";
-            string ls_user_id = DBUtility._user_id;
+            string user_id = DBUtility._user_id;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
 
                 if (gridView1.GetRowCellValue(i, "print_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "old_print_flag").ToString() == "False")
                 {
-                    ls_id = gridView1.GetRowCellValue(i, "id").ToString();
-                    ls_sequence_id = gridView1.GetRowCellValue(i, "sequence_id").ToString();                    
-                    ls_mo_id = gridView1.GetRowCellValue(i, "mo_id").ToString();
-                    ls_mo_ver = gridView1.GetRowCellValue(i, "ver").ToString();
-                    ls_goods_id = gridView1.GetRowCellValue(i, "goods_id").ToString();
-                    li_prod_qty = Int32.Parse(gridView1.GetRowCellValue(i, "prod_qty").ToString());
+                    id = gridView1.GetRowCellValue(i, "id").ToString();
+                    sequence_id = gridView1.GetRowCellValue(i, "sequence_id").ToString();                    
+                    mo_id = gridView1.GetRowCellValue(i, "mo_id").ToString();
+                    mo_ver = gridView1.GetRowCellValue(i, "ver").ToString();
+                    goods_id = gridView1.GetRowCellValue(i, "goods_id").ToString();
+                    intProdQty = Int32.Parse(gridView1.GetRowCellValue(i, "prod_qty").ToString());
                     SqlParameter[] spars = new SqlParameter[]{
                             new SqlParameter("@within_code","0000"),
-                            new SqlParameter("@id",ls_id),
-                            new SqlParameter("@sequence_id",ls_sequence_id),
+                            new SqlParameter("@id",id),
+                            new SqlParameter("@sequence_id",sequence_id),
                             new SqlParameter("@print_flag","1"),
-                            new SqlParameter("@mo_id",ls_mo_id),
-                            new SqlParameter("@ver",ls_mo_ver),
-                            new SqlParameter("@prod_qty",li_prod_qty),
-                            new SqlParameter("@goods_id",ls_goods_id),
-                            new SqlParameter("@user_id",ls_user_id)
+                            new SqlParameter("@mo_id",mo_id),
+                            new SqlParameter("@ver",mo_ver),
+                            new SqlParameter("@prod_qty",intProdQty),
+                            new SqlParameter("@goods_id",goods_id),
+                            new SqlParameter("@user_id",user_id)
                     };
-                    li_count = 0;
-                    ls_sql_f = string.Format(@"Select '1' FROM dbo.rpt_dept_production_plan_report_print Where within_code='0' And id='{0}' And sequence_id='{1}'", ls_id, ls_sequence_id);
-                    if (clsConErp.ExecuteSqlReturnObject(ls_sql_f) == "")
+                    intCount = 0;
+                    strSql = string.Format(@"Select '1' FROM dbo.rpt_dept_production_plan_report_print Where within_code='0' And id='{0}' And sequence_id='{1}'", id, sequence_id);
+                    if (clsConErp.ExecuteSqlReturnObject(strSql) == "")
                     {
-                        li_count = clsConErp.ExecuteNonQuery(ls_sql_i, spars, false);
+                        intCount = clsConErp.ExecuteNonQuery(strSql_I, spars, false);
                         gridView1.SetRowCellValue(i, "old_print_flag", true);
-                        gridView1.SetRowCellValue(i, "old_jo_ver", ls_mo_ver);
-                        gridView1.SetRowCellValue(i, "old_goods_id", ls_goods_id);
-                        gridView1.SetRowCellValue(i, "old_prod_qty", li_prod_qty);
+                        gridView1.SetRowCellValue(i, "old_jo_ver", mo_ver);
+                        gridView1.SetRowCellValue(i, "old_goods_id", goods_id);
+                        gridView1.SetRowCellValue(i, "old_prod_qty", intProdQty);
                     }
                     else
                     {
-                        li_count = clsConErp.ExecuteNonQuery(ls_sql_u, spars, false);
+                        intCount = clsConErp.ExecuteNonQuery(strSql_U, spars, false);
                     }
-                    if (li_count > 0)
+                    if (intCount > 0)
                     {
-                        lb_save_flag=true ;
+                        blnSaveFlag=true ;
                     }
                     else
                     {
                         MessageBox.Show("更新出錯!", "提示信息");
-                        lb_save_flag = false;
+                        blnSaveFlag = false;
                         break;
                     }                   
                 }
             }
 
-            if (lb_save_flag)
+            if (blnSaveFlag)
             {
                 MessageBox.Show("設置列印標識成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -421,18 +419,18 @@ namespace cf01.ReportForm
                 return;
             }
             gridView1.CloseEditor();//使更改有效
-            bool lb_is_select = false;
-            int li_cur_row = 0;
+            bool blnIsSelect = false;
+            int intCurRow = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-                li_cur_row = gridView1.FocusedRowHandle;
-                if (gridView1.GetRowCellValue(li_cur_row, "print_select").ToString() == "True")
+                intCurRow = gridView1.FocusedRowHandle;
+                if (gridView1.GetRowCellValue(intCurRow, "print_select").ToString() == "True")
                 {
-                    lb_is_select = true;
+                    blnIsSelect = true;
                     break;
                 }
             }
-            if (!lb_is_select)
+            if (!blnIsSelect)
             {
                 MessageBox.Show("請選擇需要匯出的頁數資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 gridView1.Focus();
@@ -469,16 +467,16 @@ namespace cf01.ReportForm
             gridView1.CloseEditor();//使更改有效
             if (gridView1.RowCount>0)
             {
-                bool isSelect = false;
+                bool blnIsSelect = false;
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
                     if (gridView1.GetRowCellValue(i, "print_select").ToString() == "True")
                     {
-                        isSelect = true;
+                        blnIsSelect = true;
                         break;
                     }
                 }
-                if (isSelect == false)
+                if (blnIsSelect == false)
                 {
                     MessageBox.Show("沒有選擇打印的記錄!", "提示信息");
                     return;
@@ -622,9 +620,9 @@ namespace cf01.ReportForm
             int cur_row = gridView1.FocusedRowHandle;            
             if (gridView1.GetRowCellValue(cur_row, "print_select").ToString() == "True")
             {
-                string ls_prod_date = clsUtility.GetCurrentDateTime();
-                ls_prod_date = DateTime.Parse(ls_prod_date).Date.ToString("yyyy/MM/dd");                
-                gridView1.SetRowCellValue(cur_row, "prod_date", ls_prod_date);
+                string prod_date = clsUtility.GetCurrentDateTime();
+                prod_date = DateTime.Parse(prod_date).Date.ToString("yyyy/MM/dd");                
+                gridView1.SetRowCellValue(cur_row, "prod_date", prod_date);
             }
         }
 

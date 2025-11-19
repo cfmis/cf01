@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -116,6 +116,7 @@
             this.next_wp_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkJx = new DevExpress.XtraEditors.CheckEdit();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
@@ -128,7 +129,7 @@
             this.btnExcel = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.chkReplaceQty = new System.Windows.Forms.CheckBox();
-            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -150,12 +151,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtID1
             // 
             this.txtID1.EnterMoveNextControl = true;
-            this.txtID1.Location = new System.Drawing.Point(159, 45);
+            this.txtID1.Location = new System.Drawing.Point(158, 4);
             this.txtID1.Name = "txtID1";
             this.txtID1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID1.Properties.MaxLength = 15;
@@ -166,15 +168,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(333, 74);
+            this.label6.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.label6.Location = new System.Drawing.Point(343, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 12);
+            this.label6.Size = new System.Drawing.Size(16, 16);
             this.label6.TabIndex = 117;
-            this.label6.Text = "--";
+            this.label6.Text = "~";
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(73, 74);
+            this.lblDate.Location = new System.Drawing.Point(72, 33);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
@@ -185,7 +188,7 @@
             // 
             this.txtDat2.EditValue = null;
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(364, 70);
+            this.txtDat2.Location = new System.Drawing.Point(383, 29);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -202,7 +205,7 @@
             // 
             this.txtDat1.EditValue = null;
             this.txtDat1.EnterMoveNextControl = true;
-            this.txtDat1.Location = new System.Drawing.Point(159, 70);
+            this.txtDat1.Location = new System.Drawing.Point(158, 29);
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -424,7 +427,7 @@
             // radioGroup1
             // 
             this.radioGroup1.EnterMoveNextControl = true;
-            this.radioGroup1.Location = new System.Drawing.Point(714, 98);
+            this.radioGroup1.Location = new System.Drawing.Point(678, 57);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup1.Properties.Columns = 3;
@@ -439,7 +442,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(73, 48);
+            this.lblID.Location = new System.Drawing.Point(72, 7);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -449,27 +452,27 @@
             // txtID2
             // 
             this.txtID2.EnterMoveNextControl = true;
-            this.txtID2.Location = new System.Drawing.Point(364, 45);
+            this.txtID2.Location = new System.Drawing.Point(383, 4);
             this.txtID2.Name = "txtID2";
             this.txtID2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID2.Properties.MaxLength = 15;
             this.txtID2.Size = new System.Drawing.Size(156, 20);
             this.txtID2.TabIndex = 1;
-            this.txtID2.EditValueChanged += new System.EventHandler(this.txtID2_EditValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(333, 48);
+            this.label1.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.label1.Location = new System.Drawing.Point(343, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 12);
+            this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 128;
-            this.label1.Text = "--";
+            this.label1.Text = "~";
             // 
             // txtOut_detp1
             // 
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(159, 120);
+            this.txtOut_detp1.Location = new System.Drawing.Point(158, 80);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -488,7 +491,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(73, 125);
+            this.lblOut_dept.Location = new System.Drawing.Point(72, 85);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -497,7 +500,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(73, 151);
+            this.lblIn_dept.Location = new System.Drawing.Point(301, 85);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -507,7 +510,7 @@
             // txtIn_detp1
             // 
             this.txtIn_detp1.EnterMoveNextControl = true;
-            this.txtIn_detp1.Location = new System.Drawing.Point(159, 146);
+            this.txtIn_detp1.Location = new System.Drawing.Point(383, 80);
             this.txtIn_detp1.Name = "txtIn_detp1";
             this.txtIn_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -526,8 +529,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -538,8 +541,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -550,8 +553,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -673,14 +676,14 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 233);
+            this.gridControl1.Location = new System.Drawing.Point(4, 244);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select,
             this.colQty,
             this.colSec_qty});
-            this.gridControl1.Size = new System.Drawing.Size(1093, 436);
+            this.gridControl1.Size = new System.Drawing.Size(1093, 428);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1230,128 +1233,6 @@
             this.current_prod_qty.VisibleIndex = 23;
             this.current_prod_qty.Width = 127;
             // 
-            // chkJx
-            // 
-            this.chkJx.Location = new System.Drawing.Point(159, 172);
-            this.chkJx.Name = "chkJx";
-            this.chkJx.Properties.Caption = "不顯示已交JX的數據";
-            this.chkJx.Size = new System.Drawing.Size(152, 19);
-            this.chkJx.TabIndex = 138;
-            // 
-            // chkSelect
-            // 
-            this.chkSelect.Location = new System.Drawing.Point(29, 212);
-            this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Properties.Caption = "全選";
-            this.chkSelect.Size = new System.Drawing.Size(48, 19);
-            this.chkSelect.TabIndex = 140;
-            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
-            // 
-            // chkDelivery
-            // 
-            this.chkDelivery.Location = new System.Drawing.Point(159, 197);
-            this.chkDelivery.Name = "chkDelivery";
-            this.chkDelivery.Properties.Caption = "選擇當前頁數,自動將當前頁數所在的同一張移交單全選中";
-            this.chkDelivery.Size = new System.Drawing.Size(342, 19);
-            this.chkDelivery.TabIndex = 141;
-            // 
-            // chkPrint
-            // 
-            this.chkPrint.Location = new System.Drawing.Point(302, 172);
-            this.chkPrint.Name = "chkPrint";
-            this.chkPrint.Properties.Caption = "是否包含已列印數據?";
-            this.chkPrint.Size = new System.Drawing.Size(152, 19);
-            this.chkPrint.TabIndex = 142;
-            // 
-            // btnAlloy
-            // 
-            this.btnAlloy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnAlloy.Image = ((System.Drawing.Image)(resources.GetObject("btnAlloy.Image")));
-            this.btnAlloy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlloy.Location = new System.Drawing.Point(782, 185);
-            this.btnAlloy.Name = "btnAlloy";
-            this.btnAlloy.Size = new System.Drawing.Size(184, 31);
-            this.btnAlloy.TabIndex = 143;
-            this.btnAlloy.Text = " 合金啤機克胚烘焗記錄";
-            this.btnAlloy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlloy.UseVisualStyleBackColor = false;
-            this.btnAlloy.Click += new System.EventHandler(this.btnAlloy_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 12);
-            this.label2.TabIndex = 147;
-            this.label2.Text = "--";
-            // 
-            // txtMo_id2
-            // 
-            this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(364, 95);
-            this.txtMo_id2.Name = "txtMo_id2";
-            this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMo_id2.Properties.MaxLength = 9;
-            this.txtMo_id2.Size = new System.Drawing.Size(156, 20);
-            this.txtMo_id2.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(73, 98);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 146;
-            this.label5.Text = "頁  數";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtMo_id1
-            // 
-            this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(159, 95);
-            this.txtMo_id1.Name = "txtMo_id1";
-            this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMo_id1.Properties.MaxLength = 9;
-            this.txtMo_id1.Size = new System.Drawing.Size(156, 20);
-            this.txtMo_id1.TabIndex = 4;
-            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
-            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(626, 185);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(133, 31);
-            this.btnExcel.TabIndex = 148;
-            this.btnExcel.Text = "匯出EXCEL";
-            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcel.UseVisualStyleBackColor = false;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Enabled = false;
-            this.progressBar1.Location = new System.Drawing.Point(600, 69);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(299, 17);
-            this.progressBar1.Step = 1;
-            this.progressBar1.TabIndex = 149;
-            this.progressBar1.Visible = false;
-            // 
-            // chkReplaceQty
-            // 
-            this.chkReplaceQty.AutoSize = true;
-            this.chkReplaceQty.Checked = true;
-            this.chkReplaceQty.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkReplaceQty.Location = new System.Drawing.Point(455, 175);
-            this.chkReplaceQty.Name = "chkReplaceQty";
-            this.chkReplaceQty.Size = new System.Drawing.Size(168, 16);
-            this.chkReplaceQty.TabIndex = 150;
-            this.chkReplaceQty.Text = "將移交數量替換成生產數量";
-            this.chkReplaceQty.UseVisualStyleBackColor = true;
-            // 
             // lot_no
             // 
             this.lot_no.Caption = "Lot No";
@@ -1368,38 +1249,172 @@
             this.lot_no.Visible = true;
             this.lot_no.VisibleIndex = 24;
             // 
+            // chkJx
+            // 
+            this.chkJx.Location = new System.Drawing.Point(158, 107);
+            this.chkJx.Name = "chkJx";
+            this.chkJx.Properties.Caption = "不顯示已交JX的數據";
+            this.chkJx.Size = new System.Drawing.Size(152, 19);
+            this.chkJx.TabIndex = 138;
+            // 
+            // chkSelect
+            // 
+            this.chkSelect.Location = new System.Drawing.Point(29, 223);
+            this.chkSelect.Name = "chkSelect";
+            this.chkSelect.Properties.Caption = "全選";
+            this.chkSelect.Size = new System.Drawing.Size(48, 19);
+            this.chkSelect.TabIndex = 140;
+            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
+            // 
+            // chkDelivery
+            // 
+            this.chkDelivery.Location = new System.Drawing.Point(158, 132);
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.Properties.Caption = "選擇當前頁數,自動將當前頁數所在的同一張移交單全選中";
+            this.chkDelivery.Size = new System.Drawing.Size(342, 19);
+            this.chkDelivery.TabIndex = 141;
+            // 
+            // chkPrint
+            // 
+            this.chkPrint.Location = new System.Drawing.Point(301, 107);
+            this.chkPrint.Name = "chkPrint";
+            this.chkPrint.Properties.Caption = "是否包含已列印數據?";
+            this.chkPrint.Size = new System.Drawing.Size(152, 19);
+            this.chkPrint.TabIndex = 142;
+            // 
+            // btnAlloy
+            // 
+            this.btnAlloy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAlloy.Image = ((System.Drawing.Image)(resources.GetObject("btnAlloy.Image")));
+            this.btnAlloy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlloy.Location = new System.Drawing.Point(836, 209);
+            this.btnAlloy.Name = "btnAlloy";
+            this.btnAlloy.Size = new System.Drawing.Size(184, 31);
+            this.btnAlloy.TabIndex = 143;
+            this.btnAlloy.Text = " 合金啤機克胚烘焗記錄";
+            this.btnAlloy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlloy.UseVisualStyleBackColor = false;
+            this.btnAlloy.Click += new System.EventHandler(this.btnAlloy_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(343, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.TabIndex = 147;
+            this.label2.Text = "~";
+            // 
+            // txtMo_id2
+            // 
+            this.txtMo_id2.EnterMoveNextControl = true;
+            this.txtMo_id2.Location = new System.Drawing.Point(383, 54);
+            this.txtMo_id2.Name = "txtMo_id2";
+            this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMo_id2.Properties.MaxLength = 9;
+            this.txtMo_id2.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id2.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(72, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 146;
+            this.label5.Text = "頁  數";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMo_id1
+            // 
+            this.txtMo_id1.EnterMoveNextControl = true;
+            this.txtMo_id1.Location = new System.Drawing.Point(158, 54);
+            this.txtMo_id1.Name = "txtMo_id1";
+            this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMo_id1.Properties.MaxLength = 9;
+            this.txtMo_id1.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id1.TabIndex = 4;
+            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcel.Location = new System.Drawing.Point(680, 209);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(133, 31);
+            this.btnExcel.TabIndex = 148;
+            this.btnExcel.Text = "匯出EXCEL";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Enabled = false;
+            this.progressBar1.Location = new System.Drawing.Point(599, 28);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(299, 17);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 149;
+            this.progressBar1.Visible = false;
+            // 
+            // chkReplaceQty
+            // 
+            this.chkReplaceQty.AutoSize = true;
+            this.chkReplaceQty.Checked = true;
+            this.chkReplaceQty.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkReplaceQty.Location = new System.Drawing.Point(454, 110);
+            this.chkReplaceQty.Name = "chkReplaceQty";
+            this.chkReplaceQty.Size = new System.Drawing.Size(168, 16);
+            this.chkReplaceQty.TabIndex = 150;
+            this.chkReplaceQty.Text = "將移交數量替換成生產數量";
+            this.chkReplaceQty.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtID1);
+            this.panel1.Controls.Add(this.chkReplaceQty);
+            this.panel1.Controls.Add(this.txtDat1);
+            this.panel1.Controls.Add(this.progressBar1);
+            this.panel1.Controls.Add(this.txtDat2);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txtMo_id2);
+            this.panel1.Controls.Add(this.radioGroup1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.txtMo_id1);
+            this.panel1.Controls.Add(this.txtID2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.chkPrint);
+            this.panel1.Controls.Add(this.txtOut_detp1);
+            this.panel1.Controls.Add(this.chkDelivery);
+            this.panel1.Controls.Add(this.lblOut_dept);
+            this.panel1.Controls.Add(this.txtIn_detp1);
+            this.panel1.Controls.Add(this.chkJx);
+            this.panel1.Controls.Add(this.lblIn_dept);
+            this.panel1.Location = new System.Drawing.Point(4, 45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1092, 161);
+            this.panel1.TabIndex = 151;
+            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 672);
-            this.Controls.Add(this.chkReplaceQty);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnExcel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMo_id2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtMo_id1);
             this.Controls.Add(this.btnAlloy);
-            this.Controls.Add(this.chkPrint);
-            this.Controls.Add(this.chkDelivery);
-            this.Controls.Add(this.chkSelect);
-            this.Controls.Add(this.chkJx);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.lblIn_dept);
-            this.Controls.Add(this.txtIn_detp1);
-            this.Controls.Add(this.lblOut_dept);
-            this.Controls.Add(this.txtOut_detp1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtID2);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.txtDat2);
-            this.Controls.Add(this.txtDat1);
-            this.Controls.Add(this.txtID1);
+            this.Controls.Add(this.chkSelect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmDelivery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1407,6 +1422,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDelivery_FormClosed);
             this.Load += new System.EventHandler(this.frmDelivery_Load);
+            this.Resize += new System.EventHandler(this.frmDelivery_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
@@ -1429,6 +1445,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1533,5 +1551,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.CheckBox chkReplaceQty;
         private DevExpress.XtraGrid.Columns.GridColumn lot_no;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCardPlate));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             this.name_color_sample = new DevExpress.XtraGrid.Columns.GridColumn();
             this.plan_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
             this.chkSample = new DevExpress.XtraEditors.CheckEdit();
@@ -102,7 +103,7 @@
             this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -122,12 +123,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSample.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtID1
             // 
             this.txtID1.EnterMoveNextControl = true;
-            this.txtID1.Location = new System.Drawing.Point(159, 50);
+            this.txtID1.Location = new System.Drawing.Point(137, 4);
             this.txtID1.Name = "txtID1";
             this.txtID1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID1.Properties.MaxLength = 12;
@@ -138,7 +140,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 79);
+            this.label6.Location = new System.Drawing.Point(318, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 12);
             this.label6.TabIndex = 117;
@@ -146,7 +148,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(73, 79);
+            this.lblDate.Location = new System.Drawing.Point(51, 33);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
@@ -157,7 +159,7 @@
             // 
             this.txtDat2.EditValue = null;
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(376, 75);
+            this.txtDat2.Location = new System.Drawing.Point(354, 29);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -175,7 +177,7 @@
             // 
             this.txtDat1.EditValue = null;
             this.txtDat1.EnterMoveNextControl = true;
-            this.txtDat1.Location = new System.Drawing.Point(159, 75);
+            this.txtDat1.Location = new System.Drawing.Point(137, 29);
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -295,7 +297,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(73, 53);
+            this.lblID.Location = new System.Drawing.Point(51, 7);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -305,7 +307,7 @@
             // txtID2
             // 
             this.txtID2.EnterMoveNextControl = true;
-            this.txtID2.Location = new System.Drawing.Point(376, 50);
+            this.txtID2.Location = new System.Drawing.Point(354, 4);
             this.txtID2.Name = "txtID2";
             this.txtID2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID2.Properties.MaxLength = 12;
@@ -315,7 +317,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 53);
+            this.label1.Location = new System.Drawing.Point(318, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 12);
             this.label1.TabIndex = 128;
@@ -324,7 +326,7 @@
             // txtOut_detp1
             // 
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(159, 101);
+            this.txtOut_detp1.Location = new System.Drawing.Point(137, 55);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -344,7 +346,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(73, 106);
+            this.lblOut_dept.Location = new System.Drawing.Point(51, 60);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -354,7 +356,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 105);
+            this.label3.Location = new System.Drawing.Point(318, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 12);
             this.label3.TabIndex = 131;
@@ -363,7 +365,7 @@
             // txtOut_detp2
             // 
             this.txtOut_detp2.EnterMoveNextControl = true;
-            this.txtOut_detp2.Location = new System.Drawing.Point(376, 101);
+            this.txtOut_detp2.Location = new System.Drawing.Point(354, 55);
             this.txtOut_detp2.Name = "txtOut_detp2";
             this.txtOut_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -382,7 +384,7 @@
             // txtVendor2
             // 
             this.txtVendor2.EnterMoveNextControl = true;
-            this.txtVendor2.Location = new System.Drawing.Point(376, 126);
+            this.txtVendor2.Location = new System.Drawing.Point(354, 80);
             this.txtVendor2.Name = "txtVendor2";
             this.txtVendor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -401,7 +403,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 129);
+            this.label4.Location = new System.Drawing.Point(318, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 135;
@@ -409,7 +411,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(96, 129);
+            this.lblIn_dept.Location = new System.Drawing.Point(74, 83);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(57, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -419,7 +421,7 @@
             // txtVendor1
             // 
             this.txtVendor1.EnterMoveNextControl = true;
-            this.txtVendor1.Location = new System.Drawing.Point(159, 126);
+            this.txtVendor1.Location = new System.Drawing.Point(137, 80);
             this.txtVendor1.Name = "txtVendor1";
             this.txtVendor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -439,8 +441,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -451,8 +453,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -463,8 +465,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -586,12 +588,12 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 178);
+            this.gridControl1.Location = new System.Drawing.Point(4, 196);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select});
-            this.gridControl1.Size = new System.Drawing.Size(1093, 359);
+            this.gridControl1.Size = new System.Drawing.Size(1090, 341);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -875,69 +877,6 @@
             this.order_qty.Visible = true;
             this.order_qty.VisibleIndex = 17;
             // 
-            // chkSelect
-            // 
-            this.chkSelect.Location = new System.Drawing.Point(29, 155);
-            this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Properties.Caption = "全選";
-            this.chkSelect.Size = new System.Drawing.Size(48, 19);
-            this.chkSelect.TabIndex = 140;
-            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
-            // 
-            // chkDelivery
-            // 
-            this.chkDelivery.EditValue = true;
-            this.chkDelivery.Location = new System.Drawing.Point(578, 104);
-            this.chkDelivery.Name = "chkDelivery";
-            this.chkDelivery.Properties.Caption = "自動選擇整張收貨單";
-            this.chkDelivery.Size = new System.Drawing.Size(137, 19);
-            this.chkDelivery.TabIndex = 141;
-            // 
-            // chkSample
-            // 
-            this.chkSample.Location = new System.Drawing.Point(578, 51);
-            this.chkSample.Name = "chkSample";
-            this.chkSample.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.chkSample.Properties.Appearance.Options.UseForeColor = true;
-            this.chkSample.Properties.Caption = "只列印電鍍跟辦工序卡";
-            this.chkSample.Size = new System.Drawing.Size(157, 19);
-            this.chkSample.TabIndex = 142;
-            // 
-            // txtMo_id1
-            // 
-            this.txtMo_id1.Location = new System.Drawing.Point(159, 151);
-            this.txtMo_id1.Name = "txtMo_id1";
-            this.txtMo_id1.Properties.MaxLength = 9;
-            this.txtMo_id1.Size = new System.Drawing.Size(156, 20);
-            this.txtMo_id1.TabIndex = 143;
-            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
-            // 
-            // txtMo_id2
-            // 
-            this.txtMo_id2.Location = new System.Drawing.Point(376, 151);
-            this.txtMo_id2.Name = "txtMo_id2";
-            this.txtMo_id2.Properties.MaxLength = 9;
-            this.txtMo_id2.Size = new System.Drawing.Size(156, 20);
-            this.txtMo_id2.TabIndex = 144;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 12);
-            this.label2.TabIndex = 145;
-            this.label2.Text = "--";
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(96, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 146;
-            this.label5.Text = "頁    數";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lot_no
             // 
             this.lot_no.Caption = "批號";
@@ -950,36 +889,110 @@
             this.lot_no.Visible = true;
             this.lot_no.VisibleIndex = 18;
             // 
+            // chkSelect
+            // 
+            this.chkSelect.Location = new System.Drawing.Point(32, 176);
+            this.chkSelect.Name = "chkSelect";
+            this.chkSelect.Properties.Caption = "全選";
+            this.chkSelect.Size = new System.Drawing.Size(48, 19);
+            this.chkSelect.TabIndex = 140;
+            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
+            // 
+            // chkDelivery
+            // 
+            this.chkDelivery.EditValue = true;
+            this.chkDelivery.Location = new System.Drawing.Point(556, 58);
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.Properties.Caption = "自動選擇整張收貨單";
+            this.chkDelivery.Size = new System.Drawing.Size(137, 19);
+            this.chkDelivery.TabIndex = 141;
+            // 
+            // chkSample
+            // 
+            this.chkSample.Location = new System.Drawing.Point(556, 5);
+            this.chkSample.Name = "chkSample";
+            this.chkSample.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.chkSample.Properties.Appearance.Options.UseForeColor = true;
+            this.chkSample.Properties.Caption = "只列印電鍍跟辦工序卡";
+            this.chkSample.Size = new System.Drawing.Size(157, 19);
+            this.chkSample.TabIndex = 142;
+            // 
+            // txtMo_id1
+            // 
+            this.txtMo_id1.Location = new System.Drawing.Point(137, 105);
+            this.txtMo_id1.Name = "txtMo_id1";
+            this.txtMo_id1.Properties.MaxLength = 9;
+            this.txtMo_id1.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id1.TabIndex = 143;
+            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
+            // 
+            // txtMo_id2
+            // 
+            this.txtMo_id2.Location = new System.Drawing.Point(354, 105);
+            this.txtMo_id2.Name = "txtMo_id2";
+            this.txtMo_id2.Properties.MaxLength = 9;
+            this.txtMo_id2.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id2.TabIndex = 144;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(318, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 12);
+            this.label2.TabIndex = 145;
+            this.label2.Text = "--";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(74, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 146;
+            this.label5.Text = "頁    數";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtID1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtDat1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtDat2);
+            this.panel1.Controls.Add(this.txtMo_id2);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.txtMo_id1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.chkSample);
+            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.chkDelivery);
+            this.panel1.Controls.Add(this.txtID2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtOut_detp1);
+            this.panel1.Controls.Add(this.txtVendor2);
+            this.panel1.Controls.Add(this.lblOut_dept);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblIn_dept);
+            this.panel1.Controls.Add(this.txtOut_detp2);
+            this.panel1.Controls.Add(this.txtVendor1);
+            this.panel1.Location = new System.Drawing.Point(4, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1090, 133);
+            this.panel1.TabIndex = 147;
+            // 
             // frmCardPlate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 540);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMo_id2);
-            this.Controls.Add(this.txtMo_id1);
-            this.Controls.Add(this.chkSample);
-            this.Controls.Add(this.chkDelivery);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkSelect);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.txtVendor2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblIn_dept);
-            this.Controls.Add(this.txtVendor1);
-            this.Controls.Add(this.txtOut_detp2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblOut_dept);
-            this.Controls.Add(this.txtOut_detp1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtID2);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.txtDat2);
-            this.Controls.Add(this.txtDat1);
-            this.Controls.Add(this.txtID1);
             this.Name = "frmCardPlate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -1005,6 +1018,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSample.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1083,5 +1098,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Columns.GridColumn lot_no;
+        private System.Windows.Forms.Panel panel1;
     }
 }

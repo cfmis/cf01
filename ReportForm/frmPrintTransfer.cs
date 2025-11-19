@@ -305,19 +305,20 @@ namespace cf01.ReportForm
         {
             //dtPrint此表爲已處理掉重覆的記錄              
             dtPrint.Clear();
-            string strFilter = "", id = "", wp_id = "", mo_id, mat_id = "";        
-            int per_qty = 0;               
+            string strFilter = "", wp_id = "", mo_id, mat_id = "";        
+            int per_qty = 0;
+            DataRow[] aryDrw = null;
             for (int i = 0; i < dgvTransfer.Rows.Count; i++)
             {
                 if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)
                 {
-                    //id = dgvTransfer.Rows[i].Cells["colTrans_id"].Value.ToString();
                     wp_id = dgvTransfer.Rows[i].Cells["colIn_dept"].Value.ToString();
                     mo_id = dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString();
                     mat_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
-                    strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",wp_id,mo_id,mat_id);                   
-                    DataRow[] dr = dtPrint.Select(strFilter);
-                    if (dr.Length == 0)//是否已存在記錄
+                    strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",wp_id,mo_id,mat_id);
+                    //DataRow[] dr = dtPrint.Select(strFilter);
+                    aryDrw = dtPrint.Select(strFilter);
+                    if (aryDrw.Length == 0)//是否已存在記錄
                     {
                         dtPrint.Rows.Add(new object[] { wp_id, mo_id, mat_id, per_qty });
                     }
@@ -350,18 +351,20 @@ namespace cf01.ReportForm
                 DataSet dsTempData = clsPublicOfGEO.ExecuteProcedureReturnDataSet("z_rpt_prdtranser", paras, null);
                 
                 dtTempData = dsTempData.Tables[0];//主表
+                aryDrw = null;
                 if (dtTempData.Rows.Count > 0)
                 {
                     if (dtDataForPrint.Rows.Count > 0)
-                    {
+                    {                        
                         for (int j = 0; j < dtTempData.Rows.Count; j++)
                         {
                             //一個頁數有可能一次收多個批次的貨
                             //所以有必要多作個判斷，以防重入重覆的記錄
                             strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",
-                                dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]);                            
-                            DataRow[] dr = dtDataForPrint.Select(strFilter);
-                            if (dr.Length == 0)//是否已存記錄
+                                dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]);
+                            //DataRow[] aryDrw = dtDataForPrint.Select(strFilter);
+                            aryDrw = dtDataForPrint.Select(strFilter);
+                            if (aryDrw.Length == 0)//是否已存記錄
                             {
                                 dtDataForPrint.ImportRow(dtTempData.Rows[j]);
                             }
@@ -375,12 +378,14 @@ namespace cf01.ReportForm
                     dtTempParts = dsTempData.Tables[1];                         
                     if (dtParts.Rows.Count > 0)
                     {
+                        aryDrw = null;
                         for (int j = 0; j < dtTempParts.Rows.Count; j++)
                         {
                             strFilter = string.Format(@"wp_id='{0}' and mo_id='{1}' and goods_id='{2}' and part_goods_id='{3}'",
                             dtTempParts.Rows[j]["wp_id"], dtTempParts.Rows[j]["mo_id"], dtTempParts.Rows[j]["goods_id"], dtTempParts.Rows[j]["part_goods_id"]);
-                            DataRow[] dr = dtParts.Select(strFilter);
-                            if (dr.Length == 0)//是否已存記錄
+                            //DataRow[] dr = dtParts.Select(strFilter);
+                            aryDrw = dtParts.Select(strFilter);
+                            if (aryDrw.Length == 0)//是否已存記錄
                             {
                                 dtParts.ImportRow(dtTempParts.Rows[j]);
                             }

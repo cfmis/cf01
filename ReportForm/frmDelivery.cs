@@ -19,18 +19,18 @@ namespace cf01.ReportForm
 {
     public partial class frmDelivery : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtDelivery = new DataTable();
         DataTable dtProductCard = new DataTable();       
         DataTable dtDept = new DataTable();
         DataTable dtVendor = new DataTable();
-        private DataTable dtDataForPrint = new DataTable();
-        private DataTable dtParts = new DataTable();
+        DataTable dtDataForPrint = new DataTable();
+        DataTable dtParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
-        private DataTable dtPrint = new DataTable();
-        private string strUserid = DBUtility._user_id;
-        private string within_code = DBUtility.within_code;
+        DataTable dtPrint = new DataTable();
+        string strUserid = DBUtility._user_id;
+        string within_code = DBUtility.within_code;
         public frmDelivery()
         {
             InitializeComponent();
@@ -43,18 +43,16 @@ namespace cf01.ReportForm
                 // clsApp.RetSetImage(toolStrip1);//因翻譯部分代碼的影響，當前菜單按鈕圖片及文本樣式異常.
                 //設置菜單按鈕的權限
                 //clsApp.SetToolBarEnable(this.Name, this.Controls);
-                clsApp.Initialize_find_value(this.Name, this.Controls);
-                chkSelect.Checked = false;
-                //BTNPRINT.Text = "標簽機列印(&P)";
+                clsApp.Initialize_find_value(this.Name, this.panel1.Controls);                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            dtPrint.Columns.Add("wp_id", typeof(String));
-            dtPrint.Columns.Add("mo_id", typeof(String));
-            dtPrint.Columns.Add("goods_id", typeof(String));
+            dtPrint.Columns.Add("wp_id", typeof(string));
+            dtPrint.Columns.Add("mo_id", typeof(string));
+            dtPrint.Columns.Add("goods_id", typeof(string));
             dtPrint.Columns.Add("per_qty", typeof(int));
         }        
 
@@ -75,8 +73,8 @@ namespace cf01.ReportForm
                         
             string strsql = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE id='CL-K0036' ORDER BY id";
             dtVendor = clsConErp.GetDataTable(strsql);
-            DataRow dr1 = dtVendor.NewRow(); //插一空行        
-            dtVendor.Rows.InsertAt(dr1, 0);
+            dr0 = dtVendor.NewRow(); //插一空行        
+            dtVendor.Rows.InsertAt(dr0, 0);
 
             if (string.IsNullOrEmpty(txtDat1.Text))
             {
@@ -124,7 +122,6 @@ namespace cf01.ReportForm
             gridView1.CloseEditor();
             txtID2.Focus();
 
-
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -145,7 +142,6 @@ namespace cf01.ReportForm
                 gridControl1.DataSource = null;
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
         private void findData()
         {
@@ -159,15 +155,8 @@ namespace cf01.ReportForm
                 }
                 else
                 {
-                    //if (strID1.Substring(0, 1) == "P" || strID2.Substring(0, 1) == "P")
-                    if (strID1.IndexOf("-") == 4 || strID2.IndexOf("-") == 4)
-                    {
-                        radioGroup1.SelectedIndex = 2;// 外發JX加工單
-                    }
-                    else
-                    {
-                        radioGroup1.SelectedIndex = 0;// 移交單
-                    }
+                    // 2:外發JX加工單,0:移交單
+                    radioGroup1.SelectedIndex = (strID1.IndexOf("-") == 4 || strID2.IndexOf("-") == 4) ? 2 : 0;
                 }
             }
 
@@ -180,24 +169,12 @@ namespace cf01.ReportForm
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            string flag_jx = "";
-            string flag_print = "";
-            if (radioGroup1.SelectedIndex == 2) //JX Data
-            {
-                if (chkJx.Checked)
-                    flag_jx = "1";//不顯示已交江西的數據
-                else
-                    flag_jx = "";
-            }
+            string flag_jx = "", flag_print = "";
+            if (radioGroup1.SelectedIndex == 2) //JX Data            
+                flag_jx = (chkJx.Checked) ? "1" : ""; //1為不顯示已交江西的數據            
             else
                 flag_jx = "";
-
-            if (chkPrint.Checked)
-                flag_print = "Y";
-            else
-                flag_print = "";
-
+            flag_print = (chkPrint.Checked) ? "Y" : "";
 
             SqlParameter[] paras = new SqlParameter[]
             {
@@ -212,12 +189,8 @@ namespace cf01.ReportForm
                     new SqlParameter("@in_dept_s", in_dept1),
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print)
-            };
-            //dstReport = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_delivery_all", paras, "");
-            //dtDelivery = dstReport.Tables[0];
+            };            
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
-            //dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
-            
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             
@@ -231,27 +204,29 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("per_qty", typeof(int));
             dtDelivery.Columns.Add("net_weight", typeof(float));
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
-            //dtDelivery.Columns.Add("prod_qty_every_time", typeof(float));
-            for (int i=0;i<dtDelivery.Rows.Count;i++)
+            string dept = "";
+            DataRow dr = null, drNext = null; 
+            DataTable dtNextDept = new DataTable();
+            for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
-                DataRow dr = dtDelivery.Rows[i];//
-                string dep = dr["in_dept"].ToString();
-                DataTable dt = getNextDepItem(dr["mo_id"].ToString(), dep, dr["goods_id"].ToString());
-                if(dt.Rows.Count>0)
+                dr = dtDelivery.Rows[i];
+                dept = dr["in_dept"].ToString();
+                dtNextDept = getNextDepItem(dr["mo_id"].ToString(), dept, dr["goods_id"].ToString());
+                if (dtNextDept.Rows.Count > 0)
                 {
-                    DataRow drCurrent = dt.Rows[0];
-                    dr["current_goods_id"] = drCurrent["goods_id"];
-                    dr["current_goods_name"] = drCurrent["goods_name"];
-                    dr["next_wp_id"] = drCurrent["next_wp_id"];
-                    dr["next_wp_name"] = drCurrent["next_wp_name"];
-                    dr["current_prod_qty"] = drCurrent["prod_qty"];
-                    dr["current_req_date"] = drCurrent["req_date"];
-                    if (dep == "102" || dep == "108")
+                    drNext = dtNextDept.Rows[0];
+                    dr["current_goods_id"] = drNext["goods_id"];
+                    dr["current_goods_name"] = drNext["goods_name"];
+                    dr["next_wp_id"] = drNext["next_wp_id"];
+                    dr["next_wp_name"] = drNext["next_wp_name"];
+                    dr["current_prod_qty"] = drNext["prod_qty"];
+                    dr["current_req_date"] = drNext["req_date"];
+                    if (dept == "102" || dept == "108")
                     {
-                        dr["do_color"] = drCurrent["next_do_color"];
-                    }                        
+                        dr["do_color"] = drNext["next_do_color"];
+                    }
                 }
-                if(chkReplaceQty.Checked==true)
+                if (chkReplaceQty.Checked == true)
                 {
                     dr["per_qty"] = dr["con_qty"];
                     dr["net_weight"] = dr["sec_qty"];
@@ -259,6 +234,7 @@ namespace cf01.ReportForm
             }
             //======
         }
+
         private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
         {
             DataTable dt = new DataTable(); 
@@ -302,10 +278,10 @@ namespace cf01.ReportForm
                     AND b.wp_id='{2}' And b.next_wp_id<>'702'", mo_id, goods_id, wp_id);
                     dt = clsConErp.GetDataTable(strSql);
                 }
-            }
-            
+            }            
             return dt;
         }
+
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
         {
             string prdDep = dep;
@@ -340,25 +316,26 @@ namespace cf01.ReportForm
                 strSql += strSelect + strWhere1 + strWhere2;
             }
             DataTable dtJx = clsPublicOfCF01.GetDataTable(strSql);
-            for (int i=0;i<dtJx.Rows.Count;i++)
+            DataRow drJx = null, drDelivery = null;
+            for (int i = 0; i < dtJx.Rows.Count; i++)
             {
-                DataRow drJx = dtJx.Rows[i];
-                DataRow drNew = dtDelivery.NewRow();
-                drNew["in_dept"] = drJx["Prd_dep"];
-                drNew["in_dept_name"] = drJx["Prd_dep_cdesc"];
-                drNew["out_dept"] = drJx["wip_id"];
-                drNew["out_dept_name"] = drJx["wip_id_cdesc"];
-                drNew["mo_id"] = drJx["prd_mo"];
-                drNew["goods_id"] = drJx["prd_item"];
-                drNew["goods_name"] = drJx["goods_name"];
-                drNew["con_qty"] = drJx["transfer_qty"];
-                drNew["sec_qty"] = drJx["transfer_weg"];
-                drNew["package_num"] = drJx["pack_num"];
-                drNew["con_date"] = drJx["Transfer_date"];
-                drNew["id"] = drJx["Prd_id"].ToString();
-                drNew["sequence_id"] = drJx["Prd_id"].ToString();
-                drNew["next_wp_id"] = drJx["to_dep"].ToString();
-                dtDelivery.Rows.Add(drNew);
+                drJx = dtJx.Rows[i];
+                drDelivery = dtDelivery.NewRow();
+                drDelivery["in_dept"] = drJx["Prd_dep"];
+                drDelivery["in_dept_name"] = drJx["Prd_dep_cdesc"];
+                drDelivery["out_dept"] = drJx["wip_id"];
+                drDelivery["out_dept_name"] = drJx["wip_id_cdesc"];
+                drDelivery["mo_id"] = drJx["prd_mo"];
+                drDelivery["goods_id"] = drJx["prd_item"];
+                drDelivery["goods_name"] = drJx["goods_name"];
+                drDelivery["con_qty"] = drJx["transfer_qty"];
+                drDelivery["sec_qty"] = drJx["transfer_weg"];
+                drDelivery["package_num"] = drJx["pack_num"];
+                drDelivery["con_date"] = drJx["Transfer_date"];
+                drDelivery["id"] = drJx["Prd_id"].ToString();
+                drDelivery["sequence_id"] = drJx["Prd_id"].ToString();
+                drDelivery["next_wp_id"] = drJx["to_dep"].ToString();
+                dtDelivery.Rows.Add(drDelivery);
             }
         }
 
@@ -399,13 +376,14 @@ namespace cf01.ReportForm
 
             DataTable dtReport = new DataTable();
             dtReport = dtDelivery.Clone();
-            int base_rate = 0;
-            int ii;
+            DataRow newRow = null;
+            int base_rate = 0, ii = 0;            
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
                 if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
                 {
-                    DataRow newRow = dtReport.NewRow();
+                    //DataRow newRow = dtReport.NewRow();
+                    newRow = dtReport.NewRow();
                     newRow["id"] = dtDelivery.Rows[i]["id"].ToString();
                     newRow["con_date"] = dtDelivery.Rows[i]["con_date"].ToString();
                     newRow["out_dept"] = dtDelivery.Rows[i]["out_dept"].ToString();
@@ -457,9 +435,10 @@ namespace cf01.ReportForm
                             ii = Convert.ToInt16(dtDelivery.Rows[i]["package_num"].ToString());//包數
                             newRow["package_num"] = 1;//將包數還設成從1開始.
                             dtReport.Rows.Add(newRow);
+                            DataRow dr = null;
                             for (int j = 1; j < ii; j++)
                             {
-                                DataRow dr = dtReport.NewRow();
+                                dr = dtReport.NewRow();
                                 dr["id"] = dtDelivery.Rows[i]["id"].ToString();
                                 dr["con_date"] = dtDelivery.Rows[i]["con_date"].ToString();
                                 dr["out_dept"] = dtDelivery.Rows[i]["out_dept"].ToString();
@@ -528,12 +507,10 @@ namespace cf01.ReportForm
             if (pType == "3")
             {
                 rpt = new xrDelivery_details_A4() { DataSource = dtReport };                
-            }
-          
+            }          
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
             rpt.ShowPreview();
-                  
         }
 
         private void PrintProductCard()
@@ -545,68 +522,13 @@ namespace cf01.ReportForm
                 return;
             }        
             gridView1.CloseEditor();
-            DataTable dtNewWork = new DataTable();
-            dtNewWork.Rows.Clear();
-            dtNewWork.Columns.Add("report_name", typeof(string));
-            dtNewWork.Columns.Add("mo_id", typeof(string));
-            dtNewWork.Columns.Add("ver", typeof(string));
-            dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
-            dtNewWork.Columns.Add("goods_name", typeof(string));
-            dtNewWork.Columns.Add("BarCode", typeof(string));
-            dtNewWork.Columns.Add("goods_id", typeof(string));
-            dtNewWork.Columns.Add("brand_id", typeof(string));
-            dtNewWork.Columns.Add("prod_qty", typeof(string));
-            dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
-            dtNewWork.Columns.Add("goods_unit", typeof(string));
-            dtNewWork.Columns.Add("color_name", typeof(string));
-            dtNewWork.Columns.Add("predept_rechange_qty", typeof(string));
-            dtNewWork.Columns.Add("c_sec_qty_ok", typeof(string));
-            dtNewWork.Columns.Add("do_color", typeof(string));
-            dtNewWork.Columns.Add("wh_location", typeof(string));
-            dtNewWork.Columns.Add("prod_date", typeof(string));
-            dtNewWork.Columns.Add("t_complete_date", typeof(string));
-            dtNewWork.Columns.Add("per_qty", typeof(string));
-            dtNewWork.Columns.Add("net_weight", typeof(string));//**
-            dtNewWork.Columns.Add("base_qty", typeof(int));
-            dtNewWork.Columns.Add("unit_code", typeof(string));
-            dtNewWork.Columns.Add("base_rate", typeof(int));
-            dtNewWork.Columns.Add("basic_unit", typeof(string));
-            dtNewWork.Columns.Add("page_num", typeof(int));
-            dtNewWork.Columns.Add("total_page", typeof(int));
-            dtNewWork.Columns.Add("vendor_id", typeof(string));
-            dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));            
-            dtNewWork.Columns.Add("picture_name", typeof(string)); 
-            dtNewWork.Columns.Add("arrive_date", typeof(string));
-            dtNewWork.Columns.Add("next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_goods_name", typeof(string));
-            dtNewWork.Columns.Add("next_do_color", typeof(string));
-            dtNewWork.Columns.Add("next_vendor_id", typeof(string));
-            dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-            dtNewWork.Columns.Add("qty_remaining", typeof(int));
-            //2024/03/12
-            dtNewWork.Columns.Add("qc_dept", typeof(string));
-            dtNewWork.Columns.Add("qc_name", typeof(string));
-            dtNewWork.Columns.Add("qc_qty", typeof(string));
-            dtNewWork.Columns.Add("stantard_qty", typeof(string));
-            dtNewWork.Columns.Add("qc_test", typeof(string));
-            dtNewWork.Columns.Add("process_remark", typeof(string));
-            dtNewWork.Columns.Add("dept_remark", typeof(string));
-
+            DataTable dtNewWork = clsMo_for_jx.GenWorkerCard(); //生成工序卡的表結構
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
             {
                 DataTable dtCard = new DataTable();
-                string in_dept = "";
-                string mo_id = "";
-                string goods_id = "";             
-                int page_num = 0, per_qty = 0,prod_qty=0, numPage = 1,qty_remaining=0;
+                string in_dept = "", mo_id = "", goods_id = "";
+                int page_num = 0, per_qty = 0, prod_qty = 0, numPage = 1, qty_remaining = 0;
                 decimal net_weight = 0, sec_qty=0;               
                 //設置進度條屬性
                 progressBar1.Enabled = true;
@@ -624,7 +546,7 @@ namespace cf01.ReportForm
                     //goods_id = drw[i]["goods_id"].ToString(); // CANCEL 2024/03/14
                     goods_id = drw[i]["current_goods_id"].ToString();  //Add 2024/03/14                                  
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
-                    per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
+                    per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : int.Parse(drw[i]["per_qty"].ToString());//每次生產數量
                     net_weight = string.IsNullOrEmpty(drw[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drw[i]["net_weight"].ToString());//生產重量
                     sec_qty = string.IsNullOrEmpty(drw[i]["sec_qty"].ToString()) ? 0 : decimal.Parse(drw[i]["sec_qty"].ToString());
                     SqlParameter[] paras = new SqlParameter[] {
@@ -636,7 +558,6 @@ namespace cf01.ReportForm
                     //************
                     //顯示進度條
                     progressBar1.Value += progressBar1.Step; 
-                    //dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);//2024/3/13取消
                     dtCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_product_card", paras); 
                     if (progressBar1.Value == progressBar1.Maximum)
                     {
@@ -648,9 +569,8 @@ namespace cf01.ReportForm
                     {
                         prod_qty = 0;
                         for (int j = 0; j < dtCard.Rows.Count; j++)
-                        {
-                            //prod_qty = Int32.Parse(dtCard.Rows[j]["prod_qty"].ToString());
-                            prod_qty = Int32.Parse(drw[i]["con_qty"].ToString());////2024/03/20日修改，已收到的移交數為生產數
+                        {                            
+                            prod_qty = int.Parse(drw[i]["con_qty"].ToString());//2024/03/20日修改，已收到的移交數為生產數
                             if (per_qty == 0)
                             {
                                 per_qty = prod_qty;
@@ -671,11 +591,12 @@ namespace cf01.ReportForm
                             }
                             else
                             {        
-                                numPage = 1;                                
+                                numPage = 1;
                             }
+                            DataRow dr = null;
                             for (int ii = 1; ii <= numPage; ii++)//分頁
                             {
-                                DataRow dr = dtNewWork.NewRow();
+                                dr = dtNewWork.NewRow();
                                 dr["report_name"] = dtCard.Rows[j]["report_name"].ToString();
                                 dr["mo_id"] = dtCard.Rows[j]["mo_id"].ToString();
                                 dr["ver"] = dtCard.Rows[j]["ver"].ToString();
@@ -730,7 +651,6 @@ namespace cf01.ReportForm
                                 dr["next_vendor_id"] = dtCard.Rows[j]["next_vendor_id"].ToString();
                                 dr["next_next_wp_id"] = dtCard.Rows[j]["next_next_wp_id"].ToString();
                                 dr["next_next_dep_name"] = dtCard.Rows[j]["next_next_dep_name"].ToString();
-
                                 dr["next_next_goods_id"] = dtCard.Rows[j]["next_next_goods_id"].ToString();
                                 dr["next_next_do_color"] = dtCard.Rows[j]["next_next_do_color"].ToString();
                                 dr["qty_remaining"] = qty_remaining;
@@ -754,8 +674,7 @@ namespace cf01.ReportForm
                             }
                         }
                     }
-                }
-                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                }                
             }
             else
             {
@@ -776,8 +695,6 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show("查不到相關的工序卡資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);               
             }
-
-
         }
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
@@ -806,19 +723,13 @@ namespace cf01.ReportForm
             {
                 txtIn_detp1.Properties.DataSource = dtVendor;
                 txtIn_detp1.Properties.ValueMember = "id";
-                txtIn_detp1.Properties.DisplayMember = "cdesc";
-                //txtIn_detp2.Properties.DataSource = dtVendor;
-                //txtIn_detp2.Properties.ValueMember = "id";
-                //txtIn_detp2.Properties.DisplayMember = "cdesc";
+                txtIn_detp1.Properties.DisplayMember = "cdesc";               
             }
             else
             {
                 txtIn_detp1.Properties.DataSource = dtDept;
                 txtIn_detp1.Properties.ValueMember = "id";
-                txtIn_detp1.Properties.DisplayMember = "cdesc";
-                //txtIn_detp2.Properties.DataSource = dtDept;
-                //txtIn_detp2.Properties.ValueMember = "id";
-                //txtIn_detp2.Properties.DisplayMember = "cdesc";
+                txtIn_detp1.Properties.DisplayMember = "cdesc";                
             }
         }
 
@@ -840,15 +751,15 @@ namespace cf01.ReportForm
         private void Save(DataRow[] dr)
         {
             bool save_flag = true;
-            const string comp_code = "0000";            
-            const string sql_h_i = @"INSERT INTO tr_motojx_head(comp_code,doc_id,doc_date,out_dep,in_dep,crusr,crtim)
+            string comp_code = "0000";            
+            string sql_h_i = @"INSERT INTO tr_motojx_head(comp_code,doc_id,doc_date,out_dep,in_dep,crusr,crtim)
                                     VALUES(@comp_code,@doc_id,@doc_date,@out_dep,@in_dep,@crusr,getdate())";            
-            const string sql_d_i = @"INSERT INTO tr_motojx_details(comp_code,doc_id,seq_id,prd_mo,prd_item,mat_item,tr_qty,tr_weg,tr_packer,crusr,crtim)
+            string sql_d_i = @"INSERT INTO tr_motojx_details(comp_code,doc_id,seq_id,prd_mo,prd_item,mat_item,tr_qty,tr_weg,tr_packer,crusr,crtim)
                                     VALUES(@comp_code,@doc_id,@seq_id,@prd_mo,@prd_item,@mat_item,@tr_qty,@tr_weg,@tr_packer,@crusr,getdate())";
 
-            const string sql_d_u = @"UPDATE tr_motojx_details SET prd_mo=@prd_mo,prd_item=@prd_item,mat_item=@mat_item,
-                                       tr_qty=@tr_qty,tr_weg=@tr_weg,tr_packer=@tr_packer,amusr=@crusr,amtim=getdate()
-                                   Where comp_code=@comp_code AND doc_id=@doc_id AND seq_id=@seq_id";            
+            string sql_d_u = @"UPDATE tr_motojx_details SET prd_mo=@prd_mo,prd_item=@prd_item,mat_item=@mat_item,
+                                   tr_qty=@tr_qty,tr_weg=@tr_weg,tr_packer=@tr_packer,amusr=@crusr,amtim=getdate()
+                               Where comp_code=@comp_code AND doc_id=@doc_id AND seq_id=@seq_id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
             SqlTransaction myTrans = myCon.BeginTransaction();
@@ -856,11 +767,10 @@ namespace cf01.ReportForm
 
             DataTable dtHead = new DataTable();
             DataTable dtDetails = new DataTable();
-            string sql_h_f = "";
-            string sql_d_f = "";
+            string sql_h_f = "", sql_d_f = "";
             for (int i = 0; i < dr.Length; i++)
             {
-                sql_h_f = String.Format(@"Select '1' FROM tr_motojx_head With(nolock) WHERE comp_code='{0}' AND doc_id='{1}'", comp_code, dr[i]["id"]);
+                sql_h_f = string.Format(@"Select '1' FROM tr_motojx_head With(nolock) WHERE comp_code='{0}' AND doc_id='{1}'", comp_code, dr[i]["id"]);
                 dtHead = clsPublicOfCF01.GetDataTable(sql_h_f);                              
                 try
                 {
@@ -880,8 +790,7 @@ namespace cf01.ReportForm
                         myCommand.Parameters.Clear();
                         myCommand.Parameters.AddRange(paras);
                         myCommand.ExecuteNonQuery();                        
-                    }
-                    
+                    }                    
                     //明細
                     SqlParameter[] paras_d = new SqlParameter[]
                     {
@@ -896,7 +805,7 @@ namespace cf01.ReportForm
                         new SqlParameter("@tr_packer", dr[i]["package_num"]),                            
                         new SqlParameter("@crusr", strUserid)
                     };
-                    sql_d_f = String.Format(@"Select '1' FROM tr_motojx_details With(nolock) WHERE comp_code='{0}' AND doc_id='{1}' AND seq_id='{2}'", comp_code, dr[i]["id"], dr[i]["sequence_id"]);
+                    sql_d_f = string.Format(@"Select '1' FROM tr_motojx_details With(nolock) WHERE comp_code='{0}' AND doc_id='{1}' AND seq_id='{2}'", comp_code, dr[i]["id"], dr[i]["sequence_id"]);
                     dtDetails = clsPublicOfCF01.GetDataTable(sql_d_f);
                     if (dtDetails.Rows.Count == 0)
                     {                       
@@ -910,7 +819,6 @@ namespace cf01.ReportForm
                     myCommand.Parameters.AddRange(paras_d);
                     myCommand.ExecuteNonQuery();                    
                     save_flag = true;
-                    
                 }                    
                 catch (Exception E)
                 {
@@ -942,8 +850,7 @@ namespace cf01.ReportForm
             if (gridView1.GetDataRow(e.RowHandle) == null)
             {
                 return;
-            }
-            
+            }            
             string seq_id_flag = gridView1.GetRowCellDisplayText(e.RowHandle, "seq_id_flag");
             if (string.IsNullOrEmpty(seq_id_flag))
             {
@@ -961,7 +868,7 @@ namespace cf01.ReportForm
         {
             if (dtDelivery.Rows.Count > 0)
             {
-                Boolean blSetValue = true;
+                bool blSetValue = true;
                 if (chkSelect.Checked)
                 {
                     blSetValue = true;//Select All                    
@@ -973,8 +880,7 @@ namespace cf01.ReportForm
                 for (int i = 0; i < dtDelivery.Rows.Count; i++)
                 {
                     gridView1.SetRowCellValue(i, "flag_select", blSetValue);
-                }
-                
+                }                
             }
         }
             
@@ -986,15 +892,7 @@ namespace cf01.ReportForm
                 gridView1.CloseEditor();//將當前行所有更改立即定入綁定的數據源
                 string strID = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id").ToString();
                 string value_select = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "flag_select").ToString();
-                bool flag;
-                if (value_select == "True")
-                {                   
-                    flag = true;
-                }
-                else
-                {
-                    flag = false;
-                }
+                bool flag = (value_select == "True") ? true : false; 
                 for (int i = 0; i < dtDelivery.Rows.Count; i++)
                 {
                     if (gridView1.GetRowCellDisplayText(i, "id") == strID)
@@ -1008,7 +906,7 @@ namespace cf01.ReportForm
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
         {
-            if(clsApp.set_find_Value(this.Name, this.Controls)>0)
+            if(clsApp.set_find_Value(this.Name, this.panel1.Controls) >0)
                 MessageBox.Show("當前查詢條件保存成功!", "提示信息");
             else
                 MessageBox.Show("當前查詢條件保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error); 
@@ -1026,7 +924,6 @@ namespace cf01.ReportForm
                 MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             DataTable dtReport = new DataTable();
             dtReport = dtDelivery.Clone();
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
@@ -1047,7 +944,7 @@ namespace cf01.ReportForm
 
             bool flag_save = false;
             string id, seq_no;
-            const string sql_i = "Insert Into dbo.jo_z_delivery(within_code,id,sequence_id) values(@within_code,@id,@sequence_id)";
+            string sql_i = "Insert Into dbo.jo_z_delivery(within_code,id,sequence_id) values(@within_code,@id,@sequence_id)";
             string sql_f = "", strResult = "";
 
             SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
@@ -1113,12 +1010,14 @@ namespace cf01.ReportForm
             DataTable dt = new DataTable();
             dt = dtDelivery.Clone();
             int record_no=0;
+            DataRow newRow = null;
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
                 if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
                 {
                     record_no += 1;
-                    DataRow newRow = dt.NewRow();          
+                    //DataRow newRow = dt.NewRow();   
+                    newRow = dt.NewRow();
                     newRow["mo_id"] = dtDelivery.Rows[i]["mo_id"].ToString();
                     newRow["goods_id"] = dtDelivery.Rows[i]["goods_id"].ToString();
                     newRow["goods_name"] = dtDelivery.Rows[i]["goods_name"].ToString();
@@ -1135,11 +1034,6 @@ namespace cf01.ReportForm
             obj_rpt.ShowPreviewDialog();
         }
 
-        private void txtID2_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtMo_id1_Leave(object sender, EventArgs e)
         {
             txtMo_id2.Text = txtMo_id1.Text;
@@ -1150,185 +1044,7 @@ namespace cf01.ReportForm
             //Export_To_Excel();
             dvExportExcel();
         }
-
-        ///// <summary>
-        ///// 移交數據匯出Excel
-        ///// </summary>
-        ///// <param name="strType"></param>
-        //private void Export_To_Excel()
-        //{            
-        //    if (gridView1.RowCount > 0)
-        //    {               
-        //        SaveFileDialog saveDialog = new SaveFileDialog()
-        //        {
-        //            /*saveDialog.DefaultExt = "";*/
-        //            Title = "保存EXECL文件",
-        //            Filter = "EXECL文件|*.xls",
-        //            FilterIndex = 1
-        //        };
-        //        if (saveDialog.ShowDialog() == DialogResult.OK)
-        //        {
-        //            string ls_files = saveDialog.FileName;
-        //            if (File.Exists(ls_files))
-        //            {
-        //                File.Delete(ls_files);
-        //            }
-        //            int li_format_num;//保存excel文件的格式
-        //            string ls_version;//excel版本號
-
-        //            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-        //            if (xlApp == null)
-        //            {
-        //                MessageBox.Show("无法创建Excel对象,可能您的机子未安装Excel");
-        //                return;
-        //            }
-        //            ls_version = xlApp.Version;//獲取當前使用excel版本號
-        //            if (Convert.ToDouble(ls_version) < 12)//You use Excel 97-2003
-        //            {
-        //                li_format_num = -4143;
-        //            }
-        //            else //you use excel 2007 or later
-        //            {
-        //                li_format_num = 56;
-        //            }
-        //            Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
-        //            Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
-        //            Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1                    
-        //            //第一行为报表名称
-        //            worksheet.Cells[1, 1] = "序號";
-        //            worksheet.Cells[1, 2] = "日期";
-        //            worksheet.Cells[1, 3] = "發貨部門";
-        //            worksheet.Cells[1, 4] = "訂單編號";
-        //            worksheet.Cells[1, 5] = "物品描述";
-        //            worksheet.Cells[1, 6] = "數量";
-        //            worksheet.Cells[1, 7] = "包數";
-        //            worksheet.Cells[1, 8] = "重量";
-        //            worksheet.Cells[1, 9] = "收貨部門";
-        //            worksheet.Cells[1, 10] = "備註";
-        //            worksheet.Rows[1].Font.Size = 10;
-        //            worksheet.Rows[1].Font.Bold = true;//粗體
-        //            worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-        //            worksheet.Rows[1].RowHeight = 33;
-
-        //            cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-        //            new Thread((ThreadStart)delegate
-        //            {
-        //                wForm.TopMost = true;
-        //                wForm.ShowDialog();
-        //            }).Start();
-                    
-        //            //寫入數值
-        //            DataTable dt = new DataTable();
-        //            string ls_con_date = "";
-        //            int li_sequence_id = 0, li_cur_row_xls = 0;
-        //            decimal ldc_total_sec_qty = 0;
-                    
-        //            for (int r = 0; r < gridView1.RowCount; r++)//行
-        //            {
-        //                if (r == 0)
-        //                {
-        //                    li_cur_row_xls = 2;
-        //                }
-                                    
-        //                if (gridView1.GetRowCellValue(r, "con_date").ToString()!= ls_con_date)
-        //                {                            
-        //                    if (r != 0)//r等于0為gridView1的第一行,不執行if中的代碼
-        //                    {
-        //                        //小計
-        //                        li_sequence_id += 1;
-        //                        worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//組小計序號
-        //                        worksheet.Cells[li_cur_row_xls, 2] = ls_con_date;
-        //                        worksheet.Cells[li_cur_row_xls, 3] = "小計:";
-        //                        worksheet.Cells[li_cur_row_xls, 8] = ldc_total_sec_qty;
-        //                        worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-        //                        worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體      
-        //                        //li_cur_row_xls = r + 2 + 1;//小計代碼有執行則重置寫入EXCEL的當前行(相當于加多一行)
-        //                        li_cur_row_xls = li_cur_row_xls + 1; //小計后面行
-        //                    }
-        //                    //當日期不同時初始化序號及總重量的值
-        //                    li_sequence_id = 0;
-        //                    ldc_total_sec_qty = 0;
-        //                }
-        //                li_sequence_id += 1;//累加序號
-        //                ldc_total_sec_qty += decimal.Parse(gridView1.GetRowCellValue(r, "sec_qty").ToString());//累加小計重量
-
-        //                worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//序號
-        //                worksheet.Cells[li_cur_row_xls, 2] = gridView1.GetRowCellValue(r, "con_date").ToString(); //"日期"
-        //                worksheet.Cells[li_cur_row_xls, 3] = gridView1.GetRowCellValue(r, "out_dept_name").ToString();//"發貨部門"
-        //                worksheet.Cells[li_cur_row_xls, 4] = gridView1.GetRowCellValue(r, "mo_id").ToString();//"訂單編號"
-        //                worksheet.Cells[li_cur_row_xls, 5] = gridView1.GetRowCellValue(r, "goods_name").ToString();//"物品描述"
-        //                worksheet.Cells[li_cur_row_xls, 6] = gridView1.GetRowCellValue(r, "con_qty").ToString();//"數量"
-        //                worksheet.Cells[li_cur_row_xls, 7] = gridView1.GetRowCellValue(r, "package_num").ToString();//"包數"
-        //                worksheet.Cells[li_cur_row_xls, 8] = gridView1.GetRowCellValue(r, "sec_qty").ToString(); //"重量"
-        //                worksheet.Cells[li_cur_row_xls, 9] = gridView1.GetRowCellValue(r, "in_dept_name").ToString();//"收貨部門"
-        //                worksheet.Cells[li_cur_row_xls, 10] = gridView1.GetRowCellValue(r, "remark").ToString();//"備註" 
-        //                worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-        //                //worksheet.Rows[1].RowHeight = 24;//列高
-        //                ls_con_date = gridView1.GetRowCellValue(r, "con_date").ToString();
-        //                System.Windows.Forms.Application.DoEvents();
-        //                li_cur_row_xls  += 1;
-        //            }
-        //            //最后一行的小計
-        //            //小計      
-        //            li_sequence_id += 1;                    
-        //            worksheet.Cells[li_cur_row_xls , 1] = li_sequence_id.ToString();//組小計序號
-        //            worksheet.Cells[li_cur_row_xls , 2] = ls_con_date;
-        //            worksheet.Cells[li_cur_row_xls , 3] = "小計:";
-        //            worksheet.Cells[li_cur_row_xls , 8] = ldc_total_sec_qty;
-        //            worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-        //            worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體
-
-
-        //            worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-        //            worksheet.Rows[1].RowHeight = 24;//列高
-        //            worksheet.Columns[1].ColumnWidth = 7;
-        //            worksheet.Columns[2].ColumnWidth = 10;
-        //            worksheet.Columns[3].ColumnWidth = 15;
-        //            worksheet.Columns[4].ColumnWidth = 10;
-        //            worksheet.Columns[5].ColumnWidth = 50;
-        //            worksheet.Columns[6].ColumnWidth = 11;
-        //            worksheet.Columns[7].ColumnWidth = 6;
-        //            worksheet.Columns[8].ColumnWidth = 8;
-        //            worksheet.Columns[9].ColumnWidth = 15;
-        //            worksheet.Columns[10].ColumnWidth = 21;
-        //            worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-        //            worksheet.Columns[2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-
-        //            //畫边框线
-        //            //获取Excel多个单元格区域
-        //            string range_right = string.Format("J{0}", li_cur_row_xls + 1);//右下角座標
-        //            Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
-        //            //单元格边框线类型(线型,虚线型)
-        //            excelRange.Borders.LineStyle = 1;
-        //            excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-
-        //            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-        //            if (ls_files != "")
-        //            {
-        //                try
-        //                {
-        //                    workbook.Saved = true;                           
-        //                    workbook.SaveAs(ls_files, li_format_num);
-        //                }
-        //                catch (Exception ex)
-        //                {
-        //                    //fileSaved = false;  
-        //                    MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
-        //                }
-        //            }
-        //            xlApp.Quit();
-        //            GC.Collect();//强行销毁                    
-        //            MessageBox.Show("匯出EXCEL成功!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("當前資料為空,請首先查詢出數據!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //    }
-        //}
-
+        
 
         /// <summary>
         /// 匯出Excel
@@ -1343,7 +1059,6 @@ namespace cf01.ReportForm
             saveFile.Title = "导出Excel文件到";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-
                 Stream myStream;
                 myStream = saveFile.OpenFile();
 
@@ -1376,10 +1091,7 @@ namespace cf01.ReportForm
                 str += "\t" + "下部門描述";
                 str += "\t" + "本部門計劃數量";
                 str += "\t" + "本部門計劃完成日期";
-                //
-
                 sw.WriteLine(str);
-
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
                     string tempstr = "";
@@ -1413,8 +1125,6 @@ namespace cf01.ReportForm
             }
         }
 
-
-
         /// <summary>
         /// 生成打印數據
         /// </summary>
@@ -1422,10 +1132,7 @@ namespace cf01.ReportForm
         {
             //dtPrint此表爲已處理掉重覆的記錄              
             dtPrint.Clear();
-            string strFilter = "";
-            string wp_id = "";
-            string mo_id = "";
-            string mat_id = "";
+            string strFilter = "", wp_id = "", mo_id = "", mat_id = "";
             int per_qty = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
@@ -1454,10 +1161,7 @@ namespace cf01.ReportForm
                 mo_id = dtPrint.Rows[i]["mo_id"].ToString();
                 mat_id = dtPrint.Rows[i]["goods_id"].ToString();
                 per_qty = int.Parse(dtPrint.Rows[i]["per_qty"].ToString());
-                //if (chkNoQc.Checked)
-                    isPrintQc = "1";//不顯示QC
-                //else
-                //    isPrintQc = "0";
+                isPrintQc = "1";//不顯示QC
                 SqlParameter[] paras = new SqlParameter[]{
                     new SqlParameter("@mo_id",mo_id),
                     new SqlParameter("@wp_id",wp_id),
@@ -1555,8 +1259,9 @@ namespace cf01.ReportForm
             }
         }
 
-        
-
-       
+        private void frmDelivery_Resize(object sender, EventArgs e)
+        {
+            panel1.Width = gridControl1.Width-5;
+        }
     }
 }

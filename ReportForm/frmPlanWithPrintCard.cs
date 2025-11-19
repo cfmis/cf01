@@ -23,10 +23,10 @@ namespace cf01.ReportForm
     public partial class frmPlanWithPrintCard : Form
     {
         public static string sendDep;
-        private DataTable dtMoPlan;
+        DataTable dtMoPlan;
         clsCommonUse commUse = new clsCommonUse();
-        private int[] selectedRowHandles;
-        private List<DataRow> selectedRows = new List<DataRow>();
+        int[] selectedRowHandles;
+        List<DataRow> selectedRows = new List<DataRow>();
         public frmPlanWithPrintCard()
         {
             InitializeComponent();
@@ -55,9 +55,7 @@ namespace cf01.ReportForm
             //CheckBox1.CheckedChanged += CheckBox1_CheckedChanged;
             //CheckBox1.Visible = false;
             //CheckBox1.Text = "全選";
-
         }
-
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
@@ -327,13 +325,12 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            string dep="", mo="", item="", Remark="",next_goods_id="";
-
+            string dep = "", mo = "", item = "", Remark = "", next_goods_id = "";
+            string order_unit = "", plate_remark = "", do_color_next_dep = "", next_dep_id = "";
+            int order_qty, order_qty_pcs;
             //建立工序卡臨時表
             DataTable dtNewWork = CreateNewWork();
-            DataRow dr = null;
-            string order_unit= string.Empty, plate_remark = string.Empty, do_color_next_dep = string.Empty, next_dep_id = string.Empty;
-            int order_qty, order_qty_pcs;
+            DataRow dr = null;  
            
             DataTable dt_wk = new DataTable();
             DataTable dtPosition = new DataTable();
@@ -341,13 +338,14 @@ namespace cf01.ReportForm
             DataTable dtPs = new DataTable();
             DataTable dtNextNextItem = new DataTable();
             DataTable dtCurrentWipItem = new DataTable();
-            DataTable dtNextItem = new DataTable();           
+            DataTable dtNextItem = new DataTable();
 
 
             //foreach (DataRow dgr in selectedRows)
+            DataRow dgr = null;
             for (int j = 0; j < dtMoPlan.Rows.Count; j++)
             {
-                DataRow dgr = dtMoPlan.Rows[j];
+                dgr = dtMoPlan.Rows[j];
                 if ((bool)dgr["select_flag"])
                 {
                     //DataGridViewRow dgr = dgvDetails.Rows[j];
@@ -366,7 +364,9 @@ namespace cf01.ReportForm
                     {
                         dep = txtNextWip.Text.Trim();
                         if (dgr["next_wp_id"].ToString().Trim() != dep)
+                        {
                             continue;
+                        }                            
                         item = dgr["next_goods_id"].ToString().Trim();
 
                         //獲取當前貨品的下部門的貨品、顏色做法
@@ -376,13 +376,11 @@ namespace cf01.ReportForm
                         {
                             next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
                             do_color_next_dep = dtNextItem.Rows[0]["do_color"].ToString();
-                            //next_dep_id = dtNextItem.Rows[0]["wp_id"].ToString();
                         }
                         else
                         {
                             next_goods_id = "";
                             do_color_next_dep = "";
-                            //next_dep_id = "";
                         }
                         dtCurrentWipItem = clsMo_for_jx.GetCurrentWipData(dep, mo, item);
                     }
@@ -396,9 +394,6 @@ namespace cf01.ReportForm
                         dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
                         //通過下部門貨品再找下下部門的貨品資料
                         dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
-                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
-                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);                       
-
                         order_unit = "";
                         order_qty = 0;
                         order_qty_pcs = 0;
@@ -440,7 +435,6 @@ namespace cf01.ReportForm
                             for (int i = 1; i <= NumPage; i++)
                             {
                                 dr = dtNewWork.NewRow();
-                                //dr["BarCode"] = drDtWk["item_barcode"].ToString().Trim();
                                 dr["wp_id"] = drDtWk["wp_id"].ToString();
                                 dr["mo_id"] = drDtWk["mo_id"].ToString();
                                 dr["goods_id"] = drDtWk["goods_id"].ToString();
@@ -454,7 +448,6 @@ namespace cf01.ReportForm
                                 dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
                                 dr["production_remark"] = drDtWk["production_remark"].ToString();
                                 dr["remark"] = drDtWk["remark"].ToString();
-                                //string dept= drDtWk["next_wp_id"].ToString();
                                 dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
                                 dr["order_qty"] = clsUtility.NumberConvert(order_qty);
@@ -466,7 +459,6 @@ namespace cf01.ReportForm
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
                                 dr["plate_remark"] = plate_remark;
-
                                 DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 if (next_dep_id == "702")
                                 {
@@ -487,31 +479,17 @@ namespace cf01.ReportForm
                                 dr["color_name"] = drDtWk["color_name"].ToString();
                                 dr["do_color"] = drDtWk["do_color"].ToString();
                                 dr["wh_location"] = drDtWk["wh_location"].ToString();
-                                //if (dtPlate_Remark.Rows.Count > 0)
-                                //{
-                                //    dr["plate_remark"] = dtQty.Rows[0]["plate_remark"];
-                                //}
-                                //if (dtArt.Rows.Count > 0)
-                                //{
+                              
                                 dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
                                 if (rpt_type == 1)//如果是列印當前部門的
                                     dr["picture_name"] = dgr["picture_name"].ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
                                 else//如果是列印當前部門的下部門的
                                     dr["picture_name"] = dtCurrentWipItem.Rows[0]["picture_name"];
-                                //}
-
-                                //if (dtColor.Rows.Count > 0)
-                                //{
-                                //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
-                                //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
-                                //}
-
                                 if (dtPosition.Rows.Count > 0)
                                 {
                                     dr["position_id"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["id"]);
                                     dr["mould_no"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["mould_no"]);
                                 }
-
                                 if (dep == "302" || dep == "322")
                                     dr["report_name"] = "生產單" + "(" + dep + ")";
                                 else

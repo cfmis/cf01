@@ -1176,6 +1176,62 @@ namespace cf01.CLS
             DataTable dt = clsConErp.GetDataTable(strSql);
             return dt;
         }
-        //test
+        public static DataTable GenWorkerCard()
+        {
+            //生成工序卡的表結構
+            DataTable dtCard = new DataTable();
+            dtCard.Columns.Add("report_name", typeof(string));
+            dtCard.Columns.Add("mo_id", typeof(string));
+            dtCard.Columns.Add("ver", typeof(string));
+            dtCard.Columns.Add("get_color_sample_name", typeof(string));
+            dtCard.Columns.Add("goods_name", typeof(string));
+            dtCard.Columns.Add("BarCode", typeof(string));
+            dtCard.Columns.Add("goods_id", typeof(string));
+            dtCard.Columns.Add("brand_id", typeof(string));
+            dtCard.Columns.Add("prod_qty", typeof(string));
+            dtCard.Columns.Add("order_qty_pcs", typeof(string));
+            dtCard.Columns.Add("goods_unit", typeof(string));
+            dtCard.Columns.Add("color_name", typeof(string));
+            dtCard.Columns.Add("predept_rechange_qty", typeof(string));
+            dtCard.Columns.Add("c_sec_qty_ok", typeof(string));
+            dtCard.Columns.Add("do_color", typeof(string));
+            dtCard.Columns.Add("wh_location", typeof(string));
+            dtCard.Columns.Add("prod_date", typeof(string));
+            dtCard.Columns.Add("t_complete_date", typeof(string));
+            dtCard.Columns.Add("per_qty", typeof(string));
+            dtCard.Columns.Add("net_weight", typeof(string));//**
+            dtCard.Columns.Add("base_qty", typeof(int));
+            dtCard.Columns.Add("unit_code", typeof(string));
+            dtCard.Columns.Add("base_rate", typeof(int));
+            dtCard.Columns.Add("basic_unit", typeof(string));
+            dtCard.Columns.Add("page_num", typeof(int));
+            dtCard.Columns.Add("total_page", typeof(int));
+            dtCard.Columns.Add("vendor_id", typeof(string));
+            dtCard.Columns.Add("production_remark", typeof(string));
+            dtCard.Columns.Add("remark", typeof(string));
+            dtCard.Columns.Add("plate_remark", typeof(string));
+            dtCard.Columns.Add("picture_name", typeof(string));
+            dtCard.Columns.Add("arrive_date", typeof(string));
+            dtCard.Columns.Add("next_wp_id", typeof(string));
+            dtCard.Columns.Add("next_dep_name", typeof(string));
+            dtCard.Columns.Add("next_goods_id", typeof(string));
+            dtCard.Columns.Add("next_goods_name", typeof(string));
+            dtCard.Columns.Add("next_do_color", typeof(string));
+            dtCard.Columns.Add("next_vendor_id", typeof(string));
+            dtCard.Columns.Add("next_next_wp_id", typeof(string));
+            dtCard.Columns.Add("next_next_dep_name", typeof(string));
+            dtCard.Columns.Add("next_next_goods_id", typeof(string));
+            dtCard.Columns.Add("next_next_do_color", typeof(string));
+            dtCard.Columns.Add("qty_remaining", typeof(int));
+           
+            dtCard.Columns.Add("qc_dept", typeof(string));
+            dtCard.Columns.Add("qc_name", typeof(string));
+            dtCard.Columns.Add("qc_qty", typeof(string));
+            dtCard.Columns.Add("stantard_qty", typeof(string));
+            dtCard.Columns.Add("qc_test", typeof(string));
+            dtCard.Columns.Add("process_remark", typeof(string));
+            dtCard.Columns.Add("dept_remark", typeof(string));
+            return dtCard;
+        }
     }
 }
