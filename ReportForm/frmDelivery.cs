@@ -19,6 +19,8 @@ namespace cf01.ReportForm
 {
     public partial class frmDelivery : Form
     {
+        string strUserid = DBUtility._user_id;
+        string within_code = DBUtility.within_code;
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtDelivery = new DataTable();
@@ -29,8 +31,7 @@ namespace cf01.ReportForm
         DataTable dtParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
         DataTable dtPrint = new DataTable();
-        string strUserid = DBUtility._user_id;
-        string within_code = DBUtility.within_code;
+        
         public frmDelivery()
         {
             InitializeComponent();
@@ -61,8 +62,8 @@ namespace cf01.ReportForm
             chkReplaceQty.Checked = true;
 
             dtDept = clsBaseData.Get_Department();
-            DataRow dr0 = dtDept.NewRow(); //插一空行        
-            dtDept.Rows.InsertAt(dr0, 0);
+            DataRow drow = dtDept.NewRow(); //插一空行        
+            dtDept.Rows.InsertAt(drow, 0);
             txtOut_detp1.Properties.DataSource = dtDept;
             txtOut_detp1.Properties.ValueMember = "id";
             txtOut_detp1.Properties.DisplayMember = "cdesc";
@@ -73,8 +74,8 @@ namespace cf01.ReportForm
                         
             string strsql = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE id='CL-K0036' ORDER BY id";
             dtVendor = clsConErp.GetDataTable(strsql);
-            dr0 = dtVendor.NewRow(); //插一空行        
-            dtVendor.Rows.InsertAt(dr0, 0);
+            drow = dtVendor.NewRow(); //插一空行        
+            dtVendor.Rows.InsertAt(drow, 0);
 
             if (string.IsNullOrEmpty(txtDat1.Text))
             {
@@ -205,31 +206,31 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("net_weight", typeof(float));
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             string dept = "";
-            DataRow dr = null, drNext = null; 
+            DataRow drow = null, drNext = null; 
             DataTable dtNextDept = new DataTable();
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
-                dr = dtDelivery.Rows[i];
-                dept = dr["in_dept"].ToString();
-                dtNextDept = getNextDepItem(dr["mo_id"].ToString(), dept, dr["goods_id"].ToString());
+                drow = dtDelivery.Rows[i];
+                dept = drow["in_dept"].ToString();
+                dtNextDept = getNextDepItem(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString());
                 if (dtNextDept.Rows.Count > 0)
                 {
                     drNext = dtNextDept.Rows[0];
-                    dr["current_goods_id"] = drNext["goods_id"];
-                    dr["current_goods_name"] = drNext["goods_name"];
-                    dr["next_wp_id"] = drNext["next_wp_id"];
-                    dr["next_wp_name"] = drNext["next_wp_name"];
-                    dr["current_prod_qty"] = drNext["prod_qty"];
-                    dr["current_req_date"] = drNext["req_date"];
+                    drow["current_goods_id"] = drNext["goods_id"];
+                    drow["current_goods_name"] = drNext["goods_name"];
+                    drow["next_wp_id"] = drNext["next_wp_id"];
+                    drow["next_wp_name"] = drNext["next_wp_name"];
+                    drow["current_prod_qty"] = drNext["prod_qty"];
+                    drow["current_req_date"] = drNext["req_date"];
                     if (dept == "102" || dept == "108")
                     {
-                        dr["do_color"] = drNext["next_do_color"];
+                        drow["do_color"] = drNext["next_do_color"];
                     }
                 }
                 if (chkReplaceQty.Checked == true)
                 {
-                    dr["per_qty"] = dr["con_qty"];
-                    dr["net_weight"] = dr["sec_qty"];
+                    drow["per_qty"] = drow["con_qty"];
+                    drow["net_weight"] = drow["sec_qty"];
                 }
             }
             //======
@@ -284,58 +285,59 @@ namespace cf01.ReportForm
 
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
         {
-            string prdDep = dep;
+            string strSelect = "", strWhere1 = "", strWhere2 = "", strSql = "", tempDep = dep;
             if (dep == "125")
-                prdDep = "105";
+                tempDep = "105";
             else
             {
                 if (dep == "128")//如果是128的，則包含108、102的記錄都要一起提取出來
                 {
-                    prdDep = "108";
+                    tempDep = "108";
                 }
-            }
-            string strSelect = "", strWhere1 = "", strWhere2 = "";
-            string strSql = "";
-            strSelect = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
-                ",a.prd_mo,a.Transfer_flag,a.transfer_qty,a.transfer_weg" +
-                ",a.wip_id,d.dep_cdesc AS wip_id_cdesc,a.to_dep,a.pack_num " +
-                " From dgcf_pad.dbo.product_transfer_jx_details a" +
-                " Left Join geo_it_goods b On a.prd_item COLLATE chinese_taiwan_stroke_CI_AS=b.id" +
-                " Left Join bs_dep c On a.Prd_dep COLLATE chinese_taiwan_stroke_CI_AS=c.dep_id" +
-                " Left Join bs_dep d On a.wip_id COLLATE chinese_taiwan_stroke_CI_AS=d.dep_id";
-            strWhere1 = " Where a.Prd_dep='" + prdDep + "'";
-            strWhere2 = " And a.Transfer_date>='" + dateFrom + "' And a.Transfer_date<='" + dateTo + "'";
+            }            
+            strSelect =
+                @"Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name,
+                a.prd_mo,a.Transfer_flag,a.transfer_qty,a.transfer_weg,a.wip_id,d.dep_cdesc AS wip_id_cdesc,a.to_dep,a.pack_num
+                From dgcf_pad.dbo.product_transfer_jx_details a
+                Left Join geo_it_goods b On a.prd_item COLLATE chinese_taiwan_stroke_CI_AS=b.id
+                Left Join bs_dep c On a.Prd_dep COLLATE chinese_taiwan_stroke_CI_AS=c.dep_id
+                Left Join bs_dep d On a.wip_id COLLATE chinese_taiwan_stroke_CI_AS=d.dep_id";
+            strWhere1 = string.Format(" Where a.Prd_dep='{0}'", tempDep);
+            strWhere2 = string.Format(" And a.Transfer_date>='{0}' And a.Transfer_date<='{1}'", dateFrom, dateTo);
             if (moFrom != "" && moTo != "")
-                strWhere2 += " And a.prd_mo>='" + moFrom + "' And a.prd_mo<='" + moTo + "'";
-            strSql = strSelect + strWhere1 + strWhere2;
-            if(dep=="128")
             {
-                prdDep = "102";
-                strWhere1 = " Where a.Prd_dep='" + prdDep + "'";
+                strWhere2 += string.Format(" And a.prd_mo>='{0}' And a.prd_mo<='{1}'", moFrom, moTo);
+            }
+                
+            strSql = strSelect + strWhere1 + strWhere2;
+            if(dep =="128")
+            {
+                tempDep = "102";
+                strWhere1 = string.Format(" Where a.Prd_dep='{0}'", tempDep);
                 strSql += " UNION ";
                 strSql += strSelect + strWhere1 + strWhere2;
             }
             DataTable dtJx = clsPublicOfCF01.GetDataTable(strSql);
-            DataRow drJx = null, drDelivery = null;
+            DataRow drow = null, drowDelivery = null;
             for (int i = 0; i < dtJx.Rows.Count; i++)
             {
-                drJx = dtJx.Rows[i];
-                drDelivery = dtDelivery.NewRow();
-                drDelivery["in_dept"] = drJx["Prd_dep"];
-                drDelivery["in_dept_name"] = drJx["Prd_dep_cdesc"];
-                drDelivery["out_dept"] = drJx["wip_id"];
-                drDelivery["out_dept_name"] = drJx["wip_id_cdesc"];
-                drDelivery["mo_id"] = drJx["prd_mo"];
-                drDelivery["goods_id"] = drJx["prd_item"];
-                drDelivery["goods_name"] = drJx["goods_name"];
-                drDelivery["con_qty"] = drJx["transfer_qty"];
-                drDelivery["sec_qty"] = drJx["transfer_weg"];
-                drDelivery["package_num"] = drJx["pack_num"];
-                drDelivery["con_date"] = drJx["Transfer_date"];
-                drDelivery["id"] = drJx["Prd_id"].ToString();
-                drDelivery["sequence_id"] = drJx["Prd_id"].ToString();
-                drDelivery["next_wp_id"] = drJx["to_dep"].ToString();
-                dtDelivery.Rows.Add(drDelivery);
+                drow = dtJx.Rows[i];
+                drowDelivery = dtDelivery.NewRow();
+                drowDelivery["in_dept"] = drow["Prd_dep"];
+                drowDelivery["in_dept_name"] = drow["Prd_dep_cdesc"];
+                drowDelivery["out_dept"] = drow["wip_id"];
+                drowDelivery["out_dept_name"] = drow["wip_id_cdesc"];
+                drowDelivery["mo_id"] = drow["prd_mo"];
+                drowDelivery["goods_id"] = drow["prd_item"];
+                drowDelivery["goods_name"] = drow["goods_name"];
+                drowDelivery["con_qty"] = drow["transfer_qty"];
+                drowDelivery["sec_qty"] = drow["transfer_weg"];
+                drowDelivery["package_num"] = drow["pack_num"];
+                drowDelivery["con_date"] = drow["Transfer_date"];
+                drowDelivery["id"] = drow["Prd_id"].ToString();
+                drowDelivery["sequence_id"] = drow["Prd_id"].ToString();
+                drowDelivery["next_wp_id"] = drow["to_dep"].ToString();
+                dtDelivery.Rows.Add(drowDelivery);
             }
         }
 
@@ -374,8 +376,7 @@ namespace cf01.ReportForm
             //---Modify by 20150717
             gridView1.CloseEditor();           
 
-            DataTable dtReport = new DataTable();
-            dtReport = dtDelivery.Clone();
+            DataTable dtReport = dtDelivery.Clone();
             DataRow drow = null;
             int base_rate = 0, ii = 0;            
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
@@ -415,7 +416,6 @@ namespace cf01.ReportForm
                     drow["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
                     drow["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
                     drow["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
-
                     drow["base_qty"] = dtDelivery.Rows[i]["base_qty"];
                     drow["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
                     drow["base_rate"] = dtDelivery.Rows[i]["base_rate"]; 
@@ -434,51 +434,51 @@ namespace cf01.ReportForm
                             ii = Convert.ToInt16(dtDelivery.Rows[i]["package_num"].ToString());//包數
                             drow["package_num"] = 1;//將包數還設成從1開始.
                             dtReport.Rows.Add(drow);
-                            DataRow dr = null;
+                            DataRow drw = null;
                             for (int j = 1; j < ii; j++)
                             {
-                                dr = dtReport.NewRow();
-                                dr["id"] = dtDelivery.Rows[i]["id"].ToString();
-                                dr["con_date"] = dtDelivery.Rows[i]["con_date"].ToString();
-                                dr["out_dept"] = dtDelivery.Rows[i]["out_dept"].ToString();
-                                dr["out_dept_name"] = dtDelivery.Rows[i]["out_dept_name"].ToString();
-                                dr["in_dept"] = dtDelivery.Rows[i]["in_dept"].ToString();
-                                dr["in_dept_name"] = dtDelivery.Rows[i]["in_dept_name"].ToString();
-                                dr["mo_id"] = dtDelivery.Rows[i]["mo_id"].ToString();
-                                dr["goods_id"] = dtDelivery.Rows[i]["goods_id"].ToString();
-                                dr["goods_name"] = dtDelivery.Rows[i]["goods_name"].ToString();
-                                dr["con_qty"] = dtDelivery.Rows[i]["con_qty"];
-                                dr["sec_qty"] = dtDelivery.Rows[i]["sec_qty"];
-                                dr["barcode_id"] = dtDelivery.Rows[i]["barcode_id"].ToString();
-                                dr["sequence_id"] = dtDelivery.Rows[i]["sequence_id"].ToString();
-                                dr["picture_name"] = dtDelivery.Rows[i]["picture_name"].ToString();
-                                dr["do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
-                                dr["package_num"] = j + 1;
-                                dr["goods_mat"] = dtDelivery.Rows[i]["goods_mat"].ToString();
-                                dr["seq_id_flag"] = dtDelivery.Rows[i]["seq_id_flag"].ToString();
-                                dr["rec_flag"] = dtDelivery.Rows[i]["rec_flag"].ToString();
-                                dr["vendor_id"] = dtDelivery.Rows[i]["vendor_id"].ToString();
-                                dr["name_vendor"] = dtDelivery.Rows[i]["name_vendor"].ToString();
-                                dr["name_clr"] = dtDelivery.Rows[i]["name_clr"].ToString();
-                                dr["production_remark"] = dtDelivery.Rows[i]["production_remark"].ToString();
-                                dr["plan_remark"] = dtDelivery.Rows[i]["plan_remark"].ToString();
-                                dr["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();                               
-                                dr["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
-                                dr["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
-                                dr["remark"] = dtDelivery.Rows[i]["remark"].ToString();
-                                dr["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
-                                dr["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
-                                dr["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
-                                dr["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
-                                dr["base_qty"] = dtDelivery.Rows[i]["base_qty"];
-                                dr["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
-                                dr["base_rate"] = dtDelivery.Rows[i]["base_rate"];
-                                dr["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
-                                dr["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
-                                dr["qc_test"] = dtDelivery.Rows[i]["qc_test"];
-                                dr["lot_no"] = dtDelivery.Rows[i]["lot_no"];
-                                dr["dept_remark"] = dtDelivery.Rows[i]["dept_remark"];
-                                dtReport.Rows.Add(dr);
+                                drw = dtReport.NewRow();
+                                drw["id"] = dtDelivery.Rows[i]["id"].ToString();
+                                drw["con_date"] = dtDelivery.Rows[i]["con_date"].ToString();
+                                drw["out_dept"] = dtDelivery.Rows[i]["out_dept"].ToString();
+                                drw["out_dept_name"] = dtDelivery.Rows[i]["out_dept_name"].ToString();
+                                drw["in_dept"] = dtDelivery.Rows[i]["in_dept"].ToString();
+                                drw["in_dept_name"] = dtDelivery.Rows[i]["in_dept_name"].ToString();
+                                drw["mo_id"] = dtDelivery.Rows[i]["mo_id"].ToString();
+                                drw["goods_id"] = dtDelivery.Rows[i]["goods_id"].ToString();
+                                drw["goods_name"] = dtDelivery.Rows[i]["goods_name"].ToString();
+                                drw["con_qty"] = dtDelivery.Rows[i]["con_qty"];
+                                drw["sec_qty"] = dtDelivery.Rows[i]["sec_qty"];
+                                drw["barcode_id"] = dtDelivery.Rows[i]["barcode_id"].ToString();
+                                drw["sequence_id"] = dtDelivery.Rows[i]["sequence_id"].ToString();
+                                drw["picture_name"] = dtDelivery.Rows[i]["picture_name"].ToString();
+                                drw["do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
+                                drw["package_num"] = j + 1;
+                                drw["goods_mat"] = dtDelivery.Rows[i]["goods_mat"].ToString();
+                                drw["seq_id_flag"] = dtDelivery.Rows[i]["seq_id_flag"].ToString();
+                                drw["rec_flag"] = dtDelivery.Rows[i]["rec_flag"].ToString();
+                                drw["vendor_id"] = dtDelivery.Rows[i]["vendor_id"].ToString();
+                                drw["name_vendor"] = dtDelivery.Rows[i]["name_vendor"].ToString();
+                                drw["name_clr"] = dtDelivery.Rows[i]["name_clr"].ToString();
+                                drw["production_remark"] = dtDelivery.Rows[i]["production_remark"].ToString();
+                                drw["plan_remark"] = dtDelivery.Rows[i]["plan_remark"].ToString();
+                                drw["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();                               
+                                drw["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
+                                drw["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
+                                drw["remark"] = dtDelivery.Rows[i]["remark"].ToString();
+                                drw["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
+                                drw["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
+                                drw["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
+                                drw["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
+                                drw["base_qty"] = dtDelivery.Rows[i]["base_qty"];
+                                drw["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
+                                drw["base_rate"] = dtDelivery.Rows[i]["base_rate"];
+                                drw["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
+                                drw["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
+                                drw["qc_test"] = dtDelivery.Rows[i]["qc_test"];
+                                drw["lot_no"] = dtDelivery.Rows[i]["lot_no"];
+                                drw["dept_remark"] = dtDelivery.Rows[i]["dept_remark"];
+                                dtReport.Rows.Add(drw);
                             }
                         }
                         else
@@ -525,10 +525,10 @@ namespace cf01.ReportForm
             DataRow[] drowAry = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drowAry.Length > 0)
             {
-                DataTable dtCard = new DataTable();
-                string in_dept = "", mo_id = "", goods_id = "";
+                string in_dept = "", mo_id = "", goods_id = "", is_qc_dept = "";
                 int page_num = 0, per_qty = 0, prod_qty = 0, numPage = 1, qty_remaining = 0;
-                decimal net_weight = 0, sec_qty=0;               
+                decimal net_weight = 0, sec_qty = 0;
+
                 //設置進度條屬性
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
@@ -536,19 +536,19 @@ namespace cf01.ReportForm
                 progressBar1.Step = 1;
                 progressBar1.Maximum = drowAry.Length;
                 //***************
-                string is_qc_dept = "";
+                DataTable dtCard = new DataTable();
+                SqlParameter[] paras = null;
+                DataRow drow = null;
                 for (int i = 0; i < drowAry.Length; i++)
                 {
                     in_dept = drowAry[i]["in_dept"].ToString(); //2024/03/13 取消 奇怪當初怎麼會用IN_DEPT ?
-                    //in_dept = drowAry[i]["out_dept"].ToString(); //2024/03/13 改為負責部門
                     mo_id = drowAry[i]["mo_id"].ToString();
-                    //goods_id = drowAry[i]["goods_id"].ToString(); // CANCEL 2024/03/14
                     goods_id = drowAry[i]["current_goods_id"].ToString();  //Add 2024/03/14                                  
                     page_num = string.IsNullOrEmpty(drowAry[i]["package_num"].ToString()) ? 0 : int.Parse(drowAry[i]["package_num"].ToString());
                     per_qty = string.IsNullOrEmpty(drowAry[i]["per_qty"].ToString()) ? 0 : int.Parse(drowAry[i]["per_qty"].ToString());//每次生產數量
                     net_weight = string.IsNullOrEmpty(drowAry[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drowAry[i]["net_weight"].ToString());//生產重量
                     sec_qty = string.IsNullOrEmpty(drowAry[i]["sec_qty"].ToString()) ? 0 : decimal.Parse(drowAry[i]["sec_qty"].ToString());
-                    SqlParameter[] paras = new SqlParameter[] {
+                    paras = new SqlParameter[] {
                            new SqlParameter("@in_dept", in_dept),
                            new SqlParameter("@mo_id",mo_id),
                            new SqlParameter("@goods_id",goods_id)
@@ -592,7 +592,7 @@ namespace cf01.ReportForm
                             {        
                                 numPage = 1;
                             }
-                            DataRow drow = null;
+                           
                             for (int ii = 1; ii <= numPage; ii++)//分頁
                             {
                                 drow = dtNewWork.NewRow();
@@ -737,26 +737,26 @@ namespace cf01.ReportForm
             if (gridView1.RowCount > 0)
             {
                 txtID2.Focus();
-                DataRow[] dr = dtDelivery.Select("flag_select=true And in_dept='CL-K0036' ");//flag_select
-                if (dr.Length == 0)
+                DataRow[] drow = dtDelivery.Select("flag_select=true And in_dept='CL-K0036' ");//flag_select
+                if (drow.Length == 0)
                 {
                     MessageBox.Show("請首先選擇或檢查是否有交到JX的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }               
-                Save(dr);                
+                Save(drow);                
             }
         }
 
         private void Save(DataRow[] dr)
         {
             bool save_flag = true;
-            string comp_code = "0000";            
-            string sql_h_i = @"INSERT INTO tr_motojx_head(comp_code,doc_id,doc_date,out_dep,in_dep,crusr,crtim)
+            string comp_code = "0000", sql_h_i="", sql_d_i="", sql_d_u="", sql_h_f = "", sql_d_f = "";            
+            sql_h_i = @"INSERT INTO tr_motojx_head(comp_code,doc_id,doc_date,out_dep,in_dep,crusr,crtim)
                                     VALUES(@comp_code,@doc_id,@doc_date,@out_dep,@in_dep,@crusr,getdate())";            
-            string sql_d_i = @"INSERT INTO tr_motojx_details(comp_code,doc_id,seq_id,prd_mo,prd_item,mat_item,tr_qty,tr_weg,tr_packer,crusr,crtim)
+            sql_d_i = @"INSERT INTO tr_motojx_details(comp_code,doc_id,seq_id,prd_mo,prd_item,mat_item,tr_qty,tr_weg,tr_packer,crusr,crtim)
                                     VALUES(@comp_code,@doc_id,@seq_id,@prd_mo,@prd_item,@mat_item,@tr_qty,@tr_weg,@tr_packer,@crusr,getdate())";
 
-            string sql_d_u = @"UPDATE tr_motojx_details SET prd_mo=@prd_mo,prd_item=@prd_item,mat_item=@mat_item,
+            sql_d_u = @"UPDATE tr_motojx_details SET prd_mo=@prd_mo,prd_item=@prd_item,mat_item=@mat_item,
                                    tr_qty=@tr_qty,tr_weg=@tr_weg,tr_packer=@tr_packer,amusr=@crusr,amtim=getdate()
                                Where comp_code=@comp_code AND doc_id=@doc_id AND seq_id=@seq_id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -766,7 +766,6 @@ namespace cf01.ReportForm
 
             DataTable dtHead = new DataTable();
             DataTable dtDetails = new DataTable();
-            string sql_h_f = "", sql_d_f = "";
             for (int i = 0; i < dr.Length; i++)
             {
                 sql_h_f = string.Format(@"Select '1' FROM tr_motojx_head With(nolock) WHERE comp_code='{0}' AND doc_id='{1}'", comp_code, dr[i]["id"]);
@@ -1158,6 +1157,7 @@ namespace cf01.ReportForm
             DataTable dtTempData = new DataTable();
             DataTable dtTempParts = new DataTable();
             DataSet dsTempData = new DataSet();
+            SqlParameter[] paras = null;
             for (int i = 0; i < dtPrint.Rows.Count; i++)
             {
                 wp_id = dtPrint.Rows[i]["wp_id"].ToString();
@@ -1165,7 +1165,8 @@ namespace cf01.ReportForm
                 mat_id = dtPrint.Rows[i]["goods_id"].ToString();
                 per_qty = int.Parse(dtPrint.Rows[i]["per_qty"].ToString());
                 isPrintQc = "1";//不顯示QC
-                SqlParameter[] paras = new SqlParameter[]{
+                //SqlParameter[] 
+                paras = new SqlParameter[]{
                     new SqlParameter("@mo_id",mo_id),
                     new SqlParameter("@wp_id",wp_id),
                     new SqlParameter("@materiel_id",mat_id),

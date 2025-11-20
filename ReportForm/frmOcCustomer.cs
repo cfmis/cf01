@@ -17,8 +17,7 @@ namespace cf01.ReportForm
 {
     public partial class frmOcCustomer : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();       
-        int groups ;
+        clsAppPublic clsApp = new clsAppPublic(); 
         System.Data.DataTable dtReport = new System.Data.DataTable();
         System.Data.DataTable dtReport2 = new System.Data.DataTable();
         System.Data.DataTable dtGroup = new System.Data.DataTable();
