@@ -18,8 +18,6 @@ namespace cf01.Forms
 {
     public partial class frmTest_item_set : Form
     {
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        private clsAppPublic clsAppPublic = new clsAppPublic();
         public string mID = "";    //臨時的主鍵值
         public string mProd_type = "";
         public static string ID_Search = "";
@@ -27,16 +25,18 @@ namespace cf01.Forms
         public string mState = ""; //新增或編號的狀態
         public static string str_language = "0";
         public string msgCustom;
-
         public bool save_flag;
         public string strArea = "";
-        readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         public string test_public_path = "";
+        MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示       
         DataTable dtTest_item_mostly = new DataTable();
         DataTable dtTest_item_details = new DataTable();
         DataTable dtTempDel = new DataTable();
         DataTable dtTestItem = new DataTable();
         DataTable dtType_condition = new DataTable();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsAppPublic clsAppPublic = new clsAppPublic();
+        clsToolBarNew objToolbar;
 
 
         public frmTest_item_set()
@@ -45,8 +45,8 @@ namespace cf01.Forms
             //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
             //control.GenerateContorl();
             //clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name,this.toolStrip1);
+            objToolbar.SetToolBar();
 
             str_language = DBUtility._language;
             //NextControl oNext = new NextControl(this, "2");
@@ -211,7 +211,11 @@ namespace cf01.Forms
             BTNCANCEL.Enabled = !_flag;
             BTNITEMADD.Enabled = !_flag;
             BTNITEMDEL.Enabled = !_flag;
-            clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
+            //clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
 
         }
 

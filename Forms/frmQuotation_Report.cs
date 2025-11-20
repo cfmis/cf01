@@ -55,6 +55,8 @@ namespace cf01.Forms
         DataTable dtPriceDisc = new DataTable();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
         List<mdlDiscountPrice> mdlList = new List<mdlDiscountPrice>();
+        clsToolBarNew objToolbar;
+
 
         [DllImport("user32.dll")]
         public static extern int MessageBoxTimeout(IntPtr hWnd, string msg, string Caps, int type, int Id, int time);
@@ -62,9 +64,9 @@ namespace cf01.Forms
 
         public frmQuotation_Report()
         {
-            InitializeComponent();           
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, panel1.Controls);//定價查找頁面條件初始化
             clsApp.Initialize_find_value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls);//報價資料查找頁面條件初始化
@@ -515,10 +517,11 @@ namespace cf01.Forms
             BTNITEMDEL.Enabled = !_flag;
             btnPrice.Enabled = !_flag;
             btnAddOther.Enabled = !_flag;
-
-            //clsApp.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+           
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }           
         }
 
         private void Set_Grid_Status(bool _flag) // 表格是否可編輯

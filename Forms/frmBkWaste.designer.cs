@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBkWaste));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -274,7 +273,7 @@
             this.dtcon_date1 = new DevExpress.XtraEditors.DateEdit();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -371,7 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmat_desc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).BeginInit();
@@ -392,9 +391,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -448,7 +447,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(71, 30);
+            this.btnNew.Size = new System.Drawing.Size(75, 30);
             this.btnNew.Text = " 新 增(&N)";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -462,7 +461,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(70, 30);
+            this.btnEdit.Size = new System.Drawing.Size(72, 30);
             this.btnEdit.Text = " 修 改(&E)";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -476,7 +475,7 @@
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 30);
+            this.btnDelete.Size = new System.Drawing.Size(68, 30);
             this.btnDelete.Text = "刪除(&D)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -491,7 +490,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(72, 30);
+            this.btnSave.Size = new System.Drawing.Size(75, 30);
             this.btnSave.Text = " 保  存(&S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -506,7 +505,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 30);
+            this.BTNCANCEL.Size = new System.Drawing.Size(71, 30);
             this.BTNCANCEL.Text = "取 消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -520,7 +519,7 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(63, 30);
+            this.btnPrint.Size = new System.Drawing.Size(66, 30);
             this.btnPrint.Text = "列印(&P)";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -534,7 +533,7 @@
             this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(86, 30);
+            this.BTNEXCEL.Size = new System.Drawing.Size(87, 30);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
             // 
@@ -549,7 +548,7 @@
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(73, 30);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(75, 30);
             this.BTNNEWCOPY.Text = "覆制新增";
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
             // 
@@ -563,7 +562,7 @@
             this.BTNIMPORT.Image = ((System.Drawing.Image)(resources.GetObject("BTNIMPORT.Image")));
             this.BTNIMPORT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNIMPORT.Name = "BTNIMPORT";
-            this.BTNIMPORT.Size = new System.Drawing.Size(86, 30);
+            this.BTNIMPORT.Size = new System.Drawing.Size(87, 30);
             this.BTNIMPORT.Text = "EXCEL導入";
             this.BTNIMPORT.Visible = false;
             this.BTNIMPORT.Click += new System.EventHandler(this.BTNIMPORT_Click);
@@ -597,9 +596,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -984,9 +983,9 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.dgvDetails);
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -996,8 +995,8 @@
             // 
             // panel7
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.cmbgoods_id);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Controls.Add(this.txtwt_use);
@@ -1681,6 +1680,8 @@
             this.dtcon_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtcon_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date.Properties.EditFormat.FormatString = "yyyy-MM-dd";
@@ -1689,8 +1690,6 @@
             this.dtcon_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date.Properties.MaxLength = 10;
             this.dtcon_date.Properties.NullDate = "";
-            this.dtcon_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date.Size = new System.Drawing.Size(94, 22);
             this.dtcon_date.TabIndex = 1;
             this.dtcon_date.Tag = "2";
@@ -2018,9 +2017,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -2064,9 +2063,9 @@
             // 
             this.dgvFind.AllowUserToAddRows = false;
             this.dgvFind.AllowUserToDeleteRows = false;
-            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -2610,6 +2609,8 @@
             this.dtcon_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtcon_date2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date2.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -2617,8 +2618,6 @@
             this.dtcon_date2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtcon_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date2.Properties.MaxLength = 10;
-            this.dtcon_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date2.Size = new System.Drawing.Size(105, 22);
             this.dtcon_date2.TabIndex = 2;
             // 
@@ -2631,6 +2630,8 @@
             this.dtcon_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date1.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtcon_date1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -2638,8 +2639,6 @@
             this.dtcon_date1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtcon_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date1.Properties.MaxLength = 10;
-            this.dtcon_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date1.Size = new System.Drawing.Size(107, 22);
             this.dtcon_date1.TabIndex = 1;
             this.dtcon_date1.Leave += new System.EventHandler(this.dtDat1_Leave);
@@ -3421,7 +3420,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmat_desc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).EndInit();
@@ -3442,9 +3441,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

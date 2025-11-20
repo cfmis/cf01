@@ -19,33 +19,32 @@ namespace cf01.ReportForm
 {
     public partial class frmPlateDelivery : Form
     {
-        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        string strUser_id = DBUtility._user_id;
-        string str_language = "0";
-        bool flag_inport;       
-        string rpt_type;
+        bool blnInport;
+        string strUserId = DBUtility._user_id;
+        string strLanguage = DBUtility._language;
+        string strRptType = "1";
         System.Data.DataTable dtRpt1 = new System.Data.DataTable();
         System.Data.DataTable dtRpt2 = new System.Data.DataTable();
-        System.Data.DataTable dtRpt3 = new System.Data.DataTable();
-        DataSet dts = new DataSet();       
+        System.Data.DataTable dtRpt3 = new System.Data.DataTable();       
         System.Data.DataTable dtExcel = new System.Data.DataTable();
         System.Data.DataTable dtOutReurn = new System.Data.DataTable();
         System.Data.DataTable dtVendor = new System.Data.DataTable();
         System.Data.DataTable dtImport = new System.Data.DataTable();
-      
+        DataSet dts = new DataSet();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsToolBarNew objToolbar;
 
         public frmPlateDelivery()
         {
             InitializeComponent();
+
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             gridView1.BestFitColumns(); //列寬自適應
             gridView1.IndicatorWidth = 40;
             gridView2.IndicatorWidth = 40;
-            str_language = DBUtility._language;
-            rpt_type = "1";
         }
 
         private void frmPlateDelivery_Load(object sender, EventArgs e)
@@ -53,8 +52,8 @@ namespace cf01.ReportForm
             txtSend_Date2.EditValue = DateTime.Now;
             txtSend_Date1.EditValue = DateTime.Now.AddDays(-30);
 
-            string sql = string.Format(@"Select id,id+'('+name+')' AS cdesc From {0}cd_mo_type Where within_code = '0000' and mo_type = 'B1'", DBUtility.remote_db);
-            System.Data.DataTable dtReason = clsPublicOfCF01.GetDataTable(sql);
+            string strSql = string.Format(@"Select id,id+'('+name+')' AS cdesc From {0}cd_mo_type Where within_code = '0000' and mo_type = 'B1'", DBUtility.remote_db);
+            System.Data.DataTable dtReason = clsPublicOfCF01.GetDataTable(strSql);
             lueShortReason.Properties.DataSource = dtReason;
             lueShortReason.Properties.ValueMember = "id";
             lueShortReason.Properties.DisplayMember = "cdesc";
@@ -70,7 +69,6 @@ namespace cf01.ReportForm
 
         private void btnInport_Click(object sender, EventArgs e)
         {
-            flag_inport = false;
             string dat1 = txtSend_Date1.Text;
             string dat2 = txtSend_Date2.Text;
             if (string.IsNullOrEmpty(dat1) || string.IsNullOrEmpty(dat2))
@@ -78,23 +76,21 @@ namespace cf01.ReportForm
                 MessageBox.Show("日期不可爲空！");
                 txtSend_Date1.Focus();
             }
-
             switch (radioGroup1.SelectedIndex)
             {
                 case 0:
-                    rpt_type = "1";
+                    strRptType = "1";
                     break;
                 case 1:
-                    rpt_type = "2";
+                    strRptType = "2";
                     break;
                 case 2:
-                    rpt_type = "3";
+                    strRptType = "3";
                     break;
-            } 
-
+            }
+            blnInport = false;
             Load_Excel();
-            
-            if (flag_inport)  //導入EXCEL成功
+            if (blnInport)  //導入EXCEL成功
             {
                 //顯示進度
                 frmProgress wForm = new frmProgress();
@@ -103,7 +99,6 @@ namespace cf01.ReportForm
                     wForm.TopMost = true;
                     wForm.ShowDialog();
                 }).Start();
-
                 //************************
                 Load_Data(); //数据处理
                 //************************
@@ -145,11 +140,11 @@ namespace cf01.ReportForm
                         chkMo.Checked = false;
                     }
                 }
-                flag_inport = true;
+                blnInport = true;
             }
             catch (SqlException E)
             {
-                flag_inport = false;
+                blnInport = false;
                 throw new Exception(E.Message);
             }
             
@@ -177,8 +172,7 @@ namespace cf01.ReportForm
 
         private void Load_Data()
         {
-            //調用存儲過程           
-            string user_id = DBUtility._user_id;
+            //調用存儲過程 
             string dat1 = txtSend_Date1.Text;
             string dat2 = txtSend_Date2.Text;
             //去掉重復的數據
@@ -189,14 +183,14 @@ namespace cf01.ReportForm
             dtImport = distinctTable.Copy();
             SqlParameter[] parm = new SqlParameter[]
             {
-                new SqlParameter ("@type", rpt_type),
+                new SqlParameter ("@type", strRptType),
                 new SqlParameter ("@dat1", dat1),
                 new SqlParameter ("@dat2", dat2),
-                new SqlParameter ("@user_id", user_id),
+                new SqlParameter ("@user_id", strUserId),
                 new SqlParameter ("@import_data",SqlDbType.Structured) {Value = dtImport}
             };
 
-            switch (rpt_type)
+            switch (strRptType)
             {
                 case "1":
                     dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", parm, null);
@@ -230,7 +224,7 @@ namespace cf01.ReportForm
                 case "2":
                 case "3":
                     string strProc = "z_plate_delivery";
-                    if (rpt_type == "2")
+                    if (strRptType == "2")
                     {
                         dtRpt2.Clear();
                         dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, parm);
@@ -250,27 +244,20 @@ namespace cf01.ReportForm
             }
         }
 
-    
-
-        private void Inport_excel(string _filename, string _strsql)
+        private void Inport_excel(string fileName, string strSql)
         {
-            string connStr = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}; Extended Properties=Excel 8.0 ", _filename);
-            using (OleDbDataAdapter da = new OleDbDataAdapter(_strsql, connStr))
-            {
+            int mo_type_sort;
+            string strmo_id = "", strmo_type = "", strwp_id = "", strSql_f = "", strSql_i = "", conStr = "";
+            conStr = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}; Extended Properties=Excel 8.0 ", fileName);
+            using (OleDbDataAdapter da = new OleDbDataAdapter(strSql, conStr))
+            {                
                 DataSet ds = new DataSet();
                 da.Fill(ds);
-                string strUser_id = DBUtility._user_id;
-                string strmo_id;
-                string strmo_type;
-                string strwp_id;
-                int mo_type_sort;
-
                 System.Data.DataTable dtExcel = ds.Tables[0];                 
-                SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
-                sqlconn.Open();
-
-                string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
-                string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
+                SqlConnection sqlCon = new SqlConnection(DBUtility.conn_str_dgerp2);
+                sqlCon.Open();
+                strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
+                strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
                 progressBar1.Value = 0;
@@ -295,20 +282,20 @@ namespace cf01.ReportForm
                     strwp_id = dtExcel.Rows[i]["當前部門"].ToString().Trim();
                     mo_type_sort = strmo_type.Length;
 
-                    SqlCommand cmd = new SqlCommand(strSql_f, sqlconn);
-                    cmd.Parameters.AddWithValue("@user_id", strUser_id);
+                    SqlCommand cmd = new SqlCommand(strSql_f, sqlCon);
+                    cmd.Parameters.AddWithValue("@user_id", strUserId);
                     cmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                    cmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                    cmd.Parameters.AddWithValue("@rpt_type", strRptType);
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (!dr.Read())
                     {
                         cmd.Dispose();
                         dr.Close();
                         dr.Dispose();
-                        SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlconn);
-                        sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
+                        SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlCon);
+                        sqlcmd.Parameters.AddWithValue("@user_id", strUserId);
                         sqlcmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                        sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                        sqlcmd.Parameters.AddWithValue("@rpt_type", strRptType);
                         sqlcmd.Parameters.AddWithValue("@mo_type", strmo_type);
                         sqlcmd.Parameters.AddWithValue("@wp_id", strwp_id);
                         sqlcmd.Parameters.AddWithValue("@mo_type_sort", mo_type_sort);
@@ -322,11 +309,10 @@ namespace cf01.ReportForm
                         dr.Dispose();
                     }
                 }
-
                 progressBar1.Enabled = false;
                 progressBar1.Visible = false;
-                sqlconn.Close();
-                sqlconn.Dispose();
+                sqlCon.Close();
+                sqlCon.Dispose();
             }
         }
 
@@ -370,7 +356,7 @@ namespace cf01.ReportForm
                             progressBar1.Visible = false;
                         }
                         dr = dtImport.NewRow();
-                        dr["user_id"] = strUser_id;
+                        dr["user_id"] = strUserId;
                         rng = xSheet.Cells[ii, "C"]; //未完成頁數        
                         dr["mo_id"] = rng.get_Value();
                         dr["rpt_type"] = "1";
@@ -432,6 +418,8 @@ namespace cf01.ReportForm
             Microsoft.Office.Interop.Excel.Worksheet xSheet;
             try
             {
+                string moTypeSort = "";
+                DataRow drow = null;
                 for (int i = 1; i < 3; i++)
                 {
                     xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[i];
@@ -442,10 +430,8 @@ namespace cf01.ReportForm
 
                     row_precessing = 0;
                     row_total = xSheet.UsedRange.Rows.Count;//總行數
-                    progressBar1.Maximum = row_total;
-                    
-                    Microsoft.Office.Interop.Excel.Range rng;
-                    string moTypeSort = "";
+                    progressBar1.Maximum = row_total;                    
+                    Microsoft.Office.Interop.Excel.Range rng; 
                     for (int ii = 2; ii <= row_total; ii++)
                     {
                         row_precessing = ii;//記錄更在更新的行
@@ -455,19 +441,19 @@ namespace cf01.ReportForm
                             progressBar1.Enabled = false;
                             progressBar1.Visible = false;
                         }
-                        DataRow dr = dtImport.NewRow();
-                        dr["user_id"] = strUser_id;
+                        drow = dtImport.NewRow();
+                        drow["user_id"] = strUserId;
                         rng = xSheet.Cells[ii, "C"]; //未完成頁數        
-                        dr["mo_id"] = rng.get_Value();
-                        dr["rpt_type"] = "2";
+                        drow["mo_id"] = rng.get_Value();
+                        drow["rpt_type"] = "2";
                         rng = xSheet.Cells[ii, "J"]; //急/特急狀態
-                        dr["mo_type"] = rng.get_Value();
+                        drow["mo_type"] = rng.get_Value();
                         rng = xSheet.Cells[ii, "M"]; //當前部門  原來是Z??b
-                        dr["wp_id"] = "";// rng.get_Value(); 舊的匯總表同一頁數原來只有一行，舊的匯總表發現有多行，存儲過程用頁數去關聯將引起重復，所以這里導入時要去掉部門
-                        moTypeSort = dr["mo_type"].ToString().Trim();
+                        drow["wp_id"] = "";// rng.get_Value(); 舊的匯總表同一頁數原來只有一行，舊的匯總表發現有多行，存儲過程用頁數去關聯將引起重復，所以這里導入時要去掉部門
+                        moTypeSort = drow["mo_type"].ToString().Trim();
                         moTypeSort = string.IsNullOrEmpty(moTypeSort) ? "" : moTypeSort;
-                        dr["mo_type_sort"] = moTypeSort.Length;
-                        dtImport.Rows.Add(dr);
+                        drow["mo_type_sort"] = moTypeSort.Length;
+                        dtImport.Rows.Add(drow);
                     }
                 }
                 progressBar1.Enabled = false;
@@ -536,7 +522,7 @@ namespace cf01.ReportForm
             bool Flag = clsValidRule.CheckDateFormat(strdate);
             if (!Flag)
             {
-                string strMsg = (str_language == "2") ? "Data Fromat is Error." : "輸入的日期有誤！";
+                string strMsg = (strLanguage == "2") ? "Data Fromat is Error." : "輸入的日期有誤！";
                 MessageBox.Show(strMsg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ((DateEdit)obj).Focus();
                 ((DateEdit)obj).SelectAll();
@@ -565,8 +551,7 @@ namespace cf01.ReportForm
         private void btnPrint_Click(object sender, EventArgs e)
         {
         //
-        }
-     
+        }     
 
         private void frmPlateDelivery_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -575,7 +560,6 @@ namespace cf01.ReportForm
             dtExcel.Dispose();
             dtOutReurn.Dispose();
         }
-
 
         private void btnRpt2_Click(object sender, EventArgs e)
         {
@@ -603,8 +587,7 @@ namespace cf01.ReportForm
                 return;
             }           
             clsPlateDelivery.ExpToExcel(index, rowCount, dtTemp, dtOutReurn, progressBar1,chkArt.Checked);
-        }
-        
+        }        
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
         {           

@@ -318,21 +318,21 @@ namespace cf01.Forms
             if (chkReturn.Checked)
             {
                 //處理是否只返回有打勾的
-                DataRow[] ary_drs = dtFind.Select("flag_select=true");
+                DataRow[] drowArray = dtFind.Select("flag_select=true");
                 //恢復原過濾前的數據
                 dtFind.Select();
                 //dt.Clear();此處不可以加此行，否則ary_drs的值此起異常
-                if (ary_drs.Length > 0)
+                if (drowArray.Length > 0)
                 {
                     //有選中則只返回選中的記錄
-                    dtReturn = dtFind.Clone();                    
+                    dtReturn = dtFind.Clone();
                     //將打勾的添加進新查詢的結果中                 
-                    foreach (DataRow dr in ary_drs)
+                    foreach (DataRow dr in drowArray)
                     {                       
                         dtReturn.ImportRow(dr);
                     }                  
                     returnRowIndex = 0; //定位到第一行
-                    ary_drs = null;
+                    drowArray = null;
                 }
                 else
                 {                  
@@ -445,7 +445,7 @@ namespace cf01.Forms
                 return;
             }
             bool blnSelect = false;
-            DataRow[] drowAry = null;
+            DataRow[] drowArray = null;
             if (dgvDetails.RowCount > 0)
             {
                 for (int i = 0; i < dgvDetails.RowCount; i++)
@@ -458,7 +458,7 @@ namespace cf01.Forms
                 }
                 if (blnSelect)
                 {
-                    drowAry = dtFind.Select("flag_select=true");
+                    drowArray = dtFind.Select("flag_select=true");
                 }
             }
            
@@ -524,12 +524,12 @@ namespace cf01.Forms
             
             //------------ 
             //導入前一次打勾的記錄
-            if (drowAry != null)
+            if (drowArray != null)
             {
-                if (drowAry.Length > 0)
+                if (drowArray.Length > 0)
                 {
                     DataRow[] drowAryDel;
-                    foreach (DataRow drow in drowAry)
+                    foreach (DataRow drow in drowArray)
                     {
                         drowAryDel = dtFind.Select(string.Format("id={0}", drow["id"]));
                         foreach (DataRow dr in drowAryDel)
@@ -538,7 +538,7 @@ namespace cf01.Forms
                         }
                     }
                     //將打勾的添加進新查詢的結果中                   
-                    foreach (DataRow drow in drowAry)
+                    foreach (DataRow drow in drowArray)
                     {
                         dtFind.ImportRow(drow);
                     }

@@ -17,9 +17,11 @@ namespace cf01.Forms
 	{       
         clsPublicOfGEO clsGeo = new clsPublicOfGEO();
         public clsAppPublic clspub = new clsAppPublic();
-        private clsAppPublic clsApp = new clsAppPublic();
-        
-		public string mID = "";    //臨時的主鍵值
+        clsAppPublic clsApp = new clsAppPublic();
+        //權限
+        clsToolBarNew objToolbar;
+
+        public string mID = "";    //臨時的主鍵值
 		public string mState = ""; //新增或編輯的狀態
 		public string str_date = "";//服務器日期	
 		public bool save_flag;    
@@ -36,9 +38,9 @@ namespace cf01.Forms
 			InitializeComponent();
             clsApp.Initialize_find_value(this.Name, tabControl1.TabPages[1].Controls);
             check_mo = true;
-            //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             //str_language = DBUtility._language;
             //NextControl oNext = new NextControl(this, "2");
@@ -232,8 +234,11 @@ namespace cf01.Forms
 			BTNITEMADD.Enabled = !_flag;
 			BTNITEMDEL.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
+            
 		}
 
 		private void Set_Grid_Status(bool _flag) // 表格可編號否

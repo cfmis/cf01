@@ -17,7 +17,7 @@ using cf01.ModuleClass;
 using System.Drawing;
 using cf01.MDL;
 using DevExpress.XtraReports.UI;
-//using System.Runtime.InteropServices;
+
 
 namespace cf01.Forms
 {
@@ -27,11 +27,11 @@ namespace cf01.Forms
         public int row_reset = 0;
         public DataTable dtDetail = new DataTable();
         public DataTable dtReSet = new DataTable();             
-        public string mState = ""; 
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
+        public string mState = "";
         public static List<mdlOcRemark> mList = new List<mdlOcRemark>();
+        DataGridViewRow dgvrow = new DataGridViewRow();
+        clsAppPublic clsApp = new clsAppPublic();       
+        clsToolBarNew objToolbar;
 
         //提示信息窗口自動關閉聲明
         //需引入using System.Runtime.InteropServices;
@@ -42,7 +42,7 @@ namespace cf01.Forms
         {
             InitializeComponent();
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
         }
         private void frmShippingRemark_Load(object sender, EventArgs e)

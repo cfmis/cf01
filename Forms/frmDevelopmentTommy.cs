@@ -27,13 +27,13 @@ namespace cf01.Forms
         public DataTable dtReSet = new DataTable();
         public DataTable dtMO = new DataTable();        
         public string mState = "";
-        private string mPvh_no = "";
-        private string mPvh_no_type_id_2 = "";
-        private string mPvh_no_type_id_3 = "";
-        private string mPvh_no_type_id_ck = "";
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
+        string mPvh_no = "";
+        string mPvh_no_type_id_2 = "";
+        string mPvh_no_type_id_3 = "";
+        string mPvh_no_type_id_ck = "";
+        clsToolBarNew objToolbar;
+        clsAppPublic clsApp = new clsAppPublic();
+        DataGridViewRow dgvrow = new DataGridViewRow();
 
        
         public frmDevelopmentTommy()
@@ -41,7 +41,7 @@ namespace cf01.Forms
             InitializeComponent();
 
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();            
               
         }

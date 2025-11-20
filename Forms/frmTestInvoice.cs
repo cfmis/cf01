@@ -28,15 +28,14 @@ namespace cf01.Forms
         public string mState = ""; //新增或編輯的狀態
         public static string str_language = "0";
         public bool save_flag;
-        public string strgroup = "";        
-
+        public string strgroup = "";
+        public List<mdlTestInvoiceData> lsModel = new List<mdlTestInvoiceData>();
         DataTable dtMostly = new DataTable();
         DataTable dtDetails = new DataTable();
         DataTable dtTempDel = new DataTable();
         DataTable dtFind_Date = new DataTable();
-
-        private clsAppPublic clsApp = new clsAppPublic();
-        public List<mdlTestInvoiceData> lsModel = new List<mdlTestInvoiceData>();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsToolBarNew objToolbar;
 
 
         public frmTestInvoice()
@@ -44,8 +43,8 @@ namespace cf01.Forms
             InitializeComponent();
 
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             str_language = DBUtility._language;
             NextControl oNext = new NextControl(this, "2");
@@ -353,8 +352,10 @@ namespace cf01.Forms
             BTNCONFIRM_AC.Enabled = _flag;
             dgvFind.Enabled = _flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
         }
 
         private void Set_Grid_Status(bool _flag) // 表格可編號否

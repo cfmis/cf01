@@ -28,19 +28,20 @@ namespace cf01.Forms
         DataTable dtDetail = new DataTable();
         DataTable dtReSet = new DataTable();
         public string mState = ""; 
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
+        
+        clsAppPublic clsApp = new clsAppPublic();
+        DataGridViewRow dgvrow = new DataGridViewRow();
         DataTable dtWork = new DataTable();
         DataTable dtWork_Filter = new DataTable();
-        
+        //權限
+        clsToolBarNew objToolbar;
 
         public frmDeptProductCost()
         {
             InitializeComponent();
             //dgvFind.AutoGenerateColumns = false;//禁止自動添加列，只顯示手勸增加的部分
-            //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+           
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, panel2.Controls);

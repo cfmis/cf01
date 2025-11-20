@@ -25,21 +25,21 @@ namespace cf01.Forms
     {
         public string mID = "";    //臨時的主鍵值
         public int row_reset = 0;
+        public string mState = "";
         public DataTable dtDetail = new DataTable();
         DataTable dtReSet = new DataTable();         
         DataTable dtVendor = new DataTable();
-        public string mState = ""; 
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
-        
+        DataGridViewRow dgvrow = new DataGridViewRow();       
+        clsAppPublic clsApp = new clsAppPublic();
+        clsToolBarNew objToolbar;
+
 
         public frmQuotationPlate()
         {
             InitializeComponent();
             dgvFind.AutoGenerateColumns = false;//禁止自動添加列，只顯示手勸增加的部分
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, panel2.Controls);
@@ -47,9 +47,8 @@ namespace cf01.Forms
         private void frmQuotationPlate_Load(object sender, EventArgs e)
         {
             //生成表結構
-            const string ls_sql = @"SELECT *,substring(convert(varchar(10),con_date,120),1,7) as date_ym From dbo.quotation_plate where 1=0 ";
-            dtDetail = clsPublicOfCF01.GetDataTable(ls_sql);
-           
+            string ls_sql = @"SELECT *,substring(convert(varchar(10),con_date,120),1,7) as date_ym From dbo.quotation_plate where 1=0 ";
+            dtDetail = clsPublicOfCF01.GetDataTable(ls_sql);           
             
             Find_Data();
             if (dgvDetails.Rows.Count >= 2)

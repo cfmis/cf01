@@ -31,8 +31,7 @@ using System.ComponentModel;
 namespace cf01.Forms
 {
     public partial class frmQuotation : Form
-    {
-        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+    {     
         string pID = "";    //臨時的主鍵值
         string editState = ""; //新增或編號的狀態
         string editStateCopy = "";
@@ -40,29 +39,32 @@ namespace cf01.Forms
         string oldGroup = "";
         string imagePath = "";
         string strLanguage = "0";
-        string msgCustom;
-        int cur_row_index;
-        int rowReset = 0;
+        string msgCustom;        
         string strTempCode = "";
         string cur_temp_code = "";
         string lange = DBUtility._language;//保存當前登彔的語言
-        System.Data.DataTable dtDetail = new System.Data.DataTable();
+        string strFileExcel = "";
+        string sortColumnName = "";
+        int cur_row_index;
+        int rowReset = 0;
+        public static string sent_quotation = "";
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
+        bool is_group_pdd { set; get; }
+
+        System.Data.DataTable dtDetail = new System.Data.DataTable();
         System.Data.DataTable dtVersion = new System.Data.DataTable();
         System.Data.DataTable dtSubmo = new System.Data.DataTable();
         System.Data.DataTable dtPriceDisc= new System.Data.DataTable();
         System.Data.DataTable dtPermiss = new System.Data.DataTable();
         clsAppPublic clsApp = new clsAppPublic();
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
-        DataGridViewRow dgvrow = new DataGridViewRow();
-        public static string sent_quotation = "";
+        DataGridViewRow dgvrow = new DataGridViewRow();        
         BindingSource bds1 = new BindingSource();
-        bool is_group_pdd { set; get; }
-        //bool flag_import;
-        string strFileExcel = "";
         frmQuotationFind frmQuotationFind;
         ListSortDirection sortDirection;//排序方式
-        string sortColumnName = "";
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsToolBarNew objToolbar;
+
 
         public frmQuotation()
         {
@@ -75,10 +77,14 @@ namespace cf01.Forms
             clsTranslate obj_ctl = new clsTranslate(this.Name, this.Controls, DBUtility._language);
             obj_ctl.Translate();
             //設置菜單按鈕的權限                          
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();                
+            //clsToolBar obj = new clsToolBar(this.Name, this.Controls);            
+            //obj.SetToolBar();                
+            //clsApp.RetSetImage(toolStrip1);
+
+            objToolbar = new clsToolBarNew(this.Name,this.toolStrip1);
+            objToolbar.SetToolBar();
             clsApp.RetSetImage(toolStrip1);
-            
+
             dgvDetails.RowHeadersVisible = true;  //因類clsControlInfoHelper DataGridView中已屏蔽行標頭,此處重新恢覆回來
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
           
@@ -624,8 +630,10 @@ namespace cf01.Forms
             BTNDEL_BATCH.Enabled = _flag;
             btnPriceDisc.Enabled = _flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }            
         }
 
         private bool Save_Before_Valid() //保存前檢查

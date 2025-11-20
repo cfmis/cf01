@@ -28,17 +28,17 @@ namespace cf01.Forms
         public DataTable dtDetail = new DataTable();
         public DataTable dtReSet = new DataTable();             
         public string mState = ""; 
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
         public static List<mdlOcRemark> mList = new List<mdlOcRemark>();
+        clsAppPublic clsApp = new clsAppPublic();
+        DataGridViewRow dgvrow = new DataGridViewRow();       
+        clsToolBarNew objToolbar;
 
         public frmPurVendor()
         {
             InitializeComponent();
             dgvFind.AutoGenerateColumns = false;//禁止自動添加列，只顯示手勸增加的部分
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, panel2.Controls);

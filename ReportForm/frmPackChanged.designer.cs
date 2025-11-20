@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.chkByCard = new System.Windows.Forms.CheckBox();
@@ -52,20 +52,6 @@
             this.lblBarcode = new System.Windows.Forms.Label();
             this.txtBarCode = new System.Windows.Forms.TextBox();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.within_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +66,20 @@
             this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.do_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_qty_pcs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -139,7 +139,7 @@
             // 
             this.chkByMoPrintSet.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkByMoPrintSet.Location = new System.Drawing.Point(594, 39);
-            this.chkByMoPrintSet.Name = "chkmo_print_by_set";
+            this.chkByMoPrintSet.Name = "chkByMoPrintSet";
             this.chkByMoPrintSet.Size = new System.Drawing.Size(244, 27);
             this.chkByMoPrintSet.TabIndex = 52;
             this.chkByMoPrintSet.Text = "手動輸入頁數套件列印";
@@ -327,7 +327,7 @@
             this.lblBarcode.AutoSize = true;
             this.lblBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblBarcode.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblBarcode.Location = new System.Drawing.Point(2, 14);
+            this.lblBarcode.Location = new System.Drawing.Point(2, 9);
             this.lblBarcode.Name = "lblBarcode";
             this.lblBarcode.Size = new System.Drawing.Size(133, 29);
             this.lblBarcode.TabIndex = 0;
@@ -377,6 +377,119 @@
             this.dgvDetails.Size = new System.Drawing.Size(968, 659);
             this.dgvDetails.TabIndex = 4;
             this.dgvDetails.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDetails_RowStateChanged);
+            // 
+            // pkey
+            // 
+            this.pkey.DataPropertyName = "pkey";
+            this.pkey.HeaderText = "group_key";
+            this.pkey.Name = "pkey";
+            this.pkey.ReadOnly = true;
+            this.pkey.Visible = false;
+            // 
+            // within_code
+            // 
+            this.within_code.DataPropertyName = "within_code";
+            this.within_code.HeaderText = "within_code";
+            this.within_code.Name = "within_code";
+            this.within_code.ReadOnly = true;
+            this.within_code.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // ver
+            // 
+            this.ver.DataPropertyName = "ver";
+            this.ver.HeaderText = "ver";
+            this.ver.Name = "ver";
+            this.ver.ReadOnly = true;
+            this.ver.Visible = false;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Visible = false;
+            // 
+            // it_customer
+            // 
+            this.it_customer.DataPropertyName = "it_customer";
+            this.it_customer.HeaderText = "it_customer";
+            this.it_customer.Name = "it_customer";
+            this.it_customer.ReadOnly = true;
+            this.it_customer.Visible = false;
+            // 
+            // customer_name_eng
+            // 
+            this.customer_name_eng.DataPropertyName = "customer_name_eng";
+            this.customer_name_eng.HeaderText = "customer_name_eng";
+            this.customer_name_eng.Name = "customer_name_eng";
+            this.customer_name_eng.ReadOnly = true;
+            this.customer_name_eng.Visible = false;
+            // 
+            // f_goods_id
+            // 
+            this.f_goods_id.DataPropertyName = "f_goods_id";
+            this.f_goods_id.HeaderText = "f_goods_id";
+            this.f_goods_id.Name = "f_goods_id";
+            this.f_goods_id.ReadOnly = true;
+            this.f_goods_id.Visible = false;
+            // 
+            // seq
+            // 
+            this.seq.DataPropertyName = "seq";
+            this.seq.HeaderText = "seq";
+            this.seq.Name = "seq";
+            this.seq.ReadOnly = true;
+            this.seq.Visible = false;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編號";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.Width = 170;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.Width = 200;
+            // 
+            // do_color
+            // 
+            this.do_color.DataPropertyName = "do_color";
+            this.do_color.HeaderText = "顏色做法";
+            this.do_color.Name = "do_color";
+            this.do_color.ReadOnly = true;
+            this.do_color.Width = 200;
+            // 
+            // order_qty_pcs1
+            // 
+            this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.order_qty_pcs1.HeaderText = "訂單數";
+            this.order_qty_pcs1.Name = "order_qty_pcs1";
+            this.order_qty_pcs1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -494,119 +607,6 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // pkey
-            // 
-            this.pkey.DataPropertyName = "pkey";
-            this.pkey.HeaderText = "group_key";
-            this.pkey.Name = "pkey";
-            this.pkey.ReadOnly = true;
-            this.pkey.Visible = false;
-            // 
-            // within_code
-            // 
-            this.within_code.DataPropertyName = "within_code";
-            this.within_code.HeaderText = "within_code";
-            this.within_code.Name = "within_code";
-            this.within_code.ReadOnly = true;
-            this.within_code.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // ver
-            // 
-            this.ver.DataPropertyName = "ver";
-            this.ver.HeaderText = "ver";
-            this.ver.Name = "ver";
-            this.ver.ReadOnly = true;
-            this.ver.Visible = false;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Visible = false;
-            // 
-            // it_customer
-            // 
-            this.it_customer.DataPropertyName = "it_customer";
-            this.it_customer.HeaderText = "it_customer";
-            this.it_customer.Name = "it_customer";
-            this.it_customer.ReadOnly = true;
-            this.it_customer.Visible = false;
-            // 
-            // customer_name_eng
-            // 
-            this.customer_name_eng.DataPropertyName = "customer_name_eng";
-            this.customer_name_eng.HeaderText = "customer_name_eng";
-            this.customer_name_eng.Name = "customer_name_eng";
-            this.customer_name_eng.ReadOnly = true;
-            this.customer_name_eng.Visible = false;
-            // 
-            // f_goods_id
-            // 
-            this.f_goods_id.DataPropertyName = "f_goods_id";
-            this.f_goods_id.HeaderText = "f_goods_id";
-            this.f_goods_id.Name = "f_goods_id";
-            this.f_goods_id.ReadOnly = true;
-            this.f_goods_id.Visible = false;
-            // 
-            // seq
-            // 
-            this.seq.DataPropertyName = "seq";
-            this.seq.HeaderText = "seq";
-            this.seq.Name = "seq";
-            this.seq.ReadOnly = true;
-            this.seq.Visible = false;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編號";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.Width = 170;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.Width = 200;
-            // 
-            // do_color
-            // 
-            this.do_color.DataPropertyName = "do_color";
-            this.do_color.HeaderText = "顏色做法";
-            this.do_color.Name = "do_color";
-            this.do_color.ReadOnly = true;
-            this.do_color.Width = 200;
-            // 
-            // order_qty_pcs1
-            // 
-            this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.order_qty_pcs1.HeaderText = "訂單數";
-            this.order_qty_pcs1.Name = "order_qty_pcs1";
-            this.order_qty_pcs1.ReadOnly = true;
             // 
             // frmPackChanged
             // 

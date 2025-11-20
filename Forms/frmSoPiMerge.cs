@@ -25,12 +25,16 @@ namespace cf01.Forms
         System.Data.DataTable dtDetail = new System.Data.DataTable();
         System.Data.DataTable dtTemp = new System.Data.DataTable();       
         string pID = "";    //臨時的主鍵值
-        string editState = ""; //新增或編號的狀態       
+        string editState = ""; //新增或編號的狀態     
+        clsToolBarNew objToolbar;  
 
 
         public frmSoPiMerge()
         {
             InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
+
             FindAll();
         }
 
@@ -157,8 +161,10 @@ namespace cf01.Forms
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar !=null)
+            {
+                objToolbar.SetToolBar();
+            }            
         }
                
         private bool Save_Before_Valid() //保存前檢查

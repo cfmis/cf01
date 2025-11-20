@@ -26,11 +26,15 @@ namespace cf01.Forms
         string editState = ""; //新增或編號的狀態    
         string image_path = DBUtility.imagePath;
         string artwork_path = "";
+        clsToolBarNew objToolbar;
 
 
         public frmMouldPosition()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
+
             dtDetail = clsMouldPosition.GetEmptyStrutre();
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
@@ -201,8 +205,11 @@ namespace cf01.Forms
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
+            
         }
                
         private bool Save_Before_Valid() //保存前檢查

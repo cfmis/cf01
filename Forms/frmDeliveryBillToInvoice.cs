@@ -38,15 +38,16 @@ namespace cf01.Forms
         DataTable dt_st_qty = new DataTable();
         DataTable dtqty = new DataTable();
 
-        private List<soinvoice_details_geo> lsModel = new List<soinvoice_details_geo>();
+        List<soinvoice_details_geo> lsModel = new List<soinvoice_details_geo>();
+        //權限
+        clsToolBarNew objToolbar;
 
-		public frmDeliveryBillToInvoice()
+        public frmDeliveryBillToInvoice()
 		{
 			InitializeComponent();
-
-            //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+           
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
 			str_language = DBUtility._language;
 			NextControl oNext = new NextControl(this, "2");
@@ -338,8 +339,11 @@ namespace cf01.Forms
             btnTearm.Enabled = !_flag;
 
 
-            clsToolBar obj = new clsToolBar(Name, Controls);
-            obj.SetToolBar();
+            if(objToolbar !=null)
+            {
+                objToolbar.SetToolBar();
+            }
+            
 		}
 
 		private void Set_Grid_Status(bool _flag) // 表格可編號否

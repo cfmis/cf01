@@ -13,21 +13,20 @@ namespace cf01.Forms
 {
     public partial class frmTestExcel : Form
     {
-        private clsAppPublic clsAppPublic = new clsAppPublic();
-        private clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
-        private string strSeq_id = "";
-        private string test_public_path = "";
-        
-        private clsUtility.enumOperationType OperationType;       
+        string strSeq_id = "";
+        string test_public_path = "";
+        string flag_new_copy = "";
         public DataTable dtTe = new DataTable();
-        private DataTable dtReport_Path_List = new DataTable();
-        private string flag_new_copy = "";        
-
-        private List<mdlTestInvoiceData> lstModel = new List<mdlTestInvoiceData>(); 
+        clsUtility.enumOperationType OperationType; 
+        DataTable dtReport_Path_List = new DataTable();      
+        List<mdlTestInvoiceData> lstModel = new List<mdlTestInvoiceData>();
+        clsAppPublic clsAppPublic = new clsAppPublic();
+        clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
+        clsToolBarNew objToolbar;
 
         public frmTestExcel()
         {
-            InitializeComponent();            
+            InitializeComponent();
             //clsControlInfoHelper formInit = new clsControlInfoHelper(this.Name, this.Controls);
             //formInit.GenerateContorl();
             //控件翻譯
@@ -35,8 +34,8 @@ namespace cf01.Forms
             //obj_ctl.Translate();
 
             //clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(this.Name,this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name,this.toolStrip1);
+            objToolbar.SetToolBar();
 
             NextControl oNext = new NextControl(this, "1");
             //oNext.EnterToTab();
@@ -821,9 +820,12 @@ namespace cf01.Forms
                     break;
                 default:
                     break;
+            }            
+            //clsAppPublic.SetToolBarEnable(this.Name, this.Controls); //cancel 2025/11/20
+            if(objToolbar !=null)
+            {
+                objToolbar.SetToolBar();
             }
-
-            clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
         }
         #endregion
 

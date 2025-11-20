@@ -171,20 +171,25 @@ namespace cf01.Reports
 
         private void lblShippmark_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            string shippMark = GetCurrentColumnValue("contract_cid").ToString();
-            string salesGroup = GetCurrentColumnValue("group_number").ToString();
-            shippMark = string.IsNullOrEmpty(shippMark) ? "" : shippMark.Trim();
-            salesGroup = string.IsNullOrEmpty(salesGroup) ? "" : salesGroup;
-            if(shippMark.Length>=4)
-            {
-                if (shippMark.Substring(0, 4) == "6629" && salesGroup == "1S")
-                    lblShippmark.Visible = true;
-                else
-                    lblShippmark.Visible = false;
-            }
-            else
-                lblShippmark.Visible = false;
-
+            //2025/11/20 DL-C0191客戶所有訂單全部顯示：箱內要放船頭辦
+            string CustID = GetCurrentColumnValue("it_customer").ToString();
+            lblShippmark.Visible = (CustID == "DL-C0191") ? true : false;
+            
+            //-- start 2025/11/20 cancel PO：6629開頭的顯示：箱內要放船頭辦
+            //string shippMark = GetCurrentColumnValue("contract_cid").ToString();
+            //string salesGroup = GetCurrentColumnValue("group_number").ToString();
+            //shippMark = string.IsNullOrEmpty(shippMark) ? "" : shippMark.Trim();
+            //salesGroup = string.IsNullOrEmpty(salesGroup) ? "" : salesGroup;
+            //if(shippMark.Length>=4)
+            //{
+            //    if (shippMark.Substring(0, 4) == "6629" && salesGroup == "1S")
+            //        lblShippmark.Visible = true;
+            //    else
+            //        lblShippmark.Visible = false;
+            //}
+            //else
+            //    lblShippmark.Visible = false;
+            //-- end
         }
     }
 }

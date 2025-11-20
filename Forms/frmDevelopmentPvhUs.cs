@@ -28,7 +28,7 @@ namespace cf01.Forms
         public DataTable dtDetail = new DataTable();        
         public string mState = "";
         private string user_group = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
-        clsToolBar objToolbar;
+        clsToolBarNew objToolbar;
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public BindingSource bds1 = new BindingSource();
@@ -42,7 +42,7 @@ namespace cf01.Forms
             InitializeComponent();
 
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
 
             const string sql = @"SELECT * From development_us_pvh with(nolock) where 1=0 ";

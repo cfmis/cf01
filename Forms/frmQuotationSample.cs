@@ -22,11 +22,16 @@ namespace cf01.Forms
         System.Data.DataTable dtDetail = new System.Data.DataTable();
         System.Data.DataTable dtTemp = new System.Data.DataTable();       
         string pID = "";    //臨時的主鍵值
-        string editState = ""; //新增或編號的狀態       
+        string editState = ""; //新增或編號的狀態
+        clsToolBarNew objToolbar;
+
 
         public frmQuotationSample()
         {
             InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
+
             dtDetail = clsQuotationSample.GetEmptyStrutre();
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;            
@@ -299,7 +304,6 @@ namespace cf01.Forms
             {
                 pID = dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["id"].Value.ToString();
                 //pID = gridView1.GetFocusedRowCellValue("id").ToString();
-
             }
         }
         private void SetButtonSatus(bool _flag)
@@ -313,8 +317,10 @@ namespace cf01.Forms
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }           
         }
                
         private bool Save_Before_Valid() //保存前檢查

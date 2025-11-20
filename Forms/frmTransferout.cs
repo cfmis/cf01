@@ -24,7 +24,7 @@ namespace cf01.Forms
 {
 	public partial class frmTransferout : Form
 	{
-        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+       
 		string mID = "";    //臨時的主鍵值
 		string mState = ""; //新增或編輯的狀態
 		string language = "0";
@@ -34,8 +34,6 @@ namespace cf01.Forms
         string temp_suit = ""; //暫存更改前的值
         string temp_goods_id = ""; //暫存更改前的值
         decimal temp_transfer_amount = 0;
-
-
         DataTable dtMostly = new DataTable();
 		DataTable dtDetails = new DataTable();
         DataTable dtPart = new DataTable();
@@ -46,16 +44,17 @@ namespace cf01.Forms
         BindingSource bds1 = new BindingSource();
         BindingSource bds2 = new BindingSource();
         DataSet dtsTrans = new DataSet();
+        List<soinvoice_details_geo> lsModel = new List<soinvoice_details_geo>();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsToolBarNew objToolbar;
 
-        private List<soinvoice_details_geo> lsModel = new List<soinvoice_details_geo>();
-
-		public frmTransferout()
+        public frmTransferout()
 		{
 			InitializeComponent();
 
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
 			language = DBUtility._language;
 			NextControl oNext = new NextControl(this, "2");
@@ -318,10 +317,13 @@ namespace cf01.Forms
             BTNCANCEL.Enabled = !_flag;
 			BTNITEMADD.Enabled = !_flag;
 			BTNITEMDEL.Enabled = !_flag;
-
             BTNAPPROVE.Visible = true;
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+
+
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
 		}
 
 		private void SetGridStatus(bool _flag) // 表格可編號否

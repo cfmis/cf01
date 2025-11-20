@@ -305,6 +305,7 @@
     <Compile Include="CLS\clsTestExcel.cs" />
     <Compile Include="CLS\clsTestProductPlan.cs" />
     <Compile Include="CLS\clsTommyTest.cs" />
+    <Compile Include="CLS\clsToolBarNew.cs" />
     <Compile Include="CLS\clsToolBar.cs" />
     <Compile Include="CLS\clsTransferLoc.cs" />
     <Compile Include="CLS\clsTransferout.cs" />

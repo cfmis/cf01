@@ -15,16 +15,19 @@ namespace cf01.Forms
 {
     public partial class frmQuotation_Batch_Update : Form
     {
-        private DataTable dt = new DataTable();
-        private DataTable dtUpdate = new DataTable();
-        private clsAppPublic clsApp = new clsAppPublic();
         public int Current_row;
+        DataTable dt = new DataTable();
+        DataTable dtUpdate = new DataTable();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsToolBarNew objToolbar;
+
+
         public frmQuotation_Batch_Update()
         {
             InitializeComponent();
             //設置菜單按鈕的權限            
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, groupBox2.Controls);
             NextControl oFocus = new NextControl(this, "1");

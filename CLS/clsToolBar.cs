@@ -9,9 +9,9 @@ namespace cf01.CLS
 {
     public class clsToolBar
     {
-        private DataTable dt_toobar = new DataTable();
-        private Control.ControlCollection objControls;
-        private string form_name;       
+        DataTable dtblRight = new DataTable();
+        Control.ControlCollection objControls;
+        string form_name;       
         public clsToolBar(string pFormName, Control.ControlCollection cts)
         {
             form_name = pFormName;
@@ -24,7 +24,7 @@ namespace cf01.CLS
             //BTNDEL_BATCH,BTNDELETE,BTNEDIT,BTNEXCEL,BTNFIND,BTNIMPORT,BTNINVOICE,BTNITEMADD,BTNITEMDEL,BTNNEW,
             //BTNNEWCOPY,BTNNEWVER,BTNPRINT,BTNPRINTA4,BTNPRINTA41,BTNQUOTATION,BTNSAVE,BTNSAVEPRINT,BTNSAVESET
             string sqlstr = string.Format(@"Select id,state From dbo.v_user_popedom Where usr_no='{0}' And window_id='{1}'", DBUtility._user_id, form_name);           
-            dt_toobar = clsPublicOfCF01.GetDataTable(sqlstr);
+            dtblRight = clsPublicOfCF01.GetDataTable(sqlstr);
             setValue(objControls);
 
             //2017-10-20取消此舊代碼
@@ -41,10 +41,10 @@ namespace cf01.CLS
             //    string field_Name = "";
             //    string field_state = "";
             //    DataRow[] dr = dt.Select();
-            //    if (!dt_toobar.Columns.Contains("id"))//結構是否建立
+            //    if (!dtblRight.Columns.Contains("id"))//結構是否建立
             //    {
-            //        dt_toobar.Columns.Add("id", Type.GetType("System.String"));
-            //        dt_toobar.Columns.Add("state", Type.GetType("System.Boolean"));
+            //        dtblRight.Columns.Add("id", Type.GetType("System.String"));
+            //        dtblRight.Columns.Add("state", Type.GetType("System.Boolean"));
             //    }
             //    for (int i = 0; i < dt.Columns.Count; i++)
             //    {
@@ -59,10 +59,10 @@ namespace cf01.CLS
             //            field_state = String.Format("{0}_STATE", strLeft);
             //            if (dr[0][field_Name].ToString() != "")
             //            {
-            //                DataRow newRow = dt_toobar.NewRow();
+            //                DataRow newRow = dtblRight.NewRow();
             //                newRow["id"] = dr[0][field_Name].ToString();
             //                newRow["state"] = dr[0][field_state];
-            //                dt_toobar.Rows.Add(newRow);
+            //                dtblRight.Rows.Add(newRow);
             //            }
             //        }
             //    }
@@ -85,7 +85,7 @@ namespace cf01.CLS
                 {
                     case "ToolStrip":
                         ToolStrip ts = (ToolStrip)ct;
-                        if (dt_toobar.Rows.Count == 0)
+                        if (dtblRight.Rows.Count == 0)
                         {
                             for (int i = 0; i < ts.Items.Count; i++)
                             {
@@ -105,7 +105,7 @@ namespace cf01.CLS
                                 if (ts.Items[i].Enabled) //當按鈕可用狀態時再次檢查對應權限，重新校正
                                 {
                                     objName = objName.Trim();
-                                    DataRow[] dr = dt_toobar.Select(String.Format("id = '{0}'", objName));
+                                    DataRow[] dr = dtblRight.Select(String.Format("id = '{0}'", objName));
                                     if (dr.Length > 0)
                                     {
                                         if (strCtls.Contains(objName))

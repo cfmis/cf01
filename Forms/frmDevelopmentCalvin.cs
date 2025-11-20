@@ -28,9 +28,9 @@ namespace cf01.Forms
         public DataTable dtReSet = new DataTable();
         public DataTable dtMO = new DataTable();        
         public string mState = "";         
-        clsToolBar objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
+        clsToolBarNew objToolbar;
+        clsAppPublic clsApp = new clsAppPublic();
+        DataGridViewRow dgvrow = new DataGridViewRow();
        
 
         //提示信息窗口自動關閉聲明
@@ -43,7 +43,7 @@ namespace cf01.Forms
             InitializeComponent();
 
             //權限
-            objToolbar = new clsToolBar(this.Name, this.Controls);
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
         }
 

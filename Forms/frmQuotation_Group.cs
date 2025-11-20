@@ -21,19 +21,20 @@ namespace cf01.Forms
 	{		
 		string editState = ""; //新增或編輯的狀態	
 		bool saveFlag;
-        string group = "";
-        	
+        string group = "";        	
 		DataTable dtGroup = new DataTable();
 		DataTable dtTempDel = new DataTable();
+        clsToolBarNew objToolbar;
 
-		public frmQuotation_Group(string temp_code,string _group)
+        public frmQuotation_Group(string temp_code,string grp)
 		{
 			InitializeComponent();
             txtTemp_code.Text = temp_code;
+            group = grp;
             //clsAppPublic.SetToolBarEnable("frmQuotation", this.Controls);
-            clsToolBar obj = new clsToolBar("frmQuotation", this.Controls);
-            obj.SetToolBar();
-            group = _group;
+            objToolbar = new clsToolBarNew("frmQuotation", this.toolStrip1);
+            objToolbar.SetToolBar();
+          
 		}
 
 		private void frmQuotation_Group_Load(object sender, EventArgs e)

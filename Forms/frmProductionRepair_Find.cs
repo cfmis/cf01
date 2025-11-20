@@ -12,14 +12,16 @@ namespace cf01.Forms
 {
     public partial class frmProductionRepair_Find : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataTable dtReport = new DataTable();
+        clsAppPublic clsApp = new clsAppPublic();
+        DataTable dtReport = new DataTable();
+        clsToolBarNew objToolbar ;
+
         public frmProductionRepair_Find()
         {
             InitializeComponent();
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
             clsApp.Initialize_find_value(this.Name, this.panelControl1.Controls);
             radioGroup2.SelectedIndex = 2;           

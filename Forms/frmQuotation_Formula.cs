@@ -19,20 +19,21 @@ namespace cf01.Forms
 {
     public partial class frmQuotation_Formula : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
         public string mID = "";    //臨時的主鍵值
         public string mState = ""; //新增或編號的狀態
         public static string str_language = "0";
         public string msgCustom;
         public int row_delete;
         public int row_reset = 0;
-        private System.Data.DataTable dtDetail = new System.Data.DataTable();
-        private System.Data.DataTable dtBatchUpdate = new System.Data.DataTable();
-        readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
-        private DataGridViewRow dgvrow = new DataGridViewRow();       
         public string init_brand_id;
-        public string call_is_flag="";//從報價單基本資料中開啟此表單時，沒有對的公式，提示提前出現的問題      
-        
+        public string call_is_flag = "";//從報價單基本資料中開啟此表單時，沒有對的公式，提示提前出現的問題 
+        System.Data.DataTable dtDetail = new System.Data.DataTable();
+        System.Data.DataTable dtBatchUpdate = new System.Data.DataTable();
+        MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
+        DataGridViewRow dgvrow = new DataGridViewRow();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsToolBarNew objToolbar;
+
 
         public frmQuotation_Formula()
         {            
@@ -47,8 +48,8 @@ namespace cf01.Forms
                 //obj_ctl.Translate();               
                 //設置菜單按鈕的權限
                 //clsApp.SetToolBarEnable(this.Name, this.Controls);
-                clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-                obj.SetToolBar();
+                objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+                objToolbar.SetToolBar();
 
                 //clsApp.RetSetImage(toolStrip1);
             }
@@ -175,9 +176,10 @@ namespace cf01.Forms
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
 
-            //clsApp.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if (objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
         }
 
         private bool Save_Before_Valid() //保存前檢查

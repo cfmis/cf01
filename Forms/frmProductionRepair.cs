@@ -33,14 +33,17 @@ namespace cf01.Forms
         DataTable dtDetails = new DataTable();
         DataTable dtTempDel = new DataTable();      
 
-        private clsAppPublic clsApp = new clsAppPublic();
-        
+        clsAppPublic clsApp = new clsAppPublic();
+        //權限
+        clsToolBarNew objToolbar;
+
         public frmProductionRepair()
         {
             InitializeComponent();
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();            
+            objToolbar= new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();  
+                      
             str_language = DBUtility._language;
             NextControl oNext = new NextControl(this, "2");
             oNext.EnterToTab();
@@ -214,8 +217,10 @@ namespace cf01.Forms
             BTNITEMADD.Enabled = !_flag;            
             BTNITEMDEL.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
         }
 
         private void AddNew()  //新增

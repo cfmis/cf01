@@ -32,15 +32,15 @@ namespace cf01.Forms
         DataTable dtDetails_result = new DataTable();
         DataTable dtTempDel = new DataTable();
         DataTable dtFind = new DataTable();
+        clsAppPublic clsApp = new clsAppPublic();
+        clsToolBarNew objToolbar;
 
-        private clsAppPublic clsApp = new clsAppPublic();
-        
         public frmQcTestReport()
         {
             InitializeComponent();
             //權限
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar(); 
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar(); 
   
             clsApp.Initialize_find_value(this.Name, this.panel2.Controls);
             m_language = DBUtility._language;
@@ -224,8 +224,10 @@ namespace cf01.Forms
             btnAdd1.Enabled = !_flag;
             btnDel1.Enabled = !_flag;
 
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
+            if (objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }
         }
 
         private void AddNew()  //新增

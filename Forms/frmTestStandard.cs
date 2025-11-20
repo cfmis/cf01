@@ -15,16 +15,16 @@ namespace cf01.Forms
 {
 	public partial class frmTestStandard : Form
 	{
-        private static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
 		public string mID = "";    //臨時的主鍵值
 		public static string ID_Search = "";
 		public string mState = ""; //新增或編輯的狀態
-		public static string str_language = "0";
+		public static string strLanguage = "0";
 		public string msgCustom;
 		public bool mAdded_isModify ; //數據的修改狀態
 		public bool save_flag;
 		public string strArea = "";
-		readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
+		MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
 		public string test_public_path = "";
 
         //初始化查詢窗體
@@ -52,22 +52,21 @@ namespace cf01.Forms
         public DataTable dtTempDel = new DataTable();
         public DataTable dtTestItem = new DataTable();
         public DataTable dtType_condition = new DataTable();
-        private DataTable dtReport_Path_List = new DataTable();
+        DataTable dtReport_Path_List = new DataTable();
+        clsToolBarNew objToolbar;
 
-
-		public frmTestStandard()
+        public frmTestStandard()
 		{
 			InitializeComponent();
 
-			//clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
-			//control.GenerateContorl();
+            //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
+            //control.GenerateContorl();
+          
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
 
-            //clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-            obj.SetToolBar();
 
-
-			str_language = DBUtility._language;
+			strLanguage = DBUtility._language;
 			NextControl oNext = new NextControl(this, "2");
 			oNext.EnterToTab();
 		}
@@ -261,10 +260,11 @@ namespace cf01.Forms
 			BTNITEMDEL.Enabled = !_flag;
 
 			btnAuto.Enabled = !_flag;
-
-            //clsAppPublic.SetToolBarEnable(this.Name, this.Controls);
-            clsToolBar obj = new clsToolBar(Name, Controls);
-            obj.SetToolBar();
+                   
+            if(objToolbar != null)
+            {
+                objToolbar.SetToolBar();
+            }            
 		}
 
 		private void Set_Grid_Status(bool _flag) // 表格可編號否
@@ -702,7 +702,7 @@ namespace cf01.Forms
 		{
 			if (txtSales_group.Text =="" ||txtID.Text == "" || txtBrand_category.Text == "" || txtColor_category.Text == "" || txtDatum.Text == "")
 			{
-				if (str_language == "2")
+				if (strLanguage == "2")
 				{
 					msgCustom = "Data cannot be empty.";
 				}
@@ -853,7 +853,7 @@ namespace cf01.Forms
 			if (!Flag)
 			{
 				string strMsg;
-				if (str_language == "2")
+				if (strLanguage == "2")
 					strMsg = "Data Fromat is Error.";
 				else
 					strMsg = "輸入的日期有誤！";
