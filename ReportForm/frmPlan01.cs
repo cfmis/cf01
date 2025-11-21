@@ -945,7 +945,7 @@ namespace cf01.ReportForm
                 //str += "\t" + "生產機器";
                 sw.WriteLine(str);
                 //写内容
-                string col_value;
+                //string col_value;
                 for (int i = 0; i < dt1.Rows.Count; i++)
                 {
                     DataRow dr = dt1.Rows[i];

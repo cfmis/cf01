@@ -12,7 +12,7 @@ namespace cf01.CLS
         DataTable tblStatus = new DataTable();
         string strStatus = "";
         string within_code = "0000";
-        int rtn = 0;
+        //int rtn = 0;
 
         /// <summary>
         /// 更新庫存

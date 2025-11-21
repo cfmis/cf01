@@ -1544,8 +1544,8 @@ namespace cf01.Forms
                     worksheet.Rows[2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;                  
 
                     //寫入數值 
-                    int i = 0, cur_row = 0;
-                    string str_value = "", str_divison1 = "", str_divison2 = "", str_searial_no = ""; ;
+                    int i = 0, cur_row = 0;                  
+                    string str_value = "";
                     for (int r = 0; r < dgvFind.RowCount; r++)//行
                     {
                         i = i + 1;

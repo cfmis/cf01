@@ -176,7 +176,7 @@ namespace cf01.MM
         {
             string filePath = @"c:\vue01\index.html";
 
-            string dirPath = @"c:\vue01";
+            //string dirPath = @"c:\vue01";
 
             System.Collections.Specialized.StringCollection strcoll = new System.Collections.Specialized.StringCollection(); //收集路径
 

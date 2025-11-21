@@ -39,7 +39,7 @@ namespace cf01.Forms
 
         private void frmStTransferToHk_Load(object sender, EventArgs e)
         {
-            initControls();
+            initControls();            
         }
         private void initControls()
         {

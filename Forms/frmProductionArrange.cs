@@ -1694,7 +1694,7 @@ namespace cf01.Forms
                 }
                 sw.WriteLine(str);
                 //写内容
-                string pre_id, cur_id, col_value;
+                string col_value;//,pre_id, cur_id,;
                 for (int rowNo = 0; rowNo < dgvPA.RowCount; rowNo++)
                 {
                     string tempstr = " ";

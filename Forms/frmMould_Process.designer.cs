@@ -3337,8 +3337,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;       
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.Label label27;
         private DevExpress.XtraEditors.TextEdit txtmould_id;

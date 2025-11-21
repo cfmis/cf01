@@ -223,18 +223,18 @@ namespace cf01.Forms
                 using (SqlConnection sqlcon = new SqlConnection(DBUtility.connectionString))
                 {
                     sqlcon.Open();
-                    string strSql = String.Format(@"Select user_id,user_name From sys_login Where machine_id='{0}'", strmac_id);
+                    string strSql = string.Format(@"Select user_id,user_name From sys_login Where machine_id='{0}'", strmac_id);
                     SqlCommand sqlcom = new SqlCommand(strSql, sqlcon);
                     SqlDataReader sqlrd = sqlcom.ExecuteReader();
                     while (sqlrd.Read())
                     {
-                        strReturn = String.Format("{0}&{1}", sqlrd[0], sqlrd[1]);                        
+                        strReturn = string.Format("{0}&{1}", sqlrd[0], sqlrd[1]);                        
                     }
                     sqlrd.Close();
                 }
                 return strReturn;
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 return "";
             }

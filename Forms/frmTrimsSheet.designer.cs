@@ -2054,7 +2054,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private DevExpress.XtraEditors.ButtonEdit txttrim_code;
         private System.Windows.Forms.Label label4;

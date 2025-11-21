@@ -338,7 +338,7 @@ namespace cf01.ReportForm
             string p_unit = "";
             int row_precessing = 0;
             int row_total = xSheet.UsedRange.Rows.Count;//總行數
-            decimal amt = 0;
+            //decimal amt = 0;
             progressBar1.Maximum = row_total;
            
             Microsoft.Office.Interop.Excel.Range rng;

@@ -158,7 +158,7 @@ namespace cf01.Forms
         {
             string text_info = "";
             TreeNode subNode1 = new TreeNode();
-            TreeNode subNode2;
+            //TreeNode subNode2;
             DataTable dtRoutingBom;
             dtRoutingBom = loadRoutingBom(goods_id);//查找物料的Routing
             if (dtRoutingBom.Rows.Count == 0)//若沒找到物料的Routing，就找產品類型的

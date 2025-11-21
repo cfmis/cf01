@@ -51,7 +51,7 @@ namespace cf01.CLS
             {
                 chkDate = Convert.ToDateTime(strDate);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 result = false;
             }
@@ -151,7 +151,7 @@ namespace cf01.CLS
             {
                 dVal = Convert.ToDateTime(strVal).ToString("yyyy/MM/dd");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 dVal = strVal.ToString().Trim();
             }
@@ -164,7 +164,7 @@ namespace cf01.CLS
             {
                 dVal = Convert.ToInt32(strVal);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 dVal = 0;
             }
@@ -177,7 +177,7 @@ namespace cf01.CLS
             {
                 dVal = Convert.ToSingle(strVal);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 dVal = 0;
             }
@@ -190,7 +190,7 @@ namespace cf01.CLS
             {
                 dVal = Convert.ToDecimal(strVal);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 dVal = 0;
             }
@@ -203,7 +203,7 @@ namespace cf01.CLS
             {
                 dVal = Convert.ToDouble(strVal);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 dVal = 0;
             }

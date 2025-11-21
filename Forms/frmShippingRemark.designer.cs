@@ -1492,8 +1492,7 @@
         private System.Windows.Forms.DataGridView dgvFind;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;        
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_no2;
         private System.Windows.Forms.DataGridViewTextBoxColumn form_date2;
         private System.Windows.Forms.DataGridViewTextBoxColumn oc_no2;

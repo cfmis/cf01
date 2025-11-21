@@ -228,7 +228,7 @@ namespace cf01.CLS
                 //    over_day = 4;
                 //////部門已過期
                 //if (pass_days > over_day && prd_qty < pl_qty)
-                int maxCol = 27;
+                //int maxCol = 27;
                 if (period_flag == "Y")
                 {
                     //// 设置整行背景为红色
@@ -571,7 +571,7 @@ namespace cf01.CLS
                 string period_flag = drExcel["period_flag"].ToString().Trim();
                 string hk_period_flag = drExcel["hk_period_flag"].ToString().Trim();
                 //if (pass_days > over_day && prd_qty < pl_qty)
-                int maxCol = 28;
+                //int maxCol = 28;
                 if (period_flag == "Y")
                 {
                     //// 设置整行背景为红色

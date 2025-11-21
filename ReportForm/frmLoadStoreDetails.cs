@@ -95,8 +95,8 @@ namespace cf01.ReportForm
                 sw.WriteLine(str);
 
                 //写内容
-                string col_value;
-                bool IsWrite = false;  //是否寫入
+                //string col_value;
+                //bool IsWrite = false;  //是否寫入
 
                 for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
                 {
