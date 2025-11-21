@@ -623,8 +623,7 @@ namespace cf01.Forms
         {
             int cur_qty;
             cur_qty = Convert.ToInt32(txtLot_qty.Text);
-            int min_rate, max_rate;
-            int i = 0;
+            int min_rate, max_rate;           
             for (int j = 0; j < ds_rate.Tables["qc_facade_rate"].Rows.Count; j++)
             {
                 min_rate = Convert.ToInt32(ds_rate.Tables["qc_facade_rate"].Rows[j]["qty_min_rate"]);

@@ -46,9 +46,7 @@ namespace cf01.Forms
             string vend_id = "";
 
             string doc_id1 = "";
-            string doc_id2 = "";
-            string mo1 = "";
-            string mo2 = "";
+            string doc_id2 = "";            
             string dep = txtPrd_dep.Text.Trim();
             string prd_item = txtPrd_item.Text.Trim();
 

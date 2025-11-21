@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Reflection;//反射
 using System.IO;
-using System.Threading;
 using cf01.MDL;
 using cf01.CLS;
 using cf01.Forms;

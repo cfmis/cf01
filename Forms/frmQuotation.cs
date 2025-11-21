@@ -3754,10 +3754,10 @@ namespace cf01.Forms
         {
             //此代碼默認屏幕字體大小為100%顯示沒問題，
             //部分電腦因字體大小調整為125%或更高，引起顯示上的偏差，浪費幾天時間調試，查不清原因（踩坑）
-            int height = 415; //不顯示PDD Remark的最小高度
+            int height = 385; //不顯示PDD Remark的最小高度
             try
             {               
-                height = (!is_group_pdd) ? 415 : 460;
+                height = (!is_group_pdd) ? 385 : 460;
                 splitContainer1.SplitterDistance = height;
                 pnlHead.Height = height;
             }
