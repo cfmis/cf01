@@ -3757,7 +3757,7 @@ namespace cf01.Forms
             int height = 385; //不顯示PDD Remark的最小高度
             try
             {               
-                height = (!is_group_pdd) ? 385 : 460;
+                height = (!is_group_pdd) ? 385 : 480;
                 splitContainer1.SplitterDistance = height;
                 pnlHead.Height = height;
             }
