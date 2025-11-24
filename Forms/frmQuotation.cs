@@ -265,6 +265,7 @@ namespace cf01.Forms
                 this.tabControl1.Width = screen_width - 2;
                 this.tabControl1.Height = screen_height - (pnlHead.Height + toolStrip1.Height + 115);
             }*/
+            SetResize();
         }
        
         private void SetDataBindings()
@@ -3754,10 +3755,10 @@ namespace cf01.Forms
         {
             //此代碼默認屏幕字體大小為100%顯示沒問題，
             //部分電腦因字體大小調整為125%或更高，引起顯示上的偏差，浪費幾天時間調試，查不清原因（踩坑）
-            int height = 385; //不顯示PDD Remark的最小高度
+            int height = 405; //不顯示PDD Remark的最小高度
             try
             {               
-                height = (!is_group_pdd) ? 385 : 480;
+                height = (!is_group_pdd) ? 405 : 475;
                 splitContainer1.SplitterDistance = height;
                 pnlHead.Height = height;
             }
@@ -3775,6 +3776,7 @@ namespace cf01.Forms
             this.pnlHead.Width = this.Width;
             tabControl1.Width = splitContainer1.Width;
             tabControl1.Height = splitContainer1.Panel2.Height;
+            dgvDetails.Height = tabControl1.Height - 30;
             pnlRemarkPDD_dg.Width = pnlHead.Width - pnlRemarkPDD.Width - 10;
             dgvSub.Width = pnlHead.Width - pnlRemarkPDD.Width - 267 - 10;
             dgvPriceDisc.Width = dgvSub.Width;

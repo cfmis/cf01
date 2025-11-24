@@ -1156,7 +1156,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1357, 225);
+            this.tabControl1.Size = new System.Drawing.Size(1357, 219);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -1167,7 +1167,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1349, 199);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 193);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2375,7 +2375,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 199);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 193);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新版本";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2494,7 +2494,7 @@
             this.cl_discount,
             this.clFlag_vnd,
             this.clVnd});
-            this.gridControl1.Size = new System.Drawing.Size(1342, 202);
+            this.gridControl1.Size = new System.Drawing.Size(1342, 154);
             this.gridControl1.TabIndex = 139;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -4039,7 +4039,7 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(961, 359);
+            this.lblCrtim.Location = new System.Drawing.Point(947, 378);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(61, 13);
             this.lblCrtim.TabIndex = 13;
@@ -4048,7 +4048,7 @@
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(1262, 359);
+            this.lblAmtim.Location = new System.Drawing.Point(1304, 378);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(64, 13);
             this.lblAmtim.TabIndex = 15;
@@ -5056,7 +5056,7 @@
             // lblCrusr
             // 
             this.lblCrusr.Font = new System.Drawing.Font("PMingLiU", 9F);
-            this.lblCrusr.Location = new System.Drawing.Point(832, 359);
+            this.lblCrusr.Location = new System.Drawing.Point(778, 379);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(60, 13);
             this.lblCrusr.TabIndex = 12;
@@ -5077,7 +5077,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(3, 294);
+            this.lblRemark.Location = new System.Drawing.Point(3, 293);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(73, 13);
             this.lblRemark.TabIndex = 93;
@@ -5088,7 +5088,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(76, 290);
+            this.txtRemark.Location = new System.Drawing.Point(76, 289);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -5102,20 +5102,20 @@
             // 
             this.txtCrusr.EditValue = "";
             this.txtCrusr.Enabled = false;
-            this.txtCrusr.Location = new System.Drawing.Point(890, 356);
+            this.txtCrusr.Location = new System.Drawing.Point(837, 376);
             this.txtCrusr.Name = "txtCrusr";
             this.txtCrusr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.txtCrusr.Properties.Appearance.Options.UseFont = true;
             this.txtCrusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCrusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCrusr.Properties.ReadOnly = true;
-            this.txtCrusr.Size = new System.Drawing.Size(69, 20);
+            this.txtCrusr.Size = new System.Drawing.Size(91, 20);
             this.txtCrusr.TabIndex = 48;
             this.txtCrusr.Tag = "2";
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(1129, 359);
+            this.lblAmusr.Location = new System.Drawing.Point(1161, 378);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(62, 13);
             this.lblAmusr.TabIndex = 14;
@@ -5147,14 +5147,14 @@
             // 
             this.txtCrtim.EditValue = "";
             this.txtCrtim.Enabled = false;
-            this.txtCrtim.Location = new System.Drawing.Point(1020, 356);
+            this.txtCrtim.Location = new System.Drawing.Point(1006, 375);
             this.txtCrtim.Name = "txtCrtim";
             this.txtCrtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCrtim.Properties.Appearance.Options.UseFont = true;
             this.txtCrtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCrtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCrtim.Properties.ReadOnly = true;
-            this.txtCrtim.Size = new System.Drawing.Size(108, 20);
+            this.txtCrtim.Size = new System.Drawing.Size(137, 20);
             this.txtCrtim.TabIndex = 49;
             this.txtCrtim.Tag = "2";
             // 
@@ -5162,12 +5162,12 @@
             // 
             this.txtAmusr.EditValue = "";
             this.txtAmusr.Enabled = false;
-            this.txtAmusr.Location = new System.Drawing.Point(1191, 356);
+            this.txtAmusr.Location = new System.Drawing.Point(1223, 375);
             this.txtAmusr.Name = "txtAmusr";
             this.txtAmusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtAmusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAmusr.Properties.ReadOnly = true;
-            this.txtAmusr.Size = new System.Drawing.Size(69, 20);
+            this.txtAmusr.Size = new System.Drawing.Size(80, 20);
             this.txtAmusr.TabIndex = 50;
             this.txtAmusr.Tag = "2";
             // 
@@ -5175,14 +5175,14 @@
             // 
             this.txtAmtim.EditValue = "";
             this.txtAmtim.Enabled = false;
-            this.txtAmtim.Location = new System.Drawing.Point(1324, 356);
+            this.txtAmtim.Location = new System.Drawing.Point(1366, 375);
             this.txtAmtim.Name = "txtAmtim";
             this.txtAmtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmtim.Properties.Appearance.Options.UseFont = true;
             this.txtAmtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtAmtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAmtim.Properties.ReadOnly = true;
-            this.txtAmtim.Size = new System.Drawing.Size(108, 20);
+            this.txtAmtim.Size = new System.Drawing.Size(125, 20);
             this.txtAmtim.TabIndex = 51;
             this.txtAmtim.Tag = "2";
             // 
@@ -5234,7 +5234,7 @@
             // 
             this.txtRemark_other.EditValue = "";
             this.txtRemark_other.EnterMoveNextControl = true;
-            this.txtRemark_other.Location = new System.Drawing.Point(76, 312);
+            this.txtRemark_other.Location = new System.Drawing.Point(76, 311);
             this.txtRemark_other.Name = "txtRemark_other";
             this.txtRemark_other.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.txtRemark_other.Properties.Appearance.Options.UseFont = true;
@@ -5257,7 +5257,7 @@
             // 
             this.txtComment.EditValue = "";
             this.txtComment.EnterMoveNextControl = true;
-            this.txtComment.Location = new System.Drawing.Point(76, 333);
+            this.txtComment.Location = new System.Drawing.Point(76, 332);
             this.txtComment.Name = "txtComment";
             this.txtComment.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.txtComment.Properties.Appearance.Options.UseFont = true;
@@ -5382,9 +5382,9 @@
             this.pnlRemarkPDD.Controls.Add(this.lblRmb_remark);
             this.pnlRemarkPDD.Controls.Add(this.label13);
             this.pnlRemarkPDD.Controls.Add(this.txtRmb_remark);
-            this.pnlRemarkPDD.Location = new System.Drawing.Point(1, 376);
+            this.pnlRemarkPDD.Location = new System.Drawing.Point(1, 377);
             this.pnlRemarkPDD.Name = "pnlRemarkPDD";
-            this.pnlRemarkPDD.Size = new System.Drawing.Size(572, 93);
+            this.pnlRemarkPDD.Size = new System.Drawing.Size(572, 91);
             this.pnlRemarkPDD.TabIndex = 131;
             this.pnlRemarkPDD.Visible = false;
             // 
@@ -5406,7 +5406,7 @@
             // memRemark_pdd
             // 
             this.memRemark_pdd.EnterMoveNextControl = true;
-            this.memRemark_pdd.Location = new System.Drawing.Point(74, 23);
+            this.memRemark_pdd.Location = new System.Drawing.Point(74, 24);
             this.memRemark_pdd.Name = "memRemark_pdd";
             this.memRemark_pdd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.memRemark_pdd.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5414,7 +5414,7 @@
             this.memRemark_pdd.Properties.MaxLength = 300;
             this.memRemark_pdd.Properties.ReadOnly = true;
             this.memRemark_pdd.Properties.Tag = "2";
-            this.memRemark_pdd.Size = new System.Drawing.Size(495, 69);
+            this.memRemark_pdd.Size = new System.Drawing.Size(495, 65);
             this.memRemark_pdd.TabIndex = 119;
             this.memRemark_pdd.Tag = "2";
             // 
@@ -5571,7 +5571,7 @@
             this.dgvSub.RowHeadersVisible = false;
             this.dgvSub.RowHeadersWidth = 10;
             this.dgvSub.RowTemplate.Height = 18;
-            this.dgvSub.Size = new System.Drawing.Size(508, 70);
+            this.dgvSub.Size = new System.Drawing.Size(508, 80);
             this.dgvSub.TabIndex = 139;
             this.dgvSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSub_CellDoubleClick);
             // 
@@ -5849,7 +5849,7 @@
             // 
             // lblMeeting_recap
             // 
-            this.lblMeeting_recap.Location = new System.Drawing.Point(641, 359);
+            this.lblMeeting_recap.Location = new System.Drawing.Point(641, 358);
             this.lblMeeting_recap.Name = "lblMeeting_recap";
             this.lblMeeting_recap.Size = new System.Drawing.Size(83, 13);
             this.lblMeeting_recap.TabIndex = 155;
@@ -5860,7 +5860,7 @@
             // 
             this.txtMeeting_recap.EditValue = "";
             this.txtMeeting_recap.EnterMoveNextControl = true;
-            this.txtMeeting_recap.Location = new System.Drawing.Point(722, 356);
+            this.txtMeeting_recap.Location = new System.Drawing.Point(722, 355);
             this.txtMeeting_recap.Name = "txtMeeting_recap";
             this.txtMeeting_recap.Properties.MaxLength = 100;
             this.txtMeeting_recap.Properties.ReadOnly = true;
@@ -6093,7 +6093,7 @@
             this.txtPrice_salesperson.EditValue = "";
             this.txtPrice_salesperson.Enabled = false;
             this.txtPrice_salesperson.EnterMoveNextControl = true;
-            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 356);
+            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 354);
             this.txtPrice_salesperson.Name = "txtPrice_salesperson";
             this.txtPrice_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -6114,7 +6114,7 @@
             this.txtPrice_kind.EditValue = "";
             this.txtPrice_kind.Enabled = false;
             this.txtPrice_kind.EnterMoveNextControl = true;
-            this.txtPrice_kind.Location = new System.Drawing.Point(189, 356);
+            this.txtPrice_kind.Location = new System.Drawing.Point(189, 354);
             this.txtPrice_kind.Name = "txtPrice_kind";
             this.txtPrice_kind.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_kind.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -6135,7 +6135,7 @@
             this.txtRemark_salesperson.EditValue = "";
             this.txtRemark_salesperson.Enabled = false;
             this.txtRemark_salesperson.EnterMoveNextControl = true;
-            this.txtRemark_salesperson.Location = new System.Drawing.Point(331, 356);
+            this.txtRemark_salesperson.Location = new System.Drawing.Point(331, 354);
             this.txtRemark_salesperson.Name = "txtRemark_salesperson";
             this.txtRemark_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtRemark_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -6321,9 +6321,9 @@
             // 
             this.pnlRemarkPDD_dg.Controls.Add(this.memDgRmkPdd);
             this.pnlRemarkPDD_dg.Controls.Add(this.lbldgRmkPdd);
-            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(577, 378);
+            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(572, 398);
             this.pnlRemarkPDD_dg.Name = "pnlRemarkPDD_dg";
-            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(771, 91);
+            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(771, 69);
             this.pnlRemarkPDD_dg.TabIndex = 204;
             this.pnlRemarkPDD_dg.Visible = false;
             // 
@@ -6332,7 +6332,7 @@
             this.memDgRmkPdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.memDgRmkPdd.EnterMoveNextControl = true;
-            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 3);
+            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 2);
             this.memDgRmkPdd.Name = "memDgRmkPdd";
             this.memDgRmkPdd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.memDgRmkPdd.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6340,17 +6340,18 @@
             this.memDgRmkPdd.Properties.MaxLength = 300;
             this.memDgRmkPdd.Properties.ReadOnly = true;
             this.memDgRmkPdd.Properties.Tag = "2";
-            this.memDgRmkPdd.Size = new System.Drawing.Size(676, 87);
+            this.memDgRmkPdd.Size = new System.Drawing.Size(676, 66);
             this.memDgRmkPdd.TabIndex = 119;
             this.memDgRmkPdd.Tag = "2";
             // 
             // lbldgRmkPdd
             // 
-            this.lbldgRmkPdd.Location = new System.Drawing.Point(4, 25);
+            this.lbldgRmkPdd.Location = new System.Drawing.Point(26, 9);
             this.lbldgRmkPdd.Name = "lbldgRmkPdd";
-            this.lbldgRmkPdd.Size = new System.Drawing.Size(86, 24);
+            this.lbldgRmkPdd.Size = new System.Drawing.Size(64, 24);
             this.lbldgRmkPdd.TabIndex = 118;
-            this.lbldgRmkPdd.Text = "Remark for PDD";
+            this.lbldgRmkPdd.Text = "Remark for PDD(DG)";
+            this.lbldgRmkPdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pic_artwork
             // 
@@ -6565,7 +6566,7 @@
             // 
             // btnPriceDisc
             // 
-            this.btnPriceDisc.Location = new System.Drawing.Point(837, 262);
+            this.btnPriceDisc.Location = new System.Drawing.Point(837, 272);
             this.btnPriceDisc.Name = "btnPriceDisc";
             this.btnPriceDisc.Size = new System.Drawing.Size(122, 20);
             this.btnPriceDisc.TabIndex = 235;
@@ -6611,13 +6612,13 @@
             dataGridViewCellStyle95.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle95.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPriceDisc.DefaultCellStyle = dataGridViewCellStyle95;
-            this.dgvPriceDisc.Location = new System.Drawing.Point(837, 283);
+            this.dgvPriceDisc.Location = new System.Drawing.Point(837, 293);
             this.dgvPriceDisc.Name = "dgvPriceDisc";
             this.dgvPriceDisc.ReadOnly = true;
             this.dgvPriceDisc.RowHeadersVisible = false;
             this.dgvPriceDisc.RowHeadersWidth = 10;
             this.dgvPriceDisc.RowTemplate.Height = 18;
-            this.dgvPriceDisc.Size = new System.Drawing.Size(508, 71);
+            this.dgvPriceDisc.Size = new System.Drawing.Size(508, 80);
             this.dgvPriceDisc.TabIndex = 234;
             // 
             // dataGridViewTextBoxColumn61
