@@ -44,9 +44,8 @@ namespace cf01.ReportForm
             dtDetails.Columns.Add("pkey", typeof(string));
             dtDetails.Columns.Add("goods_id", typeof(string));
             dtDetails.Columns.Add("name", typeof(string));
-            dtDetails.Columns.Add("order_qty", typeof(Int32));
+            dtDetails.Columns.Add("order_qty", typeof(int));
             dtDetails.Columns.Add("department", typeof(string));
-
             dtFullCheck.Columns.Add("id", typeof(string));
             dtFullCheck.Columns.Add("mo_id", typeof(string));
             dtFullCheck.Columns.Add("w_mo_id", typeof(string));
@@ -56,7 +55,7 @@ namespace cf01.ReportForm
             dtFullCheck.Columns.Add("customer_goods", typeof(string));
             dtFullCheck.Columns.Add("customer_color_id", typeof(string));
             dtFullCheck.Columns.Add("brand_desc", typeof(string));
-            dtFullCheck.Columns.Add("order_qty1", typeof(Int32));
+            dtFullCheck.Columns.Add("order_qty1", typeof(int));
             dtFullCheck.Columns.Add("goods_unit", typeof(string));
             dtFullCheck.Columns.Add("f_goods_id", typeof(string));
             dtFullCheck.Columns.Add("f_goods_name", typeof(string));
@@ -351,7 +350,7 @@ namespace cf01.ReportForm
                             drow["customer_goods"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_goods"].ToString();
                             drow["customer_color_id"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_color_id"].ToString();
                             drow["brand_desc"] = dsPackChange.Tables["pack_h"].Rows[i]["brand_desc"].ToString();
-                            drow["order_qty1"] = Int32.Parse(dsPackChange.Tables["pack_h"].Rows[i]["order_qty1"].ToString());
+                            drow["order_qty1"] = int.Parse(dsPackChange.Tables["pack_h"].Rows[i]["order_qty1"].ToString());
                             drow["goods_unit"] = dsPackChange.Tables["pack_h"].Rows[i]["goods_unit"].ToString();
                             drow["f_goods_id"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_id"].ToString();
                             drow["f_goods_name"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_name"].ToString();
