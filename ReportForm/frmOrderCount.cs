@@ -17,8 +17,8 @@ namespace cf01.ReportForm
 {
     public partial class frmOrderCount : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
-        //private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        clsAppPublic clsApp = new clsAppPublic();
+        //clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         int groups ;
         System.Data.DataTable dtReport = new System.Data.DataTable();
         System.Data.DataTable dtReport2 = new System.Data.DataTable();
@@ -33,16 +33,12 @@ namespace cf01.ReportForm
 
         private void frmOrderCount_Load(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(txtDat1.Text))
-            //{
-            //    txtDat1.EditValue = DateTime.Now.AddDays(-1);
-            //}
             if (string.IsNullOrEmpty(txtDat2.Text))
             {
-                txtDat2.EditValue = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd").Substring(0,10); 
+                txtDat2.EditValue = DateTime.Now.Date.AddDays(-1).Date.ToString("yyyy/MM/dd");//.Substring(0,10); 
             }
 
-            txtDat1.EditValue = txtDat2.Text.Substring(0,4)+"/01/01";
+            txtDat1.EditValue = DateTime.Now.Date.Year.ToString() + "/01/01"; //. txtDat2.Text.Substring(0,4)+"/01/01";
             this.ActiveControl = txtDat2;  
             txtDat2.Focus();
             
@@ -216,6 +212,7 @@ namespace cf01.ReportForm
                 progressBar1.Step = 1;
                 progressBar1.Maximum = dtGroup.Rows.Count;
                 Range range = null;
+                DataRow[] drows = null;
                 for (int i = 0; i < dtGroup.Rows.Count; i++)
                 {                        
                     //顯示進度條
@@ -230,10 +227,10 @@ namespace cf01.ReportForm
                     strSalesGroup = dtGroup.Rows[i]["mo_group"].ToString();//組別
                     if (strSalesGroup != "Summary")
                     {                       
-                        sheet.Name = strSalesGroup + "組";//設置Sheet的名稱
-                        DataRow[] ary_dr = dtReport.Select(string.Format("mo_group='{0}'", strSalesGroup));
+                        sheet.Name = strSalesGroup + "組";//設置Sheet的名稱                       
+                        drows = dtReport.Select(string.Format("mo_group='{0}'", strSalesGroup));
                         //給sheet第一行表頭  
-                        sheet.Cells[1, 1] = String.Format("落單日期：{0}~{1}", txtDat1.Text, txtDat2.Text);
+                        sheet.Cells[1, 1] = string.Format("落單日期：{0}~{1}", txtDat1.Text, txtDat2.Text);
                         sheet.Range["A1:I1"].Merge(0);//合并单元格
                         sheet.Rows[1].Font.Bold = true;//粗體
                         sheet.Rows[1].RowHeight = 20;
@@ -279,10 +276,10 @@ namespace cf01.ReportForm
                         range = (Range)sheet.get_Range("A1", "I3");//获取Excel多个单元格区域：本例做为Excel表头
                         range.Cells.Interior.Color = System.Drawing.Color.FromArgb(191, 191, 191).ToArgb();
                         int lastRow = 0;
-                        if (ary_dr.Length > 0)
+                        if (drows.Length > 0)
                         {
                             int k = 0;
-                            foreach (DataRow dr in ary_dr)
+                            foreach (DataRow dr in drows)
                             {
                                 sheet.Rows.Font.Size = 10;
                                 sheet.Cells[4 + k, 1] = dr["brand_id"];
