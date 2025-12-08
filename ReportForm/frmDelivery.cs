@@ -204,6 +204,19 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("next_wp_name", typeof(string));
             dtDelivery.Columns.Add("per_qty", typeof(int));
             dtDelivery.Columns.Add("net_weight", typeof(float));
+            //工序卡帶出下部門信息
+            //dtDelivery.Columns.Add("next_wp_id", typeof(string));
+            dtDelivery.Columns.Add("next_dep_name", typeof(string));
+            dtDelivery.Columns.Add("next_goods_id", typeof(string));
+            dtDelivery.Columns.Add("next_goods_name", typeof(string));
+            dtDelivery.Columns.Add("next_vendor_id", typeof(string));
+            dtDelivery.Columns.Add("next_do_color", typeof(string));
+            dtDelivery.Columns.Add("prod_qty", typeof(int));
+            dtDelivery.Columns.Add("qc_dept", typeof(string));
+            dtDelivery.Columns.Add("qc_name", typeof(string));
+            dtDelivery.Columns.Add("qc_qty", typeof(int));
+
+
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             string dept = "";
             DataRow drow = null, drNext = null; 
@@ -234,6 +247,20 @@ namespace cf01.ReportForm
                 }
             }
             //======
+            //查找QC信息
+            for (int i = 0; i < dtDelivery.Rows.Count; i++)
+            {
+                drow = dtDelivery.Rows[i];
+                dept = drow["in_dept"].ToString();
+                dtNextDept = getNextDepQcInfo(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString());
+                if (dtNextDept.Rows.Count > 0)
+                {
+                    drNext = dtNextDept.Rows[0];
+                    drow["qc_dept"] = drNext["qc_dept"].ToString();
+                    drow["qc_name"] = drNext["qc_name"].ToString();
+                    drow["qc_qty"] = drNext["qc_qty"];
+                }
+            }
         }
 
         private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
@@ -243,8 +270,8 @@ namespace cf01.ReportForm
             //如果是102或108的，則只提取該部門發出物料的相關流程即可
             if (wp_id == "102" || wp_id == "108")
             {
-                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
-                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
+                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color," +
+                    "b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
                 strSql += " FROM jo_bill_mostly a with(nolock)";
                 strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
                         " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
@@ -255,8 +282,8 @@ namespace cf01.ReportForm
             }
             else
             {
-                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
-                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
+                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color," +
+                    "b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
                 strSql += " FROM jo_bill_mostly a with(nolock)";
                 strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
                         " INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
@@ -280,6 +307,20 @@ namespace cf01.ReportForm
                     dt = clsConErp.GetDataTable(strSql);
                 }
             }            
+            return dt;
+        }
+
+        private DataTable getNextDepQcInfo(string mo_id, string wp_id, string goods_id)
+        {
+            DataTable dt = new DataTable();
+            string strSql = string.Format(
+            @"Select b.next_wp_id As qc_dept,d.name As qc_name,b.prod_qty As qc_qty
+            FROM jo_bill_mostly a with(nolock)
+            INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code And a.id=b.id And a.ver=b.ver            
+            INNER JOIN cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
+            WHERE a.within_code='{0}' And a.mo_id='{1}' And b.goods_id='{2}' And b.wp_id='{3}' And b.next_wp_id='702' And b.prod_qty>0 ",
+            within_code, mo_id, goods_id, wp_id);
+            dt = clsConErp.GetDataTable(strSql);
             return dt;
         }
 
@@ -376,7 +417,7 @@ namespace cf01.ReportForm
             //---Modify by 20150717
             gridView1.CloseEditor();           
 
-            DataTable dtReport = dtDelivery.Clone();
+            DataTable dtReport = dtDelivery.Clone();            
             DataRow drow = null;
             int base_rate = 0, ii = 0;            
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
@@ -425,6 +466,18 @@ namespace cf01.ReportForm
                     drow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                     drow["lot_no"] = dtDelivery.Rows[i]["lot_no"].ToString();
                     drow["dept_remark"] = dtDelivery.Rows[i]["dept_remark"].ToString();
+                    //收貨部門信息
+                    drow["next_wp_id"] = dtDelivery.Rows[i]["in_dept"].ToString();
+                    drow["next_dep_name"] = dtDelivery.Rows[i]["in_dept_name"].ToString();
+                    drow["next_goods_id"] = dtDelivery.Rows[i]["current_goods_id"].ToString();
+                    drow["next_goods_name"] = dtDelivery.Rows[i]["current_goods_name"].ToString();
+                    drow["next_do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
+                    drow["next_vendor_id"] = dtDelivery.Rows[i]["vendor_id"].ToString();
+                    drow["prod_qty"] = dtDelivery.Rows[i]["current_prod_qty"];
+                    drow["qc_dept"] = dtDelivery.Rows[i]["qc_dept"].ToString();
+                    drow["qc_name"] = dtDelivery.Rows[i]["qc_name"].ToString();
+                    drow["qc_qty"] = dtDelivery.Rows[i]["qc_qty"]; ;
+
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
@@ -478,6 +531,17 @@ namespace cf01.ReportForm
                                 drw["qc_test"] = dtDelivery.Rows[i]["qc_test"];
                                 drw["lot_no"] = dtDelivery.Rows[i]["lot_no"];
                                 drw["dept_remark"] = dtDelivery.Rows[i]["dept_remark"];
+
+                                drw["next_wp_id"] = dtDelivery.Rows[i]["in_dept"].ToString();
+                                drw["next_dep_name"] = dtDelivery.Rows[i]["in_dept_name"].ToString();
+                                drw["next_goods_id"] = dtDelivery.Rows[i]["current_goods_id"].ToString();
+                                drw["next_goods_name"] = dtDelivery.Rows[i]["current_goods_name"].ToString();
+                                drw["next_do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
+                                drw["next_vendor_id"] = dtDelivery.Rows[i]["vendor_id"].ToString();
+                                drw["prod_qty"] = dtDelivery.Rows[i]["current_prod_qty"];
+                                drw["qc_dept"] = dtDelivery.Rows[i]["qc_dept"].ToString();
+                                drw["qc_name"] = dtDelivery.Rows[i]["qc_name"].ToString();
+                                drw["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
                                 dtReport.Rows.Add(drw);
                             }
                         }

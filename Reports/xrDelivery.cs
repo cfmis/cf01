@@ -53,5 +53,16 @@ namespace cf01.Reports
             //}
         }
 
+        private void txtQc_dept_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
+            {
+                txtQc_dept.Visible = false;
+            }
+            else
+            {
+                txtQc_dept.Visible = true;
+            }
+        }
     }
 }
