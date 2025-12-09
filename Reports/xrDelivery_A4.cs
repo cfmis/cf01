@@ -66,5 +66,10 @@ namespace cf01.Reports
                 txtQc_dept.Visible = true;
             }
         }
+
+        private void xrLabel59_TextChanged(object sender, EventArgs e)
+        {
+            lblVendor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("next_vendor_id").ToString()) ? false : true;
+        }
     }
 }

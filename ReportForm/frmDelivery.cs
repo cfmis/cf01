@@ -215,6 +215,8 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("qc_dept", typeof(string));
             dtDelivery.Columns.Add("qc_name", typeof(string));
             dtDelivery.Columns.Add("qc_qty", typeof(int));
+            dtDelivery.Columns.Add("next_next_wp_id", typeof(string));
+            dtDelivery.Columns.Add("next_next_wp_name", typeof(string));
 
 
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
@@ -476,7 +478,9 @@ namespace cf01.ReportForm
                     drow["prod_qty"] = dtDelivery.Rows[i]["current_prod_qty"];
                     drow["qc_dept"] = dtDelivery.Rows[i]["qc_dept"].ToString();
                     drow["qc_name"] = dtDelivery.Rows[i]["qc_name"].ToString();
-                    drow["qc_qty"] = dtDelivery.Rows[i]["qc_qty"]; ;
+                    drow["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
+                    drow["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
+                    drow["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
 
 
                     //處理有幾包就列印幾張 2016-01-15
@@ -542,6 +546,8 @@ namespace cf01.ReportForm
                                 drw["qc_dept"] = dtDelivery.Rows[i]["qc_dept"].ToString();
                                 drw["qc_name"] = dtDelivery.Rows[i]["qc_name"].ToString();
                                 drw["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
+                                drw["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
+                                drw["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
                                 dtReport.Rows.Add(drw);
                             }
                         }
