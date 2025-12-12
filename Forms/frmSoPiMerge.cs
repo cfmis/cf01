@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace cf01.Forms
@@ -23,7 +24,9 @@ namespace cf01.Forms
         BindingSource bds1 = new BindingSource();
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         System.Data.DataTable dtDetail = new System.Data.DataTable();
-        System.Data.DataTable dtTemp = new System.Data.DataTable();       
+        System.Data.DataTable dtTemp = new System.Data.DataTable();
+        System.Data.DataTable dtDetailMo = new System.Data.DataTable();
+        System.Data.DataTable dtblSelectMo = new System.Data.DataTable();
         string pID = "";    //臨時的主鍵值
         string editState = ""; //新增或編號的狀態     
         clsToolBarNew objToolbar;  
@@ -45,6 +48,10 @@ namespace cf01.Forms
             lueItCustomer.Properties.ValueMember = "id";
             lueItCustomer.Properties.DisplayMember = "id";
             SetDataBindings();
+
+            string strSql = "Select * From so_order_pi_merge_details Where 1=0";
+            dtDetailMo = clsPublicOfCF01.GetDataTable(strSql);
+            gridControl1.DataSource = dtDetailMo;
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -315,7 +322,7 @@ namespace cf01.Forms
             {
                 sql += string.Format(" AND id='{0}'", txtId1.Text.Trim());
             }
-            sql += " Order By order_date Desc,it_customer,seq_id,id";
+            sql += " Order By create_date asc,it_customer,seq_id,id";
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
@@ -353,11 +360,12 @@ namespace cf01.Forms
             {
                 return;
             }
+            decimal totalSum = 0, totalDiscAmt = 0;
             string itCustomer = lueItCustomer.EditValue.ToString();
             string orderDate = DateTime.Parse(txtOrderDate.EditValue.ToString()).Date.ToString("yyyy-MM-dd");
             string seqId = txtSeqId.Text;
-            string sql =string.Format(
-            @"SELECT (a.it_customer+a.order_date+seq_id) AS p_key,
+            /*string sql =string.Format(
+            @"SELECT (a.it_customer+a.order_date+a.seq_id) AS p_key,
             v.company_english_name,v.company_name,v.company_e_address,v.company_address,v.company_phone,v.company_fax,
             v.ver,v.english_customer_name,v.l_phone,v.id,v.contract_cid,v.linkman,v.fax,
             CONVERT(varchar(10),v.order_date,111) AS order_date,CONVERT(varchar(10),v.incept_order_date,111) AS incept_order_date,
@@ -370,10 +378,32 @@ namespace cf01.Forms
             v.remark,v.stamp1,v.stamp2,v.sequence_id,v.sequence_sort,Isnull(v.goods_sort,'') AS goods_sort,
             Isnull(v.qc_remark,'') AS qc_remark,v.control_terms,v.disc_rate,v.add_info,v.s_address,v.disc_rate_h,v.disc_amt,
             v.goods_sum,v.disc_spare,v.other_fare,v.brand_id
-            FROM dbo.so_order_pi_merge a,DGERP2.CFERP.dbo.v_rpt_so v
-            WHERE a.id=v.id COLLATE Chinese_PRC_CI_AS And a.it_customer='{0}' And a.order_date='{1}' And a.seq_id='{2}'
-            ORDER BY a.it_customer,a.order_date,a.seq_id,a.id,v.sequence_id", itCustomer, orderDate, seqId);
+            FROM dbo.so_order_pi_merge a with(nolock),dbo.so_order_pi_merge_details b with(nolock),DGERP2.CFERP.dbo.v_rpt_so v
+            WHERE a.key_id=b.key_id And a.id=v.id COLLATE Chinese_PRC_CI_AS And b.mo_id=v.mo_id COLLATE Chinese_PRC_CI_AS 
+            And a.it_customer='{0}' And a.order_date='{1}' And a.seq_id='{2}'
+            ORDER BY a.it_customer,a.create_date,a.seq_id,a.id,v.sequence_id", itCustomer, orderDate, seqId);
             DataTable dtReport = clsPublicOfCF01.GetDataTable(sql);
+            */
+
+
+            //--start 2025/12/12 改為從GEO存儲過程中提取數據
+            SqlParameter[] paras = new SqlParameter[]
+            {
+               new SqlParameter("@it_customer",itCustomer),
+               new SqlParameter("@order_date",orderDate),
+               new SqlParameter("@seq_id",seqId)
+            };
+            //是示查詢進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            DataTable dtReport = clsConErp.ExecuteProcedureReturnTable("z_so_pi_merge", paras);
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            //--end start 2025/12/12
+
             //DataTable dtGoodsSum = new DataTable();
             //dtGoodsSum.Columns.Add("id", typeof(string));
             //dtGoodsSum.Columns.Add("goods_sum", typeof(decimal));
@@ -393,8 +423,7 @@ namespace cf01.Forms
             //{
             //    goodsSum += decimal.Parse(dtGoodsSum.Rows[i]["goods_sum"].ToString());
             //    otherFare += decimal.Parse(dtGoodsSum.Rows[i]["other_fare"].ToString());
-            //}
-            decimal totalSum = 0, totalDiscAmt = 0;
+            //}            
             for (int i = 0; i < dtReport.Rows.Count; i++)
             {
                 totalSum += decimal.Parse(dtReport.Rows[i]["total_sum"].ToString());
@@ -407,6 +436,215 @@ namespace cf01.Forms
                 rpt.PrintingSystem.ShowMarginsWarning = false;
                 rpt.ShowPreviewDialog();
             }
+        }
+
+        private void BtnNewItem_Click(object sender, EventArgs e)
+        {
+            if(editState != "")
+            {
+                MessageBox.Show("當前主檔資料為編輯狀態，請保存主檔資料后再進行頁數添加的操作！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            if (checkAddRight(DBUtility._user_id))
+            {
+                if (txtId.Text != "")
+                {
+                    txtOcNo1.Text = txtId.Text;
+                    string sql = string.Format(
+                    @"SELECT Convert(bit,0) As flag_select, mo_id
+                    FROM {0}so_order_details with(nolock)
+                    WHERE within_code='0000' and id='{1}' ORDER BY sequence_id",DBUtility.remote_db, txtOcNo1.Text);
+                    dtblSelectMo = clsPublicOfCF01.GetDataTable(sql);
+                    gridControl2.DataSource = dtblSelectMo;
+                    pnlCtlMo.Visible = true;
+
+                    BtnNewItem.Enabled = false;
+                    btnSaveItem.Enabled = true;
+                    btnItemDel.Enabled = false;
+                }                
+            }
+            else
+                MessageBox.Show("當前用戶權限不足，當前操作無效！", "提示信息", MessageBoxButtons.OK);
+        }
+
+        private void sipBtnOk_Click(object sender, EventArgs e)
+        {
+            if (gridView2.RowCount == 0)
+            {
+                return;
+            }
+            gridView2.CloseEditor();
+            DataRow[] dtrws = dtblSelectMo.Select("flag_select=true");
+            if (dtrws.Length == 0)
+            {
+                MessageBox.Show("請至少選中一個頁數！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            DataRow drow = null; 
+            for (int i=0;i< dtrws.Length; i++)
+            {
+                drow = dtDetailMo.NewRow();
+                drow["key_id"] = int.Parse(txtkeyId.Text);
+                drow["id"] = txtId.Text;
+                drow["mo_id"] = dtrws[i]["mo_id"].ToString();
+                drow["seq_id"] = (dtDetailMo.Rows.Count+1).ToString($"D{3}");
+                dtDetailMo.Rows.Add(drow);
+            }
+            pnlCtlMo.Visible = false;
+            //add mo to do
+        }
+
+        private bool checkAddRight(string user_id)
+        {
+            bool result;
+            string str=string.Format(
+            @"Select CONVERT(bit,C2_STATE) AS state  From dbo.tb_sy_user_popedom Where USR_NO='{0}' and Window_id='{1}' and C2_ID='BTNNEW'",
+            user_id, "frmSoPiMerge");
+            DataTable dt =  clsPublicOfCF01.GetDataTable(str);
+            if (dt.Rows.Count > 0)
+            {
+                result = (dt.Rows[0]["state"].ToString() == "True") ? true : false;
+            }
+            else
+                result = false;
+            return result;
+        }
+
+        private void btnSaveItem_Click(object sender, EventArgs e)
+        {
+            if (editState != "")
+            {
+                MessageBox.Show("當前為編輯狀態，請保存主檔資料后再進行頁數的添加操作！", "提示信息", MessageBoxButtons.OK);
+                BtnNewItem.Enabled = true;
+                btnSaveItem.Enabled = false;
+                btnItemDel.Enabled = true;
+                return;
+            }
+            if (!checkAddRight(DBUtility._user_id))
+            {
+                MessageBox.Show("當前用戶權限不足，當前操作無效！", "提示信息", MessageBoxButtons.OK);
+                BtnNewItem.Enabled = true;
+                btnSaveItem.Enabled = false;
+                btnItemDel.Enabled = true;
+                return;
+            }
+            //save to do
+            if (dtDetailMo.Rows.Count == 0)
+            {
+                BtnNewItem.Enabled = true;
+                btnSaveItem.Enabled = false;
+                btnItemDel.Enabled = true;
+                return;
+            }
+            string sql_i = "", sql_f = "", result = "";
+            int keyId = 0;
+            bool flag_add_status = false;
+            for (int i = 0; i < dtDetailMo.Rows.Count; i++)
+            {
+                if (dtDetailMo.Rows[i].RowState == DataRowState.Added)
+                {
+                    flag_add_status = true;
+                    break;
+                }
+            }
+            //沒有新增的頁數
+            if(!flag_add_status)
+            {
+                MessageBox.Show("找不到要新增頁數的資料！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            DataTable dtExists = new DataTable();
+            StringBuilder strSub = new StringBuilder();
+            strSub.Append(@" SET XACT_ABORT ON ");
+            strSub.Append(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < dtDetailMo.Rows.Count; i++)
+            {
+                if (dtDetailMo.Rows[i].RowState == DataRowState.Added)
+                {
+                    keyId = int.Parse(dtDetailMo.Rows[i]["key_id"].ToString());
+                    sql_f = string.Format(@"Select '1' From so_order_pi_merge_details with(nolock) where key_id={0} And id='{1}' And mo_id='{2}'",
+                        keyId, dtDetailMo.Rows[i]["id"].ToString(), dtDetailMo.Rows[i]["mo_id"].ToString());
+                    dtExists = clsPublicOfCF01.GetDataTable(sql_f);
+                    if (dtExists.Rows.Count == 0)
+                    {
+                        sql_i = string.Format(@" Insert Into so_order_pi_merge_details(key_id,id,mo_id,seq_id) Values({0},'{1}','{2}','{3}')",
+                            keyId, dtDetailMo.Rows[i]["id"].ToString(), dtDetailMo.Rows[i]["mo_id"].ToString(), dtDetailMo.Rows[i]["seq_id"].ToString());
+                        strSub.Append(sql_i);
+                    }
+                }
+            }
+            strSub.Append(@" COMMIT TRANSACTION ");          
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSub.ToString());
+            strSub.Clear();            
+            if (result == "")
+            {
+                MessageBox.Show("添加頁數資料成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dtDetailMo.AcceptChanges();//刷新新增的狀態               
+            }
+            else
+            {
+                MessageBox.Show("添加頁數資料失敗! [" + result+"]", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Error);                
+            }
+            BtnNewItem.Enabled = true;
+            btnSaveItem.Enabled = false;
+            btnItemDel.Enabled = true;
+        }
+
+        private void dgvDetails_SelectionChanged(object sender, EventArgs e)
+        {
+            if (txtkeyId.Text == "")
+            {
+                return;
+            }
+            int curRowIndex = dgvDetails.CurrentRow.Index;
+            if(curRowIndex <0 || dgvDetails.Rows.Count == 0)
+            {
+                return;
+            }
+            string strSql = string.Format("Select * From so_order_pi_merge_details Where key_id={0}", int.Parse(txtkeyId.Text));
+            dtDetailMo = clsPublicOfCF01.GetDataTable(strSql);
+            gridControl1.DataSource = dtDetailMo;
+            pnlCtlMo.Visible = false;
+        }
+
+        private void btnItemDel_Click(object sender, EventArgs e)
+        {
+            if (editState != "")
+            {
+                MessageBox.Show("當前主檔資料為編輯狀態，請保存主檔資料后再進行頁數的刪除操作！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            if(dtDetailMo.Rows.Count == 0)
+            {
+                return;
+            }
+            if (checkAddRight(DBUtility._user_id))
+            {
+                if (txtId.Text != "")
+                {
+                    int curRow = gridView1.FocusedRowHandle;
+                    string mo_id = gridView1.GetRowCellValue(curRow, "mo_id").ToString();
+                    string seq_id = gridView1.GetRowCellValue(curRow, "seq_id1").ToString();
+                    string sql_d = string.Format(
+                    @"Delete FROM so_order_pi_merge_details Where key_id={0} and id='{1}' and mo_id='{2}' and seq_id='{3}'", 
+                    int.Parse(txtkeyId.Text),txtId.Text, mo_id, seq_id);
+
+                    string result = clsPublicOfCF01.ExecuteSqlUpdate(sql_d);
+                    if (result == "")
+                    {
+                        MessageBox.Show("刪除頁數資料成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        gridView1.DeleteRow(curRow);//移走當前行
+                        dtDetailMo.AcceptChanges();         
+                    }
+                }
+            }
+            else
+                MessageBox.Show("當前用戶權限不足，當前操作無效！", "提示信息", MessageBoxButtons.OK);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlCtlMo.Visible = false;
         }
     }
 }

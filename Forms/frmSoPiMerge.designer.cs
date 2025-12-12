@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSoPiMerge));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle161 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle162 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle175 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle176 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle177 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,9 +81,9 @@
             this.pnlHead = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.txtOrderDate = new DevExpress.XtraEditors.DateEdit();
-            this.txtkeyId = new DevExpress.XtraEditors.TextEdit();
             this.txtRemark = new System.Windows.Forms.RichTextBox();
             this.lblBrand = new System.Windows.Forms.Label();
+            this.txtkeyId = new DevExpress.XtraEditors.TextEdit();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.it_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,6 +141,30 @@
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pnlCtlMo = new DevExpress.XtraEditors.PanelControl();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.sipBtnOk = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.flag_select = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clFlagSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.mo_id2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtOcNo1 = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.seq_id1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.id1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.key_id1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.BtnNewItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnItemDel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_by.Properties)).BeginInit();
@@ -157,6 +181,17 @@
             this.grpBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlCtlMo)).BeginInit();
+            this.pnlCtlMo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clFlagSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -448,7 +483,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 15);
             this.label4.TabIndex = 166;
-            this.label4.Text = "序號";
+            this.label4.Text = "分組序號";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lueItCustomer
@@ -541,18 +576,6 @@
             this.txtOrderDate.TabIndex = 1;
             this.txtOrderDate.Tag = "2";
             // 
-            // txtkeyId
-            // 
-            this.txtkeyId.EditValue = "";
-            this.txtkeyId.EnterMoveNextControl = true;
-            this.txtkeyId.Location = new System.Drawing.Point(369, 122);
-            this.txtkeyId.Name = "txtkeyId";
-            this.txtkeyId.Properties.MaxLength = 200;
-            this.txtkeyId.Properties.ReadOnly = true;
-            this.txtkeyId.Size = new System.Drawing.Size(54, 20);
-            this.txtkeyId.TabIndex = 235;
-            this.txtkeyId.Tag = "1";
-            // 
             // txtRemark
             // 
             this.txtRemark.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -577,21 +600,32 @@
             this.lblBrand.Text = "備註";
             this.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtkeyId
+            // 
+            this.txtkeyId.EditValue = "";
+            this.txtkeyId.EnterMoveNextControl = true;
+            this.txtkeyId.Location = new System.Drawing.Point(369, 122);
+            this.txtkeyId.Name = "txtkeyId";
+            this.txtkeyId.Properties.MaxLength = 200;
+            this.txtkeyId.Properties.ReadOnly = true;
+            this.txtkeyId.Size = new System.Drawing.Size(54, 20);
+            this.txtkeyId.TabIndex = 235;
+            this.txtkeyId.Tag = "1";
+            // 
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle161.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle161.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle161.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle161.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle161.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle161.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle161.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle161;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.it_customer,
@@ -607,9 +641,10 @@
             this.dgvDetails.Location = new System.Drawing.Point(4, 264);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1037, 465);
+            this.dgvDetails.Size = new System.Drawing.Size(1037, 245);
             this.dgvDetails.TabIndex = 0;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
+            this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             // 
             // it_customer
             // 
@@ -622,9 +657,9 @@
             // order_date
             // 
             this.order_date.DataPropertyName = "order_date";
-            dataGridViewCellStyle162.Format = "d";
-            dataGridViewCellStyle162.NullValue = null;
-            this.order_date.DefaultCellStyle = dataGridViewCellStyle162;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.order_date.DefaultCellStyle = dataGridViewCellStyle2;
             this.order_date.HeaderText = "日期";
             this.order_date.Name = "order_date";
             this.order_date.ReadOnly = true;
@@ -643,8 +678,8 @@
             // seq_id
             // 
             this.seq_id.DataPropertyName = "seq_id";
-            dataGridViewCellStyle163.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.seq_id.DefaultCellStyle = dataGridViewCellStyle163;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.seq_id.DefaultCellStyle = dataGridViewCellStyle3;
             this.seq_id.HeaderText = "序號";
             this.seq_id.Name = "seq_id";
             this.seq_id.ReadOnly = true;
@@ -673,9 +708,9 @@
             // create_date
             // 
             this.create_date.DataPropertyName = "create_date";
-            dataGridViewCellStyle164.Format = "g";
-            dataGridViewCellStyle164.NullValue = null;
-            this.create_date.DefaultCellStyle = dataGridViewCellStyle164;
+            dataGridViewCellStyle4.Format = "g";
+            dataGridViewCellStyle4.NullValue = null;
+            this.create_date.DefaultCellStyle = dataGridViewCellStyle4;
             this.create_date.HeaderText = "建檔日期";
             this.create_date.Name = "create_date";
             this.create_date.ReadOnly = true;
@@ -695,9 +730,9 @@
             // update_date
             // 
             this.update_date.DataPropertyName = "update_date";
-            dataGridViewCellStyle165.Format = "g";
-            dataGridViewCellStyle165.NullValue = null;
-            this.update_date.DefaultCellStyle = dataGridViewCellStyle165;
+            dataGridViewCellStyle5.Format = "g";
+            dataGridViewCellStyle5.NullValue = null;
+            this.update_date.DefaultCellStyle = dataGridViewCellStyle5;
             this.update_date.HeaderText = "修改日期";
             this.update_date.Name = "update_date";
             this.update_date.ReadOnly = true;
@@ -806,9 +841,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "input_date";
-            dataGridViewCellStyle166.Format = "d";
-            dataGridViewCellStyle166.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle166;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn1.HeaderText = "Date";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -907,9 +942,9 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "ready_date";
-            dataGridViewCellStyle167.Format = "d";
-            dataGridViewCellStyle167.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle167;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn12.HeaderText = "Ready Date";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -919,9 +954,9 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "cf_color_code";
-            dataGridViewCellStyle168.Format = "d";
-            dataGridViewCellStyle168.NullValue = null;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle168;
+            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn13.HeaderText = "CF Color Code";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -932,10 +967,10 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "ex_fty_usd";
-            dataGridViewCellStyle169.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle169.Format = "N3";
-            dataGridViewCellStyle169.NullValue = "0.000";
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle169;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N3";
+            dataGridViewCellStyle9.NullValue = "0.000";
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn14.HeaderText = "Ex-fty (USD)";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -963,10 +998,10 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "moq_pcs";
-            dataGridViewCellStyle170.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle170.Format = "N0";
-            dataGridViewCellStyle170.NullValue = "0";
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle170;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = "0";
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn17.HeaderText = "MOQ (Pcs)";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -984,9 +1019,9 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "md_charge";
-            dataGridViewCellStyle171.Format = "g";
-            dataGridViewCellStyle171.NullValue = null;
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle171;
+            dataGridViewCellStyle11.Format = "g";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn19.HeaderText = "Mould Engraving Charge";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
@@ -1004,9 +1039,9 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "submission_date";
-            dataGridViewCellStyle172.Format = "d";
-            dataGridViewCellStyle172.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle172;
+            dataGridViewCellStyle12.Format = "d";
+            dataGridViewCellStyle12.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn21.HeaderText = "Submission Date";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -1042,9 +1077,9 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "create_date";
-            dataGridViewCellStyle173.Format = "g";
-            dataGridViewCellStyle173.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle173;
+            dataGridViewCellStyle13.Format = "g";
+            dataGridViewCellStyle13.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn25.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -1063,9 +1098,9 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "update_date";
-            dataGridViewCellStyle174.Format = "g";
-            dataGridViewCellStyle174.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle174;
+            dataGridViewCellStyle14.Format = "g";
+            dataGridViewCellStyle14.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn27.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -1075,9 +1110,9 @@
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "id";
-            dataGridViewCellStyle175.Format = "N0";
-            dataGridViewCellStyle175.NullValue = "0";
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle175;
+            dataGridViewCellStyle15.Format = "N0";
+            dataGridViewCellStyle15.NullValue = "0";
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn28.HeaderText = "ID";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -1087,9 +1122,9 @@
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "serial_no";
-            dataGridViewCellStyle176.Format = "g";
-            dataGridViewCellStyle176.NullValue = null;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle176;
+            dataGridViewCellStyle16.Format = "g";
+            dataGridViewCellStyle16.NullValue = null;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn29.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
@@ -1099,9 +1134,9 @@
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "row_flag";
-            dataGridViewCellStyle177.Format = "g";
-            dataGridViewCellStyle177.NullValue = null;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle177;
+            dataGridViewCellStyle17.Format = "g";
+            dataGridViewCellStyle17.NullValue = null;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn30.HeaderText = "row_flag";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -1111,9 +1146,9 @@
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "seq_id_org";
-            dataGridViewCellStyle178.Format = "N0";
-            dataGridViewCellStyle178.NullValue = "0";
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle178;
+            dataGridViewCellStyle18.Format = "N0";
+            dataGridViewCellStyle18.NullValue = "0";
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn31.HeaderText = "Seq_flag";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
@@ -1123,9 +1158,9 @@
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.DataPropertyName = "rs";
-            dataGridViewCellStyle179.Format = "N0";
-            dataGridViewCellStyle179.NullValue = "0";
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle179;
+            dataGridViewCellStyle19.Format = "N0";
+            dataGridViewCellStyle19.NullValue = "0";
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn32.HeaderText = "Rs";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
@@ -1135,9 +1170,9 @@
             // dataGridViewTextBoxColumn33
             // 
             this.dataGridViewTextBoxColumn33.DataPropertyName = "row_height";
-            dataGridViewCellStyle180.Format = "N0";
-            dataGridViewCellStyle180.NullValue = "0";
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle180;
+            dataGridViewCellStyle20.Format = "N0";
+            dataGridViewCellStyle20.NullValue = "0";
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn33.HeaderText = "Row Higth";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
@@ -1195,11 +1230,320 @@
             this.dataGridViewTextBoxColumn39.ReadOnly = true;
             this.dataGridViewTextBoxColumn39.Visible = false;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl1.Controls.Add(this.pnlCtlMo);
+            this.panelControl1.Controls.Add(this.gridControl1);
+            this.panelControl1.Controls.Add(this.toolStrip2);
+            this.panelControl1.Location = new System.Drawing.Point(4, 515);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1037, 219);
+            this.panelControl1.TabIndex = 203;
+            // 
+            // pnlCtlMo
+            // 
+            this.pnlCtlMo.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.pnlCtlMo.Controls.Add(this.btnClose);
+            this.pnlCtlMo.Controls.Add(this.sipBtnOk);
+            this.pnlCtlMo.Controls.Add(this.gridControl2);
+            this.pnlCtlMo.Controls.Add(this.txtOcNo1);
+            this.pnlCtlMo.Controls.Add(this.label1);
+            this.pnlCtlMo.Location = new System.Drawing.Point(181, 0);
+            this.pnlCtlMo.Name = "pnlCtlMo";
+            this.pnlCtlMo.Size = new System.Drawing.Size(517, 178);
+            this.pnlCtlMo.TabIndex = 2;
+            this.pnlCtlMo.Visible = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(374, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(82, 23);
+            this.btnClose.TabIndex = 161;
+            this.btnClose.Text = "關閉";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // sipBtnOk
+            // 
+            this.sipBtnOk.Image = ((System.Drawing.Image)(resources.GetObject("sipBtnOk.Image")));
+            this.sipBtnOk.Location = new System.Drawing.Point(234, 5);
+            this.sipBtnOk.Name = "sipBtnOk";
+            this.sipBtnOk.Size = new System.Drawing.Size(82, 23);
+            this.sipBtnOk.TabIndex = 160;
+            this.sipBtnOk.Text = "確定";
+            this.sipBtnOk.Click += new System.EventHandler(this.sipBtnOk_Click);
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl2.Location = new System.Drawing.Point(5, 33);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.clFlagSelect});
+            this.gridControl2.Size = new System.Drawing.Size(507, 138);
+            this.gridControl2.TabIndex = 159;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.ColumnPanelRowHeight = 30;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.flag_select,
+            this.mo_id2});
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView2.IndicatorWidth = 30;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsCustomization.AllowColumnMoving = false;
+            this.gridView2.OptionsCustomization.AllowFilter = false;
+            this.gridView2.OptionsCustomization.AllowGroup = false;
+            this.gridView2.OptionsCustomization.AllowSort = false;
+            this.gridView2.OptionsMenu.EnableColumnMenu = false;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.PaintStyleName = "Style3D";
+            this.gridView2.RowHeight = 22;
+            this.gridView2.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            // 
+            // flag_select
+            // 
+            this.flag_select.AppearanceHeader.Options.UseTextOptions = true;
+            this.flag_select.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.flag_select.Caption = "選擇";
+            this.flag_select.ColumnEdit = this.clFlagSelect;
+            this.flag_select.FieldName = "flag_select";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_select.OptionsColumn.AllowMove = false;
+            this.flag_select.OptionsColumn.AllowShowHide = false;
+            this.flag_select.OptionsColumn.AllowSize = false;
+            this.flag_select.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_select.OptionsFilter.AllowAutoFilter = false;
+            this.flag_select.OptionsFilter.AllowFilter = false;
+            this.flag_select.Visible = true;
+            this.flag_select.VisibleIndex = 0;
+            // 
+            // clFlagSelect
+            // 
+            this.clFlagSelect.AutoHeight = false;
+            this.clFlagSelect.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.clFlagSelect.Name = "clFlagSelect";
+            // 
+            // mo_id2
+            // 
+            this.mo_id2.AppearanceHeader.Options.UseTextOptions = true;
+            this.mo_id2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mo_id2.Caption = "頁數";
+            this.mo_id2.FieldName = "mo_id";
+            this.mo_id2.Name = "mo_id2";
+            this.mo_id2.OptionsColumn.AllowMove = false;
+            this.mo_id2.OptionsColumn.AllowShowHide = false;
+            this.mo_id2.OptionsColumn.AllowSize = false;
+            this.mo_id2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id2.OptionsColumn.ReadOnly = true;
+            this.mo_id2.OptionsFilter.AllowAutoFilter = false;
+            this.mo_id2.OptionsFilter.AllowFilter = false;
+            this.mo_id2.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id2.Visible = true;
+            this.mo_id2.VisibleIndex = 1;
+            this.mo_id2.Width = 100;
+            // 
+            // txtOcNo1
+            // 
+            this.txtOcNo1.EditValue = "";
+            this.txtOcNo1.EnterMoveNextControl = true;
+            this.txtOcNo1.Location = new System.Drawing.Point(78, 6);
+            this.txtOcNo1.Name = "txtOcNo1";
+            this.txtOcNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOcNo1.Properties.MaxLength = 20;
+            this.txtOcNo1.Properties.ReadOnly = true;
+            this.txtOcNo1.Size = new System.Drawing.Size(135, 20);
+            this.txtOcNo1.TabIndex = 158;
+            this.txtOcNo1.Tag = "2";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(5, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 157;
+            this.label1.Text = "OC NO.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Location = new System.Drawing.Point(5, 38);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1029, 175);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.ColumnPanelRowHeight = 30;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.seq_id1,
+            this.mo_id,
+            this.id1,
+            this.key_id1});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView1.IndicatorWidth = 30;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsCustomization.AllowColumnMoving = false;
+            this.gridView1.OptionsCustomization.AllowFilter = false;
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsCustomization.AllowSort = false;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.PaintStyleName = "Style3D";
+            this.gridView1.RowHeight = 22;
+            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            // 
+            // seq_id1
+            // 
+            this.seq_id1.Caption = "序號";
+            this.seq_id1.FieldName = "seq_id";
+            this.seq_id1.Name = "seq_id1";
+            this.seq_id1.OptionsColumn.AllowEdit = false;
+            this.seq_id1.OptionsColumn.AllowIncrementalSearch = false;
+            this.seq_id1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.seq_id1.OptionsColumn.AllowMove = false;
+            this.seq_id1.OptionsColumn.AllowShowHide = false;
+            this.seq_id1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.seq_id1.OptionsColumn.ReadOnly = true;
+            this.seq_id1.Visible = true;
+            this.seq_id1.VisibleIndex = 0;
+            this.seq_id1.Width = 80;
+            // 
+            // mo_id
+            // 
+            this.mo_id.Caption = "頁數";
+            this.mo_id.FieldName = "mo_id";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.OptionsColumn.AllowEdit = false;
+            this.mo_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.mo_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id.OptionsColumn.AllowMove = false;
+            this.mo_id.OptionsColumn.AllowShowHide = false;
+            this.mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id.OptionsColumn.ReadOnly = true;
+            this.mo_id.OptionsFilter.AllowAutoFilter = false;
+            this.mo_id.OptionsFilter.AllowFilter = false;
+            this.mo_id.Visible = true;
+            this.mo_id.VisibleIndex = 1;
+            this.mo_id.Width = 100;
+            // 
+            // id1
+            // 
+            this.id1.Caption = "編號";
+            this.id1.FieldName = "id";
+            this.id1.Name = "id1";
+            this.id1.OptionsColumn.AllowEdit = false;
+            this.id1.OptionsColumn.AllowIncrementalSearch = false;
+            this.id1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.id1.OptionsColumn.AllowMove = false;
+            this.id1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.id1.OptionsColumn.ReadOnly = true;
+            this.id1.OptionsFilter.AllowAutoFilter = false;
+            this.id1.OptionsFilter.AllowFilter = false;
+            // 
+            // key_id1
+            // 
+            this.key_id1.Caption = "Key_id2";
+            this.key_id1.FieldName = "key_id";
+            this.key_id1.Name = "key_id1";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BtnNewItem,
+            this.toolStripSeparator5,
+            this.btnSaveItem,
+            this.toolStripSeparator8,
+            this.btnItemDel,
+            this.toolStripSeparator9});
+            this.toolStrip2.Location = new System.Drawing.Point(5, 4);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1029, 30);
+            this.toolStrip2.TabIndex = 0;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // BtnNewItem
+            // 
+            this.BtnNewItem.AutoSize = false;
+            this.BtnNewItem.Image = ((System.Drawing.Image)(resources.GetObject("BtnNewItem.Image")));
+            this.BtnNewItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNewItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnNewItem.Name = "BtnNewItem";
+            this.BtnNewItem.Size = new System.Drawing.Size(85, 28);
+            this.BtnNewItem.Text = "添加頁數";
+            this.BtnNewItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnNewItem.ToolTipText = "  添加頁數";
+            this.BtnNewItem.Click += new System.EventHandler(this.BtnNewItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 30);
+            // 
+            // btnSaveItem
+            // 
+            this.btnSaveItem.Enabled = false;
+            this.btnSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveItem.Image")));
+            this.btnSaveItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSaveItem.Name = "btnSaveItem";
+            this.btnSaveItem.Size = new System.Drawing.Size(75, 27);
+            this.btnSaveItem.Text = "保存頁數";
+            this.btnSaveItem.Click += new System.EventHandler(this.btnSaveItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 30);
+            // 
+            // btnItemDel
+            // 
+            this.btnItemDel.Image = ((System.Drawing.Image)(resources.GetObject("btnItemDel.Image")));
+            this.btnItemDel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnItemDel.Name = "btnItemDel";
+            this.btnItemDel.Size = new System.Drawing.Size(75, 27);
+            this.btnItemDel.Text = "項目刪除";
+            this.btnItemDel.Click += new System.EventHandler(this.btnItemDel_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 30);
+            // 
             // frmSoPiMerge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 736);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.grpBox1);
             this.Controls.Add(this.dgvDetails);
             this.Controls.Add(this.pnlHead);
@@ -1225,6 +1569,18 @@
             this.grpBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlCtlMo)).EndInit();
+            this.pnlCtlMo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clFlagSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1324,5 +1680,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn update_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn key_id;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton BtnNewItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn mo_id;
+        private DevExpress.XtraGrid.Columns.GridColumn id1;
+        private DevExpress.XtraGrid.Columns.GridColumn seq_id1;
+        private System.Windows.Forms.ToolStripButton btnSaveItem;
+        private DevExpress.XtraEditors.PanelControl pnlCtlMo;
+        private DevExpress.XtraEditors.TextEdit txtOcNo1;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton sipBtnOk;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn flag_select;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clFlagSelect;
+        private DevExpress.XtraGrid.Columns.GridColumn mo_id2;
+        private DevExpress.XtraGrid.Columns.GridColumn key_id1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton btnItemDel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
     }
 }
