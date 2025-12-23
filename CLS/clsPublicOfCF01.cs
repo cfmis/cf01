@@ -289,6 +289,7 @@ namespace cf01.CLS
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
                     cmd.CommandText = strSql;
+                    cmd.CommandTimeout = 1800;//連接30分鐘
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(paras);
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);

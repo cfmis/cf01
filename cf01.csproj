@@ -2407,6 +2407,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm\frmUpdatePlatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmUpdatePlatePrice.Designer.cs">
+      <DependentUpon>frmUpdatePlatePrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmVat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4128,6 +4134,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmUpdatePlatePrice.resx">
+      <DependentUpon>frmUpdatePlatePrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmVat.resx">
       <DependentUpon>frmVat.cs</DependentUpon>
