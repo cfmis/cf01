@@ -17,11 +17,13 @@ namespace cf01.ReportForm
     public partial class frmUpdatePlatePrice : Form
     {
         System.Data.DataTable dtImport = new System.Data.DataTable();
-
+        clsToolBarNew objToolbar;
 
         public frmUpdatePlatePrice()
         {
             InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
         }
 
         private void frmUpdatePlatePrice_Load(object sender, EventArgs e)
