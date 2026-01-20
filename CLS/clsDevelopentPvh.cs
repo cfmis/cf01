@@ -183,8 +183,8 @@ namespace cf01.CLS
             return dt;
         }
 
-        public static void SetCertificate(DevExpress.XtraEditors.LookUpEdit objCertType, DevExpress.XtraEditors.TextEdit obyNo,
-            DevExpress.XtraEditors.TextEdit obyDate, DevExpress.XtraEditors.TextEdit obyHolder)
+        public static void SetCertificate(DevExpress.XtraEditors.LookUpEdit objCertType, DevExpress.XtraEditors.TextEdit objNo,
+            DevExpress.XtraEditors.TextEdit objDate, DevExpress.XtraEditors.TextEdit objHolder)
         {            
             string strVal = objCertType.EditValue.ToString();
             string strSql = string.Format(
@@ -193,9 +193,9 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
             {
-                obyNo.Text = dt.Rows[0]["remark"].ToString();
-                obyDate.Text = dt.Rows[0]["remark2"].ToString();
-                obyHolder.Text = dt.Rows[0]["remark3"].ToString();
+                objNo.Text = dt.Rows[0]["remark"].ToString();
+                objDate.Text = dt.Rows[0]["remark2"].ToString();
+                objHolder.Text = dt.Rows[0]["remark3"].ToString();
             }           
         }
 
