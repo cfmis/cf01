@@ -22,20 +22,21 @@ namespace cf01.Forms
 {
     public partial class frmDevelopmentPvh : Form
     {
-        public string mID = "";    //臨時的主鍵值
-        public int row_reset = 0;
-        public DataTable dtDetail = new DataTable();
-        DataTable dtFactoryName = new DataTable();
-        public string mState = "";
-        string user_group = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
-        clsToolBarNew objToolbar;
-        private clsAppPublic clsApp = new clsAppPublic();
-        private DataGridViewRow dgvrow = new DataGridViewRow();
-        public BindingSource bds1 = new BindingSource();
-        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";
-        ListSortDirection sortDirection;//排序方式
+        int row_reset = 0;
+        string mID = "";   //臨時的主鍵值
+        string mState = "";
         string sortColumnName = "";
         string cur_temp_code = "";
+        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";
+        string user_group = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
+        DataTable dtDetail = new DataTable();
+        DataTable dtFactoryName = new DataTable();
+        clsToolBarNew objToolbar;
+        clsAppPublic clsApp = new clsAppPublic();
+        DataGridViewRow dgvrow = new DataGridViewRow();
+        BindingSource bds1 = new BindingSource();
+        ListSortDirection sortDirection;//排序方式
+       
 
         public frmDevelopmentPvh()
         {
