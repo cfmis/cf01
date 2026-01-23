@@ -1156,7 +1156,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1357, 219);
+            this.tabControl1.Size = new System.Drawing.Size(1357, 218);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -1167,7 +1167,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1349, 193);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 192);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2375,7 +2375,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 193);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 192);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新版本";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -5094,7 +5094,7 @@
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.MaxLength = 150;
             this.txtRemark.Properties.ReadOnly = true;
-            this.txtRemark.Size = new System.Drawing.Size(496, 20);
+            this.txtRemark.Size = new System.Drawing.Size(495, 20);
             this.txtRemark.TabIndex = 13;
             this.txtRemark.Tag = "2";
             // 
