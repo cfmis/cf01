@@ -203,6 +203,7 @@ namespace cf01.Forms
                 }
                 else
                 {
+                    //管理用戶HK_PDD,DG_PDD都可見
                     pnlRemarkPDD.Visible = true;
                     pnlRemarkPDD_dg.Visible = true;
                     remark_pdd.Visible = true;
@@ -216,6 +217,7 @@ namespace cf01.Forms
             {
                 if (dt.Rows[0]["group_id"].ToString() == "HK_PDD")
                 {
+                    //用戶組別是HK_PDD則HK_PDD,DG_PDD都可見
                     pnlRemarkPDD.Visible = true;
                     remark_pdd.Visible = true;
                     gridColumn18.Visible = true;
@@ -226,6 +228,7 @@ namespace cf01.Forms
                 }
                 if (dt.Rows[0]["group_id"].ToString() == "DG_PDD")
                 {
+                    //用戶組別是DG_PDD,只DG_PDD可見
                     pnlRemarkPDD_dg.Visible = true;
                     remark_pdd_dg.Visible = true;
                     gridColumn19.Visible = true;
