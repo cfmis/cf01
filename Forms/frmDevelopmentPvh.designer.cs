@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -207,7 +207,6 @@
             this.txtWeight_base = new DevExpress.XtraEditors.TextEdit();
             this.txtDye_method = new DevExpress.XtraEditors.ButtonEdit();
             this.txtMaterial_structure = new DevExpress.XtraEditors.ButtonEdit();
-            this.cbeFactory_name = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label88 = new System.Windows.Forms.Label();
             this.txtProcess = new DevExpress.XtraEditors.ButtonEdit();
             this.txtWeight_uom = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -269,7 +268,6 @@
             this.txtFinish = new DevExpress.XtraEditors.ButtonEdit();
             this.txtDye_type = new DevExpress.XtraEditors.ButtonEdit();
             this.label51 = new System.Windows.Forms.Label();
-            this.txtFactory_name = new DevExpress.XtraEditors.TextEdit();
             this.label89 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
@@ -531,6 +529,7 @@
             this.dataGridViewTextBoxColumn115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn116 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn117 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lueFactory_name = new DevExpress.XtraEditors.LookUpEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -551,7 +550,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).BeginInit();
@@ -589,7 +587,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).BeginInit();
@@ -678,6 +675,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueFactory_name.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -1010,9 +1008,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle21.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle21;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -2152,13 +2150,13 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.lueFactory_name);
             this.panel8.Controls.Add(this.txtColour);
             this.panel8.Controls.Add(this.txtWeight);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.txtWeight_base);
             this.panel8.Controls.Add(this.txtDye_method);
             this.panel8.Controls.Add(this.txtMaterial_structure);
-            this.panel8.Controls.Add(this.cbeFactory_name);
             this.panel8.Controls.Add(this.label88);
             this.panel8.Controls.Add(this.txtProcess);
             this.panel8.Controls.Add(this.txtWeight_uom);
@@ -2220,7 +2218,6 @@
             this.panel8.Controls.Add(this.txtFinish);
             this.panel8.Controls.Add(this.txtDye_type);
             this.panel8.Controls.Add(this.label51);
-            this.panel8.Controls.Add(this.txtFactory_name);
             this.panel8.Controls.Add(this.label89);
             this.panel8.Controls.Add(this.label55);
             this.panel8.Controls.Add(this.label92);
@@ -2291,7 +2288,7 @@
             this.txtDye_method.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtDye_method.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDye_method.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.txtDye_method.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtDye_method.Properties.MaxLength = 150;
             this.txtDye_method.Properties.ReadOnly = true;
@@ -2314,7 +2311,7 @@
             this.txtMaterial_structure.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMaterial_structure.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtMaterial_structure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.txtMaterial_structure.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtMaterial_structure.Properties.MaxLength = 150;
             this.txtMaterial_structure.Properties.ReadOnly = true;
@@ -2323,18 +2320,6 @@
             this.txtMaterial_structure.Tag = "1";
             this.txtMaterial_structure.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.txtMaterial_structure.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtMaterial_structure_ButtonClick);
-            // 
-            // cbeFactory_name
-            // 
-            this.cbeFactory_name.EditValue = "";
-            this.cbeFactory_name.Enabled = false;
-            this.cbeFactory_name.Location = new System.Drawing.Point(103, 21);
-            this.cbeFactory_name.Name = "cbeFactory_name";
-            this.cbeFactory_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbeFactory_name.Size = new System.Drawing.Size(359, 20);
-            this.cbeFactory_name.TabIndex = 170;
-            this.cbeFactory_name.Tag = "2";
             // 
             // label88
             // 
@@ -2352,7 +2337,7 @@
             this.txtProcess.Location = new System.Drawing.Point(605, 83);
             this.txtProcess.Name = "txtProcess";
             this.txtProcess.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.txtProcess.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtProcess.Properties.MaxLength = 150;
             this.txtProcess.Properties.ReadOnly = true;
@@ -3132,9 +3117,9 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(465, 18);
+            this.label5.Location = new System.Drawing.Point(631, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 18);
+            this.label5.Size = new System.Drawing.Size(136, 16);
             this.label5.TabIndex = 129;
             this.label5.Text = "Previous PVH Submit ref #";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3142,13 +3127,13 @@
             // txtPrevious_submit_ref
             // 
             this.txtPrevious_submit_ref.EnterMoveNextControl = true;
-            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(605, 21);
+            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(771, 21);
             this.txtPrevious_submit_ref.Name = "txtPrevious_submit_ref";
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtPrevious_submit_ref.Properties.MaxLength = 100;
             this.txtPrevious_submit_ref.Properties.ReadOnly = true;
-            this.txtPrevious_submit_ref.Size = new System.Drawing.Size(380, 20);
+            this.txtPrevious_submit_ref.Size = new System.Drawing.Size(214, 20);
             this.txtPrevious_submit_ref.TabIndex = 7;
             this.txtPrevious_submit_ref.Tag = "2";
             // 
@@ -3280,7 +3265,7 @@
             this.txtFinish.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtFinish.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtFinish.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.txtFinish.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtFinish.Properties.MaxLength = 150;
             this.txtFinish.Properties.ReadOnly = true;
@@ -3303,7 +3288,7 @@
             this.txtDye_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtDye_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDye_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
             this.txtDye_type.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtDye_type.Properties.MaxLength = 150;
             this.txtDye_type.Properties.ReadOnly = true;
@@ -3323,19 +3308,6 @@
             this.label51.TabIndex = 125;
             this.label51.Text = "Finish";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtFactory_name
-            // 
-            this.txtFactory_name.EnterMoveNextControl = true;
-            this.txtFactory_name.Location = new System.Drawing.Point(103, 21);
-            this.txtFactory_name.Name = "txtFactory_name";
-            this.txtFactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtFactory_name.Properties.MaxLength = 100;
-            this.txtFactory_name.Properties.ReadOnly = true;
-            this.txtFactory_name.Size = new System.Drawing.Size(38, 20);
-            this.txtFactory_name.TabIndex = 1;
-            this.txtFactory_name.Tag = "2";
             // 
             // label89
             // 
@@ -3611,7 +3583,7 @@
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPvh_submit_ref.Properties.ReadOnly = true;
             this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
@@ -5590,9 +5562,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle22.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5609,9 +5581,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle23.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5739,8 +5711,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6432,6 +6404,29 @@
             this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
             this.dataGridViewTextBoxColumn117.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // lueFactory_name
+            // 
+            this.lueFactory_name.Enabled = false;
+            this.lueFactory_name.EnterMoveNextControl = true;
+            this.lueFactory_name.Location = new System.Drawing.Point(103, 21);
+            this.lueFactory_name.Name = "lueFactory_name";
+            this.lueFactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueFactory_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueFactory_name.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", 530, "name")});
+            this.lueFactory_name.Properties.MaxLength = 250;
+            this.lueFactory_name.Properties.NullText = "";
+            this.lueFactory_name.Properties.PopupWidth = 570;
+            this.lueFactory_name.Properties.ShowHeader = false;
+            this.lueFactory_name.Properties.Tag = "2";
+            this.lueFactory_name.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueFactory_name.Size = new System.Drawing.Size(503, 20);
+            this.lueFactory_name.TabIndex = 176;
+            this.lueFactory_name.Tag = "2";
+            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6466,7 +6461,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).EndInit();
@@ -6504,7 +6498,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).EndInit();
@@ -6593,6 +6586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueFactory_name.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6708,7 +6702,6 @@
         private System.Windows.Forms.Label label56;
         private DevExpress.XtraEditors.TextEdit txtWeight_base;
         private System.Windows.Forms.Label label55;
-        private DevExpress.XtraEditors.TextEdit txtFactory_name;
         private System.Windows.Forms.Label label52;
         internal System.Windows.Forms.Label label58;
         private DevExpress.XtraEditors.TextEdit txtPlm_material_code;
@@ -6959,7 +6952,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtDye_type;
         private DevExpress.XtraEditors.ButtonEdit txtDye_method;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
-        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
         private DevExpress.XtraEditors.TextEdit txtSize1;
         private System.Windows.Forms.Label label91;
         private DevExpress.XtraEditors.TextEdit txtColour1;
@@ -7091,5 +7083,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_method;
         private System.Windows.Forms.RichTextBox txtColour;
+        private DevExpress.XtraEditors.LookUpEdit lueFactory_name;
     }
 }

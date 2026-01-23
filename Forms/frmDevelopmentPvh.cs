@@ -252,13 +252,11 @@ namespace cf01.Forms
             lueCheck.Properties.ValueMember = "id";
             lueCheck.Properties.DisplayMember = "name";
 
-            dtFactoryName = clsPublicOfCF01.GetDataTable("Select factory_name From development_factory order by id");
-            for(int i = 0; i < dtFactoryName.Rows.Count; i++)
-            {
-                cbeFactory_name.Properties.Items.Add(dtFactoryName.Rows[i]["factory_name"].ToString());
-                //string[] aryItems = { "Ching Fung Metal Manufactory(Longnan) Co.,Ltd", "CFAA VN PRODUCTION-TRADING COMPANY LIMITED" };
-                //cbeFactory_name.Properties.Items.AddRange(aryItems);
-            }
+            dtFactoryName = clsPublicOfCF01.GetDataTable("Select id,factory_name as name From development_factory order by id");
+            lueFactory_name.Properties.DataSource = dtFactoryName;
+            lueFactory_name.Properties.ValueMember = "name";
+            lueFactory_name.Properties.DisplayMember = "name";
+          
             DataTable dtWeightUom = clsPublicOfCF01.GetDataTable(string.Format(@"SELECT contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "Weight_UOM"));
             for (int i = 0; i < dtWeightUom.Rows.Count; i++)
             {
@@ -292,7 +290,8 @@ namespace cf01.Forms
             //-------------------------------------------------------
             txtsupplier_name.DataBindings.Add("Text", bds1, "supplier_name");
             //txtFactory_name.DataBindings.Add("Text", bds1, "factory_name");
-            cbeFactory_name.DataBindings.Add("EditValue", bds1, "factory_name");
+            //cbeFactory_name.DataBindings.Add("EditValue", bds1, "factory_name");
+            lueFactory_name.DataBindings.Add("EditValue", bds1, "factory_name");
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
@@ -461,7 +460,7 @@ namespace cf01.Forms
             //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);2022/04/20 Cancel
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
             //txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
-            cbeFactory_name.EditValue = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
+            lueFactory_name.EditValue = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "16";
@@ -587,7 +586,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@pvh_submit_ref", txtPvh_submit_ref.Text);
                     //-------------------------------------------------------------------------------------------
                     myCommand.Parameters.AddWithValue("@supplier_name", txtsupplier_name.Text);                   
-                    myCommand.Parameters.AddWithValue("@factory_name", cbeFactory_name.Text);
+                    //myCommand.Parameters.AddWithValue("@factory_name", cbeFactory_name.Text);
+                    myCommand.Parameters.AddWithValue("@factory_name", lueFactory_name.Text);
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
@@ -954,7 +954,8 @@ namespace cf01.Forms
             //-------------------------------------------------------------------------------------------
             txtsupplier_name.Text = pdr.Cells["supplier_name"].Value.ToString();
             //txtFactory_name.Text = pdr.Cells["factory_name"].Value.ToString();
-            cbeFactory_name.EditValue = pdr.Cells["factory_name"].Value.ToString();
+            //cbeFactory_name.EditValue = pdr.Cells["factory_name"].Value.ToString();
+            lueFactory_name.EditValue = pdr.Cells["factory_name"].Value.ToString();
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();

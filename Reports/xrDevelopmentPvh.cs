@@ -104,6 +104,15 @@ namespace cf01.Reports
             xrLabel64.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd/MM/yyyy");
         }
 
+        private void txtfactory_name_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string factoryName = GetCurrentColumnValue("factory_name").ToString().Trim();
+            if (factoryName.Length <= 80)
+                txtfactory_name.Font = new System.Drawing.Font("Arial", 7F);            
+            else
+                txtfactory_name.Font = new System.Drawing.Font("Arial", 6F);            
+        }
+
         //private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
         //{
         //    string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
@@ -111,7 +120,7 @@ namespace cf01.Reports
         //    {
         //        lblRsl_certificate_expiry_date.Text = DateTime.Parse(val).Date.ToString("dd-MM-yy");
         //    }
-            
+
         //}
     }
 }
