@@ -1,6 +1,6 @@
-﻿//*************************************************
-//**此畫面C組阿華使用，將手寫單轉換成東莞D的送貨單格式
-//*************************************************
+﻿//**********************
+//**回港單 Allen Leung
+//**********************
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,11 +28,11 @@ namespace cf01.Forms
 		string mID = "";    //臨時的主鍵值
 		string mState = ""; //新增或編輯的狀態
 		string language = "0";
-		bool save_flag;        
         string current_date = "";
         string temp_mo_id = ""; //暫存更改前的值
         string temp_suit = ""; //暫存更改前的值
         string temp_goods_id = ""; //暫存更改前的值
+        bool save_flag;  
         decimal temp_transfer_amount = 0;
         DataTable dtMostly = new DataTable();
 		DataTable dtDetails = new DataTable();
@@ -276,8 +276,9 @@ namespace cf01.Forms
             tabControl1.SelectTab(0);
         }
 
-		private void Edit()  //編輯
+		private void Edit()  
 		{
+            //編輯
 			if (txtID.Text == "")
 			{
 				return;
@@ -318,7 +319,6 @@ namespace cf01.Forms
 			BTNITEMADD.Enabled = !_flag;
 			BTNITEMDEL.Enabled = !_flag;
             BTNAPPROVE.Visible = true;
-
 
             if(objToolbar != null)
             {
@@ -371,7 +371,8 @@ namespace cf01.Forms
                     return;
                 }
                 SetGridStatus(true);
-                string seq_id = getMaxSeqId();
+                string seq_id = "", location_id = "";
+                seq_id = getMaxSeqId();
                 temp_suit = "True";                
                 DataRow drw = dtsTrans.Tables["dtD1"].NewRow();
                 drw["id"] = txtID.Text;
@@ -384,7 +385,7 @@ namespace cf01.Forms
                 drw["sec_qty"] = 0.00;
                 drw["nwt"] = 0.00;
                 drw["gross_wt"] = 0.00;
-                string location_id = this.SetLocation(true);
+                location_id = this.SetLocation(true);
                 drw["location_id"] = location_id;
                 drw["carton_code"] = location_id;
                 drw["move_location_id"] = location_id;
@@ -465,9 +466,9 @@ namespace cf01.Forms
 				txtRemark.Focus();
                 dgvDetails.CloseEditor(); //編輯的值有效
                 //因toolStrip控件焦點問題
-                //設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
-                int curRow = 0;
+                //設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空                
                 string goodsId = "", moId = "", strF0 = "", sql_f = "", id = "", msg = "", lotNo = "", upperSeq;
+                int curRow = 0;
                 decimal qtyOther = 0, orderQty = 0, qty = 0;
                 DataTable tbl = new DataTable();
                 for (int i = 0; i < dtsTrans.Tables["dtD2"].Rows.Count; i++)
@@ -591,7 +592,7 @@ namespace cf01.Forms
 
         private void FindDoc(string id)
         {            
-            SqlParameter[] paras = {
+            SqlParameter[] paras = new SqlParameter[] {
                 new SqlParameter("@id",id) 
             };
             dtsTrans = clsConErp.ExecuteProcedureReturnDataSet("zz_get_transfer_out_data", paras, "");            
@@ -1149,7 +1150,7 @@ namespace cf01.Forms
                 goodsId = dtsTrans.Tables["dtD1"].Rows[i]["goods_id"].ToString();
                 lst.Add(moId + " ; " + goodsId);
             }
-            if (lst.Count >= 2)
+            if (lst.Count >1)
             {
                 var duplicates = lst.GroupBy(n => n)
                 .Where(g => g.Count() > 1)
@@ -1166,7 +1167,7 @@ namespace cf01.Forms
             return dupFlag; 
         }
 
-        //東莞D送貨單查詢 ==============BEGIN==============
+        
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (mState != "")
@@ -1212,32 +1213,20 @@ namespace cf01.Forms
         private void dgvFind_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(0);
-            //string strName = dgvFind.Columns[e.ColumnIndex].Name;
-            //if (strName == "id1")
-            //{                
-            //    tabControl1.SelectTab(0);
-            //}
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
         {
             txtDat2.EditValue = txtDat1.EditValue;
-        }
-
-        private void txtCust_id1_Leave(object sender, EventArgs e)
-        {
-            
-        }
+        }      
         
         private void txtMo_id1_Leave(object sender, EventArgs e)
         {
             txtMo_id2.Text = txtMo_id1.Text;
         }
-       
-        //東莞D送貨單查詢 ==============END==============
+ 
 
-
-        //手寫單頁面代碼 =============BEGIN =============
+        
         private void btnQuery_Click(object sender, EventArgs e)
         {
             
@@ -1332,16 +1321,17 @@ namespace cf01.Forms
                         .ToList();
             DataSet dtsBatch = clsTransferout.GetPackingBomData(lstMDL2);
 
-            string id = "", sequenceId = "", idKey = "", mo_id, goods_id_f0 = "", goods_id = "",boxs = "";          
+            string id = "", sequenceId = "", idKey = "", mo_id, goods_id_f0 = "", goods_id = "", boxs = "";        
             //批量添加默認全部是套件出货
             string location_id = this.SetLocation(true); //取倉號
             SetGridStatus(true);
-            for (int i=0;i< dtsBatch.Tables[0].Rows.Count;i++)
+            DataRow drw;
+            for (int i=0; i< dtsBatch.Tables[0].Rows.Count; i++)
             {
                 sequenceId = getMaxSeqId();
                 temp_suit = "True";
                 id = txtID.Text;
-                DataRow drw = dtsTrans.Tables["dtD1"].NewRow();
+                drw = dtsTrans.Tables["dtD1"].NewRow();
                 drw["id"] = id;
                 drw["sequence_id"] = sequenceId;
                 idKey = id + sequenceId;
@@ -1374,7 +1364,7 @@ namespace cf01.Forms
                 drw["position_first"] = (boxs != "0" || boxs != "") ? "箱" : "";
                 drw["sec_qty"] = dtsBatch.Tables[0].Rows[i]["total_sec_qty"];
                 drw["remark"] = dtsBatch.Tables[0].Rows[i]["suit_flag"];
-                dtsTrans.Tables["dtD1"].Rows.Add(drw);                
+                dtsTrans.Tables["dtD1"].Rows.Add(drw);
                 if (goods_id_f0.Substring(0, 3) == "F0-")
                 {
                     //DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}' and goods_id_f0='{goods_id_f0}'");
@@ -1770,7 +1760,6 @@ namespace cf01.Forms
                     MessageBox.Show($"轉出單【{txtID.Text}】已有做轉入單，不可以再反批準!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 ApproveAction("0");                
             }
         }
@@ -1778,45 +1767,11 @@ namespace cf01.Forms
         private void clBteLotNo1_Click(object sender, EventArgs e)
         {
             GetStLotNo(dgvDetails, "1");
-            //if (mState != "")
-            //{
-            //    int rowIndex = dgvDetails.FocusedRowHandle;
-            //    string locationId = dgvDetails.GetRowCellValue(rowIndex, "location_id").ToString();
-            //    string moId = dgvDetails.GetRowCellValue(rowIndex, "mo_id").ToString();
-            //    string goodsId = dgvDetails.GetRowCellValue(rowIndex, "goods_id").ToString();
-
-            //    Point clickPoint = new Point(MousePosition.X, MousePosition.Y);//當前鼠标的坐标
-            //    using (frmTransferoutLot ofrm = new frmTransferoutLot(locationId, goodsId, moId, clickPoint))
-            //    {
-            //        ofrm.ShowDialog();
-            //        if (ofrm.lotNo != "")
-            //        {
-            //            dgvDetails.SetRowCellValue(rowIndex, "lot_no", ofrm.lotNo);
-            //        }
-            //    }
-            //}
         }
 
         private void clBteLotNo2_Click(object sender, EventArgs e)
         {
-            GetStLotNo(dgvPart, "2");
-            //if (mState != "")
-            //{
-            //    int rowIndex = dgvPart.FocusedRowHandle;
-            //    string locationId = dgvPart.GetRowCellValue(rowIndex, "location").ToString();
-            //    string moId = dgvPart.GetRowCellValue(rowIndex, "mo_id").ToString();
-            //    string goodsId = dgvPart.GetRowCellValue(rowIndex, "goods_id").ToString();
-
-            //    Point clickPoint = new Point(MousePosition.X, MousePosition.Y);//當前鼠标的坐标
-            //    using (frmTransferoutLot ofrm = new frmTransferoutLot(locationId, goodsId, moId, clickPoint))
-            //    {
-            //        ofrm.ShowDialog();
-            //        if (ofrm.lotNo != "")
-            //        {
-            //            dgvPart.SetRowCellValue(rowIndex, "lot_no", ofrm.lotNo);
-            //        }
-            //    }
-            //}
+            GetStLotNo(dgvPart, "2");            
         }
 
         private void GetStLotNo(GridView grv, string type)
