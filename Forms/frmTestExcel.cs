@@ -525,10 +525,16 @@ namespace cf01.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmTestExcel_Search frmSts = new frmTestExcel_Search();
-            if (frmSts.ShowDialog() == DialogResult.Yes)
+            frmTestExcel_Search frmSch = new frmTestExcel_Search();
+            //ShowDialog() 方法显示该窗体作为模态对话框
+            if (frmSch.ShowDialog() == DialogResult.Yes)
             {
-                dtTe = frmSts.dtTe;
+                //**
+                //DialogResult.Yes說明查詢窗體已查到數據  
+                //frmTestExcel_Search窗體中的查詢按鈕Click事件代碼中
+                //查詢到數據后設置查詢窗體this.DialogResult = DialogResult.Yes 以標記查詢到數據并自動關閉frmTestExcel_Search退出
+                //**
+                dtTe = frmSch.dtTe;
                 dtTe.AcceptChanges();//恢復正常的Rowstate狀態,否則按編輯按鈕時表格背景色會亂
                 bds1.DataSource = dtTe;               
                 gridControl1.DataSource = bds1;  
