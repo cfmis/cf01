@@ -418,14 +418,14 @@
             this.btnEditTest_report_Path.Name = "btnEditTest_report_Path";
             this.btnEditTest_report_Path.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.btnEditTest_report_Path.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.btnEditTest_report_Path.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnEditTest_report_Path.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnEditTest_report_Path.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnEditTest_report_Path.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnEditTest_report_Path.Properties.ReadOnly = true;
             this.btnEditTest_report_Path.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditTest_report_Path_Properties_ButtonClick);
             this.btnEditTest_report_Path.Properties.DoubleClick += new System.EventHandler(this.btnEditTest_report_Path_Properties_DoubleClick);
-            this.btnEditTest_report_Path.Size = new System.Drawing.Size(630, 20);
+            this.btnEditTest_report_Path.Size = new System.Drawing.Size(630, 22);
             this.btnEditTest_report_Path.TabIndex = 13;
             this.btnEditTest_report_Path.Tag = "2";
             this.btnEditTest_report_Path.ToolTip = "雙擊鼠標左鍵可以開啟對應的測試報告";
@@ -439,7 +439,7 @@
             this.deExpriy.Name = "deExpriy";
             this.deExpriy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.deExpriy.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.deExpriy.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.deExpriy.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.deExpriy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deExpriy.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -450,7 +450,7 @@
             this.deExpriy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deExpriy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deExpriy.Properties.MaxLength = 10;
-            this.deExpriy.Size = new System.Drawing.Size(100, 20);
+            this.deExpriy.Size = new System.Drawing.Size(100, 22);
             this.deExpriy.TabIndex = 12;
             this.deExpriy.Tag = "2";
             // 
@@ -638,7 +638,7 @@
             this.lueTestItem.Name = "lueTestItem";
             this.lueTestItem.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueTestItem.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueTestItem.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueTestItem.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueTestItem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueTestItem.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -650,7 +650,7 @@
             this.lueTestItem.Properties.PopupFormMinSize = new System.Drawing.Size(440, 0);
             this.lueTestItem.Properties.ShowHeader = false;
             this.lueTestItem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueTestItem.Size = new System.Drawing.Size(130, 20);
+            this.lueTestItem.Size = new System.Drawing.Size(130, 22);
             this.lueTestItem.TabIndex = 2;
             this.lueTestItem.Tag = "2";
             this.lueTestItem.Click += new System.EventHandler(this.lueTestItem_Click);
@@ -663,7 +663,7 @@
             this.lueColor.Name = "lueColor";
             this.lueColor.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueColor.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueColor.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueColor.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueColor.Properties.DropDownRows = 15;
@@ -671,7 +671,7 @@
             this.lueColor.Properties.PopupFormMinSize = new System.Drawing.Size(200, 0);
             this.lueColor.Properties.ShowHeader = false;
             this.lueColor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueColor.Size = new System.Drawing.Size(130, 20);
+            this.lueColor.Size = new System.Drawing.Size(130, 22);
             this.lueColor.TabIndex = 3;
             this.lueColor.Tag = "2";
             this.lueColor.Click += new System.EventHandler(this.lueColor_Click);
@@ -684,7 +684,7 @@
             this.lueProductType.Name = "lueProductType";
             this.lueProductType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueProductType.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueProductType.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueProductType.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueProductType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueProductType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -696,7 +696,7 @@
             this.lueProductType.Properties.PopupFormMinSize = new System.Drawing.Size(280, 0);
             this.lueProductType.Properties.ShowHeader = false;
             this.lueProductType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueProductType.Size = new System.Drawing.Size(130, 20);
+            this.lueProductType.Size = new System.Drawing.Size(130, 22);
             this.lueProductType.TabIndex = 1;
             this.lueProductType.Tag = "2";
             this.lueProductType.Click += new System.EventHandler(this.lueProductType_Click);
@@ -709,7 +709,7 @@
             this.lueMat.Name = "lueMat";
             this.lueMat.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMat.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueMat.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueMat.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueMat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueMat.Properties.DropDownRows = 20;
@@ -717,7 +717,7 @@
             this.lueMat.Properties.PopupFormMinSize = new System.Drawing.Size(200, 0);
             this.lueMat.Properties.ShowHeader = false;
             this.lueMat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueMat.Size = new System.Drawing.Size(130, 20);
+            this.lueMat.Size = new System.Drawing.Size(130, 22);
             this.lueMat.TabIndex = 0;
             this.lueMat.Tag = "1";
             this.lueMat.Click += new System.EventHandler(this.lueMat_Click);
@@ -822,7 +822,7 @@
             this.lueTest_dept.Name = "lueTest_dept";
             this.lueTest_dept.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueTest_dept.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueTest_dept.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueTest_dept.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueTest_dept.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueTest_dept.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -830,7 +830,7 @@
             this.lueTest_dept.Properties.NullText = "";
             this.lueTest_dept.Properties.ShowHeader = false;
             this.lueTest_dept.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueTest_dept.Size = new System.Drawing.Size(130, 20);
+            this.lueTest_dept.Size = new System.Drawing.Size(130, 22);
             this.lueTest_dept.TabIndex = 42;
             this.lueTest_dept.Tag = "2";
             // 
@@ -1004,7 +1004,7 @@
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtSales_group.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtSales_group.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtSales_group.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtSales_group.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSales_group.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -1014,7 +1014,7 @@
             this.txtSales_group.Properties.NullText = "";
             this.txtSales_group.Properties.ShowHeader = false;
             this.txtSales_group.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtSales_group.Size = new System.Drawing.Size(130, 20);
+            this.txtSales_group.Size = new System.Drawing.Size(130, 22);
             this.txtSales_group.TabIndex = 6;
             this.txtSales_group.Tag = "2";
             this.txtSales_group.Click += new System.EventHandler(this.txtSales_group_Click);

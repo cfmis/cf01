@@ -217,16 +217,16 @@
   <data name="BTNINVOICE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIHSURBVDhPvZNPaBNBFMZ/k6Y2hho0VmpLVAoRTQ1RKfRQ
-        xFUPNZCWouihWCVNQLzoSaHiYQsVsdVQxfr/EPQgHqxIUPCgBgst9qBY9SB6VmhV8GDVtG7Gmd0kVTTi
-        Qfxg9s28N/O+976Z5V9CmAZuE1yF9X9CkTXZiH/XajqT64nYfrNsJcIAd2EOOwLM13ZPmKNjQ8hj2xnX
-        SbVPqs3alsEcQU8rB0cGkZP3mH5xFXkmzu2mOry/08MHfmU6nRUV9ne4h1fZ+1hvMsycMrAGO/iypYFa
-        OzgHEQ36fc2BwOhId0yu87kOa58d6QqRMg+Qf/+Ir3cGyA/FGdtpUG1ofZx2HCZoPOL2yHNbY/mV9Que
-        F3yQ6uLhJsX8+CKz2TTWsyu6fZY50RJEM1y6Ad82wtQ+WFUS02yn98ll5LsHfJpIIy8kxF3t986raAst
-        JLUYNntUQqXJzHGtrRD9Oh6EqtItxMP0j59Hnt3N0/1Bqmq9tA231FnTh7bJvo7oa5UkfVMIGYW316C+
-        ILAovYO9TdQkIiQa/KhKwbNoyYbTLnIfW1o/Zwdi1i1Veh9Ctzaq4wp/umJHtKVw/aSrUk5G1ubSMKt6
-        /pCB5SqkD/+SwP4XlHVKUwKFYEUYMlnI9areq+GE3qhQ7pX+BJuhEtYkVe9K+ZdqWaNGkeCvUGRqV8Pr
-        TH88DN8Bst2JccUaA0wAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIFSURBVDhPvZNLaBNBGMd/k6ZtDDXUWKktUSlENDVEpdBD
+        ERc91GBbiqKHYpWYgPSiJ4WKhy1UxKihii2+DkEP4sGKhB48qMFCiz0ovg5Fzwr1AR6smtbNOLObpIpG
+        PIh/mP3me8z3+M8s/xLCNHCb4Cro/wnFqolm/HvW0pPYSMS2m2U7EQa4C3vYFWCRlvvCHJ8cRp7YyZRO
+        qm1SBWtZBgsF+ts5PD6EnLnL7ItryPMxxloa8P6ODx/4lehxNCrs72g/L7P3sF5nmDtrYA1182VrE/W2
+        cwEiGvT7WgOBifH9HXKDz3VU22xPb4iUeYj8+4d8HUuSH44xudugxtD8OOM4laD5mNsjR7Z15Fc3Ln5e
+        sEGqlwcq2Hp0iflsGuvZVT0+KxxvCaIVLt+Eb5vhbR+sKZFpdjHw+Ary3X0+PU0jL8bFHW33VlV0hmpJ
+        LYUtHpVQcTJ3UnMrRFL7g1BduoVYmOTUBeTIXp4cDFJd76VztK3Bmj2yQw52R1+pJOlbQsgovLkOjQWC
+        RekdHGihLh4h3uRHdQqeJcs2nXOR+9jW/jl7art1W7U+iNCjTWi/wp+u2CFtOdw446qUM5H1uTTMq5k/
+        ZGClcunDvySw/wUlndYUQSFYFYZMFnIDavYaOK0DFcq90p9gV6iEdQk1u2J+Wql1ahUL/BWKlbrU8jrb
+        Hw/Dd6k9iWzUQOJHAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
