@@ -50,7 +50,7 @@ namespace cf01.ReportForm
 					,txtId1.Text});
 			//dt = c.getDataProcedure("z_plan01", new object[] { "501", "2013/12/10", "2013/07/01", "2013/12/10", "2013/10/01", "2013/12/10", "" });
 			this.reportViewer1.LocalReport.DataSources.Clear();
-			this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", dt));
+			this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt));
 			//显示报表
 			this.reportViewer1.RefreshReport();
 		}

@@ -88,7 +88,7 @@
             this.cmdClose.Image = ((System.Drawing.Image)(resources.GetObject("cmdClose.Image")));
             this.cmdClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(65, 22);
+            this.cmdClose.Size = new System.Drawing.Size(67, 22);
             this.cmdClose.Text = "退出(&X)";
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
@@ -97,7 +97,7 @@
             this.cmdFind.Image = ((System.Drawing.Image)(resources.GetObject("cmdFind.Image")));
             this.cmdFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdFind.Name = "cmdFind";
-            this.cmdFind.Size = new System.Drawing.Size(63, 22);
+            this.cmdFind.Size = new System.Drawing.Size(65, 22);
             this.cmdFind.Text = "查詢(&F)";
             this.cmdFind.Click += new System.EventHandler(this.cmdFind_Click);
             // 
@@ -299,11 +299,13 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.dtSetMouldBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "cf01.Reports.rdlMouldPosition.rdlc";
+            this.reportViewer1.LocalReport.ReportPath = "";
             this.reportViewer1.Location = new System.Drawing.Point(0, 133);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(918, 314);

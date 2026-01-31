@@ -11,6 +11,7 @@ using cf01.ModuleClass;
 using cf01.Forms;
 using System.Threading;
 using cf01.CLS;
+using Microsoft.Reporting.WinForms;
 
 namespace cf01.ReportForm
 {
@@ -219,9 +220,9 @@ namespace cf01.ReportForm
             string strSql =
             @"SELECT Row_Number() over(ORDER BY A.update_date,A.mould_no) as seqno,0 as page_index,0 as column_index,
             A.dept_id,A.mould_no,A.id,A.pattern_id,A.products_type,A.measurement,(C.picture_path+'\\'+ Isnull(B.picture_name_h,'')) AS picture_path 
-            FROM cd_mould_position A,cd_company,
+            FROM cd_mould_position A Inner JOIN cd_company C ON A.within_code=C.within_code
             LEFT JOIN cd_pattern B ON A.within_code=B.within_code And A.pattern_id=B.id             
-            WHERE A.within_code =C.within_code And A.within_code ='0000' ";
+            WHERE A.within_code ='0000' ";
 
             if (txtdept_id1.Text != "")
             {
@@ -343,7 +344,7 @@ namespace cf01.ReportForm
                 }
             }
 
-            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", mytb));
+            this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", mytb));
             this.reportViewer1.RefreshReport();
         }
     }
