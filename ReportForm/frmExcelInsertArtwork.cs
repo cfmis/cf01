@@ -81,8 +81,8 @@ namespace cf01.ReportForm
                     progressBar.Step = 1;                   
                     Microsoft.Office.Interop.Excel.Range rng;
                     xSheet.Columns["R:R"].ColumnWidth = 12; //設置圖片列寬度
-                    rng = xSheet.Cells[1, "R"];                    
-                    rng.Value2 = "圖樣";
+                    rng = xSheet.Cells[1, "R"];     //插入圖片的欄位               
+                    rng.Value2 = "圖樣";//
                     xSheet.Columns[17].VerticalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //豎直方向居中對齊
                     xSheet.Range["R1:R1"].Merge(0);//合并单元格
 
@@ -183,7 +183,7 @@ namespace cf01.ReportForm
                     progressBar.Step = 1;
                     Microsoft.Office.Interop.Excel.Range rng;
                     xSheet.Columns["E:E"].ColumnWidth = 12; //設置圖片列寬度
-                    rng = xSheet.Cells[1, "F"]; //artwork Code
+                    rng = xSheet.Cells[1, "F"]; //artwork Code //七位圖樣欄位
                     rng.Value2 = "七位圖樣";
                     xSheet.Columns[8].VerticalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //圖片列豎直方向居中對齊
                     xSheet.Range["E1:E1"].Merge(0);//合并单元格
