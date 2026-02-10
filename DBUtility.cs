@@ -28,13 +28,15 @@ namespace cf01
         public static string remote_db = "dgerp2.cferp.dbo.";//遠程數據庫名稱
         public static string hr_db_server = "dgsql1.dghr.dbo.";//人事系統
         public static string pad_db = "dgcf_pad.dbo.";//PAD用的數據庫
-        public static string pad_db_jx = "lnsql1.dgcf_pad.dbo.";//PAD用的數據庫
+        //public static string pad_db_jx = "lnsql1.dgcf_pad.dbo.";//PAD用的數據庫 //CANCEL 2026/02/10
+        public static string pad_db_jx = "dgcf_pad.dbo.";//PAD用的數據庫  // ADD 2026/02/10
         public static string pad_db1 = "dgsql2.dgcf_pad.dbo.";
         public static string get_query_id = "";
         public static string within_code = "0000";
         public static string imagePath = @"\\192.168.3.12\cf_artwork\Artwork\";
         public static string imagePathHk = @"\\192.168.168.15\cf_artwork\Artwork\";
-        public static string imagePathJx = @"\\192.168.18.15\cf_artwork\Artwork\";
+        //public static string imagePathJx = @"\\192.168.18.15\cf_artwork\Artwork\"; //2026/02/10
+        public static string imagePathJx = @"\\192.168.3.12\cf_artwork\Artwork\"; //ADD 2026/02/10
         public static string EncryptKey = "!cf~1965";
         private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
 
