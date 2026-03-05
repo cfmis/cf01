@@ -26,31 +26,32 @@ namespace cf01.CLS
             DataTable dtTransfer = new DataTable();
             try
             {
-                StringBuilder sb = new StringBuilder(
-                                  @"SELECT Distinct a.mo_id ,a.id ,a.sequence_id ,a.goods_id ,a.lot_no
-                                        ,a.con_qty ,a.sec_qty ,a.package_num ,a.actual_qty ,a.actual_weg
-                                        ,a.actual_pack ,Convert(varchar(10),b.con_date,111) as con_date ,b.out_dept ,b.in_dept ,c.name as goods_name
-                                        ,Convert(varchar(20),a.crtim,20) as crtim,a.imput_flag,Convert(varchar(20),a.imput_time,20) as imput_time,a.adj_flag
-                                  FROM jo_materiel_con_details as a WITH(NOLOCK)
-                                  INNER JOIN jo_materiel_con_mostly b WITH(NOLOCK) on a.within_code=b.within_code and a.id=b.id
-                                  LEFT JOIN dgsql2.dgcf_db.dbo.geo_it_goods c WITH(NOLOCK) on a.goods_id=c.id COLLATE Chinese_Taiwan_Stroke_CI_AS                                  
-                                  WHERE b.within_code='0000' ");
-
+                StringBuilder sb = new StringBuilder();
+                //原來的代碼
+                sb.Append(
+                    @"SELECT Distinct a.mo_id ,a.id ,a.sequence_id ,a.goods_id ,a.lot_no
+                        ,a.con_qty ,a.sec_qty ,a.package_num ,a.actual_qty ,a.actual_weg
+                        ,a.actual_pack ,Convert(varchar(10),b.con_date,111) as con_date ,b.out_dept ,b.in_dept ,c.name as goods_name
+                        ,Convert(varchar(20),a.crtim,20) as crtim,a.imput_flag,Convert(varchar(20),a.imput_time,20) as imput_time,a.adj_flag
+                        FROM jo_materiel_con_details as a WITH(NOLOCK)
+                        INNER JOIN jo_materiel_con_mostly b WITH(NOLOCK) on a.within_code=b.within_code and a.id=b.id
+                        LEFT JOIN dgsql2.dgcf_db.dbo.geo_it_goods c WITH(NOLOCK) on a.goods_id=c.id COLLATE Chinese_Taiwan_Stroke_CI_AS                                  
+                        WHERE b.within_code='0000' ");
                 if (pIn_dept != "")
                 {
-                    sb.Append(String.Format(" AND b.in_dept='{0}' ", pIn_dept));
+                    sb.Append(string.Format(" AND b.in_dept='{0}' ", pIn_dept));
                 }
                 if (pOut_dept != "")
                 {
-                    sb.Append(String.Format(" AND b.out_dept='{0}' ", pOut_dept));
+                    sb.Append(string.Format(" AND b.out_dept='{0}' ", pOut_dept));
                 }
                 if (pCon_date_from != "" && pCon_date_to != "")
                 {
-                    sb.Append(String.Format(" AND a.crtim>='{0}' and a.crtim<='{1}'", pCon_date_from, pCon_date_to));
+                    sb.Append(string.Format(" AND a.crtim>='{0}' and a.crtim<='{1}'", pCon_date_from, pCon_date_to));
                 }
                 if (mo1 != "" && mo2 != "")
                 {
-                    sb.Append(String.Format(" AND a.mo_id>='{0}' and a.mo_id<='{1}'", mo1, mo2));
+                    sb.Append(string.Format(" AND a.mo_id>='{0}' and a.mo_id<='{1}'", mo1, mo2));
                 }
                 if (adj_flag == false)
                 {
@@ -58,7 +59,48 @@ namespace cf01.CLS
                 }
                 sb.Append(" Order By a.id,a.sequence_id");
 
-                DataTable dtTemp = clsPublicOfPad.GetDataTable(sb.ToString());//根據條件查出PAD生成移交數據
+                DataTable dtTemp = clsPublicOfPad.GetDataTable(sb.ToString());//根據條件查出PAD生成移交單數據
+                if (dtTemp.Rows.Count == 0)
+                {
+                    //2026/03/04新加代碼
+                    //因電鍍部沒有用PAD來生成移交單數據,直接在geo中錄單
+                    if (pIn_dept == "125")
+                    {
+                        sb.Clear();
+                        sb.Append(
+                        @"SELECT Distinct a.mo_id ,a.id ,a.sequence_id ,a.goods_id ,a.lot_no
+                        ,a.con_qty ,a.sec_qty ,a.package_num ,a.con_qty as actual_qty ,a.sec_qty as actual_weg
+                        ,a.package_num as actual_pack ,Convert(varchar(10),b.con_date,111) as con_date ,b.out_dept ,b.in_dept ,c.name as goods_name
+                        ,Convert(varchar(20),b.create_date,20) as crtim,'' as imput_flag,Convert(varchar(20),b.create_date,20) as imput_time,'' as adj_flag
+                        FROM jo_materiel_con_details as a WITH(NOLOCK)
+                        INNER JOIN jo_materiel_con_mostly b WITH(NOLOCK) on a.within_code=b.within_code and a.id=b.id
+                        LEFT JOIN dgsql2.dgcf_db.dbo.geo_it_goods c WITH(NOLOCK) on a.goods_id=c.id COLLATE Chinese_Taiwan_Stroke_CI_AS                                  
+                        WHERE b.within_code='0000' ");
+                        if (pIn_dept != "")
+                        {
+                            sb.Append(string.Format(" AND b.in_dept='{0}' ", pIn_dept));
+                        }
+                        if (pOut_dept != "")
+                        {
+                            sb.Append(string.Format(" AND b.out_dept='{0}' ", pOut_dept));
+                        }
+                        if (pCon_date_from != "" && pCon_date_to != "")
+                        {
+                            sb.Append(string.Format(" AND b.create_date>='{0}' and b.create_date<='{1}'", pCon_date_from, pCon_date_to));
+                        }
+                        if (mo1 != "" && mo2 != "")
+                        {
+                            sb.Append(string.Format(" AND a.mo_id>='{0}' and a.mo_id<='{1}'", mo1, mo2));
+                        }
+                        if (adj_flag == false)
+                        {
+                            //sb.Append(string.Format(" AND a.adj_flag <> '{0}'", "Y"));
+                        }
+                        sb.Append(" Order By a.id,a.sequence_id");
+                        dtTemp = clsConErp.GetDataTable(sb.ToString());//根據條件查出GEO中的移交單數據
+                    }
+                }
+
                 DataTable dtHadPrint = dtTemp.Copy();
                 DataTable dtNoPrint = dtTemp.Copy();
                 dtHadPrint.Rows.Clear();
