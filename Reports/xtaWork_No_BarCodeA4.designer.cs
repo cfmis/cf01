@@ -152,11 +152,13 @@
             this.xrLabel50 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLine25 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine25,
             this.xrPanel5,
             this.xrLabel84,
             this.xrLine24,
@@ -1830,6 +1832,14 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // xrLine25
+            // 
+            this.xrLine25.Dpi = 254F;
+            this.xrLine25.LineWidth = 3;
+            this.xrLine25.LocationFloat = new DevExpress.Utils.PointFloat(876.5027F, 1533.413F);
+            this.xrLine25.Name = "xrLine25";
+            this.xrLine25.SizeF = new System.Drawing.SizeF(184.9269F, 5F);
+            // 
             // xtaWork_No_BarCodeA4
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1978,5 +1988,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel85;
         private DevExpress.XtraReports.UI.XRLabel xrLabel84;
         private DevExpress.XtraReports.UI.XRLine xrLine24;
+        private DevExpress.XtraReports.UI.XRLine xrLine25;
     }
 }

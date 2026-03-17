@@ -270,6 +270,7 @@
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMoTrace.cs" />
     <Compile Include="CLS\clsMouldPosition.cs" />
+    <Compile Include="CLS\clsMouseSimulator.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
@@ -366,6 +367,12 @@
     </Compile>
     <Compile Include="Forms\frmSoPiMerge.designer.cs">
       <DependentUpon>frmSoPiMerge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStockadi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStockadi.Designer.cs">
+      <DependentUpon>frmStockadi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmStockAdj.cs">
       <SubType>Form</SubType>
@@ -3126,6 +3133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSoPiMerge.resx">
       <DependentUpon>frmSoPiMerge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStockadi.resx">
+      <DependentUpon>frmStockadi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStockAdj.resx">
       <DependentUpon>frmStockAdj.cs</DependentUpon>
