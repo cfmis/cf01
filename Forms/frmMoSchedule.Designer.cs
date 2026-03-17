@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -90,6 +90,7 @@
             this.grc_hk_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPmcRqDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.grc_re_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclDepRpDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,7 +136,6 @@
             this.grc_order_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grc_av_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gric_cs_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grc_re_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grc_hk_period_flag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -282,6 +282,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
+            this.btnExp124 = new DevExpress.XtraEditors.SimpleButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -586,13 +587,13 @@
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode7.RelationName = "Level1";
+            gridLevelNode8.RelationName = "Level2";
+            gridLevelNode9.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode7,
+            gridLevelNode8,
+            gridLevelNode9});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -972,6 +973,15 @@
             this.repositoryItemTextEdit4.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.repositoryItemTextEdit4.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            // 
+            // grc_re_prd_days
+            // 
+            this.grc_re_prd_days.Caption = "距離回港天數";
+            this.grc_re_prd_days.FieldName = "re_prd_days";
+            this.grc_re_prd_days.Name = "grc_re_prd_days";
+            this.grc_re_prd_days.Visible = true;
+            this.grc_re_prd_days.VisibleIndex = 15;
+            this.grc_re_prd_days.Width = 85;
             // 
             // gclDepRpDate
             // 
@@ -1422,15 +1432,6 @@
             this.gric_cs_req_date.Visible = true;
             this.gric_cs_req_date.VisibleIndex = 51;
             // 
-            // grc_re_prd_days
-            // 
-            this.grc_re_prd_days.Caption = "距離回港天數";
-            this.grc_re_prd_days.FieldName = "re_prd_days";
-            this.grc_re_prd_days.Name = "grc_re_prd_days";
-            this.grc_re_prd_days.Visible = true;
-            this.grc_re_prd_days.VisibleIndex = 15;
-            this.grc_re_prd_days.Width = 85;
-            // 
             // grc_hk_period_flag
             // 
             this.grc_hk_period_flag.Caption = "回港已過期";
@@ -1640,13 +1641,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode4.RelationName = "Level1";
-            gridLevelNode5.RelationName = "Level2";
-            gridLevelNode6.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4,
-            gridLevelNode5,
-            gridLevelNode6});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -2394,6 +2395,7 @@
             // palShowMore
             // 
             this.palShowMore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.palShowMore.Controls.Add(this.btnExp124);
             this.palShowMore.Controls.Add(this.btnSetUrgentMo);
             this.palShowMore.Controls.Add(this.btnSetMachine);
             this.palShowMore.Controls.Add(this.lueSetUrgentMo);
@@ -2911,6 +2913,15 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
+            // btnExp124
+            // 
+            this.btnExp124.Location = new System.Drawing.Point(669, 37);
+            this.btnExp124.Name = "btnExp124";
+            this.btnExp124.Size = new System.Drawing.Size(124, 23);
+            this.btnExp124.TabIndex = 32;
+            this.btnExp124.Text = "匯出新加入的記錄";
+            this.btnExp124.Click += new System.EventHandler(this.btnExp124_Click);
+            // 
             // frmMoSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3244,5 +3255,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gric_cs_req_date;
         private DevExpress.XtraGrid.Columns.GridColumn grc_re_prd_days;
         private DevExpress.XtraGrid.Columns.GridColumn grc_hk_period_flag;
+        private DevExpress.XtraEditors.SimpleButton btnExp124;
     }
 }

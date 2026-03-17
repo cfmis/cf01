@@ -797,6 +797,24 @@ namespace cf01.Forms
             lueDepGroup.Focus();
             ExpToExcel(2);
         }
+
+        private string GetExcelFileName(string strFileName)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string fileName = "";
+            saveFile.FileName = strFileName;
+
+            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
+            saveFile.FilterIndex = 0;
+            saveFile.RestoreDirectory = true;
+            saveFile.CreatePrompt = true;
+            saveFile.Title = "导出Excel文件到";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFile.FileName;
+            }
+            return fileName;
+        }
         private void ExpToExcel(int rpt_type)
         {
             if (ChkUpdateStatus())
@@ -804,27 +822,14 @@ namespace cf01.Forms
                 if (MessageBox.Show("存在未儲存的記錄，確定匯出到Excel嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
             }
-
+            string result = "";
             string prd_dep = txtDep.Text.Trim();
-            SaveFileDialog saveFile = new SaveFileDialog();
             string fileName = prd_dep + "部門排期表";
             if (rpt_type == 99)
                 fileName = prd_dep + "部門排期統計表";
             if (rpt_type == 2)
                 fileName += "按機器";
-            saveFile.FileName = fileName;
-
-            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
-            saveFile.FilterIndex = 0;
-            saveFile.RestoreDirectory = true;
-            saveFile.CreatePrompt = true;
-            saveFile.Title = "导出Excel文件到";
-
-            string result = "";
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                fileName = saveFile.FileName;
-            }
+            fileName = GetExcelFileName(fileName);
             if (fileName == "")
                 return;
             //frmProgress wForm = new frmProgress();
@@ -1096,6 +1101,30 @@ namespace cf01.Forms
                 e.Appearance.ForeColor = Color.Black; // 设置字体颜色（可选）
             }
 
+        }
+
+        /// <summary>
+        /// ///只匯出124-A　新加入的制單
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExp124_Click(object sender, EventArgs e)
+        {
+            string fileName = "每日新制單";
+            fileName = GetExcelFileName(fileName);
+            if (fileName == "")
+                return;
+            string prd_dep = txtDep.Text.Trim();
+            string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
+            string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
+            string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
+            prd_group = prd_group == "00" ? "" : prd_group;
+            string prd_machine = txtPrdMachine.Text.Trim();
+            int sch_by_machine = 0;
+            int rpt_type = 4;//只提取124-A的新加入的記錄
+            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            string result = clsMoScheduleUse.ExpToExcel124(prd_dep, fileName, dtExcel, prgStatus);
+            int aa = 0;
         }
 
         //////計算預生產開始、結束時間
