@@ -124,6 +124,7 @@ namespace cf01.Forms
                 MessageBox.Show("無需要保存的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
             //顯示批準進度動畫
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
@@ -890,6 +891,7 @@ namespace cf01.Forms
                         groupNumber = lst.group_number;
                         lstAdn.Add(lst);
                     }
+
                     if (lstAdn.Count > 0)
                     {
                         ClearA();
@@ -933,7 +935,8 @@ namespace cf01.Forms
                             cbeIiLocation.Properties.Items.Add(item);
                         }
                         //****END
-                       
+                        return;
+                        /*
                         //顯示批準進度動畫
                         frmProgress wForm = new frmProgress();
                         new Thread((ThreadStart)delegate
@@ -972,6 +975,7 @@ namespace cf01.Forms
                             MessageBox.Show("數據保存（批準）成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             MessageBox.Show("數據批準失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        */
                     }
                     
                 }

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace cf01.Forms
@@ -59,10 +60,10 @@ namespace cf01.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(dteIssuesDate1.Text =="" && dteIssuesDate2.Text == "" &&
-                txtId1.Text=="" && txtId2.Text=="" &&
+            if(dteIssuesDate1.Text =="" && dteIssuesDate2.Text =="" &&
+                txtId1.Text =="" && txtId2.Text =="" &&
                 txtGroup.Text =="" && txtCreateBy.Text =="" &&
-                dtCreateDate1.Text == "" && dtCreateDate2.Text == ""
+                dtCreateDate1.Text =="" && dtCreateDate2.Text ==""
                 )
             {
                 MessageBox.Show("查詢條件不可以為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,6 +80,16 @@ namespace cf01.Forms
                  new SqlParameter("@create_date1",dtCreateDate1.Text),
                  new SqlParameter("@create_date2",dtCreateDate2.Text)
             };
+
+            //顯示批準進度動畫
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //************************
+            temp_id = "";
             dtFind = clsErp.ExecuteProcedureReturnTable("z_so_issues_data", paras);
             dataGridView1.DataSource = dtFind;
             if (dtFind.Rows.Count > 0)
@@ -88,11 +99,13 @@ namespace cf01.Forms
                     temp_id = dtFind.Rows[0]["id"].ToString(); ;
                 }
             }
-            else
+            //************************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            if (temp_id == "")
             {
-                temp_id = "";
-                MessageBox.Show("未查詢到數據，請重新輸入條件查詢數據!", "提示信息",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("未查詢到數據，請重新輸入條件查詢數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private void dteIssuesDate1_Leave(object sender, EventArgs e)
