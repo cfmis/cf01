@@ -58,6 +58,8 @@
             this.obligate_mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.state = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.order_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.so_sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtMo_id = new DevExpress.XtraEditors.TextEdit();
             this.txtGoods_id = new DevExpress.XtraEditors.TextEdit();
             this.txtGoods_name = new DevExpress.XtraEditors.TextEdit();
@@ -74,7 +76,7 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNAPPROVE = new System.Windows.Forms.ToolStripButton();
+            this.BTNIMPORT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,6 +91,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtState = new DevExpress.XtraEditors.TextEdit();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtOrder_id = new DevExpress.XtraEditors.TextEdit();
+            this.txtSo_sequence_id = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSample_qty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSec_qty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLot_no.Properties)).BeginInit();
@@ -108,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbeIiLocation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalStockQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrder_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSo_sequence_id.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -244,7 +250,9 @@
             this.remain_qty,
             this.obligate_mo_id,
             this.id,
-            this.state});
+            this.state,
+            this.order_id,
+            this.so_sequence_id});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -533,6 +541,18 @@
             this.state.FieldName = "state";
             this.state.Name = "state";
             // 
+            // order_id
+            // 
+            this.order_id.Caption = "OC NO";
+            this.order_id.FieldName = "order_id";
+            this.order_id.Name = "order_id";
+            // 
+            // so_sequence_id
+            // 
+            this.so_sequence_id.Caption = "OC SEQ";
+            this.so_sequence_id.FieldName = "so_sequence_id";
+            this.so_sequence_id.Name = "so_sequence_id";
+            // 
             // txtMo_id
             // 
             this.txtMo_id.Location = new System.Drawing.Point(68, 112);
@@ -610,7 +630,7 @@
             this.toolStripSeparator9,
             this.BTNSAVE,
             this.toolStripSeparator3,
-            this.BTNAPPROVE,
+            this.BTNIMPORT,
             this.toolStripSeparator11,
             this.BTNPRINT,
             this.toolStripSeparator8,
@@ -691,8 +711,8 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(50, 35);
-            this.BTNSAVE.Text = "保存(&S)";
+            this.BTNSAVE.Size = new System.Drawing.Size(79, 35);
+            this.BTNSAVE.Text = "保存/批準(&S)";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
@@ -701,16 +721,16 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
-            // BTNAPPROVE
+            // BTNIMPORT
             // 
-            this.BTNAPPROVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNAPPROVE.Image")));
-            this.BTNAPPROVE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNAPPROVE.Name = "BTNAPPROVE";
-            this.BTNAPPROVE.Size = new System.Drawing.Size(51, 35);
-            this.BTNAPPROVE.Tag = "\"0\"";
-            this.BTNAPPROVE.Text = "批準(&C)";
-            this.BTNAPPROVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNAPPROVE.Visible = false;
+            this.BTNIMPORT.Image = ((System.Drawing.Image)(resources.GetObject("BTNIMPORT.Image")));
+            this.BTNIMPORT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNIMPORT.Name = "BTNIMPORT";
+            this.BTNIMPORT.Size = new System.Drawing.Size(106, 35);
+            this.BTNIMPORT.Tag = "\"0\"";
+            this.BTNIMPORT.Text = "導入內部提倉單(&I)";
+            this.BTNIMPORT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNIMPORT.Click += new System.EventHandler(this.BTNIMPORT_Click);
             // 
             // toolStripSeparator11
             // 
@@ -860,11 +880,37 @@
             this.label11.Text = "狀態";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtOrder_id
+            // 
+            this.txtOrder_id.EditValue = "";
+            this.txtOrder_id.Location = new System.Drawing.Point(957, 75);
+            this.txtOrder_id.Name = "txtOrder_id";
+            this.txtOrder_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtOrder_id.Properties.Appearance.Options.UseFont = true;
+            this.txtOrder_id.Properties.ReadOnly = true;
+            this.txtOrder_id.Size = new System.Drawing.Size(86, 26);
+            this.txtOrder_id.TabIndex = 35;
+            this.txtOrder_id.Visible = false;
+            // 
+            // txtSo_sequence_id
+            // 
+            this.txtSo_sequence_id.EditValue = "";
+            this.txtSo_sequence_id.Location = new System.Drawing.Point(957, 112);
+            this.txtSo_sequence_id.Name = "txtSo_sequence_id";
+            this.txtSo_sequence_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtSo_sequence_id.Properties.Appearance.Options.UseFont = true;
+            this.txtSo_sequence_id.Properties.ReadOnly = true;
+            this.txtSo_sequence_id.Size = new System.Drawing.Size(86, 26);
+            this.txtSo_sequence_id.TabIndex = 36;
+            this.txtSo_sequence_id.Visible = false;
+            // 
             // frmStockadi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 552);
+            this.Controls.Add(this.txtSo_sequence_id);
+            this.Controls.Add(this.txtOrder_id);
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtRemain_qty);
@@ -914,6 +960,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbeIiLocation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalStockQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrder_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSo_sequence_id.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,7 +1004,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton BTNSAVE;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton BTNAPPROVE;
+        private System.Windows.Forms.ToolStripButton BTNIMPORT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton BTNPRINT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
@@ -980,5 +1028,9 @@
         private DevExpress.XtraEditors.TextEdit txtState;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colRemainQty;
+        private DevExpress.XtraGrid.Columns.GridColumn order_id;
+        private DevExpress.XtraGrid.Columns.GridColumn so_sequence_id;
+        private DevExpress.XtraEditors.TextEdit txtOrder_id;
+        private DevExpress.XtraEditors.TextEdit txtSo_sequence_id;
     }
 }
