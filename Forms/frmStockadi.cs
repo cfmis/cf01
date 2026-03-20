@@ -19,8 +19,8 @@ namespace cf01.Forms
     {
         string remote_db = DBUtility.remote_db;
         string strDatetime = clsUtility.GetCurrentDateTime(); //2026-03-09 15:50:02
-        string gs_commany = "0000";
-        string groupNumber = "";
+        string gs_commany = "0000", groupNumber = "", strBarcode = "";
+        string moId = "", ver = "", upperSeqId = "", seqId = "";
         bool editMode = false;
         List<string> lstWh = new List<string>();
         List<mdlStockAdi> lstAdn = new List<mdlStockAdi>();
@@ -205,18 +205,18 @@ namespace cf01.Forms
             switch (e.KeyCode)
             {
                 case Keys.Enter:
+                    string strSql = "";
                     if (txtId.Text == "")
                     {
                         //自動建立新單
-                        //ClearA();
                         this.AddNew();
                     }
                     else
                     {
                         //檢查此ID是否已是批準狀態
-                        string strsql = string.Format(
+                        strSql = string.Format(
                         @"Select a.state From dbo.so_issues_mostly a Where a.id='{0}' And a.within_code='{1}' And a.type='ADI'",txtId.Text,gs_commany);
-                        string strState = clsErp.ExecuteSqlReturnObject(strsql);
+                        string strState = clsErp.ExecuteSqlReturnObject(strSql);
                         if (strState == "1")
                         {
                             MessageBox.Show($"單號【{txtId.Text}】已是批準狀態，當前操作無效!"+ "\n\r\n\r"+"請首先點【新增】按鈕建立一張新單據，然后再掃描！", "提示信息", MessageBoxButtons.OK);
@@ -224,21 +224,67 @@ namespace cf01.Forms
                             return;
                         }
                     }
-                    if (txtGoods_id.Text.Trim().Length < 18)
+                    strBarcode = txtGoods_id.Text.Trim();
+                    if (strBarcode == "")
                     {
+                        SetObjectFocus(txtGoods_id);
+                        return;
+                    }
+                    if (strBarcode.Length == 19)
+                    {
+                        MessageBox.Show($"無效的條碼！【{strBarcode}】", "提示信息", MessageBoxButtons.OK);
                         ClearB();
                         SetObjectFocus(txtGoods_id);
                         return;
-                    }                    
+                    }
+                    if (strBarcode.Length <15)
+                    {
+                        MessageBox.Show($"無效的條碼！【{strBarcode}】", "提示信息", MessageBoxButtons.OK);
+                        ClearB();
+                        SetObjectFocus(txtGoods_id);
+                        return;
+                    }
+                    if (strBarcode.Length == 15)
+                    {
+                        //掃描成品標識卡（數據格式例如：GBL030788012026)
+                        moId = strBarcode.Substring(0, 9);
+                        ver = strBarcode.Substring(9, 2);
+                        upperSeqId = strBarcode.Substring(11, 2);
+                        seqId = strBarcode.Substring(13, 2);
+                        strSql = string.Format(
+                        @"SELECT TOP 1 B.materiel_id AS goods_id
+                        FROM jo_bill_mostly A with(nolock),jo_bill_materiel_details B with(nolock)
+                        WHERE A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.within_code='0000'
+                         And A.mo_id ='{0}' And A.ver ='{1}' And A.state NOT IN('2','V')
+                         And SUBSTRING(B.upper_sequence,3,2)='{2}' And SUBSTRING(B.sequence_id,5,2)='{3}'",
+                        moId, ver, upperSeqId, seqId);
+                        txtGoods_id.Text = clsErp.ExecuteSqlReturnObject(strSql);
+                        if (txtGoods_id.Text == "")
+                        {
+                            MessageBox.Show($"無效的條碼！【{strBarcode}】", "提示信息", MessageBoxButtons.OK);
+                            ClearB();
+                            SetObjectFocus(txtGoods_id);
+                            return;
+                        }
+                    }
+                    if (txtGoods_id.Text.Trim().Length < 18)
+                    {
+                        MessageBox.Show($"無效的條碼！【{strBarcode}】", "提示信息", MessageBoxButtons.OK);
+                        ClearB();
+                        SetObjectFocus(txtGoods_id);
+                        return;
+                    }
                     cbeIiLocation.Properties.Items.Clear();
-                    string sql = string.Format(
+                    //--start庫存批號數據
+                    strSql = string.Format(
                     @"Select a.location_id,a.mo_id,a.goods_id,b.name as goods_name,Convert(int,a.qty) as qty,a.sec_qty,a.lot_no                    
-                    From {0}st_details_lot a Inner Join {0}it_goods b ON a.within_code=b.within_code And a.goods_id=b.id
-                    Where a.within_code='0000' And a.goods_id='{1}' And a.location_id=a.carton_code And a.carton_code<>'ZZZ' 
+                    From st_details_lot a Inner Join it_goods b ON a.within_code=b.within_code And a.goods_id=b.id
+                    Where a.within_code='0000' And a.goods_id='{0}' And a.location_id=a.carton_code And a.carton_code<>'ZZZ' 
                     And location_id>='805' And location_id<='818' And a.qty>0 And a.sec_qty>0 
                     Order by a.update_date",
-                    remote_db, txtGoods_id.Text.Trim());
-                    dtTmp = clsPublicOfCF01.GetDataTable(sql);
+                    txtGoods_id.Text.Trim());
+                    dtTmp = clsErp.GetDataTable(strSql);
+                    //--End
                     lstWh.Clear();                    
                     if (dtTmp.Rows.Count > 0)
                     {
@@ -356,7 +402,6 @@ namespace cf01.Forms
                         SetObjectFocus(txtSample_qty);//設置txtGoods_id焦點
                     }
                 }
-                
             }
         }
 
@@ -387,8 +432,6 @@ namespace cf01.Forms
                     //只有一個批號的庫存
                     if (sampleQty <= issuesQty)
                     {
-                        //txtIssues_qty.Text = dtTmp.Rows[0]["qty"].ToString();
-                        //txtSec_qty.Text = dtTmp.Rows[0]["sec_qty"].ToString();
                         dr = dtDetails.NewRow();
                         dr["id"] = txtId.Text;
                         dr["mo_id"] = dtTmp.Rows[0]["mo_id"].ToString();
@@ -414,7 +457,7 @@ namespace cf01.Forms
                     //有兩個以上批號的庫存
                     if (sampleQty <= issuesQty)
                     {
-                        //第一筆就夠扣除
+                        //第一筆就已夠扣除
                         dr = dtDetails.NewRow();
                         dr["id"] = txtId.Text;
                         dr["mo_id"] = dtTmp.Rows[0]["mo_id"].ToString();
@@ -721,13 +764,12 @@ namespace cf01.Forms
                                 remainFlag = "1";
                             myCommand.Parameters.AddWithValue("@remain_flag", remainFlag);
                             myCommand.ExecuteNonQuery();
-                        } // -- if (rowStatus==)
-                    } // -- end for()
-                    //lstAdn.Clear();
+                        } //-- if (rowStatus==)
+                    } //-- end for()
                     myTrans.Commit(); //數據提交
                     saveFlag = true;
                     groupNumber = "";
-                }  // -- end try
+                }  //-- end try
                 catch (Exception E)
                 {
                     myTrans.Rollback(); //數據回滾
