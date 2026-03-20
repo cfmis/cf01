@@ -600,6 +600,10 @@ namespace cf01.Forms
         private decimal RetrunWeight(int curent_qty,decimal sec_qty,int qty)
         {
             decimal weight = Math.Round((curent_qty * sec_qty) / qty, 2);
+            if (weight.ToString() == "0.00")
+            {
+                weight =decimal.Parse("0.01");
+            }
             return weight;
         }
 
