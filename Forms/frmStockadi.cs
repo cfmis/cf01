@@ -1,4 +1,14 @@
-﻿using cf01.CLS;
+﻿/*
+ * Create Date:2026-03-21
+ * Create by Allen Leung
+ * 程序備註：
+ * 1、從內部提倉單中導入數據完成保存、批準的動作
+ * 2、從成品標識卡中掃描條碼讀入貨品編號帶出庫存，用戶錄入提倉數量，最后完成保存、批準的動作
+ * 
+*/
+
+
+using cf01.CLS;
 using cf01.MDL;
 using DevExpress.XtraEditors;
 using System;
@@ -64,7 +74,7 @@ namespace cf01.Forms
                 return;
             }
             ClearA();
-            this.AddNew();
+            AddNew();
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -110,9 +120,13 @@ namespace cf01.Forms
             }
         }
 
-        private void BTNEDIT_Click(object sender, EventArgs e)
+        private void BTNCANCEL_Click(object sender, EventArgs e)
         {
-            //
+            dtDetails.RejectChanges();//取消數據更改
+            gridControl1.Refresh();
+            SetButtonSatus(true);
+            ClearA();
+            editMode = false;
         }
 
         private void BTNSAVE_Click(object sender, EventArgs e)
@@ -650,12 +664,12 @@ namespace cf01.Forms
         private void SetButtonSatus(bool _flag) 
         {
             //設置工具欄
-            BTNNEW.Enabled = _flag;           
+            BTNNEW.Enabled = _flag;
             BTNDELETE.Enabled = !_flag;
             BTNSAVE.Enabled = !_flag;
+            BTNCANCEL.Enabled = !_flag;
             BTNFIND.Enabled = _flag;
-            BTNPRINT.Enabled = _flag;
-            //BTNEDIT.Enabled = _flag;
+            BTNPRINT.Enabled = _flag;            
             BTNIMPORT.Enabled = _flag;
             if (objToolbar != null)
             {

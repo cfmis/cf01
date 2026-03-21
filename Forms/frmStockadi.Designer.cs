@@ -70,17 +70,19 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNNEW = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNEDIT = new System.Windows.Forms.ToolStripButton();
+            this.BTNIMPORT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNDELETE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNIMPORT = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNFIND = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.txtIssues_qty = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.chkRemain_flag = new System.Windows.Forms.CheckBox();
@@ -119,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 80);
+            this.label1.Location = new System.Drawing.Point(11, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
@@ -128,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 119);
+            this.label2.Location = new System.Drawing.Point(35, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 5;
@@ -138,7 +140,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(263, 119);
+            this.label3.Location = new System.Drawing.Point(263, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 7;
@@ -148,7 +150,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(428, 119);
+            this.label4.Location = new System.Drawing.Point(428, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 9;
@@ -158,7 +160,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(783, 119);
+            this.label5.Location = new System.Drawing.Point(783, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 11;
@@ -169,7 +171,7 @@
             // 
             this.txtSample_qty.EditValue = "";
             this.txtSample_qty.EnterMoveNextControl = true;
-            this.txtSample_qty.Location = new System.Drawing.Point(485, 112);
+            this.txtSample_qty.Location = new System.Drawing.Point(485, 117);
             this.txtSample_qty.Name = "txtSample_qty";
             this.txtSample_qty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtSample_qty.Properties.Appearance.Options.UseFont = true;
@@ -183,7 +185,7 @@
             // txtSec_qty
             // 
             this.txtSec_qty.EditValue = "";
-            this.txtSec_qty.Location = new System.Drawing.Point(863, 112);
+            this.txtSec_qty.Location = new System.Drawing.Point(863, 117);
             this.txtSec_qty.Name = "txtSec_qty";
             this.txtSec_qty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtSec_qty.Properties.Appearance.Options.UseFont = true;
@@ -197,7 +199,7 @@
             // txtLot_no
             // 
             this.txtLot_no.EditValue = "";
-            this.txtLot_no.Location = new System.Drawing.Point(68, 149);
+            this.txtLot_no.Location = new System.Drawing.Point(68, 150);
             this.txtLot_no.Name = "txtLot_no";
             this.txtLot_no.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtLot_no.Properties.Appearance.Options.UseFont = true;
@@ -208,7 +210,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 156);
+            this.label6.Location = new System.Drawing.Point(35, 157);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 15;
@@ -555,7 +557,7 @@
             // 
             // txtMo_id
             // 
-            this.txtMo_id.Location = new System.Drawing.Point(68, 112);
+            this.txtMo_id.Location = new System.Drawing.Point(68, 117);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtMo_id.Properties.Appearance.Options.UseFont = true;
@@ -569,7 +571,7 @@
             // 
             this.txtGoods_id.EditValue = "";
             this.txtGoods_id.EnterMoveNextControl = true;
-            this.txtGoods_id.Location = new System.Drawing.Point(68, 72);
+            this.txtGoods_id.Location = new System.Drawing.Point(68, 77);
             this.txtGoods_id.Name = "txtGoods_id";
             this.txtGoods_id.Properties.Appearance.BackColor = System.Drawing.Color.Plum;
             this.txtGoods_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -583,7 +585,7 @@
             // 
             // txtGoods_name
             // 
-            this.txtGoods_name.Location = new System.Drawing.Point(320, 74);
+            this.txtGoods_name.Location = new System.Drawing.Point(320, 79);
             this.txtGoods_name.Name = "txtGoods_name";
             this.txtGoods_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.txtGoods_name.Properties.Appearance.Options.UseFont = true;
@@ -596,7 +598,7 @@
             // txtId
             // 
             this.txtId.EditValue = "";
-            this.txtId.Location = new System.Drawing.Point(672, 43);
+            this.txtId.Location = new System.Drawing.Point(672, 48);
             this.txtId.Name = "txtId";
             this.txtId.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -611,7 +613,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(640, 49);
+            this.label7.Location = new System.Drawing.Point(640, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 21;
@@ -624,20 +626,22 @@
             this.toolStripSeparator1,
             this.BTNNEW,
             this.toolStripSeparator5,
-            this.BTNEDIT,
+            this.BTNIMPORT,
             this.toolStripSeparator10,
             this.BTNDELETE,
             this.toolStripSeparator9,
             this.BTNSAVE,
             this.toolStripSeparator3,
-            this.BTNIMPORT,
+            this.toolStripSeparator4,
+            this.BTNCANCEL,
             this.toolStripSeparator11,
             this.BTNPRINT,
             this.toolStripSeparator8,
-            this.BTNFIND});
+            this.BTNFIND,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1055, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1055, 43);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -647,23 +651,23 @@
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(49, 35);
-            this.BTNEXIT.Text = "退出(&X)";
+            this.BTNEXIT.Size = new System.Drawing.Size(60, 40);
+            this.BTNEXIT.Text = " 退  出(&X)";
             this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 43);
             // 
             // BTNNEW
             // 
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(53, 35);
-            this.BTNNEW.Text = "新增(&N)";
+            this.BTNNEW.Size = new System.Drawing.Size(65, 40);
+            this.BTNNEW.Text = " 新   增(&N)";
             this.BTNNEW.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.BTNNEW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
@@ -671,39 +675,38 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 43);
             // 
-            // BTNEDIT
+            // BTNIMPORT
             // 
-            this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
-            this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(50, 35);
-            this.BTNEDIT.Text = "編輯(&E)";
-            this.BTNEDIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNEDIT.Visible = false;
-            this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
+            this.BTNIMPORT.Image = ((System.Drawing.Image)(resources.GetObject("BTNIMPORT.Image")));
+            this.BTNIMPORT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNIMPORT.Name = "BTNIMPORT";
+            this.BTNIMPORT.Size = new System.Drawing.Size(106, 40);
+            this.BTNIMPORT.Tag = "\"0\"";
+            this.BTNIMPORT.Text = "導入內部提倉單(&I)";
+            this.BTNIMPORT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNIMPORT.Click += new System.EventHandler(this.BTNIMPORT_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 38);
-            this.toolStripSeparator10.Visible = false;
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 43);
             // 
             // BTNDELETE
             // 
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(52, 35);
-            this.BTNDELETE.Text = "刪除(&D)";
+            this.BTNDELETE.Size = new System.Drawing.Size(64, 40);
+            this.BTNDELETE.Text = " 刪   除(&D)";
             this.BTNDELETE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 43);
             // 
             // BTNSAVE
             // 
@@ -711,7 +714,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(79, 35);
+            this.BTNSAVE.Size = new System.Drawing.Size(79, 40);
             this.BTNSAVE.Text = "保存/批準(&S)";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -719,52 +722,62 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
             // 
-            // BTNIMPORT
+            // toolStripSeparator4
             // 
-            this.BTNIMPORT.Image = ((System.Drawing.Image)(resources.GetObject("BTNIMPORT.Image")));
-            this.BTNIMPORT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNIMPORT.Name = "BTNIMPORT";
-            this.BTNIMPORT.Size = new System.Drawing.Size(106, 35);
-            this.BTNIMPORT.Tag = "\"0\"";
-            this.BTNIMPORT.Text = "導入內部提倉單(&I)";
-            this.BTNIMPORT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNIMPORT.Click += new System.EventHandler(this.BTNIMPORT_Click);
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 43);
+            // 
+            // BTNCANCEL
+            // 
+            this.BTNCANCEL.Enabled = false;
+            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
+            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNCANCEL.Name = "BTNCANCEL";
+            this.BTNCANCEL.Size = new System.Drawing.Size(61, 40);
+            this.BTNCANCEL.Text = " 取  消(&U)";
+            this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 38);
-            this.toolStripSeparator11.Visible = false;
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 43);
             // 
             // BTNPRINT
             // 
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(50, 35);
-            this.BTNPRINT.Text = "列印(&P)";
+            this.BTNPRINT.Size = new System.Drawing.Size(59, 40);
+            this.BTNPRINT.Text = " 列  印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 43);
             // 
             // BTNFIND
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(49, 35);
-            this.BTNFIND.Text = "查詢(&F)";
+            this.BTNFIND.Size = new System.Drawing.Size(58, 40);
+            this.BTNFIND.Text = " 查  詢(&F)";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 43);
             // 
             // txtIssues_qty
             // 
             this.txtIssues_qty.EditValue = "";
-            this.txtIssues_qty.Location = new System.Drawing.Point(672, 112);
+            this.txtIssues_qty.Location = new System.Drawing.Point(672, 117);
             this.txtIssues_qty.Name = "txtIssues_qty";
             this.txtIssues_qty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtIssues_qty.Properties.Appearance.Options.UseFont = true;
@@ -778,7 +791,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(592, 119);
+            this.label8.Location = new System.Drawing.Point(592, 124);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 12);
             this.label8.TabIndex = 26;
@@ -788,7 +801,7 @@
             // chkRemain_flag
             // 
             this.chkRemain_flag.AutoSize = true;
-            this.chkRemain_flag.Location = new System.Drawing.Point(672, 155);
+            this.chkRemain_flag.Location = new System.Drawing.Point(672, 156);
             this.chkRemain_flag.Name = "chkRemain_flag";
             this.chkRemain_flag.Size = new System.Drawing.Size(192, 16);
             this.chkRemain_flag.TabIndex = 2;
@@ -799,7 +812,7 @@
             // 
             this.txtRemain_qty.EditValue = "";
             this.txtRemain_qty.EnterMoveNextControl = true;
-            this.txtRemain_qty.Location = new System.Drawing.Point(863, 149);
+            this.txtRemain_qty.Location = new System.Drawing.Point(863, 150);
             this.txtRemain_qty.Name = "txtRemain_qty";
             this.txtRemain_qty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtRemain_qty.Properties.Appearance.Options.UseFont = true;
@@ -812,7 +825,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(954, 156);
+            this.label9.Location = new System.Drawing.Point(954, 157);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 12);
             this.label9.TabIndex = 29;
@@ -822,7 +835,7 @@
             // cbeIiLocation
             // 
             this.cbeIiLocation.EditValue = "";
-            this.cbeIiLocation.Location = new System.Drawing.Point(320, 112);
+            this.cbeIiLocation.Location = new System.Drawing.Point(320, 117);
             this.cbeIiLocation.Name = "cbeIiLocation";
             this.cbeIiLocation.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cbeIiLocation.Properties.Appearance.Options.UseFont = true;
@@ -837,7 +850,7 @@
             // txtTotalStockQty
             // 
             this.txtTotalStockQty.EditValue = "";
-            this.txtTotalStockQty.Location = new System.Drawing.Point(485, 149);
+            this.txtTotalStockQty.Location = new System.Drawing.Point(485, 150);
             this.txtTotalStockQty.Name = "txtTotalStockQty";
             this.txtTotalStockQty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalStockQty.Properties.Appearance.Options.UseFont = true;
@@ -851,7 +864,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(416, 156);
+            this.label10.Location = new System.Drawing.Point(416, 157);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 32;
@@ -862,7 +875,7 @@
             // 
             this.txtState.EditValue = "";
             this.txtState.Enabled = false;
-            this.txtState.Location = new System.Drawing.Point(863, 43);
+            this.txtState.Location = new System.Drawing.Point(863, 48);
             this.txtState.Name = "txtState";
             this.txtState.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtState.Properties.Appearance.Options.UseFont = true;
@@ -873,7 +886,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(831, 50);
+            this.label11.Location = new System.Drawing.Point(831, 55);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 34;
@@ -883,7 +896,7 @@
             // txtOrder_id
             // 
             this.txtOrder_id.EditValue = "";
-            this.txtOrder_id.Location = new System.Drawing.Point(957, 75);
+            this.txtOrder_id.Location = new System.Drawing.Point(957, 80);
             this.txtOrder_id.Name = "txtOrder_id";
             this.txtOrder_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtOrder_id.Properties.Appearance.Options.UseFont = true;
@@ -895,7 +908,7 @@
             // txtSo_sequence_id
             // 
             this.txtSo_sequence_id.EditValue = "";
-            this.txtSo_sequence_id.Location = new System.Drawing.Point(957, 112);
+            this.txtSo_sequence_id.Location = new System.Drawing.Point(957, 117);
             this.txtSo_sequence_id.Name = "txtSo_sequence_id";
             this.txtSo_sequence_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtSo_sequence_id.Properties.Appearance.Options.UseFont = true;
@@ -998,7 +1011,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton BTNNEW;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton BTNEDIT;
+        private System.Windows.Forms.ToolStripButton BTNCANCEL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton BTNDELETE;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
@@ -1032,5 +1045,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn so_sequence_id;
         private DevExpress.XtraEditors.TextEdit txtOrder_id;
         private DevExpress.XtraEditors.TextEdit txtSo_sequence_id;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
