@@ -184,7 +184,7 @@ namespace cf01.Forms
             //從定價資料中生成報價單
             if (mList.Count > 0)
             {
-                Add_From_Master();
+                AddFromMaster();
                 tabControl1.SelectTab(0);
             }
 
@@ -274,7 +274,7 @@ namespace cf01.Forms
 
         private void BTNITEMADD_Click(object sender, EventArgs e)
         {
-            AddNew_Item();
+            AddNewItem();
         }
 
         private void BTNITEMDEL_Click(object sender, EventArgs e)
@@ -332,7 +332,7 @@ namespace cf01.Forms
         {
             if (edit_state == "" && !string.IsNullOrEmpty(txtID.Text))
             {
-                get_print_data();
+                GetPrintData();
             }
             else
             {
@@ -353,7 +353,7 @@ namespace cf01.Forms
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
             SetObjValue.ClearObjValue(tabControl1.TabPages[0].Controls, "1");
-            Set_Grid_Status(true);
+            SetGridStatus(true);
             btnCopy.Enabled = true;
             GetDocNo();
             txtVersion.Text = "0";
@@ -375,7 +375,7 @@ namespace cf01.Forms
 
         }
 
-        private void Add_From_Master()
+        private void AddFromMaster()
         {
             if (mList.Count > 0)
             {
@@ -492,7 +492,7 @@ namespace cf01.Forms
             SetButtonSatus(false);
 
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
-            Set_Grid_Status(true);
+            SetGridStatus(true);
             edit_state = "EDIT";
 
             chkIsvn.Enabled = false;
@@ -524,7 +524,7 @@ namespace cf01.Forms
             }           
         }
 
-        private void Set_Grid_Status(bool _flag) // 表格是否可編輯
+        private void SetGridStatus(bool _flag) // 表格是否可編輯
         {
             //false--不可編輯;true--可以編輯
             gridView1.OptionsBehavior.Editable = _flag;
@@ -533,11 +533,10 @@ namespace cf01.Forms
 
         private void Delete() //刪除當前行
         {
-            if (String.IsNullOrEmpty(txtID.Text) && String.IsNullOrEmpty(txtCustomer_id.Text))
+            if (string.IsNullOrEmpty(txtID.Text) && string.IsNullOrEmpty(txtCustomer_id.Text))
             {
                 return;
             }
-
             if (txtCrusr.Text != DBUtility._user_id)
             {
                 if (DBUtility._user_id != "ADMIN")
@@ -593,7 +592,7 @@ namespace cf01.Forms
             }
         }
 
-        private void AddNew_Item()
+        private void AddNewItem()
         {
             if (!String.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
             {
@@ -635,11 +634,11 @@ namespace cf01.Forms
         private void Cancel() //取消
         {
             SetButtonSatus(true);
-            Edit_Columns(true);
+            EditColumns(true);
 
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, false);
             SetObjValue.ClearObjValue(tabControl1.TabPages[0].Controls, "2");
-            Set_Grid_Status(false);
+            SetGridStatus(false);
 
             dtTempDel.Clear();
             dtDetails.Clear();
@@ -649,7 +648,7 @@ namespace cf01.Forms
             if (!String.IsNullOrEmpty(tempID))
             {
                 // Find_Data();
-                Find_doc(tempID, temp_version);
+                FindDoc(tempID, temp_version);
             }
             memRemark.Properties.ReadOnly = true;
             memRemark.BackColor = Color.LightGray;
@@ -660,7 +659,7 @@ namespace cf01.Forms
 
         }
 
-        private void Find_doc(string temp_id, string pVer) //主檔非新增的情況下，保存或取消時重新查出資料
+        private void FindDoc(string temp_id, string pVer) //主檔非新增的情況下，保存或取消時重新查出資料
         {
             if (!string.IsNullOrEmpty(temp_id))
             {
@@ -700,7 +699,7 @@ namespace cf01.Forms
         #region  Save_New 保存新增 新的處理方法
         private void Save_New() //保存__新的處理方法
         {
-            if (!Save_Before_Valid())
+            if (!SaveBeforeValid())
             {
                 return;
             }
@@ -795,7 +794,7 @@ namespace cf01.Forms
 
                     if (edit_state == "NEW")
                     {
-                        if (Valid_Doc())
+                        if (ValidDoc())
                         {
                             //新增的報價編號已存在時重新取值
                             GetDocNo();
@@ -837,7 +836,7 @@ namespace cf01.Forms
                                 if (rowStatus == "Added")
                                 {
                                     myCommand.CommandText = sql_detail_insert;
-                                    strSeq_id = Get_Details_Seq(txtID.Text.Trim(), txtVersion.Text.Trim()); //新增狀態重新取最大序號
+                                    strSeq_id = GenDetailsSeq(txtID.Text.Trim(), txtVersion.Text.Trim()); //新增狀態重新取最大序號
                                     //insert
                                 }
                                 if (rowStatus == "Modified")
@@ -936,12 +935,12 @@ namespace cf01.Forms
             }
 
             SetButtonSatus(true);
-            Edit_Columns(true);
+            EditColumns(true);
 
             temp_state = edit_state; //將更改的值寫入dgvFind     
 
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, false);
-            Set_Grid_Status(false);
+            SetGridStatus(false);
             edit_state = "";
             btnCopy.Enabled = false;
             memRemark.Properties.ReadOnly = true;
@@ -954,7 +953,7 @@ namespace cf01.Forms
             mList.Clear();
             if (flagSave)
             {
-                Find_doc(txtID.Text, txtVersion.Text);
+                FindDoc(txtID.Text, txtVersion.Text);
                 //MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBoxTimeout((IntPtr)0, myMsg.msgSave_ok, myMsg.msgTitle, 0, 0, 1000); //提示窗體1秒后自動關閉    
                 if (temp_state == "EDIT" || temp_state == "NEW")
@@ -977,7 +976,7 @@ namespace cf01.Forms
         }
         #endregion
 
-        private bool Save_Before_Valid() //保存前檢查主檔資料有效性
+        private bool SaveBeforeValid() //保存前檢查主檔資料有效性
         {
             if (edit_state == "NEW")
             {
@@ -1094,7 +1093,7 @@ namespace cf01.Forms
             return rtn;
         }
 
-        private bool Valid_Doc() //主建是否已存在
+        private bool ValidDoc() //主建是否已存在
         {
             bool flag = false;
             string doc = txtID.Text.Trim();
@@ -1109,7 +1108,7 @@ namespace cf01.Forms
             return flag;
         }
 
-        private string Get_Details_Seq(string pID, string pVer) //取明細的序號
+        private string GenDetailsSeq(string pID, string pVer) //取明細的序號
         {
             DataTable dtMaxseq = new DataTable();
             dtMaxseq = clsPublicOfCF01.GetDataTable(string.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_details with(nolock) WHERE id ='{0}' and version='{1}'", pID, pVer));
@@ -1212,7 +1211,7 @@ namespace cf01.Forms
             {
                 if (edit_state == "") //流覽模式
                 {
-                    Find_doc(txtID.Text, txtVersion.Text);
+                    FindDoc(txtID.Text, txtVersion.Text);
                 }
             }
         }
@@ -1601,10 +1600,10 @@ namespace cf01.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Find_Data();
+            FindData();
         }
 
-        private void Find_Data()
+        private void FindData()
         {
             if (BTNCANCEL.Enabled)
             {
@@ -1711,7 +1710,7 @@ namespace cf01.Forms
                 txtID.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["quotaion_id"].Value.ToString();
                 txtVersion.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["version_h"].Value.ToString();
                 tabControl1.SelectTab(0);
-                Find_doc(txtID.Text, txtVersion.Text);
+                FindDoc(txtID.Text, txtVersion.Text);
             }
         }
 
@@ -1723,7 +1722,7 @@ namespace cf01.Forms
                 {
                     txtID.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["quotaion_id"].Value.ToString();
                     txtVersion.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["version_h"].Value.ToString();
-                    Find_doc(txtID.Text, txtVersion.Text);
+                    FindDoc(txtID.Text, txtVersion.Text);
                 }
             }
         }
@@ -1878,7 +1877,7 @@ namespace cf01.Forms
         {
             if (edit_state == "EDIT")
             {
-                Set_cust_info();
+                SetCustInfo();
             }
         }
 
@@ -1886,11 +1885,11 @@ namespace cf01.Forms
         {
             if (edit_state == "NEW")
             {
-                Set_cust_info();
+                SetCustInfo();
             }
         }
 
-        private void Set_cust_info()
+        private void SetCustInfo()
         {
             txtCust_desc.Text = txtCustomer_id.GetColumnValue("cdesc").ToString();
             txtMoney_id.EditValue = txtCustomer_id.GetColumnValue("money_id").ToString();
@@ -2264,15 +2263,15 @@ namespace cf01.Forms
         {
             if (chkSelectAll.Checked)
             {
-                Select_All(true);
+                SelectAll(true);
             }
             else
             {
-                Select_All(false);
+                SelectAll(false);
             }
         }
 
-        private void Select_All(bool _flag)
+        private void SelectAll(bool _flag)
         {
             if (dgvDetails.Rows.Count > 0)
             {
@@ -2296,7 +2295,7 @@ namespace cf01.Forms
             }
         }
 
-        private string Return_New_Version(string pOldVer)
+        private string ReturnNewVersion(string pOldVer)
         {
             string strVer = (Convert.ToInt16(pOldVer) + 1).ToString();
             return strVer;
@@ -2310,7 +2309,7 @@ namespace cf01.Forms
                 DialogResult result = MessageBox.Show(string.Format("當前報價單號【{0}】確定是否真的要產生新版本?", txtID.Text), "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    string strNew_version = Return_New_Version(txtVersion.Text);
+                    string strNew_version = ReturnNewVersion(txtVersion.Text);
                     SqlParameter[] paras = new SqlParameter[]{
                         new SqlParameter("@id",txtID.Text),
                         new SqlParameter("@old_version",txtVersion.Text),
@@ -2327,7 +2326,7 @@ namespace cf01.Forms
                     int Result = clsPublicOfCF01.ExecuteNonQuery("usp_qt_new_version", paras, true);
                     if (Result > 0)
                     {
-                        Find_doc(txtID.Text, strNew_version);
+                        FindDoc(txtID.Text, strNew_version);
                         for (int i = 0; i < dtReport.Rows.Count; i++)
                         {
                             if (dtReport.Rows[i]["id_h"].ToString() == txtID.Text)
@@ -2357,12 +2356,12 @@ namespace cf01.Forms
 
         private void BTNEXCEL_Click(object sender, EventArgs e)
         {
-            Export_to_Excel("1");//無圖樣                                 
+            ExportToExcel("1");//無圖樣                                 
         }
 
         private void BTNEXCEL2_Click(object sender, EventArgs e)
         {
-            Export_to_Excel("2");//有圖樣
+            ExportToExcel("2");//有圖樣
         }
 
         private void cl_discount_Leave(object sender, EventArgs e)
@@ -2476,8 +2475,7 @@ namespace cf01.Forms
                 if (strSelect == "")
                 {
                     return;
-                }                
-               
+                }
                 field_name = "";
                 switch (strSelect)
                 {
@@ -2502,7 +2500,6 @@ namespace cf01.Forms
                     MessageBox.Show("請選擇正確的貨幣（HKD,USD,RMB）!", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
                     gridView1.SetRowCellValue(i, "actual_price", dtDetails.Rows[i][field_name]);
@@ -2511,7 +2508,7 @@ namespace cf01.Forms
             }
         }
 
-        private void get_print_data()
+        private void GetPrintData()
         {
             /*2021/04/01改為報價單日期加3個月,
              *New code:dbo.fn_getTermRemark(A.term_id, A.quota_date, '0')
@@ -2562,7 +2559,7 @@ namespace cf01.Forms
             {
                 chkSelectAll.Checked = false;
                 gridView1.AddNewRow();//新增
-                Edit_Columns(false);
+                EditColumns(false);
             }
             else
             {
@@ -2571,7 +2568,7 @@ namespace cf01.Forms
             }
         }
 
-        private void Edit_Columns(bool _flag)
+        private void EditColumns(bool _flag)
         {
             gridView1.Columns["brand"].OptionsColumn.ReadOnly = _flag;
             gridView1.Columns["division"].OptionsColumn.ReadOnly = _flag;
@@ -2768,14 +2765,14 @@ namespace cf01.Forms
 
         private void BTNEXCEL_TOMMY_Click(object sender, EventArgs e)
         {
-            Export_To_Excel();//TOMMY專用
+            ExportToExcelOfTommy();//TOMMY專用
         }
 
         /// <summary>
         /// 參數：strType=1無圖樣;strType=2有圖樣
         /// </summary>
         /// <param name="strType"></param>
-        private void Export_to_Excel(string strType)
+        private void ExportToExcel(string strType)
         {
             if (gridView1.RowCount > 0)
             {
@@ -3021,7 +3018,7 @@ namespace cf01.Forms
         /// TOMMY專用;strType=2有圖樣
         /// </summary>
         /// <param name="strType"></param>
-        private void Export_To_Excel()
+        private void ExportToExcelOfTommy()
         {
             if (gridView1.RowCount > 0)
             {

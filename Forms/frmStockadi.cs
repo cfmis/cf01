@@ -35,6 +35,8 @@ namespace cf01.Forms
         public frmStockadi()
         {
             InitializeComponent();
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
         }
 
         private void frmStockadi_Load(object sender, EventArgs e)
