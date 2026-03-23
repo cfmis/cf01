@@ -114,6 +114,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtdept_remark = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtProcessRemark = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -172,8 +174,6 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtdept_remark = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1090,6 +1090,25 @@
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(719, 383);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(80, 12);
+            this.label19.TabIndex = 107;
+            this.label19.Text = "部門生產備註:";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtdept_remark
+            // 
+            this.txtdept_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtdept_remark.Location = new System.Drawing.Point(801, 377);
+            this.txtdept_remark.Name = "txtdept_remark";
+            this.txtdept_remark.ReadOnly = true;
+            this.txtdept_remark.Size = new System.Drawing.Size(190, 23);
+            this.txtdept_remark.TabIndex = 106;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1457,7 +1476,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 10;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(453, 69);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 86);
             this.dataGridView1.TabIndex = 82;
             // 
             // Column1
@@ -1557,7 +1576,7 @@
             // picArtWork
             // 
             this.picArtWork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picArtWork.Location = new System.Drawing.Point(566, 162);
+            this.picArtWork.Location = new System.Drawing.Point(566, 173);
             this.picArtWork.Name = "picArtWork";
             this.picArtWork.Size = new System.Drawing.Size(177, 183);
             this.picArtWork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1628,25 +1647,6 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "備註";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // txtdept_remark
-            // 
-            this.txtdept_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtdept_remark.Location = new System.Drawing.Point(801, 377);
-            this.txtdept_remark.Name = "txtdept_remark";
-            this.txtdept_remark.ReadOnly = true;
-            this.txtdept_remark.Size = new System.Drawing.Size(190, 23);
-            this.txtdept_remark.TabIndex = 106;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(719, 383);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(80, 12);
-            this.label19.TabIndex = 107;
-            this.label19.Text = "部門生產備註:";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmOrderProCard
             // 
