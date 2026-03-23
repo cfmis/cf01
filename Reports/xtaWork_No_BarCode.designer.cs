@@ -998,7 +998,7 @@
             // 
             this.xrLabel51.Dpi = 254F;
             this.xrLabel51.Font = new System.Drawing.Font("Code 128", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel51.LocationFloat = new DevExpress.Utils.PointFloat(144.5158F, 182.4524F);
+            this.xrLabel51.LocationFloat = new DevExpress.Utils.PointFloat(118.5158F, 182.4524F);
             this.xrLabel51.Name = "xrLabel51";
             this.xrLabel51.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel51.SizeF = new System.Drawing.SizeF(675.0052F, 126.7885F);
@@ -1210,10 +1210,10 @@
             // xrlblImage
             // 
             this.xrlblImage.Dpi = 254F;
-            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(25F, 190.4524F);
+            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(10.11255F, 253.9524F);
             this.xrlblImage.Name = "xrlblImage";
             this.xrlblImage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrlblImage.SizeF = new System.Drawing.SizeF(101.1766F, 35.62907F);
+            this.xrlblImage.SizeF = new System.Drawing.SizeF(40.32243F, 35.62906F);
             this.xrlblImage.Text = "[picture_name]";
             this.xrlblImage.Visible = false;
             // 
@@ -1568,7 +1568,7 @@
             // xrPictureBox1
             // 
             this.xrPictureBox1.Dpi = 254F;
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(785.6191F, 182.6255F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(797.6191F, 182.6255F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(213.36F, 220.847F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
