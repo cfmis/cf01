@@ -122,7 +122,13 @@ namespace cf01.Forms
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
         {
-            dtDetails.RejectChanges();//取消數據更改
+            if (gridView1.RowCount > 0)
+            {
+                if (MessageBox.Show("注意：編輯的數據將全部丟失!是否繼續當前操作？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    dtDetails.RejectChanges();//取消數據更改
+                else
+                    return;
+            }
             gridControl1.Refresh();
             SetButtonSatus(true);
             ClearA();
