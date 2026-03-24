@@ -790,14 +790,17 @@ namespace cf01.Forms
         private void btnExpToExcel_Click(object sender, EventArgs e)
         {
             lueDepGroup.Focus();
-            ExpToExcel(1);
+            ExpToExcel(1);//匯出排期明細表
         }
         private void btnExcelByMachine_Click(object sender, EventArgs e)
         {
             lueDepGroup.Focus();
-            ExpToExcel(2);
+            ExpToExcel(2);//按機器匯出
         }
-
+        private void btnExpSum_Click(object sender, EventArgs e)
+        {
+            ExpToExcel(99);//匯出總表
+        }
         private string GetExcelFileName(string strFileName)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -841,7 +844,7 @@ namespace cf01.Forms
             //Thread.Sleep(1000);
             
             DataTable dtExcel = new DataTable();
-            if (rpt_type != 99)
+            if (rpt_type != 99)//匯出排期明細表
             {
                 if (chkOver3Days.Checked == false)
                     dtExcel = dtMoSchedule.Copy();
@@ -861,7 +864,7 @@ namespace cf01.Forms
                 ////**********************
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             }
-            else
+            else//匯出總表
             {
                 dtExcel = LoadData1(1, 0);
                 result = clsMoScheduleUse.ExpToExcelSum(prd_dep, fileName, dtExcel, rpt_type, prgStatus);
@@ -1073,11 +1076,6 @@ namespace cf01.Forms
 
 
             //gvSchedule.PopulateColumns(); // 重新生成列
-        }
-
-        private void btnExpSum_Click(object sender, EventArgs e)
-        {
-            ExpToExcel(99);
         }
 
         private void gvSchedule_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)

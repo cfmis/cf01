@@ -140,7 +140,7 @@ namespace cf01.CLS
                 if (prd_dep != "322")
                     worksheet.Cells[excelRow, 16].Value = "組別";
                 else
-                    worksheet.Cells[excelRow, 16].Value = "供應商";
+                    worksheet.Cells[excelRow, 16].Value = "每碑數";
             }
             worksheet.Cells[excelRow, 17].Value = "部門備註";
             worksheet.Cells[excelRow, 18].Value = "PMC備註";
@@ -168,8 +168,13 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 3].Value = drExcel["schedule_date"].ToString();//"'" + 
                 worksheet.Cells[excelRow, 4].Value = (drExcel["schedule_date"].ToString().Trim()!=""?drExcel["pass_days"].ToString().Trim():"")
                     + "\r\n" + drExcel["urgent_flag_cdesc"].ToString().Trim();
-                worksheet.Cells[excelRow, 5].Value = drExcel["prd_item"].ToString(); ;
+                worksheet.Cells[excelRow, 5].Value = drExcel["prd_item"].ToString();
                 worksheet.Cells[excelRow, 6].Value = drExcel["goods_name"].ToString();
+                if(prd_dep=="322")
+                {
+                    worksheet.Cells[excelRow, 6].Value += "\r\n" + drExcel["mold_place"].ToString();
+                    worksheet.Cells[excelRow, 6].Value += "\r\n" + drExcel["art_code"].ToString();
+                }
                 worksheet.Cells[excelRow, 7].Value = "";
                 worksheet.Cells[excelRow, 8].Value = drExcel["pmc_rq_date"].ToString();
                 worksheet.Cells[excelRow, 9].Value = drExcel["order_qty"];
@@ -186,7 +191,10 @@ namespace cf01.CLS
                     if (prd_dep != "322")
                         worksheet.Cells[excelRow, 16].Value = drExcel["prd_group"].ToString();
                     else
-                        worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//
+                    {
+                        //worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//外發的供應商
+                        worksheet.Cells[excelRow, 16].Value = drExcel["per_qty"].ToString();//每碑數
+                    }
                 }
                 worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
                 //if (prd_dep == "102")
@@ -258,6 +266,8 @@ namespace cf01.CLS
                 }
 
                 worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
+                if(prd_dep=="322")
+                    worksheet.Row(excelRow).Height = 80; // 设置第 1 行的高度为 20 点
 
             }
 
@@ -279,6 +289,11 @@ namespace cf01.CLS
             worksheet.Column(16).Width = 10;
             worksheet.Column(17).Width = 7;
             worksheet.Column(18).Width = 7;
+            if(prd_dep=="322")
+            {
+                worksheet.Column(6).Width = 18;
+                worksheet.Column(16).Width = 6;
+            }
             //Cells[excelRow, 13]
             // 设置动态范围
             string colStr = $"I1:I{excelRow}"; // 动态计算行数
