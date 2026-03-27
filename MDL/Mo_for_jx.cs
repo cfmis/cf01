@@ -62,7 +62,8 @@ namespace cf01.MDL
         public string qc_test;
         public string process_remark;//工序做法
         public string dept_remark;//部門備註
-
+        public string artwork_id;//畫稿編號
+        public string module_loc;//模具位置
 
     }
 }

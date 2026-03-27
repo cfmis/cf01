@@ -356,6 +356,12 @@
     <Compile Include="Forms\frmPlanCancel.designer.cs">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSaleReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSaleReturn.Designer.cs">
+      <DependentUpon>frmSaleReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSoGarmentFactory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1560,6 +1566,7 @@
     <Compile Include="MDL\mdlCostAlloy.cs" />
     <Compile Include="MDL\mdlCountGoodsCost.cs" />
     <Compile Include="MDL\mdlCustComplain.cs" />
+    <Compile Include="MDL\mdlDebitCredit.cs" />
     <Compile Include="MDL\mdlMaterialType.cs" />
     <Compile Include="MDL\mdlMmCalculatePrice.cs" />
     <Compile Include="MDL\mdlMmCosting.cs" />
@@ -3134,6 +3141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPlanCancel.resx">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSaleReturn.resx">
+      <DependentUpon>frmSaleReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSoGarmentFactory.resx">
       <DependentUpon>frmSoGarmentFactory.cs</DependentUpon>

@@ -515,13 +515,8 @@ namespace cf01.ReportForm
         {
             //dtPrint此表目的是去掉重覆的記錄，以此表循環逐條取出生產單的相關數據
             dtPrint.Clear();
-            string strFilter = "";
-            string wp_id = "";
-            string mo_id = "";
-            string mat_id = "";
-            //string next_wp_id = "";
-            int per_qty=0;
-            string perqty = "";
+            string strFilter = string.Empty, wp_id = string.Empty, mo_id = string.Empty, mat_id = string.Empty, perqty = string.Empty, isPrintQc = string.Empty;
+            int per_qty=0;            
             for (int i = 0; i <gridView1.RowCount ; i++)
             {
                 if (gridView1.GetRowCellValue(i,"print_select").ToString()=="True")
@@ -539,14 +534,9 @@ namespace cf01.ReportForm
                     }
                 }
             }
-
             dtReportMostly.Rows.Clear();
-            dtReportParts.Rows.Clear();
-            string isPrintQc = "";
-            if (chkNoQc.Checked)
-                isPrintQc = "1";//不顯示QC
-            else
-                isPrintQc = "0";
+            dtReportParts.Rows.Clear();            
+            isPrintQc = (chkNoQc.Checked) ? "1" : "0";//1--不顯示QC
             DataTable dtTempMostly = new DataTable();
             DataTable dtTempParts = new DataTable();
             for (int i = 0; i < dtPrint.Rows.Count; i++)

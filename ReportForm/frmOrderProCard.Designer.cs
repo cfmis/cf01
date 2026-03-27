@@ -174,6 +174,10 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtArtwork_id = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtModule_loc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -994,6 +998,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.txtModule_loc);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.txtArtwork_id);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.txtdept_remark);
             this.panel1.Controls.Add(this.label18);
@@ -1093,7 +1101,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(719, 383);
+            this.label19.Location = new System.Drawing.Point(726, 398);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(80, 12);
             this.label19.TabIndex = 107;
@@ -1103,7 +1111,7 @@
             // txtdept_remark
             // 
             this.txtdept_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtdept_remark.Location = new System.Drawing.Point(801, 377);
+            this.txtdept_remark.Location = new System.Drawing.Point(808, 392);
             this.txtdept_remark.Name = "txtdept_remark";
             this.txtdept_remark.ReadOnly = true;
             this.txtdept_remark.Size = new System.Drawing.Size(190, 23);
@@ -1648,6 +1656,44 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(774, 372);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(32, 12);
+            this.label20.TabIndex = 109;
+            this.label20.Text = "畫稿:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtArtwork_id
+            // 
+            this.txtArtwork_id.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtArtwork_id.Location = new System.Drawing.Point(808, 367);
+            this.txtArtwork_id.Name = "txtArtwork_id";
+            this.txtArtwork_id.ReadOnly = true;
+            this.txtArtwork_id.Size = new System.Drawing.Size(139, 23);
+            this.txtArtwork_id.TabIndex = 108;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(750, 347);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 12);
+            this.label21.TabIndex = 111;
+            this.label21.Text = "模具位置:";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtModule_loc
+            // 
+            this.txtModule_loc.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtModule_loc.Location = new System.Drawing.Point(808, 342);
+            this.txtModule_loc.Name = "txtModule_loc";
+            this.txtModule_loc.ReadOnly = true;
+            this.txtModule_loc.Size = new System.Drawing.Size(139, 23);
+            this.txtModule_loc.TabIndex = 110;
+            // 
             // frmOrderProCard
             // 
             this.ClientSize = new System.Drawing.Size(1026, 697);
@@ -1819,5 +1865,9 @@
         private System.Windows.Forms.TextBox txtProcessRemark;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtdept_remark;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtModule_loc;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtArtwork_id;
     }
 }

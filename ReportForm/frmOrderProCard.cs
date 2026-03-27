@@ -164,6 +164,8 @@ namespace cf01.ReportForm
                     txtQc_test.Text = lsModel[i].qc_test;
                     txtProcessRemark.Text = lsModel[i].process_remark;
                     txtdept_remark.Text = lsModel[i].dept_remark;
+                    txtArtwork_id.Text = lsModel[i].artwork_id;
+                    txtModule_loc.Text = lsModel[i].module_loc;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -318,56 +320,60 @@ namespace cf01.ReportForm
             if (dtGoodsInfo.Rows.Count > 0)
             {
                 lsModel.Clear();
+               
                 for (int i = 0; i < dtGoodsInfo.Rows.Count; i++)
                 {
-                    Mo_for_jx objModel = new Mo_for_jx() { 
-                        wp_id = dtGoodsInfo.Rows[i]["wp_id"].ToString(), 
-                        mo_id = dtGoodsInfo.Rows[i]["mo_id"].ToString(), 
-                        goods_id = dtGoodsInfo.Rows[i]["goods_id"].ToString(), 
-                        goods_name = dtGoodsInfo.Rows[i]["name"].ToString(), 
-                        prod_qty = Convert.ToInt32(dtGoodsInfo.Rows[i]["prod_qty"]), 
-                        goods_unit = dtGoodsInfo.Rows[i]["goods_unit"].ToString(), 
+                    Mo_for_jx objModel = new Mo_for_jx()
+                    {
+                        wp_id = dtGoodsInfo.Rows[i]["wp_id"].ToString(),
+                        mo_id = dtGoodsInfo.Rows[i]["mo_id"].ToString(),
+                        goods_id = dtGoodsInfo.Rows[i]["goods_id"].ToString(),
+                        goods_name = dtGoodsInfo.Rows[i]["name"].ToString(),
+                        prod_qty = Convert.ToInt32(dtGoodsInfo.Rows[i]["prod_qty"]),
+                        goods_unit = dtGoodsInfo.Rows[i]["goods_unit"].ToString(),
                         bill_date = dtGoodsInfo.Rows[i]["bill_date"].ToString(),
-                        check_date = dtGoodsInfo.Rows[i]["check_date"].ToString(), 
-                        order_qty = string.IsNullOrEmpty(txtOrderQty.Text) ? 0 : Convert.ToInt32(txtOrderQty.Text), 
-                        next_wp_id = dtGoodsInfo.Rows[i]["next_wp_id"].ToString(), 
-                        next_wp_name = dtGoodsInfo.Rows[i]["next_wp_name"].ToString(), 
+                        check_date = dtGoodsInfo.Rows[i]["check_date"].ToString(),
+                        order_qty = string.IsNullOrEmpty(txtOrderQty.Text) ? 0 : Convert.ToInt32(txtOrderQty.Text),
+                        next_wp_id = dtGoodsInfo.Rows[i]["next_wp_id"].ToString(),
+                        next_wp_name = dtGoodsInfo.Rows[i]["next_wp_name"].ToString(),
                         t_complete_date = dtGoodsInfo.Rows[i]["t_complete_date"].ToString(),
                         arrive_date = dtGoodsInfo.Rows[i]["arrive_date"].ToString(),
-                        brand_id = dtGoodsInfo.Rows[i]["brand_id"].ToString(), 
-                        get_color_sample = dtGoodsInfo.Rows[i]["get_color_sample"].ToString(), 
-                        order_unit = txtOrderUnit.Text, 
-                        production_remark = dtGoodsInfo.Rows[i]["production_remark"].ToString(), 
-                        nickle_free = dtGoodsInfo.Rows[i]["nickle_free"].ToString(), 
-                        plumbum_free = dtGoodsInfo.Rows[i]["plumbum_free"].ToString(), 
-                        remark = dtGoodsInfo.Rows[i]["remark"].ToString(), 
-                        plate_remark = dtGoodsInfo.Rows[i]["plate_remark"].ToString(),                       
-                        base_qty = dtGoodsInfo.Rows[i]["base_qty"].ToString(), 
-                        unit_code = dtGoodsInfo.Rows[i]["unit_code"].ToString(), 
-                        base_rate = dtGoodsInfo.Rows[i]["base_rate"].ToString(), 
-                        basic_unit = dtGoodsInfo.Rows[i]["basic_unit"].ToString(), 
-                        within_code = dtGoodsInfo.Rows[i]["within_code"].ToString(), 
-                        ver = dtGoodsInfo.Rows[i]["ver"].ToString(), 
-                        id = dtGoodsInfo.Rows[i]["id"].ToString(), 
-                        sequence_id = dtGoodsInfo.Rows[i]["sequence_id"].ToString(), 
-                        blueprint_id = dtGoodsInfo.Rows[i]["blueprint_id"].ToString(), 
-                        color = dtGoodsInfo.Rows[i]["color"].ToString(), 
-                        predept_rechange_qty = dtGoodsInfo.Rows[i]["predept_rechange_qty"].ToString(), 
-                        Reserve_qty = clsUtility.FormatNullableInt32(dtGoodsInfo.Rows[i]["OBLIGATE_QTY"]), 
-                        get_color_sample_name = dtGoodsInfo.Rows[i]["get_color_sample_name"].ToString(), 
-                        Vendor_id = dtGoodsInfo.Rows[i]["vendor_id"].ToString(), 
+                        brand_id = dtGoodsInfo.Rows[i]["brand_id"].ToString(),
+                        get_color_sample = dtGoodsInfo.Rows[i]["get_color_sample"].ToString(),
+                        order_unit = txtOrderUnit.Text,
+                        production_remark = dtGoodsInfo.Rows[i]["production_remark"].ToString(),
+                        nickle_free = dtGoodsInfo.Rows[i]["nickle_free"].ToString(),
+                        plumbum_free = dtGoodsInfo.Rows[i]["plumbum_free"].ToString(),
+                        remark = dtGoodsInfo.Rows[i]["remark"].ToString(),
+                        plate_remark = dtGoodsInfo.Rows[i]["plate_remark"].ToString(),
+                        base_qty = dtGoodsInfo.Rows[i]["base_qty"].ToString(),
+                        unit_code = dtGoodsInfo.Rows[i]["unit_code"].ToString(),
+                        base_rate = dtGoodsInfo.Rows[i]["base_rate"].ToString(),
+                        basic_unit = dtGoodsInfo.Rows[i]["basic_unit"].ToString(),
+                        within_code = dtGoodsInfo.Rows[i]["within_code"].ToString(),
+                        ver = dtGoodsInfo.Rows[i]["ver"].ToString(),
+                        id = dtGoodsInfo.Rows[i]["id"].ToString(),
+                        sequence_id = dtGoodsInfo.Rows[i]["sequence_id"].ToString(),
+                        blueprint_id = dtGoodsInfo.Rows[i]["blueprint_id"].ToString(),
+                        color = dtGoodsInfo.Rows[i]["color"].ToString(),
+                        predept_rechange_qty = dtGoodsInfo.Rows[i]["predept_rechange_qty"].ToString(),
+                        Reserve_qty = clsUtility.FormatNullableInt32(dtGoodsInfo.Rows[i]["OBLIGATE_QTY"]),
+                        get_color_sample_name = dtGoodsInfo.Rows[i]["get_color_sample_name"].ToString(),
+                        Vendor_id = dtGoodsInfo.Rows[i]["vendor_id"].ToString(),
                         c_sec_qty_ok = clsUtility.FormatNullableInt32(dtGoodsInfo.Rows[i]["c_sec_qty_ok"]),
                         wh_location = dtGoodsInfo.Rows[i]["wh_location"].ToString(),
-                        flevel = !string.IsNullOrEmpty(dtGoodsInfo.Rows[i]["flevel"].ToString())?int.Parse(dtGoodsInfo.Rows[i]["flevel"].ToString()):0,
+                        flevel = !string.IsNullOrEmpty(dtGoodsInfo.Rows[i]["flevel"].ToString()) ? int.Parse(dtGoodsInfo.Rows[i]["flevel"].ToString()) : 0,
                         qc_dept = dtGoodsInfo.Rows[i]["qc_dept"].ToString(),
                         qc_name = dtGoodsInfo.Rows[i]["qc_name"].ToString(),
                         qc_qty = dtGoodsInfo.Rows[i]["qc_qty"].ToString(),
                         qc_test = dtGoodsInfo.Rows[i]["qc_test"].ToString(),
                         process_remark = dtGoodsInfo.Rows[i]["process_remark"].ToString(),
-                        dept_remark = dtGoodsInfo.Rows[i]["dept_remark"].ToString()
+                        dept_remark = dtGoodsInfo.Rows[i]["dept_remark"].ToString(),
+                        artwork_id = dtGoodsInfo.Rows[i]["artwork_id"].ToString(),
+                        module_loc = dtGoodsInfo.Rows[i]["module_loc"].ToString()
                     };
                     lsModel.Add(objModel);
-                }
+                } //--end for 
                 BindcmboxGoodsId();
                 string str_mo_id = txtMoId.Text;
                 if (str_mo_id.Substring(0, 1) != "R")
@@ -499,6 +505,8 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
                     dtNewWork.Columns.Add("qty_remaining", typeof(int));
+                    
+
                     //dtNewWork.Columns.Add("qc_test", typeof(string));
                     ////2024/03/12
                     //dtNewWork.Columns.Add("qc_dept", typeof(string));
@@ -610,7 +618,8 @@ namespace cf01.ReportForm
                             dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(txtNet_weight.Text.Trim()) * clsUtility.FormatNullableInt32(txtBaseRate.Text), 0);
                             dr["qc_test"]= txtQc_test.Text;
                             dr["process_remark"] = txtProcessRemark.Text;
-
+                            dr["artwork_id"] = txtArtwork_id.Text;
+                            dr["module_loc"] = txtModule_loc.Text;
                             dtNewWork.Rows.Add(dr);
                         }
                     }
@@ -945,6 +954,8 @@ namespace cf01.ReportForm
                         newRow["remark_mould"] = dtCard_product.Rows[i]["remark_mould"].ToString();
                         newRow["print_date"] = dtCard_product.Rows[i]["print_date"].ToString();
                         newRow["dept_remark"] = dtCard_product.Rows[i]["dept_remark"].ToString();
+                        newRow["artwork_id"] = dtCard_product.Rows[i]["artwork_id"].ToString();
+                        newRow["module_loc"] = dtCard_product.Rows[i]["module_loc"].ToString();
                         dtReport.Rows.Add(newRow);
                     }
                     clsUtility.myMessageBox("添加列印的數據成功!", "提示信息");                   
