@@ -557,7 +557,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 20].Value = drExcel["line_num"];
                 worksheet.Cells[excelRow, 21].Value = drExcel["need_line_num"];
                 worksheet.Cells[excelRow, 22].Value = drExcel["need_line_time"].ToString();
-                worksheet.Cells[excelRow, 23].Value = drExcel["prd_machine"].ToString();
+                worksheet.Cells[excelRow, 23].Value = drExcel["default_machine"].ToString();
                 worksheet.Cells[excelRow, 24].Value = drExcel["module_type"].ToString();
                 worksheet.Cells[excelRow, 25].Value = "";//急(1);
                 worksheet.Cells[excelRow, 26].Value = drExcel["next_vend_id"].ToString();
