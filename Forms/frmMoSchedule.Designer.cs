@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -224,6 +224,7 @@
             this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.palShowMore = new System.Windows.Forms.Panel();
+            this.btnExp124 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetUrgentMo = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetMachine = new DevExpress.XtraEditors.SimpleButton();
             this.lueSetUrgentMo = new DevExpress.XtraEditors.LookUpEdit();
@@ -282,7 +283,6 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.btnExp124 = new DevExpress.XtraEditors.SimpleButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -448,8 +448,8 @@
             this.btnExpToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExpToExcel.Image")));
             this.btnExpToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExpToExcel.Name = "btnExpToExcel";
-            this.btnExpToExcel.Size = new System.Drawing.Size(65, 35);
-            this.btnExpToExcel.Text = "匯出(&E)";
+            this.btnExpToExcel.Size = new System.Drawing.Size(85, 35);
+            this.btnExpToExcel.Text = "匯出排期表(&E)";
             this.btnExpToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExpToExcel.Click += new System.EventHandler(this.btnExpToExcel_Click);
             // 
@@ -587,13 +587,13 @@
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode7.RelationName = "Level1";
-            gridLevelNode8.RelationName = "Level2";
-            gridLevelNode9.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode7,
-            gridLevelNode8,
-            gridLevelNode9});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -1641,13 +1641,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode4.RelationName = "Level1";
+            gridLevelNode5.RelationName = "Level2";
+            gridLevelNode6.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode4,
+            gridLevelNode5,
+            gridLevelNode6});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -2415,6 +2415,15 @@
             this.palShowMore.TabIndex = 14;
             this.palShowMore.Visible = false;
             // 
+            // btnExp124
+            // 
+            this.btnExp124.Location = new System.Drawing.Point(669, 37);
+            this.btnExp124.Name = "btnExp124";
+            this.btnExp124.Size = new System.Drawing.Size(124, 23);
+            this.btnExp124.TabIndex = 32;
+            this.btnExp124.Text = "匯出新加入的記錄";
+            this.btnExp124.Click += new System.EventHandler(this.btnExp124_Click);
+            // 
             // btnSetUrgentMo
             // 
             this.btnSetUrgentMo.Location = new System.Drawing.Point(429, 36);
@@ -2912,15 +2921,6 @@
             this.chkScheduleByMachine.TabIndex = 17;
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
-            // 
-            // btnExp124
-            // 
-            this.btnExp124.Location = new System.Drawing.Point(669, 37);
-            this.btnExp124.Name = "btnExp124";
-            this.btnExp124.Size = new System.Drawing.Size(124, 23);
-            this.btnExp124.TabIndex = 32;
-            this.btnExp124.Text = "匯出新加入的記錄";
-            this.btnExp124.Click += new System.EventHandler(this.btnExp124_Click);
             // 
             // frmMoSchedule
             // 
