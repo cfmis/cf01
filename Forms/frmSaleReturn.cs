@@ -50,7 +50,7 @@ namespace cf01.Forms
         private void BTNFIND_Click(object sender, EventArgs e)
         {
             string strSql =
-            @"SELECT A.id,Convert(varchar(10),A.issues_date,120) as issues_date,A.type,A.it_customer,
+            @"SELECT A.id,Convert(varchar(10),A.issues_date,120) AS issues_date,A.type,A.it_customer,
             B.mo_id,B.goods_id,B.goods_name,Substring(A.cd_seller,2,1) As sales_group,B.contract_cid,
             CAST(B.invoice_qty AS INT) AS invoice_qty,B.issues_unit,B.sec_qty,B.sec_unit,B.order_id,B.invoice_id
             FROM so_debitcredit_note_mostly A with(nolock),so_debeitcredit_note_details B with(nolock)
@@ -86,7 +86,6 @@ namespace cf01.Forms
             strSql += "And A.type='CR' AND A.state NOT IN ('2','0')";
             dtFind = clsErp.GetDataTable(strSql);
             gridControl1.DataSource = dtFind;
-
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)

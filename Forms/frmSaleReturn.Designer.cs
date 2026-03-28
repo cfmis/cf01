@@ -68,9 +68,9 @@
             this.sales_group = new DevExpress.XtraGrid.Columns.GridColumn();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.contract_cid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkRemainFlag = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colRemainQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.contract_cid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grpBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
@@ -280,7 +280,6 @@
             this.BTNEXIT.Name = "BTNEXIT";
             this.BTNEXIT.Size = new System.Drawing.Size(60, 40);
             this.BTNEXIT.Text = " 退  出(&X)";
-            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
             // 
             // toolStripSeparator1
@@ -293,9 +292,8 @@
             this.BTNSAVESET.Image = global::cf01.Properties.Resources.w_set;
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(83, 40);
+            this.BTNSAVESET.Size = new System.Drawing.Size(99, 40);
             this.BTNSAVESET.Text = "保存查找條件";
-            this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.Click += new System.EventHandler(this.BTNSAVESET_Click);
             // 
             // toolStripSeparator8
@@ -308,9 +306,8 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(58, 40);
+            this.BTNFIND.Size = new System.Drawing.Size(74, 40);
             this.BTNFIND.Text = " 查  詢(&F)";
-            this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
             // toolStripSeparator2
@@ -651,6 +648,12 @@
             this.sequence_id.OptionsFilter.AllowFilter = false;
             this.sequence_id.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             // 
+            // contract_cid
+            // 
+            this.contract_cid.Caption = "PO No";
+            this.contract_cid.FieldName = "contract_cid";
+            this.contract_cid.Name = "contract_cid";
+            // 
             // chkRemainFlag
             // 
             this.chkRemainFlag.AutoHeight = false;
@@ -662,12 +665,6 @@
             this.colRemainQty.Mask.EditMask = "n0";
             this.colRemainQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.colRemainQty.Name = "colRemainQty";
-            // 
-            // contract_cid
-            // 
-            this.contract_cid.Caption = "PO No";
-            this.contract_cid.FieldName = "contract_cid";
-            this.contract_cid.Name = "contract_cid";
             // 
             // frmSaleReturn
             // 
