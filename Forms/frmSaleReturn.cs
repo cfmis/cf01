@@ -18,7 +18,7 @@ namespace cf01.Forms
         clsToolBarNew objToolbar;
         DataTable dtFind = new DataTable();
         string strDatetime = clsUtility.GetCurrentDateTime(); //2026-03-09 15:50:02
-        string within_code = "0000", groupNumber = "", strBarcode = "";
+        string within_code = "0000";
 
         public frmSaleReturn()
         {
@@ -65,7 +65,7 @@ namespace cf01.Forms
             }
             if (txtID1.Text != "" && txtID2.Text !="")
             {
-                strSql += " And A.within_code = '0000'";
+                strSql += string.Format(" And A.within_code = '{0}'",within_code);
             }
             if (txtIssues_date1.Text != "")
             {
