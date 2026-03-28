@@ -21,6 +21,7 @@ namespace cf01.Forms
         DataTable dtSt = new DataTable();
         DataTable dtAdjUpdate = new DataTable();
 
+
         public frmStockAdj()
         {
             InitializeComponent();            
