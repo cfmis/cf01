@@ -26,6 +26,7 @@ namespace cf01
         public static string _language = "0";//此變量用於保存當前登入的語言
         public static string comp_type = "DG";
         public static string remote_db = "dgerp2.cferp.dbo.";//遠程數據庫名稱
+        public static string remote_db_hk = "hkserver.cferp.dbo.";//遠程數據庫名稱
         public static string hr_db_server = "dgsql1.dghr.dbo.";//人事系統
         public static string pad_db = "dgcf_pad.dbo.";//PAD用的數據庫
         //public static string pad_db_jx = "lnsql1.dgcf_pad.dbo.";//PAD用的數據庫 //CANCEL 2026/02/10

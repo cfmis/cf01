@@ -299,6 +299,7 @@
     <Compile Include="CLS\clsQuotationSample.cs" />
     <Compile Include="CLS\clsRoleManage.cs" />
     <Compile Include="CLS\clsBs_Sale.cs" />
+    <Compile Include="CLS\clsSaleReturn.cs" />
     <Compile Include="CLS\clsSales_group.cs" />
     <Compile Include="CLS\clsShowProductionPlan.cs" />
     <Compile Include="CLS\clsStoreIssue.cs" />
