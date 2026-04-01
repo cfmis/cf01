@@ -544,7 +544,8 @@ namespace cf01.CLS
                     + "\r\n" + drExcel["artwork_id"].ToString();
                 worksheet.Cells[excelRow, 9].Value = "";//圖片
                 worksheet.Cells[excelRow, 10].Value = drExcel["order_date"].ToString();
-                worksheet.Cells[excelRow, 11].Value = drExcel["pmc_rq_date"].ToString();
+                worksheet.Cells[excelRow, 11].Value = drExcel["pmc_rq_date"].ToString()
+                    +"\r\n" + drExcel["mo_remark"].ToString();
                 worksheet.Cells[excelRow, 12].Value = drExcel["order_qty"];
                 worksheet.Cells[excelRow, 13].Value = drExcel["pl_qty"];
                 worksheet.Cells[excelRow, 14].Value = drExcel["prd_qty"];
