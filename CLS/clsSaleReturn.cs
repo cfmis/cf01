@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 namespace cf01.CLS
 {
     public class clsSaleReturn
     {
         private static clsPublicOfGEO clsErp = new clsPublicOfGEO();
-        private clsAppPublic clsAppPublic = new clsAppPublic();
+        //private clsAppPublic clsAppPublic = new clsAppPublic();
+        static string localIp = GetLocalIP();
         static string remote_db = DBUtility.remote_db_hk;
         public clsSaleReturn()
         {
-            
-            string localIp = clsAppPublic.GetLocalIP();
+            //string localIp = clsAppPublic.GetLocalIP();            
             if (localIp.Length >= 11)
             {
                 if (localIp.Substring(0, 11) == "192.168.168")
                 {
                     remote_db = "";
                 }
-            }           
+            }
         }
 
         //獲取部門移交單批號
@@ -41,6 +43,11 @@ namespace cf01.CLS
         public static string GetMaxID(string year_month)
         {
             //直接獲取或更新DGERP1中的sys_bill_max銷售退回的最大編號
+            //string strIp = GetLocalIP();
+            if (localIp.Substring(0, 11) == "192.168.168")
+            {
+                remote_db = "";
+            }
             string result = string.Empty, bill_code = string.Empty;
             string strSql = string.Format(@"Select pkey,bill_code From {0}sys_bill_max WHERE within_code='0000' AND bill_id='SR01' AND year_month='{1}'", remote_db,year_month);
             DataTable dtBillMax = clsErp.GetDataTable(strSql);
@@ -134,6 +141,39 @@ namespace cf01.CLS
             sb.Append(" Order By C.location_id,A.it_customer,A.issues_date,A.id,B.sequence_id");
             DataTable dtFind = clsErp.GetDataTable(sb.ToString());
             return dtFind;
+        }
+
+        public static string GetLocalIP()
+        {
+            string strLocalIP = "";
+            //获取本地网卡信息
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            foreach (NetworkInterface adapter in nics)
+            {
+                //判断是否为以太网卡
+                //Wireless80211         无线网卡    Ppp     宽带连接
+                //Ethernet              以太网卡
+                if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    //获取以太网卡网络接口信息
+                    IPInterfaceProperties ip = adapter.GetIPProperties();
+                    //获取单播地址集
+                    UnicastIPAddressInformationCollection ipCollection = ip.UnicastAddresses;
+                    foreach (UnicastIPAddressInformation ipadd in ipCollection)
+                    {
+                        //InterNetwork    IPV4地址      InterNetworkV6        IPV6地址
+                        //Max            MAX 位址
+                        if (ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
+                        //判断是否为ipv4
+                        {
+                            strLocalIP = ipadd.Address.ToString();//获取ip
+                            return strLocalIP;//获取ip
+
+                        }
+                    }
+                }
+            }
+            return null;
         }
 
 

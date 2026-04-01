@@ -22,6 +22,9 @@ namespace cf01.Forms
         DataTable dtReturn = new DataTable();
         string strDatetime = clsUtility.GetCurrentDateTime(); //2026-03-09 15:50:02        
         string within_code = "0000";
+        string strConn = DBUtility.conn_str_hkerp1;
+        string strIP = clsSaleReturn.GetLocalIP();
+                
 
         public frmSaleReturn()
         {
@@ -31,6 +34,14 @@ namespace cf01.Forms
             oNext.EnterToTab();
             objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
             objToolbar.SetToolBar();
+
+            if (strIP.Length >= 11)
+            {
+                if (strIP.Substring(0, 11) == "192.168.168")
+                {
+                    strConn = DBUtility.conn_str_hkerp1; //strConn 強制在HKERP服務器上插入數據（so_return_mostly，so_return_details）
+                }
+            }
         }
 
         private void frmSaleReturn_Load(object sender, EventArgs e)
@@ -215,8 +226,9 @@ namespace cf01.Forms
                     sb.Append(sql_u);
                 } //--end of for for 循環結束，表示已生成一張銷貨退回數據
 
-                //--start將當前生成銷貨退回數據(一個for結束代表一張銷貨退回數據)
-                SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);//dgerp2
+                //--start將當前生成銷貨退回數據(一個for結束代表一張銷貨退回數據)                
+                //SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);//dgerp2
+                SqlConnection myCon = new SqlConnection(strConn);
                 myCon.Open();
                 SqlTransaction myTrans = myCon.BeginTransaction();
                 using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
@@ -239,6 +251,7 @@ namespace cf01.Forms
                         myCon.Close();
                     }
                 }
+
                 if (flagOpration == false)
                 {                   
                     break; //提交異常直接退出生成單據
@@ -283,9 +296,9 @@ namespace cf01.Forms
             if (dgvDoc.Rows.Count > 0)
             {
                 ExpToExcel xls = new ExpToExcel();
-                xls.ExportExcel(dgvDoc);
-            }
-            
+                //xls.ExportExcel(dgvDoc);host主機不安裝有OFFICE時會報錯
+                xls.DataTableToExcel(dtReturn);//host主機不安裝有OFFICE時不會報錯
+            }            
         }
     }
 }
