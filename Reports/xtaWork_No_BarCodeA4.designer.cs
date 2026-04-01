@@ -1255,10 +1255,10 @@
             this.xrLabel25.CanGrow = false;
             this.xrLabel25.Dpi = 254F;
             this.xrLabel25.Font = new System.Drawing.Font("SimSun", 8F);
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(139.9142F, 642.1901F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(117.0201F, 642.1901F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(126.6575F, 38.09998F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(150.6575F, 38.09998F);
             this.xrLabel25.StylePriority.UseFont = false;
             this.xrLabel25.StylePriority.UseTextAlignment = false;
             this.xrLabel25.Text = "[page_num] of [total_page]";
@@ -1461,11 +1461,11 @@
             // xrLabel32
             // 
             this.xrLabel32.Dpi = 254F;
-            this.xrLabel32.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold);
+            this.xrLabel32.Font = new System.Drawing.Font("SimSun", 7F, System.Drawing.FontStyle.Bold);
             this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(5.291628F, 642.6501F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel32.SizeF = new System.Drawing.SizeF(138.6225F, 38.71997F);
+            this.xrLabel32.SizeF = new System.Drawing.SizeF(111.6225F, 38.71997F);
             this.xrLabel32.StylePriority.UseFont = false;
             this.xrLabel32.StylePriority.UseTextAlignment = false;
             this.xrLabel32.Text = "本卡為第";
