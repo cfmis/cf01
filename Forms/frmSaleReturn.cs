@@ -90,7 +90,7 @@ namespace cf01.Forms
 
         private void txtIssues_date1_Leave(object sender, EventArgs e)
         {
-            txtIssues_date2.Text = txtIssues_date2.Text;
+            txtIssues_date2.Text = txtIssues_date1.Text;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace cf01.Forms
             string seller_id = string.Empty, type = "02", no_split_stock = "1", state = "0", transfers_state = "0", create_by = string.Empty, update_by = string.Empty;
             string location_id = string.Empty, carton_code = string.Empty, lot_no = string.Empty, basic_unit = "PCS", unit = "PCS", unit_code = "PCS";
             string shipment_suit = "1", sec_unit = "KG", sequence_id = string.Empty, goods_id = string.Empty, goods_name = string.Empty, mo_id = string.Empty ;
-            string deliver = "0", credit_id = string.Empty, credit_seq_id = string.Empty,strError = string.Empty;            
+            string deliver = "0", credit_id = string.Empty, credit_seq_id = string.Empty,strError = string.Empty,locationId = string.Empty, itCustomer = string.Empty, selectFlag = string.Empty;            
             int update_count = 1, rate = 1, return_qty = 0, invoice_qty = 0;
             decimal sec_qty = 0;
             StringBuilder sb = new StringBuilder();
@@ -197,13 +197,14 @@ namespace cf01.Forms
                         within_code,doc_id,return_date,separate_return,it_customer,name,department_id,seller_id,type,
                         no_split_stock,create_by,update_by,state,update_count,transfers_state,location_id,carton_code);
                         sb.Append(sql_h_i);
+                        //記錄銷貨退回單號
                         DataRow drw = dtReturn.NewRow();
                         drw["doc_id"] = doc_id;
                         dtReturn.Rows.Add(drw);
                     }
                     //明細
                     location_id = aryRows[i]["location_id"].ToString();
-                    lot_no = clsSaleReturn.GetDeptLotNo(location_id, location_id);                    
+                    lot_no = clsSaleReturn.GetDeptLotNo(location_id, location_id);
                     sequence_id = (i+1).ToString().PadLeft(4,'0')+"d";
                     goods_id = aryRows[i]["goods_id"].ToString();
                     goods_name = aryRows[i]["goods_name"].ToString();
@@ -257,6 +258,20 @@ namespace cf01.Forms
                     break; //提交異常直接退出生成單據
                 }
 
+                //start 已成功轉銷貨退回的CreditNote數據移除 Remove Convert Successfully Record
+                for (int i = gridView1.RowCount - 1; i >= 0; i--)
+                {
+                    selectFlag = gridView1.GetRowCellValue(i, "flag_select").ToString();
+                    locationId = gridView1.GetRowCellValue(i, "location_id").ToString();
+                    itCustomer = gridView1.GetRowCellValue(i, "it_customer").ToString();
+                    if (selectFlag == "True" && locationId == lst.location_id && itCustomer == lst.it_customer)
+                    {
+                        gridView1.DeleteRow(i);
+                    }
+                }
+                //--end Remove
+                
+
                 //************
                 if (progressBar1.Value == progressBar1.Maximum)
                 {
@@ -274,6 +289,13 @@ namespace cf01.Forms
             else
             {
                 MessageBox.Show($"批量生成銷貨退回數據失敗!({strError})", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (dtFind.Rows.Count == 0)
+            {
+                if (chkSelectAll.Checked)
+                {
+                    chkSelectAll.Checked = false;
+                }
             }
         }
 

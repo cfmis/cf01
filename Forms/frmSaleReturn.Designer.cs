@@ -119,7 +119,7 @@
             this.grpBox1.Size = new System.Drawing.Size(610, 101);
             this.grpBox1.TabIndex = 0;
             this.grpBox1.TabStop = false;
-            this.grpBox1.Text = "查找條件(Credit)";
+            this.grpBox1.Text = "查找條件(Credit Note)";
             // 
             // btnOk
             // 
@@ -160,7 +160,7 @@
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(97, 13);
             this.lblID.TabIndex = 123;
-            this.lblID.Text = "編號(Credit ID)";
+            this.lblID.Text = "編號(Credit Note ID)";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtID1
