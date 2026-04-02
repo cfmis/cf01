@@ -22,7 +22,7 @@ namespace cf01.Forms
         DataTable dtReturn = new DataTable();
         string strDatetime = clsUtility.GetCurrentDateTime(); //2026-03-09 15:50:02        
         string within_code = "0000";
-        string strConn = DBUtility.conn_str_hkerp1;
+        string strConn = DBUtility.conn_str_hkerp1; //默認在HKERP服務器上插入數據（so_return_mostly，so_return_details）
         string strIP = clsSaleReturn.GetLocalIP();
                 
 
@@ -138,9 +138,9 @@ namespace cf01.Forms
             int update_count = 1, rate = 1, return_qty = 0, invoice_qty = 0;
             decimal sec_qty = 0;
             StringBuilder sb = new StringBuilder();
-
-            bool flagLoop = true;
-            bool flagOpration = true; //生成單據過程是否成功的標識
+            create_by = DBUtility._user_id;
+            update_by = create_by;
+            bool flagLoop = true, flagOpration = true;//生成單據過程是否成功的標識           
             dtReturn.Clear();
 
             //設置進度條屬性
@@ -165,9 +165,7 @@ namespace cf01.Forms
                 
                 dtFind.Select();
                 //生成分類好的單據數據（倉庫+客戶編號），預同一個倉庫、同一個客戶的記錄放在同一張單據中
-                aryRows = dtFind.Select(string.Format("location_id='{0}' and it_customer='{1}' and flag_select=true", lst.location_id, lst.it_customer));
-                create_by = DBUtility._user_id;
-                update_by = create_by;
+                aryRows = dtFind.Select(string.Format("location_id='{0}' and it_customer='{1}' and flag_select=true", lst.location_id, lst.it_customer));                
                 sb.Clear();
                 strError = "";
                 for (int i = 0; i < aryRows.Length; i++)
@@ -175,7 +173,7 @@ namespace cf01.Forms
                     if (i == 0)
                     {
                         //主檔
-                        doc_id = clsSaleReturn.GetMaxID(strYYMM);//最大單據編號
+                        doc_id = clsSaleReturn.GetMaxID(strYYMM);//從HKERP1服務器取最大單據編號
                         if (doc_id == "-1")
                         {
                             //取最大編號失敗
@@ -204,7 +202,7 @@ namespace cf01.Forms
                     }
                     //明細
                     location_id = aryRows[i]["location_id"].ToString();
-                    lot_no = clsSaleReturn.GetDeptLotNo(location_id, location_id);
+                    lot_no = clsSaleReturn.GetDeptLotNo(location_id, location_id); //有可能存DGERP2, HKERP1服務器上取批號數據
                     sequence_id = (i+1).ToString().PadLeft(4,'0')+"d";
                     goods_id = aryRows[i]["goods_id"].ToString();
                     goods_name = aryRows[i]["goods_name"].ToString();
@@ -218,7 +216,7 @@ namespace cf01.Forms
                     within_code,doc_id, sequence_id, goods_id,goods_name, basic_unit, unit,unit_code,rate,return_qty,deliver,invoice_qty,location_id, location_id,
                     transfers_state,lot_no, sec_unit, sec_qty, mo_id, shipment_suit, return_date);
                     sb.Append(sql_d_i);
-                    //對ebeitcredit已完成生成銷貨退回數據，則更新標識，以免重復做
+                    //對Credit Note已完成生成銷貨退回數據，則更新標識，以免重復做
                     credit_id = aryRows[i]["id"].ToString();
                     credit_seq_id = aryRows[i]["sequence_id"].ToString();
                     sql_u = string.Format(
@@ -227,7 +225,7 @@ namespace cf01.Forms
                     sb.Append(sql_u);
                 } //--end of for for 循環結束，表示已生成一張銷貨退回數據
 
-                //--start將當前生成銷貨退回數據(一個for結束代表一張銷貨退回數據)                
+                //--start在HKERP1中生成銷貨退回數據(一個for結束代表一張銷貨退回數據)                
                 //SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);//dgerp2
                 SqlConnection myCon = new SqlConnection(strConn);
                 myCon.Open();
@@ -258,7 +256,7 @@ namespace cf01.Forms
                     break; //提交異常直接退出生成單據
                 }
 
-                //start 已成功轉銷貨退回的CreditNote數據移除 Remove Convert Successfully Record
+                //start Remove row 已成功轉銷貨退回的CreditNote數據移除 Remove Convert Successfully Record
                 for (int i = gridView1.RowCount - 1; i >= 0; i--)
                 {
                     selectFlag = gridView1.GetRowCellValue(i, "flag_select").ToString();
@@ -269,7 +267,7 @@ namespace cf01.Forms
                         gridView1.DeleteRow(i);
                     }
                 }
-                //--end Remove
+                //--end Remove row
                 
 
                 //************

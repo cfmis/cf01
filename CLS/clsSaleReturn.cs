@@ -16,7 +16,6 @@ namespace cf01.CLS
         static string remote_db = DBUtility.remote_db_hk;
         public clsSaleReturn()
         {
-            //string localIp = clsAppPublic.GetLocalIP();            
             if (localIp.Length >= 11)
             {
                 if (localIp.Substring(0, 11) == "192.168.168")
@@ -42,8 +41,8 @@ namespace cf01.CLS
 
         public static string GetMaxID(string year_month)
         {
-            //直接獲取或更新DGERP1中的sys_bill_max銷售退回的最大編號
-            //string strIp = GetLocalIP();
+            //直接獲取或更新HKERP1中的sys_bill_max銷售退回的最大編號
+            //固定從HKERP1服務器取數據;
             if (localIp.Substring(0, 11) == "192.168.168")
             {
                 remote_db = "";
@@ -107,7 +106,7 @@ namespace cf01.CLS
             INNER JOIN so_debeitcredit_note_details B with(nolock) ON A.id=B.id And A.within_code=B.within_code
             INNER JOIN so_invoice_details C with(nolock) ON B.within_code=C.within_code And B.invoice_id=C.id And B.i_sequence_id=C.sequence_id
             INNER JOIN so_invoice_mostly D with(nolock) ON D.within_code=C.within_code And D.id=C.id And D.ver=C.ver And A.state NOT IN ('2','0')
-            WHERE 1>0 ");
+            WHERE 1=1 ");
 
             if (id1 != "")
             {
@@ -168,7 +167,6 @@ namespace cf01.CLS
                         {
                             strLocalIP = ipadd.Address.ToString();//获取ip
                             return strLocalIP;//获取ip
-
                         }
                     }
                 }
