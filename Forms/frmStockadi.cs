@@ -59,7 +59,7 @@ namespace cf01.Forms
             Convert(Int,Isnull(b.sample_qty,0)) As sample_qty,Convert(bit,0) As remain_flag,
             Round(Convert(float,Isnull(b.remain_qty,0)),2) As remain_qty,a.state,b.order_id,b.so_sequence_id
             From so_issues_mostly a, so_issues_details b
-            Where a.id=b.id And a.within_code=b.within_code And a.type='ADI' And 1=0"; 
+            Where a.id=b.id And a.within_code=b.within_code And a.type='ADI' And 1=0";
             dtDetails = clsErp.GetDataTable(strsql);
             gridControl1.DataSource = dtDetails;
             SetColumnReadOnly(true);
@@ -892,7 +892,8 @@ namespace cf01.Forms
                     };
                     DataTable dtAdn = clsErp.ExecuteProcedureReturnTable("z_so_issues_data_adn", paras);                    
                     lstAdn.Clear();
-                    for(int i = 0; i < dtAdn.Rows.Count; i++)
+                    lstAdn.Capacity = dtAdn.Rows.Count; //為提高性能，對lstAdn對象重新預分配容量，避免彈性增加影響性能
+                    for (int i = 0; i < dtAdn.Rows.Count; i++)
                     {
                         mdlStockAdi lst = new mdlStockAdi();                       
                         lst.id = dtAdn.Rows[i]["id"].ToString();

@@ -60,10 +60,8 @@ namespace cf01.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(dteIssuesDate1.Text =="" && dteIssuesDate2.Text =="" &&
-                txtId1.Text =="" && txtId2.Text =="" &&
-                txtGroup.Text =="" && txtCreateBy.Text =="" &&
-                dtCreateDate1.Text =="" && dtCreateDate2.Text ==""
+            if(dteIssuesDate1.Text =="" && dteIssuesDate2.Text =="" && txtId1.Text =="" && txtId2.Text =="" &&
+               txtGroup.Text == "" && txtCreateBy.Text =="" && dtCreateDate1.Text =="" && dtCreateDate2.Text ==""
                 )
             {
                 MessageBox.Show("查詢條件不可以為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -153,6 +151,40 @@ namespace cf01.Forms
             this.DialogResult = DialogResult.Yes;
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dteIssuesDate1.EditValue = "";
+            dteIssuesDate2.EditValue = "";
+            txtId1.Text = "";
+            txtId2.Text = "";
+            txtGroup.Text = "";
+            txtCreateBy.Text = "";
+            dtCreateDate1.EditValue = "";
+            dtCreateDate2.EditValue = "";
+        }
 
+        private void txtId1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtId2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtCreateBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
     }
 }
