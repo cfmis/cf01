@@ -883,129 +883,104 @@ namespace cf01.Forms
                 //查詢到數據后設置查詢窗體this.DialogResult = DialogResult.Yes 以標記查詢到數據并自動關閉frmStockadiFind退出
                 //**
                 string tmp_id = frmFnd.temp_id;
-                if(tmp_id != "")
+                //顯示批準進度動畫
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
                 {
-                    //處理內部提倉單
-                    SqlParameter[] paras = new SqlParameter[]
-                    {
-                         new SqlParameter("@id", tmp_id)                        
-                    };
-                    DataTable dtAdn = clsErp.ExecuteProcedureReturnTable("z_so_issues_data_adn", paras);                    
-                    lstAdn.Clear();
-                    lstAdn.Capacity = dtAdn.Rows.Count; //為提高性能，對lstAdn對象重新預分配容量，避免彈性增加影響性能
-                    for (int i = 0; i < dtAdn.Rows.Count; i++)
-                    {
-                        mdlStockAdi lst = new mdlStockAdi();                       
-                        lst.id = dtAdn.Rows[i]["id"].ToString();
-                        lst.sequence_id = dtAdn.Rows[i]["sequence_id"].ToString();
-                        lst.issues_date = dtAdn.Rows[i]["issues_date"].ToString();
-                        lst.type = "ADN";
-                        lst.separate_issues = dtAdn.Rows[i]["separate_issues"].ToString();
-                        lst.group_number = dtAdn.Rows[i]["group_number"].ToString();
-                        lst.state = "1";
-                        lst.mo_id = "";
-                        lst.goods_id = dtAdn.Rows[i]["goods_id"].ToString();
-                        lst.goods_name = dtAdn.Rows[i]["goods_name"].ToString();
-                        lst.ii_location = dtAdn.Rows[i]["ii_location"].ToString();
-                        lst.issues_qty = int.Parse(dtAdn.Rows[i]["issues_qty"].ToString());
-                        lst.issues_unit = "PCS";
-                        lst.sec_qty = 0;
-                        lst.sec_unit = "KG";
-                        lst.location_qty = int.Parse(dtAdn.Rows[i]["location_qty"].ToString());
-                        lst.obligate_mo_id = "";
-                        lst.lot_no = "";
-                        lst.order_id = dtAdn.Rows[i]["id"].ToString();
-                        lst.so_sequence_id = dtAdn.Rows[i]["sequence_id"].ToString();
-                        groupNumber = lst.group_number;
-                        lstAdn.Add(lst);
-                    }
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+                //************************
+                handleAdn(tmp_id);
+                //************************
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });                
+            }
+            frmFnd = null;
+        }
 
-                    if (lstAdn.Count > 0)
+        private void handleAdn(string id)
+        {
+            if (id != "")
+            {
+                //處理內部提倉單
+                SqlParameter[] paras = new SqlParameter[]
+                {
+                     new SqlParameter("@id", id)
+                };
+                DataTable dtAdn = clsErp.ExecuteProcedureReturnTable("z_so_issues_data_adn", paras);
+                lstAdn.Clear();
+                lstAdn.Capacity = dtAdn.Rows.Count; //為提高性能，對lstAdn對象重新預分配容量，避免彈性增加影響性能
+                for (int i = 0; i < dtAdn.Rows.Count; i++)
+                {
+                    mdlStockAdi lst = new mdlStockAdi();
+                    lst.id = dtAdn.Rows[i]["id"].ToString();
+                    lst.sequence_id = dtAdn.Rows[i]["sequence_id"].ToString();
+                    lst.issues_date = dtAdn.Rows[i]["issues_date"].ToString();
+                    lst.type = "ADN";
+                    lst.separate_issues = dtAdn.Rows[i]["separate_issues"].ToString();
+                    lst.group_number = dtAdn.Rows[i]["group_number"].ToString();
+                    lst.state = "1";
+                    lst.mo_id = "";
+                    lst.goods_id = dtAdn.Rows[i]["goods_id"].ToString();
+                    lst.goods_name = dtAdn.Rows[i]["goods_name"].ToString();
+                    lst.ii_location = dtAdn.Rows[i]["ii_location"].ToString();
+                    lst.issues_qty = int.Parse(dtAdn.Rows[i]["issues_qty"].ToString());
+                    lst.issues_unit = "PCS";
+                    lst.sec_qty = 0;
+                    lst.sec_unit = "KG";
+                    lst.location_qty = int.Parse(dtAdn.Rows[i]["location_qty"].ToString());
+                    lst.obligate_mo_id = "";
+                    lst.lot_no = "";
+                    lst.order_id = dtAdn.Rows[i]["id"].ToString();
+                    lst.so_sequence_id = dtAdn.Rows[i]["sequence_id"].ToString();
+                    groupNumber = lst.group_number;
+                    lstAdn.Add(lst);
+                }
+
+                if (lstAdn.Count > 0)
+                {
+                    ClearA();
+                    this.AddNew();
+                    //****START處理可能有多批準扣除倉數的情況
+                    string sql = string.Empty;
+                    lstWh.Clear();
+                    lstWh.Capacity = lstAdn.Count;
+                    foreach (var item in lstAdn)
                     {
-                        ClearA();
-                        this.AddNew();
-                        //****START處理可能有多批準扣除倉數的情況
-                        string sql = string.Empty;
-                        lstWh.Clear();
-                        foreach (var item in lstAdn)
-                        {
-                            //查倉庫號，貨品編號，批號，庫存數量
-                            sql = string.Format(
-                            @"Select a.location_id,a.mo_id,a.goods_id,b.name as goods_name,Convert(int,a.qty) as qty,a.sec_qty,a.lot_no                    
+                        //查倉庫號，貨品編號，批號，庫存數量
+                        sql = string.Format(
+                        @"Select a.location_id,a.mo_id,a.goods_id,b.name as goods_name,Convert(int,a.qty) as qty,a.sec_qty,a.lot_no                    
                             From st_details_lot a Inner Join it_goods b ON a.within_code=b.within_code And a.goods_id=b.id
                             Where a.within_code='0000' And a.goods_id='{0}' And a.location_id=a.carton_code And a.carton_code<>'ZZZ' 
-                            And location_id ='{1}' And a.qty>0 And a.sec_qty>0 Order by a.update_date", item.goods_id,item.ii_location);
-                            dtTmp = clsErp.GetDataTable(sql);                           
-                            if (dtTmp.Rows.Count > 0)
+                            And location_id ='{1}' And a.qty>0 And a.sec_qty>0 Order by a.update_date", item.goods_id, item.ii_location);
+                        dtTmp = clsErp.GetDataTable(sql);
+                        if (dtTmp.Rows.Count > 0)
+                        {
+                            txtMo_id.Text = dtTmp.Rows[0]["mo_id"].ToString();
+                            txtGoods_name.Text = dtTmp.Rows[0]["goods_name"].ToString();
+                            txtSample_qty.Text = item.issues_qty.ToString();//內部提倉數
+                            txtIssues_qty.Text = "0";
+                            txtSec_qty.Text = "0.00";
+                            txtLot_no.Text = "";
+                            cbeIiLocation.Text = item.ii_location;
+                            chkRemain_flag.Checked = false;
+                            txtRemain_qty.Text = "0";
+                            txtTotalStockQty.Text = item.location_qty.ToString();//總庫存數
+                            txtOrder_id.Text = item.order_id;
+                            txtSo_sequence_id.Text = item.so_sequence_id;
+                            if (item.issues_qty <= item.location_qty)
                             {
-                                txtMo_id.Text = dtTmp.Rows[0]["mo_id"].ToString();
-                                txtGoods_name.Text = dtTmp.Rows[0]["goods_name"].ToString();
-                                txtSample_qty.Text = item.issues_qty.ToString();//內部提倉數
-                                txtIssues_qty.Text ="0"; 
-                                txtSec_qty.Text = "0.00";
-                                txtLot_no.Text = "";
-                                cbeIiLocation.Text = item.ii_location;
-                                chkRemain_flag.Checked = false;
-                                txtRemain_qty.Text = "0";
-                                txtTotalStockQty.Text = item.location_qty.ToString();//總庫存數
-                                txtOrder_id.Text = item.order_id;
-                                txtSo_sequence_id.Text = item.so_sequence_id;
-                                if (item.issues_qty <= item.location_qty)
-                                {
-                                    AddItems();
-                                }
+                                AddItems();
                             }
-                            lstWh.Add(item.ii_location);
-                        }//--end for
-                        var uniqueList1 = lstWh.Distinct().ToList();//倉位去重
-                        foreach (var item in uniqueList1)
-                        {
-                            cbeIiLocation.Properties.Items.Add(item);
                         }
-                        //****END
-                        return;
-                        /*
-                        //顯示批準進度動畫
-                        frmProgress wForm = new frmProgress();
-                        new Thread((ThreadStart)delegate
-                        {
-                            wForm.TopMost = true;
-                            wForm.ShowDialog();
-                        }).Start();
-                        //************************
-                        bool SaveFlag = false;
-                        if (Save())
-                        {
-                            //儲存成功接著執行批準
-                            bool result = Approve(txtId.Text);
-                            if (result)
-                            {
-                                //成功則修正客戶的狀態，以避免重復保存
-                                cbeIiLocation.Properties.Items.Clear();
-                                string strsql = string.Format(
-                                @"Select a.id,Convert(varchar(10),a.issues_date,120) as issues_date,a.it_customer,a.type,a.group_number,a.cd_seller,
-                                b.sequence_id,b.mo_id, b.goods_id,b.goods_name,b.obligate_mo_id,Convert(Int,Isnull(b.issues_qty,0)) As issues_qty,
-                                Round(Convert(float,Isnull(b.sec_qty,0)),2) As sec_qty,b.ii_location,b.lot_no,
-                                Convert(Int,Isnull(b.sample_qty,0)) As sample_qty,Convert(bit,0) As remain_flag,
-                                Round(Convert(float,Isnull(b.remain_qty,0)),2) As remain_qty,a.state,b.order_id,b.so_sequence_id
-                                From so_issues_mostly a with(nolock), so_issues_details b with(nolock)
-                                Where a.id=b.id And a.within_code=b.within_code And a.id='{0}' And a.type='ADI' ORDER BY b.sequence_id", txtId.Text);
-                                dtDetails = clsErp.GetDataTable(strsql);
-                                gridControl1.DataSource = dtDetails;
-                                SetColumnReadOnly(true);
-                                txtState.Text = "1";
-                                SaveFlag = true;
-                            }                            
-                        }
-                        //************************
-                        wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-                        if(SaveFlag)
-                            MessageBox.Show("數據保存（批準）成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        else
-                            MessageBox.Show("數據批準失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        */
+                        lstWh.Add(item.ii_location);
+                    }//--end for
+                    var uniqueList1 = lstWh.Distinct().ToList();//倉位去重
+                    foreach (var item in uniqueList1)
+                    {
+                        cbeIiLocation.Properties.Items.Add(item);
                     }
-                    
+                    //****End                            
                 }
             }
         }
