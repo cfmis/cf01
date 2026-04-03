@@ -91,25 +91,26 @@ namespace cf01.Forms
                     int rowIndex = gridView1.FocusedRowHandle;
                     if (rowIndex >= 0)
                     {
-                        string id = "", moId = "", goodsId = "", locationId = "", lotNo = "", issuesQty = "0";
-                        id = gridView1.GetRowCellValue(rowIndex, "id").ToString();
-                        moId = gridView1.GetRowCellValue(rowIndex, "mo_id").ToString();
-                        goodsId = gridView1.GetRowCellValue(rowIndex, "goods_id").ToString();
-                        locationId = gridView1.GetRowCellValue(rowIndex, "ii_location").ToString();
-                        lotNo = gridView1.GetRowCellValue(rowIndex, "lot_no").ToString();
-                        issuesQty = gridView1.GetRowCellValue(rowIndex, "issues_qty").ToString();
-                        for (int i = gridView1.RowCount - 1; i >= 0; i--)
-                        {
-                            if (gridView1.GetRowCellValue(i, "id").ToString() == id &&
-                                gridView1.GetRowCellValue(i, "mo_id").ToString() == moId &&
-                                gridView1.GetRowCellValue(i, "goods_id").ToString() == goodsId &&
-                                gridView1.GetRowCellValue(i, "ii_location").ToString() == locationId &&
-                                gridView1.GetRowCellValue(i, "lot_no").ToString() == lotNo &&
-                                gridView1.GetRowCellValue(i, "issues_qty").ToString() == issuesQty)
-                            {
-                                gridView1.DeleteRow(i);//移走當前行
-                            }
-                        }
+                        gridView1.DeleteRow(rowIndex);//移走當前行
+                        //string id = "", moId = "", goodsId = "", locationId = "", lotNo = "", issuesQty = "0";
+                        //id = gridView1.GetRowCellValue(rowIndex, "id").ToString();
+                        //moId = gridView1.GetRowCellValue(rowIndex, "mo_id").ToString();
+                        //goodsId = gridView1.GetRowCellValue(rowIndex, "goods_id").ToString();
+                        //locationId = gridView1.GetRowCellValue(rowIndex, "ii_location").ToString();
+                        //lotNo = gridView1.GetRowCellValue(rowIndex, "lot_no").ToString();
+                        //issuesQty = gridView1.GetRowCellValue(rowIndex, "issues_qty").ToString();
+                        //for (int i = gridView1.RowCount - 1; i >= 0; i--)
+                        //{
+                        //    if (gridView1.GetRowCellValue(i, "id").ToString() == id &&
+                        //        gridView1.GetRowCellValue(i, "mo_id").ToString() == moId &&
+                        //        gridView1.GetRowCellValue(i, "goods_id").ToString() == goodsId &&
+                        //        gridView1.GetRowCellValue(i, "ii_location").ToString() == locationId &&
+                        //        gridView1.GetRowCellValue(i, "lot_no").ToString() == lotNo &&
+                        //        gridView1.GetRowCellValue(i, "issues_qty").ToString() == issuesQty)
+                        //    {
+                        //        gridView1.DeleteRow(i);//移走當前行
+                        //    }
+                        //}
                     }
                 }
             }

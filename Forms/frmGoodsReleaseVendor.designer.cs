@@ -43,9 +43,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNDELETE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.txtTemp_code.Properties)).BeginInit();
             this.panel3.SuspendLayout();
@@ -226,20 +226,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
-            // BTNCANCEL
-            // 
-            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
-            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 35);
-            this.BTNCANCEL.Text = "恢復(&U)";
-            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-            // 
             // BTNSAVE
             // 
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
@@ -248,6 +234,20 @@
             this.BTNSAVE.Size = new System.Drawing.Size(66, 35);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            // 
+            // BTNCANCEL
+            // 
+            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
+            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNCANCEL.Name = "BTNCANCEL";
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 35);
+            this.BTNCANCEL.Text = "恢復(&U)";
+            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
             // toolStripSeparator4
             // 
