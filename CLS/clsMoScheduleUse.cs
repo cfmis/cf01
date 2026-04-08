@@ -1519,7 +1519,7 @@ namespace cf01.CLS
                 worksheet.Cells["A1"].Value = "每日新制單" + System.DateTime.Now.ToString("yyyy/MM/dd"); // 设置值
                                                                                                                                   // 设置合并单元格的样式（可选）
 
-                worksheet.Cells["A1:E1"].Merge = true; // 合并 A1 到 H1
+                worksheet.Cells["A1:F1"].Merge = true; // 合并 A1 到 H1
                 worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
                 excelRow++;
 
@@ -1529,6 +1529,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 3].Value = "制單編號";
                 worksheet.Cells[excelRow, 4].Value = "待生產數量";
                 worksheet.Cells[excelRow, 5].Value = "新加日期";
+                worksheet.Cells[excelRow, 6].Value = "規格";
                 worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
                 excelRow++;
                 for (int i = 0; i < dtNewExcel.Rows.Count; i++)
@@ -1540,6 +1541,7 @@ namespace cf01.CLS
                     worksheet.Cells[excelRow, 3].Value = drExcel["prd_mo"];
                     worksheet.Cells[excelRow, 4].Value = drExcel["not_cp_qty"];
                     worksheet.Cells[excelRow, 5].Value = drExcel["schedule_date"];
+                    worksheet.Cells[excelRow, 6].Value = drExcel["goods_spec"];
                     worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
                     excelRow++;
                 }
@@ -1549,7 +1551,7 @@ namespace cf01.CLS
                 worksheet.Column(3).Width = 12;
                 worksheet.Column(4).Width = 12;
                 worksheet.Column(5).Width = 10;
-
+                worksheet.Column(6).Width = 28;
                 //Cells[excelRow, 13]
                 // 设置动态范围
                 string colStr = $"D3:D{excelRow}"; // 动态计算行数
