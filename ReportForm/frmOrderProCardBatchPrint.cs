@@ -108,16 +108,8 @@ namespace cf01.ReportForm
                     return;
                 }
             }
-            string strDate1 = "", strDate2 = "";
-            if (txtCon_date1.Text != "")
-            {
-                strDate1 = DateTime.Parse(txtCon_date1.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss");
-            }
-            if (txtCon_date2.Text != "")
-            {
-                strDate2 = DateTime.Parse(txtCon_date2.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss");
-            }
-
+            string strDate1 = (txtCon_date1.Text != "") ? DateTime.Parse(txtCon_date1.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss") : "";
+            string strDate2 = (txtCon_date2.Text != "") ? DateTime.Parse(txtCon_date2.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss") : "";
             SqlParameter[] paras = new SqlParameter[]
             {
                     //yyyy/MM/dd HH:mm:ss
@@ -229,7 +221,7 @@ namespace cf01.ReportForm
             dtReport = dtDetails.Clone();
             dtReport.Columns.Add("report_name", typeof(string));
 
-            int intTotalPage;
+            int intTotalPage = 0;
             DataRow drow;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
@@ -238,19 +230,17 @@ namespace cf01.ReportForm
                     drow = gridView1.GetDataRow(i);                   
                     if (string.IsNullOrEmpty(dtDetails.Rows[i]["total_page"].ToString()))
                     {
-                        intTotalPage = 1;
-                        drow["total_page"] = intTotalPage;
+                        drow["total_page"] = 1;
                     }
                     intTotalPage = int.Parse(dtDetails.Rows[i]["total_page"].ToString());
                     if (intTotalPage < 0)
                     {
-                        intTotalPage = Math.Abs(intTotalPage);
-                        drow["total_page"] = intTotalPage;
+                        drow["total_page"] = Math.Abs(intTotalPage);
                     }                    
                     for (int j = 1; j <= intTotalPage; j++)
                     {
                         drow["page_num"] = j;
-                        dtReport.Rows.Add(drow.ItemArray);
+                        dtReport.Rows.Add(drow.ItemArray);//添加行對象
                     }                    
                 }
             }

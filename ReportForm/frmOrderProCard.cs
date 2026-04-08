@@ -204,6 +204,7 @@ namespace cf01.ReportForm
                         next_vendor_id.Text = dt.Rows[0]["vendor_id"].ToString();
                         next_do_color.Text = dt.Rows[0]["do_color"].ToString();
                         next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
+                        next_sequence_id.Text = dt.Rows[0]["sequence_id"].ToString(); //added 20260407 allen
                         //處理下下部門有大于一個流程情況
                         string strNextWpId = "", spacing = "\n\r"; ;
                         for (int j=0;j< dt.Rows.Count;j++)
@@ -226,6 +227,7 @@ namespace cf01.ReportForm
                     else
                     {
                         next_goods_id.Text = "";
+                        next_sequence_id.Text = "";
                         next_next_wp_id.Text = "";
                         next_vendor_id.Text = "";
                         next_do_color.Text = "";
@@ -494,8 +496,9 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("goods_name", typeof(string));
                     dtNewWork.Columns.Add("net_weight", typeof(string));
                     dtNewWork.Columns.Add("BarCode", typeof(string));
+                    dtNewWork.Columns.Add("BarCode_next", typeof(string));//added 2026/04/07 allen
 
-                    dtNewWork.Columns.Add("next_goods_id", typeof(string));
+                    dtNewWork.Columns.Add("next_goods_id", typeof(string));                   
                     dtNewWork.Columns.Add("next_do_color", typeof(string));
                     dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
                     dtNewWork.Columns.Add("next_vendor_id", typeof(string));
@@ -601,8 +604,10 @@ namespace cf01.ReportForm
                             }
                             //條碼
                             dr["BarCode"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2,'0'), txtSequenceId.Text.Substring(2, 2)));
+                            //條碼 added allen 20260407
+                            dr["BarCode_next"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2, '0'), next_sequence_id.Text.Substring(2, 2)));
                             //下部物料相關信息
-                            dr["next_goods_id"]=next_goods_id.Text;
+                            dr["next_goods_id"]= next_goods_id.Text;
                             dr["next_do_color"] = next_do_color.Text;
                             dr["next_next_wp_id"] = next_next_wp_id.Text;
                             dr["next_vendor_id"] = txtVender_id.Text.Trim(); //next_vendor_id.Text;

@@ -234,6 +234,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtIssues_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtIssues_date2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtIssues_date2.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.txtIssues_date2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtIssues_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtIssues_date2.Properties.Mask.UseMaskAsDisplayFormat = true;

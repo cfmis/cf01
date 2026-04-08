@@ -114,6 +114,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtModule_loc = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtArtwork_id = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtdept_remark = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -174,10 +178,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtArtwork_id = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtModule_loc = new System.Windows.Forms.TextBox();
+            this.next_sequence_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1098,6 +1099,44 @@
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(750, 347);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 12);
+            this.label21.TabIndex = 111;
+            this.label21.Text = "模具位置:";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtModule_loc
+            // 
+            this.txtModule_loc.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtModule_loc.Location = new System.Drawing.Point(808, 342);
+            this.txtModule_loc.Name = "txtModule_loc";
+            this.txtModule_loc.ReadOnly = true;
+            this.txtModule_loc.Size = new System.Drawing.Size(139, 23);
+            this.txtModule_loc.TabIndex = 110;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(774, 372);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(32, 12);
+            this.label20.TabIndex = 109;
+            this.label20.Text = "畫稿:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtArtwork_id
+            // 
+            this.txtArtwork_id.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtArtwork_id.Location = new System.Drawing.Point(808, 367);
+            this.txtArtwork_id.Name = "txtArtwork_id";
+            this.txtArtwork_id.ReadOnly = true;
+            this.txtArtwork_id.Size = new System.Drawing.Size(139, 23);
+            this.txtArtwork_id.TabIndex = 108;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -1120,11 +1159,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(5, 630);
+            this.label18.Location = new System.Drawing.Point(14, 630);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 12);
+            this.label18.Size = new System.Drawing.Size(56, 12);
             this.label18.TabIndex = 105;
-            this.label18.Text = "工序做法";
+            this.label18.Text = "工序做法:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtProcessRemark
@@ -1232,6 +1271,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.next_sequence_id);
             this.panel2.Controls.Add(this.txtQc_qty);
             this.panel2.Controls.Add(this.txtQc_name);
             this.panel2.Controls.Add(this.label15);
@@ -1387,7 +1427,7 @@
             this.next_goods_id.BackColor = System.Drawing.SystemColors.Control;
             this.next_goods_id.Location = new System.Drawing.Point(126, 27);
             this.next_goods_id.Name = "next_goods_id";
-            this.next_goods_id.Size = new System.Drawing.Size(261, 22);
+            this.next_goods_id.Size = new System.Drawing.Size(217, 22);
             this.next_goods_id.TabIndex = 85;
             // 
             // next_do_color
@@ -1656,43 +1696,13 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // label20
+            // next_sequence_id
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(774, 372);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(32, 12);
-            this.label20.TabIndex = 109;
-            this.label20.Text = "畫稿:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtArtwork_id
-            // 
-            this.txtArtwork_id.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtArtwork_id.Location = new System.Drawing.Point(808, 367);
-            this.txtArtwork_id.Name = "txtArtwork_id";
-            this.txtArtwork_id.ReadOnly = true;
-            this.txtArtwork_id.Size = new System.Drawing.Size(139, 23);
-            this.txtArtwork_id.TabIndex = 108;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(750, 347);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 12);
-            this.label21.TabIndex = 111;
-            this.label21.Text = "模具位置:";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtModule_loc
-            // 
-            this.txtModule_loc.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtModule_loc.Location = new System.Drawing.Point(808, 342);
-            this.txtModule_loc.Name = "txtModule_loc";
-            this.txtModule_loc.ReadOnly = true;
-            this.txtModule_loc.Size = new System.Drawing.Size(139, 23);
-            this.txtModule_loc.TabIndex = 110;
+            this.next_sequence_id.Location = new System.Drawing.Point(349, 27);
+            this.next_sequence_id.Name = "next_sequence_id";
+            this.next_sequence_id.ReadOnly = true;
+            this.next_sequence_id.Size = new System.Drawing.Size(59, 22);
+            this.next_sequence_id.TabIndex = 106;
             // 
             // frmOrderProCard
             // 
@@ -1869,5 +1879,6 @@
         private System.Windows.Forms.TextBox txtModule_loc;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtArtwork_id;
+        private System.Windows.Forms.TextBox next_sequence_id;
     }
 }

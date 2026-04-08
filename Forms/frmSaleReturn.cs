@@ -90,7 +90,13 @@ namespace cf01.Forms
 
         private void txtIssues_date1_Leave(object sender, EventArgs e)
         {
-            txtIssues_date2.Text = txtIssues_date1.Text;
+            if (txtIssues_date1.Text != "")
+            {
+                txtIssues_date2.Text = txtIssues_date1.Text;
+            }
+            else
+                txtIssues_date2.EditValue = null;
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)

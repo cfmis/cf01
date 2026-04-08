@@ -1186,6 +1186,7 @@ namespace cf01.CLS
             dtCard.Columns.Add("get_color_sample_name", typeof(string));
             dtCard.Columns.Add("goods_name", typeof(string));
             dtCard.Columns.Add("BarCode", typeof(string));
+            dtCard.Columns.Add("BarCode_next", typeof(string));
             dtCard.Columns.Add("goods_id", typeof(string));
             dtCard.Columns.Add("brand_id", typeof(string));
             dtCard.Columns.Add("prod_qty", typeof(string));

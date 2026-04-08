@@ -197,6 +197,7 @@ namespace cf01.ReportForm
             
             //======查找當前責任部門,當前貨品的下一步流程的相關信息======
             dtDelivery.Columns.Add("current_goods_id", typeof(string));
+            dtDelivery.Columns.Add("barcode_id_next", typeof(string));
             dtDelivery.Columns.Add("current_goods_name", typeof(string));
             dtDelivery.Columns.Add("current_req_date", typeof(string));
             dtDelivery.Columns.Add("current_prod_qty", typeof(float));
@@ -220,18 +221,21 @@ namespace cf01.ReportForm
 
 
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
+           
             string dept = "";
             DataRow drow = null, drNext = null; 
             DataTable dtNextDept = new DataTable();
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
-                drow = dtDelivery.Rows[i];
+                drow = dtDelivery.Rows[i]; //循環行對象，并對行對象賦值
                 dept = drow["in_dept"].ToString();
+                //取下部門流程資料
                 dtNextDept = getNextDepItem(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString());
                 if (dtNextDept.Rows.Count > 0)
                 {
                     drNext = dtNextDept.Rows[0];
                     drow["current_goods_id"] = drNext["goods_id"];
+                    drow["barcode_id_next"] = drNext["barcode_id_next"];
                     drow["current_goods_name"] = drNext["goods_name"];
                     drow["next_wp_id"] = drNext["next_wp_id"];
                     drow["next_wp_name"] = drNext["next_wp_name"];
@@ -272,34 +276,37 @@ namespace cf01.ReportForm
             //如果是102或108的，則只提取該部門發出物料的相關流程即可
             if (wp_id == "102" || wp_id == "108")
             {
-                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color," +
-                    "b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
-                strSql += " FROM jo_bill_mostly a with(nolock)";
-                strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                        " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
-                        " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
-                        " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND b.goods_id='" + goods_id + "'" +
-                        " AND b.wp_id='" + wp_id + "'";
+                strSql =string.Format(
+                @"Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
+                 b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ,
+                 dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
+                 FROM jo_bill_mostly a with(nolock)
+                 INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+                 INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
+                 LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id
+                 WHERE a.within_code='{0}' AND a.mo_id='{1}' AND b.goods_id='{2}' AND b.wp_id='{3}'", within_code, mo_id, goods_id, wp_id);
                 dt = clsConErp.GetDataTable(strSql);
             }
             else
             {
-                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color," +
-                    "b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
-                strSql += " FROM jo_bill_mostly a with(nolock)";
-                strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                        " INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
-                        " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
-                        " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
-                        " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND c.materiel_id='" + goods_id + "'" +
-                        " AND b.wp_id='" + wp_id + "'";
+                strSql = string.Format(
+                @" Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
+                b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date,
+                dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
+                FROM jo_bill_mostly a with(nolock)
+                INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+                INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence
+                INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
+                LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id
+                WHERE a.within_code='{0}' And a.mo_id='{1}' And c.materiel_id='{2}' And b.wp_id='{3}'", within_code, mo_id, goods_id, wp_id);
                 dt= clsConErp.GetDataTable(strSql);
                 if (dt.Rows.Count == 0)
                 {
                     //收貨部門的貨品編號為空時,換另一種方法查找
                     strSql = string.Format(
                     @"Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
-                      b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date 
+                    b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date,
+                    dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next 
                     FROM jo_bill_mostly a with(nolock)
                     INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
                     INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
@@ -439,6 +446,7 @@ namespace cf01.ReportForm
                     drow["con_qty"] = dtDelivery.Rows[i]["con_qty"];
                     drow["sec_qty"] = dtDelivery.Rows[i]["sec_qty"];
                     drow["barcode_id"] = dtDelivery.Rows[i]["barcode_id"].ToString();
+                    drow["barcode_id_next"] = dtDelivery.Rows[i]["barcode_id_next"].ToString(); // add allen 20260408
                     drow["sequence_id"] = dtDelivery.Rows[i]["sequence_id"].ToString();
                     drow["picture_name"] = dtDelivery.Rows[i]["picture_name"].ToString();
                     drow["do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
@@ -507,6 +515,7 @@ namespace cf01.ReportForm
                                 drw["con_qty"] = dtDelivery.Rows[i]["con_qty"];
                                 drw["sec_qty"] = dtDelivery.Rows[i]["sec_qty"];
                                 drw["barcode_id"] = dtDelivery.Rows[i]["barcode_id"].ToString();
+                                drw["barcode_id_next"] = dtDelivery.Rows[i]["barcode_id_next"].ToString();
                                 drw["sequence_id"] = dtDelivery.Rows[i]["sequence_id"].ToString();
                                 drw["picture_name"] = dtDelivery.Rows[i]["picture_name"].ToString();
                                 drw["do_color"] = dtDelivery.Rows[i]["do_color"].ToString();
@@ -672,6 +681,7 @@ namespace cf01.ReportForm
                                 drow["get_color_sample_name"] = dtCard.Rows[j]["get_color_sample_name"].ToString();
                                 drow["goods_name"] = dtCard.Rows[j]["goods_name"].ToString();
                                 drow["BarCode"] = dtCard.Rows[j]["BarCode"].ToString();
+                                drow["BarCode_next"] = dtCard.Rows[j]["BarCode_next"].ToString(); //2026/04/07 add allen
                                 drow["goods_id"] = dtCard.Rows[j]["goods_id"].ToString();
                                 drow["brand_id"] = dtCard.Rows[j]["brand_id"].ToString();
                                 drow["prod_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["prod_qty"].ToString()) ? 0 : dtCard.Rows[j]["prod_qty"];
