@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using cf01.MDL;
+using System.Text;
 
 namespace cf01.CLS
 {
@@ -669,7 +670,7 @@ namespace cf01.CLS
             DataTable dtPs = new DataTable();
             try
             {
-                string strSql = String.Format(
+                string strSql = string.Format(
                       @"SELECT a.id,b.dosage,b.unit_code,b.base_qty,'' as pe_qty,'' as step" +
                         " FROM it_bom_mostly a with(nolock)" +
                         " LEFT JOIN it_bom b with(nolock) ON a.within_code=b.within_code and a.id=b.id AND a.exp_id=b.exp_id" +
@@ -679,12 +680,12 @@ namespace cf01.CLS
                 if (dtPs.Rows.Count > 0)
                 {
                     dtPs.Rows[0]["pe_qty"] = 
-                        String.Format("{0}{1}/{2}PCS", Convert.ToDouble(dtPs.Rows[0]["dosage"]), dtPs.Rows[0]["unit_code"], dtPs.Rows[0]["base_qty"]);
+                        string.Format("{0}{1}/{2}PCS", Convert.ToDouble(dtPs.Rows[0]["dosage"]), dtPs.Rows[0]["unit_code"], dtPs.Rows[0]["base_qty"]);
 
                     //根據上面查詢的bom id ,獲取工序
 
                     DataTable dtstep = new DataTable();
-                    strSql = String.Format(@"SELECT A.process_id+B.Proc_Name as step FROM aps_it_bom_details A
+                    strSql = string.Format(@"SELECT A.process_id+B.Proc_Name as step FROM aps_it_bom_details A
                                             LEFT JOIN Process B ON A.within_code=B.within_code AND A.process_id=B.Proc_Code
                                             WHERE bom_id='{0}'", dtPs.Rows[0]["id"]);
                     dtstep = clsConErp.GetDataTable(strSql);
@@ -870,7 +871,7 @@ namespace cf01.CLS
             DataTable dtFind = clsPublicOfCF01.GetDataTable(sql_f);
             if (dtFind.Rows.Count == 0)
             {
-                Boolean save_flag = false;
+                bool save_flag = false;
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
                 myCon.Open();
                 SqlTransaction myTrans = myCon.BeginTransaction();
@@ -910,7 +911,7 @@ namespace cf01.CLS
             else
             {
                 string str_old_process_group_id = dtFind.Rows[0]["process_group_id"].ToString();
-                DialogResult result = MessageBox.Show(String.Format("註意：已存在一個設置值：\n\n{0}\n\n是否要新值【{1}】覆蓋舊值？", str_old_process_group_id, pGroup_id), "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("註意：已存在一個設置值：\n\n{0}\n\n是否要新值【{1}】覆蓋舊值？", str_old_process_group_id, pGroup_id), "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {                   
                     SqlParameter[] paras = new SqlParameter[] {
@@ -1028,14 +1029,14 @@ namespace cf01.CLS
         /// <returns></returns>
         public static string Get_do_color_next_dep(string pMo,string pGoods_id,string pDep)
         {
-            string strSql = String.Format("SELECT dbo.fn_up_level_goods('{0}','{1}','{2}') as goods_id", pMo, pGoods_id, pDep);
+            string strSql = string.Format("SELECT dbo.fn_up_level_goods('{0}','{1}','{2}') as goods_id", pMo, pGoods_id, pDep);
 
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             string strGoods_id = dt.Rows[0]["goods_id"].ToString();
             string strdo_color = "";
             if (!string.IsNullOrEmpty(strGoods_id))
             {
-                strSql = String.Format(
+                strSql = string.Format(
                     @"SELECT B.do_color From dgerp2.cferp.dbo.it_goods A with(nolock) 
                         INNER JOIN dgerp2.cferp.dbo.cd_color B with(nolock) 
                             ON A.within_code=B.within_code AND A.color=B.id
@@ -1130,7 +1131,7 @@ namespace cf01.CLS
         public static DataTable GetNextItem(string mo_id, string goods_id)
         {
             string strSql = string.Format(
-                @"SELECT a.wp_id,a.goods_id,c.name AS goods_name,a.next_wp_id,d.name AS next_wp_name,c.do_color
+                @"SELECT a.wp_id,a.goods_id,c.name AS goods_name,a.next_wp_id,d.name AS next_wp_name,c.do_color,a.sequence_id
 	            FROM jo_bill_goods_details a with(nolock) 
 	            INNER JOIN ( SELECT Top 1 aa.within_code,aa.id,aa.ver,bb.upper_sequence
 				             FROM jo_bill_mostly aa with(nolock)
@@ -1159,23 +1160,26 @@ namespace cf01.CLS
 
         public static DataTable getNextDepItem(string mo_id,string wp_id,string goods_id)
         {
-            string strSql = "";
-            strSql += " Select aa.wp_id,aa.goods_id,aa.next_wp_id,dd.name AS next_dep_name,bb.goods_id AS next_goods_id,mm.name AS next_goods_name" +
-                    ",mm.do_color AS next_do_color,aa.vendor_id AS next_vendor_id ";
-            strSql += " FROM (";
-            strSql += "SELECT a.within_code,a.id,a.ver,a.mo_id,b.sequence_id,b.wp_id,b.next_wp_id,b.goods_id,b.vendor_id " +
-                    " FROM jo_bill_mostly a " +
-                    " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                    " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND b.wp_id='" + wp_id + "' AND b.goods_id='" + goods_id + "'";
-            strSql += " ) aa ";
-            strSql += " INNER JOIN jo_bill_goods_details bb ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver AND aa.next_wp_id=bb.wp_id" +
-                    " INNER JOIN jo_bill_materiel_details cc ON bb.within_code=cc.within_code AND bb.id=cc.id AND bb.ver=cc.ver AND bb.sequence_id=cc.upper_sequence AND aa.goods_id=cc.materiel_id" +
-                    " INNER JOIN it_goods mm ON bb.within_code=mm.within_code AND bb.goods_id=mm.id"+
-                    " LEFT JOIN cd_department dd ON bb.within_code=dd.within_code AND bb.next_wp_id=dd.id";
-
-            DataTable dt = clsConErp.GetDataTable(strSql);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format(
+            @"Select aa.wp_id,aa.goods_id,aa.next_wp_id,dd.name AS next_dep_name,bb.goods_id AS next_goods_id,bb.sequence_id,
+            dbo.StrToCode128B(aa.mo_id + Right(CONVERT(varchar(3),(100+aa.ver)),2) + substring(bb.sequence_id,3,2)) AS barcode_next,
+            mm.name AS next_goods_name,mm.do_color AS next_do_color,aa.vendor_id AS next_vendor_id
+            FROM (SELECT a.within_code,a.id,a.ver,a.mo_id,b.sequence_id,b.wp_id,b.next_wp_id,b.goods_id,b.vendor_id 
+                  FROM jo_bill_mostly a with(nolock)
+                  INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+                  WHERE a.within_code='{0}' AND a.mo_id='{1}' AND b.wp_id='{2}' AND b.goods_id='{3}'
+                 ) aa 
+             INNER JOIN jo_bill_goods_details bb ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver AND aa.next_wp_id=bb.wp_id
+             INNER JOIN jo_bill_materiel_details cc ON bb.within_code=cc.within_code AND bb.id=cc.id AND bb.ver=cc.ver AND bb.sequence_id=cc.upper_sequence AND aa.goods_id=cc.materiel_id
+             INNER JOIN it_goods mm ON bb.within_code=mm.within_code AND bb.goods_id=mm.id
+             LEFT JOIN cd_department dd ON bb.within_code=dd.within_code AND bb.next_wp_id=dd.id", 
+            within_code, mo_id,wp_id,goods_id));
+            DataTable dt = clsConErp.GetDataTable(sb.ToString());
             return dt;
         }
+
+
         public static DataTable GenWorkerCard()
         {
             //生成工序卡的表結構
@@ -1232,6 +1236,7 @@ namespace cf01.CLS
             dtCard.Columns.Add("qc_test", typeof(string));
             dtCard.Columns.Add("process_remark", typeof(string));
             dtCard.Columns.Add("dept_remark", typeof(string));
+            dtCard.Columns.Add("spec", typeof(string));
             return dtCard;
         }
     }

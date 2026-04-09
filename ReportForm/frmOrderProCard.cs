@@ -166,6 +166,7 @@ namespace cf01.ReportForm
                     txtdept_remark.Text = lsModel[i].dept_remark;
                     txtArtwork_id.Text = lsModel[i].artwork_id;
                     txtModule_loc.Text = lsModel[i].module_loc;
+                    txtSpec.Text = lsModel[i].spec;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -372,7 +373,8 @@ namespace cf01.ReportForm
                         process_remark = dtGoodsInfo.Rows[i]["process_remark"].ToString(),
                         dept_remark = dtGoodsInfo.Rows[i]["dept_remark"].ToString(),
                         artwork_id = dtGoodsInfo.Rows[i]["artwork_id"].ToString(),
-                        module_loc = dtGoodsInfo.Rows[i]["module_loc"].ToString()
+                        module_loc = dtGoodsInfo.Rows[i]["module_loc"].ToString(),
+                        spec = dtGoodsInfo.Rows[i]["spec"].ToString()
                     };
                     lsModel.Add(objModel);
                 } //--end for 
@@ -625,6 +627,7 @@ namespace cf01.ReportForm
                             dr["process_remark"] = txtProcessRemark.Text;
                             dr["artwork_id"] = txtArtwork_id.Text;
                             dr["module_loc"] = txtModule_loc.Text;
+                            dr["spec"] = txtSpec.Text;
                             dtNewWork.Rows.Add(dr);
                         }
                     }

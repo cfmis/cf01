@@ -58,57 +58,64 @@ namespace cf01.ReportForm
 
         private void loadData()
         {
-            string within_code = DBUtility.within_code;
-            string strSql = "";
-            strSql += " Select a.id,Convert(VARCHAR(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
-                ",a.department_id,d.name AS DepCdesc,b.sequence_id,b.mo_id,b.goods_id,c.name AS goods_cname,b.do_color" +
-                ",b.prod_qty,b.goods_unit" +
-                ",b.sec_qty,b.sec_unit,b.package_num,Convert(VARCHAR(20),b.t_complete_date,111) AS RequestReturnDate" +
-                " FROM op_outpro_out_mostly a" +
-                " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
-                " INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
-                " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +                
-                " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";           
+            string within_code = DBUtility.within_code;            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"Select CAST(0 AS bit) AS SelectFlag, a.id,Convert(VARCHAR(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor,
+                a.department_id,d.name AS DepCdesc,b.sequence_id,b.mo_id,b.goods_id,c.name AS goods_cname,b.do_color,
+                b.prod_qty,b.goods_unit,b.sec_qty,b.sec_unit,b.package_num,Convert(VARCHAR(20),b.t_complete_date,111) AS RequestReturnDate
+                FROM op_outpro_out_mostly a with(nolock)
+                 INNER JOIN op_outpro_out_displace b with(nolock) ON a.within_code=b.within_code AND a.id=b.id
+                 INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id 
+                 INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id
+                 WHERE a.within_code='0000' ");
+            //strSql += " Select a.id,Convert(VARCHAR(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
+            //    ",a.department_id,d.name AS DepCdesc,b.sequence_id,b.mo_id,b.goods_id,c.name AS goods_cname,b.do_color" +
+            //    ",b.prod_qty,b.goods_unit" +
+            //    ",b.sec_qty,b.sec_unit,b.package_num,Convert(VARCHAR(20),b.t_complete_date,111) AS RequestReturnDate" +
+            //    " FROM op_outpro_out_mostly a" +
+            //    " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
+            //    " INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
+            //    " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +                
+            //    " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";         
+            if (txtID1.Text != "")
+                sb.Append(string.Format(" AND a.id>='{0}'", txtID1.Text ));
+            if (txtID2.Text != "")
+                sb.Append(string.Format(" AND a.id<='{0}'", txtID2.Text));            
             if (txtDat1.Text != "")
-            {               
-                strSql += " AND a.issue_date>='" + txtDat1.Text.Trim() + "'";
+            {
+                sb.Append(string.Format(" AND a.issue_date>='{0}'", txtDat1.Text.Trim()));
             }
             if (txtDat2.Text != "")
             {
                 string dateTo = Convert.ToDateTime(txtDat2.Text).AddDays(1).ToString("yyyy/MM/dd");
-                strSql += " AND a.issue_date<'" + dateTo + "'";
+                sb.Append(string.Format(" AND a.issue_date<'{0}'", dateTo));
             }
             if (txtVendor_id1.Text != "" )
-                strSql += " AND a.vendor_id>='" + txtVendor_id1.EditValue + "'";
+                sb.Append(string.Format(" AND a.vendor_id>='{0}'",txtVendor_id1.EditValue));
             if (txtVendor_id2.Text != "")
-                strSql += " AND a.vendor_id<='" + txtVendor_id2.EditValue + "'";
+                sb.Append(string.Format(" AND a.vendor_id<='{0}'" ,txtVendor_id2.EditValue));
             if (txtDepFrom.Text != "")
-                strSql += " AND a.department_id>='" + txtDepFrom.Text + "'";
+                sb.Append(string.Format(" AND a.department_id>='{0}'", txtDepFrom.Text));
             if (txtDepTo.Text != "")
-                strSql += " AND a.department_id<='" + txtDepTo.Text + "'";           
-            if (txtID1.Text != "")
-                strSql += " AND a.id>='" + txtID1.Text + "'";
-            if (txtID2.Text != "")
-                strSql += " AND a.id<='" + txtID2.Text + "'";
+                sb.Append(string.Format(" AND a.department_id<='{0}'", txtDepTo.Text));
+            sb.Append(" AND a.state <> '2'");
             if (txtMoFrom.Text != "")
-                strSql += " AND b.mo_id>='" + txtMoFrom.Text + "'";
+                sb.Append(string.Format(" AND b.mo_id>='{0}'",txtMoFrom.Text));
             if (txtMoTo.Text != "")
-                strSql += " AND b.mo_id<='" + txtMoTo.Text + "'";
-
-            strSql += " ORDER BY a.department_id,a.vendor_id,a.issue_date,a.id";
-
-
-
+                sb.Append(string.Format(" AND b.mo_id<='{0}'",txtMoTo.Text));
+            sb.Append(" ORDER BY a.department_id,a.vendor_id,a.issue_date,a.id");
             //dtPlate = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_OutProcessPrint", paras);
             clsPublicOfGEO clsGeo = new clsPublicOfGEO();
-            dtPlate = clsGeo.GetDataTable(strSql);
-            dtPlate.Columns.Add("SelectFlag", typeof(bool));
+            dtPlate = clsGeo.GetDataTable(sb.ToString());
+            //dtPlate.Columns.Add("SelectFlag", typeof(bool));
             //.ExecuteProcedureReturnTable("usp_OutProcessPrint", paras);
             dgvDetails.DataSource = dtPlate;
             if (dtPlate.Rows.Count > 0)
             {
                 for (int i = 0; i < dtPlate.Rows.Count; i++)
+                {
                     dtPlate.Rows[i]["SelectFlag"] = false;
+                }                    
             }
             else
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -307,6 +314,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("crtime", typeof(string));
             dtNewWork.Columns.Add("mould_no", typeof(string));
             dtNewWork.Columns.Add("BarCode", typeof(string));
+            dtNewWork.Columns.Add("BarCode_next", typeof(string));
             dtNewWork.Columns.Add("goods_position", typeof(string));
             dtNewWork.Columns.Add("pe_qty", typeof(string));
             dtNewWork.Columns.Add("step", typeof(string));
@@ -341,7 +349,7 @@ namespace cf01.ReportForm
             string plate_remark = "";
             string do_color_next_dep = "";
             DataGridViewRow dgr=new DataGridViewRow();
-            DataTable dt_wk = new DataTable();
+            DataTable dtWk = new DataTable();
             DataTable dtArt = new DataTable();
             DataTable dtPosition = new DataTable();
             DataTable dtQty = new DataTable();
@@ -364,7 +372,7 @@ namespace cf01.ReportForm
                     item = dgr.Cells["colGoodsId"].Value.ToString().Trim();
                     if (dep != "" && mo_id != "" && item != "")
                     {                        
-                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
+                        dtWk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
                         dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
                         dtPosition = clsMo_for_jx.GetPosition(item);
                         dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
@@ -384,9 +392,9 @@ namespace cf01.ReportForm
                             order_qty_pcs = Convert.ToInt32(dtQty.Rows[0]["order_qty_pcs"]);
                             plate_remark = dtQty.Rows[0]["plate_remark"].ToString();
                         }
-                        if (dt_wk.Rows.Count > 0)
+                        if (dtWk.Rows.Count > 0)
                         {                           
-                            drDtWk = dt_wk.Rows[0];
+                            drDtWk = dtWk.Rows[0];
                             //默認這里每次生產數量與生產總量是一樣的,所以只列印一頁,考慮到報表的通用性,所以分頁也要進行以下處理
                             int Per_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);    //生產總量
@@ -503,7 +511,7 @@ namespace cf01.ReportForm
                                     dr["step"] = dtPs.Rows[0]["step"].ToString();
                                 }
                                 //條碼Barcode
-                                dr["BarCode"] = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
+                                dr["BarCode"] = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + drDtWk["ver"].ToString().PadLeft(2,'0') + drDtWk["sequence_id"].ToString().Substring(2, 2));
                                 //貨倉位置
                                 dr["goods_position"] = clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
                                 dr["do_color_next_dep"] = do_color_next_dep;
@@ -516,6 +524,7 @@ namespace cf01.ReportForm
                                     dr["next_do_color"] = drNextDep["next_do_color"];
                                     dr["next_vendor_id"] = drNextDep["next_vendor_id"];
                                     dr["next_goods_name"] = drNextDep["next_goods_name"];
+                                    dr["barcode_next"] = drNextDep["barcode_next"];
                                 }
                                 dr["next_next_wp_id"] = "";// dgr.Cells["next_next_wp_id"].Value.ToString();
                                 dr["next_next_dep_name"] = "";// dgr.Cells["next_next_dep_name"].Value.ToString();
@@ -549,15 +558,10 @@ namespace cf01.ReportForm
 
             if (dtNewWork.Rows.Count > 0)
             {
-                //xtaWork_jx xr = new xtaWork_jx();舊報表注釋于2016-03-04
-                //xr.DataSource = dtNewWork;
-                //xr.ShowPreviewDialog();
-                //xtaWorkjx xr = new xtaWorkjx() { DataSource = dtNewWork };
-                
                 xtaWork_No_BarCode rpt = new xtaWork_No_BarCode() { DataSource = dtNewWork };
                 rpt.CreateDocument();
                 rpt.PrintingSystem.ShowMarginsWarning = false;
-                rpt.ShowPreview();               
+                rpt.ShowPreview();
             }
 
         }

@@ -265,16 +265,15 @@ namespace cf01.ReportForm
             XtraReport rpt;
             if (!chkPaperA4.Checked)
             {
-                rpt = new xtaWork_No_BarCode() { DataSource = dtReport };                
+                rpt = new xtaWork_No_BarCode() { DataSource = dtReport };
             }
             else
             {
-                rpt = new xtaWork_No_BarCodeA4() { DataSource = dtReport };               
+                rpt = new xtaWork_No_BarCodeA4() { DataSource = dtReport };
             }
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
-            rpt.ShowPreviewDialog();
-           
+            rpt.ShowPreviewDialog();           
         }
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)

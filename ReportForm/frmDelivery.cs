@@ -489,7 +489,7 @@ namespace cf01.ReportForm
                     drow["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
                     drow["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
                     drow["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
-
+                    drow["spec"] = dtDelivery.Rows[i]["spec"].ToString();
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
@@ -557,6 +557,7 @@ namespace cf01.ReportForm
                                 drw["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
                                 drw["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
                                 drw["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
+                                drw["spec"] = dtDelivery.Rows[i]["spec"].ToString();
                                 dtReport.Rows.Add(drw);
                             }
                         }
@@ -749,6 +750,7 @@ namespace cf01.ReportForm
                                 drow["qc_test"] = dtCard.Rows[j]["qc_test"].ToString();
                                 drow["process_remark"] = dtCard.Rows[j]["process_remark"].ToString();
                                 drow["dept_remark"] = dtCard.Rows[j]["dept_remark"].ToString();
+                                drow["spec"] = dtCard.Rows[j]["spec"].ToString();
                                 dtNewWork.Rows.Add(drow);
                             }
                         }
