@@ -560,9 +560,9 @@
             // 
             this.xrLine23.Dpi = 254F;
             this.xrLine23.LineWidth = 3;
-            this.xrLine23.LocationFloat = new DevExpress.Utils.PointFloat(159.9143F, 645.5256F);
+            this.xrLine23.LocationFloat = new DevExpress.Utils.PointFloat(179.2892F, 644.5256F);
             this.xrLine23.Name = "xrLine23";
-            this.xrLine23.SizeF = new System.Drawing.SizeF(872.5337F, 5F);
+            this.xrLine23.SizeF = new System.Drawing.SizeF(853.1588F, 5F);
             // 
             // xrLabel79
             // 
@@ -1178,7 +1178,7 @@
             this.xrLabel48.LocationFloat = new DevExpress.Utils.PointFloat(739.6284F, 558.6407F);
             this.xrLabel48.Name = "xrLabel48";
             this.xrLabel48.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel48.SizeF = new System.Drawing.SizeF(174.7308F, 44.64008F);
+            this.xrLabel48.SizeF = new System.Drawing.SizeF(174.7308F, 45.64008F);
             this.xrLabel48.StylePriority.UseFont = false;
             this.xrLabel48.StylePriority.UseTextAlignment = false;
             this.xrLabel48.Text = "[vendor_id]";
