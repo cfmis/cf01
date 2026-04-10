@@ -263,6 +263,7 @@ namespace cf01.ReportForm
                     drow["lot_no"] = dtWordCard.Rows[i]["lot_no"];
                     drow["dept_remark"] = dtWordCard.Rows[i]["dept_remark"];
                     drow["count_return"] = dtWordCard.Rows[i]["count_return"];
+                    drow["spec"] = dtWordCard.Rows[i]["spec"];
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -308,6 +309,7 @@ namespace cf01.ReportForm
                             drow1["lot_no"] = dtWordCard.Rows[i]["lot_no"].ToString();
                             drow1["dept_remark"] = dtWordCard.Rows[i]["dept_remark"].ToString();
                             drow1["count_return"] = int.Parse(dtWordCard.Rows[i]["count_return"].ToString());
+                            drow1["spec"] = dtWordCard.Rows[i]["spec"].ToString();
                             dtReport.Rows.Add(drow1);
                         }
                     }
@@ -336,7 +338,7 @@ namespace cf01.ReportForm
                    
                     //查找F0對應的生產數即訂單數
                     strSql = string.Format(
-                     @"SELECT B.goods_id,CONVERT(int,B.prod_qty) as prod_qty From jo_bill_mostly A with(nolock),jo_bill_goods_details B with(nolock)
+                     @"SELECT B.goods_id,CONVERT(Int,B.prod_qty) AS prod_qty From jo_bill_mostly A with(nolock),jo_bill_goods_details B with(nolock)
                      WHERE A.within_code=B.within_code and A.id=B.id and A.ver=B.ver AND A.mo_id='{0}' AND B.goods_id LIKE 'F0-%'",mo_id);
                     dtPlan = clsConErp.GetDataTable(strSql);
                     if (dtPlan.Rows.Count > 0)
@@ -350,7 +352,8 @@ namespace cf01.ReportForm
                         prod_qty = 0;
                     }
                     //查找SALES BOM對應貨品的用量
-                    strSql = string.Format(@"SELECT CONVERT(int,B.dosage) as dosage From it_bom_mostly A with(nolock),it_bom B with(nolock)
+                    strSql = string.Format(
+                    @"SELECT CONVERT(Int,B.dosage) AS dosage From it_bom_mostly A with(nolock),it_bom B with(nolock)
                     WHERE A.within_code=B.within_code and A.id=B.id and A.exp_id=B.exp_id AND A.goods_id='{0}' AND B.goods_id ='{1}'", f0_id, goods_id);
                     dtSales = clsConErp.GetDataTable(strSql);
                     if (dtSales.Rows.Count > 0)                 
@@ -365,10 +368,10 @@ namespace cf01.ReportForm
             //-----------
            
             //加載報表                
-            xtaWorkPlate oRepot = new xtaWorkPlate() { DataSource = dtReport };
-            oRepot.CreateDocument();
-            oRepot.PrintingSystem.ShowMarginsWarning = false ;                
-            oRepot.ShowPreviewDialog();
+            xtaWorkPlate rpt = new xtaWorkPlate() { DataSource = dtReport };
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false ;                
+            rpt.ShowPreviewDialog();
            
         }
 
