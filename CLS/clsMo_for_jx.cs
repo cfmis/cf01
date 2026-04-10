@@ -29,87 +29,8 @@ namespace cf01.CLS
                 new SqlParameter("@mo_id",mo_id),
                 new SqlParameter("@goods_id",goods_id)                    
             };
-            //return clsPublicOfCF01.ExecuteProcedureReturnTable("p_plan_with_print_card", paras); //2024/03/13 cancel
             return clsConErp.ExecuteProcedureReturnTable("z_plan_with_print_card", paras); //2024/03/13 add
             //--END 2024/02/24
-
-
-
-            /*
-             * 以下為舊代碼取消于 2024/02/24
-            string strSql = "";
-            //***************此代碼取消于2022/03/12
-            //部分非R單INNER JOIN so_order_special_info 異常出錯.
-            //strSql=String.Format(
-            //    @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
-            //      Convert(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
-            //      CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,
-            //      e.brand_id, e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date, f.production_remark,f.nickle_free,f.plumbum_free,
-            //      Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
-            //     FROM {0}jo_bill_mostly a with(nolock) 
-            //     INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
-            //     INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
-            //     INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
-            //     LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id
-            //     LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
-            //     LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
-            //     LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
-            //     INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
-            //     WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db,wp_id, mo_id);
-            //*********************
-            strSql = string.Format(
-               @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
-                 CONVERT(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
-                 CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,e.brand_id,
-                 e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date,e.plate_remark,f.production_remark,                 
-                 f.nickle_free,f.plumbum_free,
-                 Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
-                 FROM {0}jo_bill_mostly a with(nolock) 
-                 INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
-                 INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
-                 INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
-                 LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id ", remote_db);
-            if (mo_id.Substring(0, 1) != "R")
-            {
-                //非R單
-                strSql += string.Format(
-                    @"INNER JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence ", remote_db);
-            }
-            else
-            {
-                //R單
-                strSql += string.Format(
-                    @"LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence ",remote_db);
-            }
-            strSql += string.Format(
-                @"LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
-                 LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
-                 INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
-                 WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db, wp_id, mo_id);
-
-            //"," + remote_db + "Fn_z_get_wh_location(b.goods_id,b.next_wp_id) as wh_location
-            if (goods_id != "")
-            {
-                strSql += string.Format(" AND b.goods_id='{0}' ", goods_id);
-            }
-            DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);            
-            if (dtGoods.Rows.Count>0)
-            {
-                dtGoods.Columns.Add("wh_location", typeof(string));
-                for (int i=0;i<dtGoods.Rows.Count;i++)
-                {
-                    string goods_id1 = dtGoods.Rows[i]["goods_id"].ToString();
-                    string next_wp_id = dtGoods.Rows[i]["next_wp_id"].ToString();
-                    strSql = "Select dbo.Fn_z_get_wh_location(" + "'" + goods_id1 + "'" + ",'" + next_wp_id + "') as wh_location";
-                    DataTable dt = clsConErp.GetDataTable(strSql);                    
-                    if (dt.Rows.Count > 0)
-                    {
-                        dtGoods.Rows[i]["wh_location"] = dt.Rows[0]["wh_location"].ToString();
-                    }
-                }
-            }
-            return dtGoods;
-            */
         }
 
         /// <summary>
@@ -140,39 +61,35 @@ namespace cf01.CLS
         public static DataTable GetColorInfo(string wp_id, string mo_id, string goods_id)
         {
             DataTable dtColorInfo = new DataTable();
-            string strSql =
-            @"SELECT A.mo_id, C.materiel_id,C.goods_id, G.do_color, D.name as color_name,G.color as color_id"+
-            " FROM jo_bill_mostly A with(nolock)"+
-            " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver "+
-            " INNER JOIN jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence "+
-            " INNER JOIN it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id "+
-            " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id"+
-            " WHERE A.within_code = '0000'";
+            StringBuilder sb = new StringBuilder(
+            @"SELECT A.mo_id, C.materiel_id,C.goods_id, G.do_color, D.name as color_name,G.color as color_id
+             FROM jo_bill_mostly A with(nolock)
+             INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver 
+             INNER JOIN jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence 
+             INNER JOIN it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id 
+             INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id
+             WHERE A.within_code = '0000'");
             if (mo_id != "" && wp_id != "" && goods_id != "")
             {
-                strSql += string.Format(" AND A.mo_id = '{0}'", mo_id);
-                strSql += string.Format(" AND B.wp_id = '{0}'", wp_id);
-                strSql += string.Format(" AND B.goods_id='{0}'", goods_id);
-                //"AND C.materiel_id = ''"
+                sb.Append(string.Format(" AND A.mo_id = '{0}' And B.wp_id = '{1}' AND B.goods_id='{2}'", mo_id, wp_id, goods_id));
             }
-            dtColorInfo = clsConErp.GetDataTable(strSql);
+            dtColorInfo = clsConErp.GetDataTable(sb.ToString());
             //2025/05/05 added Allen 
             if (dtColorInfo.Rows.Count == 0)
             {
-                strSql =
-                @"SELECT A.mo_id, '' AS materiel_id,B.goods_id, G.do_color, D.name as color_name,G.color as color_id" +
-                " FROM jo_bill_mostly A with(nolock)" +
-                " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver " +               
-                " INNER JOIN it_goods G with(nolock) ON B.within_code = G.within_code AND B.goods_id = G.id " +
-                " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id" +
-                " WHERE A.within_code = '0000'";
+                sb.Clear();
+                sb.Append(
+                @"SELECT A.mo_id, '' AS materiel_id,B.goods_id, G.do_color, D.name as color_name,G.color as color_id
+                 FROM jo_bill_mostly A with(nolock)
+                 INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver              
+                 INNER JOIN it_goods G with(nolock) ON B.within_code = G.within_code AND B.goods_id = G.id 
+                 INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id
+                 WHERE A.within_code = '0000'");
                 if (mo_id != "" && wp_id != "" && goods_id != "")
                 {
-                    strSql += string.Format(" AND A.mo_id = '{0}'", mo_id);
-                    strSql += string.Format(" AND B.wp_id = '{0}'", wp_id);
-                    strSql += string.Format(" AND B.goods_id='{0}'", goods_id);                   
+                    sb.Append(string.Format(" AND A.mo_id = '{0}' And B.wp_id = '{1}' AND B.goods_id='{2}'", mo_id, wp_id, goods_id));
                 }
-                dtColorInfo = clsConErp.GetDataTable(strSql);
+                dtColorInfo = clsConErp.GetDataTable(sb.ToString());
             }
             return dtColorInfo;
         }
@@ -187,10 +104,10 @@ namespace cf01.CLS
         {
             DataTable dtQty = new DataTable();
                 string strSQL = string.Format(
-                    @"SELECT a.order_qty,Convert(int,a.order_qty*b.rate) AS order_qty_pcs,a.goods_unit,a.plate_remark
-                    FROM so_order_details a with(nolock) 
-                    LEFT OUTER JOIN it_coding b with(nolock) ON b.within_code=a.within_code AND b.unit_code=a.goods_unit
-                    WHERE a.within_code = '0000' AND a.mo_id ='{0}' AND b.id='*'", mo_id);
+                @"SELECT a.order_qty,Convert(int,a.order_qty*b.rate) AS order_qty_pcs,a.goods_unit,a.plate_remark
+                FROM so_order_details a with(nolock) 
+                LEFT OUTER JOIN it_coding b with(nolock) ON b.within_code=a.within_code AND b.unit_code=a.goods_unit
+                WHERE a.within_code = '0000' AND a.mo_id ='{0}' AND b.id='*'", mo_id);
                 dtQty = clsConErp.GetDataTable(strSQL);
             return dtQty;
         }
@@ -206,7 +123,7 @@ namespace cf01.CLS
             try
             {
                 string strSQL = string.Format(
-                    @"SELECT plate_remark FROM so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
+                @"SELECT plate_remark FROM so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
                 dtPlate_Remark = clsConErp.GetDataTable(strSQL);
             }
             catch (Exception ex)
@@ -304,13 +221,13 @@ namespace cf01.CLS
             try
             {
                 string strSQL = string.Format(
-                    @"SELECT a.mo_id, c.sequence_id,c.materiel_id, b.goods_id,e.name AS color_desc, d.do_color, b.next_wp_id,b.wp_id
-                    From jo_bill_mostly a with(nolock)
-                    Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver
-                    Inner Join jo_bill_materiel_details c with(nolock) on b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence
-                    Inner Join it_goods d with(nolock) on b.within_code=d.within_code and b.goods_id=d.id
-                    Left Join cd_color e on d.within_code=e.within_code and d.color=e.id
-                    Where a.within_code='0000' and a.mo_id='{0}' and c.materiel_id='{1}' and b.wp_id='{2}'", mo_id, goods_id, next_wp_id);
+                @"SELECT a.mo_id, c.sequence_id,c.materiel_id, b.goods_id,e.name AS color_desc, d.do_color, b.next_wp_id,b.wp_id
+                From jo_bill_mostly a with(nolock)
+                Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver
+                Inner Join jo_bill_materiel_details c with(nolock) on b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence
+                Inner Join it_goods d with(nolock) on b.within_code=d.within_code and b.goods_id=d.id
+                Left Join cd_color e on d.within_code=e.within_code and d.color=e.id
+                Where a.within_code='0000' and a.mo_id='{0}' and c.materiel_id='{1}' and b.wp_id='{2}'", mo_id, goods_id, next_wp_id);
 
                 dtColor = clsConErp.GetDataTable(strSQL);
             }
@@ -378,9 +295,7 @@ namespace cf01.CLS
             {
                 string strSQL = string.Format(
                 @"SELECT apr_usr,apr_tim FROM mo_for_jx 
-                  WHERE mo_id='{0}' AND wp_id='{1}' AND goods_id='{2}'", mo_id, wp_id, goods_id);
-                strSQL += " AND apr_usr IS NOT NULL AND apr_tim IS NOT NULL ";
-
+                  WHERE mo_id='{0}' AND wp_id='{1}' AND goods_id='{2}' AND apr_usr IS NOT NULL AND apr_tim IS NOT NULL", mo_id, wp_id, goods_id);
                 dtLockInfo = clsPublicOfCF01.GetDataTable(strSQL);
             }
             catch (Exception ex)
@@ -399,7 +314,7 @@ namespace cf01.CLS
                 string.Format(@"SELECT mo_id FROM mo_for_jx WHERE mo_id='{0}' AND wp_id='{1}' AND goods_id='{2}'", pModel.mo_id, pModel.wp_id, pModel.goods_id));
             if (strIsExsit == "")
             {
-                const string strSQL = 
+                string strSQL = 
                  @"INSERT INTO mo_for_jx( mo_date, mo_id, wp_id, goods_id ,goods_name, prod_qty, rmk, cr_usr, cr_tim,order_qty,chk_dat,t_dat,next_wp_id,next_wp_name,ver,color_desc,do_color,id,sequence_id,within_code)
                    VALUES(@mo_date, @mo_id, @wp_id, @goods_id ,@goods_name, @prod_qty, @rmk, @cr_usr, @cr_tim,@order_qty,@chk_dat,@t_dat,@next_wp_id,@next_wp_name,@ver,@color_desc,@do_color,@id,@sequence_id,@within_code)";
                 SqlParameter[] paras = new SqlParameter[] { 
@@ -437,7 +352,7 @@ namespace cf01.CLS
         public static int DelMo_for_jxLock(string wp_id, string mo_id, string goods_id)
         {
             int Result = -1;
-            const string strSQL = @"DELETE FROM mo_for_jx WHERE mo_id=@mo_id AND wp_id=@wp_id AND goods_id=@goods_id ";
+            string strSQL = @"DELETE FROM mo_for_jx WHERE mo_id=@mo_id AND wp_id=@wp_id AND goods_id=@goods_id ";
             SqlParameter[] paras = new SqlParameter[] { 
                 new SqlParameter("@mo_id",mo_id),
                 new SqlParameter("@wp_id",wp_id),
@@ -481,10 +396,9 @@ namespace cf01.CLS
         public static int UpdateMo_for_jx(Mo_for_jx pModel)
         {
             int Result = -1;
-
-            const string strSQL = @"UPDATE mo_for_jx SET prod_qty=@prod_qty ,am_usr=@am_usr, am_tim=@am_tim,rmk=@rmk,order_qty=@order_qty
-                                    ,t_dat=@t_dat,chk_dat=@chk_dat,next_wp_id=@next_wp_id,next_wp_name=@next_wp_name,color_desc=@color_desc,do_color=@do_color
-                                    WHERE  mo_id=@mo_id AND wp_id=@wp_id AND goods_id=@goods_id";
+            string strSQL = @"UPDATE mo_for_jx SET prod_qty=@prod_qty ,am_usr=@am_usr, am_tim=@am_tim,rmk=@rmk,order_qty=@order_qty
+                            ,t_dat=@t_dat,chk_dat=@chk_dat,next_wp_id=@next_wp_id,next_wp_name=@next_wp_name,color_desc=@color_desc,do_color=@do_color
+                            WHERE  mo_id=@mo_id AND wp_id=@wp_id AND goods_id=@goods_id";
             SqlParameter[] paras = new SqlParameter[] { 
                 new SqlParameter("@prod_qty",pModel.prod_qty),
                 new SqlParameter("@am_usr",pModel.am_usr),
@@ -509,42 +423,41 @@ namespace cf01.CLS
         public static DataTable GetMo_for_jx(string pMo_id, string pWp_id, string pGoods_id)
         {
             DataTable dtMo_for_jx = new DataTable();
-
-            string strSQL = @"SELECT mo_date, mo_id, wp_id, goods_id ,goods_name, prod_qty, rmk, cr_usr,chk_dat,order_qty,t_dat,next_wp_id,next_wp_name,cr_tim, am_usr, am_tim FROM mo_for_jx ";
+            StringBuilder sb = new StringBuilder(
+            @"SELECT mo_date,mo_id,wp_id,goods_id,goods_name, prod_qty,rmk,cr_usr,chk_dat,order_qty,t_dat,next_wp_id,next_wp_name,cr_tim, am_usr, am_tim FROM mo_for_jx "
+            );
 
             if (pMo_id != "")
             {
-                strSQL += String.Format(" WHERE mo_id ='{0}'", pMo_id);
+                sb.Append(string.Format(" WHERE mo_id ='{0}'", pMo_id));
                 if (pWp_id != "")
                 {
-                    strSQL += String.Format(" AND wp_id ='{0}' ", pWp_id);
+                    sb.Append(string.Format(" AND wp_id ='{0}' ", pWp_id));
                 }
                 if (pGoods_id != "")
                 {
-                    strSQL += String.Format(" AND goods_id ='{0}' ", pGoods_id);
+                    sb.Append(string.Format(" AND goods_id ='{0}' ", pGoods_id));
                 }
             }
             else
             {
                 if (pWp_id != "")
                 {
-                    strSQL += String.Format(" WHERE wp_id ='{0}' ", pWp_id);
-
+                    sb.Append(string.Format(" WHERE wp_id ='{0}' ", pWp_id));
                     if (pGoods_id != "")
                     {
-                        strSQL += String.Format(" AND goods_id ='{0}' ", pGoods_id);
+                        sb.Append(string.Format(" AND goods_id ='{0}' ", pGoods_id));
                     }
                 }
                 else
                 {
                     if (pGoods_id != "")
                     {
-                        strSQL += String.Format(" WHERE goods_id ='{0}' ", pGoods_id);
+                        sb.Append(string.Format(" WHERE goods_id ='{0}' ", pGoods_id));
                     }
                 }
             }
-
-            dtMo_for_jx = clsPublicOfCF01.GetDataTable(strSQL);
+            dtMo_for_jx = clsPublicOfCF01.GetDataTable(sb.ToString());
 
             return dtMo_for_jx;
         }
@@ -557,40 +470,12 @@ namespace cf01.CLS
         public static string ReturnBarCode(string pBarCodeSource)
         {
             string BarCode = "";
-            //try
-            //{
-            //    DataTable dtBarCode = new DataTable();
-            //    using (SqlConnection conn = new SqlConnection(DBUtility.conn_str_dgerp2))
-            //    {
-            //        conn.Open();
-            //        SqlCommand cmd = new SqlCommand();
-            //        const string strSQL = @"select dbo.StrToCode128B(rtrim(@ItemCode)) AS item_barcode ";
-            //        cmd.Parameters.Add(new SqlParameter("@ItemCode", pBarCodeSource));
-            //        cmd.CommandText = strSQL;
-            //        cmd.Connection = conn;
-            //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //        da.Fill(dtBarCode);
-            //    }
-
-            //    if (dtBarCode.Rows.Count > 0)
-            //    {
-            //        BarCode = dtBarCode.Rows[0]["item_barcode"].ToString();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-            //const string strSQL = @"select dbo.StrToCode128B(rtrim(@ItemCode)) AS item_barcode ";
-            string strSql = "Select dbo.StrToCode128B(" + "'" + pBarCodeSource + "') as item_barcode";
-            //SqlParameter[] paras = new SqlParameter[] {
-            //    new SqlParameter("@Str", pBarCodeSource)
-            //};
-            //DataTable dt = clsConErp.ExecuteProcedureReturnTable("StrToCode128B", paras);
+            string strSql = string.Format("Select dbo.StrToCode128B('{0}') AS item_barcode", pBarCodeSource);
             DataTable dt = clsConErp.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
+            {
                 BarCode = dt.Rows[0]["item_barcode"].ToString();
+            }
             return BarCode;
         }
 
@@ -606,11 +491,9 @@ namespace cf01.CLS
             try
             {
                 DataTable dtCartonCode = new DataTable();
-
-                string strSQL = String.Format(@"SELECT carton_code "+
+                string strSQL = string.Format(@"SELECT carton_code "+
                     " FROM it_goods_location with(nolock) WHERE within_code='{2}' and id='{0}' and location_id='{1}'", pGoods_id, pNext_wp_id,within_code);
                 dtCartonCode = clsConErp.GetDataTable(strSQL);
-
                 if (dtCartonCode.Rows.Count > 0)
                 {
                     if (dtCartonCode.Rows.Count > 1)
@@ -671,10 +554,10 @@ namespace cf01.CLS
             try
             {
                 string strSql = string.Format(
-                      @"SELECT a.id,b.dosage,b.unit_code,b.base_qty,'' as pe_qty,'' as step" +
-                        " FROM it_bom_mostly a with(nolock)" +
-                        " LEFT JOIN it_bom b with(nolock) ON a.within_code=b.within_code and a.id=b.id AND a.exp_id=b.exp_id" +
-                        " WHERE a.within_code='{0}' AND a.goods_id='{1}'", within_code, pGoods_id);
+                @"SELECT a.id,b.dosage,b.unit_code,b.base_qty,'' as pe_qty,'' as step" +
+                " FROM it_bom_mostly a with(nolock)" +
+                " LEFT JOIN it_bom b with(nolock) ON a.within_code=b.within_code and a.id=b.id AND a.exp_id=b.exp_id" +
+                " WHERE a.within_code='{0}' AND a.goods_id='{1}'", within_code, pGoods_id);
                 dtPs = clsConErp.GetDataTable(strSql);
 
                 if (dtPs.Rows.Count > 0)
@@ -721,26 +604,13 @@ namespace cf01.CLS
             DataTable dtPs = new DataTable();
 
             string strSql = string.Format(
-                            @"SELECT B.goods_id,B.sup_bom_no,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
-                                FROM jo_bill_mostly A with(nolock)
-	                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
-	                            INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code AND B.sup_bom_no=C.id 
-	                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
-                                WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id NOT IN('702','722')",
-                            pMo_id, pGoods_id, pDept);
-
-            /*string strSql = string.Format(
-                            @"SELECT B.goods_id,
-                             CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END AS sup_bom_no
-                            ,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
-                            FROM jo_bill_mostly A with(nolock)
-                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
-                            INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code 
-                            AND CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END = C.id
-                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
-                            WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id<>'702'",
-                            pMo_id, pGoods_id, pDept);
-                            */
+            @"SELECT B.goods_id,B.sup_bom_no,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
+            FROM jo_bill_mostly A with(nolock)
+	        INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
+	        INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code AND B.sup_bom_no=C.id 
+	        LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
+            WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id NOT IN('702','722')",
+            pMo_id, pGoods_id, pDept);           
             dtPs = clsConErp.GetDataTable(strSql);
             if (dtPs.Rows.Count == 0)
             {
@@ -864,7 +734,7 @@ namespace cf01.CLS
         /// <param name="pGroup_id"></param>
         public static void Save_Process_Data(string pDept, string pMat_Goods_id, string pGoods_id, string pGroup_id)
         {
-            const string sql_i = @"Insert bs_process_goods (prd_dep,mat_item,prd_item,process_group_id,crusr,crtim) 
+            string sql_i = @"Insert bs_process_goods (prd_dep,mat_item,prd_item,process_group_id,crusr,crtim) 
                            Values(@prd_dep,@mat_item,@prd_item,@process_group_id,@crusr,GETDATE())";
             string sql_f = string.Format(@"Select process_group_id From bs_process_goods WHERE prd_dep='{0}' AND mat_item='{1}' AND prd_item='{2}'",
                                         pDept, pMat_Goods_id, pGoods_id);
@@ -1059,36 +929,6 @@ namespace cf01.CLS
         /// <returns></returns>
         public static DataTable Get_Next_Department_Flow(string mo_id, string goods_id) //, int pflevel)
         {
-            //          //2019-07-15 取消  pflevel A.flevel={2} 部分手加的流程引起異常
-            //            string strSql = string.Format(
-            //                       @"SELECT A.goods_id,A.next_wp_id,A.vendor_id,B.name as next_goods_name,B.do_color,C.name as next_dep_name
-            //                        FROM 
-            //                        (select Top 1 A1.within_code,A1.id,A1.ver,ISNULL(B1.materiel_id,'') AS goods_id ,B1.upper_sequence
-            //                        from jo_bill_mostly A1 with(nolock),jo_bill_materiel_details B1 with(nolock)
-            //                        where A1.within_code=B1.within_code AND A1.id=B1.id and A1.ver=B1.ver and A1.mo_id ='{0}' and B1.materiel_id='{1}'
-            //                        ) S
-            //                        INNER JOIN jo_bill_goods_details A with(nolock) 
-            //	                        ON S.within_code=A.within_code AND S.id=A.id AND S.ver=A.ver AND S.upper_sequence=A.sequence_id AND A.wp_id<>'702' AND A.flevel={2}
-            //                        INNER JOIN it_goods B with(nolock) ON A.within_code=A.within_code and A.goods_id=B.id
-            //                        INNER JOIN cd_department C with(nolock) ON A.within_code=A.within_code AND A.next_wp_id=C.id
-            //                        ", pMo, pGoods_id, pflevel);
-
-            /*
-             * 2023/03/02 取消,改為從存儲過程取資料
-            string strSql = string.Format(
-                       @"SELECT A.goods_id,A.next_wp_id,A.vendor_id,B.name as next_goods_name,B.do_color,C.name as next_dep_name
-                        FROM 
-                        (select Top 1 A1.within_code,A1.id,A1.ver,ISNULL(B1.materiel_id,'') AS goods_id ,B1.upper_sequence
-                        from jo_bill_mostly A1 with(nolock),jo_bill_materiel_details B1 with(nolock)
-                        where A1.within_code=B1.within_code AND A1.id=B1.id and A1.ver=B1.ver and A1.mo_id ='{0}' and B1.materiel_id='{1}'
-                        ) S
-                        INNER JOIN jo_bill_goods_details A with(nolock) 
-	                        ON S.within_code=A.within_code AND S.id=A.id AND S.ver=A.ver AND S.upper_sequence=A.sequence_id AND A.wp_id NOT IN('702','722')
-                        INNER JOIN it_goods B with(nolock) ON A.within_code=A.within_code and A.goods_id=B.id
-                        INNER JOIN cd_department C with(nolock) ON A.within_code=C.within_code AND A.next_wp_id=C.id ", pMo, pGoods_id);
-
-            DataTable dtProcess = clsConErp.GetDataTable(strSql);
-            */
             SqlParameter[] paras = new SqlParameter[] {
                new SqlParameter("@mo_id",mo_id),
                new SqlParameter("@goods_id",goods_id)
