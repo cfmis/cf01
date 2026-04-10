@@ -338,8 +338,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@materiel_id",mat_id),
                     new SqlParameter("@per_qty",per_qty),
                     new SqlParameter("@isPrintQc",isPrintQc),
-                    new SqlParameter("@type","1") //@type="1"從移交單交貨記錄（PAD簽收）中列印生產單
-                   
+                    new SqlParameter("@type","1") //@type="1"從移交單交貨記錄（PAD簽收）中列印生產單                   
                 };
                 DataSet dsTempData = clsPublicOfGEO.ExecuteProcedureReturnDataSet("z_rpt_prdtranser", paras, null);
                 
@@ -354,7 +353,8 @@ namespace cf01.ReportForm
                             //一個頁數有可能一次收多個批次的貨
                             //所以有必要多作個判斷，以防重入重覆的記錄
                             strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",
-                                dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]);
+                                dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]
+                            );
                             drowAry = dtDataForPrint.Select(strFilter);
                             if (drowAry.Length == 0)//是否已存記錄
                             {
@@ -552,14 +552,15 @@ namespace cf01.ReportForm
                     wForm.TopMost = true;
                     wForm.ShowDialog();
                 }).Start();
+                //**********************
                 GenerateDataForPrint();
-
+                //**********************
                 wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                 if (dtDataForPrint.Rows.Count > 0)
                 {
-                    xrPrdTransfer xrPT = new xrPrdTransfer(dtDataForPrint, dtParts);
-                    xrPT.ShowPreviewDialog();
+                    xrPrdTransfer rpt = new xrPrdTransfer(dtDataForPrint, dtParts);
+                    rpt.ShowPreviewDialog();
                 }
             }
             else
