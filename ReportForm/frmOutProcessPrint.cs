@@ -342,6 +342,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("process_remark", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(int));
             dtNewWork.Columns.Add("dept_remark", typeof(string));
+            dtNewWork.Columns.Add("spec", typeof(string));
 
             DataRow dr = null;
             string order_unit;
@@ -547,6 +548,7 @@ namespace cf01.ReportForm
                                 dr["process_remark"] = drDtWk["process_remark"].ToString();
                                 dr["stantard_qty"] = drDtWk["stantard_qty"].ToString();
                                 dr["dept_remark"] = drDtWk["dept_remark"].ToString();
+                                dr["spec"] = drDtWk["spec"].ToString();
 
                                 dtNewWork.Rows.Add(dr);
                             }
