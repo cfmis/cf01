@@ -397,10 +397,12 @@ namespace cf01.ReportForm
                         {
                             DataRow drDtWk = dtWk.Rows[0];
                             strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
-                            if(next_seq_id !="")
+                            if (next_seq_id != "")
                             {
                                 strBarCode_next = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + next_seq_id.Substring(2, 2));
                             }
+                            else
+                                strBarCode_next = "";
                             int Per_qty = Convert.ToInt32(dgr["per_prod_qty"]);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr["prod_qty"]);    //生產總量
                             int qty_remaining = 0; //2024/01/31 ADD ALLEN

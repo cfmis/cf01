@@ -606,8 +606,16 @@ namespace cf01.ReportForm
                             }
                             //條碼
                             dr["BarCode"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2,'0'), txtSequenceId.Text.Substring(2, 2)));
-                            //條碼 added allen 20260407
-                            dr["BarCode_next"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2, '0'), next_sequence_id.Text.Substring(2, 2)));
+                            //下部門條碼 added allen 20260407
+                            if (!string.IsNullOrEmpty(next_sequence_id.Text))
+                            {
+                                dr["BarCode_next"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2, '0'), next_sequence_id.Text.Substring(2, 2)));
+                            }
+                            else
+                            {
+                                //生產計劃下層BOM（第二個表格）沒有輸入，會導致異常，所以此處直接處理下部門條碼為空
+                                dr["BarCode_next"] = "";
+                            }
                             //下部物料相關信息
                             dr["next_goods_id"]= next_goods_id.Text;
                             dr["next_do_color"] = next_do_color.Text;
