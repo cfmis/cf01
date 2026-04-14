@@ -129,9 +129,9 @@ namespace cf01.ReportForm
                 wForm.TopMost = true;
                 wForm.ShowDialog();
             }).Start();
-
+            //*********
             findData();
-
+            //*********
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
             if (dtDelivery.Rows.Count > 0)
@@ -161,11 +161,14 @@ namespace cf01.ReportForm
                 }
             }
 
-            string select_index = radioGroup1.SelectedIndex.ToString();
+            string selectIndex = radioGroup1.SelectedIndex.ToString();
             string out_dept1 = string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString())?"": txtOut_detp1.EditValue.ToString();                            
             string in_dept1 = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
-
-            if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "")
+            string mo_id1 = txtMo_id1.Text;
+            string mo_id2 = txtMo_id2.Text;
+            string user_id = txtCreate_by1.Text;            
+            if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "" &&
+                mo_id1 =="" && mo_id2 =="" && user_id =="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -179,7 +182,7 @@ namespace cf01.ReportForm
 
             SqlParameter[] paras = new SqlParameter[]
             {
-                    new SqlParameter("@type", select_index),
+                    new SqlParameter("@type", selectIndex),
                     new SqlParameter("@id_s",strID1),
                     new SqlParameter("@id_e",strID2),
                     new SqlParameter("@date_s", txtDat1.Text),
@@ -189,12 +192,12 @@ namespace cf01.ReportForm
                     new SqlParameter("@out_dept_s", out_dept1),
                     new SqlParameter("@in_dept_s", in_dept1),
                     new SqlParameter("@flag_jx", flag_jx),
-                    new SqlParameter("@flag_print", flag_print)
+                    new SqlParameter("@flag_print", flag_print),
+                    new SqlParameter("@user_id", user_id),
             };            
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
             //客戶端加bool字段或後端返回(bit型)都可以
-            dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            
+            //dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));            
             //======查找當前責任部門,當前貨品的下一步流程的相關信息======
             dtDelivery.Columns.Add("current_goods_id", typeof(string));
             dtDelivery.Columns.Add("barcode_id_next", typeof(string));
@@ -601,7 +604,7 @@ namespace cf01.ReportForm
                 return;
             }        
             gridView1.CloseEditor();
-            DataTable dtNewWork = clsMo_for_jx.GenWorkerCard(); //生成工序卡的表結構
+            DataTable dtNewWork = clsMo_for_jx.GenPubWorkerCard(); //生成工序卡的表結構
             DataRow[] drowAry = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drowAry.Length > 0)
             {
@@ -1350,5 +1353,6 @@ namespace cf01.ReportForm
         {
             panel1.Width = gridControl1.Width-5;
         }
+       
     }
 }

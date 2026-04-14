@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -130,6 +130,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.chkReplaceQty = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCreate_by1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -152,12 +154,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID1
             // 
             this.txtID1.EnterMoveNextControl = true;
-            this.txtID1.Location = new System.Drawing.Point(158, 4);
+            this.txtID1.Location = new System.Drawing.Point(158, 3);
             this.txtID1.Name = "txtID1";
             this.txtID1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID1.Properties.MaxLength = 15;
@@ -169,7 +172,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.label6.Location = new System.Drawing.Point(343, 33);
+            this.label6.Location = new System.Drawing.Point(343, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 16);
             this.label6.TabIndex = 117;
@@ -177,7 +180,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(72, 33);
+            this.lblDate.Location = new System.Drawing.Point(72, 31);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
@@ -188,7 +191,7 @@
             // 
             this.txtDat2.EditValue = null;
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(383, 29);
+            this.txtDat2.Location = new System.Drawing.Point(383, 27);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -205,7 +208,7 @@
             // 
             this.txtDat1.EditValue = null;
             this.txtDat1.EnterMoveNextControl = true;
-            this.txtDat1.Location = new System.Drawing.Point(158, 29);
+            this.txtDat1.Location = new System.Drawing.Point(158, 27);
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -442,7 +445,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(72, 7);
+            this.lblID.Location = new System.Drawing.Point(72, 6);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -452,7 +455,7 @@
             // txtID2
             // 
             this.txtID2.EnterMoveNextControl = true;
-            this.txtID2.Location = new System.Drawing.Point(383, 4);
+            this.txtID2.Location = new System.Drawing.Point(383, 3);
             this.txtID2.Name = "txtID2";
             this.txtID2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID2.Properties.MaxLength = 15;
@@ -463,7 +466,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.label1.Location = new System.Drawing.Point(343, 7);
+            this.label1.Location = new System.Drawing.Point(343, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 128;
@@ -472,7 +475,7 @@
             // txtOut_detp1
             // 
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(158, 80);
+            this.txtOut_detp1.Location = new System.Drawing.Point(158, 75);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -491,7 +494,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(72, 85);
+            this.lblOut_dept.Location = new System.Drawing.Point(72, 80);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -500,7 +503,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(301, 85);
+            this.lblIn_dept.Location = new System.Drawing.Point(301, 80);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -510,7 +513,7 @@
             // txtIn_detp1
             // 
             this.txtIn_detp1.EnterMoveNextControl = true;
-            this.txtIn_detp1.Location = new System.Drawing.Point(383, 80);
+            this.txtIn_detp1.Location = new System.Drawing.Point(383, 75);
             this.txtIn_detp1.Name = "txtIn_detp1";
             this.txtIn_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -529,8 +532,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -541,8 +544,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -553,8 +556,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -676,14 +679,14 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 244);
+            this.gridControl1.Location = new System.Drawing.Point(4, 253);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select,
             this.colQty,
             this.colSec_qty});
-            this.gridControl1.Size = new System.Drawing.Size(1093, 428);
+            this.gridControl1.Size = new System.Drawing.Size(1093, 419);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1251,7 +1254,7 @@
             // 
             // chkJx
             // 
-            this.chkJx.Location = new System.Drawing.Point(158, 107);
+            this.chkJx.Location = new System.Drawing.Point(158, 125);
             this.chkJx.Name = "chkJx";
             this.chkJx.Properties.Caption = "不顯示已交JX的數據";
             this.chkJx.Size = new System.Drawing.Size(152, 19);
@@ -1259,7 +1262,7 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Location = new System.Drawing.Point(29, 223);
+            this.chkSelect.Location = new System.Drawing.Point(29, 230);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Properties.Caption = "全選";
             this.chkSelect.Size = new System.Drawing.Size(48, 19);
@@ -1268,7 +1271,7 @@
             // 
             // chkDelivery
             // 
-            this.chkDelivery.Location = new System.Drawing.Point(158, 132);
+            this.chkDelivery.Location = new System.Drawing.Point(158, 149);
             this.chkDelivery.Name = "chkDelivery";
             this.chkDelivery.Properties.Caption = "選擇當前頁數,自動將當前頁數所在的同一張移交單全選中";
             this.chkDelivery.Size = new System.Drawing.Size(342, 19);
@@ -1276,7 +1279,7 @@
             // 
             // chkPrint
             // 
-            this.chkPrint.Location = new System.Drawing.Point(301, 107);
+            this.chkPrint.Location = new System.Drawing.Point(301, 125);
             this.chkPrint.Name = "chkPrint";
             this.chkPrint.Properties.Caption = "是否包含已列印數據?";
             this.chkPrint.Size = new System.Drawing.Size(152, 19);
@@ -1287,7 +1290,7 @@
             this.btnAlloy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAlloy.Image = ((System.Drawing.Image)(resources.GetObject("btnAlloy.Image")));
             this.btnAlloy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlloy.Location = new System.Drawing.Point(836, 209);
+            this.btnAlloy.Location = new System.Drawing.Point(836, 220);
             this.btnAlloy.Name = "btnAlloy";
             this.btnAlloy.Size = new System.Drawing.Size(184, 31);
             this.btnAlloy.TabIndex = 143;
@@ -1300,7 +1303,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(343, 57);
+            this.label2.Location = new System.Drawing.Point(343, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 16);
             this.label2.TabIndex = 147;
@@ -1309,7 +1312,7 @@
             // txtMo_id2
             // 
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(383, 54);
+            this.txtMo_id2.Location = new System.Drawing.Point(383, 51);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id2.Properties.MaxLength = 9;
@@ -1318,7 +1321,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(72, 57);
+            this.label5.Location = new System.Drawing.Point(72, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 146;
@@ -1328,7 +1331,7 @@
             // txtMo_id1
             // 
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(158, 54);
+            this.txtMo_id1.Location = new System.Drawing.Point(158, 51);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id1.Properties.MaxLength = 9;
@@ -1341,7 +1344,7 @@
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
             this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(680, 209);
+            this.btnExcel.Location = new System.Drawing.Point(680, 220);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(133, 31);
             this.btnExcel.TabIndex = 148;
@@ -1365,7 +1368,7 @@
             this.chkReplaceQty.AutoSize = true;
             this.chkReplaceQty.Checked = true;
             this.chkReplaceQty.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkReplaceQty.Location = new System.Drawing.Point(454, 110);
+            this.chkReplaceQty.Location = new System.Drawing.Point(454, 128);
             this.chkReplaceQty.Name = "chkReplaceQty";
             this.chkReplaceQty.Size = new System.Drawing.Size(168, 16);
             this.chkReplaceQty.TabIndex = 150;
@@ -1377,6 +1380,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtCreate_by1);
             this.panel1.Controls.Add(this.txtID1);
             this.panel1.Controls.Add(this.chkReplaceQty);
             this.panel1.Controls.Add(this.txtDat1);
@@ -1401,8 +1406,26 @@
             this.panel1.Controls.Add(this.lblIn_dept);
             this.panel1.Location = new System.Drawing.Point(4, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1092, 161);
+            this.panel1.Size = new System.Drawing.Size(1093, 172);
             this.panel1.TabIndex = 151;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(72, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 153;
+            this.label4.Text = "建檔人";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtCreate_by1
+            // 
+            this.txtCreate_by1.EnterMoveNextControl = true;
+            this.txtCreate_by1.Location = new System.Drawing.Point(158, 99);
+            this.txtCreate_by1.Name = "txtCreate_by1";
+            this.txtCreate_by1.Properties.MaxLength = 20;
+            this.txtCreate_by1.Size = new System.Drawing.Size(156, 20);
+            this.txtCreate_by1.TabIndex = 151;
             // 
             // frmDelivery
             // 
@@ -1447,6 +1470,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1552,5 +1576,7 @@
         private System.Windows.Forms.CheckBox chkReplaceQty;
         private DevExpress.XtraGrid.Columns.GridColumn lot_no;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txtCreate_by1;
     }
 }

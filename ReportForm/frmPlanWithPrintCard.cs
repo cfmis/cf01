@@ -318,7 +318,7 @@ namespace cf01.ReportForm
             string order_unit = "", plate_remark = "", do_color_next_dep = "", next_dep_id = "";
             int order_qty, order_qty_pcs;
             //建立工序卡臨時表
-            DataTable dtNewWork = CreateNewWork();
+            DataTable dtNewWork = clsMo_for_jx.GenPubWorkerCard();
             DataRow dr = null;  
            
             DataTable dtWk = new DataTable();
@@ -601,90 +601,7 @@ namespace cf01.ReportForm
 
         }
 
-
-        private DataTable CreateNewWork()
-        {
-            DataTable dtNewWork = new DataTable();
-            dtNewWork.Columns.Add("wp_id", typeof(string));
-            dtNewWork.Columns.Add("mo_id", typeof(string));
-            dtNewWork.Columns.Add("goods_id", typeof(string));
-            dtNewWork.Columns.Add("goods_name", typeof(string));
-            dtNewWork.Columns.Add("prod_qty", typeof(string));
-            dtNewWork.Columns.Add("goods_unit", typeof(string));
-            dtNewWork.Columns.Add("within_code", typeof(string));
-            dtNewWork.Columns.Add("id", typeof(string));
-            dtNewWork.Columns.Add("ver", typeof(string));
-            dtNewWork.Columns.Add("sequence_id", typeof(string));
-            dtNewWork.Columns.Add("blueprint_id", typeof(string));
-            dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));
-            dtNewWork.Columns.Add("next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
-            dtNewWork.Columns.Add("order_qty", typeof(string));
-            dtNewWork.Columns.Add("order_unit", typeof(string));
-            dtNewWork.Columns.Add("color", typeof(string));
-            dtNewWork.Columns.Add("base_qty", typeof(int));
-            dtNewWork.Columns.Add("unit_code", typeof(string));
-            dtNewWork.Columns.Add("base_rate", typeof(int));
-            dtNewWork.Columns.Add("basic_unit", typeof(string));
-            dtNewWork.Columns.Add("art_id", typeof(string));
-            dtNewWork.Columns.Add("picture_name", typeof(string));
-            dtNewWork.Columns.Add("color_name", typeof(string));
-            dtNewWork.Columns.Add("do_color", typeof(string));
-            dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
-            dtNewWork.Columns.Add("next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("customer_id", typeof(string));
-            dtNewWork.Columns.Add("brand_id", typeof(string));
-            dtNewWork.Columns.Add("get_color_sample", typeof(string));
-            dtNewWork.Columns.Add("do_color1", typeof(string));
-            dtNewWork.Columns.Add("page_num", typeof(int));
-            dtNewWork.Columns.Add("per_qty", typeof(string));
-            dtNewWork.Columns.Add("t_complete_date", typeof(string));
-            dtNewWork.Columns.Add("arrive_date", typeof(string));
-            dtNewWork.Columns.Add("total_page", typeof(int));
-            dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
-            dtNewWork.Columns.Add("vendor_id", typeof(string));
-            dtNewWork.Columns.Add("c_sec_qty_ok", typeof(int));
-            dtNewWork.Columns.Add("depRemark", typeof(string));
-            dtNewWork.Columns.Add("request_date", typeof(string));
-            dtNewWork.Columns.Add("position_id", typeof(string));
-            dtNewWork.Columns.Add("report_name", typeof(string));
-            dtNewWork.Columns.Add("crtime", typeof(string));
-            dtNewWork.Columns.Add("mould_no", typeof(string));
-            dtNewWork.Columns.Add("BarCode", typeof(string));
-            dtNewWork.Columns.Add("BarCode_next", typeof(string));
-
-            dtNewWork.Columns.Add("pe_qty", typeof(string));
-            dtNewWork.Columns.Add("step", typeof(string));
-            dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
-            dtNewWork.Columns.Add("net_weight", typeof(string));
-            dtNewWork.Columns.Add("wh_location", typeof(string));
-
-            dtNewWork.Columns.Add("next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_do_color", typeof(string));
-            dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("next_vendor_id", typeof(string));
-            dtNewWork.Columns.Add("next_goods_name", typeof(string));
-            dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("prod_date", typeof(string));
-
-            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-            dtNewWork.Columns.Add("qty_remaining", typeof(int));
-
-            //2024/03/12
-            dtNewWork.Columns.Add("qc_dept", typeof(string));
-            dtNewWork.Columns.Add("qc_name", typeof(string));
-            dtNewWork.Columns.Add("qc_qty", typeof(string));
-            dtNewWork.Columns.Add("stantard_qty", typeof(string));
-            dtNewWork.Columns.Add("qc_test", typeof(string));
-            dtNewWork.Columns.Add("process_remark", typeof(string));
-            dtNewWork.Columns.Add("dept_remark", typeof(string));
-            dtNewWork.Columns.Add("spec", typeof(string));
-
-            return dtNewWork;
-        }
+       
         /// <summary>
         /// 加載 User上次查詢條件 
         /// </summary>
