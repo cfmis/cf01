@@ -31,6 +31,7 @@ namespace cf01.ReportForm
         DataTable dtParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
         DataTable dtPrint = new DataTable();
+
         
         public frmDelivery()
         {
@@ -1333,8 +1334,9 @@ namespace cf01.ReportForm
                     wForm.TopMost = true;
                     wForm.ShowDialog();
                 }).Start();
+                //*********************
                 GenerateDataForPrint();
-
+                //*********************
                 wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                 if (dtDataForPrint.Rows.Count > 0)
