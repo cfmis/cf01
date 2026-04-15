@@ -161,6 +161,12 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
             worksheet.Cells[excelRow, 28].Value = "每小時產量（包含校模）";
             worksheet.Cells[excelRow, 29].Value = "生產需要時間";
+            worksheet.Cells[excelRow, 30].Value = "１日前序號";
+            worksheet.Cells[excelRow, 31].Value = "2日前序號";
+            worksheet.Cells[excelRow, 32].Value = "3日前序號";
+            worksheet.Cells[excelRow, 33].Value = "4日前序號";
+            worksheet.Cells[excelRow, 34].Value = "5日前序號";
+
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -221,6 +227,11 @@ namespace cf01.CLS
                     worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
                 worksheet.Cells[excelRow, 28].Value = drExcel["hour_std_qty"];
                 worksheet.Cells[excelRow, 29].Value = drExcel["need_prd_time"];
+                worksheet.Cells[excelRow, 30].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 31].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 32].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 33].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 34].Value = drExcel["old_seq5"].ToString();
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -328,6 +339,11 @@ namespace cf01.CLS
             worksheet.Column(25).Hidden = true;
             worksheet.Column(26).Hidden = true;
             worksheet.Column(27).Hidden = true;
+            worksheet.Column(30).Hidden = true;
+            worksheet.Column(31).Hidden = true;
+            worksheet.Column(32).Hidden = true;
+            worksheet.Column(33).Hidden = true;
+            worksheet.Column(34).Hidden = true;
             if (prd_dep == "322" || prd_dep == "202")
             {
                 worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
@@ -413,6 +429,12 @@ namespace cf01.CLS
             string group_tittle = dtNewExcel.Rows[0]["prd_group"].ToString().Trim();
             worksheet.Cells[excelRow, 27].Value = "每小時產量（包含校模）";
             worksheet.Cells[excelRow, 28].Value = "生產需要時間";
+            worksheet.Cells[excelRow, 29].Value = "１日前序號";
+            worksheet.Cells[excelRow, 30].Value = "2日前序號";
+            worksheet.Cells[excelRow, 31].Value = "3日前序號";
+            worksheet.Cells[excelRow, 32].Value = "4日前序號";
+            worksheet.Cells[excelRow, 33].Value = "5日前序號";
+
             worksheet.Row(excelRow).Height = 70; // 设置第 1 行的高度为 20 点
 
 
@@ -564,6 +586,11 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 26].Value = drExcel["next_vend_id"].ToString();
                 worksheet.Cells[excelRow, 27].Value = drExcel["hour_std_qty"];
                 worksheet.Cells[excelRow, 28].Value = drExcel["need_prd_time"];
+                worksheet.Cells[excelRow, 29].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 30].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 31].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 32].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 33].Value = drExcel["old_seq5"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
                 {
@@ -652,6 +679,11 @@ namespace cf01.CLS
             worksheet.Column(24).Hidden = true;
             worksheet.Column(25).Hidden = true;
             worksheet.Column(26).Hidden = true;
+            worksheet.Column(29).Hidden = true;
+            worksheet.Column(30).Hidden = true;
+            worksheet.Column(31).Hidden = true;
+            worksheet.Column(32).Hidden = true;
+            worksheet.Column(33).Hidden = true;
             worksheet.PrinterSettings.Scale = 65; // 缩放到 75%
 
             // 动态确定表格范围
@@ -855,6 +887,11 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 26].Value = "客人要求交貨期";
             worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
             worksheet.Cells[excelRow, 28].Value = "已生產數量";
+            worksheet.Cells[excelRow, 29].Value = "１日前序號";
+            worksheet.Cells[excelRow, 30].Value = "2日前序號";
+            worksheet.Cells[excelRow, 31].Value = "3日前序號";
+            worksheet.Cells[excelRow, 32].Value = "4日前序號";
+            worksheet.Cells[excelRow, 33].Value = "5日前序號";
 
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
@@ -890,6 +927,11 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 26].Value = drExcel["cs_req_date"].ToString();
                 worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
                 worksheet.Cells[excelRow, 28].Value = drExcel["prd_qty"].ToString();
+                worksheet.Cells[excelRow, 29].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 30].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 31].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 32].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 33].Value = drExcel["old_seq5"].ToString();
 
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
@@ -985,6 +1027,11 @@ namespace cf01.CLS
             worksheet.Column(26).Hidden = true;
             worksheet.Column(27).Hidden = true;
             worksheet.Column(28).Hidden = true;
+            worksheet.Column(29).Hidden = true;
+            worksheet.Column(30).Hidden = true;
+            worksheet.Column(31).Hidden = true;
+            worksheet.Column(32).Hidden = true;
+            worksheet.Column(33).Hidden = true;
             worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
 
             // 动态确定表格范围
@@ -1040,6 +1087,13 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 15].Value = "部門复期";
             worksheet.Cells[excelRow, 16].Value = "部門備註";
             worksheet.Cells[excelRow, 17].Value = "PMC備註";
+            worksheet.Cells[excelRow, 18].Value = "１日前序號";
+            worksheet.Cells[excelRow, 19].Value = "2日前序號";
+            worksheet.Cells[excelRow, 20].Value = "3日前序號";
+            worksheet.Cells[excelRow, 21].Value = "4日前序號";
+            worksheet.Cells[excelRow, 22].Value = "5日前序號";
+
+
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             int printRow = 1, printCol = 17;
             int not_cp_qty = 0;
@@ -1065,6 +1119,11 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
                 worksheet.Cells[excelRow, 16].Value = drExcel["dep_remark"].ToString();
                 worksheet.Cells[excelRow, 17].Value = drExcel["mo_remark"].ToString();
+                worksheet.Cells[excelRow, 18].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 19].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 22].Value = drExcel["old_seq5"].ToString();
                 not_cp_qty += clsValidRule.ConvertStrToInt(drExcel["not_cp_qty"].ToString());
                 if (not_cp_qty < 110)//未完成數量超過100，設定列印範圍
                     printRow = excelRow;
@@ -1107,6 +1166,11 @@ namespace cf01.CLS
 
             // 设置某一列不可见
             worksheet.Column(2).Hidden = true; // 隐藏物料編號
+            worksheet.Column(18).Hidden = true;
+            worksheet.Column(19).Hidden = true;
+            worksheet.Column(20).Hidden = true;
+            worksheet.Column(21).Hidden = true;
+            worksheet.Column(22).Hidden = true;
             worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
 
             // 动态确定表格范围
