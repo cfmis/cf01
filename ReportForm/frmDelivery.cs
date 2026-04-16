@@ -93,13 +93,13 @@ namespace cf01.ReportForm
             dtDelivery.Dispose();
             dtDept.Dispose();
             dtVendor.Dispose();
-            dtProductCard.Dispose();           
+            dtProductCard.Dispose();
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
-        {                   
-            txtDat2.EditValue = txtDat1.EditValue;            
-        }      
+        {
+            txtDat2.EditValue = (txtDat1.Text != "") ? txtDat1.EditValue : null;
+        }
 
         private static bool CheckDate(object obj)
         {
@@ -167,9 +167,11 @@ namespace cf01.ReportForm
             string in_dept1 = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
             string mo_id1 = txtMo_id1.Text;
             string mo_id2 = txtMo_id2.Text;
-            string user_id = txtCreate_by1.Text;            
+            string user_id = txtCreate_by1.Text;
+            string create_date1 = txtCreate_date1.EditValue.ToString();
+            string create_date2 = txtCreate_date2.EditValue.ToString();
             if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "" &&
-                mo_id1 =="" && mo_id2 =="" && user_id =="")
+                mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -195,6 +197,8 @@ namespace cf01.ReportForm
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print),
                     new SqlParameter("@user_id", user_id),
+                    new SqlParameter("@create_date1", create_date1),
+                    new SqlParameter("@create_date2", create_date2)
             };            
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
             //客戶端加bool字段或後端返回(bit型)都可以
@@ -223,9 +227,10 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("next_next_wp_id", typeof(string));
             dtDelivery.Columns.Add("next_next_wp_name", typeof(string));
 
+            //--start掃描上江西的數據 2026/04/16 allen canceled
+            //loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
+            //--end掃描上江西的數據
 
-            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
-           
             string dept = "";
             DataRow drow = null, drNext = null; 
             DataTable dtNextDept = new DataTable();
@@ -1355,6 +1360,10 @@ namespace cf01.ReportForm
         {
             panel1.Width = gridControl1.Width-5;
         }
-       
+
+        private void txtCreate_date1_Leave(object sender, EventArgs e)
+        {
+            txtCreate_date2.EditValue = (txtCreate_date1.Text != "") ? txtCreate_date1.EditValue : null;
+        }
     }
 }
