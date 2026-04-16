@@ -24,7 +24,7 @@ namespace cf01.ReportForm
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtDelivery = new DataTable();
-        DataTable dtProductCard = new DataTable();       
+        DataTable dtProductCard = new DataTable();
         DataTable dtDept = new DataTable();
         DataTable dtVendor = new DataTable();
         DataTable dtDataForPrint = new DataTable();
