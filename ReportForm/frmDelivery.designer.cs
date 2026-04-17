@@ -1423,7 +1423,7 @@
             // 
             // txtCreate_date1
             // 
-            this.txtCreate_date1.EditValue = null;
+            this.txtCreate_date1.EditValue = "";
             this.txtCreate_date1.EnterMoveNextControl = true;
             this.txtCreate_date1.Location = new System.Drawing.Point(158, 78);
             this.txtCreate_date1.Name = "txtCreate_date1";
@@ -1436,6 +1436,7 @@
             this.txtCreate_date1.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm";
             this.txtCreate_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCreate_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtCreate_date1.Properties.NullDate = "";
             this.txtCreate_date1.Size = new System.Drawing.Size(156, 20);
             this.txtCreate_date1.TabIndex = 6;
             this.txtCreate_date1.Tag = "2";
@@ -1443,7 +1444,7 @@
             // 
             // txtCreate_date2
             // 
-            this.txtCreate_date2.EditValue = null;
+            this.txtCreate_date2.EditValue = "";
             this.txtCreate_date2.EnterMoveNextControl = true;
             this.txtCreate_date2.Location = new System.Drawing.Point(342, 78);
             this.txtCreate_date2.Name = "txtCreate_date2";
@@ -1456,6 +1457,7 @@
             this.txtCreate_date2.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm";
             this.txtCreate_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCreate_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtCreate_date2.Properties.NullDate = "";
             this.txtCreate_date2.Size = new System.Drawing.Size(156, 20);
             this.txtCreate_date2.TabIndex = 7;
             this.txtCreate_date2.Tag = "2";
