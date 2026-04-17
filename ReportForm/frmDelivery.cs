@@ -170,10 +170,12 @@ namespace cf01.ReportForm
             string user_id = txtCreate_by1.Text;
             string create_date1 = txtCreate_date1.EditValue.ToString();
             string create_date2 = txtCreate_date2.EditValue.ToString();
+            string dat1= (!string.IsNullOrEmpty(txtDat1.Text)) ? DateTime.Parse(txtDat1.Text).ToString("yyyy/MM/dd") : "";
+            string dat2 = (!string.IsNullOrEmpty(txtDat2.Text)) ? DateTime.Parse(txtDat2.Text).ToString("yyyy/MM/dd") : "";
             create_date1 = (!string.IsNullOrEmpty(create_date1)) ? DateTime.Parse(create_date1).ToString("yyyy/MM/dd HH:mm") : "";
             create_date2 = (!string.IsNullOrEmpty(create_date2)) ? DateTime.Parse(create_date2).ToString("yyyy/MM/dd HH:mm") : "";
             
-            if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "" &&
+            if (strID1 == "" && strID2 == "" && dat1 == "" && dat2 == "" && out_dept1 == "" && in_dept1 == "" &&
                 mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -191,8 +193,8 @@ namespace cf01.ReportForm
                     new SqlParameter("@type", selectIndex),
                     new SqlParameter("@id_s",strID1),
                     new SqlParameter("@id_e",strID2),
-                    new SqlParameter("@date_s", txtDat1.Text),
-                    new SqlParameter("@date_e", txtDat2.Text),
+                    new SqlParameter("@date_s", dat1),
+                    new SqlParameter("@date_e", dat2),
                     new SqlParameter("@mo_id_s", txtMo_id1.Text),
                     new SqlParameter("@mo_id_e", txtMo_id2.Text),
                     new SqlParameter("@out_dept_s", out_dept1),

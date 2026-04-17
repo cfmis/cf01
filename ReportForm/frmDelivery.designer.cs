@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -167,6 +167,7 @@
             // 
             // txtID1
             // 
+            this.txtID1.EditValue = "";
             this.txtID1.EnterMoveNextControl = true;
             this.txtID1.Location = new System.Drawing.Point(158, 5);
             this.txtID1.Name = "txtID1";
@@ -197,7 +198,7 @@
             // 
             // txtDat2
             // 
-            this.txtDat2.EditValue = null;
+            this.txtDat2.EditValue = "";
             this.txtDat2.EnterMoveNextControl = true;
             this.txtDat2.Location = new System.Drawing.Point(342, 29);
             this.txtDat2.Name = "txtDat2";
@@ -205,16 +206,18 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtDat2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtDat2.Properties.NullDate = "";
             this.txtDat2.Size = new System.Drawing.Size(156, 20);
             this.txtDat2.TabIndex = 3;
             this.txtDat2.Tag = "2";
             // 
             // txtDat1
             // 
-            this.txtDat1.EditValue = null;
+            this.txtDat1.EditValue = "";
             this.txtDat1.EnterMoveNextControl = true;
             this.txtDat1.Location = new System.Drawing.Point(158, 29);
             this.txtDat1.Name = "txtDat1";
@@ -225,6 +228,7 @@
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtDat1.Properties.NullDate = "";
             this.txtDat1.Size = new System.Drawing.Size(156, 20);
             this.txtDat1.TabIndex = 2;
             this.txtDat1.Tag = "2";
@@ -462,6 +466,7 @@
             // 
             // txtID2
             // 
+            this.txtID2.EditValue = "";
             this.txtID2.EnterMoveNextControl = true;
             this.txtID2.Location = new System.Drawing.Point(342, 5);
             this.txtID2.Name = "txtID2";
@@ -482,6 +487,7 @@
             // 
             // txtOut_detp1
             // 
+            this.txtOut_detp1.EditValue = "";
             this.txtOut_detp1.EnterMoveNextControl = true;
             this.txtOut_detp1.Location = new System.Drawing.Point(158, 126);
             this.txtOut_detp1.Name = "txtOut_detp1";
@@ -520,6 +526,7 @@
             // 
             // txtIn_detp1
             // 
+            this.txtIn_detp1.EditValue = "";
             this.txtIn_detp1.EnterMoveNextControl = true;
             this.txtIn_detp1.Location = new System.Drawing.Point(158, 150);
             this.txtIn_detp1.Name = "txtIn_detp1";
@@ -540,8 +547,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -552,8 +559,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -564,8 +571,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -1319,6 +1326,7 @@
             // 
             // txtMo_id2
             // 
+            this.txtMo_id2.EditValue = "";
             this.txtMo_id2.EnterMoveNextControl = true;
             this.txtMo_id2.Location = new System.Drawing.Point(342, 53);
             this.txtMo_id2.Name = "txtMo_id2";
@@ -1338,6 +1346,7 @@
             // 
             // txtMo_id1
             // 
+            this.txtMo_id1.EditValue = "";
             this.txtMo_id1.EnterMoveNextControl = true;
             this.txtMo_id1.Location = new System.Drawing.Point(158, 53);
             this.txtMo_id1.Name = "txtMo_id1";
@@ -1492,6 +1501,7 @@
             // 
             // txtCreate_by1
             // 
+            this.txtCreate_by1.EditValue = "";
             this.txtCreate_by1.EnterMoveNextControl = true;
             this.txtCreate_by1.Location = new System.Drawing.Point(158, 102);
             this.txtCreate_by1.Name = "txtCreate_by1";
