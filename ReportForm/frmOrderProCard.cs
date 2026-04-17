@@ -29,7 +29,8 @@ namespace cf01.ReportForm
         clsUtility.enumOperationType operationType;
         string goods_id = "", table_state = "";
         public static string strProcess = "";
-        int mCount, Reserve_Qty;    
+        int mCount, Reserve_Qty;   
+         
 
         
         public frmOrderProCard()
