@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -181,26 +181,28 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.label6.Location = new System.Drawing.Point(321, 31);
+            this.label6.Location = new System.Drawing.Point(873, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 16);
             this.label6.TabIndex = 117;
             this.label6.Text = "~";
+            this.label6.Visible = false;
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(72, 33);
+            this.lblDate.Location = new System.Drawing.Point(624, 102);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
             this.lblDate.Text = "開單日期";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDate.Visible = false;
             // 
             // txtDat2
             // 
             this.txtDat2.EditValue = "";
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(342, 29);
+            this.txtDat2.Location = new System.Drawing.Point(894, 98);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -214,17 +216,20 @@
             this.txtDat2.Size = new System.Drawing.Size(156, 20);
             this.txtDat2.TabIndex = 3;
             this.txtDat2.Tag = "2";
+            this.txtDat2.Visible = false;
             // 
             // txtDat1
             // 
             this.txtDat1.EditValue = "";
             this.txtDat1.EnterMoveNextControl = true;
-            this.txtDat1.Location = new System.Drawing.Point(158, 29);
+            this.txtDat1.Location = new System.Drawing.Point(710, 98);
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtDat1.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtDat1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -232,6 +237,7 @@
             this.txtDat1.Size = new System.Drawing.Size(156, 20);
             this.txtDat1.TabIndex = 2;
             this.txtDat1.Tag = "2";
+            this.txtDat1.Visible = false;
             this.txtDat1.Leave += new System.EventHandler(this.txtDat1_Leave);
             // 
             // toolStrip1
@@ -489,7 +495,7 @@
             // 
             this.txtOut_detp1.EditValue = "";
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(158, 126);
+            this.txtOut_detp1.Location = new System.Drawing.Point(158, 104);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -498,7 +504,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 60, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 170, "cdesc")});
             this.txtOut_detp1.Properties.DropDownRows = 15;
-            this.txtOut_detp1.Properties.NullText = "請選擇";
+            this.txtOut_detp1.Properties.NullText = "";
             this.txtOut_detp1.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtOut_detp1.Properties.ShowHeader = false;
             this.txtOut_detp1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -508,7 +514,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(72, 131);
+            this.lblOut_dept.Location = new System.Drawing.Point(72, 109);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -517,7 +523,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(76, 155);
+            this.lblIn_dept.Location = new System.Drawing.Point(76, 134);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -528,7 +534,7 @@
             // 
             this.txtIn_detp1.EditValue = "";
             this.txtIn_detp1.EnterMoveNextControl = true;
-            this.txtIn_detp1.Location = new System.Drawing.Point(158, 150);
+            this.txtIn_detp1.Location = new System.Drawing.Point(158, 129);
             this.txtIn_detp1.Name = "txtIn_detp1";
             this.txtIn_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -536,7 +542,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 60, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 170, "cdesc")});
             this.txtIn_detp1.Properties.DropDownRows = 15;
-            this.txtIn_detp1.Properties.NullText = "請選擇";
+            this.txtIn_detp1.Properties.NullText = "";
             this.txtIn_detp1.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtIn_detp1.Properties.ShowHeader = false;
             this.txtIn_detp1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -547,8 +553,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -559,8 +565,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -571,8 +577,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -694,14 +700,14 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 312);
+            this.gridControl1.Location = new System.Drawing.Point(4, 292);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select,
             this.colQty,
             this.colSec_qty});
-            this.gridControl1.Size = new System.Drawing.Size(1093, 360);
+            this.gridControl1.Size = new System.Drawing.Size(1093, 380);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1269,7 +1275,7 @@
             // 
             // chkJx
             // 
-            this.chkJx.Location = new System.Drawing.Point(158, 178);
+            this.chkJx.Location = new System.Drawing.Point(158, 154);
             this.chkJx.Name = "chkJx";
             this.chkJx.Properties.Caption = "不顯示已交JX的數據";
             this.chkJx.Size = new System.Drawing.Size(152, 19);
@@ -1277,7 +1283,7 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Location = new System.Drawing.Point(29, 289);
+            this.chkSelect.Location = new System.Drawing.Point(29, 265);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Properties.Caption = "全選";
             this.chkSelect.Size = new System.Drawing.Size(48, 19);
@@ -1286,7 +1292,7 @@
             // 
             // chkDelivery
             // 
-            this.chkDelivery.Location = new System.Drawing.Point(158, 202);
+            this.chkDelivery.Location = new System.Drawing.Point(158, 178);
             this.chkDelivery.Name = "chkDelivery";
             this.chkDelivery.Properties.Caption = "選擇當前頁數,自動將當前頁數所在的同一張移交單全選中";
             this.chkDelivery.Size = new System.Drawing.Size(342, 19);
@@ -1294,7 +1300,7 @@
             // 
             // chkPrint
             // 
-            this.chkPrint.Location = new System.Drawing.Point(301, 178);
+            this.chkPrint.Location = new System.Drawing.Point(301, 154);
             this.chkPrint.Name = "chkPrint";
             this.chkPrint.Properties.Caption = "是否包含已列印數據?";
             this.chkPrint.Size = new System.Drawing.Size(152, 19);
@@ -1305,7 +1311,7 @@
             this.btnAlloy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAlloy.Image = ((System.Drawing.Image)(resources.GetObject("btnAlloy.Image")));
             this.btnAlloy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlloy.Location = new System.Drawing.Point(836, 279);
+            this.btnAlloy.Location = new System.Drawing.Point(836, 255);
             this.btnAlloy.Name = "btnAlloy";
             this.btnAlloy.Size = new System.Drawing.Size(184, 31);
             this.btnAlloy.TabIndex = 143;
@@ -1318,7 +1324,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(321, 56);
+            this.label2.Location = new System.Drawing.Point(321, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 16);
             this.label2.TabIndex = 147;
@@ -1328,7 +1334,7 @@
             // 
             this.txtMo_id2.EditValue = "";
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(342, 53);
+            this.txtMo_id2.Location = new System.Drawing.Point(342, 29);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id2.Properties.MaxLength = 9;
@@ -1337,7 +1343,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(72, 56);
+            this.label5.Location = new System.Drawing.Point(72, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 146;
@@ -1348,7 +1354,7 @@
             // 
             this.txtMo_id1.EditValue = "";
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(158, 53);
+            this.txtMo_id1.Location = new System.Drawing.Point(158, 29);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id1.Properties.MaxLength = 9;
@@ -1361,7 +1367,7 @@
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
             this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(680, 279);
+            this.btnExcel.Location = new System.Drawing.Point(680, 255);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(133, 31);
             this.btnExcel.TabIndex = 148;
@@ -1385,7 +1391,7 @@
             this.chkReplaceQty.AutoSize = true;
             this.chkReplaceQty.Checked = true;
             this.chkReplaceQty.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkReplaceQty.Location = new System.Drawing.Point(454, 181);
+            this.chkReplaceQty.Location = new System.Drawing.Point(454, 157);
             this.chkReplaceQty.Name = "chkReplaceQty";
             this.chkReplaceQty.Size = new System.Drawing.Size(168, 16);
             this.chkReplaceQty.TabIndex = 150;
@@ -1427,14 +1433,14 @@
             this.panel1.Controls.Add(this.lblIn_dept);
             this.panel1.Location = new System.Drawing.Point(4, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1093, 228);
+            this.panel1.Size = new System.Drawing.Size(1093, 207);
             this.panel1.TabIndex = 151;
             // 
             // txtCreate_date1
             // 
             this.txtCreate_date1.EditValue = "";
             this.txtCreate_date1.EnterMoveNextControl = true;
-            this.txtCreate_date1.Location = new System.Drawing.Point(158, 78);
+            this.txtCreate_date1.Location = new System.Drawing.Point(158, 54);
             this.txtCreate_date1.Name = "txtCreate_date1";
             this.txtCreate_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1455,7 +1461,7 @@
             // 
             this.txtCreate_date2.EditValue = "";
             this.txtCreate_date2.EnterMoveNextControl = true;
-            this.txtCreate_date2.Location = new System.Drawing.Point(342, 78);
+            this.txtCreate_date2.Location = new System.Drawing.Point(342, 54);
             this.txtCreate_date2.Name = "txtCreate_date2";
             this.txtCreate_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1473,7 +1479,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(72, 81);
+            this.label3.Location = new System.Drawing.Point(72, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 156;
@@ -1484,7 +1490,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.label7.Location = new System.Drawing.Point(321, 78);
+            this.label7.Location = new System.Drawing.Point(321, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 16);
             this.label7.TabIndex = 157;
@@ -1492,7 +1498,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(72, 105);
+            this.label4.Location = new System.Drawing.Point(72, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 153;
@@ -1503,7 +1509,7 @@
             // 
             this.txtCreate_by1.EditValue = "";
             this.txtCreate_by1.EnterMoveNextControl = true;
-            this.txtCreate_by1.Location = new System.Drawing.Point(158, 102);
+            this.txtCreate_by1.Location = new System.Drawing.Point(158, 79);
             this.txtCreate_by1.Name = "txtCreate_by1";
             this.txtCreate_by1.Properties.MaxLength = 20;
             this.txtCreate_by1.Size = new System.Drawing.Size(156, 20);

@@ -77,14 +77,16 @@ namespace cf01.ReportForm
             dtVendor = clsConErp.GetDataTable(strsql);
             drow = dtVendor.NewRow(); //插一空行        
             dtVendor.Rows.InsertAt(drow, 0);
-
-            if (string.IsNullOrEmpty(txtDat1.Text))
-            {
-                txtDat1.EditValue = DateTime.Now;
+            string strDate = "";
+            if (string.IsNullOrEmpty(txtCreate_date1.Text))
+            {               
+                strDate = DateTime.Now.Date.ToString("yyyy/MM/dd");
+                txtCreate_date1.EditValue = strDate;
             }
-            if (string.IsNullOrEmpty(txtDat2.Text))
+            if (string.IsNullOrEmpty(txtCreate_date2.Text))
             {
-                txtDat2.EditValue = DateTime.Now;
+                strDate = txtCreate_date1.Text.Substring(0, 11) + "23:59";
+                txtCreate_date2.EditValue = strDate;
             }
         }
 
@@ -163,8 +165,8 @@ namespace cf01.ReportForm
             }
 
             string selectIndex = radioGroup1.SelectedIndex.ToString();
-            string out_dept1 = string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString())?"": txtOut_detp1.EditValue.ToString();                            
-            string in_dept1 = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
+            string dept_out = string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString())?"": txtOut_detp1.EditValue.ToString();                            
+            string dept_in = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
             string mo_id1 = txtMo_id1.Text;
             string mo_id2 = txtMo_id2.Text;
             string user_id = txtCreate_by1.Text;
@@ -175,11 +177,21 @@ namespace cf01.ReportForm
             create_date1 = (!string.IsNullOrEmpty(create_date1)) ? DateTime.Parse(create_date1).ToString("yyyy/MM/dd HH:mm") : "";
             create_date2 = (!string.IsNullOrEmpty(create_date2)) ? DateTime.Parse(create_date2).ToString("yyyy/MM/dd HH:mm") : "";
             
-            if (strID1 == "" && strID2 == "" && dat1 == "" && dat2 == "" && out_dept1 == "" && in_dept1 == "" &&
+            if (strID1 == "" && strID2 == "" && dat1 == "" && dat2 == "" && dept_out == "" && dept_in == "" &&
                 mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+            dat1 = "";
+            dat2 = "";
+            if(create_date1 !="" && create_date2 != "")
+            {
+                if (create_date1 == create_date2)
+                {
+                    create_date2 = create_date2.Substring(0, 11) + "23:59";
+                    txtCreate_date2.EditValue = create_date2;
+                }
             }
             string flag_jx = "", flag_print = "";
             if (radioGroup1.SelectedIndex == 2) //JX Data            
@@ -197,8 +209,8 @@ namespace cf01.ReportForm
                     new SqlParameter("@date_e", dat2),
                     new SqlParameter("@mo_id_s", txtMo_id1.Text),
                     new SqlParameter("@mo_id_e", txtMo_id2.Text),
-                    new SqlParameter("@out_dept_s", out_dept1),
-                    new SqlParameter("@in_dept_s", in_dept1),
+                    new SqlParameter("@out_dept_s", dept_out),
+                    new SqlParameter("@in_dept_s", dept_in),
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print),
                     new SqlParameter("@user_id", user_id),
