@@ -168,8 +168,11 @@ namespace cf01.ReportForm
             string mo_id1 = txtMo_id1.Text;
             string mo_id2 = txtMo_id2.Text;
             string user_id = txtCreate_by1.Text;
-            string create_date1 = txtCreate_date1.EditValue.ToString();
+            string create_date1 =  txtCreate_date1.EditValue.ToString();
             string create_date2 = txtCreate_date2.EditValue.ToString();
+            create_date1 = (!string.IsNullOrEmpty(create_date1)) ? DateTime.Parse(create_date1).ToString("yyyy/MM/dd HH:mm") : "";
+            create_date2 = (!string.IsNullOrEmpty(create_date2)) ? DateTime.Parse(create_date2).ToString("yyyy/MM/dd HH:mm") : "";
+            
             if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "" &&
                 mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
             {
