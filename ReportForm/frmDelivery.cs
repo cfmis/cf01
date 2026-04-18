@@ -177,8 +177,7 @@ namespace cf01.ReportForm
             create_date1 = (!string.IsNullOrEmpty(create_date1)) ? DateTime.Parse(create_date1).ToString("yyyy/MM/dd HH:mm") : "";
             create_date2 = (!string.IsNullOrEmpty(create_date2)) ? DateTime.Parse(create_date2).ToString("yyyy/MM/dd HH:mm") : "";
             
-            if (strID1 == "" && strID2 == "" && dat1 == "" && dat2 == "" && dept_out == "" && dept_in == "" &&
-                mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
+            if (strID1 == "" && strID2 == "" && dept_out == "" && dept_in == "" && mo_id1 =="" && mo_id2 =="" && user_id =="" && create_date1 =="" && create_date2 =="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -305,7 +304,7 @@ namespace cf01.ReportForm
                 strSql =string.Format(
                 @"Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
                  b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ,
-                 dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
+                 dbo.StrToCode128B(a.mo_id + RIGHT(REPLICATE('0',3)+CAST(a.ver AS varchar(3)),2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
                  FROM jo_bill_mostly a with(nolock)
                  INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
                  INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
@@ -318,7 +317,7 @@ namespace cf01.ReportForm
                 strSql = string.Format(
                 @" Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
                 b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date,
-                dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
+                dbo.StrToCode128B(a.mo_id + RIGHT(REPLICATE('0',3)+CAST(a.ver AS varchar(3)),2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next
                 FROM jo_bill_mostly a with(nolock)
                 INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
                 INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence
@@ -332,7 +331,7 @@ namespace cf01.ReportForm
                     strSql = string.Format(
                     @"Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
                     b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date,
-                    dbo.StrToCode128B(a.mo_id + Substring(Convert(varchar(3),100 + a.ver),2,2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next 
+                    dbo.StrToCode128B(a.mo_id + RIGHT(REPLICATE('0',3)+CAST(a.ver AS varchar(3)),2) + SUBSTRING(b.sequence_id,3,2)) AS barcode_id_next 
                     FROM jo_bill_mostly a with(nolock)
                     INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
                     INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
