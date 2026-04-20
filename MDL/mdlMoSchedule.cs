@@ -8,6 +8,7 @@ namespace cf01.MDL
     public class mdlMoSchedule
     {
         public string schedule_id { get; set; }
+        public string cust_code { get; set; }
         public string prd_dep { get; set; }
         public string prd_group { get; set; }
         public string schedule_date { get; set; }

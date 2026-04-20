@@ -831,6 +831,7 @@ namespace cf01.ReportForm
                     objModel.next_goods_id = drMo["next_goods_id"].ToString().Trim();
                     objModel.next_vend_id = drMo["next_vendor_id"].ToString().Trim();
                     objModel.order_date = drMo["order_date"].ToString().Trim();
+                    objModel.cust_code = drMo["cust_code"].ToString().Trim();
                     objModel.order_qty = clsValidRule.ConvertStrToInt(drMo["order_qty"].ToString());
                     objModel.pl_qty = clsValidRule.ConvertStrToInt(drMo["prod_qty"].ToString());
                     objModel.pre_tr_qty = clsValidRule.ConvertStrToInt(drMo["pre_dep_qty_ok"].ToString());
