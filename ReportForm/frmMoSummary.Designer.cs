@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSummary));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cmdExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnImpExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmdFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExportToExce = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnImpExcel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDateFrom = new DevExpress.XtraEditors.TextEdit();
             this.txtDateTo = new DevExpress.XtraEditors.TextEdit();
@@ -159,6 +159,22 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnImpExcel
+            // 
+            this.btnImpExcel.AutoSize = false;
+            this.btnImpExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImpExcel.Image")));
+            this.btnImpExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImpExcel.Name = "btnImpExcel";
+            this.btnImpExcel.Size = new System.Drawing.Size(75, 35);
+            this.btnImpExcel.Text = "匯入Excel";
+            this.btnImpExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+            // 
             // cmdFind
             // 
             this.cmdFind.AutoSize = false;
@@ -191,22 +207,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnImpExcel
-            // 
-            this.btnImpExcel.AutoSize = false;
-            this.btnImpExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImpExcel.Image")));
-            this.btnImpExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnImpExcel.Name = "btnImpExcel";
-            this.btnImpExcel.Size = new System.Drawing.Size(75, 35);
-            this.btnImpExcel.Text = "匯入Excel";
-            this.btnImpExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -236,6 +236,7 @@
             this.txtDateFrom.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.txtDateFrom.Size = new System.Drawing.Size(127, 20);
             this.txtDateFrom.TabIndex = 0;
+            this.txtDateFrom.Leave += new System.EventHandler(this.txtDateFrom_Leave);
             // 
             // txtDateTo
             // 
@@ -340,13 +341,13 @@
             // gcOc
             // 
             this.gcOc.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode4.RelationName = "Level1";
-            gridLevelNode5.RelationName = "Level2";
-            gridLevelNode6.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcOc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4,
-            gridLevelNode5,
-            gridLevelNode6});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcOc.Location = new System.Drawing.Point(0, 136);
             this.gcOc.MainView = this.gvOc;
             this.gcOc.Name = "gcOc";
