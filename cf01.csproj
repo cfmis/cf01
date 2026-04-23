@@ -2289,6 +2289,12 @@
     <Compile Include="ReportForm\frmProductRecord.Designer.cs">
       <DependentUpon>frmProductRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmProductTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmProductTransfer.Designer.cs">
+      <DependentUpon>frmProductTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmProgressBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4091,6 +4097,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmProductRecord.resx">
       <DependentUpon>frmProductRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmProductTransfer.resx">
+      <DependentUpon>frmProductTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmProgressBar.resx">
       <DependentUpon>frmProgressBar.cs</DependentUpon>
