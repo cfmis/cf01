@@ -57,7 +57,7 @@ namespace cf01.CLS
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
                         ",mo_remark,dep_remark,module_no,module_install,now_date" +
                         ",pre_tr_qty,pre_tr_date,pre_tr_flag,wip_id,wip_seq,wip_ver" +
-                        ",hk_req_date,cs_req_date"+
+                        ",hk_req_date,cs_req_date,cust_code"+
                         ",create_user,create_time" +
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
@@ -65,7 +65,7 @@ namespace cf01.CLS
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
                         ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}'" +
                         ",'{38}','{39}','{40}','{41}','{42}','{43}'" +
-                        ",'{44}','{45}'" + 
+                        ",'{44}','{45}','{46}'" + 
                         ",'{20}','{21}'" +
                         ")";
                 }
@@ -83,7 +83,7 @@ namespace cf01.CLS
                         ",mo_remark='{33}',dep_remark='{34}',module_no='{35}',module_install='{36}'" +
                         ",now_date='{37}',pre_tr_qty='{38}',pre_tr_date='{39}',pre_tr_flag='{40}'" +
                         ",wip_id='{41}',wip_seq='{42}',wip_ver='{43}'" +
-                        ",hk_req_date='{44}',cs_req_date='{45}'" +
+                        ",hk_req_date='{44}',cs_req_date='{45}',cust_code='{46}'" +
                         " Where schedule_id='{0}'";
                 }
                 strSql += string.Format(strSql1
@@ -97,6 +97,7 @@ namespace cf01.CLS
                     , lsMo[i].mo_remark, lsMo[i].dep_remark, lsMo[i].module_no, lsMo[i].module_install
                     , lsMo[i].now_date, lsMo[i].pre_tr_qty, lsMo[i].pre_tr_date, lsMo[i].pre_tr_flag
                     , lsMo[i].wip_id, lsMo[i].wip_seq, lsMo[i].wip_ver, lsMo[i].hk_req_date, lsMo[i].cs_req_date
+                    , lsMo[i].cust_code
                     );
             }
 

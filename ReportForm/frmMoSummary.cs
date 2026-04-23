@@ -112,24 +112,52 @@ namespace cf01.ReportForm
                 MessageBox.Show("沒有匯出的記錄!");
                 return;
             }
-            ExpToExcel();
-        }
-        private void ExpToExcel()
-        {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            string fileName = "頁數匯總";
-            saveFile.FileName = fileName;
-            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
-            saveFile.FilterIndex = 0;
-            saveFile.RestoreDirectory = true;
-            saveFile.CreatePrompt = true;
-            saveFile.Title = "导出Excel文件到";
-            if (saveFile.ShowDialog() == DialogResult.OK)
+
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            string folderPath = "";
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
-                fileName = saveFile.FileName;
+                folderPath = fbd.SelectedPath;
+                //MessageBox.Show("你选择的文件夹路径是: " + folderPath);
             }
-            if (fileName == "")
+            else
                 return;
+            if (folderPath == "")
+                return;
+
+            string fileName = folderPath + "\\" + "頁數匯總" + ".xlsx";
+
+            //SaveFileDialog saveFile = new SaveFileDialog();
+            //fileName = "頁數匯總";
+            //saveFile.FileName = fileName;
+            //saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
+            //saveFile.FilterIndex = 0;
+            //saveFile.RestoreDirectory = true;
+            //saveFile.CreatePrompt = true;
+            //saveFile.Title = "导出Excel文件到";
+            //if (saveFile.ShowDialog() == DialogResult.OK)
+            //{
+            //    fileName = saveFile.FileName;
+            //}
+            //if (fileName == "")
+            //    return;
+            //return;
+            ExpToExcel(dtOc, fileName);
+            System.Data.DataTable dtGroups = dtOc.DefaultView.ToTable(true, "mo_group");
+            //for (int i=0;i<dtGroups.Rows.Count;i++)
+            //{
+            //    System.Data.DataTable dtNewExcel = new System.Data.DataTable();
+            //    DataView dv = dtOc.DefaultView;
+            //    dv.RowFilter = "mo_group = " + "'" + dtGroups.Rows[i]["mo_group"].ToString().Trim() + "'";
+            //    fileName = folderPath + "\\" + "頁數匯總" + "_" + dtGroups.Rows[i]["mo_group"].ToString().Trim() + ".xlsx";
+            //    dtNewExcel = dv.ToTable();
+            //    ExpToExcel(dtNewExcel, fileName);
+            //}
+            MessageBox.Show("Excel 文件导出成功！");
+        }
+        private void ExpToExcel(DataTable dtExcel,string fileName)
+        {
+            
 
             using (var package = new ExcelPackage())
             {
@@ -160,35 +188,37 @@ namespace cf01.ReportForm
                 wSheet.Cells[excelRow, 11].Value = "有否採購";
                 wSheet.Cells[excelRow, 12].Value = "制單備註/備註";
                 wSheet.Cells[excelRow, 13].Value = "當前部門";
-                wSheet.Cells[excelRow, 14].Value = "經過部門";
+                wSheet.Cells[excelRow, 14].Value = "當前部門描述";
+                wSheet.Cells[excelRow, 15].Value = "下部門";
+                wSheet.Cells[excelRow, 16].Value = "下部門描述";
+                wSheet.Cells[excelRow, 17].Value = "經過部門";
+                wSheet.Cells[excelRow, 18].Value = "經過部門描述";
+                wSheet.Cells[excelRow, 19].Value = "配件編號";
+                wSheet.Cells[excelRow, 20].Value = "主件";
+                wSheet.Cells[excelRow, 21].Value = "物料編號";
+                wSheet.Cells[excelRow, 22].Value = "物料描述";
+                
+                wSheet.Cells[excelRow, 23].Value = "洋行代號";
+                wSheet.Cells[excelRow, 24].Value = "訂單數量";
 
-                wSheet.Cells[excelRow, 15].Value = "配件編號";
-                wSheet.Cells[excelRow, 16].Value = "主件";
-                wSheet.Cells[excelRow, 17].Value = "物料編號";
-                wSheet.Cells[excelRow, 18].Value = "物料描述";
-                wSheet.Cells[excelRow, 19].Value = "下部門";
-                wSheet.Cells[excelRow, 20].Value = "洋行代號";
-                wSheet.Cells[excelRow, 21].Value = "訂單數量";
+                wSheet.Cells[excelRow, 25].Value = "數量單位";
+                wSheet.Cells[excelRow, 26].Value = "已回港日期";
+                wSheet.Cells[excelRow, 27].Value = "已回港數量(PCS)";
+                wSheet.Cells[excelRow, 28].Value = "OC編號";
+                wSheet.Cells[excelRow, 29].Value = "客人產品編號";
+                wSheet.Cells[excelRow, 30].Value = "客人顏色編號";
 
-                wSheet.Cells[excelRow, 22].Value = "數量單位";
-                wSheet.Cells[excelRow, 23].Value = "已回港日期";
-                wSheet.Cells[excelRow, 24].Value = "已回港數量(PCS)";
-                wSheet.Cells[excelRow, 25].Value = "OC編號";
-                wSheet.Cells[excelRow, 26].Value = "客人產品編號";
-                wSheet.Cells[excelRow, 27].Value = "客人顏色編號";
-
-                wSheet.Cells[excelRow, 28].Value = "倉(採購)直接發貨";
-                wSheet.Cells[excelRow, 29].Value = "顏色編號";
-                wSheet.Cells[excelRow, 30].Value = "顏色做法";
-                wSheet.Cells[excelRow, 31].Value = "過期天數";
-                wSheet.Cells[excelRow, 32].Value = "當前部門";
-                wSheet.Cells[excelRow, 33].Value = "PMC要求交貨期";
-                int maxCol = 33;
-                wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                wSheet.Cells[excelRow, 31].Value = "倉(採購)直接發貨";
+                wSheet.Cells[excelRow, 32].Value = "顏色編號";
+                wSheet.Cells[excelRow, 33].Value = "顏色做法";
+                wSheet.Cells[excelRow, 34].Value = "過期天數";
+                wSheet.Cells[excelRow, 35].Value = "PMC要求交貨期";
+                int maxCol = 35;
+                wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20点   pass_dep_cdesc
                 excelRow++;
-                for (int i = 0; i < dtOc.Rows.Count; i++)
+                for (int i = 0; i < dtExcel.Rows.Count; i++)
                 {
-                    DataRow dr = dtOc.Rows[i];
+                    DataRow dr = dtExcel.Rows[i];
                     // 设置 A1 单元格为文本格式
                     var cell = wSheet.Cells[excelRow, 1];
                     cell.Style.Numberformat.Format = "@";
@@ -212,40 +242,47 @@ namespace cf01.ReportForm
                     wSheet.Cells[excelRow, 11].Value = "";// dr["urgent"].ToString();
                     wSheet.Cells[excelRow, 12].Value = dr["remark"].ToString().Trim() + "\r\n" + dr["production_remark"].ToString().Trim();
                     wSheet.Cells[excelRow, 13].Value = dr["curr_dep"].ToString();
-                    wSheet.Cells[excelRow, 14].Value = dr["pass_dep"].ToString();
-                    wSheet.Cells[excelRow, 15].Value = dr["goods_part"].ToString();
-                    wSheet.Cells[excelRow, 16].Value = dr["a_part"].ToString();
-                    wSheet.Cells[excelRow, 17].Value = dr["goods_id"].ToString();
-                    wSheet.Cells[excelRow, 18].Value = dr["goods_name"].ToString();
-                    cell = wSheet.Cells[excelRow, 19];
+                    wSheet.Cells[excelRow, 14].Value = dr["curr_dep_cdesc"].ToString();
+                    cell = wSheet.Cells[excelRow, 15];
                     cell.Style.Numberformat.Format = "@";
                     cell.Value = dr["curr_next_dep"].ToString();
-                    wSheet.Cells[excelRow, 20].Value = dr["agent"].ToString();
-                    wSheet.Cells[excelRow, 21].Value = dr["order_qty"].ToString();
-                    wSheet.Cells[excelRow, 22].Value = dr["goods_unit"].ToString();
-                    wSheet.Cells[excelRow, 23].Value = dr["act_to_hk_date"].ToString();
-                    wSheet.Cells[excelRow, 24].Value = dr["act_to_hk_qty_pcs"].ToString();
-                    wSheet.Cells[excelRow, 25].Value = dr["id"].ToString();
-                    wSheet.Cells[excelRow, 26].Value = dr["customer_goods"].ToString();
-                    wSheet.Cells[excelRow, 27].Value = dr["customer_color_id"].ToString();
-                    wSheet.Cells[excelRow, 28].Value = "";
-                    wSheet.Cells[excelRow, 29].Value = dr["color_name"].ToString();
-                    wSheet.Cells[excelRow, 30].Value = dr["do_color"].ToString();
-                    int period_day = dr["period_day"].ToString() != "" ? Convert.ToInt32(dr["period_day"].ToString()) : 0;
-                    wSheet.Cells[excelRow, 31].Value = period_day;
-                    wSheet.Cells[excelRow, 32].Value = dr["curr_dep_cdesc"].ToString();
-                    wSheet.Cells[excelRow, 33].Value = dr["pmc_req_hk_date"].ToString();
-                    wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                    wSheet.Cells[excelRow, 16].Value = dr["curr_next_dep_cdesc"].ToString();
+                    wSheet.Cells[excelRow, 17].Value = dr["pass_dep"].ToString();
+                    wSheet.Cells[excelRow, 18].Value = dr["pass_dep_cdesc"].ToString();
+                    wSheet.Cells[excelRow, 19].Value = dr["goods_part"].ToString();
+                    wSheet.Cells[excelRow, 20].Value = dr["a_part"].ToString();
+                    wSheet.Cells[excelRow, 21].Value = dr["goods_id"].ToString();
+                    wSheet.Cells[excelRow, 22].Value = dr["goods_name"].ToString();
                     
-                    if (period_day > 0)
-                    {
-                        // 设置整行背景为红色
-                        for (int col = 1; col <= maxCol; col++)
-                        {
-                            wSheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            wSheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.Red);
-                        }
-                    }
+                    wSheet.Cells[excelRow, 23].Value = dr["agent"].ToString();
+                    wSheet.Cells[excelRow, 24].Value = dr["order_qty"].ToString();
+                    wSheet.Cells[excelRow, 25].Value = dr["goods_unit"].ToString();
+                    wSheet.Cells[excelRow, 26].Value = dr["act_to_hk_date"].ToString();
+                    wSheet.Cells[excelRow, 27].Value = dr["act_to_hk_qty_pcs"].ToString();
+                    wSheet.Cells[excelRow, 28].Value = dr["id"].ToString();
+                    wSheet.Cells[excelRow, 29].Value = dr["customer_goods"].ToString();
+                    wSheet.Cells[excelRow, 30].Value = dr["customer_color_id"].ToString();
+                    wSheet.Cells[excelRow, 31].Value = "";
+                    wSheet.Cells[excelRow, 32].Value = dr["color_name"].ToString();
+                    wSheet.Cells[excelRow, 33].Value = dr["do_color"].ToString();
+                    int period_day = dr["period_day"].ToString() != "" ? Convert.ToInt32(dr["period_day"].ToString()) : 0;
+                    wSheet.Cells[excelRow, 34].Value = period_day;
+                    
+                    wSheet.Cells[excelRow, 35].Value = dr["pmc_req_hk_date"].ToString();
+                    wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+
+                    //if (period_day > 0)
+                    //{
+                    //    //// 设置整行背景为红色
+                    //    //for (int col = 1; col <= maxCol; col++)
+                    //    //{
+                    //    //    wSheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    //    wSheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.Red);
+                    //    //}
+                    //    // 只设置第1欄的背景为红色
+                    //    wSheet.Cells[excelRow, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    wSheet.Cells[excelRow, 1].Style.Fill.BackgroundColor.SetColor(Color.Red);
+                    //}
                     excelRow++;
                 }
                 excelRow--;
@@ -261,27 +298,29 @@ namespace cf01.ReportForm
                 wSheet.Column(10).Width = 10;
                 wSheet.Column(11).Width = 8;
                 wSheet.Column(12).Width = 20;
-                wSheet.Column(13).Width = 20;
+                wSheet.Column(13).Width = 16;
                 wSheet.Column(14).Width = 30;
-                wSheet.Column(15).Width = 20;
-                wSheet.Column(16).Width = 6;
+                wSheet.Column(15).Width = 16;
+                wSheet.Column(16).Width = 30;
                 wSheet.Column(17).Width = 20;
-                wSheet.Column(18).Width = 28;
+                wSheet.Column(18).Width = 30;
                 wSheet.Column(19).Width = 20;
-                wSheet.Column(20).Width = 8;
-                wSheet.Column(21).Width = 10;
-                wSheet.Column(22).Width = 6;
+                wSheet.Column(20).Width = 20;
+                wSheet.Column(21).Width = 20;
+                wSheet.Column(22).Width = 28;
                 wSheet.Column(23).Width = 10;
-                wSheet.Column(24).Width = 10;
-                wSheet.Column(25).Width = 12;
-                wSheet.Column(26).Width = 18;
-                wSheet.Column(27).Width = 16;
-                wSheet.Column(28).Width = 8;
-                wSheet.Column(29).Width = 18;
-                wSheet.Column(30).Width = 18;
-                wSheet.Column(31).Width = 8;
-                wSheet.Column(32).Width = 18;
-                wSheet.Column(33).Width = 18;
+                wSheet.Column(24).Width = 8;
+                wSheet.Column(25).Width = 10;
+                wSheet.Column(26).Width = 10;
+                wSheet.Column(27).Width = 12;
+                wSheet.Column(28).Width = 16;
+                wSheet.Column(29).Width = 26;
+                wSheet.Column(30).Width = 28;
+                wSheet.Column(31).Width = 6;
+                wSheet.Column(32).Width = 28;
+                wSheet.Column(33).Width = 28;
+                wSheet.Column(34).Width = 8;
+                wSheet.Column(35).Width = 16;
                 // 设置动态范围
                 string colStr = $"E1:E{excelRow}"; // 动态计算行数
                 wSheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
@@ -291,6 +330,21 @@ namespace cf01.ReportForm
                 wSheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
                 colStr = $"H1:H{excelRow}"; // 动态计算行数
                 wSheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+
+                // 在第 1 列插入一栏（即在原来的第 1 列前插入新列）  如果過期了，將該欄變紅色
+                wSheet.InsertColumn(1, 1);
+                wSheet.Column(1).Width = 3;
+                for (int i = 2; i <= excelRow; i++)
+                {
+                    string aa = wSheet.Cells[i, 35].Value.ToString();
+                    int period_day1 = wSheet.Cells[i, 35].Value.ToString() != "" ? Convert.ToInt32(wSheet.Cells[i, 35].Value) : 0;
+                    if(period_day1>0)
+                    {
+                        wSheet.Cells[i, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        wSheet.Cells[i, 1].Style.Fill.BackgroundColor.SetColor(Color.Red);
+                    }
+                }
+
 
                 // 动态确定表格范围
                 //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
@@ -323,7 +377,7 @@ namespace cf01.ReportForm
                 // 保存 Excel 文件
                 FileInfo file = new FileInfo(fileName);
                 package.SaveAs(file);
-                MessageBox.Show("Excel 文件导出成功！");
+                
             }
 
         }
@@ -455,6 +509,11 @@ namespace cf01.ReportForm
             string Result = "";
             Result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return Result;
+        }
+
+        private void txtDateFrom_Leave(object sender, EventArgs e)
+        {
+            txtDateTo.Text = txtDateFrom.Text;
         }
     }
 }
