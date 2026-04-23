@@ -12,6 +12,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Threading;
 using System.ComponentModel;
+using DevExpress.XtraGrid;
 
 namespace cf01.CLS
 {
@@ -632,6 +633,20 @@ namespace cf01.CLS
                 sw.Close();
                 myStream.Close();
                 MessageBox.Show("匯出EXCEL成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void DevGridControlToExcel(GridControl grdControl)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Title = "导出Excel";
+            fileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+                grdControl.ExportToXls(fileDialog.FileName);
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

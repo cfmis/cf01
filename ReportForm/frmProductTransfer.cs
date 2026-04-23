@@ -150,16 +150,8 @@ namespace cf01.ReportForm
             {
                 return;
             }
-            SaveFileDialog fileDialog = new SaveFileDialog();
-            fileDialog.Title = "导出Excel";
-            fileDialog.Filter = "Excel文件(*.xls)|*.xls";
-            DialogResult dialogResult = fileDialog.ShowDialog(this);
-            if (dialogResult == DialogResult.OK)
-            {
-                DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
-                gridControl1.ExportToXls(fileDialog.FileName);
-                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            ExpToExcel clsXls = new ExpToExcel();
+            clsXls.DevGridControlToExcel(gridControl1);
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
