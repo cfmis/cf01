@@ -189,7 +189,7 @@
             // 
             // BTNEXCEL
             // 
-            this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
+            this.BTNEXCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXCEL.Image")));
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
             this.BTNEXCEL.Size = new System.Drawing.Size(71, 35);
