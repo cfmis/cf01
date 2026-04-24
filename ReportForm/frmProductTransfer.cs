@@ -30,14 +30,7 @@ namespace cf01.ReportForm
         public frmProductTransfer()
         {
             InitializeComponent();
-            try
-            {             
-                clsApp.Initialize_find_value(this.Name, this.panel1.Controls);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            clsApp.Initialize_find_value(this.Name, this.panel1.Controls);
         }
 
         private void frmProductTransfer_Load(object sender, EventArgs e)
@@ -58,16 +51,19 @@ namespace cf01.ReportForm
             lueWork_sort.Properties.ValueMember = "id";
             lueWork_sort.Properties.DisplayMember = "cdesc";
             cmbTransfer_flag.SelectedIndex = 2;
+            if (!chkSumarry.Checked)
+            {
+                chkSumarry.Checked = true;
+            }
+            gridControl1.MainView = gridView2;
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {    
             string wipId = string.IsNullOrEmpty(txtWip_id.EditValue.ToString()) ? "" : txtWip_id.EditValue.ToString();
             string prdItem = string.IsNullOrEmpty(txtPrd_item.Text) ? "" : txtPrd_item.Text;
-            string moId1 = txtPrd_mo1.Text;
-            string moId2 = txtPrd_mo2.Text;
-            string crTim1 = txtCrtim1.EditValue.ToString();
-            string crTim2 = txtCrtim2.EditValue.ToString();           
+            string moId1 = txtPrd_mo1.Text, moId2 = txtPrd_mo2.Text;
+            string crTim1 = txtCrtim1.EditValue.ToString(), crTim2 = txtCrtim2.EditValue.ToString();           
             string salesGroup = txtGroup.Text;
             string transferFlagIndex = cmbTransfer_flag.SelectedIndex.ToString();
             string workGroup = lueWork_sort.EditValue.ToString();
@@ -85,7 +81,6 @@ namespace cf01.ReportForm
             {
                 transferFlagIndex = ""; //代表全部
             }
-            chkSumarry.Checked = false;
             SqlParameter[] paras = new SqlParameter[]
             {
                 new SqlParameter("@wipId", wipId),
@@ -99,7 +94,9 @@ namespace cf01.ReportForm
                 new SqlParameter("@workGroup", workGroup)
             };
             dtsOutIn = clsPublicOfPad.ExecuteProcedureReturnDataSet("usp_product_transfer_summary", paras,"");
-            dtDetails = dtsOutIn.Tables[0];
+            chkSumarry.Checked = true;
+            gridControl1.MainView = gridView2;//切換致匯總視圖
+            dtDetails = dtsOutIn.Tables[1];
             gridControl1.DataSource = dtDetails;
         }
 
@@ -112,10 +109,12 @@ namespace cf01.ReportForm
             if (chkSumarry.Checked)
             {
                 dtDetails = dtsOutIn.Tables[1];//匯總
+                gridControl1.MainView = gridView2;
             }
             else
             {
                 dtDetails = dtsOutIn.Tables[0];//明細
+                gridControl1.MainView = gridView1;
             }
             gridControl1.DataSource = dtDetails;
         }

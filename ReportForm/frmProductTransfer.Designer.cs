@@ -28,7 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductTransfer));
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.wip_id2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_dep_cdesc2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.group_desc2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_mo2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_item2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_item_cdesc2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.do_color2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.transfer_date_out2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.transfer_qty_out2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.transfer_date_in2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.transfer_qty_in2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.qty_difference2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.transfer_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_mo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_item = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.prd_item_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flag_desc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.wip_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.wip_id_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.to_dep = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.to_dep_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.transfer_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.transfer_weg = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.prd_dep = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,31 +94,15 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.transfer_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.prd_mo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.prd_item = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.prd_item_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.transfer_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.transfer_weg = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.flag_desc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.prd_dep = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.wip_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.wip_id_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.to_dep = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.to_dep_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.transfer_qty_out = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.transfer_qty_in = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.qty_difference = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.color_flag = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSumarry.Properties)).BeginInit();
@@ -98,15 +117,636 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.wip_id2,
+            this.prd_dep_cdesc2,
+            this.group_desc2,
+            this.prd_mo2,
+            this.prd_item2,
+            this.prd_item_cdesc2,
+            this.do_color2,
+            this.transfer_date_out2,
+            this.transfer_qty_out2,
+            this.transfer_date_in2,
+            this.transfer_qty_in2,
+            this.qty_difference2});
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsCustomization.AllowFilter = false;
+            this.gridView2.OptionsCustomization.AllowGroup = false;
+            this.gridView2.OptionsCustomization.AllowSort = false;
+            this.gridView2.OptionsMenu.EnableColumnMenu = false;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.PaintStyleName = "Style3D";
+            this.gridView2.RowHeight = 22;
+            // 
+            // wip_id2
+            // 
+            this.wip_id2.Caption = "負責部門";
+            this.wip_id2.FieldName = "wip_id";
+            this.wip_id2.Name = "wip_id2";
+            this.wip_id2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id2.OptionsColumn.AllowIncrementalSearch = false;
+            this.wip_id2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id2.OptionsColumn.AllowMove = false;
+            this.wip_id2.OptionsColumn.AllowShowHide = false;
+            this.wip_id2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id2.OptionsColumn.ReadOnly = true;
+            this.wip_id2.OptionsFilter.AllowAutoFilter = false;
+            this.wip_id2.OptionsFilter.AllowFilter = false;
+            this.wip_id2.Visible = true;
+            this.wip_id2.VisibleIndex = 0;
+            this.wip_id2.Width = 60;
+            // 
+            // prd_dep_cdesc2
+            // 
+            this.prd_dep_cdesc2.Caption = "負責部門描述";
+            this.prd_dep_cdesc2.FieldName = "prd_dep_cdesc";
+            this.prd_dep_cdesc2.Name = "prd_dep_cdesc2";
+            this.prd_dep_cdesc2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep_cdesc2.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_dep_cdesc2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep_cdesc2.OptionsColumn.AllowMove = false;
+            this.prd_dep_cdesc2.OptionsColumn.AllowShowHide = false;
+            this.prd_dep_cdesc2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep_cdesc2.OptionsColumn.ReadOnly = true;
+            this.prd_dep_cdesc2.OptionsFilter.AllowAutoFilter = false;
+            this.prd_dep_cdesc2.OptionsFilter.AllowFilter = false;
+            this.prd_dep_cdesc2.Visible = true;
+            this.prd_dep_cdesc2.VisibleIndex = 1;
+            this.prd_dep_cdesc2.Width = 100;
+            // 
+            // group_desc2
+            // 
+            this.group_desc2.Caption = "工序分類";
+            this.group_desc2.FieldName = "group_desc";
+            this.group_desc2.Name = "group_desc2";
+            this.group_desc2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc2.OptionsColumn.AllowIncrementalSearch = false;
+            this.group_desc2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc2.OptionsColumn.AllowMove = false;
+            this.group_desc2.OptionsColumn.AllowShowHide = false;
+            this.group_desc2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc2.OptionsColumn.ReadOnly = true;
+            this.group_desc2.OptionsFilter.AllowAutoFilter = false;
+            this.group_desc2.OptionsFilter.AllowFilter = false;
+            this.group_desc2.Visible = true;
+            this.group_desc2.VisibleIndex = 2;
+            this.group_desc2.Width = 69;
+            // 
+            // prd_mo2
+            // 
+            this.prd_mo2.Caption = "制單編號";
+            this.prd_mo2.FieldName = "prd_mo";
+            this.prd_mo2.Name = "prd_mo2";
+            this.prd_mo2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo2.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_mo2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo2.OptionsColumn.AllowMove = false;
+            this.prd_mo2.OptionsColumn.AllowShowHide = false;
+            this.prd_mo2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo2.OptionsColumn.ReadOnly = true;
+            this.prd_mo2.OptionsFilter.AllowAutoFilter = false;
+            this.prd_mo2.OptionsFilter.AllowFilter = false;
+            this.prd_mo2.Visible = true;
+            this.prd_mo2.VisibleIndex = 3;
+            this.prd_mo2.Width = 88;
+            // 
+            // prd_item2
+            // 
+            this.prd_item2.Caption = "物料編號";
+            this.prd_item2.FieldName = "prd_item";
+            this.prd_item2.Name = "prd_item2";
+            this.prd_item2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item2.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_item2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item2.OptionsColumn.AllowMove = false;
+            this.prd_item2.OptionsColumn.AllowShowHide = false;
+            this.prd_item2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item2.OptionsColumn.ReadOnly = true;
+            this.prd_item2.OptionsFilter.AllowAutoFilter = false;
+            this.prd_item2.OptionsFilter.AllowFilter = false;
+            this.prd_item2.Visible = true;
+            this.prd_item2.VisibleIndex = 4;
+            this.prd_item2.Width = 150;
+            // 
+            // prd_item_cdesc2
+            // 
+            this.prd_item_cdesc2.Caption = "物料描述";
+            this.prd_item_cdesc2.FieldName = "prd_item_cdesc";
+            this.prd_item_cdesc2.Name = "prd_item_cdesc2";
+            this.prd_item_cdesc2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc2.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_item_cdesc2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc2.OptionsColumn.AllowMove = false;
+            this.prd_item_cdesc2.OptionsColumn.AllowShowHide = false;
+            this.prd_item_cdesc2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc2.OptionsColumn.ReadOnly = true;
+            this.prd_item_cdesc2.OptionsFilter.AllowAutoFilter = false;
+            this.prd_item_cdesc2.OptionsFilter.AllowFilter = false;
+            this.prd_item_cdesc2.Visible = true;
+            this.prd_item_cdesc2.VisibleIndex = 5;
+            this.prd_item_cdesc2.Width = 181;
+            // 
+            // do_color2
+            // 
+            this.do_color2.Caption = "顏色描述";
+            this.do_color2.FieldName = "do_color";
+            this.do_color2.Name = "do_color2";
+            this.do_color2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color2.OptionsColumn.AllowIncrementalSearch = false;
+            this.do_color2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color2.OptionsColumn.AllowMove = false;
+            this.do_color2.OptionsColumn.AllowShowHide = false;
+            this.do_color2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color2.OptionsColumn.ReadOnly = true;
+            this.do_color2.OptionsFilter.AllowAutoFilter = false;
+            this.do_color2.OptionsFilter.AllowFilter = false;
+            this.do_color2.Visible = true;
+            this.do_color2.VisibleIndex = 6;
+            this.do_color2.Width = 124;
+            // 
+            // transfer_date_out2
+            // 
+            this.transfer_date_out2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.transfer_date_out2.AppearanceCell.Options.UseBackColor = true;
+            this.transfer_date_out2.Caption = "發貨日期";
+            this.transfer_date_out2.ColumnEdit = this.colDate;
+            this.transfer_date_out2.FieldName = "transfer_date_out";
+            this.transfer_date_out2.Name = "transfer_date_out2";
+            this.transfer_date_out2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_out2.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_date_out2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_out2.OptionsColumn.AllowMove = false;
+            this.transfer_date_out2.OptionsColumn.AllowShowHide = false;
+            this.transfer_date_out2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_out2.OptionsColumn.ReadOnly = true;
+            this.transfer_date_out2.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_date_out2.OptionsFilter.AllowFilter = false;
+            this.transfer_date_out2.Visible = true;
+            this.transfer_date_out2.VisibleIndex = 7;
+            this.transfer_date_out2.Width = 80;
+            // 
+            // colDate
+            // 
+            this.colDate.AutoHeight = false;
+            this.colDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDate.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.colDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDate.EditFormat.FormatString = "yyyy/MM/dd";
+            this.colDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDate.Mask.EditMask = "yyyy/MM/dd";
+            this.colDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.colDate.Name = "colDate";
+            // 
+            // transfer_qty_out2
+            // 
+            this.transfer_qty_out2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.transfer_qty_out2.AppearanceCell.Options.UseBackColor = true;
+            this.transfer_qty_out2.Caption = "發貨數量";
+            this.transfer_qty_out2.ColumnEdit = this.colQty;
+            this.transfer_qty_out2.FieldName = "transfer_qty_out";
+            this.transfer_qty_out2.Name = "transfer_qty_out2";
+            this.transfer_qty_out2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_out2.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_qty_out2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_out2.OptionsColumn.AllowMove = false;
+            this.transfer_qty_out2.OptionsColumn.AllowShowHide = false;
+            this.transfer_qty_out2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_out2.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_qty_out2.OptionsFilter.AllowFilter = false;
+            this.transfer_qty_out2.Visible = true;
+            this.transfer_qty_out2.VisibleIndex = 8;
+            this.transfer_qty_out2.Width = 71;
+            // 
+            // colQty
+            // 
+            this.colQty.AutoHeight = false;
+            this.colQty.DisplayFormat.FormatString = "n0";
+            this.colQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colQty.EditFormat.FormatString = "n0";
+            this.colQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colQty.Mask.EditMask = "n0";
+            this.colQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colQty.Name = "colQty";
+            // 
+            // transfer_date_in2
+            // 
+            this.transfer_date_in2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.transfer_date_in2.AppearanceCell.Options.UseBackColor = true;
+            this.transfer_date_in2.Caption = "收貨日期";
+            this.transfer_date_in2.ColumnEdit = this.colDate;
+            this.transfer_date_in2.FieldName = "transfer_date_in";
+            this.transfer_date_in2.Name = "transfer_date_in2";
+            this.transfer_date_in2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_in2.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_date_in2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_in2.OptionsColumn.AllowMove = false;
+            this.transfer_date_in2.OptionsColumn.AllowShowHide = false;
+            this.transfer_date_in2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date_in2.OptionsColumn.ReadOnly = true;
+            this.transfer_date_in2.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_date_in2.OptionsFilter.AllowFilter = false;
+            this.transfer_date_in2.Visible = true;
+            this.transfer_date_in2.VisibleIndex = 9;
+            this.transfer_date_in2.Width = 80;
+            // 
+            // transfer_qty_in2
+            // 
+            this.transfer_qty_in2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.transfer_qty_in2.AppearanceCell.Options.UseBackColor = true;
+            this.transfer_qty_in2.Caption = "收貨數量";
+            this.transfer_qty_in2.ColumnEdit = this.colQty;
+            this.transfer_qty_in2.FieldName = "transfer_qty_in";
+            this.transfer_qty_in2.Name = "transfer_qty_in2";
+            this.transfer_qty_in2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_in2.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_qty_in2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_in2.OptionsColumn.AllowMove = false;
+            this.transfer_qty_in2.OptionsColumn.AllowShowHide = false;
+            this.transfer_qty_in2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_in2.OptionsColumn.ReadOnly = true;
+            this.transfer_qty_in2.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_qty_in2.OptionsFilter.AllowFilter = false;
+            this.transfer_qty_in2.Visible = true;
+            this.transfer_qty_in2.VisibleIndex = 10;
+            // 
+            // qty_difference2
+            // 
+            this.qty_difference2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.qty_difference2.AppearanceCell.Options.UseBackColor = true;
+            this.qty_difference2.Caption = "數量差額";
+            this.qty_difference2.ColumnEdit = this.colQty;
+            this.qty_difference2.FieldName = "qty_difference";
+            this.qty_difference2.Name = "qty_difference2";
+            this.qty_difference2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.qty_difference2.OptionsColumn.AllowIncrementalSearch = false;
+            this.qty_difference2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.qty_difference2.OptionsColumn.AllowMove = false;
+            this.qty_difference2.OptionsColumn.AllowShowHide = false;
+            this.qty_difference2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.qty_difference2.OptionsColumn.ReadOnly = true;
+            this.qty_difference2.OptionsFilter.AllowAutoFilter = false;
+            this.qty_difference2.OptionsFilter.AllowFilter = false;
+            this.qty_difference2.Visible = true;
+            this.qty_difference2.VisibleIndex = 11;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.gridControl1.Location = new System.Drawing.Point(6, 171);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.colQty,
+            this.colSec_qty,
+            this.colDatetime,
+            this.colDate});
+            this.gridControl1.Size = new System.Drawing.Size(1102, 391);
+            this.gridControl1.TabIndex = 153;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1,
+            this.gridView2});
+            // 
+            // gridView1
+            // 
+            this.gridView1.ColumnPanelRowHeight = 25;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.transfer_date,
+            this.prd_mo,
+            this.prd_item,
+            this.prd_item_cdesc,
+            this.do_color,
+            this.flag_desc,
+            this.wip_id,
+            this.wip_id_cdesc,
+            this.to_dep,
+            this.to_dep_cdesc,
+            this.group_desc,
+            this.transfer_qty,
+            this.transfer_weg,
+            this.crtim,
+            this.prd_dep});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsCustomization.AllowFilter = false;
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsCustomization.AllowSort = false;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.PaintStyleName = "Style3D";
+            this.gridView1.RowHeight = 22;
+            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            // 
+            // transfer_date
+            // 
+            this.transfer_date.Caption = "日期";
+            this.transfer_date.ColumnEdit = this.colDate;
+            this.transfer_date.FieldName = "transfer_date";
+            this.transfer_date.Name = "transfer_date";
+            this.transfer_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date.OptionsColumn.AllowMove = false;
+            this.transfer_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_date.OptionsColumn.ReadOnly = true;
+            this.transfer_date.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_date.OptionsFilter.AllowFilter = false;
+            this.transfer_date.Visible = true;
+            this.transfer_date.VisibleIndex = 0;
+            this.transfer_date.Width = 82;
+            // 
+            // prd_mo
+            // 
+            this.prd_mo.Caption = "制單編號";
+            this.prd_mo.FieldName = "prd_mo";
+            this.prd_mo.Name = "prd_mo";
+            this.prd_mo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_mo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo.OptionsColumn.AllowMove = false;
+            this.prd_mo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_mo.OptionsColumn.ReadOnly = true;
+            this.prd_mo.OptionsFilter.AllowAutoFilter = false;
+            this.prd_mo.OptionsFilter.AllowFilter = false;
+            this.prd_mo.Visible = true;
+            this.prd_mo.VisibleIndex = 1;
+            this.prd_mo.Width = 90;
+            // 
+            // prd_item
+            // 
+            this.prd_item.Caption = "物料編號";
+            this.prd_item.FieldName = "prd_item";
+            this.prd_item.Name = "prd_item";
+            this.prd_item.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_item.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item.OptionsColumn.AllowMove = false;
+            this.prd_item.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item.OptionsColumn.FixedWidth = true;
+            this.prd_item.OptionsColumn.ReadOnly = true;
+            this.prd_item.OptionsFilter.AllowAutoFilter = false;
+            this.prd_item.OptionsFilter.AllowFilter = false;
+            this.prd_item.Visible = true;
+            this.prd_item.VisibleIndex = 2;
+            this.prd_item.Width = 150;
+            // 
+            // prd_item_cdesc
+            // 
+            this.prd_item_cdesc.Caption = "物料描述";
+            this.prd_item_cdesc.FieldName = "prd_item_cdesc";
+            this.prd_item_cdesc.Name = "prd_item_cdesc";
+            this.prd_item_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_item_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc.OptionsColumn.AllowMove = false;
+            this.prd_item_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_item_cdesc.OptionsColumn.ReadOnly = true;
+            this.prd_item_cdesc.OptionsFilter.AllowAutoFilter = false;
+            this.prd_item_cdesc.OptionsFilter.AllowFilter = false;
+            this.prd_item_cdesc.Visible = true;
+            this.prd_item_cdesc.VisibleIndex = 3;
+            this.prd_item_cdesc.Width = 182;
+            // 
+            // do_color
+            // 
+            this.do_color.Caption = "顏色描述";
+            this.do_color.FieldName = "do_color";
+            this.do_color.Name = "do_color";
+            this.do_color.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color.OptionsColumn.AllowIncrementalSearch = false;
+            this.do_color.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color.OptionsColumn.AllowMove = false;
+            this.do_color.OptionsColumn.AllowShowHide = false;
+            this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color.OptionsColumn.ReadOnly = true;
+            this.do_color.OptionsFilter.AllowAutoFilter = false;
+            this.do_color.OptionsFilter.AllowFilter = false;
+            this.do_color.Visible = true;
+            this.do_color.VisibleIndex = 4;
+            this.do_color.Width = 100;
+            // 
+            // flag_desc
+            // 
+            this.flag_desc.Caption = "收發類型";
+            this.flag_desc.FieldName = "flag_desc";
+            this.flag_desc.Name = "flag_desc";
+            this.flag_desc.OptionsColumn.AllowEdit = false;
+            this.flag_desc.OptionsColumn.AllowFocus = false;
+            this.flag_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_desc.OptionsColumn.AllowIncrementalSearch = false;
+            this.flag_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_desc.OptionsColumn.AllowMove = false;
+            this.flag_desc.OptionsColumn.AllowShowHide = false;
+            this.flag_desc.OptionsColumn.AllowSize = false;
+            this.flag_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_desc.OptionsColumn.ReadOnly = true;
+            this.flag_desc.Visible = true;
+            this.flag_desc.VisibleIndex = 5;
+            this.flag_desc.Width = 65;
+            // 
+            // wip_id
+            // 
+            this.wip_id.Caption = "負責部門";
+            this.wip_id.FieldName = "wip_id";
+            this.wip_id.Name = "wip_id";
+            this.wip_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.wip_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id.OptionsColumn.AllowMove = false;
+            this.wip_id.OptionsColumn.AllowShowHide = false;
+            this.wip_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id.OptionsColumn.ReadOnly = true;
+            this.wip_id.OptionsFilter.AllowAutoFilter = false;
+            this.wip_id.OptionsFilter.AllowFilter = false;
+            this.wip_id.Visible = true;
+            this.wip_id.VisibleIndex = 6;
+            this.wip_id.Width = 60;
+            // 
+            // wip_id_cdesc
+            // 
+            this.wip_id_cdesc.Caption = "負責部門描述";
+            this.wip_id_cdesc.FieldName = "prd_dep_cdesc";
+            this.wip_id_cdesc.Name = "wip_id_cdesc";
+            this.wip_id_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id_cdesc.OptionsColumn.AllowIncrementalSearch = false;
+            this.wip_id_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id_cdesc.OptionsColumn.AllowMove = false;
+            this.wip_id_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.wip_id_cdesc.OptionsColumn.ReadOnly = true;
+            this.wip_id_cdesc.OptionsFilter.AllowAutoFilter = false;
+            this.wip_id_cdesc.OptionsFilter.AllowFilter = false;
+            this.wip_id_cdesc.Visible = true;
+            this.wip_id_cdesc.VisibleIndex = 7;
+            this.wip_id_cdesc.Width = 90;
+            // 
+            // to_dep
+            // 
+            this.to_dep.Caption = "下部門";
+            this.to_dep.FieldName = "to_dep";
+            this.to_dep.Name = "to_dep";
+            this.to_dep.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep.OptionsColumn.AllowIncrementalSearch = false;
+            this.to_dep.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep.OptionsColumn.AllowMove = false;
+            this.to_dep.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep.OptionsColumn.ReadOnly = true;
+            this.to_dep.OptionsFilter.AllowAutoFilter = false;
+            this.to_dep.OptionsFilter.AllowFilter = false;
+            this.to_dep.Visible = true;
+            this.to_dep.VisibleIndex = 8;
+            this.to_dep.Width = 60;
+            // 
+            // to_dep_cdesc
+            // 
+            this.to_dep_cdesc.Caption = "下部門描述";
+            this.to_dep_cdesc.FieldName = "to_dep_cdesc";
+            this.to_dep_cdesc.Name = "to_dep_cdesc";
+            this.to_dep_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep_cdesc.OptionsColumn.AllowIncrementalSearch = false;
+            this.to_dep_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep_cdesc.OptionsColumn.AllowMove = false;
+            this.to_dep_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.to_dep_cdesc.OptionsColumn.ReadOnly = true;
+            this.to_dep_cdesc.OptionsFilter.AllowAutoFilter = false;
+            this.to_dep_cdesc.OptionsFilter.AllowFilter = false;
+            this.to_dep_cdesc.Visible = true;
+            this.to_dep_cdesc.VisibleIndex = 9;
+            this.to_dep_cdesc.Width = 80;
+            // 
+            // group_desc
+            // 
+            this.group_desc.Caption = "工序分類";
+            this.group_desc.FieldName = "group_desc";
+            this.group_desc.Name = "group_desc";
+            this.group_desc.OptionsColumn.AllowEdit = false;
+            this.group_desc.OptionsColumn.AllowFocus = false;
+            this.group_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsColumn.AllowIncrementalSearch = false;
+            this.group_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsColumn.AllowMove = false;
+            this.group_desc.OptionsColumn.AllowShowHide = false;
+            this.group_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsFilter.AllowAutoFilter = false;
+            this.group_desc.OptionsFilter.AllowFilter = false;
+            this.group_desc.Visible = true;
+            this.group_desc.VisibleIndex = 10;
+            this.group_desc.Width = 80;
+            // 
+            // transfer_qty
+            // 
+            this.transfer_qty.Caption = "數量";
+            this.transfer_qty.ColumnEdit = this.colQty;
+            this.transfer_qty.FieldName = "transfer_qty";
+            this.transfer_qty.Name = "transfer_qty";
+            this.transfer_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty.OptionsColumn.AllowMove = false;
+            this.transfer_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty.OptionsColumn.ReadOnly = true;
+            this.transfer_qty.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_qty.OptionsFilter.AllowFilter = false;
+            this.transfer_qty.Visible = true;
+            this.transfer_qty.VisibleIndex = 11;
+            this.transfer_qty.Width = 70;
+            // 
+            // transfer_weg
+            // 
+            this.transfer_weg.Caption = "重量";
+            this.transfer_weg.ColumnEdit = this.colSec_qty;
+            this.transfer_weg.FieldName = "transfer_weg";
+            this.transfer_weg.Name = "transfer_weg";
+            this.transfer_weg.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_weg.OptionsColumn.AllowIncrementalSearch = false;
+            this.transfer_weg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_weg.OptionsColumn.AllowMove = false;
+            this.transfer_weg.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_weg.OptionsColumn.ReadOnly = true;
+            this.transfer_weg.OptionsFilter.AllowAutoFilter = false;
+            this.transfer_weg.OptionsFilter.AllowFilter = false;
+            this.transfer_weg.Visible = true;
+            this.transfer_weg.VisibleIndex = 12;
+            this.transfer_weg.Width = 60;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.AutoHeight = false;
+            this.colSec_qty.DisplayFormat.FormatString = "n2";
+            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.EditFormat.FormatString = "n2";
+            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.Mask.EditMask = "n2";
+            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colSec_qty.Name = "colSec_qty";
+            // 
+            // crtim
+            // 
+            this.crtim.Caption = "錄入日期";
+            this.crtim.ColumnEdit = this.colDatetime;
+            this.crtim.FieldName = "crtim";
+            this.crtim.Name = "crtim";
+            this.crtim.OptionsColumn.AllowEdit = false;
+            this.crtim.OptionsColumn.AllowFocus = false;
+            this.crtim.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.AllowIncrementalSearch = false;
+            this.crtim.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.AllowMove = false;
+            this.crtim.OptionsColumn.AllowShowHide = false;
+            this.crtim.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.ReadOnly = true;
+            this.crtim.OptionsFilter.AllowAutoFilter = false;
+            this.crtim.OptionsFilter.AllowFilter = false;
+            this.crtim.Visible = true;
+            this.crtim.VisibleIndex = 13;
+            this.crtim.Width = 130;
+            // 
+            // colDatetime
+            // 
+            this.colDatetime.AutoHeight = false;
+            this.colDatetime.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDatetime.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDatetime.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm";
+            this.colDatetime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDatetime.EditFormat.FormatString = "yyyy/MM/dd HH:mm";
+            this.colDatetime.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDatetime.Mask.EditMask = "yyyy/MM/dd HH:mm";
+            this.colDatetime.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.colDatetime.Name = "colDatetime";
+            // 
+            // prd_dep
+            // 
+            this.prd_dep.Caption = "發貨部門";
+            this.prd_dep.FieldName = "prd_dep";
+            this.prd_dep.Name = "prd_dep";
+            this.prd_dep.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep.OptionsColumn.AllowIncrementalSearch = false;
+            this.prd_dep.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep.OptionsColumn.AllowMove = false;
+            this.prd_dep.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.prd_dep.OptionsColumn.ReadOnly = true;
+            this.prd_dep.OptionsFilter.AllowAutoFilter = false;
+            this.prd_dep.OptionsFilter.AllowFilter = false;
+            this.prd_dep.Width = 60;
             // 
             // toolStrip1
             // 
@@ -233,6 +873,7 @@
             // 
             // chkSumarry
             // 
+            this.chkSumarry.EditValue = true;
             this.chkSumarry.Location = new System.Drawing.Point(791, 87);
             this.chkSumarry.Name = "chkSumarry";
             this.chkSumarry.Properties.Caption = "顯示匯總表";
@@ -251,7 +892,7 @@
             this.cmbTransfer_flag.Properties.Items.AddRange(new object[] {
             "0 --發貨",
             "1 --收貨",
-            "2 --不管"});
+            "2 --全部"});
             this.cmbTransfer_flag.Size = new System.Drawing.Size(135, 20);
             this.cmbTransfer_flag.TabIndex = 7;
             // 
@@ -311,7 +952,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 156;
-            this.label3.Text = "日期";
+            this.label3.Text = "錄入日期";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
@@ -461,466 +1102,8 @@
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
-            this.lblIn_dept.Text = "工作類型";
+            this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(6, 171);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.colQty,
-            this.colSec_qty,
-            this.colDatetime,
-            this.colDate});
-            this.gridControl1.Size = new System.Drawing.Size(1102, 391);
-            this.gridControl1.TabIndex = 153;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.ColumnPanelRowHeight = 25;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.transfer_date,
-            this.prd_mo,
-            this.prd_item,
-            this.prd_item_cdesc,
-            this.do_color,
-            this.transfer_qty,
-            this.transfer_weg,
-            this.flag_desc,
-            this.prd_dep,
-            this.wip_id,
-            this.wip_id_cdesc,
-            this.to_dep,
-            this.to_dep_cdesc,
-            this.transfer_qty_out,
-            this.transfer_qty_in,
-            this.qty_difference,
-            this.color_flag,
-            this.group_desc,
-            this.crtim});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsCustomization.AllowFilter = false;
-            this.gridView1.OptionsCustomization.AllowGroup = false;
-            this.gridView1.OptionsCustomization.AllowSort = false;
-            this.gridView1.OptionsMenu.EnableColumnMenu = false;
-            this.gridView1.OptionsView.ColumnAutoWidth = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.PaintStyleName = "Style3D";
-            this.gridView1.RowHeight = 22;
-            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            // 
-            // transfer_date
-            // 
-            this.transfer_date.Caption = "日期";
-            this.transfer_date.ColumnEdit = this.colDate;
-            this.transfer_date.FieldName = "transfer_date";
-            this.transfer_date.Name = "transfer_date";
-            this.transfer_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_date.OptionsColumn.AllowIncrementalSearch = false;
-            this.transfer_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_date.OptionsColumn.AllowMove = false;
-            this.transfer_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_date.OptionsColumn.ReadOnly = true;
-            this.transfer_date.OptionsFilter.AllowAutoFilter = false;
-            this.transfer_date.OptionsFilter.AllowFilter = false;
-            this.transfer_date.Visible = true;
-            this.transfer_date.VisibleIndex = 0;
-            this.transfer_date.Width = 90;
-            // 
-            // colDate
-            // 
-            this.colDate.AutoHeight = false;
-            this.colDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDate.DisplayFormat.FormatString = "yyyy/MM/dd";
-            this.colDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDate.EditFormat.FormatString = "yyyy/MM/dd";
-            this.colDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDate.Mask.EditMask = "yyyy/MM/dd";
-            this.colDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.colDate.Name = "colDate";
-            // 
-            // prd_mo
-            // 
-            this.prd_mo.Caption = "制單編號";
-            this.prd_mo.FieldName = "prd_mo";
-            this.prd_mo.Name = "prd_mo";
-            this.prd_mo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_mo.OptionsColumn.AllowIncrementalSearch = false;
-            this.prd_mo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_mo.OptionsColumn.AllowMove = false;
-            this.prd_mo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_mo.OptionsColumn.ReadOnly = true;
-            this.prd_mo.OptionsFilter.AllowAutoFilter = false;
-            this.prd_mo.OptionsFilter.AllowFilter = false;
-            this.prd_mo.Visible = true;
-            this.prd_mo.VisibleIndex = 1;
-            this.prd_mo.Width = 90;
-            // 
-            // prd_item
-            // 
-            this.prd_item.Caption = "物料編號";
-            this.prd_item.FieldName = "prd_item";
-            this.prd_item.Name = "prd_item";
-            this.prd_item.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item.OptionsColumn.AllowIncrementalSearch = false;
-            this.prd_item.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item.OptionsColumn.AllowMove = false;
-            this.prd_item.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item.OptionsColumn.FixedWidth = true;
-            this.prd_item.OptionsColumn.ReadOnly = true;
-            this.prd_item.OptionsFilter.AllowAutoFilter = false;
-            this.prd_item.OptionsFilter.AllowFilter = false;
-            this.prd_item.Visible = true;
-            this.prd_item.VisibleIndex = 2;
-            this.prd_item.Width = 150;
-            // 
-            // prd_item_cdesc
-            // 
-            this.prd_item_cdesc.Caption = "物料描述";
-            this.prd_item_cdesc.FieldName = "prd_item_cdesc";
-            this.prd_item_cdesc.Name = "prd_item_cdesc";
-            this.prd_item_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item_cdesc.OptionsColumn.AllowIncrementalSearch = false;
-            this.prd_item_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item_cdesc.OptionsColumn.AllowMove = false;
-            this.prd_item_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_item_cdesc.OptionsColumn.ReadOnly = true;
-            this.prd_item_cdesc.OptionsFilter.AllowAutoFilter = false;
-            this.prd_item_cdesc.OptionsFilter.AllowFilter = false;
-            this.prd_item_cdesc.Visible = true;
-            this.prd_item_cdesc.VisibleIndex = 3;
-            this.prd_item_cdesc.Width = 182;
-            // 
-            // do_color
-            // 
-            this.do_color.Caption = "顏色描述";
-            this.do_color.FieldName = "do_color";
-            this.do_color.Name = "do_color";
-            this.do_color.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.do_color.OptionsColumn.AllowIncrementalSearch = false;
-            this.do_color.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.do_color.OptionsColumn.AllowMove = false;
-            this.do_color.OptionsColumn.AllowShowHide = false;
-            this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.do_color.OptionsColumn.ReadOnly = true;
-            this.do_color.OptionsFilter.AllowAutoFilter = false;
-            this.do_color.OptionsFilter.AllowFilter = false;
-            this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 4;
-            this.do_color.Width = 100;
-            // 
-            // transfer_qty
-            // 
-            this.transfer_qty.Caption = "數量";
-            this.transfer_qty.ColumnEdit = this.colQty;
-            this.transfer_qty.FieldName = "transfer_qty";
-            this.transfer_qty.Name = "transfer_qty";
-            this.transfer_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty.OptionsColumn.AllowIncrementalSearch = false;
-            this.transfer_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty.OptionsColumn.AllowMove = false;
-            this.transfer_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty.OptionsColumn.ReadOnly = true;
-            this.transfer_qty.OptionsFilter.AllowAutoFilter = false;
-            this.transfer_qty.OptionsFilter.AllowFilter = false;
-            this.transfer_qty.Visible = true;
-            this.transfer_qty.VisibleIndex = 5;
-            this.transfer_qty.Width = 70;
-            // 
-            // colQty
-            // 
-            this.colQty.AutoHeight = false;
-            this.colQty.DisplayFormat.FormatString = "n0";
-            this.colQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colQty.EditFormat.FormatString = "n0";
-            this.colQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colQty.Mask.EditMask = "n0";
-            this.colQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.colQty.Name = "colQty";
-            // 
-            // transfer_weg
-            // 
-            this.transfer_weg.Caption = "重量";
-            this.transfer_weg.ColumnEdit = this.colSec_qty;
-            this.transfer_weg.FieldName = "transfer_weg";
-            this.transfer_weg.Name = "transfer_weg";
-            this.transfer_weg.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_weg.OptionsColumn.AllowIncrementalSearch = false;
-            this.transfer_weg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_weg.OptionsColumn.AllowMove = false;
-            this.transfer_weg.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_weg.OptionsColumn.ReadOnly = true;
-            this.transfer_weg.OptionsFilter.AllowAutoFilter = false;
-            this.transfer_weg.OptionsFilter.AllowFilter = false;
-            this.transfer_weg.Visible = true;
-            this.transfer_weg.VisibleIndex = 6;
-            this.transfer_weg.Width = 60;
-            // 
-            // colSec_qty
-            // 
-            this.colSec_qty.AutoHeight = false;
-            this.colSec_qty.DisplayFormat.FormatString = "n2";
-            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.EditFormat.FormatString = "n2";
-            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.Mask.EditMask = "n2";
-            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.colSec_qty.Name = "colSec_qty";
-            // 
-            // flag_desc
-            // 
-            this.flag_desc.Caption = "標識";
-            this.flag_desc.FieldName = "flag_desc";
-            this.flag_desc.Name = "flag_desc";
-            this.flag_desc.OptionsColumn.AllowEdit = false;
-            this.flag_desc.OptionsColumn.AllowFocus = false;
-            this.flag_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.flag_desc.OptionsColumn.AllowIncrementalSearch = false;
-            this.flag_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.flag_desc.OptionsColumn.AllowMove = false;
-            this.flag_desc.OptionsColumn.AllowShowHide = false;
-            this.flag_desc.OptionsColumn.AllowSize = false;
-            this.flag_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.flag_desc.OptionsColumn.ReadOnly = true;
-            this.flag_desc.Visible = true;
-            this.flag_desc.VisibleIndex = 7;
-            this.flag_desc.Width = 50;
-            // 
-            // prd_dep
-            // 
-            this.prd_dep.Caption = "發貨部門";
-            this.prd_dep.FieldName = "prd_dep";
-            this.prd_dep.Name = "prd_dep";
-            this.prd_dep.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_dep.OptionsColumn.AllowIncrementalSearch = false;
-            this.prd_dep.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_dep.OptionsColumn.AllowMove = false;
-            this.prd_dep.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.prd_dep.OptionsColumn.ReadOnly = true;
-            this.prd_dep.OptionsFilter.AllowAutoFilter = false;
-            this.prd_dep.OptionsFilter.AllowFilter = false;
-            this.prd_dep.Visible = true;
-            this.prd_dep.VisibleIndex = 8;
-            this.prd_dep.Width = 60;
-            // 
-            // wip_id
-            // 
-            this.wip_id.Caption = "負責部門";
-            this.wip_id.FieldName = "wip_id";
-            this.wip_id.Name = "wip_id";
-            this.wip_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id.OptionsColumn.AllowIncrementalSearch = false;
-            this.wip_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id.OptionsColumn.AllowMove = false;
-            this.wip_id.OptionsColumn.AllowShowHide = false;
-            this.wip_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id.OptionsColumn.ReadOnly = true;
-            this.wip_id.OptionsFilter.AllowAutoFilter = false;
-            this.wip_id.OptionsFilter.AllowFilter = false;
-            this.wip_id.Visible = true;
-            this.wip_id.VisibleIndex = 9;
-            this.wip_id.Width = 60;
-            // 
-            // wip_id_cdesc
-            // 
-            this.wip_id_cdesc.Caption = "負責部門描述";
-            this.wip_id_cdesc.FieldName = "prd_dep_cdesc";
-            this.wip_id_cdesc.Name = "wip_id_cdesc";
-            this.wip_id_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id_cdesc.OptionsColumn.AllowIncrementalSearch = false;
-            this.wip_id_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id_cdesc.OptionsColumn.AllowMove = false;
-            this.wip_id_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.wip_id_cdesc.OptionsColumn.ReadOnly = true;
-            this.wip_id_cdesc.OptionsFilter.AllowAutoFilter = false;
-            this.wip_id_cdesc.OptionsFilter.AllowFilter = false;
-            this.wip_id_cdesc.Visible = true;
-            this.wip_id_cdesc.VisibleIndex = 10;
-            this.wip_id_cdesc.Width = 90;
-            // 
-            // to_dep
-            // 
-            this.to_dep.Caption = "下部門";
-            this.to_dep.FieldName = "to_dep";
-            this.to_dep.Name = "to_dep";
-            this.to_dep.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep.OptionsColumn.AllowIncrementalSearch = false;
-            this.to_dep.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep.OptionsColumn.AllowMove = false;
-            this.to_dep.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep.OptionsColumn.ReadOnly = true;
-            this.to_dep.OptionsFilter.AllowAutoFilter = false;
-            this.to_dep.OptionsFilter.AllowFilter = false;
-            this.to_dep.Visible = true;
-            this.to_dep.VisibleIndex = 11;
-            this.to_dep.Width = 60;
-            // 
-            // to_dep_cdesc
-            // 
-            this.to_dep_cdesc.Caption = "下部門描述";
-            this.to_dep_cdesc.FieldName = "to_dep_cdesc";
-            this.to_dep_cdesc.Name = "to_dep_cdesc";
-            this.to_dep_cdesc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep_cdesc.OptionsColumn.AllowIncrementalSearch = false;
-            this.to_dep_cdesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep_cdesc.OptionsColumn.AllowMove = false;
-            this.to_dep_cdesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.to_dep_cdesc.OptionsColumn.ReadOnly = true;
-            this.to_dep_cdesc.OptionsFilter.AllowAutoFilter = false;
-            this.to_dep_cdesc.OptionsFilter.AllowFilter = false;
-            this.to_dep_cdesc.Visible = true;
-            this.to_dep_cdesc.VisibleIndex = 12;
-            this.to_dep_cdesc.Width = 80;
-            // 
-            // transfer_qty_out
-            // 
-            this.transfer_qty_out.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.transfer_qty_out.AppearanceCell.Options.UseBackColor = true;
-            this.transfer_qty_out.Caption = "發出數量";
-            this.transfer_qty_out.ColumnEdit = this.colQty;
-            this.transfer_qty_out.FieldName = "transfer_qty_out";
-            this.transfer_qty_out.Name = "transfer_qty_out";
-            this.transfer_qty_out.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_out.OptionsColumn.AllowIncrementalSearch = false;
-            this.transfer_qty_out.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_out.OptionsColumn.AllowMove = false;
-            this.transfer_qty_out.OptionsColumn.AllowShowHide = false;
-            this.transfer_qty_out.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_out.OptionsColumn.ReadOnly = true;
-            this.transfer_qty_out.OptionsFilter.AllowAutoFilter = false;
-            this.transfer_qty_out.OptionsFilter.AllowFilter = false;
-            this.transfer_qty_out.Visible = true;
-            this.transfer_qty_out.VisibleIndex = 13;
-            // 
-            // transfer_qty_in
-            // 
-            this.transfer_qty_in.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.transfer_qty_in.AppearanceCell.Options.UseBackColor = true;
-            this.transfer_qty_in.Caption = "收貨數量";
-            this.transfer_qty_in.ColumnEdit = this.colQty;
-            this.transfer_qty_in.FieldName = "transfer_qty_in";
-            this.transfer_qty_in.Name = "transfer_qty_in";
-            this.transfer_qty_in.OptionsColumn.AllowEdit = false;
-            this.transfer_qty_in.OptionsColumn.AllowFocus = false;
-            this.transfer_qty_in.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_in.OptionsColumn.AllowIncrementalSearch = false;
-            this.transfer_qty_in.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_in.OptionsColumn.AllowMove = false;
-            this.transfer_qty_in.OptionsColumn.AllowShowHide = false;
-            this.transfer_qty_in.OptionsColumn.AllowSize = false;
-            this.transfer_qty_in.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty_in.OptionsColumn.ReadOnly = true;
-            this.transfer_qty_in.OptionsFilter.AllowAutoFilter = false;
-            this.transfer_qty_in.OptionsFilter.AllowFilter = false;
-            this.transfer_qty_in.Visible = true;
-            this.transfer_qty_in.VisibleIndex = 14;
-            // 
-            // qty_difference
-            // 
-            this.qty_difference.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.qty_difference.AppearanceCell.Options.UseBackColor = true;
-            this.qty_difference.Caption = "數量差額";
-            this.qty_difference.ColumnEdit = this.colQty;
-            this.qty_difference.FieldName = "qty_difference";
-            this.qty_difference.Name = "qty_difference";
-            this.qty_difference.OptionsColumn.AllowEdit = false;
-            this.qty_difference.OptionsColumn.AllowFocus = false;
-            this.qty_difference.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.qty_difference.OptionsColumn.AllowIncrementalSearch = false;
-            this.qty_difference.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.qty_difference.OptionsColumn.AllowMove = false;
-            this.qty_difference.OptionsColumn.AllowShowHide = false;
-            this.qty_difference.OptionsColumn.AllowSize = false;
-            this.qty_difference.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.qty_difference.OptionsColumn.ReadOnly = true;
-            this.qty_difference.OptionsFilter.AllowAutoFilter = false;
-            this.qty_difference.OptionsFilter.AllowFilter = false;
-            this.qty_difference.Visible = true;
-            this.qty_difference.VisibleIndex = 15;
-            // 
-            // color_flag
-            // 
-            this.color_flag.Caption = "分類";
-            this.color_flag.FieldName = "color_flag";
-            this.color_flag.Name = "color_flag";
-            this.color_flag.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsColumn.AllowIncrementalSearch = false;
-            this.color_flag.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsColumn.AllowMove = false;
-            this.color_flag.OptionsColumn.AllowShowHide = false;
-            this.color_flag.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsFilter.AllowAutoFilter = false;
-            this.color_flag.OptionsFilter.AllowFilter = false;
-            this.color_flag.Visible = true;
-            this.color_flag.VisibleIndex = 16;
-            this.color_flag.Width = 50;
-            // 
-            // group_desc
-            // 
-            this.group_desc.Caption = "工序分類";
-            this.group_desc.FieldName = "group_desc";
-            this.group_desc.Name = "group_desc";
-            this.group_desc.OptionsColumn.AllowEdit = false;
-            this.group_desc.OptionsColumn.AllowFocus = false;
-            this.group_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsColumn.AllowIncrementalSearch = false;
-            this.group_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsColumn.AllowMove = false;
-            this.group_desc.OptionsColumn.AllowShowHide = false;
-            this.group_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsFilter.AllowAutoFilter = false;
-            this.group_desc.OptionsFilter.AllowFilter = false;
-            this.group_desc.Visible = true;
-            this.group_desc.VisibleIndex = 17;
-            this.group_desc.Width = 80;
-            // 
-            // crtim
-            // 
-            this.crtim.Caption = "錄入日期";
-            this.crtim.ColumnEdit = this.colDatetime;
-            this.crtim.FieldName = "crtim";
-            this.crtim.Name = "crtim";
-            this.crtim.OptionsColumn.AllowEdit = false;
-            this.crtim.OptionsColumn.AllowFocus = false;
-            this.crtim.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.AllowIncrementalSearch = false;
-            this.crtim.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.AllowMove = false;
-            this.crtim.OptionsColumn.AllowShowHide = false;
-            this.crtim.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.ReadOnly = true;
-            this.crtim.OptionsFilter.AllowAutoFilter = false;
-            this.crtim.OptionsFilter.AllowFilter = false;
-            this.crtim.Visible = true;
-            this.crtim.VisibleIndex = 18;
-            this.crtim.Width = 130;
-            // 
-            // colDatetime
-            // 
-            this.colDatetime.AutoHeight = false;
-            this.colDatetime.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDatetime.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDatetime.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm";
-            this.colDatetime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDatetime.EditFormat.FormatString = "yyyy/MM/dd HH:mm";
-            this.colDatetime.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDatetime.Mask.EditMask = "yyyy/MM/dd HH:mm";
-            this.colDatetime.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.colDatetime.Name = "colDatetime";
             // 
             // frmProductTransfer
             // 
@@ -933,6 +1116,15 @@
             this.Name = "frmProductTransfer";
             this.Text = "frmProductTransfer";
             this.Load += new System.EventHandler(this.frmProductTransfer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -949,14 +1141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1010,14 +1194,23 @@
         private DevExpress.XtraGrid.Columns.GridColumn wip_id_cdesc;
         private DevExpress.XtraGrid.Columns.GridColumn to_dep;
         private DevExpress.XtraGrid.Columns.GridColumn to_dep_cdesc;
-        private DevExpress.XtraGrid.Columns.GridColumn color_flag;
         private DevExpress.XtraGrid.Columns.GridColumn group_desc;
         private DevExpress.XtraGrid.Columns.GridColumn crtim;
         private DevExpress.XtraEditors.CheckEdit chkSumarry;
-        private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_out;
-        private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_in;
-        private DevExpress.XtraGrid.Columns.GridColumn qty_difference;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit colDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit colDatetime;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn wip_id2;
+        private DevExpress.XtraGrid.Columns.GridColumn prd_dep_cdesc2;
+        private DevExpress.XtraGrid.Columns.GridColumn group_desc2;
+        private DevExpress.XtraGrid.Columns.GridColumn prd_mo2;
+        private DevExpress.XtraGrid.Columns.GridColumn prd_item2;
+        private DevExpress.XtraGrid.Columns.GridColumn prd_item_cdesc2;
+        private DevExpress.XtraGrid.Columns.GridColumn do_color2;
+        private DevExpress.XtraGrid.Columns.GridColumn transfer_date_out2;
+        private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_out2;
+        private DevExpress.XtraGrid.Columns.GridColumn transfer_date_in2;
+        private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_in2;
+        private DevExpress.XtraGrid.Columns.GridColumn qty_difference2;
     }
 }
