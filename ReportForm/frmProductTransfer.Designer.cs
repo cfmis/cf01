@@ -39,8 +39,6 @@
             this.BTNSAVESET = new System.Windows.Forms.ToolStripButton();
             this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkSumarry = new DevExpress.XtraEditors.CheckEdit();
             this.cmbTransfer_flag = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -64,6 +62,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.transfer_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.prd_mo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_item = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_item_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -78,14 +77,13 @@
             this.wip_id_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.to_dep = new DevExpress.XtraGrid.Columns.GridColumn();
             this.to_dep_cdesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.color_flag = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_qty_out = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_qty_in = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qty_difference = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.color_flag = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.colDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSumarry.Properties)).BeginInit();
@@ -102,12 +100,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -121,9 +119,7 @@
             this.toolStripSeparator9,
             this.BTNSAVESET,
             this.BTNEXCEL,
-            this.toolStripSeparator3,
-            this.BTNPRINT,
-            this.toolStripSeparator2});
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -205,22 +201,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-            // 
-            // BTNPRINT
-            // 
-            this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
-            this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(53, 35);
-            this.BTNPRINT.Text = "列 印(&P)";
-            this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNPRINT.Visible = false;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
-            this.toolStripSeparator2.Visible = false;
             // 
             // panel1
             // 
@@ -556,6 +536,21 @@
             this.transfer_date.VisibleIndex = 0;
             this.transfer_date.Width = 90;
             // 
+            // colDate
+            // 
+            this.colDate.AutoHeight = false;
+            this.colDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colDate.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.colDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDate.EditFormat.FormatString = "yyyy/MM/dd";
+            this.colDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDate.Mask.EditMask = "yyyy/MM/dd";
+            this.colDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.colDate.Name = "colDate";
+            // 
             // prd_mo
             // 
             this.prd_mo.Caption = "制單編號";
@@ -789,63 +784,6 @@
             this.to_dep_cdesc.VisibleIndex = 12;
             this.to_dep_cdesc.Width = 80;
             // 
-            // color_flag
-            // 
-            this.color_flag.Caption = "分類";
-            this.color_flag.FieldName = "color_flag";
-            this.color_flag.Name = "color_flag";
-            this.color_flag.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsColumn.AllowIncrementalSearch = false;
-            this.color_flag.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsColumn.AllowMove = false;
-            this.color_flag.OptionsColumn.AllowShowHide = false;
-            this.color_flag.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.color_flag.OptionsFilter.AllowAutoFilter = false;
-            this.color_flag.OptionsFilter.AllowFilter = false;
-            this.color_flag.Visible = true;
-            this.color_flag.VisibleIndex = 16;
-            this.color_flag.Width = 50;
-            // 
-            // group_desc
-            // 
-            this.group_desc.Caption = "工序分類";
-            this.group_desc.FieldName = "group_desc";
-            this.group_desc.Name = "group_desc";
-            this.group_desc.OptionsColumn.AllowEdit = false;
-            this.group_desc.OptionsColumn.AllowFocus = false;
-            this.group_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsColumn.AllowIncrementalSearch = false;
-            this.group_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsColumn.AllowMove = false;
-            this.group_desc.OptionsColumn.AllowShowHide = false;
-            this.group_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.group_desc.OptionsFilter.AllowAutoFilter = false;
-            this.group_desc.OptionsFilter.AllowFilter = false;
-            this.group_desc.Visible = true;
-            this.group_desc.VisibleIndex = 17;
-            this.group_desc.Width = 80;
-            // 
-            // crtim
-            // 
-            this.crtim.Caption = "錄入日期";
-            this.crtim.ColumnEdit = this.colDatetime;
-            this.crtim.FieldName = "crtim";
-            this.crtim.Name = "crtim";
-            this.crtim.OptionsColumn.AllowEdit = false;
-            this.crtim.OptionsColumn.AllowFocus = false;
-            this.crtim.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.AllowIncrementalSearch = false;
-            this.crtim.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.AllowMove = false;
-            this.crtim.OptionsColumn.AllowShowHide = false;
-            this.crtim.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.crtim.OptionsColumn.ReadOnly = true;
-            this.crtim.OptionsFilter.AllowAutoFilter = false;
-            this.crtim.OptionsFilter.AllowFilter = false;
-            this.crtim.Visible = true;
-            this.crtim.VisibleIndex = 18;
-            this.crtim.Width = 130;
-            // 
             // transfer_qty_out
             // 
             this.transfer_qty_out.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -912,6 +850,63 @@
             this.qty_difference.Visible = true;
             this.qty_difference.VisibleIndex = 15;
             // 
+            // color_flag
+            // 
+            this.color_flag.Caption = "分類";
+            this.color_flag.FieldName = "color_flag";
+            this.color_flag.Name = "color_flag";
+            this.color_flag.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.color_flag.OptionsColumn.AllowIncrementalSearch = false;
+            this.color_flag.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.color_flag.OptionsColumn.AllowMove = false;
+            this.color_flag.OptionsColumn.AllowShowHide = false;
+            this.color_flag.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.color_flag.OptionsFilter.AllowAutoFilter = false;
+            this.color_flag.OptionsFilter.AllowFilter = false;
+            this.color_flag.Visible = true;
+            this.color_flag.VisibleIndex = 16;
+            this.color_flag.Width = 50;
+            // 
+            // group_desc
+            // 
+            this.group_desc.Caption = "工序分類";
+            this.group_desc.FieldName = "group_desc";
+            this.group_desc.Name = "group_desc";
+            this.group_desc.OptionsColumn.AllowEdit = false;
+            this.group_desc.OptionsColumn.AllowFocus = false;
+            this.group_desc.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsColumn.AllowIncrementalSearch = false;
+            this.group_desc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsColumn.AllowMove = false;
+            this.group_desc.OptionsColumn.AllowShowHide = false;
+            this.group_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.group_desc.OptionsFilter.AllowAutoFilter = false;
+            this.group_desc.OptionsFilter.AllowFilter = false;
+            this.group_desc.Visible = true;
+            this.group_desc.VisibleIndex = 17;
+            this.group_desc.Width = 80;
+            // 
+            // crtim
+            // 
+            this.crtim.Caption = "錄入日期";
+            this.crtim.ColumnEdit = this.colDatetime;
+            this.crtim.FieldName = "crtim";
+            this.crtim.Name = "crtim";
+            this.crtim.OptionsColumn.AllowEdit = false;
+            this.crtim.OptionsColumn.AllowFocus = false;
+            this.crtim.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.AllowIncrementalSearch = false;
+            this.crtim.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.AllowMove = false;
+            this.crtim.OptionsColumn.AllowShowHide = false;
+            this.crtim.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.crtim.OptionsColumn.ReadOnly = true;
+            this.crtim.OptionsFilter.AllowAutoFilter = false;
+            this.crtim.OptionsFilter.AllowFilter = false;
+            this.crtim.Visible = true;
+            this.crtim.VisibleIndex = 18;
+            this.crtim.Width = 130;
+            // 
             // colDatetime
             // 
             this.colDatetime.AutoHeight = false;
@@ -926,21 +921,6 @@
             this.colDatetime.Mask.EditMask = "yyyy/MM/dd HH:mm";
             this.colDatetime.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.colDatetime.Name = "colDatetime";
-            // 
-            // colDate
-            // 
-            this.colDate.AutoHeight = false;
-            this.colDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colDate.DisplayFormat.FormatString = "yyyy/MM/dd";
-            this.colDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDate.EditFormat.FormatString = "yyyy/MM/dd";
-            this.colDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDate.Mask.EditMask = "yyyy/MM/dd";
-            this.colDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.colDate.Name = "colDate";
             // 
             // frmProductTransfer
             // 
@@ -971,12 +951,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,8 +974,6 @@
         private System.Windows.Forms.ToolStripButton BTNSAVESET;
         private System.Windows.Forms.ToolStripButton BTNEXCEL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton BTNPRINT;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.DateEdit txtCrtim1;
