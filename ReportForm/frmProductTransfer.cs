@@ -6,6 +6,7 @@
  * transfer_flag：0--發貨;1--收貨
 */
 
+
 using cf01.CLS;
 using System;
 using System.Collections.Generic;
