@@ -530,8 +530,9 @@ namespace cf01.CLS
                             int excelRow = 7;
                             //prgStatus.Minimum = 0;
                             //prgStatus.Value = 0;
-                            //填充表頭欄位與數據區
+                            //*******填充表頭欄位與數據區
                             FillExcel(worksheet, dtNewExcel, excelRow, x);
+                            //*************************
                             string cellRange = "H2";
                             SetCellBackgroundColor(worksheet, cellRange, Color.LightGreen);
                             cellRange = $"L2:P2";
@@ -585,7 +586,7 @@ namespace cf01.CLS
         private static void FillExcel(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel, int excelRow,int type)
         {
             //prgStatus.Maximum = dtNewExcel.Rows.Count;
-            worksheet.Cells[excelRow, 1].Value = "序號";
+            worksheet.Cells[excelRow, 1].Value = "排期序號";
             worksheet.Cells[excelRow, 2].Value = "加工單號";
             worksheet.Cells[excelRow, 3].Value = "狀態";
             worksheet.Cells[excelRow, 4].Value = "單號";
@@ -635,7 +636,7 @@ namespace cf01.CLS
                 worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
                 */
             }
-            worksheet.Column(1).Width = 4.5;
+            worksheet.Column(1).Width = 9;
             worksheet.Column(2).Width = 14.5;
             worksheet.Column(3).Width = 9;
             worksheet.Column(4).Width = 11;

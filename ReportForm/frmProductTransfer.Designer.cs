@@ -94,6 +94,7 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
+            this.weg_difference = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
@@ -133,7 +134,8 @@
             this.transfer_qty_out2,
             this.transfer_date_in2,
             this.transfer_qty_in2,
-            this.qty_difference2});
+            this.qty_difference2,
+            this.weg_difference});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView2.Name = "gridView2";
@@ -1105,6 +1107,26 @@
             this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // weg_difference
+            // 
+            this.weg_difference.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.weg_difference.AppearanceCell.Options.UseBackColor = true;
+            this.weg_difference.Caption = "重量差額";
+            this.weg_difference.ColumnEdit = this.colSec_qty;
+            this.weg_difference.FieldName = "weg_difference";
+            this.weg_difference.Name = "weg_difference";
+            this.weg_difference.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.AllowIncrementalSearch = false;
+            this.weg_difference.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.AllowMove = false;
+            this.weg_difference.OptionsColumn.AllowShowHide = false;
+            this.weg_difference.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.ReadOnly = true;
+            this.weg_difference.OptionsFilter.AllowAutoFilter = false;
+            this.weg_difference.OptionsFilter.AllowFilter = false;
+            this.weg_difference.Visible = true;
+            this.weg_difference.VisibleIndex = 12;
+            // 
             // frmProductTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1212,5 +1234,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn transfer_date_in2;
         private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_in2;
         private DevExpress.XtraGrid.Columns.GridColumn qty_difference2;
+        private DevExpress.XtraGrid.Columns.GridColumn weg_difference;
     }
 }

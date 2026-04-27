@@ -113,6 +113,8 @@
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
@@ -135,8 +137,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -718,7 +718,9 @@
             // 
             // flag_select
             // 
-            this.flag_select.Caption = "    ";
+            this.flag_select.AppearanceHeader.Options.UseTextOptions = true;
+            this.flag_select.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.flag_select.Caption = "  全選  ";
             this.flag_select.ColumnEdit = this.colFlagSelect;
             this.flag_select.FieldName = "flag_select";
             this.flag_select.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -1128,6 +1130,20 @@
             this.btnSave.Text = "保 存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(87, 30);
+            this.btnUpdate.Text = "更新過期表";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // progressBar1
             // 
             this.progressBar1.Enabled = false;
@@ -1182,9 +1198,9 @@
             this.btnRpt3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRpt3.Location = new System.Drawing.Point(876, 26);
             this.btnRpt3.Name = "btnRpt3";
-            this.btnRpt3.Size = new System.Drawing.Size(129, 27);
+            this.btnRpt3.Size = new System.Drawing.Size(148, 27);
             this.btnRpt3.TabIndex = 30;
-            this.btnRpt3.Text = "匯出(分電鍍廠)";
+            this.btnRpt3.Text = "匯出 (區分電鍍廠)";
             this.btnRpt3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRpt3.UseVisualStyleBackColor = true;
             this.btnRpt3.Click += new System.EventHandler(this.btnRpt3_Click);
@@ -1403,20 +1419,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1160, 455);
             this.panel3.TabIndex = 8;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(87, 30);
-            this.btnUpdate.Text = "更新過期表";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmPlateDelivery
             // 

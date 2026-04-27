@@ -173,8 +173,8 @@ namespace cf01.ReportForm
         private void Load_Data()
         {
             //調用存儲過程 
-            string dat1 = txtSend_Date1.Text;
-            string dat2 = txtSend_Date2.Text;
+            string dat1 = DateTime.Parse(txtSend_Date1.Text).Date.ToString("yyyy/MM/dd");
+            string dat2 = DateTime.Parse(txtSend_Date2.Text).Date.ToString("yyyy/MM/dd");
             //去掉重復的數據
             DataView dvw = new DataView(dtImport);
             //true表示保留原始表的结构，后面的参数是去重的列名
