@@ -130,19 +130,19 @@ namespace cf01.ReportForm
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            if (gridView1.GetDataRow(e.RowHandle) == null)
-            {
-                return;
-            }
-            //string rowStatus = gridView1.GetDataRow(e.RowHandle).RowState.ToString();
-            //if (rowStatus == "Added" || rowStatus == "Modified")
-            //外發加工單沒有設置單價相關信息是設當前行背景顏色為紅色
-            string amtReceivable = gridView1.GetRowCellValue(e.RowHandle, "amt_receivable").ToString();
-            if (amtReceivable == "0.000000")
-            {
-                e.Appearance.ForeColor = Color.Black;
-                e.Appearance.BackColor = Color.OrangeRed;
-            }
+            //if (gridView1.GetDataRow(e.RowHandle) == null)
+            //{
+            //    return;
+            //}
+            ////string rowStatus = gridView1.GetDataRow(e.RowHandle).RowState.ToString();
+            ////if (rowStatus == "Added" || rowStatus == "Modified")
+            ////外發加工單沒有設置單價相關信息是設當前行背景顏色為紅色
+            //string amtReceivable = gridView1.GetRowCellValue(e.RowHandle, "amt_receivable").ToString();
+            //if (amtReceivable == "0.000000")
+            //{
+            //    e.Appearance.ForeColor = Color.OrangeRed;
+            //    e.Appearance.BackColor = Color.OrangeRed;
+            //}
         }
 
         private void BTNEXCEL2_Click(object sender, EventArgs e)
