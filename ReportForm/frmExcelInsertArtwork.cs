@@ -182,11 +182,11 @@ namespace cf01.ReportForm
                     progressBar.Value = 0;
                     progressBar.Step = 1;
                     Microsoft.Office.Interop.Excel.Range rng;
-                    xSheet.Columns["E:E"].ColumnWidth = 12; //設置圖片列寬度
+                    xSheet.Columns["L:L"].ColumnWidth = 12; //設置圖片列寬度
                     rng = xSheet.Cells[1, "F"]; //artwork Code //七位圖樣欄位
                     rng.Value2 = "七位圖樣";
                     xSheet.Columns[8].VerticalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //圖片列豎直方向居中對齊
-                    xSheet.Range["E1:E1"].Merge(0);//合并单元格
+                    xSheet.Range["L1:L1"].Merge(0);//合并单元格
 
                     int row_precessing = 0;
                     int row_total = xSheet.UsedRange.Rows.Count;//總行數
@@ -208,7 +208,7 @@ namespace cf01.ReportForm
                         strPictrue_name = SetArtwork(goods_id.Trim());
                         if (strPictrue_name != "")
                         {
-                            InsertPicture("E" + ii, xSheet, strPictrue_name);//插入圖片
+                            InsertPicture("L" + ii, xSheet, strPictrue_name);//插入圖片
                         }                        
                     }
                     //xBook.Save();                    

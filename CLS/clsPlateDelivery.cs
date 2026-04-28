@@ -1221,7 +1221,191 @@ namespace cf01.CLS
             worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
         }
 
-       
+        public static string ToExcelMonthlyBill(System.Data.DataTable dtExcel, System.Data.DataTable dtVendor,string strDate)
+        {
+            string result = "";
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string strYm = DateTime.Parse(strDate).Date.ToString("yyMM");
+            string fileName = string.Format("{0}-XXX收貨入庫清單", strYm);
+            saveFile.FileName = fileName;
+            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
+            saveFile.FilterIndex = 0;
+            saveFile.RestoreDirectory = true;
+            saveFile.CreatePrompt = true;
+            saveFile.Title = "导出Excel文件到";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFile.FileName;
+            }
+            else
+            {
+                fileName = "";
+            }
+            if (fileName != "")
+            {
+                string vendor_id = "", vendor_name = "", title = "", sheet_name = "", fileNameNew = "";             
+                for (int i = 0; i < dtVendor.Rows.Count; i++)
+                {
+                    vendor_id = dtVendor.Rows[i]["vendor_id"].ToString();
+                    vendor_name = dtVendor.Rows[i]["vendor_name"].ToString();
+                    vendor_name = string.IsNullOrEmpty(vendor_name) ? vendor_id : vendor_name;
+                    fileNameNew = fileName;
+                    fileNameNew = fileNameNew.Replace("XXX", vendor_id + "("+vendor_name + ")");                   
+                    System.Data.DataTable dtNewExcel = new System.Data.DataTable();
+                    DataView dv = dtExcel.DefaultView;
+                    using (var package = new ExcelPackage())
+                    {
+                        //sheet1
+                        //設置過慮條件                      
+                        dv.RowFilter = $"vendor_id ='{ vendor_id }'";                        
+                        dtNewExcel = dv.ToTable();
+                        title = $"{strYm}-{vendor_id}({vendor_name})收貨入庫清單";
+                        sheet_name = $"{strYm}月份";
+                        //title = "外發加工每日追貨單";
+                        dtNewExcel = dv.ToTable();                                                       
+                        var worksheet = package.Workbook.Worksheets.Add(sheet_name); //var worksheet,這里是只是一個引用地址，是指向package.Workbook.Worksheets
+                        worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
+                        worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
+                        // worksheet.PrinterSettings.Orientation = eOrientation.Landscape; // 设置页面横向
+                        worksheet.PrinterSettings.TopMargin = (decimal)(0.17 / 2.54);    // 上边距，0.17 厘米
+                        worksheet.PrinterSettings.BottomMargin = (decimal)(0.17 / 2.54); // 下边距，0.17 厘米
+                        worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
+                        worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米                                
+                        // 设置合并单元格
+                        worksheet.Cells["A1:K1"].Merge = true; // 合并 A1:K1
+                        worksheet.Cells["A1"].Value = title;
+                        worksheet.Cells["A1:K1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A1:K1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A1:K1"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells["A1:K1"].Style.Font.Size = 16;
+                        worksheet.Row(2).Height = 50; // 设置第 2 行的高度为 50 点
+                        worksheet.Cells["A2"].Value = "收貨部門";
+                        worksheet.Cells["B2"].Value = "CF收貨單號";
+                        worksheet.Cells["C2"].Value = "收貨日期";
+                        worksheet.Cells["D2"].Value = "序號";
+                        worksheet.Cells["E2"].Value = "制單編號";
+                        worksheet.Cells["F2"].Value = "物料編號";
+                        worksheet.Cells["G2"].Value = "物料描述";
+                        worksheet.Cells["H2"].Value = "顏色描述";
+                        worksheet.Cells["I2"].Value = "收貨數量(PCS)";
+                        worksheet.Cells["J2"].Value = "收貨重量(KG)";
+                        worksheet.Cells["K2"].Value = "金額(RMB)";
+                        worksheet.Cells["A2:K2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A2:K2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A2:K2"].Style.Font.Bold = true; // 设置字体加粗
+                        //worksheet.Cells["A2:K2"].Style.Font.Size = 10;                                             
+                        worksheet.Row(1).Height = 35; // 设置第 1 行的高度为 35 点                      
+                        int excelRow = 2;
+                        //prgStatus.Minimum = 0;
+                        //prgStatus.Value = 0;
+                        //*******填充表頭欄位與數據區
+                        FillExcel(worksheet, dtNewExcel, excelRow);
+                        //*************************
+                        /*string cellRange = "H2";
+                        SetCellBackgroundColor(worksheet, cellRange, Color.LightGreen);
+                        cellRange = $"L2:P2";
+                        SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
+                        cellRange = $"K4:P4";
+                        SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
+                        cellRange = $"A6:P6";
+                        */                        
+                        FileInfo file = new FileInfo(fileNameNew);
+                        package.SaveAs(file);//保存Excel文件                       
+                    } //end of using()                    
+                } //--enf of for (int i=0;i<dtVendor.Rows.Count;i++)
+                MessageBox.Show("Excel文件導出成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return result;
+        }
+
+        //按生產車間/組別匯出105
+        private static void FillExcel(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel, int excelRow)
+        {
+            string colStr = string.Empty;
+            for (int i = 0; i < dtNewExcel.Rows.Count; i++)
+            {
+                DataRow drExcel = dtNewExcel.Rows[i];
+                excelRow += 1;
+                //worksheet.Cells[excelRow, 1].Value = (i + 1).ToString();
+                worksheet.Cells[excelRow, 1].Value = drExcel["dept_id"].ToString().Trim();//收貨部門
+                worksheet.Cells[excelRow, 2].Value = drExcel["id"].ToString().Trim();//CF收貨單號
+                worksheet.Cells[excelRow, 3].Value = drExcel["ir_date"].ToString();//收貨日期
+                worksheet.Cells[excelRow, 4].Value = drExcel["sequence_id"].ToString();//序號
+                worksheet.Cells[excelRow, 5].Value = drExcel["mo_id"].ToString();//制單編號
+                worksheet.Cells[excelRow, 6].Value = drExcel["goods_id"].ToString();//物料編號
+                worksheet.Cells[excelRow, 7].Value = drExcel["goods_name"].ToString();//物料描述
+                worksheet.Cells[excelRow, 8].Value = drExcel["do_color"].ToString();//顏色描述
+                worksheet.Cells[excelRow, 9].Value = drExcel["qty"];//收貨數量(PCS)
+                worksheet.Cells[excelRow, 10].Value = drExcel["sec_qty"];//收貨重量(KG)
+                worksheet.Cells[excelRow, 11].Value = drExcel["amt_receivable"];//金額(RMB)
+                worksheet.Row(excelRow).Height = 13;
+            }
+            //設置列寬
+            worksheet.Column(1).Width = 5;
+            worksheet.Column(2).Width = 13;
+            worksheet.Column(3).Width = 11;
+            worksheet.Column(4).Width = 6.5;
+            worksheet.Column(5).Width = 11.5;
+            worksheet.Column(6).Width = 21;
+            worksheet.Column(7).Width = 27;
+            worksheet.Column(8).Width = 14;
+            worksheet.Column(9).Width = 11;
+            worksheet.Column(10).Width =11;
+            worksheet.Column(11).Width = 11;
+            colStr = $"I3:I{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"J3:K{excelRow}";
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
+
+            /*
+            //Cells[excelRow, 13]
+            // 设置动态范围
+            string colStr = $"H1:H{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"I1:I{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"J1:J{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"K1:K{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
+            //worksheet.Cells["C1:C10"].Style.Numberformat.Format = "$#,##0.00"; // 千分位货币格式
+            // 设置某一列不可见
+            //worksheet.Column(6).Hidden = true; // 隐藏物料編號
+            //worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
+            */
+            ////某列居中
+            //int rowEnd = dtNewExcel.Rows.Count;
+            //if (rowEnd > 0)
+            //{
+            //    string cellRang = $"A8:P{7 + rowEnd}";
+            //    worksheet.Cells[cellRang].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中                
+            //}
+
+            // 动态确定表格范围
+            //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
+            string tableRange = $"A2:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
+            var tableCells = worksheet.Cells[tableRange];
+
+            //为整个表格添加边框
+            tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
+            tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
+            tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
+            tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
+            tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框            
+            tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; //垂直居中
+            //设置整个表格的字体大小
+            tableCells.Style.Font.Size = 10; //设置字体大小为10
+            tableCells.Style.Font.Name = "新細明體";
+            //worksheet.Cells["A6:P6"].Style.Font.Size = 14; //设置字体大小为14
+            //设置整个表格内容自动换行
+            tableCells.Style.WrapText = true;
+            //冻结第一行
+            worksheet.View.FreezePanes(3, 3); //从第2行、第3列开始滚动，冻结第一行
+            //设置打印标题行（固定第 1~2 行为标题）
+            worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; //固定标题为第1~2行
+            worksheet.PrinterSettings.Scale = 75; //缩放到 80%
+        }
 
 
     }

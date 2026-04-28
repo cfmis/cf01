@@ -2223,6 +2223,12 @@
     <Compile Include="ReportForm\frmPlateDelivery.Designer.cs">
       <DependentUpon>frmPlateDelivery.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmPlateMonthlyBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmPlateMonthlyBill.designer.cs">
+      <DependentUpon>frmPlateMonthlyBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmPlateSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4064,6 +4070,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmPlateDelivery.resx">
       <DependentUpon>frmPlateDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmPlateMonthlyBill.resx">
+      <DependentUpon>frmPlateMonthlyBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmPlateSelect.resx">
       <DependentUpon>frmPlateSelect.cs</DependentUpon>
