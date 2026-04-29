@@ -57,7 +57,7 @@ namespace cf01.ReportForm
                 txtIr_date1.EditValue = strDate;
                 txtIr_date2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             }
-
+            gridView1.Columns["select_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
