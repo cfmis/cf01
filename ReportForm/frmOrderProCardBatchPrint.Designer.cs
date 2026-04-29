@@ -91,6 +91,7 @@
             this.old_goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.page_num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qty_remaining = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dept_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -120,7 +121,6 @@
             this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t_complete_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties)).BeginInit();
@@ -1004,6 +1004,12 @@
             this.qty_remaining.OptionsFilter.AllowAutoFilter = false;
             this.qty_remaining.OptionsFilter.AllowFilter = false;
             // 
+            // dept_remark
+            // 
+            this.dept_remark.Caption = "部門備註";
+            this.dept_remark.FieldName = "dept_remark";
+            this.dept_remark.Name = "dept_remark";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1267,12 +1273,6 @@
             this.t_complete_date1.HeaderText = "要求完成日期";
             this.t_complete_date1.Name = "t_complete_date1";
             this.t_complete_date1.ReadOnly = true;
-            // 
-            // dept_remark
-            // 
-            this.dept_remark.Caption = "部門備註";
-            this.dept_remark.FieldName = "dept_remark";
-            this.dept_remark.Name = "dept_remark";
             // 
             // frmOrderProCardBatchPrint
             // 

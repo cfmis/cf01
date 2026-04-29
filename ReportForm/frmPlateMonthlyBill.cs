@@ -26,10 +26,15 @@ namespace cf01.ReportForm
         DataSet dtsData = new DataSet();
         DataTable dtDetails = new DataTable();
         DataTable dtVendor = new DataTable();
+        clsToolBarNew objToolbar;
 
         public frmPlateMonthlyBill()
         {
             InitializeComponent();
+            //權限
+            objToolbar = new clsToolBarNew(this.Name, this.toolStrip1);
+            objToolbar.SetToolBar();
+
             clsApp.Initialize_find_value(this.Name, this.panel1.Controls);
         }
 
@@ -174,6 +179,88 @@ namespace cf01.ReportForm
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void BTNSAVE_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount == 0)
+            {
+                return;
+            }
+            gridView1.CloseEditor();           
+            bool flagSelect = false;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                {
+                    flagSelect = true;
+                    break;
+                }
+            }
+            if (flagSelect == false)
+            {
+                MessageBox.Show("請首先選中要保存的行！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string sql_u = "", id = "", seq_id = "";
+            decimal mould_fee = 0, former_free = 0;
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                {
+                    id = gridView1.GetRowCellValue(i, "ref_id").ToString();
+                    seq_id = gridView1.GetRowCellValue(i, "ref_sequence_id").ToString();
+                    mould_fee = decimal.Parse(gridView1.GetRowCellValue(i, "mould_fee").ToString());
+                    former_free = decimal.Parse(gridView1.GetRowCellValue(i, "former_free").ToString());
+                    if (id.Substring(0, 1) =="P" && (mould_fee>0 || former_free > 0))
+                    {
+                        sql_u = "";
+                        if (mould_fee > 0 && former_free > 0)
+                        {
+                            sql_u = string.Format(
+                                @" UPDATE op_outpro_out_displace Set mould_fee={2},former_free={3},total_prices=ISNULL(total_prices,0) +{2}+{3}
+                                WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, mould_fee, former_free);
+                        }
+                        if (mould_fee > 0 && former_free == 0)
+                        {
+                            sql_u = string.Format(
+                                @" UPDATE op_outpro_out_displace Set mould_fee={2},total_prices=ISNULL(total_prices,0) + {2}
+                                WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, mould_fee);
+                        }
+                        if (mould_fee == 0 && former_free > 0)
+                        {
+                            sql_u = string.Format(
+                               @" UPDATE op_outpro_out_displace Set former_free={2},total_prices=ISNULL(total_prices,0) + {2}
+                                WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, former_free);
+                        }
+                        sb.Append(sql_u);
+                    }
+                }                
+            }
+            //UPDATE TO GEO
+            sql_u = sb.ToString().Trim();
+            if (sql_u.Length > 0)
+            {
+                string result = clsErp.ExecuteSqlUpdateReturnString(sql_u);
+                if (result == "")
+                {
+                    MessageBox.Show("更新GEO中的最低消費或版費成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //清除打勾標識
+                    for (int i = 0; i < gridView1.RowCount; i++)
+                    {
+                        if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                        {
+                            gridView1.SetRowCellValue(i, "select_flag", false);
+                        }
+                    }
+                    gridView1.CloseEditor();
+                }
+                else
+                {
+                    MessageBox.Show($"更新GEO中的最低消費或版費失敗！\n\r{result}", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
