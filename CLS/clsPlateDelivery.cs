@@ -1272,13 +1272,13 @@ namespace cf01.CLS
                         worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
                         worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米                                
                         // 设置合并单元格
-                        worksheet.Cells["A1:K1"].Merge = true; // 合并 A1:K1
+                        worksheet.Cells["A1:Q1"].Merge = true; // 合并 A1:K1
                         worksheet.Cells["A1"].Value = title;
-                        worksheet.Cells["A1:K1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                        worksheet.Cells["A1:K1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                        worksheet.Cells["A1:K1"].Style.Font.Bold = true; // 设置字体加粗
-                        worksheet.Cells["A1:K1"].Style.Font.Size = 16;
-                        worksheet.Row(2).Height = 50; // 设置第 2 行的高度为 50 点
+                        worksheet.Cells["A1:Q1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A1:Q1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A1:Q1"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells["A1:Q1"].Style.Font.Size = 16;
+                        worksheet.Row(2).Height = 50; //设置第 2 行的高度为 50 点
                         worksheet.Cells["A2"].Value = "收貨部門";
                         worksheet.Cells["B2"].Value = "CF收貨單號";
                         worksheet.Cells["C2"].Value = "收貨日期";
@@ -1289,10 +1289,16 @@ namespace cf01.CLS
                         worksheet.Cells["H2"].Value = "顏色描述";
                         worksheet.Cells["I2"].Value = "收貨數量(PCS)";
                         worksheet.Cells["J2"].Value = "收貨重量(KG)";
-                        worksheet.Cells["K2"].Value = "金額(RMB)";
-                        worksheet.Cells["A2:K2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                        worksheet.Cells["A2:K2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                        worksheet.Cells["A2:K2"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells["K2"].Value = "數量單價";
+                        worksheet.Cells["L2"].Value = "數量單價單位";
+                        worksheet.Cells["M2"].Value = "重量單價";
+                        worksheet.Cells["N2"].Value = "重量單價單位";
+                        worksheet.Cells["O2"].Value = "最低消費";
+                        worksheet.Cells["P2"].Value = "版費";
+                        worksheet.Cells["Q2"].Value = "金額(RMB)";
+                        worksheet.Cells["A2:Q2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A2:Q2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A2:Q2"].Style.Font.Bold = true; // 设置字体加粗
                         //worksheet.Cells["A2:K2"].Style.Font.Size = 10;                                             
                         worksheet.Row(1).Height = 35; // 设置第 1 行的高度为 35 点                      
                         int excelRow = 2;
@@ -1322,9 +1328,10 @@ namespace cf01.CLS
         private static void FillExcel(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel, int excelRow)
         {
             string colStr = string.Empty;
+            DataRow drExcel = null;
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
-                DataRow drExcel = dtNewExcel.Rows[i];
+                drExcel = dtNewExcel.Rows[i];
                 excelRow += 1;
                 //worksheet.Cells[excelRow, 1].Value = (i + 1).ToString();
                 worksheet.Cells[excelRow, 1].Value = drExcel["dept_id"].ToString().Trim();//收貨部門
@@ -1337,7 +1344,14 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 8].Value = drExcel["do_color"].ToString();//顏色描述
                 worksheet.Cells[excelRow, 9].Value = drExcel["qty"];//收貨數量(PCS)
                 worksheet.Cells[excelRow, 10].Value = drExcel["sec_qty"];//收貨重量(KG)
-                worksheet.Cells[excelRow, 11].Value = drExcel["amt_receivable"];//金額(RMB)
+
+                worksheet.Cells[excelRow, 11].Value = drExcel["price"];//數量單價
+                worksheet.Cells[excelRow, 12].Value = drExcel["p_unit"].ToString();//數量單價單位
+                worksheet.Cells[excelRow, 13].Value = drExcel["sec_price"];//重量單價
+                worksheet.Cells[excelRow, 14].Value = drExcel["sec_p_unit"].ToString();//重量單價單位
+                worksheet.Cells[excelRow, 15].Value = drExcel["mould_fee"];//最低消費
+                worksheet.Cells[excelRow, 16].Value = drExcel["former_free"];//版費
+                worksheet.Cells[excelRow, 17].Value = drExcel["amt_receivable"];//金額(RMB)
                 worksheet.Row(excelRow).Height = 13;
             }
             //設置列寬
@@ -1350,13 +1364,24 @@ namespace cf01.CLS
             worksheet.Column(7).Width = 27;
             worksheet.Column(8).Width = 14;
             worksheet.Column(9).Width = 11;
-            worksheet.Column(10).Width =11;
-            worksheet.Column(11).Width = 11;
+            worksheet.Column(10).Width = 5.71;//收貨重量(KG)
+            worksheet.Column(11).Width = 5.3;//數量單價
+            worksheet.Column(12).Width = 5.3;//數量單價單位
+            worksheet.Column(13).Width = 5.3; //重量單價
+            worksheet.Column(14).Width = 5.3;//重量單價單位
+            worksheet.Column(15).Width = 9;
+            worksheet.Column(16).Width = 5;
+            worksheet.Column(17).Width = 11;
             colStr = $"I3:I{excelRow}"; // 动态计算行数
-            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
-            colStr = $"J3:K{excelRow}";
-            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
-
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; //千分位整数格式
+            colStr = $"J3:J{excelRow}";
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; //千分位整数格式
+            colStr = $"K3:K{excelRow}";
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; //千分位整数格式
+            colStr = $"M3:M{excelRow}";
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; //千分位整数格式
+            colStr = $"O3:Q{excelRow}";
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0.00"; //千分位整数格式 
             /*
             //Cells[excelRow, 13]
             // 设置动态范围

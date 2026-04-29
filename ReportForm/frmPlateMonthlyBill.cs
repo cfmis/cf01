@@ -5,6 +5,7 @@
 */
 
 using cf01.CLS;
+using cf01.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace cf01.ReportForm
@@ -78,7 +80,19 @@ namespace cf01.ReportForm
                 new SqlParameter("@ir_date_s", ir_date1),
                 new SqlParameter("@ir_date_e", ir_date2)
             };
+            //顯示進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //***
             dtsData = clsErp.ExecuteProcedureReturnDataSet("z_rpt_plate_monthly_bill", paras, "");
+            //***
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+
             dtDetails = dtsData.Tables[0];
             gridControl1.DataSource = dtDetails;
             dtVendor = dtsData.Tables[1];
