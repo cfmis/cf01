@@ -64,9 +64,11 @@
             this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_weg = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.manual_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.prd_dep = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.work_sort = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -80,6 +82,7 @@
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.cmbTransfer_flag = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCrtim1 = new DevExpress.XtraEditors.DateEdit();
@@ -98,9 +101,6 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
-            this.work_sort = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.manual_date = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
@@ -113,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTransfer_flag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties)).BeginInit();
@@ -124,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
@@ -539,7 +539,7 @@
             this.transfer_date.OptionsFilter.AllowFilter = false;
             this.transfer_date.Visible = true;
             this.transfer_date.VisibleIndex = 1;
-            this.transfer_date.Width = 82;
+            this.transfer_date.Width = 85;
             // 
             // prd_mo
             // 
@@ -756,6 +756,28 @@
             this.transfer_weg.VisibleIndex = 13;
             this.transfer_weg.Width = 60;
             // 
+            // manual_date
+            // 
+            this.manual_date.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.manual_date.AppearanceCell.Options.UseBackColor = true;
+            this.manual_date.Caption = "當前電腦日期";
+            this.manual_date.ColumnEdit = this.colDate;
+            this.manual_date.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.manual_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.manual_date.FieldName = "manual_date";
+            this.manual_date.Name = "manual_date";
+            this.manual_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsColumn.AllowIncrementalSearch = false;
+            this.manual_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsColumn.AllowMove = false;
+            this.manual_date.OptionsColumn.AllowShowHide = false;
+            this.manual_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsFilter.AllowAutoFilter = false;
+            this.manual_date.OptionsFilter.AllowFilter = false;
+            this.manual_date.Visible = true;
+            this.manual_date.VisibleIndex = 14;
+            this.manual_date.Width = 85;
+            // 
             // crtim
             // 
             this.crtim.Caption = "建檔日期";
@@ -806,6 +828,12 @@
             this.prd_dep.OptionsFilter.AllowAutoFilter = false;
             this.prd_dep.OptionsFilter.AllowFilter = false;
             this.prd_dep.Width = 60;
+            // 
+            // work_sort
+            // 
+            this.work_sort.Caption = "工序分類編號";
+            this.work_sort.FieldName = "work_sort";
+            this.work_sort.Name = "work_sort";
             // 
             // toolStrip1
             // 
@@ -946,6 +974,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1102, 121);
             this.panel1.TabIndex = 152;
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(717, 61);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "匯總表"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "明細表")});
+            this.radioGroup1.Size = new System.Drawing.Size(178, 25);
+            this.radioGroup1.TabIndex = 161;
+            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
             // cmbTransfer_flag
             // 
@@ -1171,45 +1210,6 @@
             this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // work_sort
-            // 
-            this.work_sort.Caption = "工序分類編號";
-            this.work_sort.FieldName = "work_sort";
-            this.work_sort.Name = "work_sort";
-            // 
-            // radioGroup1
-            // 
-            this.radioGroup1.Location = new System.Drawing.Point(717, 61);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "匯總表"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "明細表")});
-            this.radioGroup1.Size = new System.Drawing.Size(178, 25);
-            this.radioGroup1.TabIndex = 161;
-            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
-            // 
-            // manual_date
-            // 
-            this.manual_date.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.manual_date.AppearanceCell.Options.UseBackColor = true;
-            this.manual_date.Caption = "當前電腦日期";
-            this.manual_date.ColumnEdit = this.colDate;
-            this.manual_date.DisplayFormat.FormatString = "yyyy/MM/dd";
-            this.manual_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.manual_date.FieldName = "manual_date";
-            this.manual_date.Name = "manual_date";
-            this.manual_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.manual_date.OptionsColumn.AllowIncrementalSearch = false;
-            this.manual_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.manual_date.OptionsColumn.AllowMove = false;
-            this.manual_date.OptionsColumn.AllowShowHide = false;
-            this.manual_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.manual_date.OptionsFilter.AllowAutoFilter = false;
-            this.manual_date.OptionsFilter.AllowFilter = false;
-            this.manual_date.Visible = true;
-            this.manual_date.VisibleIndex = 14;
-            this.manual_date.Width = 85;
-            // 
             // frmProductTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1235,6 +1235,7 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTransfer_flag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties)).EndInit();
@@ -1246,7 +1247,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
