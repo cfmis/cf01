@@ -222,7 +222,7 @@ namespace cf01.ReportForm
                         transfer_weg = decimal.Parse(gridView1.GetRowCellValue(i, "transfer_weg").ToString());
                         work_sort = gridView1.GetRowCellValue(i, "work_sort").ToString();//工序類型
                         transfer_flag = "1";//收貨
-                        pack_num = 0;
+                        pack_num = 1;
                         sql_i = string.Format(
                         @" Insert Into product_transfer_jx_details(Prd_dep,Prd_mo,Prd_item,wip_id,to_dep,Transfer_date,Transfer_qty,Transfer_weg,Transfer_flag,pack_num,Crusr,Crtim,work_sort)
                         VALUES('{0}','{1}','{2}','{3}','{4}','{5}',{6},{7},'{8}',{9},'{10}',GETDATE(),'{11}')",
