@@ -58,6 +58,7 @@ namespace cf01.ReportForm
                 txtIr_date2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             }
             gridView1.Columns["select_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            gridView1.Columns["vendor_id"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
@@ -220,19 +221,20 @@ namespace cf01.ReportForm
                         if (mould_fee > 0 && former_free > 0)
                         {
                             sql_u = string.Format(
-                                @" UPDATE op_outpro_out_displace Set mould_fee={2},former_free={3},total_prices=ISNULL(total_prices,0) +{2}+{3}
+                                @" UPDATE op_outpro_out_displace Set mould_fee={2},former_free={3},
+                                total_prices=(total_prices-Isnull(mould_fee,0)-Isnull(former_free,0)) +{2}+{3}
                                 WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, mould_fee, former_free);
                         }
                         if (mould_fee > 0 && former_free == 0)
                         {
                             sql_u = string.Format(
-                                @" UPDATE op_outpro_out_displace Set mould_fee={2},total_prices=ISNULL(total_prices,0) + {2}
+                                @" UPDATE op_outpro_out_displace Set mould_fee={2},total_prices=(total_prices-Isnull(mould_fee,0)) + {2}
                                 WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, mould_fee);
                         }
                         if (mould_fee == 0 && former_free > 0)
                         {
                             sql_u = string.Format(
-                               @" UPDATE op_outpro_out_displace Set former_free={2},total_prices=ISNULL(total_prices,0) + {2}
+                               @" UPDATE op_outpro_out_displace Set former_free={2},total_prices=(total_prices-Isnull(former_free,0)) + {2}
                                 WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", id, seq_id, former_free);
                         }
                         sb.Append(sql_u);

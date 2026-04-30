@@ -45,8 +45,12 @@
             this.transfer_date_in2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_qty_in2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qty_difference2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weg_difference = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.select_flag = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.transfer_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_mo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_item = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,7 +64,6 @@
             this.group_desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_weg = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.prd_dep = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,8 +77,9 @@
             this.BTNSAVESET = new System.Windows.Forms.ToolStripButton();
             this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkSumarry = new DevExpress.XtraEditors.CheckEdit();
             this.cmbTransfer_flag = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCrtim1 = new DevExpress.XtraEditors.DateEdit();
@@ -94,19 +98,21 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
-            this.weg_difference = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.work_sort = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.manual_date = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSumarry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTransfer_flag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties)).BeginInit();
@@ -118,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
@@ -308,6 +315,7 @@
             this.colDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colDate.Mask.EditMask = "yyyy/MM/dd";
             this.colDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.colDate.MaxLength = 10;
             this.colDate.Name = "colDate";
             // 
             // transfer_qty_out2
@@ -324,6 +332,7 @@
             this.transfer_qty_out2.OptionsColumn.AllowMove = false;
             this.transfer_qty_out2.OptionsColumn.AllowShowHide = false;
             this.transfer_qty_out2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.transfer_qty_out2.OptionsColumn.ReadOnly = true;
             this.transfer_qty_out2.OptionsFilter.AllowAutoFilter = false;
             this.transfer_qty_out2.OptionsFilter.AllowFilter = false;
             this.transfer_qty_out2.Visible = true;
@@ -402,6 +411,37 @@
             this.qty_difference2.Visible = true;
             this.qty_difference2.VisibleIndex = 11;
             // 
+            // weg_difference
+            // 
+            this.weg_difference.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.weg_difference.AppearanceCell.Options.UseBackColor = true;
+            this.weg_difference.Caption = "重量差額";
+            this.weg_difference.ColumnEdit = this.colSec_qty;
+            this.weg_difference.FieldName = "weg_difference";
+            this.weg_difference.Name = "weg_difference";
+            this.weg_difference.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.AllowIncrementalSearch = false;
+            this.weg_difference.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.AllowMove = false;
+            this.weg_difference.OptionsColumn.AllowShowHide = false;
+            this.weg_difference.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.weg_difference.OptionsColumn.ReadOnly = true;
+            this.weg_difference.OptionsFilter.AllowAutoFilter = false;
+            this.weg_difference.OptionsFilter.AllowFilter = false;
+            this.weg_difference.Visible = true;
+            this.weg_difference.VisibleIndex = 12;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.AutoHeight = false;
+            this.colSec_qty.DisplayFormat.FormatString = "n2";
+            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.EditFormat.FormatString = "n2";
+            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.Mask.EditMask = "n2";
+            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colSec_qty.Name = "colSec_qty";
+            // 
             // gridControl1
             // 
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -418,7 +458,8 @@
             this.colQty,
             this.colSec_qty,
             this.colDatetime,
-            this.colDate});
+            this.colDate,
+            this.colSelect});
             this.gridControl1.Size = new System.Drawing.Size(1102, 391);
             this.gridControl1.TabIndex = 153;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -429,6 +470,7 @@
             // 
             this.gridView1.ColumnPanelRowHeight = 25;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.select_flag,
             this.transfer_date,
             this.prd_mo,
             this.prd_item,
@@ -442,8 +484,10 @@
             this.group_desc,
             this.transfer_qty,
             this.transfer_weg,
+            this.manual_date,
             this.crtim,
-            this.prd_dep});
+            this.prd_dep,
+            this.work_sort});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -456,6 +500,28 @@
             this.gridView1.PaintStyleName = "Style3D";
             this.gridView1.RowHeight = 22;
             this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
+            // 
+            // select_flag
+            // 
+            this.select_flag.AppearanceHeader.Options.UseTextOptions = true;
+            this.select_flag.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.select_flag.Caption = "選擇";
+            this.select_flag.ColumnEdit = this.colSelect;
+            this.select_flag.FieldName = "select_flag";
+            this.select_flag.Name = "select_flag";
+            this.select_flag.OptionsFilter.AllowAutoFilter = false;
+            this.select_flag.OptionsFilter.AllowFilter = false;
+            this.select_flag.Visible = true;
+            this.select_flag.VisibleIndex = 0;
+            this.select_flag.Width = 60;
+            // 
+            // colSelect
+            // 
+            this.colSelect.AutoHeight = false;
+            this.colSelect.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.colSelect.Name = "colSelect";
+            this.colSelect.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             // 
             // transfer_date
             // 
@@ -472,7 +538,7 @@
             this.transfer_date.OptionsFilter.AllowAutoFilter = false;
             this.transfer_date.OptionsFilter.AllowFilter = false;
             this.transfer_date.Visible = true;
-            this.transfer_date.VisibleIndex = 0;
+            this.transfer_date.VisibleIndex = 1;
             this.transfer_date.Width = 82;
             // 
             // prd_mo
@@ -489,7 +555,7 @@
             this.prd_mo.OptionsFilter.AllowAutoFilter = false;
             this.prd_mo.OptionsFilter.AllowFilter = false;
             this.prd_mo.Visible = true;
-            this.prd_mo.VisibleIndex = 1;
+            this.prd_mo.VisibleIndex = 2;
             this.prd_mo.Width = 90;
             // 
             // prd_item
@@ -507,7 +573,7 @@
             this.prd_item.OptionsFilter.AllowAutoFilter = false;
             this.prd_item.OptionsFilter.AllowFilter = false;
             this.prd_item.Visible = true;
-            this.prd_item.VisibleIndex = 2;
+            this.prd_item.VisibleIndex = 3;
             this.prd_item.Width = 150;
             // 
             // prd_item_cdesc
@@ -524,7 +590,7 @@
             this.prd_item_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.prd_item_cdesc.OptionsFilter.AllowFilter = false;
             this.prd_item_cdesc.Visible = true;
-            this.prd_item_cdesc.VisibleIndex = 3;
+            this.prd_item_cdesc.VisibleIndex = 4;
             this.prd_item_cdesc.Width = 182;
             // 
             // do_color
@@ -542,7 +608,7 @@
             this.do_color.OptionsFilter.AllowAutoFilter = false;
             this.do_color.OptionsFilter.AllowFilter = false;
             this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 4;
+            this.do_color.VisibleIndex = 5;
             this.do_color.Width = 100;
             // 
             // flag_desc
@@ -561,7 +627,7 @@
             this.flag_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.flag_desc.OptionsColumn.ReadOnly = true;
             this.flag_desc.Visible = true;
-            this.flag_desc.VisibleIndex = 5;
+            this.flag_desc.VisibleIndex = 6;
             this.flag_desc.Width = 65;
             // 
             // wip_id
@@ -579,7 +645,7 @@
             this.wip_id.OptionsFilter.AllowAutoFilter = false;
             this.wip_id.OptionsFilter.AllowFilter = false;
             this.wip_id.Visible = true;
-            this.wip_id.VisibleIndex = 6;
+            this.wip_id.VisibleIndex = 7;
             this.wip_id.Width = 60;
             // 
             // wip_id_cdesc
@@ -596,7 +662,7 @@
             this.wip_id_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.wip_id_cdesc.OptionsFilter.AllowFilter = false;
             this.wip_id_cdesc.Visible = true;
-            this.wip_id_cdesc.VisibleIndex = 7;
+            this.wip_id_cdesc.VisibleIndex = 8;
             this.wip_id_cdesc.Width = 90;
             // 
             // to_dep
@@ -613,7 +679,7 @@
             this.to_dep.OptionsFilter.AllowAutoFilter = false;
             this.to_dep.OptionsFilter.AllowFilter = false;
             this.to_dep.Visible = true;
-            this.to_dep.VisibleIndex = 8;
+            this.to_dep.VisibleIndex = 9;
             this.to_dep.Width = 60;
             // 
             // to_dep_cdesc
@@ -630,7 +696,7 @@
             this.to_dep_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.to_dep_cdesc.OptionsFilter.AllowFilter = false;
             this.to_dep_cdesc.Visible = true;
-            this.to_dep_cdesc.VisibleIndex = 9;
+            this.to_dep_cdesc.VisibleIndex = 10;
             this.to_dep_cdesc.Width = 80;
             // 
             // group_desc
@@ -649,11 +715,13 @@
             this.group_desc.OptionsFilter.AllowAutoFilter = false;
             this.group_desc.OptionsFilter.AllowFilter = false;
             this.group_desc.Visible = true;
-            this.group_desc.VisibleIndex = 10;
+            this.group_desc.VisibleIndex = 11;
             this.group_desc.Width = 80;
             // 
             // transfer_qty
             // 
+            this.transfer_qty.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.transfer_qty.AppearanceCell.Options.UseBackColor = true;
             this.transfer_qty.Caption = "數量";
             this.transfer_qty.ColumnEdit = this.colQty;
             this.transfer_qty.FieldName = "transfer_qty";
@@ -663,15 +731,16 @@
             this.transfer_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.transfer_qty.OptionsColumn.AllowMove = false;
             this.transfer_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_qty.OptionsColumn.ReadOnly = true;
             this.transfer_qty.OptionsFilter.AllowAutoFilter = false;
             this.transfer_qty.OptionsFilter.AllowFilter = false;
             this.transfer_qty.Visible = true;
-            this.transfer_qty.VisibleIndex = 11;
+            this.transfer_qty.VisibleIndex = 12;
             this.transfer_qty.Width = 70;
             // 
             // transfer_weg
             // 
+            this.transfer_weg.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.transfer_weg.AppearanceCell.Options.UseBackColor = true;
             this.transfer_weg.Caption = "重量";
             this.transfer_weg.ColumnEdit = this.colSec_qty;
             this.transfer_weg.FieldName = "transfer_weg";
@@ -681,27 +750,15 @@
             this.transfer_weg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.transfer_weg.OptionsColumn.AllowMove = false;
             this.transfer_weg.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.transfer_weg.OptionsColumn.ReadOnly = true;
             this.transfer_weg.OptionsFilter.AllowAutoFilter = false;
             this.transfer_weg.OptionsFilter.AllowFilter = false;
             this.transfer_weg.Visible = true;
-            this.transfer_weg.VisibleIndex = 12;
+            this.transfer_weg.VisibleIndex = 13;
             this.transfer_weg.Width = 60;
-            // 
-            // colSec_qty
-            // 
-            this.colSec_qty.AutoHeight = false;
-            this.colSec_qty.DisplayFormat.FormatString = "n2";
-            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.EditFormat.FormatString = "n2";
-            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.Mask.EditMask = "n2";
-            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.colSec_qty.Name = "colSec_qty";
             // 
             // crtim
             // 
-            this.crtim.Caption = "錄入日期";
+            this.crtim.Caption = "建檔日期";
             this.crtim.ColumnEdit = this.colDatetime;
             this.crtim.FieldName = "crtim";
             this.crtim.Name = "crtim";
@@ -717,7 +774,7 @@
             this.crtim.OptionsFilter.AllowAutoFilter = false;
             this.crtim.OptionsFilter.AllowFilter = false;
             this.crtim.Visible = true;
-            this.crtim.VisibleIndex = 13;
+            this.crtim.VisibleIndex = 15;
             this.crtim.Width = 130;
             // 
             // colDatetime
@@ -761,7 +818,9 @@
             this.toolStripSeparator9,
             this.BTNSAVESET,
             this.BTNEXCEL,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.BTNSAVE,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -844,12 +903,27 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
+            // BTNSAVE
+            // 
+            this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
+            this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNSAVE.Name = "BTNSAVE";
+            this.BTNSAVE.Size = new System.Drawing.Size(59, 35);
+            this.BTNSAVE.Text = "手動收貨";
+            this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.chkSumarry);
+            this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.cmbTransfer_flag);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtCrtim1);
@@ -873,21 +947,11 @@
             this.panel1.Size = new System.Drawing.Size(1102, 121);
             this.panel1.TabIndex = 152;
             // 
-            // chkSumarry
-            // 
-            this.chkSumarry.EditValue = true;
-            this.chkSumarry.Location = new System.Drawing.Point(791, 87);
-            this.chkSumarry.Name = "chkSumarry";
-            this.chkSumarry.Properties.Caption = "顯示匯總表";
-            this.chkSumarry.Size = new System.Drawing.Size(110, 19);
-            this.chkSumarry.TabIndex = 160;
-            this.chkSumarry.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSumarry_MouseUp);
-            // 
             // cmbTransfer_flag
             // 
             this.cmbTransfer_flag.EditValue = "";
             this.cmbTransfer_flag.EnterMoveNextControl = true;
-            this.cmbTransfer_flag.Location = new System.Drawing.Point(619, 61);
+            this.cmbTransfer_flag.Location = new System.Drawing.Point(528, 62);
             this.cmbTransfer_flag.Name = "cmbTransfer_flag";
             this.cmbTransfer_flag.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -900,7 +964,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(533, 64);
+            this.label6.Location = new System.Drawing.Point(442, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 159;
@@ -911,7 +975,7 @@
             // 
             this.txtCrtim1.EditValue = "";
             this.txtCrtim1.EnterMoveNextControl = true;
-            this.txtCrtim1.Location = new System.Drawing.Point(158, 87);
+            this.txtCrtim1.Location = new System.Drawing.Point(111, 89);
             this.txtCrtim1.Name = "txtCrtim1";
             this.txtCrtim1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -932,7 +996,7 @@
             // 
             this.txtCrtim2.EditValue = "";
             this.txtCrtim2.EnterMoveNextControl = true;
-            this.txtCrtim2.Location = new System.Drawing.Point(320, 87);
+            this.txtCrtim2.Location = new System.Drawing.Point(275, 89);
             this.txtCrtim2.Name = "txtCrtim2";
             this.txtCrtim2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -950,7 +1014,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(72, 91);
+            this.label3.Location = new System.Drawing.Point(25, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 156;
@@ -961,7 +1025,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.label7.Location = new System.Drawing.Point(299, 87);
+            this.label7.Location = new System.Drawing.Point(252, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 16);
             this.label7.TabIndex = 157;
@@ -969,7 +1033,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(533, 37);
+            this.label4.Location = new System.Drawing.Point(442, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 153;
@@ -980,7 +1044,7 @@
             // 
             this.txtGroup.EditValue = "";
             this.txtGroup.EnterMoveNextControl = true;
-            this.txtGroup.Location = new System.Drawing.Point(619, 35);
+            this.txtGroup.Location = new System.Drawing.Point(528, 35);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGroup.Properties.MaxLength = 1;
@@ -991,18 +1055,18 @@
             // 
             this.txtPrd_item.EditValue = "";
             this.txtPrd_item.EnterMoveNextControl = true;
-            this.txtPrd_item.Location = new System.Drawing.Point(158, 35);
+            this.txtPrd_item.Location = new System.Drawing.Point(111, 35);
             this.txtPrd_item.Name = "txtPrd_item";
             this.txtPrd_item.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPrd_item.Properties.MaxLength = 18;
-            this.txtPrd_item.Size = new System.Drawing.Size(297, 20);
+            this.txtPrd_item.Size = new System.Drawing.Size(299, 20);
             this.txtPrd_item.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(299, 61);
+            this.label2.Location = new System.Drawing.Point(252, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 16);
             this.label2.TabIndex = 147;
@@ -1012,7 +1076,7 @@
             // 
             this.txtPrd_mo2.EditValue = "";
             this.txtPrd_mo2.EnterMoveNextControl = true;
-            this.txtPrd_mo2.Location = new System.Drawing.Point(320, 61);
+            this.txtPrd_mo2.Location = new System.Drawing.Point(275, 62);
             this.txtPrd_mo2.Name = "txtPrd_mo2";
             this.txtPrd_mo2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPrd_mo2.Properties.MaxLength = 9;
@@ -1021,7 +1085,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(72, 64);
+            this.label5.Location = new System.Drawing.Point(25, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 146;
@@ -1030,7 +1094,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(72, 37);
+            this.lblID.Location = new System.Drawing.Point(25, 37);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -1041,7 +1105,7 @@
             // 
             this.txtPrd_mo1.EditValue = "";
             this.txtPrd_mo1.EnterMoveNextControl = true;
-            this.txtPrd_mo1.Location = new System.Drawing.Point(158, 61);
+            this.txtPrd_mo1.Location = new System.Drawing.Point(111, 62);
             this.txtPrd_mo1.Name = "txtPrd_mo1";
             this.txtPrd_mo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPrd_mo1.Properties.MaxLength = 9;
@@ -1053,7 +1117,7 @@
             // 
             this.txtWip_id.EditValue = "";
             this.txtWip_id.EnterMoveNextControl = true;
-            this.txtWip_id.Location = new System.Drawing.Point(158, 9);
+            this.txtWip_id.Location = new System.Drawing.Point(111, 9);
             this.txtWip_id.Name = "txtWip_id";
             this.txtWip_id.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtWip_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1071,7 +1135,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(72, 12);
+            this.lblOut_dept.Location = new System.Drawing.Point(25, 12);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -1082,7 +1146,7 @@
             // 
             this.lueWork_sort.EditValue = "";
             this.lueWork_sort.EnterMoveNextControl = true;
-            this.lueWork_sort.Location = new System.Drawing.Point(619, 87);
+            this.lueWork_sort.Location = new System.Drawing.Point(528, 89);
             this.lueWork_sort.Name = "lueWork_sort";
             this.lueWork_sort.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1100,32 +1164,51 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(533, 91);
+            this.lblIn_dept.Location = new System.Drawing.Point(442, 93);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
             this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // weg_difference
+            // work_sort
             // 
-            this.weg_difference.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.weg_difference.AppearanceCell.Options.UseBackColor = true;
-            this.weg_difference.Caption = "重量差額";
-            this.weg_difference.ColumnEdit = this.colSec_qty;
-            this.weg_difference.FieldName = "weg_difference";
-            this.weg_difference.Name = "weg_difference";
-            this.weg_difference.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.weg_difference.OptionsColumn.AllowIncrementalSearch = false;
-            this.weg_difference.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.weg_difference.OptionsColumn.AllowMove = false;
-            this.weg_difference.OptionsColumn.AllowShowHide = false;
-            this.weg_difference.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.weg_difference.OptionsColumn.ReadOnly = true;
-            this.weg_difference.OptionsFilter.AllowAutoFilter = false;
-            this.weg_difference.OptionsFilter.AllowFilter = false;
-            this.weg_difference.Visible = true;
-            this.weg_difference.VisibleIndex = 12;
+            this.work_sort.Caption = "工序分類編號";
+            this.work_sort.FieldName = "work_sort";
+            this.work_sort.Name = "work_sort";
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(717, 61);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "匯總表"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "明細表")});
+            this.radioGroup1.Size = new System.Drawing.Size(178, 25);
+            this.radioGroup1.TabIndex = 161;
+            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
+            // 
+            // manual_date
+            // 
+            this.manual_date.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.manual_date.AppearanceCell.Options.UseBackColor = true;
+            this.manual_date.Caption = "當前電腦日期";
+            this.manual_date.ColumnEdit = this.colDate;
+            this.manual_date.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.manual_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.manual_date.FieldName = "manual_date";
+            this.manual_date.Name = "manual_date";
+            this.manual_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsColumn.AllowIncrementalSearch = false;
+            this.manual_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsColumn.AllowMove = false;
+            this.manual_date.OptionsColumn.AllowShowHide = false;
+            this.manual_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.manual_date.OptionsFilter.AllowAutoFilter = false;
+            this.manual_date.OptionsFilter.AllowFilter = false;
+            this.manual_date.Visible = true;
+            this.manual_date.VisibleIndex = 14;
+            this.manual_date.Width = 85;
             // 
             // frmProductTransfer
             // 
@@ -1142,16 +1225,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSumarry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTransfer_flag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim1.Properties)).EndInit();
@@ -1163,6 +1246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_mo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueWork_sort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1218,7 +1302,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn to_dep_cdesc;
         private DevExpress.XtraGrid.Columns.GridColumn group_desc;
         private DevExpress.XtraGrid.Columns.GridColumn crtim;
-        private DevExpress.XtraEditors.CheckEdit chkSumarry;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit colDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit colDatetime;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
@@ -1235,5 +1318,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn transfer_qty_in2;
         private DevExpress.XtraGrid.Columns.GridColumn qty_difference2;
         private DevExpress.XtraGrid.Columns.GridColumn weg_difference;
+        private System.Windows.Forms.ToolStripButton BTNSAVE;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private DevExpress.XtraGrid.Columns.GridColumn select_flag;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit colSelect;
+        private DevExpress.XtraGrid.Columns.GridColumn work_sort;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraGrid.Columns.GridColumn manual_date;
     }
 }
