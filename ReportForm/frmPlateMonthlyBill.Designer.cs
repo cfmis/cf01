@@ -71,6 +71,7 @@
             this.sec_price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sec_p_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mould_fee = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.process_request = new DevExpress.XtraGrid.Columns.GridColumn();
             this.former_free = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -476,6 +477,7 @@
             this.sec_price,
             this.sec_p_unit,
             this.mould_fee,
+            this.process_request,
             this.former_free});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -908,6 +910,27 @@
             this.mould_fee.VisibleIndex = 20;
             this.mould_fee.Width = 80;
             // 
+            // process_request
+            // 
+            this.process_request.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.process_request.AppearanceCell.Options.UseBackColor = true;
+            this.process_request.Caption = "最低消費標識";
+            this.process_request.FieldName = "process_request";
+            this.process_request.Name = "process_request";
+            this.process_request.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.process_request.OptionsColumn.AllowIncrementalSearch = false;
+            this.process_request.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.process_request.OptionsColumn.AllowMove = false;
+            this.process_request.OptionsColumn.AllowShowHide = false;
+            this.process_request.OptionsColumn.AllowSize = false;
+            this.process_request.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.process_request.OptionsColumn.ReadOnly = true;
+            this.process_request.OptionsFilter.AllowAutoFilter = false;
+            this.process_request.OptionsFilter.AllowFilter = false;
+            this.process_request.Visible = true;
+            this.process_request.VisibleIndex = 21;
+            this.process_request.Width = 80;
+            // 
             // former_free
             // 
             this.former_free.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -926,7 +949,7 @@
             this.former_free.OptionsFilter.AllowAutoFilter = false;
             this.former_free.OptionsFilter.AllowFilter = false;
             this.former_free.Visible = true;
-            this.former_free.VisibleIndex = 21;
+            this.former_free.VisibleIndex = 22;
             // 
             // colDatetime
             // 
@@ -1319,5 +1342,6 @@
         private System.Windows.Forms.ToolStripButton BTNSAVE;
         private DevExpress.XtraGrid.Columns.GridColumn select_flag;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit colSelect;
+        private DevExpress.XtraGrid.Columns.GridColumn process_request;
     }
 }
