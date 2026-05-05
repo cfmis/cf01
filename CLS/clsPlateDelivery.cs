@@ -1272,12 +1272,13 @@ namespace cf01.CLS
                         worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
                         worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米                                
                         // 设置合并单元格
-                        worksheet.Cells["A1:Q1"].Merge = true; // 合并 A1:K1
+                        worksheet.Cells["A1:R1"].Merge = true; // 合并 A1:K1
                         worksheet.Cells["A1"].Value = title;
-                        worksheet.Cells["A1:Q1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                        worksheet.Cells["A1:Q1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                        worksheet.Cells["A1:Q1"].Style.Font.Bold = true; // 设置字体加粗
-                        worksheet.Cells["A1:Q1"].Style.Font.Size = 16;
+                        worksheet.Cells["A1:R1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A1:R1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A1:R1"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells["A1:R1"].Style.Font.Size = 16;
+
                         worksheet.Row(2).Height = 50; //设置第 2 行的高度为 50 点
                         worksheet.Cells["A2"].Value = "收貨部門";
                         worksheet.Cells["B2"].Value = "CF收貨單號";
@@ -1296,9 +1297,10 @@ namespace cf01.CLS
                         worksheet.Cells["O2"].Value = "最低消費";
                         worksheet.Cells["P2"].Value = "版費";
                         worksheet.Cells["Q2"].Value = "金額(RMB)";
-                        worksheet.Cells["A2:Q2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                        worksheet.Cells["A2:Q2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                        worksheet.Cells["A2:Q2"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells["R2"].Value = "是低消費備註";
+                        worksheet.Cells["A2:R2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A2:R2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A2:R2"].Style.Font.Bold = true; // 设置字体加粗
                         //worksheet.Cells["A2:K2"].Style.Font.Size = 10;                                             
                         worksheet.Row(1).Height = 35; // 设置第 1 行的高度为 35 点                      
                         int excelRow = 2;
@@ -1352,6 +1354,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 15].Value = drExcel["mould_fee"];//最低消費
                 worksheet.Cells[excelRow, 16].Value = drExcel["former_free"];//版費
                 worksheet.Cells[excelRow, 17].Value = drExcel["amt_receivable"];//金額(RMB)
+                worksheet.Cells[excelRow, 18].Value = drExcel["process_request"];//最低消費備註
                 worksheet.Row(excelRow).Height = 13;
             }
             //設置列寬
@@ -1372,6 +1375,7 @@ namespace cf01.CLS
             worksheet.Column(15).Width = 9;
             worksheet.Column(16).Width = 5;
             worksheet.Column(17).Width = 11;
+            worksheet.Column(17).Width = 12;
             colStr = $"I3:I{excelRow}"; // 动态计算行数
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; //千分位整数格式
             colStr = $"J3:J{excelRow}";
