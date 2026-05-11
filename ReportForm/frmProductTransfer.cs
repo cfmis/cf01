@@ -61,6 +61,7 @@ namespace cf01.ReportForm
             radioGroup1.SelectedIndex = 0;
             gridControl1.MainView = gridView2;
             gridView1.Columns["select_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            gridView1.Columns["row_no"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             gridView1.Columns["transfer_date"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             gridView1.Columns["prd_mo"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
         }
@@ -128,18 +129,12 @@ namespace cf01.ReportForm
 
         private void txtCrtim1_Leave(object sender, EventArgs e)
         {
-            if (txtCrtim1.Text != "")
-            {
-                txtCrtim2.EditValue = txtCrtim1.EditValue;
-            }
+            txtCrtim2.EditValue = txtCrtim1.EditValue;
         }
 
         private void txtPrd_mo1_Leave(object sender, EventArgs e)
         {
-            if (txtPrd_mo1.Text != "")
-            {
-                txtPrd_mo2.Text = txtPrd_mo1.Text;
-            }
+            txtPrd_mo2.Text = txtPrd_mo1.Text;           
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -158,8 +153,29 @@ namespace cf01.ReportForm
             {
                 return;
             }
-            ExpToExcel clsXls = new ExpToExcel();
-            clsXls.DevGridControlToExcel(gridControl1);
+            ExpToExcel clsXls = new ExpToExcel();  //gridView2.ExportToXls(path);
+            if (radioGroup1.SelectedIndex == 0)
+            {
+                clsXls.DevGridControlToExcel(gridControl1);
+            }
+            else
+            {
+                int intSelectFlag, intManualDate,intCrtim;
+                intSelectFlag = gridView1.Columns["select_flag"].VisibleIndex;
+                intManualDate = gridView1.Columns["manual_date"].VisibleIndex;
+                intCrtim = gridView1.Columns["crtim"].VisibleIndex;
+
+                //設置列不可見 
+                gridView1.Columns["select_flag"].VisibleIndex = -1;
+                gridView1.Columns["manual_date"].VisibleIndex = -1;
+                gridView1.Columns["crtim"].VisibleIndex = -1;
+
+                clsXls.DevGridControlToExcel(gridControl1);
+                //恢复列可見 
+                gridView1.Columns["select_flag"].VisibleIndex = intSelectFlag; 
+                gridView1.Columns["manual_date"].VisibleIndex = intManualDate;
+                gridView1.Columns["crtim"].VisibleIndex = intCrtim;
+            }
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
@@ -219,6 +235,7 @@ namespace cf01.ReportForm
                         {
                             transfer_date = DateTime.Now.Date.ToString("yyyy/MM/dd");
                         }
+                        gridView1.SetRowCellValue(i, "to_dep", transfer_date);
                         transfer_weg = decimal.Parse(gridView1.GetRowCellValue(i, "transfer_weg").ToString());
                         work_sort = gridView1.GetRowCellValue(i, "work_sort").ToString();//工序類型
                         transfer_flag = "1";//收貨

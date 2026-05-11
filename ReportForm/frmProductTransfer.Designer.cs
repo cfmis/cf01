@@ -101,6 +101,7 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
+            this.row_no = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
@@ -471,6 +472,7 @@
             this.gridView1.ColumnPanelRowHeight = 25;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.select_flag,
+            this.row_no,
             this.transfer_date,
             this.prd_mo,
             this.prd_item,
@@ -538,7 +540,7 @@
             this.transfer_date.OptionsFilter.AllowAutoFilter = false;
             this.transfer_date.OptionsFilter.AllowFilter = false;
             this.transfer_date.Visible = true;
-            this.transfer_date.VisibleIndex = 1;
+            this.transfer_date.VisibleIndex = 2;
             this.transfer_date.Width = 85;
             // 
             // prd_mo
@@ -555,7 +557,7 @@
             this.prd_mo.OptionsFilter.AllowAutoFilter = false;
             this.prd_mo.OptionsFilter.AllowFilter = false;
             this.prd_mo.Visible = true;
-            this.prd_mo.VisibleIndex = 2;
+            this.prd_mo.VisibleIndex = 3;
             this.prd_mo.Width = 90;
             // 
             // prd_item
@@ -573,7 +575,7 @@
             this.prd_item.OptionsFilter.AllowAutoFilter = false;
             this.prd_item.OptionsFilter.AllowFilter = false;
             this.prd_item.Visible = true;
-            this.prd_item.VisibleIndex = 3;
+            this.prd_item.VisibleIndex = 4;
             this.prd_item.Width = 150;
             // 
             // prd_item_cdesc
@@ -590,7 +592,7 @@
             this.prd_item_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.prd_item_cdesc.OptionsFilter.AllowFilter = false;
             this.prd_item_cdesc.Visible = true;
-            this.prd_item_cdesc.VisibleIndex = 4;
+            this.prd_item_cdesc.VisibleIndex = 5;
             this.prd_item_cdesc.Width = 182;
             // 
             // do_color
@@ -608,7 +610,7 @@
             this.do_color.OptionsFilter.AllowAutoFilter = false;
             this.do_color.OptionsFilter.AllowFilter = false;
             this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 5;
+            this.do_color.VisibleIndex = 6;
             this.do_color.Width = 100;
             // 
             // flag_desc
@@ -627,7 +629,7 @@
             this.flag_desc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.flag_desc.OptionsColumn.ReadOnly = true;
             this.flag_desc.Visible = true;
-            this.flag_desc.VisibleIndex = 6;
+            this.flag_desc.VisibleIndex = 7;
             this.flag_desc.Width = 65;
             // 
             // wip_id
@@ -645,7 +647,7 @@
             this.wip_id.OptionsFilter.AllowAutoFilter = false;
             this.wip_id.OptionsFilter.AllowFilter = false;
             this.wip_id.Visible = true;
-            this.wip_id.VisibleIndex = 7;
+            this.wip_id.VisibleIndex = 8;
             this.wip_id.Width = 60;
             // 
             // wip_id_cdesc
@@ -662,7 +664,7 @@
             this.wip_id_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.wip_id_cdesc.OptionsFilter.AllowFilter = false;
             this.wip_id_cdesc.Visible = true;
-            this.wip_id_cdesc.VisibleIndex = 8;
+            this.wip_id_cdesc.VisibleIndex = 9;
             this.wip_id_cdesc.Width = 90;
             // 
             // to_dep
@@ -679,7 +681,7 @@
             this.to_dep.OptionsFilter.AllowAutoFilter = false;
             this.to_dep.OptionsFilter.AllowFilter = false;
             this.to_dep.Visible = true;
-            this.to_dep.VisibleIndex = 9;
+            this.to_dep.VisibleIndex = 10;
             this.to_dep.Width = 60;
             // 
             // to_dep_cdesc
@@ -696,7 +698,7 @@
             this.to_dep_cdesc.OptionsFilter.AllowAutoFilter = false;
             this.to_dep_cdesc.OptionsFilter.AllowFilter = false;
             this.to_dep_cdesc.Visible = true;
-            this.to_dep_cdesc.VisibleIndex = 10;
+            this.to_dep_cdesc.VisibleIndex = 11;
             this.to_dep_cdesc.Width = 80;
             // 
             // group_desc
@@ -715,7 +717,7 @@
             this.group_desc.OptionsFilter.AllowAutoFilter = false;
             this.group_desc.OptionsFilter.AllowFilter = false;
             this.group_desc.Visible = true;
-            this.group_desc.VisibleIndex = 11;
+            this.group_desc.VisibleIndex = 12;
             this.group_desc.Width = 80;
             // 
             // transfer_qty
@@ -734,7 +736,7 @@
             this.transfer_qty.OptionsFilter.AllowAutoFilter = false;
             this.transfer_qty.OptionsFilter.AllowFilter = false;
             this.transfer_qty.Visible = true;
-            this.transfer_qty.VisibleIndex = 12;
+            this.transfer_qty.VisibleIndex = 13;
             this.transfer_qty.Width = 70;
             // 
             // transfer_weg
@@ -753,7 +755,7 @@
             this.transfer_weg.OptionsFilter.AllowAutoFilter = false;
             this.transfer_weg.OptionsFilter.AllowFilter = false;
             this.transfer_weg.Visible = true;
-            this.transfer_weg.VisibleIndex = 13;
+            this.transfer_weg.VisibleIndex = 14;
             this.transfer_weg.Width = 60;
             // 
             // manual_date
@@ -775,7 +777,7 @@
             this.manual_date.OptionsFilter.AllowAutoFilter = false;
             this.manual_date.OptionsFilter.AllowFilter = false;
             this.manual_date.Visible = true;
-            this.manual_date.VisibleIndex = 14;
+            this.manual_date.VisibleIndex = 15;
             this.manual_date.Width = 85;
             // 
             // crtim
@@ -796,7 +798,7 @@
             this.crtim.OptionsFilter.AllowAutoFilter = false;
             this.crtim.OptionsFilter.AllowFilter = false;
             this.crtim.Visible = true;
-            this.crtim.VisibleIndex = 15;
+            this.crtim.VisibleIndex = 16;
             this.crtim.Width = 130;
             // 
             // colDatetime
@@ -1210,6 +1212,29 @@
             this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // row_no
+            // 
+            this.row_no.AppearanceCell.Options.UseTextOptions = true;
+            this.row_no.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.row_no.Caption = "序號";
+            this.row_no.FieldName = "row_no";
+            this.row_no.Name = "row_no";
+            this.row_no.OptionsColumn.AllowEdit = false;
+            this.row_no.OptionsColumn.AllowFocus = false;
+            this.row_no.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.AllowIncrementalSearch = false;
+            this.row_no.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.AllowMove = false;
+            this.row_no.OptionsColumn.AllowShowHide = false;
+            this.row_no.OptionsColumn.AllowSize = false;
+            this.row_no.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.ReadOnly = true;
+            this.row_no.OptionsFilter.AllowAutoFilter = false;
+            this.row_no.OptionsFilter.AllowFilter = false;
+            this.row_no.Visible = true;
+            this.row_no.VisibleIndex = 1;
+            this.row_no.Width = 40;
+            // 
             // frmProductTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1325,5 +1350,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn work_sort;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraGrid.Columns.GridColumn manual_date;
+        private DevExpress.XtraGrid.Columns.GridColumn row_no;
     }
 }

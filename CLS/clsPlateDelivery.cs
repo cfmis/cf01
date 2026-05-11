@@ -11,6 +11,7 @@ using OfficeOpenXml.Style;
 using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Drawing;
+using cf01.MDL;
 
 namespace cf01.CLS
 {
@@ -470,7 +471,7 @@ namespace cf01.CLS
                                 dv.RowFilter = $"vendor_id ='{ vendor_id } ' And id_return='P'";
                                 sheet_name = "正單";
                                 title = "外發加工每日追貨單";
-                                dtNewExcel = dv.ToTable();
+                                //dtNewExcel = dv.ToTable();
                             }
                             else
                             {
@@ -478,8 +479,9 @@ namespace cf01.CLS
                                 dv.RowFilter = $"vendor_id ='{ vendor_id }' And id_return='R'";
                                 sheet_name = "返電單";
                                 title = "返電單";
-                                dtNewExcel = dv.ToTable(); 
+                                //dtNewExcel = dv.ToTable(); 
                             }
+                            dtNewExcel = dv.ToTable();
                             var worksheet = package.Workbook.Worksheets.Add(sheet_name); //var worksheet,這里是只是一個引用地址，是指向package.Workbook.Worksheets
                             worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
                             worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
@@ -508,7 +510,7 @@ namespace cf01.CLS
                             worksheet.Cells["A6"].Value = title; // 设置值                                                                                                                                             // 设置合并单元格的样式（可选）
                             worksheet.Cells["A1:P7"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
                             worksheet.Cells["A1:P7"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                            worksheet.Cells["A1:P7"].Style.Font.Bold = true; // 设置字体加粗
+                            worksheet.Cells["A1:P7"].Style.Font.Bold = true; // 设置字体加粗                           
                             worksheet.Row(1).Height = 24;//设置行高度
                             worksheet.Row(2).Height = 24;
                             worksheet.Row(3).Height = 24;
@@ -602,6 +604,13 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 14].Value = "返電";
             worksheet.Cells[excelRow, 15].Value = "備註";
             worksheet.Cells[excelRow, 16].Value = "特急標識";
+
+            worksheet.Cells[excelRow, 17].Value = "1日前序號";//Q7
+            worksheet.Cells[excelRow, 18].Value = "2日前序號";//R7
+            worksheet.Cells[excelRow, 19].Value = "3日前序號";//S7
+            worksheet.Cells[excelRow, 20].Value = "4日前序號";//T7
+            worksheet.Cells[excelRow, 21].Value = "5日前序號";//U7
+
             worksheet.Row(excelRow).Height = 42; // 设置第7行的高度为42
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -624,6 +633,12 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 14].Value = (type == 0) ? "" : drExcel["return_total"].ToString();//返電次數
                 worksheet.Cells[excelRow, 15].Value = "";
                 worksheet.Cells[excelRow, 16].Value = drExcel["flag_mo"].ToString();
+
+                worksheet.Cells[excelRow, 17].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 18].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 19].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["old_seq5"].ToString();
                 /*
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
@@ -652,6 +667,18 @@ namespace cf01.CLS
             worksheet.Column(14).Width = 5;
             worksheet.Column(15).Width = 17;
             worksheet.Column(16).Width = 4.3;
+
+            worksheet.Column(17).Width = 8.5;
+            worksheet.Column(18).Width = 8.5;
+            worksheet.Column(19).Width = 8.5;
+            worksheet.Column(20).Width = 8.5;
+            worksheet.Column(21).Width = 8.5;
+
+            worksheet.Column(17).Hidden = true;
+            worksheet.Column(18).Hidden = true;
+            worksheet.Column(19).Hidden = true;
+            worksheet.Column(20).Hidden = true;
+            worksheet.Column(21).Hidden = true;
             /*
             //Cells[excelRow, 13]
             // 设置动态范围
@@ -1435,6 +1462,7 @@ namespace cf01.CLS
             worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; //固定标题为第1~2行
             worksheet.PrinterSettings.Scale = 75; //缩放到 80%
         }
+        
 
 
     }

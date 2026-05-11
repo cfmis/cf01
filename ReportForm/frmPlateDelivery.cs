@@ -14,6 +14,9 @@ using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using cf01.CLS;
 using System.Drawing;
+using DevExpress.Data.Filtering;
+using cf01.MDL;
+using System.Text;
 
 namespace cf01.ReportForm
 {
@@ -23,6 +26,9 @@ namespace cf01.ReportForm
         string strUserId = DBUtility._user_id;
         string strLanguage = DBUtility._language;
         string strRptType = "1";
+        string org_vendor_id = "";
+        private int[] selectedRowHandles;
+        private List<object[]> copiedRows = new List<object[]>(); // 用于保存复制的数据行
         System.Data.DataTable dtRpt1 = new System.Data.DataTable();
         System.Data.DataTable dtRpt2 = new System.Data.DataTable();
         System.Data.DataTable dtRpt3 = new System.Data.DataTable();       
@@ -33,6 +39,8 @@ namespace cf01.ReportForm
         DataSet dts = new DataSet();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         clsToolBarNew objToolbar;
+       
+       
 
         public frmPlateDelivery()
         {
@@ -43,8 +51,8 @@ namespace cf01.ReportForm
             objToolbar.SetToolBar();
 
             gridView1.BestFitColumns(); //列寬自適應
-            gridView1.IndicatorWidth = 40;
-            gridView2.IndicatorWidth = 40;
+            //gridView1.IndicatorWidth = 40;
+            //gridView2.IndicatorWidth = 40;
         }
 
         private void frmPlateDelivery_Load(object sender, EventArgs e)
@@ -193,12 +201,11 @@ namespace cf01.ReportForm
             switch (strRptType)
             {
                 case "1":
-                    dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", parm, null);
-                    dtRpt1.Clear();
-                    dtRpt1 = dts.Tables[0];
-
                     string issueDate = "", completeDate = "", curDate = "";
                     int send_qty = 0, in_qty_total = 0;
+                    dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", parm, null);
+                    dtRpt1.Clear();
+                    dtRpt1 = dts.Tables[0];                    
                     for (int i=0;i<dtRpt1.Rows.Count;i++)
                     {
                         //tempId = dtRpt1.Rows[i]["temp_id"].ToString()+(i + 1).ToString("00000");
@@ -256,8 +263,8 @@ namespace cf01.ReportForm
                 System.Data.DataTable dtExcel = ds.Tables[0];                 
                 SqlConnection sqlCon = new SqlConnection(DBUtility.conn_str_dgerp2);
                 sqlCon.Open();
-                strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
-                strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
+                strSql_f = "Select 1 From dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
+                strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) Values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
                 progressBar1.Value = 0;
@@ -1060,5 +1067,186 @@ namespace cf01.ReportForm
                 }
             }
         }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount == 0)
+            {
+                return;
+            }
+            // 创建一个新的 CriteriaOperator 来定义过滤条件
+            string vendor_id = txtVendor_id.Text.Trim();
+            var criteria = CriteriaOperator.Parse($"[vendor_id] LIKE '%{vendor_id}%'");
+            gridView1.ActiveFilterCriteria = criteria;
+            gridView1.RefreshData();            
+        }
+
+        private void cutMenuItem_Click(object sender, EventArgs e)
+        {
+            // 获取选中的行索引
+            selectedRowHandles = gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("请先选中要复制的行！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            // 保存选中行数据到缓存
+            copiedRows.Clear();            
+            foreach (var rowHandle in selectedRowHandles)
+            {
+                var row = gridView1.GetDataRow(rowHandle);
+                org_vendor_id = row.ItemArray[1].ToString();
+                copiedRows.Add(row.ItemArray); // 保存行的所有数据
+            }
+        }
+
+        private void pasteMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedRows.Count == 0)
+            {
+                MessageBox.Show("没有复制的行可以粘贴！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            int targetRowHandle = gridView1.FocusedRowHandle;
+            int orgRowIndex = targetRowHandle;
+            //// 获取右键点击目标位置的行索引          
+            if (targetRowHandle < 0)
+            {
+                MessageBox.Show("请右键点击有效的目标行！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+
+            //start *********
+            //排序時必須保證是同一電鍍廠
+            string target_vendor_id = gridView1.GetRowCellValue(targetRowHandle, "vendor_id").ToString();            
+            if (target_vendor_id != org_vendor_id)
+            {
+                MessageBox.Show($"選中記錄的供應商與目標行的供應商不一致！", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            //找出目標行真實的行索引位置
+            int target_row_index = 0;
+            string target_schedule_id = gridView1.GetRowCellValue(targetRowHandle, "schedule_id").ToString();
+            for (int i = 0; i < dtRpt1.Rows.Count; i++)
+            {
+                if (dtRpt1.Rows[i]["schedule_id"].ToString() == target_schedule_id)
+                {
+                    target_row_index = i;
+                    break;
+                }
+            }
+            //end **********
+
+            // 將原記錄移除          
+            foreach (var itemArray in copiedRows)
+            {
+                //注意儲存過程usp_mo_schedule傳回來的字段一定要一致，不然數組取值不正確
+                string schedule_id = itemArray[35].ToString();
+                string mo_id = itemArray[5].ToString();                
+                // 查找产品编号为 "P001" 的记录
+                //var foundRows = dtRpt1.Select("schedule_id = '" + schedule_id + "'");
+                var foundRows = dtRpt1.Select($"schedule_id='{schedule_id}'");
+                if (foundRows.Length == 0)
+                {
+                    MessageBox.Show($"沒有選中記錄單號:{schedule_id}", "提示信息", MessageBoxButtons.OK);
+                    break;
+                }
+                //DataRow dr = foundRows[0];
+                //int rowIndex = dtRpt1.Rows.IndexOf(dr); // 获取行索引号
+                //dtRpt1.Rows.Remove(gridView1.GetDataRow(rowIndex));
+                foreach (var rowHandle in selectedRowHandles)
+                {
+                    gridView1.DeleteRow(rowHandle);
+                }
+            }
+           
+
+            // 在目标位置插入复制的行           
+            foreach (var itemArray in copiedRows)
+            {
+                var newRow = dtRpt1.NewRow();
+                newRow.ItemArray = itemArray;// row.ItemArray; // 复制行数据               
+                //dtRpt1.Rows.InsertAt(newRow, targetRowHandle);
+                dtRpt1.Rows.InsertAt(newRow, target_row_index);
+                targetRowHandle++;
+            }            
+            copiedRows.Clear();           
+            ReSetSecheduleID(target_vendor_id);//重新生成排序號
+            gridView1.FocusedRowHandle = targetRowHandle - 1; // 聚焦到最后插入的行
+        }
+
+        private void ReSetSecheduleID(string target_vendor_id)
+        {
+            //要分供應商
+            dtRpt1.AcceptChanges();           
+            int scheduleSeq = 1;
+            foreach (DataRow row in dtRpt1.Rows)
+            {
+                if (row["vendor_id"].ToString() == target_vendor_id)
+                {
+                    row["schedule_seq"] = scheduleSeq.ToString("D3").PadLeft(3, '0');
+                    row["update_flag"] = "1";
+                    scheduleSeq++;
+                }
+            }
+        }
+
+        private void BTNSAVESORT_Click(object sender, EventArgs e)
+        {
+            txtVendor_id.Focus();
+            SaveSchedule();
+        }
+
+        private void SaveSchedule()
+        {
+            string result = "";
+            //DataRow[] drMo = dtRpt1.Select("update_flag = " + "1");
+            string strFilter = "1";
+            DataRow[] drMo = dtRpt1.Select($"update_flag ='{strFilter}'");
+            if (drMo.Length == 0)
+            {
+                MessageBox.Show("沒有儲存的記錄!","提示信息",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }          
+            progressBar1.Enabled = true;
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = drMo.Length;
+            progressBar1.Value = 0;
+            StringBuilder sb = new StringBuilder();
+            string strSql = "", schedule_id = "", schedule_seq = "", prd_dep = "", user_id = DBUtility._user_id;
+            for (int i = 0; i < drMo.Length; i++)
+            {
+                sb.Clear();
+                sb.Append(@" SET XACT_ABORT ON ");
+                sb.Append(@" BEGIN TRANSACTION ");
+                progressBar1.Value = i;
+                schedule_id = drMo[i]["schedule_id"].ToString();
+                schedule_seq = drMo[i]["schedule_seq"].ToString();
+                prd_dep = drMo[i]["id"].ToString().Substring(1,3);               
+                strSql = string.Format(
+                @" Update mo_schedule Set schedule_seq='{2}',now_date=CONVERT(varchar(10),GETDATE(),111),update_user='{3}',update_time=getdate() Where schedule_id='{0}' And prd_dep='{1}'",
+                schedule_id, prd_dep, schedule_seq, user_id);
+                sb.Append(strSql);
+                sb.Append(@" COMMIT TRANSACTION ");
+                result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+                if(result != "")
+                {
+                    break;
+                }               
+            }
+            progressBar1.Enabled = false;
+            progressBar1.Visible = false;
+            if (result == "")
+            {
+                MessageBox.Show("更新排期表成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("更新排期表失敗!", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }                        
+        }
+
+
     }
 }

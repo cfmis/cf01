@@ -452,6 +452,11 @@ namespace cf01.CLS
             System.Data.DataTable dtDept = new System.Data.DataTable();
             dtDept = clsPublicOfGEO.GetDataTable(strSql);
 
+            System.Data.DataRow dr3 = dtDept.NewRow();//插一空行   
+            dr3["id"] = "***";
+            dr3["cdesc"] = "所有的牌子";
+            dtDept.Rows.InsertAt(dr3, 0);
+
             System.Data.DataRow dr1 = dtDept.NewRow();//插一空行   
             dr1["id"] = "**";
             dr1["cdesc"] = "所有的牌子";
@@ -460,7 +465,8 @@ namespace cf01.CLS
             System.Data.DataRow dr = dtDept.NewRow();//插一空行 
             dr["id"] = "*";
             dr["cdesc"] = "所有的牌子";
-            dtDept.Rows.InsertAt(dr, 0);
+            dtDept.Rows.InsertAt(dr, 0);            
+
 
             System.Data.DataRow dr2 = dtDept.NewRow();//插一空行 
             dr2["id"] = "";
