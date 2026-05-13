@@ -1137,17 +1137,19 @@ namespace cf01.ReportForm
             }
             //end **********
 
-            // 將原記錄移除          
+            // 將原記錄移除
+            bool removeFlag = true;       
             foreach (var itemArray in copiedRows)
             {
-                //注意儲存過程usp_mo_schedule傳回來的字段一定要一致，不然數組取值不正確
-                string schedule_id = itemArray[35].ToString();
+                //注意儲存過程usp_mo_schedule傳回來的字段一定要一致，不然數組取值不正確               
+                string schedule_id = itemArray[36].ToString();
                 string mo_id = itemArray[5].ToString();                
                 // 查找产品编号为 "P001" 的记录
                 //var foundRows = dtRpt1.Select("schedule_id = '" + schedule_id + "'");
                 var foundRows = dtRpt1.Select($"schedule_id='{schedule_id}'");
                 if (foundRows.Length == 0)
                 {
+                    removeFlag = false;
                     MessageBox.Show($"沒有選中記錄單號:{schedule_id}", "提示信息", MessageBoxButtons.OK);
                     break;
                 }
@@ -1159,7 +1161,10 @@ namespace cf01.ReportForm
                     gridView1.DeleteRow(rowHandle);
                 }
             }
-           
+            if (!removeFlag)
+            {
+                return;
+            }
 
             // 在目标位置插入复制的行           
             foreach (var itemArray in copiedRows)
