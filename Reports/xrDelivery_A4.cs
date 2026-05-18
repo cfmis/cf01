@@ -60,11 +60,13 @@ namespace cf01.Reports
             if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
             {
                 txtQc_dept.Visible = false;
+                pnlQc.Visible = false;
             }
             else
             {
                 txtQc_dept.Visible = true;
-            }
+                pnlQc.Visible = true;
+            }            
         }
 
         private void xrLabel59_TextChanged(object sender, EventArgs e)

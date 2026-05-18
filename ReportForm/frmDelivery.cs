@@ -579,6 +579,11 @@ namespace cf01.ReportForm
                                 drw["prod_qty"] = dtDelivery.Rows[i]["current_prod_qty"];
                                 drw["qc_dept"] = dtDelivery.Rows[i]["qc_dept"].ToString();
                                 drw["qc_name"] = dtDelivery.Rows[i]["qc_name"].ToString();
+                                if (drw["qc_dept"].ToString() == "702" || drw["qc_dept"].ToString() == "722")
+                                {
+                                    drw["qc_dept"] = "";
+                                    drw["qc_name"] = "";                                   
+                                }
                                 drw["qc_qty"] = dtDelivery.Rows[i]["qc_qty"];
                                 drw["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
                                 drw["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();

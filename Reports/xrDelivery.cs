@@ -55,7 +55,16 @@ namespace cf01.Reports
 
         private void txtQc_dept_TextChanged(object sender, EventArgs e)
         {
-            txtQc_dept.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()) ? false : true;
+            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
+            {
+                txtQc_dept.Visible = false;
+                pnlQc.Visible = false;
+            }
+            else
+            {
+                txtQc_dept.Visible = true;
+                pnlQc.Visible = true;
+            }            
         }
 
         private void xrLabel59_TextChanged(object sender, EventArgs e)

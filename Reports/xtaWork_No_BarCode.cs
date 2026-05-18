@@ -28,7 +28,7 @@ namespace cf01.Reports
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            BindImage();
+            BindImage();            
         }
 
         private void xtaWork_No_BarCode_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -69,7 +69,17 @@ namespace cf01.Reports
 
         private void txtQc_dept_TextChanged(object sender, EventArgs e)
         {
-            txtQc_dept.Visible = (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString())) ? false : true;            
+            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
+            {
+                txtQc_dept.Visible = false;
+                pnlQc.Visible = false;
+            }
+            else
+            {
+                txtQc_dept.Visible = true;
+                pnlQc.Visible = true;
+            }
+            //txtQc_dept.Visible = (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString())) ? false : true;            
         }
     }
 }

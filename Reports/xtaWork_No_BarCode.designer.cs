@@ -161,12 +161,16 @@
             this.xrLabel63 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.pnlQc = new DevExpress.XtraReports.UI.XRPanel();
+            this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.xrLabel90 = new DevExpress.XtraReports.UI.XRLabel();
             Detail = new DevExpress.XtraReports.UI.DetailBand();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pnlQc,
             this.xrLine27,
             this.xrLabel89,
             this.xrLabel46,
@@ -1307,7 +1311,7 @@
             // xrlblImage
             // 
             this.xrlblImage.Dpi = 254F;
-            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(0F, 241.6119F);
+            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(99.59512F, 25.00001F);
             this.xrlblImage.Name = "xrlblImage";
             this.xrlblImage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrlblImage.SizeF = new System.Drawing.SizeF(40.32243F, 35.62906F);
@@ -2005,6 +2009,47 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // pnlQc
+            // 
+            this.pnlQc.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.pnlQc.BorderWidth = 2F;
+            this.pnlQc.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel90});
+            this.pnlQc.Dpi = 254F;
+            this.pnlQc.LocationFloat = new DevExpress.Utils.PointFloat(6.876067F, 221.4524F);
+            this.pnlQc.Name = "pnlQc";
+            this.pnlQc.SizeF = new System.Drawing.SizeF(97.82487F, 96.78851F);
+            this.pnlQc.StylePriority.UseBackColor = false;
+            this.pnlQc.StylePriority.UseBorders = false;
+            this.pnlQc.StylePriority.UseBorderWidth = false;
+            this.pnlQc.Visible = false;
+            // 
+            // xrControlStyle1
+            // 
+            this.xrControlStyle1.Name = "xrControlStyle1";
+            this.xrControlStyle1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
+            // 
+            // xrLabel90
+            // 
+            this.xrLabel90.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel90.BorderWidth = 2F;
+            this.xrLabel90.CanGrow = false;
+            this.xrLabel90.Dpi = 254F;
+            this.xrLabel90.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Bold);
+            this.xrLabel90.LocationFloat = new DevExpress.Utils.PointFloat(4.430345F, 4F);
+            this.xrLabel90.Name = "xrLabel90";
+            this.xrLabel90.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel90.SizeF = new System.Drawing.SizeF(87.19585F, 88.78851F);
+            this.xrLabel90.StylePriority.UseBorders = false;
+            this.xrLabel90.StylePriority.UseBorderWidth = false;
+            this.xrLabel90.StylePriority.UseFont = false;
+            this.xrLabel90.StylePriority.UseTextAlignment = false;
+            this.xrLabel90.Text = "QC";
+            this.xrLabel90.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel90.WordWrap = false;
+            // 
             // xtaWork_No_BarCode
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2021,6 +2066,8 @@
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.SnapGridSize = 2.54F;
+            this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
+            this.xrControlStyle1});
             this.Version = "14.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xtaWork_No_BarCode_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -2161,5 +2208,8 @@
         private DevExpress.XtraReports.UI.XRLine xrLine27;
         private DevExpress.XtraReports.UI.XRLabel xrLabel89;
         private DevExpress.XtraReports.UI.XRLabel xrLabel46;
+        private DevExpress.XtraReports.UI.XRPanel pnlQc;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel90;
+        private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle1;
     }
 }

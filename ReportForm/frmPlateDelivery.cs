@@ -38,8 +38,7 @@ namespace cf01.ReportForm
         System.Data.DataTable dtImport = new System.Data.DataTable();
         DataSet dts = new DataSet();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        clsToolBarNew objToolbar;
-       
+        clsToolBarNew objToolbar;       
        
 
         public frmPlateDelivery()
@@ -1205,6 +1204,7 @@ namespace cf01.ReportForm
         private void SaveSchedule()
         {
             string result = "";
+            gridView1.CloseEditor();
             //DataRow[] drMo = dtRpt1.Select("update_flag = " + "1");
             string strFilter = "1";
             DataRow[] drMo = dtRpt1.Select($"update_flag ='{strFilter}'");
@@ -1219,12 +1219,12 @@ namespace cf01.ReportForm
             progressBar1.Maximum = drMo.Length;
             progressBar1.Value = 0;
             StringBuilder sb = new StringBuilder();
+            sb.Clear();
+            sb.Append(@" SET XACT_ABORT ON ");
+            sb.Append(@" BEGIN TRANSACTION ");
             string strSql = "", schedule_id = "", schedule_seq = "", prd_dep = "", user_id = DBUtility._user_id;
             for (int i = 0; i < drMo.Length; i++)
-            {
-                sb.Clear();
-                sb.Append(@" SET XACT_ABORT ON ");
-                sb.Append(@" BEGIN TRANSACTION ");
+            {                
                 progressBar1.Value = i;
                 schedule_id = drMo[i]["schedule_id"].ToString();
                 schedule_seq = drMo[i]["schedule_seq"].ToString();
@@ -1233,13 +1233,14 @@ namespace cf01.ReportForm
                 @" Update mo_schedule Set schedule_seq='{2}',now_date=CONVERT(varchar(10),GETDATE(),111),update_user='{3}',update_time=getdate() Where schedule_id='{0}' And prd_dep='{1}'",
                 schedule_id, prd_dep, schedule_seq, user_id);
                 sb.Append(strSql);
-                sb.Append(@" COMMIT TRANSACTION ");
-                result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
-                if(result != "")
-                {
-                    break;
-                }               
+                  
             }
+            sb.Append(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            //if (result != "")
+            //{
+            //    break;
+            //}
             progressBar1.Enabled = false;
             progressBar1.Visible = false;
             if (result == "")

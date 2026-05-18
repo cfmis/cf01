@@ -132,8 +132,16 @@ namespace cf01.Reports
             xrpbpart6.ImageUrl = null;
         }
 
-
-
-
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
+            {                
+                pnlQc.Visible = false;
+            }
+            else
+            {               
+                pnlQc.Visible = true;
+            }
+        }
     }
 }
