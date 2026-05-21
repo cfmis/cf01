@@ -128,6 +128,8 @@
             this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.panel3 = new System.Windows.Forms.Panel();
             this.prgStatus = new System.Windows.Forms.ProgressBar();
+            this.rdbToHK = new System.Windows.Forms.RadioButton();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.palPrintNextDepCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).BeginInit();
@@ -175,6 +177,8 @@
             this.panel1.Controls.Add(this.palPrintNextDepCard);
             this.panel1.Controls.Add(this.mkCmpDat1);
             this.panel1.Controls.Add(this.txtPrd_item2);
+            this.panel1.Controls.Add(this.chkSimplePlan);
+            this.panel1.Controls.Add(this.lblShowMsg);
             this.panel1.Controls.Add(this.lblPrd_item);
             this.panel1.Controls.Add(this.txtMo2);
             this.panel1.Controls.Add(this.label7);
@@ -389,9 +393,8 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.rdbNoPrint);
             this.flowLayoutPanel1.Controls.Add(this.rdbIsPrint);
+            this.flowLayoutPanel1.Controls.Add(this.rdbToHK);
             this.flowLayoutPanel1.Controls.Add(this.rdbAllPrint);
-            this.flowLayoutPanel1.Controls.Add(this.lblShowMsg);
-            this.flowLayoutPanel1.Controls.Add(this.chkSimplePlan);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(384, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 25);
@@ -422,7 +425,7 @@
             // rdbAllPrint
             // 
             this.rdbAllPrint.AutoSize = true;
-            this.rdbAllPrint.Location = new System.Drawing.Point(205, 3);
+            this.rdbAllPrint.Location = new System.Drawing.Point(370, 3);
             this.rdbAllPrint.Name = "rdbAllPrint";
             this.rdbAllPrint.Size = new System.Drawing.Size(47, 16);
             this.rdbAllPrint.TabIndex = 0;
@@ -433,7 +436,7 @@
             // 
             this.lblShowMsg.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblShowMsg.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblShowMsg.Location = new System.Drawing.Point(258, 3);
+            this.lblShowMsg.Location = new System.Drawing.Point(384, 91);
             this.lblShowMsg.Name = "lblShowMsg";
             this.lblShowMsg.Size = new System.Drawing.Size(394, 14);
             this.lblShowMsg.TabIndex = 1;
@@ -443,7 +446,7 @@
             // 
             this.chkSimplePlan.AutoSize = true;
             this.chkSimplePlan.ForeColor = System.Drawing.Color.Red;
-            this.chkSimplePlan.Location = new System.Drawing.Point(3, 25);
+            this.chkSimplePlan.Location = new System.Drawing.Point(772, 95);
             this.chkSimplePlan.Name = "chkSimplePlan";
             this.chkSimplePlan.Size = new System.Drawing.Size(370, 16);
             this.chkSimplePlan.TabIndex = 15;
@@ -767,6 +770,7 @@
             this.gvPlanDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gclSelectFlag,
             this.gridColumn1,
+            this.gridColumn18,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
@@ -829,7 +833,7 @@
             this.gridColumn2.FieldName = "mo_id";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 3;
             this.gridColumn2.Width = 80;
             // 
             // gridColumn3
@@ -838,7 +842,7 @@
             this.gridColumn3.FieldName = "sequence_id";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.VisibleIndex = 4;
             // 
             // gridColumn4
             // 
@@ -846,7 +850,7 @@
             this.gridColumn4.FieldName = "goods_id";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 120;
             // 
             // gridColumn5
@@ -855,7 +859,7 @@
             this.gridColumn5.FieldName = "goods_name";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 200;
             // 
             // gridColumn6
@@ -864,7 +868,7 @@
             this.gridColumn6.FieldName = "next_wp_id";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.VisibleIndex = 7;
             // 
             // gridColumn7
             // 
@@ -872,7 +876,7 @@
             this.gridColumn7.FieldName = "prod_qty";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.VisibleIndex = 8;
             // 
             // gridColumn8
             // 
@@ -880,7 +884,7 @@
             this.gridColumn8.FieldName = "per_prod_qty";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 9;
             // 
             // gridColumn9
             // 
@@ -888,7 +892,7 @@
             this.gridColumn9.FieldName = "order_qty";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 9;
+            this.gridColumn9.VisibleIndex = 10;
             // 
             // gridColumn10
             // 
@@ -896,7 +900,7 @@
             this.gridColumn10.FieldName = "c_qty_ok";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 10;
+            this.gridColumn10.VisibleIndex = 11;
             // 
             // gridColumn11
             // 
@@ -904,7 +908,7 @@
             this.gridColumn11.FieldName = "t_complete_date";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 11;
+            this.gridColumn11.VisibleIndex = 12;
             // 
             // gridColumn12
             // 
@@ -912,7 +916,7 @@
             this.gridColumn12.FieldName = "f_complete_date";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 12;
+            this.gridColumn12.VisibleIndex = 13;
             // 
             // gridColumn13
             // 
@@ -920,7 +924,7 @@
             this.gridColumn13.FieldName = "overdue_days";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 13;
+            this.gridColumn13.VisibleIndex = 14;
             // 
             // gridColumn16
             // 
@@ -928,7 +932,7 @@
             this.gridColumn16.FieldName = "ver";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 14;
+            this.gridColumn16.VisibleIndex = 15;
             this.gridColumn16.Width = 60;
             // 
             // gridColumn17
@@ -937,7 +941,7 @@
             this.gridColumn17.FieldName = "pre_dep_qty_ok";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 15;
+            this.gridColumn17.VisibleIndex = 16;
             // 
             // gridColumn15
             // 
@@ -945,7 +949,7 @@
             this.gridColumn15.FieldName = "pre_deliver_max_dat";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 16;
+            this.gridColumn15.VisibleIndex = 17;
             // 
             // gridColumn14
             // 
@@ -953,7 +957,7 @@
             this.gridColumn14.FieldName = "pre_dep_deliver_flag";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 17;
+            this.gridColumn14.VisibleIndex = 18;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -1125,6 +1129,24 @@
             this.prgStatus.Size = new System.Drawing.Size(189, 23);
             this.prgStatus.TabIndex = 29;
             // 
+            // rdbToHK
+            // 
+            this.rdbToHK.AutoSize = true;
+            this.rdbToHK.Location = new System.Drawing.Point(205, 3);
+            this.rdbToHK.Name = "rdbToHK";
+            this.rdbToHK.Size = new System.Drawing.Size(159, 16);
+            this.rdbToHK.TabIndex = 0;
+            this.rdbToHK.Text = "不顯示已回港、Y單、N單";
+            this.rdbToHK.UseVisualStyleBackColor = true;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "訂單日期";
+            this.gridColumn18.FieldName = "order_date";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 2;
+            // 
             // frmPlanWithPrintCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1286,5 +1308,7 @@
         private System.Windows.Forms.Panel palPrintNextDepCard;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ProgressBar prgStatus;
+        private System.Windows.Forms.RadioButton rdbToHK;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }

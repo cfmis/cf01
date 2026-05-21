@@ -174,6 +174,83 @@ namespace cf01.CLS
             return dtPrd;
         }
 
+        public string SaveTask(string jo_id,string mo_id,string goods_id,string wp_id,string next_wp_id,string task_date,string remark)
+        {
+            string result = "";
+            string strSql = "",strUpd = "";
+            string state = "0";
+            string create_user = DBUtility._user_id;
+            int id = 0;
+            string within_code = DBUtility.within_code;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            id = CheckTask(mo_id, goods_id, wp_id, next_wp_id);
+            if (id == 0)
+            {
+                state = "0";
+                strUpd = @" Insert Into jo_mo_task_msc " +
+                    " ( within_code,mo_id,goods_id,wp_id,next_wp_id,task_date,create_user,create_time,update_user,update_time,state,remark )" +
+                    " Values ( " +
+                    " '{1}','{2}','{3}','{4}','{5}','{6}','{7}',GETDATE(),'{7}',GETDATE(),'{8}','{9}' )";
+            }
+            else
+                strUpd = @" Update jo_mo_task_msc Set task_date='{6}',update_user='{7}',update_time=GETDATE(),state='{8}',remark='{9}'" +
+                    " Where id='{0}'";
+            strSql += string.Format(strUpd
+                    , id, within_code, mo_id, goods_id, wp_id, next_wp_id, task_date, create_user, state, remark);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            int res = clsConErp.ExecuteSqlUpdate(strSql);
+            if (res == 0)
+                result = "儲存失敗!";
+            return result;
+        }
+        private int CheckTask(string mo_id, string goods_id, string wp_id, string next_wp_id)
+        {
+            int id = 0;
+            string strSql = "Select id From jo_mo_task_msc Where mo_id='" + mo_id +
+                "' And goods_id='" + goods_id + "' And wp_id='" + wp_id + "' And next_wp_id='" + next_wp_id + "'";
+            
+            DataTable dtWip = clsConErp.ExecuteSqlReturnDataTable(strSql);
+            if (dtWip.Rows.Count > 0)
+                id = Convert.ToInt32(dtWip.Rows[0]["id"]);
+            return id;
+        }
+        public DataTable LoadTaskData()
+        {
+            string strSql = "";
+            string user_id = DBUtility._user_id;
+            strSql = "Select a.id,a.mo_id,a.goods_id,a.wp_id,a.next_wp_id,d.name AS goods_cname,a.task_date" +
+               " ,Convert(Int,c.prod_qty) AS prod_qty,Convert(Int,c.c_qty_ok) As c_qty_ok"+
+               " ,Convert(Varchar(20),c.f_complete_date,120) As f_complete_date"+
+               " ,Convert(Varchar(20),a.create_time,120) As create_time,a.remark" +
+               " From jo_mo_task_msc a" +
+               " Left Join jo_bill_mostly b On a.within_code=b.within_code And a.mo_id=b.mo_id " +
+               " Left Join jo_bill_goods_details c On b.within_code=c.within_code And b.id=c.id And b.ver=c.ver " +
+               " And a.goods_id=c.goods_id And a.wp_id=c.wp_id And a.next_wp_id=c.next_wp_id " +
+               " Left Join it_goods d On a.within_code=d.within_code And a.goods_id=d.id " +
+               " Where a.create_user ='" + user_id + "' And a.state='0' " +
+               " Order By a.create_time ";
+            DataTable dtTask= clsConErp.ExecuteSqlReturnDataTable(strSql);
+            return dtTask;
+        }
 
+        public string DeleteTask(int id)
+        {
+            string result = "";
+            string state = "2";
+            string create_user = DBUtility._user_id;
+            string strSql = "", strUpd = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strUpd = @" Update jo_mo_task_msc Set state='{1}',update_user='{2}',update_time=GETDATE()" +
+                " Where id='{0}'";
+            strSql += string.Format(strUpd
+                    , id, state, create_user);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            int res = clsConErp.ExecuteSqlUpdate(strSql);
+            if (res == 0)
+                result = "刪除記錄失敗!";
+            return result;
+        }
     }
 }
