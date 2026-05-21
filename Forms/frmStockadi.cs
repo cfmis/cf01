@@ -684,6 +684,24 @@ namespace cf01.Forms
             }
         }
 
+        private void BTNFIND_Click(object sender, EventArgs e)
+        {
+            /*
+            if (editMode)
+            {
+                MessageBox.Show("編輯狀態，不可以使用此功能!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            frmStockadiFind2 frmFnd = new frmStockadiFind2();
+            //ShowDialog() 方法显示该窗体作为模态对话框
+            if (frmFnd.ShowDialog() == DialogResult.Yes)
+            {                
+                //string tmp_id = frmFnd.temp_id; 
+            }
+            frmFnd = null;
+            */
+        }
+
         private void SetColumnReadOnly(bool _flag)
         {
             this.remain_flag.OptionsColumn.ReadOnly = _flag;

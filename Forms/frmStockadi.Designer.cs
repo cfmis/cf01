@@ -95,6 +95,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtOrder_id = new DevExpress.XtraEditors.TextEdit();
             this.txtSo_sequence_id = new DevExpress.XtraEditors.TextEdit();
+            this.txtRemark = new DevExpress.XtraEditors.TextEdit();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtSample_qty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSec_qty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLot_no.Properties)).BeginInit();
@@ -116,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrder_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSo_sequence_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -768,6 +771,7 @@
             this.BTNFIND.Size = new System.Drawing.Size(58, 40);
             this.BTNFIND.Text = " 查  詢(&F)";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
             // toolStripSeparator2
             // 
@@ -917,11 +921,37 @@
             this.txtSo_sequence_id.TabIndex = 36;
             this.txtSo_sequence_id.Visible = false;
             // 
+            // txtRemark
+            // 
+            this.txtRemark.EditValue = "";
+            this.txtRemark.Location = new System.Drawing.Point(265, 149);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtRemark.Properties.Appearance.Options.UseFont = true;
+            this.txtRemark.Properties.MaxLength = 50;
+            this.txtRemark.Properties.ReadOnly = true;
+            this.txtRemark.Size = new System.Drawing.Size(138, 26);
+            this.txtRemark.TabIndex = 37;
+            this.txtRemark.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(220, 156);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 12);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "貨架位";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label12.Visible = false;
+            // 
             // frmStockadi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 552);
+            this.Controls.Add(this.txtRemark);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtSo_sequence_id);
             this.Controls.Add(this.txtOrder_id);
             this.Controls.Add(this.txtState);
@@ -975,6 +1005,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrder_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSo_sequence_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1047,5 +1078,7 @@
         private DevExpress.XtraEditors.TextEdit txtSo_sequence_id;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private DevExpress.XtraEditors.TextEdit txtRemark;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -54,20 +54,21 @@ namespace cf01.ReportForm
             }).Start();
             string is_include_vat = chkIs_not_include_vat.Checked ? "Y" : "";            
 
-            SqlParameter[] paras = new SqlParameter[]{
-                new SqlParameter("@mo_group",txtSalesGroup.Text),
-                new SqlParameter("@order_date",txtDat1.Text),
-                new SqlParameter("@order_date_end",txtDat2.Text),
-                new SqlParameter("@mo_id1",txtMo_id1.Text),
-                new SqlParameter("@mo_id2",txtMo_id2.Text),
-                new SqlParameter("@brand_id1",txtBrand_id1.Text),
-                new SqlParameter("@brand_id2",txtBrand_id2.Text),
-                new SqlParameter("@create_by",txtCreateBy.Text),
-                new SqlParameter("@is_include_vat",is_include_vat)
-            };
+            
             int result = 0;          
             if (radioGroup1.SelectedIndex == 0)
             {
+                SqlParameter[] paras = new SqlParameter[]{
+                    new SqlParameter("@mo_group",txtSalesGroup.Text),
+                    new SqlParameter("@order_date",txtDat1.Text),
+                    new SqlParameter("@order_date_end",txtDat2.Text),
+                    new SqlParameter("@mo_id1",txtMo_id1.Text),
+                    new SqlParameter("@mo_id2",txtMo_id2.Text),
+                    new SqlParameter("@brand_id1",txtBrand_id1.Text),
+                    new SqlParameter("@brand_id2",txtBrand_id2.Text),
+                    new SqlParameter("@create_by",txtCreateBy.Text),
+                    new SqlParameter("@is_include_vat",is_include_vat)
+                };
                 dtReport0 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare", paras);
                 SetStripe(dtReport0);
                 dgvDetails0.DataSource = dtReport0;
@@ -75,6 +76,14 @@ namespace cf01.ReportForm
             }
             else
             {
+                SqlParameter[] paras = new SqlParameter[]{                   
+                    new SqlParameter("@order_date",txtDat1.Text),
+                    new SqlParameter("@order_date_end",txtDat2.Text),
+                    new SqlParameter("@mo_group",txtSalesGroup.Text),
+                    new SqlParameter("@mo_id1",txtMo_id1.Text),
+                    new SqlParameter("@mo_id2",txtMo_id2.Text),
+                    new SqlParameter("@is_include_vat",is_include_vat)
+                };
                 dtReport1 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_prev_dept", paras);
                 SetStripe(dtReport1);
                 dgvDetails1.DataSource = dtReport1;
