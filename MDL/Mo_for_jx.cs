@@ -65,6 +65,8 @@ namespace cf01.MDL
         public string artwork_id;//畫稿編號
         public string module_loc;//模具位置
         public string spec; //規格
+        public string flag_hold;
+        public string shading_color;
 
     }
 }

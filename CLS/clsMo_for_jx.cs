@@ -1158,6 +1158,8 @@ namespace cf01.CLS
             dtCard.Columns.Add("prod_qty", typeof(string));
             dtCard.Columns.Add("goods_unit", typeof(string));
             dtCard.Columns.Add("spec", typeof(string));
+            dtCard.Columns.Add("flag_hold", typeof(string));
+            dtCard.Columns.Add("shading_color", typeof(string));
             return dtCard;
         }
     }

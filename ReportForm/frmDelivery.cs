@@ -163,15 +163,21 @@ namespace cf01.ReportForm
                     radioGroup1.SelectedIndex = (strID1.IndexOf("-") == 4 || strID2.IndexOf("-") == 4) ? 2 : 0;
                 }
             }
-
             string selectIndex = radioGroup1.SelectedIndex.ToString();
             string dept_out = string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString())?"": txtOut_detp1.EditValue.ToString();                            
             string dept_in = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
             string mo_id1 = txtMo_id1.Text;
             string mo_id2 = txtMo_id2.Text;
             string user_id = txtCreate_by1.Text;
-            string create_date1 = txtCreate_date1.EditValue.ToString();
-            string create_date2 = txtCreate_date2.EditValue.ToString();
+            string create_date1 = "", create_date2 = "";
+            if (txtCreate_date1.Text != "")
+            {
+                create_date1 = txtCreate_date1.EditValue.ToString();
+            }
+            if (txtCreate_date2.Text != "")
+            {
+                create_date2 = txtCreate_date2.EditValue.ToString();
+            }            
             string dat1= (!string.IsNullOrEmpty(txtDat1.Text)) ? DateTime.Parse(txtDat1.Text).ToString("yyyy/MM/dd") : "";
             string dat2 = (!string.IsNullOrEmpty(txtDat2.Text)) ? DateTime.Parse(txtDat2.Text).ToString("yyyy/MM/dd") : "";
             create_date1 = (!string.IsNullOrEmpty(create_date1)) ? DateTime.Parse(create_date1).ToString("yyyy/MM/dd HH:mm") : "";
@@ -217,6 +223,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@create_date2", create_date2)
             };            
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
+
             //客戶端加bool字段或後端返回(bit型)都可以
             //dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));            
             //======查找當前責任部門,當前貨品的下一步流程的相關信息======
@@ -243,13 +250,19 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("next_next_wp_id", typeof(string));
             dtDelivery.Columns.Add("next_next_wp_name", typeof(string));
 
+            dtDelivery.Columns.Add("flag_hold", typeof(string));
+            dtDelivery.Columns.Add("shading_color", typeof(string));
+
             //--start掃描上江西的數據 2026/04/16 allen canceled
             //loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //--end掃描上江西的數據
 
-            string dept = "";
+            string dept = "",next_wp_id="";
             DataRow drow = null, drNext = null; 
             DataTable dtNextDept = new DataTable();
+            DataTable dtFlagHold = new DataTable();
+            DataTable dtShadingColor = new DataTable();
+            //以下循環直接更改dtDelivery某行的值
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
                 drow = dtDelivery.Rows[i]; //循環行對象，并對行對象賦值
@@ -278,12 +291,15 @@ namespace cf01.ReportForm
                 }
             }
             //======
-            //查找QC信息
+            //查找QC,hold,批色相關信息
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
                 drow = dtDelivery.Rows[i];
                 dept = drow["in_dept"].ToString();
+                next_wp_id= drow["next_wp_id"].ToString();
                 dtNextDept = getNextDepQcInfo(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString());
+                drow["flag_hold"] = getHoldInfo(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString(), next_wp_id);
+                drow["shading_color"] = getShadingColorinfo(drow["mo_id"].ToString(), dept, drow["goods_id"].ToString(), next_wp_id);                
                 if (dtNextDept.Rows.Count > 0)
                 {
                     drNext = dtNextDept.Rows[0];
@@ -356,6 +372,41 @@ namespace cf01.ReportForm
             within_code, mo_id, goods_id, wp_id);
             dt = clsConErp.GetDataTable(strSql);
             return dt;
+        }
+        private string getHoldInfo(string mo_id, string wp_id, string goods_id,string next_wp_id)
+        {            
+            string str = string.Format(
+            @"Select isnull(hold,'') as hold
+            FROM dbo.v_jo_bill_goods_hold            
+            WHERE mo_id='{0}' And goods_id='{1}' And wp_id='{2}' And next_wp_id='{3}'",
+            mo_id, goods_id, wp_id, next_wp_id);
+            DataTable dt = clsConErp.GetDataTable(str);
+            if (dt.Rows.Count > 0)
+            {
+                str = dt.Rows[0]["hold"].ToString();
+                str = (str.Trim() != "") ? "1" : "";                
+            }
+            else
+                str = "";
+            return str;
+        }
+
+        private string getShadingColorinfo(string mo_id, string wp_id, string goods_id, string next_wp_id)
+        {
+            string str = string.Format(
+            @"Select isnull(shading_color,'') as shading_color
+            FROM dbo.v_jo_bill_goods_shading_color          
+            WHERE mo_id='{0}' And goods_id='{1}' And wp_id='{2}' And next_wp_id='{3}'",
+            mo_id, goods_id, wp_id, next_wp_id);
+            DataTable dt = clsConErp.GetDataTable(str);
+            if (dt.Rows.Count > 0)
+            {
+                str = dt.Rows[0]["shading_color"].ToString();
+                str = (str.Trim() != "") ? "1" : "";
+            }
+            else
+                str = "";
+            return str;
         }
 
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
@@ -515,7 +566,8 @@ namespace cf01.ReportForm
                     drow["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
                     drow["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
                     drow["spec"] = dtDelivery.Rows[i]["spec"].ToString();
-
+                    drow["flag_hold"] = dtDelivery.Rows[i]["flag_hold"].ToString();
+                    drow["shading_color"] = dtDelivery.Rows[i]["shading_color"].ToString();
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
                     {
@@ -588,6 +640,8 @@ namespace cf01.ReportForm
                                 drw["next_next_wp_id"] = dtDelivery.Rows[i]["next_wp_id"].ToString();
                                 drw["next_next_wp_name"] = dtDelivery.Rows[i]["next_wp_name"].ToString();
                                 drw["spec"] = dtDelivery.Rows[i]["spec"].ToString();
+                                drw["flag_hold"] = dtDelivery.Rows[i]["flag_hold"].ToString();
+                                drw["shading_color"] = dtDelivery.Rows[i]["shading_color"].ToString();
                                 dtReport.Rows.Add(drw);
                             }
                         }
@@ -781,6 +835,8 @@ namespace cf01.ReportForm
                                 drow["process_remark"] = dtCard.Rows[j]["process_remark"].ToString();
                                 drow["dept_remark"] = dtCard.Rows[j]["dept_remark"].ToString();
                                 drow["spec"] = dtCard.Rows[j]["spec"].ToString();
+                                drow["flag_hold"] = dtCard.Rows[j]["flag_hold"].ToString();
+                                drow["shading_color"] = dtCard.Rows[j]["shading_color"].ToString();
                                 dtNewWork.Rows.Add(drow);
                             }
                         }

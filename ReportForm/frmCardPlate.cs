@@ -264,6 +264,9 @@ namespace cf01.ReportForm
                     drow["dept_remark"] = dtWordCard.Rows[i]["dept_remark"];
                     drow["count_return"] = dtWordCard.Rows[i]["count_return"];
                     drow["spec"] = dtWordCard.Rows[i]["spec"];
+                    drow["qc_dept"] = dtWordCard.Rows[i]["qc_dept"];
+                    drow["flag_hold"] = dtWordCard.Rows[i]["flag_hold"];
+                    drow["shading_color"] = dtWordCard.Rows[i]["shading_color"];
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -310,6 +313,9 @@ namespace cf01.ReportForm
                             drow1["dept_remark"] = dtWordCard.Rows[i]["dept_remark"].ToString();
                             drow1["count_return"] = int.Parse(dtWordCard.Rows[i]["count_return"].ToString());
                             drow1["spec"] = dtWordCard.Rows[i]["spec"].ToString();
+                            drow1["qc_dept"] = dtWordCard.Rows[i]["qc_dept"].ToString();
+                            drow1["flag_hold"] = dtWordCard.Rows[i]["flag_hold"].ToString();
+                            drow1["shading_color"] = dtWordCard.Rows[i]["shading_color"].ToString();                            
                             dtReport.Rows.Add(drow1);
                         }
                     }

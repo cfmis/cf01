@@ -168,6 +168,9 @@ namespace cf01.ReportForm
                     txtArtwork_id.Text = lsModel[i].artwork_id;
                     txtModule_loc.Text = lsModel[i].module_loc;
                     txtSpec.Text = lsModel[i].spec;
+
+                    txtFlag_hold.Text = lsModel[i].flag_hold;
+                    txtShading_color.Text = lsModel[i].shading_color;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -375,7 +378,9 @@ namespace cf01.ReportForm
                         dept_remark = dtGoodsInfo.Rows[i]["dept_remark"].ToString(),
                         artwork_id = dtGoodsInfo.Rows[i]["artwork_id"].ToString(),
                         module_loc = dtGoodsInfo.Rows[i]["module_loc"].ToString(),
-                        spec = dtGoodsInfo.Rows[i]["spec"].ToString()
+                        spec = dtGoodsInfo.Rows[i]["spec"].ToString(),
+                        flag_hold = dtGoodsInfo.Rows[i]["flag_hold"].ToString(),
+                        shading_color = dtGoodsInfo.Rows[i]["shading_color"].ToString()                        
                     };
                     lsModel.Add(objModel);
                 } //--end for 
@@ -637,6 +642,9 @@ namespace cf01.ReportForm
                             dr["artwork_id"] = txtArtwork_id.Text;
                             dr["module_loc"] = txtModule_loc.Text;
                             dr["spec"] = txtSpec.Text;
+                            dr["flag_hold"] = txtFlag_hold.Text;
+                            dr["shading_color"] = txtShading_color.Text;
+
                             dtNewWork.Rows.Add(dr);
                         }
                     }

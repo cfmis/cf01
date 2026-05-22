@@ -573,6 +573,8 @@ namespace cf01.ReportForm
                                 dr["process_remark"] = drDtWk["process_remark"].ToString();
                                 dr["dept_remark"] = drDtWk["dept_remark"].ToString();
                                 dr["spec"] = drDtWk["spec"].ToString();
+                                dr["flag_hold"] = drDtWk["flag_hold"].ToString();
+                                dr["shading_color"] = drDtWk["shading_color"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }

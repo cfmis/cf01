@@ -57,19 +57,24 @@ namespace cf01.Reports
         {
             if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()))
             {
-                txtQc_dept.Visible = false;
-                pnlQc.Visible = false;
+                txtQc_dept.Visible = false;               
             }
             else
             {
-                txtQc_dept.Visible = true;
-                pnlQc.Visible = true;
+                txtQc_dept.Visible = true;              
             }            
         }
 
         private void xrLabel59_TextChanged(object sender, EventArgs e)
         {
             lblVendor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("next_vendor_id").ToString()) ? false : true;            
+        }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            pnlQc.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()) ? false : true;
+            pnlHold.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("flag_hold").ToString().Trim()) ? false : true;
+            pnlShadingColor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("shading_color").ToString().Trim()) ? false : true;
         }
     }
 }

@@ -44,5 +44,13 @@ namespace cf01.Reports
         {
             CountReturn();
         }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            pnlQc.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString().Trim()) ? false : true;
+            pnlHold.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("flag_hold").ToString().Trim()) ? false : true;
+            pnlShadingColor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("shading_color").ToString().Trim()) ? false : true;
+            
+        }
     }
 }

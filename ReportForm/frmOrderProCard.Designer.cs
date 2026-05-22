@@ -114,6 +114,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtSpec = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtModule_loc = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -179,8 +181,10 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSpec = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtFlag_hold = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtShading_color = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1001,6 +1005,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.txtShading_color);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.txtFlag_hold);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.txtSpec);
             this.panel1.Controls.Add(this.label21);
@@ -1102,6 +1110,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(772, 318);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(32, 12);
+            this.label22.TabIndex = 113;
+            this.label22.Text = "規格:";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSpec
+            // 
+            this.txtSpec.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtSpec.Location = new System.Drawing.Point(808, 313);
+            this.txtSpec.Name = "txtSpec";
+            this.txtSpec.ReadOnly = true;
+            this.txtSpec.Size = new System.Drawing.Size(212, 23);
+            this.txtSpec.TabIndex = 112;
             // 
             // label21
             // 
@@ -1708,24 +1735,47 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // txtSpec
+            // label23
             // 
-            this.txtSpec.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtSpec.Location = new System.Drawing.Point(808, 313);
-            this.txtSpec.Name = "txtSpec";
-            this.txtSpec.ReadOnly = true;
-            this.txtSpec.Size = new System.Drawing.Size(212, 23);
-            this.txtSpec.TabIndex = 112;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(774, 287);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(28, 12);
+            this.label23.TabIndex = 115;
+            this.label23.Text = "Hold";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label23.Visible = false;
             // 
-            // label22
+            // txtFlag_hold
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(772, 318);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(32, 12);
-            this.label22.TabIndex = 113;
-            this.label22.Text = "規格:";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtFlag_hold.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtFlag_hold.Location = new System.Drawing.Point(808, 282);
+            this.txtFlag_hold.Name = "txtFlag_hold";
+            this.txtFlag_hold.ReadOnly = true;
+            this.txtFlag_hold.Size = new System.Drawing.Size(37, 23);
+            this.txtFlag_hold.TabIndex = 114;
+            this.txtFlag_hold.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(854, 287);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(29, 12);
+            this.label24.TabIndex = 117;
+            this.label24.Text = "批色";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label24.Visible = false;
+            // 
+            // txtShading_color
+            // 
+            this.txtShading_color.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtShading_color.Location = new System.Drawing.Point(888, 282);
+            this.txtShading_color.Name = "txtShading_color";
+            this.txtShading_color.ReadOnly = true;
+            this.txtShading_color.Size = new System.Drawing.Size(37, 23);
+            this.txtShading_color.TabIndex = 116;
+            this.txtShading_color.Visible = false;
             // 
             // frmOrderProCard
             // 
@@ -1905,5 +1955,9 @@
         private System.Windows.Forms.TextBox next_sequence_id;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtSpec;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtShading_color;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtFlag_hold;
     }
 }
