@@ -1470,26 +1470,15 @@ namespace cf01.CLS
             string str = "";
             str += "負責部門";
             str += "\t" + "制單編號";
-            str += "\t" + "制單日期";
+            str += "\t" + "訂單日期";
             str += "\t" + "物料編號";
             str += "\t" + "物料描述";
-            str += "\t" + "生產數量(PCS)";
-            str += "\t" + "備註";
-            str += "\t" + "列印份數";
-            str += "\t" + "每張生產數量";
-            str += "\t" + "要求日期";
             str += "\t" + "訂單數量";
-            str += "\t" + "移交部門";
-            str += "\t" + "部門描述";
+            str += "\t" + "計劃數量";
+            str += "\t" + "已完成數量";
+            str += "\t" + "收貨部門";
+            str += "\t" + "收貨部門描述";
             str += "\t" + "顏色做法";
-            str += "\t" + "建檔人";
-            str += "\t" + "審批日期";
-            str += "\t" + "圖片位置";
-            str += "\t" + "建檔日期";
-            str += "\t" + "顏色描述";
-            str += "\t" + "版本號";
-            str += "\t" + "供應商編號";
-            str += "\t" + "完成數量";
             sw.WriteLine(str);
             for (int i = 0; i < dtExcel.Rows.Count; i++)
             {
@@ -1497,26 +1486,15 @@ namespace cf01.CLS
                 string tempstr = "";
                 tempstr += "\'" + drExcel["wp_id"].ToString();
                 tempstr += "\t" + drExcel["mo_id"].ToString();
-                tempstr += "\t" + drExcel["bill_date"].ToString();
+                tempstr += "\t" + "\'" + drExcel["order_date"].ToString();
                 tempstr += "\t" + drExcel["goods_id"].ToString();
                 tempstr += "\t" + drExcel["goods_name"].ToString();
-                tempstr += "\t" + drExcel["prod_qty"];
-                tempstr += "\t" + "";
-                tempstr += "\t" + "1";
-                tempstr += "\t" + drExcel["per_prod_qty"];
-                tempstr += "\t" + drExcel["t_complete_date"].ToString();
                 tempstr += "\t" + drExcel["order_qty"];
+                tempstr += "\t" + drExcel["prod_qty"];
+                tempstr += "\t" + drExcel["c_qty_ok"];
                 tempstr += "\t" + drExcel["next_wp_id"].ToString();
                 tempstr += "\t" + drExcel["next_wp_cdesc"].ToString();
                 tempstr += "\t" + drExcel["do_color"].ToString();
-                tempstr += "\t" + "";
-                tempstr += "\t" + "\'" + drExcel["check_date"].ToString();
-                tempstr += "\t" + drExcel["picture_name"].ToString();
-                tempstr += "\t" + "\'" + drExcel["bill_date"].ToString();
-                tempstr += "\t" + drExcel["next_do_color"].ToString();
-                tempstr += "\t" + drExcel["ver"].ToString();
-                tempstr += "\t" + drExcel["next_vendor_id"].ToString();
-                tempstr += "\t" + drExcel["c_qty_ok"];
                 sw.WriteLine(tempstr);
             }
         }

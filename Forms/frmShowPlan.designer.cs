@@ -30,6 +30,7 @@
         {
             this.gcCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmdTask = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtMo_id_v = new System.Windows.Forms.TextBox();
@@ -80,16 +81,22 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Flag_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gl_cmd_schedule = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.Prd_state = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Hold = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Prd_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Complete_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Change_next_dept_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Hold = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Next_dept_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclScheduleSeq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclScheduleDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Complete_weg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Do_color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Color_qty = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -103,15 +110,15 @@
             this.Vender_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Checkboxcell = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gclScheduleSeq = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclScheduleDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPmcRqDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclDepRpDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclWorkTyeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclPrdQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPrdMachine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclSchMachine = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclWfDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclWfQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclIrDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclIrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,10 +138,6 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gclWfDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclWfQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclIrDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclIrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcCheck)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -142,6 +145,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,6 +157,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.cmdTask);
             this.panel1.Controls.Add(this.btnFind);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.txtMo_id_v);
@@ -162,6 +167,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1150, 97);
             this.panel1.TabIndex = 0;
+            // 
+            // cmdTask
+            // 
+            this.cmdTask.Location = new System.Drawing.Point(217, 3);
+            this.cmdTask.Name = "cmdTask";
+            this.cmdTask.Size = new System.Drawing.Size(100, 35);
+            this.cmdTask.TabIndex = 4;
+            this.cmdTask.Text = "我的提醒";
+            this.cmdTask.UseVisualStyleBackColor = true;
+            this.cmdTask.Click += new System.EventHandler(this.cmdTask_Click);
             // 
             // btnFind
             // 
@@ -209,10 +224,10 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabControl1.Location = new System.Drawing.Point(0, 97);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -262,130 +277,135 @@
             this.tabPage1.Controls.Add(this.lblOrder_no);
             this.tabPage1.Controls.Add(this.txtId);
             this.tabPage1.Controls.Add(this.lblId);
-            this.tabPage1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1142, 497);
+            this.tabPage1.Size = new System.Drawing.Size(1142, 498);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "生產主表";
             // 
             // txtCreate_date
             // 
-            this.txtCreate_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCreate_date.Location = new System.Drawing.Point(75, 400);
+            this.txtCreate_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCreate_date.Location = new System.Drawing.Point(79, 284);
             this.txtCreate_date.Name = "txtCreate_date";
-            this.txtCreate_date.Size = new System.Drawing.Size(305, 23);
+            this.txtCreate_date.Size = new System.Drawing.Size(305, 21);
             this.txtCreate_date.TabIndex = 1;
             // 
             // txtMo_id
             // 
-            this.txtMo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMo_id.Location = new System.Drawing.Point(478, 62);
+            this.txtMo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMo_id.Location = new System.Drawing.Point(482, 49);
             this.txtMo_id.Name = "txtMo_id";
-            this.txtMo_id.Size = new System.Drawing.Size(248, 23);
+            this.txtMo_id.Size = new System.Drawing.Size(248, 21);
             this.txtMo_id.TabIndex = 1;
             // 
             // lblMo_id
             // 
             this.lblMo_id.AutoSize = true;
-            this.lblMo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMo_id.Location = new System.Drawing.Point(432, 68);
+            this.lblMo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMo_id.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMo_id.Location = new System.Drawing.Point(436, 55);
             this.lblMo_id.Name = "lblMo_id";
-            this.lblMo_id.Size = new System.Drawing.Size(40, 17);
+            this.lblMo_id.Size = new System.Drawing.Size(34, 15);
             this.lblMo_id.TabIndex = 0;
             this.lblMo_id.Text = "頁數:";
             // 
             // txtMerchandiser
             // 
-            this.txtMerchandiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMerchandiser.Location = new System.Drawing.Point(478, 106);
+            this.txtMerchandiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMerchandiser.Location = new System.Drawing.Point(482, 78);
             this.txtMerchandiser.Name = "txtMerchandiser";
-            this.txtMerchandiser.Size = new System.Drawing.Size(248, 23);
+            this.txtMerchandiser.Size = new System.Drawing.Size(248, 21);
             this.txtMerchandiser.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(418, 106);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(422, 78);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 17);
+            this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 0;
             this.label10.Text = "跟單員:";
             // 
             // txtBill_date
             // 
-            this.txtBill_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtBill_date.Location = new System.Drawing.Point(478, 20);
+            this.txtBill_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtBill_date.Location = new System.Drawing.Point(482, 20);
             this.txtBill_date.Name = "txtBill_date";
-            this.txtBill_date.Size = new System.Drawing.Size(248, 23);
+            this.txtBill_date.Size = new System.Drawing.Size(248, 21);
             this.txtBill_date.TabIndex = 1;
             // 
             // lblBill_date
             // 
             this.lblBill_date.AutoSize = true;
-            this.lblBill_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblBill_date.Location = new System.Drawing.Point(404, 23);
+            this.lblBill_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblBill_date.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBill_date.Location = new System.Drawing.Point(408, 23);
             this.lblBill_date.Name = "lblBill_date";
-            this.lblBill_date.Size = new System.Drawing.Size(68, 17);
+            this.lblBill_date.Size = new System.Drawing.Size(58, 15);
             this.lblBill_date.TabIndex = 0;
             this.lblBill_date.Text = "開單日期:";
             // 
             // txtMo_ver
             // 
-            this.txtMo_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMo_ver.Location = new System.Drawing.Point(726, 62);
+            this.txtMo_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMo_ver.Location = new System.Drawing.Point(730, 49);
             this.txtMo_ver.Name = "txtMo_ver";
-            this.txtMo_ver.Size = new System.Drawing.Size(51, 23);
+            this.txtMo_ver.Size = new System.Drawing.Size(51, 21);
             this.txtMo_ver.TabIndex = 1;
             // 
             // txtQty_unit
             // 
-            this.txtQty_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtQty_unit.Location = new System.Drawing.Point(263, 107);
+            this.txtQty_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtQty_unit.Location = new System.Drawing.Point(267, 79);
             this.txtQty_unit.Name = "txtQty_unit";
-            this.txtQty_unit.Size = new System.Drawing.Size(60, 23);
+            this.txtQty_unit.Size = new System.Drawing.Size(60, 21);
             this.txtQty_unit.TabIndex = 1;
             // 
             // txtId_ver
             // 
-            this.txtId_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtId_ver.Location = new System.Drawing.Point(329, 20);
+            this.txtId_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtId_ver.Location = new System.Drawing.Point(333, 20);
             this.txtId_ver.Name = "txtId_ver";
-            this.txtId_ver.Size = new System.Drawing.Size(51, 23);
+            this.txtId_ver.Size = new System.Drawing.Size(51, 21);
             this.txtId_ver.TabIndex = 1;
             // 
             // txtOrder_qty
             // 
-            this.txtOrder_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtOrder_qty.Location = new System.Drawing.Point(75, 107);
+            this.txtOrder_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtOrder_qty.Location = new System.Drawing.Point(79, 79);
             this.txtOrder_qty.Name = "txtOrder_qty";
-            this.txtOrder_qty.Size = new System.Drawing.Size(184, 23);
+            this.txtOrder_qty.Size = new System.Drawing.Size(184, 21);
             this.txtOrder_qty.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(4, 109);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(8, 81);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 17);
+            this.label9.Size = new System.Drawing.Size(58, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "訂單數量:";
             // 
             // txtCustomer_name
             // 
-            this.txtCustomer_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCustomer_name.Location = new System.Drawing.Point(213, 143);
+            this.txtCustomer_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCustomer_name.Location = new System.Drawing.Point(217, 108);
             this.txtCustomer_name.Name = "txtCustomer_name";
-            this.txtCustomer_name.Size = new System.Drawing.Size(259, 23);
+            this.txtCustomer_name.Size = new System.Drawing.Size(259, 21);
             this.txtCustomer_name.TabIndex = 1;
             // 
             // txtDelivery_date
             // 
             this.txtDelivery_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtDelivery_date.Location = new System.Drawing.Point(478, 185);
+            this.txtDelivery_date.Location = new System.Drawing.Point(482, 138);
             this.txtDelivery_date.Name = "txtDelivery_date";
             this.txtDelivery_date.Size = new System.Drawing.Size(248, 23);
             this.txtDelivery_date.TabIndex = 1;
@@ -393,89 +413,94 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label13.Location = new System.Drawing.Point(404, 188);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(408, 141);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 17);
+            this.label13.Size = new System.Drawing.Size(58, 15);
             this.label13.TabIndex = 0;
             this.label13.Text = "交貨日期:";
             // 
             // txtMo_remark
             // 
-            this.txtMo_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMo_remark.Location = new System.Drawing.Point(75, 357);
+            this.txtMo_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMo_remark.Location = new System.Drawing.Point(79, 254);
             this.txtMo_remark.Name = "txtMo_remark";
-            this.txtMo_remark.Size = new System.Drawing.Size(651, 23);
+            this.txtMo_remark.Size = new System.Drawing.Size(651, 21);
             this.txtMo_remark.TabIndex = 1;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label17.Location = new System.Drawing.Point(3, 360);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label17.Location = new System.Drawing.Point(7, 257);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(68, 17);
+            this.label17.Size = new System.Drawing.Size(58, 15);
             this.label17.TabIndex = 0;
             this.label17.Text = "制單備註:";
             // 
             // txtPlate_remark
             // 
-            this.txtPlate_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPlate_remark.Location = new System.Drawing.Point(75, 314);
+            this.txtPlate_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPlate_remark.Location = new System.Drawing.Point(79, 224);
             this.txtPlate_remark.Name = "txtPlate_remark";
-            this.txtPlate_remark.Size = new System.Drawing.Size(651, 23);
+            this.txtPlate_remark.Size = new System.Drawing.Size(651, 21);
             this.txtPlate_remark.TabIndex = 1;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label16.Location = new System.Drawing.Point(3, 317);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label16.Location = new System.Drawing.Point(7, 227);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 17);
+            this.label16.Size = new System.Drawing.Size(58, 15);
             this.label16.TabIndex = 0;
             this.label16.Text = "電鍍備註:";
             // 
             // txtRemark
             // 
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRemark.Location = new System.Drawing.Point(75, 271);
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtRemark.Location = new System.Drawing.Point(79, 196);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(651, 23);
+            this.txtRemark.Size = new System.Drawing.Size(651, 21);
             this.txtRemark.TabIndex = 1;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label15.Location = new System.Drawing.Point(31, 274);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(35, 199);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 17);
+            this.label15.Size = new System.Drawing.Size(34, 15);
             this.label15.TabIndex = 0;
             this.label15.Text = "備註:";
             // 
             // txtProduction_remark
             // 
-            this.txtProduction_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtProduction_remark.Location = new System.Drawing.Point(75, 229);
+            this.txtProduction_remark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtProduction_remark.Location = new System.Drawing.Point(79, 167);
             this.txtProduction_remark.Name = "txtProduction_remark";
-            this.txtProduction_remark.Size = new System.Drawing.Size(651, 23);
+            this.txtProduction_remark.Size = new System.Drawing.Size(651, 21);
             this.txtProduction_remark.TabIndex = 1;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label14.Location = new System.Drawing.Point(3, 232);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(7, 170);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 17);
+            this.label14.Size = new System.Drawing.Size(58, 15);
             this.label14.TabIndex = 0;
             this.label14.Text = "生產備註:";
             // 
             // txtCheck_by
             // 
             this.txtCheck_by.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCheck_by.Location = new System.Drawing.Point(478, 443);
+            this.txtCheck_by.Location = new System.Drawing.Point(482, 314);
             this.txtCheck_by.Name = "txtCheck_by";
             this.txtCheck_by.Size = new System.Drawing.Size(248, 23);
             this.txtCheck_by.TabIndex = 1;
@@ -483,7 +508,7 @@
             // txtCreate_by
             // 
             this.txtCreate_by.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCreate_by.Location = new System.Drawing.Point(478, 400);
+            this.txtCreate_by.Location = new System.Drawing.Point(482, 284);
             this.txtCreate_by.Name = "txtCreate_by";
             this.txtCreate_by.Size = new System.Drawing.Size(248, 23);
             this.txtCreate_by.TabIndex = 1;
@@ -491,151 +516,160 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label21.Location = new System.Drawing.Point(418, 446);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label21.Location = new System.Drawing.Point(422, 317);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 17);
+            this.label21.Size = new System.Drawing.Size(46, 15);
             this.label21.TabIndex = 0;
             this.label21.Text = "批準人:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label19.Location = new System.Drawing.Point(418, 403);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label19.Location = new System.Drawing.Point(422, 287);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 17);
+            this.label19.Size = new System.Drawing.Size(46, 15);
             this.label19.TabIndex = 0;
             this.label19.Text = "建檔人:";
             // 
             // txtState
             // 
-            this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtState.Location = new System.Drawing.Point(75, 485);
+            this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtState.Location = new System.Drawing.Point(79, 344);
             this.txtState.Name = "txtState";
-            this.txtState.Size = new System.Drawing.Size(248, 23);
+            this.txtState.Size = new System.Drawing.Size(305, 21);
             this.txtState.TabIndex = 1;
             // 
             // txtCheck_date
             // 
-            this.txtCheck_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCheck_date.Location = new System.Drawing.Point(74, 443);
+            this.txtCheck_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCheck_date.Location = new System.Drawing.Point(78, 314);
             this.txtCheck_date.Name = "txtCheck_date";
-            this.txtCheck_date.Size = new System.Drawing.Size(306, 23);
+            this.txtCheck_date.Size = new System.Drawing.Size(306, 21);
             this.txtCheck_date.TabIndex = 1;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label22.Location = new System.Drawing.Point(31, 488);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label22.Location = new System.Drawing.Point(35, 347);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(40, 17);
+            this.label22.Size = new System.Drawing.Size(34, 15);
             this.label22.TabIndex = 0;
             this.label22.Text = "狀態:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.Location = new System.Drawing.Point(3, 446);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label20.Location = new System.Drawing.Point(7, 317);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 17);
+            this.label20.Size = new System.Drawing.Size(58, 15);
             this.label20.TabIndex = 0;
             this.label20.Text = "批準日期:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label18.Location = new System.Drawing.Point(4, 402);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label18.Location = new System.Drawing.Point(8, 286);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 17);
+            this.label18.Size = new System.Drawing.Size(58, 15);
             this.label18.TabIndex = 0;
             this.label18.Text = "建檔日期:";
             // 
             // txtPlanbackDate
             // 
-            this.txtPlanbackDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPlanbackDate.Location = new System.Drawing.Point(108, 185);
+            this.txtPlanbackDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPlanbackDate.Location = new System.Drawing.Point(112, 138);
             this.txtPlanbackDate.Name = "txtPlanbackDate";
-            this.txtPlanbackDate.Size = new System.Drawing.Size(215, 23);
+            this.txtPlanbackDate.Size = new System.Drawing.Size(215, 21);
             this.txtPlanbackDate.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label12.Location = new System.Drawing.Point(6, 185);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(10, 138);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 17);
+            this.label12.Size = new System.Drawing.Size(82, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "計劃回港日期:";
             // 
             // txtCustomer_id
             // 
-            this.txtCustomer_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCustomer_id.Location = new System.Drawing.Point(75, 143);
+            this.txtCustomer_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCustomer_id.Location = new System.Drawing.Point(79, 108);
             this.txtCustomer_id.Name = "txtCustomer_id";
-            this.txtCustomer_id.Size = new System.Drawing.Size(132, 23);
+            this.txtCustomer_id.Size = new System.Drawing.Size(132, 21);
             this.txtCustomer_id.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(4, 146);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(8, 111);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 17);
+            this.label11.Size = new System.Drawing.Size(58, 15);
             this.label11.TabIndex = 0;
             this.label11.Text = "客戶編號:";
             // 
             // txtOrder_no
             // 
-            this.txtOrder_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtOrder_no.Location = new System.Drawing.Point(75, 62);
+            this.txtOrder_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtOrder_no.Location = new System.Drawing.Point(79, 49);
             this.txtOrder_no.Name = "txtOrder_no";
-            this.txtOrder_no.Size = new System.Drawing.Size(248, 23);
+            this.txtOrder_no.Size = new System.Drawing.Size(248, 21);
             this.txtOrder_no.TabIndex = 1;
             // 
             // lblOrder_no
             // 
             this.lblOrder_no.AutoSize = true;
-            this.lblOrder_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblOrder_no.Location = new System.Drawing.Point(3, 65);
+            this.lblOrder_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblOrder_no.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOrder_no.Location = new System.Drawing.Point(7, 52);
             this.lblOrder_no.Name = "lblOrder_no";
-            this.lblOrder_no.Size = new System.Drawing.Size(68, 17);
+            this.lblOrder_no.Size = new System.Drawing.Size(58, 15);
             this.lblOrder_no.TabIndex = 0;
             this.lblOrder_no.Text = "訂單編號:";
             // 
             // txtId
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtId.Location = new System.Drawing.Point(75, 20);
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtId.Location = new System.Drawing.Point(79, 20);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(248, 23);
+            this.txtId.Size = new System.Drawing.Size(248, 21);
             this.txtId.TabIndex = 1;
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblId.Location = new System.Drawing.Point(31, 20);
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblId.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblId.Location = new System.Drawing.Point(35, 20);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(40, 17);
+            this.lblId.Size = new System.Drawing.Size(34, 15);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "編號:";
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.gridControl1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1142, 497);
+            this.tabPage2.Size = new System.Drawing.Size(1142, 498);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "生產明細表";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // gridControl1
             // 
@@ -646,8 +680,9 @@
             this.gridControl1.MainView = this.gvDetails;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.gvCheck});
-            this.gridControl1.Size = new System.Drawing.Size(1136, 491);
+            this.gvCheck,
+            this.repositoryItemButtonEdit1});
+            this.gridControl1.Size = new System.Drawing.Size(1136, 492);
             this.gridControl1.TabIndex = 26;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetails});
@@ -675,16 +710,21 @@
             this.gvDetails.ColumnPanelRowHeight = 30;
             this.gvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Flag_id,
+            this.gl_cmd_schedule,
             this.Prd_state,
-            this.Hold,
             this.Goods_id,
             this.Goods_name,
             this.Wp_id,
             this.Prd_qty,
+            this.gclPrdQty,
+            this.gclPrdDate,
             this.Complete_qty,
             this.Change_next_dept_date,
+            this.Hold,
             this.Next_dept_id,
+            this.gclScheduleSeq,
             this.Order_qty,
+            this.gclScheduleDate,
             this.Complete_weg,
             this.Do_color,
             this.Color_qty,
@@ -697,13 +737,9 @@
             this.Vendor_id,
             this.Vender_name,
             this.Checkboxcell,
-            this.gclScheduleSeq,
-            this.gclScheduleDate,
             this.gclPmcRqDate,
             this.gclDepRpDate,
-            this.gclPrdDate,
             this.gclWorkTyeDesc,
-            this.gclPrdQty,
             this.gclPrdMachine,
             this.gclSchMachine,
             this.gclWfDate,
@@ -731,7 +767,23 @@
             this.Flag_id.OptionsColumn.ReadOnly = true;
             this.Flag_id.Visible = true;
             this.Flag_id.VisibleIndex = 0;
-            this.Flag_id.Width = 60;
+            this.Flag_id.Width = 43;
+            // 
+            // gl_cmd_schedule
+            // 
+            this.gl_cmd_schedule.Caption = "設置提醒";
+            this.gl_cmd_schedule.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.gl_cmd_schedule.Name = "gl_cmd_schedule";
+            this.gl_cmd_schedule.Visible = true;
+            this.gl_cmd_schedule.VisibleIndex = 1;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
             // 
             // Prd_state
             // 
@@ -742,28 +794,8 @@
             this.Prd_state.OptionsColumn.AllowEdit = false;
             this.Prd_state.OptionsColumn.ReadOnly = true;
             this.Prd_state.Visible = true;
-            this.Prd_state.VisibleIndex = 1;
-            this.Prd_state.Width = 90;
-            // 
-            // Hold
-            // 
-            this.Hold.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Hold.AppearanceCell.Options.UseFont = true;
-            this.Hold.AppearanceCell.Options.UseTextOptions = true;
-            this.Hold.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Hold.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Hold.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Hold.AppearanceHeader.Options.UseFont = true;
-            this.Hold.AppearanceHeader.Options.UseTextOptions = true;
-            this.Hold.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Hold.Caption = "Hold 貨";
-            this.Hold.FieldName = "hold";
-            this.Hold.Name = "Hold";
-            this.Hold.OptionsColumn.AllowEdit = false;
-            this.Hold.OptionsColumn.ReadOnly = true;
-            this.Hold.Visible = true;
-            this.Hold.VisibleIndex = 2;
-            this.Hold.Width = 60;
+            this.Prd_state.VisibleIndex = 2;
+            this.Prd_state.Width = 66;
             // 
             // Goods_id
             // 
@@ -798,7 +830,7 @@
             this.Wp_id.OptionsColumn.ReadOnly = true;
             this.Wp_id.Visible = true;
             this.Wp_id.VisibleIndex = 5;
-            this.Wp_id.Width = 80;
+            this.Wp_id.Width = 66;
             // 
             // Prd_qty
             // 
@@ -811,11 +843,30 @@
             this.Prd_qty.OptionsColumn.ReadOnly = true;
             this.Prd_qty.Visible = true;
             this.Prd_qty.VisibleIndex = 6;
-            this.Prd_qty.Width = 80;
+            this.Prd_qty.Width = 69;
+            // 
+            // gclPrdQty
+            // 
+            this.gclPrdQty.Caption = "已生產數量";
+            this.gclPrdQty.DisplayFormat.FormatString = "#,##0";
+            this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclPrdQty.FieldName = "prd_qty";
+            this.gclPrdQty.Name = "gclPrdQty";
+            this.gclPrdQty.Visible = true;
+            this.gclPrdQty.VisibleIndex = 7;
+            this.gclPrdQty.Width = 85;
+            // 
+            // gclPrdDate
+            // 
+            this.gclPrdDate.Caption = "生產日期";
+            this.gclPrdDate.FieldName = "prd_date";
+            this.gclPrdDate.Name = "gclPrdDate";
+            this.gclPrdDate.Visible = true;
+            this.gclPrdDate.VisibleIndex = 8;
             // 
             // Complete_qty
             // 
-            this.Complete_qty.Caption = "完成數量";
+            this.Complete_qty.Caption = "已移交數量";
             this.Complete_qty.DisplayFormat.FormatString = "#,##0";
             this.Complete_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Complete_qty.FieldName = "c_qty_ok";
@@ -823,7 +874,7 @@
             this.Complete_qty.OptionsColumn.AllowEdit = false;
             this.Complete_qty.OptionsColumn.ReadOnly = true;
             this.Complete_qty.Visible = true;
-            this.Complete_qty.VisibleIndex = 8;
+            this.Complete_qty.VisibleIndex = 9;
             this.Complete_qty.Width = 80;
             // 
             // Change_next_dept_date
@@ -834,8 +885,28 @@
             this.Change_next_dept_date.OptionsColumn.AllowEdit = false;
             this.Change_next_dept_date.OptionsColumn.ReadOnly = true;
             this.Change_next_dept_date.Visible = true;
-            this.Change_next_dept_date.VisibleIndex = 9;
-            this.Change_next_dept_date.Width = 100;
+            this.Change_next_dept_date.VisibleIndex = 10;
+            this.Change_next_dept_date.Width = 113;
+            // 
+            // Hold
+            // 
+            this.Hold.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Hold.AppearanceCell.Options.UseFont = true;
+            this.Hold.AppearanceCell.Options.UseTextOptions = true;
+            this.Hold.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Hold.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Hold.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Hold.AppearanceHeader.Options.UseFont = true;
+            this.Hold.AppearanceHeader.Options.UseTextOptions = true;
+            this.Hold.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Hold.Caption = "Hold 貨";
+            this.Hold.FieldName = "hold";
+            this.Hold.Name = "Hold";
+            this.Hold.OptionsColumn.AllowEdit = false;
+            this.Hold.OptionsColumn.ReadOnly = true;
+            this.Hold.Visible = true;
+            this.Hold.VisibleIndex = 11;
+            this.Hold.Width = 66;
             // 
             // Next_dept_id
             // 
@@ -845,8 +916,16 @@
             this.Next_dept_id.OptionsColumn.AllowEdit = false;
             this.Next_dept_id.OptionsColumn.ReadOnly = true;
             this.Next_dept_id.Visible = true;
-            this.Next_dept_id.VisibleIndex = 7;
+            this.Next_dept_id.VisibleIndex = 12;
             this.Next_dept_id.Width = 80;
+            // 
+            // gclScheduleSeq
+            // 
+            this.gclScheduleSeq.Caption = "排期次序";
+            this.gclScheduleSeq.FieldName = "schedule_seq";
+            this.gclScheduleSeq.Name = "gclScheduleSeq";
+            this.gclScheduleSeq.Visible = true;
+            this.gclScheduleSeq.VisibleIndex = 13;
             // 
             // Order_qty
             // 
@@ -865,15 +944,23 @@
             this.Order_qty.OptionsColumn.ReadOnly = true;
             this.Order_qty.Width = 80;
             // 
+            // gclScheduleDate
+            // 
+            this.gclScheduleDate.Caption = "排期日期";
+            this.gclScheduleDate.FieldName = "schedule_date";
+            this.gclScheduleDate.Name = "gclScheduleDate";
+            this.gclScheduleDate.Visible = true;
+            this.gclScheduleDate.VisibleIndex = 14;
+            // 
             // Complete_weg
             // 
-            this.Complete_weg.Caption = "完成重量";
+            this.Complete_weg.Caption = "已移交重量";
             this.Complete_weg.FieldName = "c_sec_qty_ok";
             this.Complete_weg.Name = "Complete_weg";
             this.Complete_weg.OptionsColumn.AllowEdit = false;
             this.Complete_weg.OptionsColumn.ReadOnly = true;
             this.Complete_weg.Visible = true;
-            this.Complete_weg.VisibleIndex = 10;
+            this.Complete_weg.VisibleIndex = 15;
             this.Complete_weg.Width = 60;
             // 
             // Do_color
@@ -884,7 +971,7 @@
             this.Do_color.OptionsColumn.AllowEdit = false;
             this.Do_color.OptionsColumn.ReadOnly = true;
             this.Do_color.Visible = true;
-            this.Do_color.VisibleIndex = 11;
+            this.Do_color.VisibleIndex = 16;
             this.Do_color.Width = 120;
             // 
             // Color_qty
@@ -895,7 +982,7 @@
             this.Color_qty.OptionsColumn.AllowEdit = false;
             this.Color_qty.OptionsColumn.ReadOnly = true;
             this.Color_qty.Visible = true;
-            this.Color_qty.VisibleIndex = 12;
+            this.Color_qty.VisibleIndex = 17;
             this.Color_qty.Width = 70;
             // 
             // Should_qty
@@ -908,7 +995,7 @@
             this.Should_qty.OptionsColumn.AllowEdit = false;
             this.Should_qty.OptionsColumn.ReadOnly = true;
             this.Should_qty.Visible = true;
-            this.Should_qty.VisibleIndex = 13;
+            this.Should_qty.VisibleIndex = 18;
             this.Should_qty.Width = 80;
             // 
             // Reserve_qty
@@ -921,7 +1008,7 @@
             this.Reserve_qty.OptionsColumn.AllowEdit = false;
             this.Reserve_qty.OptionsColumn.ReadOnly = true;
             this.Reserve_qty.Visible = true;
-            this.Reserve_qty.VisibleIndex = 14;
+            this.Reserve_qty.VisibleIndex = 19;
             this.Reserve_qty.Width = 80;
             // 
             // Pre_dept
@@ -932,7 +1019,7 @@
             this.Pre_dept.OptionsColumn.AllowEdit = false;
             this.Pre_dept.OptionsColumn.ReadOnly = true;
             this.Pre_dept.Visible = true;
-            this.Pre_dept.VisibleIndex = 15;
+            this.Pre_dept.VisibleIndex = 20;
             this.Pre_dept.Width = 80;
             // 
             // Pre_dept_qty
@@ -947,7 +1034,7 @@
             this.Pre_dept_qty.OptionsColumn.AllowEdit = false;
             this.Pre_dept_qty.OptionsColumn.ReadOnly = true;
             this.Pre_dept_qty.Visible = true;
-            this.Pre_dept_qty.VisibleIndex = 16;
+            this.Pre_dept_qty.VisibleIndex = 21;
             this.Pre_dept_qty.Width = 80;
             // 
             // Pre_dept_weg
@@ -962,7 +1049,7 @@
             this.Pre_dept_weg.OptionsColumn.AllowEdit = false;
             this.Pre_dept_weg.OptionsColumn.ReadOnly = true;
             this.Pre_dept_weg.Visible = true;
-            this.Pre_dept_weg.VisibleIndex = 17;
+            this.Pre_dept_weg.VisibleIndex = 22;
             this.Pre_dept_weg.Width = 80;
             // 
             // Pre_dept_date
@@ -975,7 +1062,7 @@
             this.Pre_dept_date.OptionsColumn.AllowEdit = false;
             this.Pre_dept_date.OptionsColumn.ReadOnly = true;
             this.Pre_dept_date.Visible = true;
-            this.Pre_dept_date.VisibleIndex = 18;
+            this.Pre_dept_date.VisibleIndex = 23;
             this.Pre_dept_date.Width = 80;
             // 
             // Vendor_id
@@ -988,7 +1075,7 @@
             this.Vendor_id.OptionsColumn.AllowEdit = false;
             this.Vendor_id.OptionsColumn.ReadOnly = true;
             this.Vendor_id.Visible = true;
-            this.Vendor_id.VisibleIndex = 19;
+            this.Vendor_id.VisibleIndex = 24;
             this.Vendor_id.Width = 100;
             // 
             // Vender_name
@@ -999,7 +1086,7 @@
             this.Vender_name.OptionsColumn.AllowEdit = false;
             this.Vender_name.OptionsColumn.ReadOnly = true;
             this.Vender_name.Visible = true;
-            this.Vender_name.VisibleIndex = 20;
+            this.Vender_name.VisibleIndex = 25;
             this.Vender_name.Width = 160;
             // 
             // Checkboxcell
@@ -1019,29 +1106,13 @@
             this.gvCheck.Name = "gvCheck";
             this.gvCheck.Click += new System.EventHandler(this.gvCheck_Click);
             // 
-            // gclScheduleSeq
-            // 
-            this.gclScheduleSeq.Caption = "排期次序";
-            this.gclScheduleSeq.FieldName = "schedule_seq_new";
-            this.gclScheduleSeq.Name = "gclScheduleSeq";
-            this.gclScheduleSeq.Visible = true;
-            this.gclScheduleSeq.VisibleIndex = 21;
-            // 
-            // gclScheduleDate
-            // 
-            this.gclScheduleDate.Caption = "排期日期";
-            this.gclScheduleDate.FieldName = "schedule_date";
-            this.gclScheduleDate.Name = "gclScheduleDate";
-            this.gclScheduleDate.Visible = true;
-            this.gclScheduleDate.VisibleIndex = 22;
-            // 
             // gclPmcRqDate
             // 
             this.gclPmcRqDate.Caption = "PMC复期";
             this.gclPmcRqDate.FieldName = "pmc_rq_date";
             this.gclPmcRqDate.Name = "gclPmcRqDate";
             this.gclPmcRqDate.Visible = true;
-            this.gclPmcRqDate.VisibleIndex = 23;
+            this.gclPmcRqDate.VisibleIndex = 26;
             // 
             // gclDepRpDate
             // 
@@ -1049,15 +1120,7 @@
             this.gclDepRpDate.FieldName = "dep_rp_date";
             this.gclDepRpDate.Name = "gclDepRpDate";
             this.gclDepRpDate.Visible = true;
-            this.gclDepRpDate.VisibleIndex = 24;
-            // 
-            // gclPrdDate
-            // 
-            this.gclPrdDate.Caption = "生產日期";
-            this.gclPrdDate.FieldName = "prd_date";
-            this.gclPrdDate.Name = "gclPrdDate";
-            this.gclPrdDate.Visible = true;
-            this.gclPrdDate.VisibleIndex = 25;
+            this.gclDepRpDate.VisibleIndex = 27;
             // 
             // gclWorkTyeDesc
             // 
@@ -1065,17 +1128,7 @@
             this.gclWorkTyeDesc.FieldName = "work_type_desc";
             this.gclWorkTyeDesc.Name = "gclWorkTyeDesc";
             this.gclWorkTyeDesc.Visible = true;
-            this.gclWorkTyeDesc.VisibleIndex = 26;
-            // 
-            // gclPrdQty
-            // 
-            this.gclPrdQty.Caption = "生產數量";
-            this.gclPrdQty.DisplayFormat.FormatString = "#,##0";
-            this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclPrdQty.FieldName = "prd_qty";
-            this.gclPrdQty.Name = "gclPrdQty";
-            this.gclPrdQty.Visible = true;
-            this.gclPrdQty.VisibleIndex = 27;
+            this.gclWorkTyeDesc.VisibleIndex = 28;
             // 
             // gclPrdMachine
             // 
@@ -1083,7 +1136,7 @@
             this.gclPrdMachine.FieldName = "prd_machine";
             this.gclPrdMachine.Name = "gclPrdMachine";
             this.gclPrdMachine.Visible = true;
-            this.gclPrdMachine.VisibleIndex = 28;
+            this.gclPrdMachine.VisibleIndex = 29;
             // 
             // gclSchMachine
             // 
@@ -1091,7 +1144,43 @@
             this.gclSchMachine.FieldName = "sch_machine";
             this.gclSchMachine.Name = "gclSchMachine";
             this.gclSchMachine.Visible = true;
-            this.gclSchMachine.VisibleIndex = 29;
+            this.gclSchMachine.VisibleIndex = 30;
+            // 
+            // gclWfDate
+            // 
+            this.gclWfDate.Caption = "外發日期";
+            this.gclWfDate.FieldName = "wf_date";
+            this.gclWfDate.Name = "gclWfDate";
+            this.gclWfDate.Visible = true;
+            this.gclWfDate.VisibleIndex = 31;
+            // 
+            // gclWfQty
+            // 
+            this.gclWfQty.Caption = "外發數量";
+            this.gclWfQty.DisplayFormat.FormatString = "#,##0";
+            this.gclWfQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclWfQty.FieldName = "wf_qty";
+            this.gclWfQty.Name = "gclWfQty";
+            this.gclWfQty.Visible = true;
+            this.gclWfQty.VisibleIndex = 32;
+            // 
+            // gclIrDate
+            // 
+            this.gclIrDate.Caption = "外發收貨日期";
+            this.gclIrDate.FieldName = "ir_date";
+            this.gclIrDate.Name = "gclIrDate";
+            this.gclIrDate.Visible = true;
+            this.gclIrDate.VisibleIndex = 33;
+            // 
+            // gclIrQty
+            // 
+            this.gclIrQty.Caption = "外發收貨數量";
+            this.gclIrQty.DisplayFormat.FormatString = "#,##0";
+            this.gclIrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclIrQty.FieldName = "ir_qty";
+            this.gclIrQty.Name = "gclIrQty";
+            this.gclIrQty.Visible = true;
+            this.gclIrQty.VisibleIndex = 34;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1188,52 +1277,17 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "供應商";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
-            // gclWfDate
-            // 
-            this.gclWfDate.Caption = "外發日期";
-            this.gclWfDate.FieldName = "wf_date";
-            this.gclWfDate.Name = "gclWfDate";
-            this.gclWfDate.Visible = true;
-            this.gclWfDate.VisibleIndex = 30;
-            // 
-            // gclWfQty
-            // 
-            this.gclWfQty.Caption = "外發數量";
-            this.gclWfQty.DisplayFormat.FormatString = "#,##0";
-            this.gclWfQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclWfQty.FieldName = "wf_qty";
-            this.gclWfQty.Name = "gclWfQty";
-            this.gclWfQty.Visible = true;
-            this.gclWfQty.VisibleIndex = 31;
-            // 
-            // gclIrDate
-            // 
-            this.gclIrDate.Caption = "外發收貨日期";
-            this.gclIrDate.FieldName = "ir_date";
-            this.gclIrDate.Name = "gclIrDate";
-            this.gclIrDate.Visible = true;
-            this.gclIrDate.VisibleIndex = 32;
-            // 
-            // gclIrQty
-            // 
-            this.gclIrQty.Caption = "外發收貨數量";
-            this.gclIrQty.DisplayFormat.FormatString = "#,##0";
-            this.gclIrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclIrQty.FieldName = "ir_qty";
-            this.gclIrQty.Name = "gclIrQty";
-            this.gclIrQty.Visible = true;
-            this.gclIrQty.VisibleIndex = 33;
-            // 
             // frmShowPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.OldLace;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1150, 623);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "frmShowPlan";
             this.Text = "frmShowPlan";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmShowPlan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcCheck)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -1244,6 +1298,7 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).EndInit();
             this.ResumeLayout(false);
 
@@ -1358,5 +1413,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gclWfQty;
         private DevExpress.XtraGrid.Columns.GridColumn gclIrDate;
         private DevExpress.XtraGrid.Columns.GridColumn gclIrQty;
+        private DevExpress.XtraGrid.Columns.GridColumn gl_cmd_schedule;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private System.Windows.Forms.Button cmdTask;
     }
 }

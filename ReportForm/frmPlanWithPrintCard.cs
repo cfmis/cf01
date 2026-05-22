@@ -230,6 +230,8 @@ namespace cf01.ReportForm
                 isprint = 1;
             else if (rdbAllPrint.Checked == true)//包含已列印的記錄
                 isprint = 2;
+            else if (rdbToHK.Checked == true)//包含已列印的記錄
+                isprint = 3;
             int f_type;///未完成的計劃
             if (cmbReportType.SelectedIndex == -1 || cmbReportType.SelectedItem.ToString() == "")
                 f_type = 1;
@@ -291,8 +293,11 @@ namespace cf01.ReportForm
                 StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
                 if (rpt_type == 1)
                     clsMoScheduleUse.ExpToExcelPlan1(sw, dtMoPlan);
-                else if(rpt_type==2)
+                else if (rpt_type == 2)
+                {
+                    dtMoPlan.DefaultView.Sort = "order_date"; // 或 "列名 DESC"
                     clsMoScheduleUse.ExpToExcelPlan2(sw, dtMoPlan);
+                }
                 else
                     clsMoScheduleUse.ExpToExcelPlan3(sw, dtMoPlan);
                 sw.Close();

@@ -351,6 +351,12 @@
     <Compile Include="Forms\frmMoScheduleRemark.Designer.cs">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMoTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMoTask.Designer.cs">
+      <DependentUpon>frmMoTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmPlanCancel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3157,6 +3163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoScheduleRemark.resx">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMoTask.resx">
+      <DependentUpon>frmMoTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPlanCancel.resx">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>

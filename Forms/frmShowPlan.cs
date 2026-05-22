@@ -19,7 +19,12 @@ namespace cf01.Forms
         private DataTable dtPlanDetails = new DataTable();
         private clsShowProductionPlan clsPlan = new clsShowProductionPlan();
         public string strMo_id = "";
-
+        public static string sent_jo_id = "";
+        public static string sent_mo_id = "";
+        public static string sent_wp_id = "";
+        public static string sent_next_wp_id = "";
+        public static string sent_goods_id = "";
+        public static string sent_goods_cname = "";
         public frmShowPlan()
         {
             InitializeComponent();
@@ -319,6 +324,31 @@ namespace cf01.Forms
             if (txtMo_id_v.Text.Trim() == "")
                 return;
             GetProductionPlan(txtMo_id_v.Text);
+        }
+
+        private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
+        {
+            ShowTask();
+        }
+        private void ShowTask()
+        {
+            frmMoTask frmMoTask = new frmMoTask();
+            if (gvDetails.RowCount > 0)
+            {
+                DataRow Row = gvDetails.GetFocusedDataRow();
+                sent_mo_id = txtMo_id_v.Text;
+                sent_goods_cname = gvDetails.GetFocusedRowCellValue("goods_name").ToString();
+                sent_wp_id = gvDetails.GetFocusedRowCellValue("wp_id").ToString();
+                sent_goods_id = gvDetails.GetFocusedRowCellValue("goods_id").ToString();
+                sent_next_wp_id = gvDetails.GetFocusedRowCellValue("next_wp_id").ToString();
+                sent_jo_id = "";
+            }
+            frmMoTask.ShowDialog();
+        }
+
+        private void cmdTask_Click(object sender, EventArgs e)
+        {
+            ShowTask();
         }
     }
 }
