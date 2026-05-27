@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtRemark = new System.Windows.Forms.RichTextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.datTask_date = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblGoods_Cname = new System.Windows.Forms.Label();
             this.lblMsgInfo = new System.Windows.Forms.Label();
+            this.lblRemark = new System.Windows.Forms.Label();
             this.lblTask_date = new System.Windows.Forms.Label();
             this.lblNext_wp_id = new System.Windows.Forms.Label();
             this.lblWp_id = new System.Windows.Forms.Label();
@@ -59,14 +63,10 @@
             this.gclc_qty_ok = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcf_complete_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gvCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblRemark = new System.Windows.Forms.Label();
-            this.txtRemark = new System.Windows.Forms.RichTextBox();
+            this.gvCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -102,6 +102,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 226);
             this.panel1.TabIndex = 0;
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(88, 166);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(547, 46);
+            this.txtRemark.TabIndex = 7;
+            this.txtRemark.Text = "";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(275, 8);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 30);
+            this.btnRefresh.TabIndex = 6;
+            this.btnRefresh.Text = "刷新(&F)";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(184, 8);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(85, 30);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "取消提醒(&D)";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // datTask_date
             // 
@@ -149,6 +177,15 @@
             this.lblMsgInfo.Size = new System.Drawing.Size(133, 12);
             this.lblMsgInfo.TabIndex = 1;
             this.lblMsgInfo.Text = "(在此日期未完成通知我)";
+            // 
+            // lblRemark
+            // 
+            this.lblRemark.AutoSize = true;
+            this.lblRemark.Location = new System.Drawing.Point(50, 166);
+            this.lblRemark.Name = "lblRemark";
+            this.lblRemark.Size = new System.Drawing.Size(32, 12);
+            this.lblRemark.TabIndex = 1;
+            this.lblRemark.Text = "備註:";
             // 
             // lblTask_date
             // 
@@ -427,38 +464,6 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 9;
             // 
-            // gvCheck
-            // 
-            this.gvCheck.AutoHeight = false;
-            this.gvCheck.Name = "gvCheck";
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(184, 8);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 30);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "取消(&D)";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(265, 8);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 30);
-            this.btnRefresh.TabIndex = 6;
-            this.btnRefresh.Text = "刷新(&F)";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "序號";
@@ -474,22 +479,17 @@
             this.gridColumn5.VisibleIndex = 10;
             this.gridColumn5.Width = 200;
             // 
-            // lblRemark
+            // gvCheck
             // 
-            this.lblRemark.AutoSize = true;
-            this.lblRemark.Location = new System.Drawing.Point(50, 166);
-            this.lblRemark.Name = "lblRemark";
-            this.lblRemark.Size = new System.Drawing.Size(32, 12);
-            this.lblRemark.TabIndex = 1;
-            this.lblRemark.Text = "備註:";
+            this.gvCheck.AutoHeight = false;
+            this.gvCheck.Name = "gvCheck";
             // 
-            // txtRemark
+            // repositoryItemButtonEdit1
             // 
-            this.txtRemark.Location = new System.Drawing.Point(88, 166);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(547, 46);
-            this.txtRemark.TabIndex = 7;
-            this.txtRemark.Text = "";
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // frmMoTask
             // 

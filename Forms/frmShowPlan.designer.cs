@@ -36,47 +36,6 @@
             this.txtMo_id_v = new System.Windows.Forms.TextBox();
             this.lblMo_id_v = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtCreate_date = new System.Windows.Forms.TextBox();
-            this.txtMo_id = new System.Windows.Forms.TextBox();
-            this.lblMo_id = new System.Windows.Forms.Label();
-            this.txtMerchandiser = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtBill_date = new System.Windows.Forms.TextBox();
-            this.lblBill_date = new System.Windows.Forms.Label();
-            this.txtMo_ver = new System.Windows.Forms.TextBox();
-            this.txtQty_unit = new System.Windows.Forms.TextBox();
-            this.txtId_ver = new System.Windows.Forms.TextBox();
-            this.txtOrder_qty = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCustomer_name = new System.Windows.Forms.TextBox();
-            this.txtDelivery_date = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtMo_remark = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtPlate_remark = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtRemark = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtProduction_remark = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtCheck_by = new System.Windows.Forms.TextBox();
-            this.txtCreate_by = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtState = new System.Windows.Forms.TextBox();
-            this.txtCheck_date = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtPlanbackDate = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCustomer_id = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtOrder_no = new System.Windows.Forms.TextBox();
-            this.lblOrder_no = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -119,6 +78,47 @@
             this.gclWfQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclIrDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclIrQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtCreate_date = new System.Windows.Forms.TextBox();
+            this.txtMo_id = new System.Windows.Forms.TextBox();
+            this.lblMo_id = new System.Windows.Forms.Label();
+            this.txtMerchandiser = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBill_date = new System.Windows.Forms.TextBox();
+            this.lblBill_date = new System.Windows.Forms.Label();
+            this.txtMo_ver = new System.Windows.Forms.TextBox();
+            this.txtQty_unit = new System.Windows.Forms.TextBox();
+            this.txtId_ver = new System.Windows.Forms.TextBox();
+            this.txtOrder_qty = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCustomer_name = new System.Windows.Forms.TextBox();
+            this.txtDelivery_date = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtMo_remark = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtPlate_remark = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtProduction_remark = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCheck_by = new System.Windows.Forms.TextBox();
+            this.txtCreate_by = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtState = new System.Windows.Forms.TextBox();
+            this.txtCheck_date = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtPlanbackDate = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCustomer_id = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtOrder_no = new System.Windows.Forms.TextBox();
+            this.lblOrder_no = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,12 +141,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCheck)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gcCheck
@@ -233,6 +233,530 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1150, 526);
             this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.gridControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1142, 498);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "生產明細表";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.gridControl1.Location = new System.Drawing.Point(3, 3);
+            this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControl1.MainView = this.gvDetails;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gvCheck,
+            this.repositoryItemButtonEdit1});
+            this.gridControl1.Size = new System.Drawing.Size(1136, 492);
+            this.gridControl1.TabIndex = 26;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDetails});
+            // 
+            // gvDetails
+            // 
+            this.gvDetails.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.gvDetails.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.White;
+            this.gvDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvDetails.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.gvDetails.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gvDetails.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvDetails.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gvDetails.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gvDetails.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gvDetails.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvDetails.Appearance.Row.Options.UseFont = true;
+            this.gvDetails.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvDetails.Appearance.ViewCaption.Options.UseFont = true;
+            this.gvDetails.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.gvDetails.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gvDetails.AppearancePrint.Row.Options.UseTextOptions = true;
+            this.gvDetails.AppearancePrint.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gvDetails.AppearancePrint.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gvDetails.ColumnPanelRowHeight = 30;
+            this.gvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Flag_id,
+            this.gl_cmd_schedule,
+            this.Prd_state,
+            this.Goods_id,
+            this.Goods_name,
+            this.Wp_id,
+            this.Prd_qty,
+            this.gclPrdQty,
+            this.gclPrdDate,
+            this.Complete_qty,
+            this.Change_next_dept_date,
+            this.Hold,
+            this.Next_dept_id,
+            this.gclScheduleSeq,
+            this.Order_qty,
+            this.gclScheduleDate,
+            this.Complete_weg,
+            this.Do_color,
+            this.Color_qty,
+            this.Should_qty,
+            this.Reserve_qty,
+            this.Pre_dept,
+            this.Pre_dept_qty,
+            this.Pre_dept_weg,
+            this.Pre_dept_date,
+            this.Vendor_id,
+            this.Vender_name,
+            this.Checkboxcell,
+            this.gclPmcRqDate,
+            this.gclDepRpDate,
+            this.gclWorkTyeDesc,
+            this.gclPrdMachine,
+            this.gclSchMachine,
+            this.gclWfDate,
+            this.gclWfQty,
+            this.gclIrDate,
+            this.gclIrQty});
+            this.gvDetails.FooterPanelHeight = 50;
+            this.gvDetails.GridControl = this.gridControl1;
+            this.gvDetails.Name = "gvDetails";
+            this.gvDetails.OptionsBehavior.ReadOnly = true;
+            this.gvDetails.OptionsSelection.MultiSelect = true;
+            this.gvDetails.OptionsView.AllowHtmlDrawHeaders = true;
+            this.gvDetails.OptionsView.ColumnAutoWidth = false;
+            this.gvDetails.OptionsView.ShowGroupPanel = false;
+            this.gvDetails.PaintStyleName = "Skin";
+            this.gvDetails.RowHeight = 25;
+            this.gvDetails.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvDetails_SelectionChanged);
+            // 
+            // Flag_id
+            // 
+            this.Flag_id.Caption = "序號";
+            this.Flag_id.FieldName = "flag";
+            this.Flag_id.Name = "Flag_id";
+            this.Flag_id.OptionsColumn.AllowEdit = false;
+            this.Flag_id.OptionsColumn.ReadOnly = true;
+            this.Flag_id.Visible = true;
+            this.Flag_id.VisibleIndex = 0;
+            this.Flag_id.Width = 43;
+            // 
+            // gl_cmd_schedule
+            // 
+            this.gl_cmd_schedule.Caption = "設置提醒";
+            this.gl_cmd_schedule.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.gl_cmd_schedule.Name = "gl_cmd_schedule";
+            this.gl_cmd_schedule.Visible = true;
+            this.gl_cmd_schedule.VisibleIndex = 1;
+            this.gl_cmd_schedule.Width = 65;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
+            // 
+            // Prd_state
+            // 
+            this.Prd_state.Caption = "生產狀態";
+            this.Prd_state.FieldName = "prod_state";
+            this.Prd_state.MaxWidth = 100;
+            this.Prd_state.Name = "Prd_state";
+            this.Prd_state.OptionsColumn.AllowEdit = false;
+            this.Prd_state.OptionsColumn.ReadOnly = true;
+            this.Prd_state.Visible = true;
+            this.Prd_state.VisibleIndex = 2;
+            this.Prd_state.Width = 66;
+            // 
+            // Goods_id
+            // 
+            this.Goods_id.Caption = "貨品編號";
+            this.Goods_id.FieldName = "goods_id";
+            this.Goods_id.Name = "Goods_id";
+            this.Goods_id.OptionsColumn.AllowEdit = false;
+            this.Goods_id.OptionsColumn.ReadOnly = true;
+            this.Goods_id.Visible = true;
+            this.Goods_id.VisibleIndex = 3;
+            this.Goods_id.Width = 180;
+            // 
+            // Goods_name
+            // 
+            this.Goods_name.AppearanceCell.Options.UseTextOptions = true;
+            this.Goods_name.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Goods_name.Caption = "貨品名稱";
+            this.Goods_name.FieldName = "goods_name";
+            this.Goods_name.Name = "Goods_name";
+            this.Goods_name.OptionsColumn.AllowEdit = false;
+            this.Goods_name.OptionsColumn.ReadOnly = true;
+            this.Goods_name.Visible = true;
+            this.Goods_name.VisibleIndex = 4;
+            this.Goods_name.Width = 250;
+            // 
+            // Wp_id
+            // 
+            this.Wp_id.Caption = "負責部門";
+            this.Wp_id.FieldName = "wp_id";
+            this.Wp_id.Name = "Wp_id";
+            this.Wp_id.OptionsColumn.AllowEdit = false;
+            this.Wp_id.OptionsColumn.ReadOnly = true;
+            this.Wp_id.Visible = true;
+            this.Wp_id.VisibleIndex = 5;
+            this.Wp_id.Width = 66;
+            // 
+            // Prd_qty
+            // 
+            this.Prd_qty.Caption = "計劃數量";
+            this.Prd_qty.DisplayFormat.FormatString = "#,##0";
+            this.Prd_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Prd_qty.FieldName = "prod_qty";
+            this.Prd_qty.Name = "Prd_qty";
+            this.Prd_qty.OptionsColumn.AllowEdit = false;
+            this.Prd_qty.OptionsColumn.ReadOnly = true;
+            this.Prd_qty.Visible = true;
+            this.Prd_qty.VisibleIndex = 6;
+            this.Prd_qty.Width = 69;
+            // 
+            // gclPrdQty
+            // 
+            this.gclPrdQty.Caption = "已生產數量";
+            this.gclPrdQty.DisplayFormat.FormatString = "#,##0";
+            this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclPrdQty.FieldName = "prd_qty";
+            this.gclPrdQty.Name = "gclPrdQty";
+            this.gclPrdQty.Visible = true;
+            this.gclPrdQty.VisibleIndex = 7;
+            this.gclPrdQty.Width = 85;
+            // 
+            // gclPrdDate
+            // 
+            this.gclPrdDate.Caption = "生產日期";
+            this.gclPrdDate.FieldName = "prd_date";
+            this.gclPrdDate.Name = "gclPrdDate";
+            this.gclPrdDate.Visible = true;
+            this.gclPrdDate.VisibleIndex = 8;
+            // 
+            // Complete_qty
+            // 
+            this.Complete_qty.Caption = "已移交數量";
+            this.Complete_qty.DisplayFormat.FormatString = "#,##0";
+            this.Complete_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Complete_qty.FieldName = "c_qty_ok";
+            this.Complete_qty.Name = "Complete_qty";
+            this.Complete_qty.OptionsColumn.AllowEdit = false;
+            this.Complete_qty.OptionsColumn.ReadOnly = true;
+            this.Complete_qty.Visible = true;
+            this.Complete_qty.VisibleIndex = 9;
+            this.Complete_qty.Width = 80;
+            // 
+            // Change_next_dept_date
+            // 
+            this.Change_next_dept_date.Caption = "移交下部門日期";
+            this.Change_next_dept_date.FieldName = "f_complete_date";
+            this.Change_next_dept_date.Name = "Change_next_dept_date";
+            this.Change_next_dept_date.OptionsColumn.AllowEdit = false;
+            this.Change_next_dept_date.OptionsColumn.ReadOnly = true;
+            this.Change_next_dept_date.Visible = true;
+            this.Change_next_dept_date.VisibleIndex = 10;
+            this.Change_next_dept_date.Width = 113;
+            // 
+            // Hold
+            // 
+            this.Hold.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Hold.AppearanceCell.Options.UseFont = true;
+            this.Hold.AppearanceCell.Options.UseTextOptions = true;
+            this.Hold.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Hold.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Hold.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Hold.AppearanceHeader.Options.UseFont = true;
+            this.Hold.AppearanceHeader.Options.UseTextOptions = true;
+            this.Hold.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Hold.Caption = "Hold 貨";
+            this.Hold.FieldName = "hold";
+            this.Hold.Name = "Hold";
+            this.Hold.OptionsColumn.AllowEdit = false;
+            this.Hold.OptionsColumn.ReadOnly = true;
+            this.Hold.Visible = true;
+            this.Hold.VisibleIndex = 11;
+            this.Hold.Width = 66;
+            // 
+            // Next_dept_id
+            // 
+            this.Next_dept_id.Caption = "下一部門";
+            this.Next_dept_id.FieldName = "next_wp_id";
+            this.Next_dept_id.Name = "Next_dept_id";
+            this.Next_dept_id.OptionsColumn.AllowEdit = false;
+            this.Next_dept_id.OptionsColumn.ReadOnly = true;
+            this.Next_dept_id.Visible = true;
+            this.Next_dept_id.VisibleIndex = 12;
+            this.Next_dept_id.Width = 80;
+            // 
+            // gclScheduleSeq
+            // 
+            this.gclScheduleSeq.Caption = "排期次序";
+            this.gclScheduleSeq.FieldName = "schedule_seq";
+            this.gclScheduleSeq.Name = "gclScheduleSeq";
+            this.gclScheduleSeq.Visible = true;
+            this.gclScheduleSeq.VisibleIndex = 13;
+            // 
+            // Order_qty
+            // 
+            this.Order_qty.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Order_qty.AppearanceCell.Options.UseFont = true;
+            this.Order_qty.AppearanceCell.Options.UseTextOptions = true;
+            this.Order_qty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Order_qty.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Order_qty.AppearanceHeader.Options.UseFont = true;
+            this.Order_qty.AppearanceHeader.Options.UseTextOptions = true;
+            this.Order_qty.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.Order_qty.Caption = "訂單數量";
+            this.Order_qty.FieldName = "order_qty";
+            this.Order_qty.Name = "Order_qty";
+            this.Order_qty.OptionsColumn.AllowEdit = false;
+            this.Order_qty.OptionsColumn.ReadOnly = true;
+            this.Order_qty.Width = 80;
+            // 
+            // gclScheduleDate
+            // 
+            this.gclScheduleDate.Caption = "排期日期";
+            this.gclScheduleDate.FieldName = "schedule_date";
+            this.gclScheduleDate.Name = "gclScheduleDate";
+            this.gclScheduleDate.Visible = true;
+            this.gclScheduleDate.VisibleIndex = 14;
+            // 
+            // Complete_weg
+            // 
+            this.Complete_weg.Caption = "已移交重量";
+            this.Complete_weg.FieldName = "c_sec_qty_ok";
+            this.Complete_weg.Name = "Complete_weg";
+            this.Complete_weg.OptionsColumn.AllowEdit = false;
+            this.Complete_weg.OptionsColumn.ReadOnly = true;
+            this.Complete_weg.Visible = true;
+            this.Complete_weg.VisibleIndex = 15;
+            this.Complete_weg.Width = 60;
+            // 
+            // Do_color
+            // 
+            this.Do_color.Caption = "顏色做法";
+            this.Do_color.FieldName = "do_color";
+            this.Do_color.Name = "Do_color";
+            this.Do_color.OptionsColumn.AllowEdit = false;
+            this.Do_color.OptionsColumn.ReadOnly = true;
+            this.Do_color.Visible = true;
+            this.Do_color.VisibleIndex = 16;
+            this.Do_color.Width = 120;
+            // 
+            // Color_qty
+            // 
+            this.Color_qty.Caption = "批色數量";
+            this.Color_qty.FieldName = "color_qty";
+            this.Color_qty.Name = "Color_qty";
+            this.Color_qty.OptionsColumn.AllowEdit = false;
+            this.Color_qty.OptionsColumn.ReadOnly = true;
+            this.Color_qty.Visible = true;
+            this.Color_qty.VisibleIndex = 17;
+            this.Color_qty.Width = 70;
+            // 
+            // Should_qty
+            // 
+            this.Should_qty.Caption = "應生產數量";
+            this.Should_qty.DisplayFormat.FormatString = "#,##0";
+            this.Should_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Should_qty.FieldName = "s_qty";
+            this.Should_qty.Name = "Should_qty";
+            this.Should_qty.OptionsColumn.AllowEdit = false;
+            this.Should_qty.OptionsColumn.ReadOnly = true;
+            this.Should_qty.Visible = true;
+            this.Should_qty.VisibleIndex = 18;
+            this.Should_qty.Width = 80;
+            // 
+            // Reserve_qty
+            // 
+            this.Reserve_qty.Caption = "預留數量";
+            this.Reserve_qty.DisplayFormat.FormatString = "#,##0";
+            this.Reserve_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Reserve_qty.FieldName = "obligate_qty";
+            this.Reserve_qty.Name = "Reserve_qty";
+            this.Reserve_qty.OptionsColumn.AllowEdit = false;
+            this.Reserve_qty.OptionsColumn.ReadOnly = true;
+            this.Reserve_qty.Visible = true;
+            this.Reserve_qty.VisibleIndex = 19;
+            this.Reserve_qty.Width = 80;
+            // 
+            // Pre_dept
+            // 
+            this.Pre_dept.Caption = "上部門";
+            this.Pre_dept.FieldName = "pre_dept";
+            this.Pre_dept.Name = "Pre_dept";
+            this.Pre_dept.OptionsColumn.AllowEdit = false;
+            this.Pre_dept.OptionsColumn.ReadOnly = true;
+            this.Pre_dept.Visible = true;
+            this.Pre_dept.VisibleIndex = 20;
+            this.Pre_dept.Width = 80;
+            // 
+            // Pre_dept_qty
+            // 
+            this.Pre_dept_qty.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Pre_dept_qty.Caption = "上部門移交數量";
+            this.Pre_dept_qty.DisplayFormat.FormatString = "#,##0";
+            this.Pre_dept_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Pre_dept_qty.FieldName = "predept_rechange_qty";
+            this.Pre_dept_qty.Name = "Pre_dept_qty";
+            this.Pre_dept_qty.OptionsColumn.AllowEdit = false;
+            this.Pre_dept_qty.OptionsColumn.ReadOnly = true;
+            this.Pre_dept_qty.Visible = true;
+            this.Pre_dept_qty.VisibleIndex = 21;
+            this.Pre_dept_qty.Width = 80;
+            // 
+            // Pre_dept_weg
+            // 
+            this.Pre_dept_weg.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_weg.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Pre_dept_weg.Caption = "上部門移交重量";
+            this.Pre_dept_weg.DisplayFormat.FormatString = "#,##0";
+            this.Pre_dept_weg.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Pre_dept_weg.FieldName = "predept_rechange_sec_qty";
+            this.Pre_dept_weg.Name = "Pre_dept_weg";
+            this.Pre_dept_weg.OptionsColumn.AllowEdit = false;
+            this.Pre_dept_weg.OptionsColumn.ReadOnly = true;
+            this.Pre_dept_weg.Visible = true;
+            this.Pre_dept_weg.VisibleIndex = 22;
+            this.Pre_dept_weg.Width = 80;
+            // 
+            // Pre_dept_date
+            // 
+            this.Pre_dept_date.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_date.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Pre_dept_date.Caption = "上部門移交日期";
+            this.Pre_dept_date.FieldName = "predept_rechange_date";
+            this.Pre_dept_date.Name = "Pre_dept_date";
+            this.Pre_dept_date.OptionsColumn.AllowEdit = false;
+            this.Pre_dept_date.OptionsColumn.ReadOnly = true;
+            this.Pre_dept_date.Visible = true;
+            this.Pre_dept_date.VisibleIndex = 23;
+            this.Pre_dept_date.Width = 80;
+            // 
+            // Vendor_id
+            // 
+            this.Vendor_id.AppearanceHeader.Options.UseTextOptions = true;
+            this.Vendor_id.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.Vendor_id.Caption = "供應商編號";
+            this.Vendor_id.FieldName = "vendor";
+            this.Vendor_id.Name = "Vendor_id";
+            this.Vendor_id.OptionsColumn.AllowEdit = false;
+            this.Vendor_id.OptionsColumn.ReadOnly = true;
+            this.Vendor_id.Visible = true;
+            this.Vendor_id.VisibleIndex = 24;
+            this.Vendor_id.Width = 100;
+            // 
+            // Vender_name
+            // 
+            this.Vender_name.Caption = "供應商名稱";
+            this.Vender_name.FieldName = "vendor_name";
+            this.Vender_name.Name = "Vender_name";
+            this.Vender_name.OptionsColumn.AllowEdit = false;
+            this.Vender_name.OptionsColumn.ReadOnly = true;
+            this.Vender_name.Visible = true;
+            this.Vender_name.VisibleIndex = 25;
+            this.Vender_name.Width = 160;
+            // 
+            // Checkboxcell
+            // 
+            this.Checkboxcell.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.Checkboxcell.AppearanceCell.Options.UseFont = true;
+            this.Checkboxcell.Caption = "選取";
+            this.Checkboxcell.ColumnEdit = this.gvCheck;
+            this.Checkboxcell.FieldName = "check_value";
+            this.Checkboxcell.MaxWidth = 120;
+            this.Checkboxcell.Name = "Checkboxcell";
+            this.Checkboxcell.Width = 80;
+            // 
+            // gvCheck
+            // 
+            this.gvCheck.AutoHeight = false;
+            this.gvCheck.Name = "gvCheck";
+            this.gvCheck.Click += new System.EventHandler(this.gvCheck_Click);
+            // 
+            // gclPmcRqDate
+            // 
+            this.gclPmcRqDate.Caption = "PMC复期";
+            this.gclPmcRqDate.FieldName = "pmc_rq_date";
+            this.gclPmcRqDate.Name = "gclPmcRqDate";
+            this.gclPmcRqDate.Visible = true;
+            this.gclPmcRqDate.VisibleIndex = 26;
+            // 
+            // gclDepRpDate
+            // 
+            this.gclDepRpDate.Caption = "部門复期";
+            this.gclDepRpDate.FieldName = "dep_rp_date";
+            this.gclDepRpDate.Name = "gclDepRpDate";
+            this.gclDepRpDate.Visible = true;
+            this.gclDepRpDate.VisibleIndex = 27;
+            // 
+            // gclWorkTyeDesc
+            // 
+            this.gclWorkTyeDesc.Caption = "生產類型";
+            this.gclWorkTyeDesc.FieldName = "work_type_desc";
+            this.gclWorkTyeDesc.Name = "gclWorkTyeDesc";
+            this.gclWorkTyeDesc.Visible = true;
+            this.gclWorkTyeDesc.VisibleIndex = 28;
+            // 
+            // gclPrdMachine
+            // 
+            this.gclPrdMachine.Caption = "生產機器";
+            this.gclPrdMachine.FieldName = "prd_machine";
+            this.gclPrdMachine.Name = "gclPrdMachine";
+            this.gclPrdMachine.Visible = true;
+            this.gclPrdMachine.VisibleIndex = 29;
+            // 
+            // gclSchMachine
+            // 
+            this.gclSchMachine.Caption = "安排機器";
+            this.gclSchMachine.FieldName = "sch_machine";
+            this.gclSchMachine.Name = "gclSchMachine";
+            this.gclSchMachine.Visible = true;
+            this.gclSchMachine.VisibleIndex = 30;
+            // 
+            // gclWfDate
+            // 
+            this.gclWfDate.Caption = "外發日期";
+            this.gclWfDate.FieldName = "wf_date";
+            this.gclWfDate.Name = "gclWfDate";
+            this.gclWfDate.Visible = true;
+            this.gclWfDate.VisibleIndex = 31;
+            // 
+            // gclWfQty
+            // 
+            this.gclWfQty.Caption = "外發數量";
+            this.gclWfQty.DisplayFormat.FormatString = "#,##0";
+            this.gclWfQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclWfQty.FieldName = "wf_qty";
+            this.gclWfQty.Name = "gclWfQty";
+            this.gclWfQty.Visible = true;
+            this.gclWfQty.VisibleIndex = 32;
+            // 
+            // gclIrDate
+            // 
+            this.gclIrDate.Caption = "外發收貨日期";
+            this.gclIrDate.FieldName = "ir_date";
+            this.gclIrDate.Name = "gclIrDate";
+            this.gclIrDate.Visible = true;
+            this.gclIrDate.VisibleIndex = 33;
+            // 
+            // gclIrQty
+            // 
+            this.gclIrQty.Caption = "外發收貨數量";
+            this.gclIrQty.DisplayFormat.FormatString = "#,##0";
+            this.gclIrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclIrQty.FieldName = "ir_qty";
+            this.gclIrQty.Name = "gclIrQty";
+            this.gclIrQty.Visible = true;
+            this.gclIrQty.VisibleIndex = 34;
             // 
             // tabPage1
             // 
@@ -660,528 +1184,6 @@
             this.lblId.TabIndex = 0;
             this.lblId.Text = "編號:";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.gridControl1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1142, 498);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "生產明細表";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.gridControl1.Location = new System.Drawing.Point(3, 3);
-            this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl1.MainView = this.gvDetails;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.gvCheck,
-            this.repositoryItemButtonEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1136, 492);
-            this.gridControl1.TabIndex = 26;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvDetails});
-            // 
-            // gvDetails
-            // 
-            this.gvDetails.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.gvDetails.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.White;
-            this.gvDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.gvDetails.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
-            this.gvDetails.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gvDetails.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvDetails.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.gvDetails.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gvDetails.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gvDetails.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.gvDetails.Appearance.Row.Options.UseFont = true;
-            this.gvDetails.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.gvDetails.Appearance.ViewCaption.Options.UseFont = true;
-            this.gvDetails.Appearance.ViewCaption.Options.UseTextOptions = true;
-            this.gvDetails.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gvDetails.AppearancePrint.Row.Options.UseTextOptions = true;
-            this.gvDetails.AppearancePrint.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gvDetails.AppearancePrint.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gvDetails.ColumnPanelRowHeight = 30;
-            this.gvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Flag_id,
-            this.gl_cmd_schedule,
-            this.Prd_state,
-            this.Goods_id,
-            this.Goods_name,
-            this.Wp_id,
-            this.Prd_qty,
-            this.gclPrdQty,
-            this.gclPrdDate,
-            this.Complete_qty,
-            this.Change_next_dept_date,
-            this.Hold,
-            this.Next_dept_id,
-            this.gclScheduleSeq,
-            this.Order_qty,
-            this.gclScheduleDate,
-            this.Complete_weg,
-            this.Do_color,
-            this.Color_qty,
-            this.Should_qty,
-            this.Reserve_qty,
-            this.Pre_dept,
-            this.Pre_dept_qty,
-            this.Pre_dept_weg,
-            this.Pre_dept_date,
-            this.Vendor_id,
-            this.Vender_name,
-            this.Checkboxcell,
-            this.gclPmcRqDate,
-            this.gclDepRpDate,
-            this.gclWorkTyeDesc,
-            this.gclPrdMachine,
-            this.gclSchMachine,
-            this.gclWfDate,
-            this.gclWfQty,
-            this.gclIrDate,
-            this.gclIrQty});
-            this.gvDetails.FooterPanelHeight = 50;
-            this.gvDetails.GridControl = this.gridControl1;
-            this.gvDetails.Name = "gvDetails";
-            this.gvDetails.OptionsBehavior.ReadOnly = true;
-            this.gvDetails.OptionsSelection.MultiSelect = true;
-            this.gvDetails.OptionsView.AllowHtmlDrawHeaders = true;
-            this.gvDetails.OptionsView.ColumnAutoWidth = false;
-            this.gvDetails.OptionsView.ShowGroupPanel = false;
-            this.gvDetails.PaintStyleName = "Skin";
-            this.gvDetails.RowHeight = 25;
-            this.gvDetails.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvDetails_SelectionChanged);
-            // 
-            // Flag_id
-            // 
-            this.Flag_id.Caption = "序號";
-            this.Flag_id.FieldName = "flag";
-            this.Flag_id.Name = "Flag_id";
-            this.Flag_id.OptionsColumn.AllowEdit = false;
-            this.Flag_id.OptionsColumn.ReadOnly = true;
-            this.Flag_id.Visible = true;
-            this.Flag_id.VisibleIndex = 0;
-            this.Flag_id.Width = 43;
-            // 
-            // gl_cmd_schedule
-            // 
-            this.gl_cmd_schedule.Caption = "設置提醒";
-            this.gl_cmd_schedule.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.gl_cmd_schedule.Name = "gl_cmd_schedule";
-            this.gl_cmd_schedule.Visible = true;
-            this.gl_cmd_schedule.VisibleIndex = 1;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
-            // 
-            // Prd_state
-            // 
-            this.Prd_state.Caption = "生產狀態";
-            this.Prd_state.FieldName = "prod_state";
-            this.Prd_state.MaxWidth = 100;
-            this.Prd_state.Name = "Prd_state";
-            this.Prd_state.OptionsColumn.AllowEdit = false;
-            this.Prd_state.OptionsColumn.ReadOnly = true;
-            this.Prd_state.Visible = true;
-            this.Prd_state.VisibleIndex = 2;
-            this.Prd_state.Width = 66;
-            // 
-            // Goods_id
-            // 
-            this.Goods_id.Caption = "貨品編號";
-            this.Goods_id.FieldName = "goods_id";
-            this.Goods_id.Name = "Goods_id";
-            this.Goods_id.OptionsColumn.AllowEdit = false;
-            this.Goods_id.OptionsColumn.ReadOnly = true;
-            this.Goods_id.Visible = true;
-            this.Goods_id.VisibleIndex = 3;
-            this.Goods_id.Width = 180;
-            // 
-            // Goods_name
-            // 
-            this.Goods_name.AppearanceCell.Options.UseTextOptions = true;
-            this.Goods_name.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Goods_name.Caption = "貨品名稱";
-            this.Goods_name.FieldName = "goods_name";
-            this.Goods_name.Name = "Goods_name";
-            this.Goods_name.OptionsColumn.AllowEdit = false;
-            this.Goods_name.OptionsColumn.ReadOnly = true;
-            this.Goods_name.Visible = true;
-            this.Goods_name.VisibleIndex = 4;
-            this.Goods_name.Width = 250;
-            // 
-            // Wp_id
-            // 
-            this.Wp_id.Caption = "負責部門";
-            this.Wp_id.FieldName = "wp_id";
-            this.Wp_id.Name = "Wp_id";
-            this.Wp_id.OptionsColumn.AllowEdit = false;
-            this.Wp_id.OptionsColumn.ReadOnly = true;
-            this.Wp_id.Visible = true;
-            this.Wp_id.VisibleIndex = 5;
-            this.Wp_id.Width = 66;
-            // 
-            // Prd_qty
-            // 
-            this.Prd_qty.Caption = "計劃數量";
-            this.Prd_qty.DisplayFormat.FormatString = "#,##0";
-            this.Prd_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Prd_qty.FieldName = "prod_qty";
-            this.Prd_qty.Name = "Prd_qty";
-            this.Prd_qty.OptionsColumn.AllowEdit = false;
-            this.Prd_qty.OptionsColumn.ReadOnly = true;
-            this.Prd_qty.Visible = true;
-            this.Prd_qty.VisibleIndex = 6;
-            this.Prd_qty.Width = 69;
-            // 
-            // gclPrdQty
-            // 
-            this.gclPrdQty.Caption = "已生產數量";
-            this.gclPrdQty.DisplayFormat.FormatString = "#,##0";
-            this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclPrdQty.FieldName = "prd_qty";
-            this.gclPrdQty.Name = "gclPrdQty";
-            this.gclPrdQty.Visible = true;
-            this.gclPrdQty.VisibleIndex = 7;
-            this.gclPrdQty.Width = 85;
-            // 
-            // gclPrdDate
-            // 
-            this.gclPrdDate.Caption = "生產日期";
-            this.gclPrdDate.FieldName = "prd_date";
-            this.gclPrdDate.Name = "gclPrdDate";
-            this.gclPrdDate.Visible = true;
-            this.gclPrdDate.VisibleIndex = 8;
-            // 
-            // Complete_qty
-            // 
-            this.Complete_qty.Caption = "已移交數量";
-            this.Complete_qty.DisplayFormat.FormatString = "#,##0";
-            this.Complete_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Complete_qty.FieldName = "c_qty_ok";
-            this.Complete_qty.Name = "Complete_qty";
-            this.Complete_qty.OptionsColumn.AllowEdit = false;
-            this.Complete_qty.OptionsColumn.ReadOnly = true;
-            this.Complete_qty.Visible = true;
-            this.Complete_qty.VisibleIndex = 9;
-            this.Complete_qty.Width = 80;
-            // 
-            // Change_next_dept_date
-            // 
-            this.Change_next_dept_date.Caption = "移交下部門日期";
-            this.Change_next_dept_date.FieldName = "f_complete_date";
-            this.Change_next_dept_date.Name = "Change_next_dept_date";
-            this.Change_next_dept_date.OptionsColumn.AllowEdit = false;
-            this.Change_next_dept_date.OptionsColumn.ReadOnly = true;
-            this.Change_next_dept_date.Visible = true;
-            this.Change_next_dept_date.VisibleIndex = 10;
-            this.Change_next_dept_date.Width = 113;
-            // 
-            // Hold
-            // 
-            this.Hold.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Hold.AppearanceCell.Options.UseFont = true;
-            this.Hold.AppearanceCell.Options.UseTextOptions = true;
-            this.Hold.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Hold.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Hold.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Hold.AppearanceHeader.Options.UseFont = true;
-            this.Hold.AppearanceHeader.Options.UseTextOptions = true;
-            this.Hold.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Hold.Caption = "Hold 貨";
-            this.Hold.FieldName = "hold";
-            this.Hold.Name = "Hold";
-            this.Hold.OptionsColumn.AllowEdit = false;
-            this.Hold.OptionsColumn.ReadOnly = true;
-            this.Hold.Visible = true;
-            this.Hold.VisibleIndex = 11;
-            this.Hold.Width = 66;
-            // 
-            // Next_dept_id
-            // 
-            this.Next_dept_id.Caption = "下一部門";
-            this.Next_dept_id.FieldName = "next_wp_id";
-            this.Next_dept_id.Name = "Next_dept_id";
-            this.Next_dept_id.OptionsColumn.AllowEdit = false;
-            this.Next_dept_id.OptionsColumn.ReadOnly = true;
-            this.Next_dept_id.Visible = true;
-            this.Next_dept_id.VisibleIndex = 12;
-            this.Next_dept_id.Width = 80;
-            // 
-            // gclScheduleSeq
-            // 
-            this.gclScheduleSeq.Caption = "排期次序";
-            this.gclScheduleSeq.FieldName = "schedule_seq";
-            this.gclScheduleSeq.Name = "gclScheduleSeq";
-            this.gclScheduleSeq.Visible = true;
-            this.gclScheduleSeq.VisibleIndex = 13;
-            // 
-            // Order_qty
-            // 
-            this.Order_qty.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Order_qty.AppearanceCell.Options.UseFont = true;
-            this.Order_qty.AppearanceCell.Options.UseTextOptions = true;
-            this.Order_qty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Order_qty.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.Order_qty.AppearanceHeader.Options.UseFont = true;
-            this.Order_qty.AppearanceHeader.Options.UseTextOptions = true;
-            this.Order_qty.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.Order_qty.Caption = "訂單數量";
-            this.Order_qty.FieldName = "order_qty";
-            this.Order_qty.Name = "Order_qty";
-            this.Order_qty.OptionsColumn.AllowEdit = false;
-            this.Order_qty.OptionsColumn.ReadOnly = true;
-            this.Order_qty.Width = 80;
-            // 
-            // gclScheduleDate
-            // 
-            this.gclScheduleDate.Caption = "排期日期";
-            this.gclScheduleDate.FieldName = "schedule_date";
-            this.gclScheduleDate.Name = "gclScheduleDate";
-            this.gclScheduleDate.Visible = true;
-            this.gclScheduleDate.VisibleIndex = 14;
-            // 
-            // Complete_weg
-            // 
-            this.Complete_weg.Caption = "已移交重量";
-            this.Complete_weg.FieldName = "c_sec_qty_ok";
-            this.Complete_weg.Name = "Complete_weg";
-            this.Complete_weg.OptionsColumn.AllowEdit = false;
-            this.Complete_weg.OptionsColumn.ReadOnly = true;
-            this.Complete_weg.Visible = true;
-            this.Complete_weg.VisibleIndex = 15;
-            this.Complete_weg.Width = 60;
-            // 
-            // Do_color
-            // 
-            this.Do_color.Caption = "顏色做法";
-            this.Do_color.FieldName = "do_color";
-            this.Do_color.Name = "Do_color";
-            this.Do_color.OptionsColumn.AllowEdit = false;
-            this.Do_color.OptionsColumn.ReadOnly = true;
-            this.Do_color.Visible = true;
-            this.Do_color.VisibleIndex = 16;
-            this.Do_color.Width = 120;
-            // 
-            // Color_qty
-            // 
-            this.Color_qty.Caption = "批色數量";
-            this.Color_qty.FieldName = "color_qty";
-            this.Color_qty.Name = "Color_qty";
-            this.Color_qty.OptionsColumn.AllowEdit = false;
-            this.Color_qty.OptionsColumn.ReadOnly = true;
-            this.Color_qty.Visible = true;
-            this.Color_qty.VisibleIndex = 17;
-            this.Color_qty.Width = 70;
-            // 
-            // Should_qty
-            // 
-            this.Should_qty.Caption = "應生產數量";
-            this.Should_qty.DisplayFormat.FormatString = "#,##0";
-            this.Should_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Should_qty.FieldName = "s_qty";
-            this.Should_qty.Name = "Should_qty";
-            this.Should_qty.OptionsColumn.AllowEdit = false;
-            this.Should_qty.OptionsColumn.ReadOnly = true;
-            this.Should_qty.Visible = true;
-            this.Should_qty.VisibleIndex = 18;
-            this.Should_qty.Width = 80;
-            // 
-            // Reserve_qty
-            // 
-            this.Reserve_qty.Caption = "預留數量";
-            this.Reserve_qty.DisplayFormat.FormatString = "#,##0";
-            this.Reserve_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Reserve_qty.FieldName = "obligate_qty";
-            this.Reserve_qty.Name = "Reserve_qty";
-            this.Reserve_qty.OptionsColumn.AllowEdit = false;
-            this.Reserve_qty.OptionsColumn.ReadOnly = true;
-            this.Reserve_qty.Visible = true;
-            this.Reserve_qty.VisibleIndex = 19;
-            this.Reserve_qty.Width = 80;
-            // 
-            // Pre_dept
-            // 
-            this.Pre_dept.Caption = "上部門";
-            this.Pre_dept.FieldName = "pre_dept";
-            this.Pre_dept.Name = "Pre_dept";
-            this.Pre_dept.OptionsColumn.AllowEdit = false;
-            this.Pre_dept.OptionsColumn.ReadOnly = true;
-            this.Pre_dept.Visible = true;
-            this.Pre_dept.VisibleIndex = 20;
-            this.Pre_dept.Width = 80;
-            // 
-            // Pre_dept_qty
-            // 
-            this.Pre_dept_qty.AppearanceHeader.Options.UseTextOptions = true;
-            this.Pre_dept_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Pre_dept_qty.Caption = "上部門移交數量";
-            this.Pre_dept_qty.DisplayFormat.FormatString = "#,##0";
-            this.Pre_dept_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Pre_dept_qty.FieldName = "predept_rechange_qty";
-            this.Pre_dept_qty.Name = "Pre_dept_qty";
-            this.Pre_dept_qty.OptionsColumn.AllowEdit = false;
-            this.Pre_dept_qty.OptionsColumn.ReadOnly = true;
-            this.Pre_dept_qty.Visible = true;
-            this.Pre_dept_qty.VisibleIndex = 21;
-            this.Pre_dept_qty.Width = 80;
-            // 
-            // Pre_dept_weg
-            // 
-            this.Pre_dept_weg.AppearanceHeader.Options.UseTextOptions = true;
-            this.Pre_dept_weg.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Pre_dept_weg.Caption = "上部門移交重量";
-            this.Pre_dept_weg.DisplayFormat.FormatString = "#,##0";
-            this.Pre_dept_weg.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Pre_dept_weg.FieldName = "predept_rechange_sec_qty";
-            this.Pre_dept_weg.Name = "Pre_dept_weg";
-            this.Pre_dept_weg.OptionsColumn.AllowEdit = false;
-            this.Pre_dept_weg.OptionsColumn.ReadOnly = true;
-            this.Pre_dept_weg.Visible = true;
-            this.Pre_dept_weg.VisibleIndex = 22;
-            this.Pre_dept_weg.Width = 80;
-            // 
-            // Pre_dept_date
-            // 
-            this.Pre_dept_date.AppearanceHeader.Options.UseTextOptions = true;
-            this.Pre_dept_date.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Pre_dept_date.Caption = "上部門移交日期";
-            this.Pre_dept_date.FieldName = "predept_rechange_date";
-            this.Pre_dept_date.Name = "Pre_dept_date";
-            this.Pre_dept_date.OptionsColumn.AllowEdit = false;
-            this.Pre_dept_date.OptionsColumn.ReadOnly = true;
-            this.Pre_dept_date.Visible = true;
-            this.Pre_dept_date.VisibleIndex = 23;
-            this.Pre_dept_date.Width = 80;
-            // 
-            // Vendor_id
-            // 
-            this.Vendor_id.AppearanceHeader.Options.UseTextOptions = true;
-            this.Vendor_id.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.Vendor_id.Caption = "供應商編號";
-            this.Vendor_id.FieldName = "vendor";
-            this.Vendor_id.Name = "Vendor_id";
-            this.Vendor_id.OptionsColumn.AllowEdit = false;
-            this.Vendor_id.OptionsColumn.ReadOnly = true;
-            this.Vendor_id.Visible = true;
-            this.Vendor_id.VisibleIndex = 24;
-            this.Vendor_id.Width = 100;
-            // 
-            // Vender_name
-            // 
-            this.Vender_name.Caption = "供應商名稱";
-            this.Vender_name.FieldName = "vendor_name";
-            this.Vender_name.Name = "Vender_name";
-            this.Vender_name.OptionsColumn.AllowEdit = false;
-            this.Vender_name.OptionsColumn.ReadOnly = true;
-            this.Vender_name.Visible = true;
-            this.Vender_name.VisibleIndex = 25;
-            this.Vender_name.Width = 160;
-            // 
-            // Checkboxcell
-            // 
-            this.Checkboxcell.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.Checkboxcell.AppearanceCell.Options.UseFont = true;
-            this.Checkboxcell.Caption = "選取";
-            this.Checkboxcell.ColumnEdit = this.gvCheck;
-            this.Checkboxcell.FieldName = "check_value";
-            this.Checkboxcell.MaxWidth = 120;
-            this.Checkboxcell.Name = "Checkboxcell";
-            this.Checkboxcell.Width = 80;
-            // 
-            // gvCheck
-            // 
-            this.gvCheck.AutoHeight = false;
-            this.gvCheck.Name = "gvCheck";
-            this.gvCheck.Click += new System.EventHandler(this.gvCheck_Click);
-            // 
-            // gclPmcRqDate
-            // 
-            this.gclPmcRqDate.Caption = "PMC复期";
-            this.gclPmcRqDate.FieldName = "pmc_rq_date";
-            this.gclPmcRqDate.Name = "gclPmcRqDate";
-            this.gclPmcRqDate.Visible = true;
-            this.gclPmcRqDate.VisibleIndex = 26;
-            // 
-            // gclDepRpDate
-            // 
-            this.gclDepRpDate.Caption = "部門复期";
-            this.gclDepRpDate.FieldName = "dep_rp_date";
-            this.gclDepRpDate.Name = "gclDepRpDate";
-            this.gclDepRpDate.Visible = true;
-            this.gclDepRpDate.VisibleIndex = 27;
-            // 
-            // gclWorkTyeDesc
-            // 
-            this.gclWorkTyeDesc.Caption = "生產類型";
-            this.gclWorkTyeDesc.FieldName = "work_type_desc";
-            this.gclWorkTyeDesc.Name = "gclWorkTyeDesc";
-            this.gclWorkTyeDesc.Visible = true;
-            this.gclWorkTyeDesc.VisibleIndex = 28;
-            // 
-            // gclPrdMachine
-            // 
-            this.gclPrdMachine.Caption = "生產機器";
-            this.gclPrdMachine.FieldName = "prd_machine";
-            this.gclPrdMachine.Name = "gclPrdMachine";
-            this.gclPrdMachine.Visible = true;
-            this.gclPrdMachine.VisibleIndex = 29;
-            // 
-            // gclSchMachine
-            // 
-            this.gclSchMachine.Caption = "安排機器";
-            this.gclSchMachine.FieldName = "sch_machine";
-            this.gclSchMachine.Name = "gclSchMachine";
-            this.gclSchMachine.Visible = true;
-            this.gclSchMachine.VisibleIndex = 30;
-            // 
-            // gclWfDate
-            // 
-            this.gclWfDate.Caption = "外發日期";
-            this.gclWfDate.FieldName = "wf_date";
-            this.gclWfDate.Name = "gclWfDate";
-            this.gclWfDate.Visible = true;
-            this.gclWfDate.VisibleIndex = 31;
-            // 
-            // gclWfQty
-            // 
-            this.gclWfQty.Caption = "外發數量";
-            this.gclWfQty.DisplayFormat.FormatString = "#,##0";
-            this.gclWfQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclWfQty.FieldName = "wf_qty";
-            this.gclWfQty.Name = "gclWfQty";
-            this.gclWfQty.Visible = true;
-            this.gclWfQty.VisibleIndex = 32;
-            // 
-            // gclIrDate
-            // 
-            this.gclIrDate.Caption = "外發收貨日期";
-            this.gclIrDate.FieldName = "ir_date";
-            this.gclIrDate.Name = "gclIrDate";
-            this.gclIrDate.Visible = true;
-            this.gclIrDate.VisibleIndex = 33;
-            // 
-            // gclIrQty
-            // 
-            this.gclIrQty.Caption = "外發收貨數量";
-            this.gclIrQty.DisplayFormat.FormatString = "#,##0";
-            this.gclIrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gclIrQty.FieldName = "ir_qty";
-            this.gclIrQty.Name = "gclIrQty";
-            this.gclIrQty.Visible = true;
-            this.gclIrQty.VisibleIndex = 34;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "生產狀態";
@@ -1293,13 +1295,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }

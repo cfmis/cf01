@@ -58,6 +58,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnMakeOrderStatus = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEmail = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.palShowHasSchedule = new System.Windows.Forms.Panel();
@@ -117,8 +118,8 @@
             this.gclUpdateFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPmcRpPDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.grc_cust_code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclArtWorkFile = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclScheduleID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclModuleType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lueModuleType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclNextDoColor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,7 +128,7 @@
             this.gclDepRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lueGvStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.grcPrdItemGroup = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclScheduleID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.glcPreTrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcPreTrDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -137,6 +138,7 @@
             this.grc_av_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gric_cs_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grc_hk_period_flag = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grcPrdItemGroup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -283,7 +285,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.grc_cust_code = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -373,7 +375,9 @@
             this.btnMachine_status,
             this.toolStripSeparator6,
             this.btnMakeOrderStatus,
-            this.toolStripSeparator4});
+            this.toolStripSeparator4,
+            this.btnEmail,
+            this.toolStripSeparator11});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1210, 38);
@@ -550,6 +554,16 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.Image = ((System.Drawing.Image)(resources.GetObject("btnEmail.Image")));
+            this.btnEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(75, 35);
+            this.btnEmail.Text = "發送郵件(&E)";
+            this.btnEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
             // tabControl1
             // 
@@ -1262,6 +1276,14 @@
             this.repositoryItemTextEdit1.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
+            // grc_cust_code
+            // 
+            this.grc_cust_code.Caption = "客戶編號";
+            this.grc_cust_code.FieldName = "cust_code";
+            this.grc_cust_code.Name = "grc_cust_code";
+            this.grc_cust_code.Visible = true;
+            this.grc_cust_code.VisibleIndex = 37;
+            // 
             // gclArtWorkFile
             // 
             this.gclArtWorkFile.AppearanceHeader.Options.UseTextOptions = true;
@@ -1270,14 +1292,6 @@
             this.gclArtWorkFile.FieldName = "art_image";
             this.gclArtWorkFile.Name = "gclArtWorkFile";
             this.gclArtWorkFile.OptionsColumn.ReadOnly = true;
-            // 
-            // gclScheduleID
-            // 
-            this.gclScheduleID.Caption = "排期單號";
-            this.gclScheduleID.FieldName = "schedule_id";
-            this.gclScheduleID.Name = "gclScheduleID";
-            this.gclScheduleID.Visible = true;
-            this.gclScheduleID.VisibleIndex = 44;
             // 
             // gclModuleType
             // 
@@ -1355,15 +1369,13 @@
             this.lueGvStatus.Name = "lueGvStatus";
             this.lueGvStatus.NullText = "";
             // 
-            // grcPrdItemGroup
+            // gclScheduleID
             // 
-            this.grcPrdItemGroup.Caption = "產品分類";
-            this.grcPrdItemGroup.FieldName = "prd_item_group";
-            this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-            this.grcPrdItemGroup.Name = "grcPrdItemGroup";
-            this.grcPrdItemGroup.Visible = true;
-            this.grcPrdItemGroup.VisibleIndex = 54;
-            this.grcPrdItemGroup.Width = 120;
+            this.gclScheduleID.Caption = "排期單號";
+            this.gclScheduleID.FieldName = "schedule_id";
+            this.gclScheduleID.Name = "gclScheduleID";
+            this.gclScheduleID.Visible = true;
+            this.gclScheduleID.VisibleIndex = 44;
             // 
             // glcPreTrQty
             // 
@@ -1441,6 +1453,16 @@
             this.grc_hk_period_flag.Name = "grc_hk_period_flag";
             this.grc_hk_period_flag.Visible = true;
             this.grc_hk_period_flag.VisibleIndex = 53;
+            // 
+            // grcPrdItemGroup
+            // 
+            this.grcPrdItemGroup.Caption = "產品分類";
+            this.grcPrdItemGroup.FieldName = "prd_item_group";
+            this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+            this.grcPrdItemGroup.Name = "grcPrdItemGroup";
+            this.grcPrdItemGroup.Visible = true;
+            this.grcPrdItemGroup.VisibleIndex = 54;
+            this.grcPrdItemGroup.Width = 120;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -2914,7 +2936,7 @@
             // 
             // chkScheduleByMachine
             // 
-            this.chkScheduleByMachine.Location = new System.Drawing.Point(822, 11);
+            this.chkScheduleByMachine.Location = new System.Drawing.Point(938, 11);
             this.chkScheduleByMachine.Name = "chkScheduleByMachine";
             this.chkScheduleByMachine.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.chkScheduleByMachine.Properties.Appearance.Options.UseFont = true;
@@ -2924,13 +2946,10 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
-            // grc_cust_code
+            // toolStripSeparator11
             // 
-            this.grc_cust_code.Caption = "客戶編號";
-            this.grc_cust_code.FieldName = "cust_code";
-            this.grc_cust_code.Name = "grc_cust_code";
-            this.grc_cust_code.Visible = true;
-            this.grc_cust_code.VisibleIndex = 37;
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 38);
             // 
             // frmMoSchedule
             // 
@@ -3267,5 +3286,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grc_hk_period_flag;
         private DevExpress.XtraEditors.SimpleButton btnExp124;
         private DevExpress.XtraGrid.Columns.GridColumn grc_cust_code;
+        private System.Windows.Forms.ToolStripButton btnEmail;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
     }
 }
