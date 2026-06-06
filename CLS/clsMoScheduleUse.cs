@@ -442,6 +442,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 31].Value = "3日前序號";
             worksheet.Cells[excelRow, 32].Value = "4日前序號";
             worksheet.Cells[excelRow, 33].Value = "5日前序號";
+            worksheet.Cells[excelRow, 34].Value = "發外部工序日期";
 
             worksheet.Row(excelRow).Height = 70; // 设置第 1 行的高度为 20 点
 
@@ -599,6 +600,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 31].Value = drExcel["old_seq3"].ToString();
                 worksheet.Cells[excelRow, 32].Value = drExcel["old_seq4"].ToString();
                 worksheet.Cells[excelRow, 33].Value = drExcel["old_seq5"].ToString();
+                worksheet.Cells[excelRow, 34].Value = drExcel["transfer_date_out"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
                 {
@@ -692,6 +694,7 @@ namespace cf01.CLS
             worksheet.Column(31).Hidden = true;
             worksheet.Column(32).Hidden = true;
             worksheet.Column(33).Hidden = true;
+            worksheet.Column(34).Hidden = true;
             worksheet.PrinterSettings.Scale = 65; // 缩放到 75%
 
             // 动态确定表格范围
