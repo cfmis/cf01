@@ -284,9 +284,10 @@ namespace cf01.Forms
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
+            string prd_mo = txtPrdMo.Text.Trim();
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
-            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status,prd_mo);
             return dtSch;
         }
         /// /// 統計排期數量、未完成數量、制單需要的時間
@@ -1118,11 +1119,12 @@ namespace cf01.Forms
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
+            string prd_mo = txtPrdMo.Text.Trim();
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
             int sch_by_machine = 0;
             int rpt_type = 4;//只提取124-A的新加入的記錄
-            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status, prd_mo);
             string result = clsMoScheduleUse.ExpToExcel124(prd_dep, fileName, dtExcel, prgStatus);
             int aa = 0;
         }

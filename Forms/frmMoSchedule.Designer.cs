@@ -286,6 +286,8 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
+            this.tblPrdMo = new System.Windows.Forms.Label();
+            this.txtPrdMo = new DevExpress.XtraEditors.TextEdit();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -349,6 +351,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -2602,7 +2605,7 @@
             this.cmbMoStatus.FormattingEnabled = true;
             this.cmbMoStatus.Location = new System.Drawing.Point(478, 5);
             this.cmbMoStatus.Name = "cmbMoStatus";
-            this.cmbMoStatus.Size = new System.Drawing.Size(109, 21);
+            this.cmbMoStatus.Size = new System.Drawing.Size(121, 21);
             this.cmbMoStatus.TabIndex = 3;
             // 
             // lblMoStatus
@@ -2619,10 +2622,12 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txtDep);
             this.panel1.Controls.Add(this.btnShowMore);
+            this.panel1.Controls.Add(this.txtPrdMo);
             this.panel1.Controls.Add(this.txtPrdMachine);
             this.panel1.Controls.Add(this.lueDepGroup);
             this.panel1.Controls.Add(this.txtOver3Days);
             this.panel1.Controls.Add(this.chkOver3Days);
+            this.panel1.Controls.Add(this.tblPrdMo);
             this.panel1.Controls.Add(this.cmbCpStatus);
             this.panel1.Controls.Add(this.lblPrdMachine);
             this.panel1.Controls.Add(this.cmbMoStatus);
@@ -2951,6 +2956,24 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
+            // tblPrdMo
+            // 
+            this.tblPrdMo.AutoSize = true;
+            this.tblPrdMo.Location = new System.Drawing.Point(409, 34);
+            this.tblPrdMo.Name = "tblPrdMo";
+            this.tblPrdMo.Size = new System.Drawing.Size(67, 14);
+            this.tblPrdMo.TabIndex = 24;
+            this.tblPrdMo.Text = "制單編號:";
+            // 
+            // txtPrdMo
+            // 
+            this.txtPrdMo.Location = new System.Drawing.Point(478, 33);
+            this.txtPrdMo.Name = "txtPrdMo";
+            this.txtPrdMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPrdMo.Properties.MaxLength = 9;
+            this.txtPrdMo.Size = new System.Drawing.Size(121, 20);
+            this.txtPrdMo.TabIndex = 5;
+            // 
             // frmMoSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3032,6 +3055,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3288,5 +3312,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grc_cust_code;
         private System.Windows.Forms.ToolStripButton btnEmail;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private DevExpress.XtraEditors.TextEdit txtPrdMo;
+        private System.Windows.Forms.Label tblPrdMo;
     }
 }

@@ -136,7 +136,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 14].Value = "下部門";
             worksheet.Cells[excelRow, 15].Value = "部門复期";
             if (prd_dep == "102")
-                worksheet.Cells[excelRow, 16].Value = "交JX";
+                worksheet.Cells[excelRow, 16].Value = "未生產數量";
             else
             {
                 if (prd_dep != "322")
@@ -166,6 +166,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 32].Value = "3日前序號";
             worksheet.Cells[excelRow, 33].Value = "4日前序號";
             worksheet.Cells[excelRow, 34].Value = "5日前序號";
+            worksheet.Cells[excelRow, 35].Value = "外發工序日期";
 
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
@@ -195,7 +196,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 14].Value = drExcel["next_wp_id"].ToString();
                 worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
                 if (prd_dep == "102")
-                    worksheet.Cells[excelRow, 16].Value = drExcel["transfer_date_jx"].ToString();
+                    worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
                 else
                 {
                     if (prd_dep != "322")
@@ -232,6 +233,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 32].Value = drExcel["old_seq3"].ToString();
                 worksheet.Cells[excelRow, 33].Value = drExcel["old_seq4"].ToString();
                 worksheet.Cells[excelRow, 34].Value = drExcel["old_seq5"].ToString();
+                worksheet.Cells[excelRow, 35].Value = drExcel["transfer_date_out"].ToString();
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -325,6 +327,11 @@ namespace cf01.CLS
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
             colStr = $"AB1:AB{excelRow}"; // 动态计算行数
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            if (prd_dep == "102" || prd_dep == "122")
+            {
+                colStr = $"P1:P{excelRow}"; // 动态计算行数
+                worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            }
             //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
             //worksheet.Cells["C1:C10"].Style.Numberformat.Format = "$#,##0.00"; // 千分位货币格式
             // 设置某一列不可见
@@ -344,6 +351,7 @@ namespace cf01.CLS
             worksheet.Column(32).Hidden = true;
             worksheet.Column(33).Hidden = true;
             worksheet.Column(34).Hidden = true;
+            worksheet.Column(35).Hidden = true;
             if (prd_dep == "322" || prd_dep == "202")
             {
                 worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
