@@ -92,8 +92,8 @@ namespace cf01.CLS
                             FillExcel105(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
                         else if (prd_dep == "106")
                             FillExcel106(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
-                        else if (prd_dep == "322")
-                            FillExcel322(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
+                        //else if (prd_dep == "322")
+                        //    FillExcel322(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
                         else
                             FillExcel102(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
                     }
@@ -135,15 +135,16 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 13].Value = "已生產數量";
             worksheet.Cells[excelRow, 14].Value = "下部門";
             worksheet.Cells[excelRow, 15].Value = "部門复期";
-            if (prd_dep == "102")
-                worksheet.Cells[excelRow, 16].Value = "未生產數量";
-            else
-            {
-                if (prd_dep != "322")
-                    worksheet.Cells[excelRow, 16].Value = "組別";
-                else
-                    worksheet.Cells[excelRow, 16].Value = "每碑數";
-            }
+            worksheet.Cells[excelRow, 16].Value = "未生產數量";
+            //if (prd_dep == "102")
+            //    worksheet.Cells[excelRow, 16].Value = "未生產數量";
+            //else
+            //{
+            //    if (prd_dep != "322")
+            //        worksheet.Cells[excelRow, 16].Value = "組別";
+            //    else
+            //        worksheet.Cells[excelRow, 16].Value = "每碑數";
+            //}
             worksheet.Cells[excelRow, 17].Value = "部門備註";
             worksheet.Cells[excelRow, 18].Value = "PMC備註";
             worksheet.Cells[excelRow, 19].Value = "狀態";
@@ -167,7 +168,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 33].Value = "4日前序號";
             worksheet.Cells[excelRow, 34].Value = "5日前序號";
             worksheet.Cells[excelRow, 35].Value = "外發工序日期";
-
+            worksheet.Cells[excelRow, 36].Value = "每碑數";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -195,18 +196,19 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 13].Value = drExcel["prd_qty"];
                 worksheet.Cells[excelRow, 14].Value = drExcel["next_wp_id"].ToString();
                 worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
-                if (prd_dep == "102")
-                    worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
-                else
-                {
-                    if (prd_dep != "322")
-                        worksheet.Cells[excelRow, 16].Value = drExcel["prd_group"].ToString();
-                    else
-                    {
-                        //worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//外發的供應商
-                        worksheet.Cells[excelRow, 16].Value = drExcel["line_num"].ToString();//每碑數
-                    }
-                }
+                worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
+                //if (prd_dep == "102")
+                //    worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
+                //else
+                //{
+                //    if (prd_dep != "322")
+                //        worksheet.Cells[excelRow, 16].Value = drExcel["prd_group"].ToString();
+                //    else
+                //    {
+                //        //worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//外發的供應商
+                //        worksheet.Cells[excelRow, 16].Value = drExcel["line_num"].ToString();//每碑數
+                //    }
+                //}
                 worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
                 //if (prd_dep == "102")
                 //{
@@ -234,6 +236,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 33].Value = drExcel["old_seq4"].ToString();
                 worksheet.Cells[excelRow, 34].Value = drExcel["old_seq5"].ToString();
                 worksheet.Cells[excelRow, 35].Value = drExcel["transfer_date_out"].ToString();
+                worksheet.Cells[excelRow, 36].Value = drExcel["line_num"];
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -308,11 +311,11 @@ namespace cf01.CLS
             worksheet.Column(16).Width = 10;
             worksheet.Column(17).Width = 7;
             worksheet.Column(18).Width = 7;
-            if(prd_dep=="322")
-            {
-                worksheet.Column(6).Width = 18;
-                worksheet.Column(16).Width = 6;
-            }
+            //if(prd_dep=="322")
+            //{
+            //    worksheet.Column(6).Width = 18;
+            //    worksheet.Column(16).Width = 6;
+            //}
             //Cells[excelRow, 13]
             // 设置动态范围
             string colStr = $"I1:I{excelRow}"; // 动态计算行数
@@ -352,15 +355,18 @@ namespace cf01.CLS
             worksheet.Column(33).Hidden = true;
             worksheet.Column(34).Hidden = true;
             worksheet.Column(35).Hidden = true;
-            if (prd_dep == "322" || prd_dep == "202")
-            {
-                worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
-            }
-            else
-            {
-                //worksheet.Column(16).Hidden = true;
-                worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
-            }
+            worksheet.Column(36).Hidden = true;
+
+            worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
+            //if (prd_dep == "322" || prd_dep == "202")
+            //{
+            //    worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
+            //}
+            //else
+            //{
+            //    //worksheet.Column(16).Hidden = true;
+            //    worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
+            //}
             string tablePrintAreas = $"A1:R{worksheet.Dimension.End.Row}"; // 列印范围
             colStr = $"A1:R{worksheet.Dimension.End.Row}"; // 动态计算行数
             worksheet.PrinterSettings.PrintArea = worksheet.Cells[colStr];
