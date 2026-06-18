@@ -196,7 +196,7 @@ namespace cf01.CLS
             string result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
         }
         public static DataTable LoadMoSchedule(int rpt_type,string prd_dep,string prd_group,string prd_machine
-            ,int sch_by_machine,string mo_status, string user_id,string cp_status)
+            ,int sch_by_machine,string mo_status, string user_id,string cp_status,string prd_mo)
         {
             SqlParameter[] paras = new SqlParameter[]{
                 new SqlParameter("@rpt_type",rpt_type)
@@ -206,7 +206,9 @@ namespace cf01.CLS
                 ,new SqlParameter("@sch_by_machine",sch_by_machine)
                 ,new SqlParameter("@mo_status",mo_status)
                 ,new SqlParameter("@user_id",user_id)
-                ,new SqlParameter("@cp_status",cp_status)};
+                ,new SqlParameter("@cp_status",cp_status)
+                ,new SqlParameter("@prd_mo",prd_mo)
+                };
             DataTable dtScheduler = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule", paras);
             dtScheduler.Columns.Add("ArtWork", typeof(Image)); // 图片列
             //for (int i=0;i<dtScheduler.Rows.Count;i++)

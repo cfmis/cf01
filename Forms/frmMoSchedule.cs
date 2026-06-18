@@ -284,9 +284,10 @@ namespace cf01.Forms
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
+            string prd_mo = txtPrdMo.Text.Trim();
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
-            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status,prd_mo);
             return dtSch;
         }
         /// /// 統計排期數量、未完成數量、制單需要的時間
@@ -1118,31 +1119,36 @@ namespace cf01.Forms
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
+            string prd_mo = txtPrdMo.Text.Trim();
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
             int sch_by_machine = 0;
             int rpt_type = 4;//只提取124-A的新加入的記錄
-            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status, prd_mo);
             string result = clsMoScheduleUse.ExpToExcel124(prd_dep, fileName, dtExcel, prgStatus);
             int aa = 0;
         }
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            string[] recipients_c = { "dgpp_1c@chingfung.com" };
-            SendMail("C", recipients_c);
-            string[] recipients_e  = { "dgpp_1e@chingfung.com", "dg_pmc@chingfung.com", "leavy_lai@chingfung.com","chris_yip@chingfung.com" };
-            SendMail("E", recipients_e);
-            SendMail("W", recipients_e);
-            string[] recipients_l = { "dgpp_2l@chingfung.com", "dg_pmc@chingfung.com" };
-            SendMail("L", recipients_l);
-            string[] recipients_s = { "dgpp_2l@chingfung.com", "dg_pmc@chingfung.com", "cherry_tam@chingfung.com" };
-            SendMail("S", recipients_s);
-            string[] recipients_v = { "dgpp_2v@chingfung.com", "dg_pmc@chingfung.com" };
-            SendMail("V", recipients_v);
-            string[] recipients_h = { "dgpp_h&2y@chingfung.com", "dg_pmc@chingfung.com" };
-            SendMail("H", recipients_h);
+            string[] recipients = { "dgpp_1c@chingfung.com" };
+            SendMail("C", recipients);
 
+            recipients = new string[] { "dgpp_1e@chingfung.com", "dg_pmc@chingfung.com", "chris_yip@chingfung.com" }; // 直接赋新值
+            SendMail("E", recipients);
+            SendMail("W", recipients);
+            recipients = new string[] { "dgpp_2l@chingfung.com", "dg_pmc@chingfung.com" }; // 直接赋新值
+            SendMail("L", recipients);
+
+            recipients = new string[] { "dgpp_1s@chingfung.com", "dg_pmc@chingfung.com", "cherry_tam@chingfung.com" }; // 直接赋新值
+            SendMail("S", recipients);
+
+            recipients = new string[] { "dgpp_2v@chingfung.com", "dg_pmc@chingfung.com" }; // 直接赋新值
+            SendMail("V", recipients);
+
+            recipients = new string[] { "dgpp_h&2y@chingfung.com", "dg_pmc@chingfung.com" }; // 直接赋新值
+            SendMail("H", recipients);
+            MessageBox.Show("郵件已發送！");
         }
 
         private void SendMail(string mo_group,string[] email_addr)
@@ -1160,29 +1166,42 @@ namespace cf01.Forms
             string htmlTable = ConvertDataTableToHtml(dtEmail);
             // 创建邮件对象
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("leavy_lai@chingfung.com");
+            mail.From = new MailAddress("erp_info@chingfung.com");
             //email_addr = "leavy_lai@chingfung.com";
             // 群发收件人
-            //string[] recipients = { "user1@example.com", "user2@example.com", "user3@example.com" };
-            foreach (string recipient in email_addr)
+            //string[] recipients = { "leavy_lai@chingfung.com" };
+            try
             {
-                mail.To.Add(recipient);
+                foreach (string recipient in email_addr)
+                {
+                    mail.To.Add(recipient);
+                }
+                //mail.To.Add(email_addr);
+                //// 抄送
+                //mail.CC.Add("manager@example.com");
+
+                //// 密送
+                //mail.Bcc.Add("archive@example.com");
+                mail.Subject = "部門每天排期表";
+                //mail.Body = "这是一封由 C# 发送的测试邮件。";
+                mail.Body = htmlTable;
+                mail.IsBodyHtml = true; // 必须启用 HTML
+
+                // 配置 SMTP 客户端
+                SmtpClient smtp = new SmtpClient("192.168.3.19", 587); // SMTP服务器和端口
+                                                                       //smtp.Credentials = new NetworkCredential("leavy_lai@chingfung.com", "Active5@1384!");
+                smtp.Credentials = new NetworkCredential("erp_info@chingfung.com", "9999");
+                //smtp.EnableSsl = true; // 是否启用 SSL，根据服务器要求
+
+                // 发送邮件
+                smtp.Send(mail);
+
+                //Console.WriteLine("邮件发送成功！");
             }
-            //mail.To.Add(email_addr);
-            mail.Subject = "部門每天排期表";
-            //mail.Body = "这是一封由 C# 发送的测试邮件。";
-            mail.Body = htmlTable;
-            mail.IsBodyHtml = true; // 必须启用 HTML
-
-            // 配置 SMTP 客户端
-            SmtpClient smtp = new SmtpClient("192.168.3.19", 587); // SMTP服务器和端口
-            smtp.Credentials = new NetworkCredential("leavy_lai@chingfung.com", "Active5@1384!");
-            //smtp.EnableSsl = true; // 是否启用 SSL，根据服务器要求
-
-            // 发送邮件
-            smtp.Send(mail);
-
-            Console.WriteLine("邮件发送成功！");
+            catch (Exception ex)
+            {
+                Console.WriteLine("发送失败: " + ex.Message);
+            }
         }
 
         // 将 DataTable 转换为 HTML 表格
@@ -1191,7 +1210,7 @@ namespace cf01.Forms
             StringBuilder sb = new StringBuilder();
             sb.Append("以下為本組訂單在 " + dt.Rows[0]["prd_dep"]+" 部門于" + System.DateTime.Now.ToString("yyyy/MM/dd") + "日" + "的生產排期表。");
             sb.Append("<br>");
-            sb.Append("<p>排期次序越靠前，代表越優先生產，請盡量遵守排期規則。</p>");
+            sb.Append("<p>排期次序越靠前，表示越優先生產，請盡量遵守排期規則。</p>");
             sb.Append("<p>~~~系統自動發送，請勿回覆~~~</p>");
             sb.Append("<br>");
             sb.Append("<table border='1' style='border-collapse:collapse;'>");
