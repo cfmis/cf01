@@ -119,6 +119,24 @@ namespace cf01.Reports
                 txtfactory_name.Font = new System.Drawing.Font("Arial", 6F);            
         }
 
+        private void xrLabel109_TextChanged(object sender, EventArgs e)
+        {
+            string currencyPrice = GetCurrentColumnValue("currency_price").ToString();
+            xrLabel109.Visible = (currencyPrice == "0.0000") ? false : true;
+        }      
+
+        private void txtProd_coo1_TextChanged(object sender, EventArgs e)
+        {
+            string prod_coo1 = GetCurrentColumnValue("prod_coo1").ToString();
+            txtProd_coo1.Text = string.IsNullOrEmpty(prod_coo1) ? "China" : prod_coo1;
+        }
+
+        private void txtProd_factory1_TextChanged(object sender, EventArgs e)
+        {
+            string prod_factory = GetCurrentColumnValue("prod_factory1").ToString();
+            txtProd_factory1.Text = string.IsNullOrEmpty(prod_factory) ? "ChingFung" : prod_factory;
+        }
+
         //private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
         //{
         //    string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
