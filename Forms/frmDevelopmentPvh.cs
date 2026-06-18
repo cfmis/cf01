@@ -256,7 +256,13 @@ namespace cf01.Forms
             lueFactory_name.Properties.DataSource = dtFactoryName;
             lueFactory_name.Properties.ValueMember = "name";
             lueFactory_name.Properties.DisplayMember = "name";
-          
+
+            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "sus_process");
+            DataTable dtSusProcess = clsPublicOfCF01.GetDataTable(strSql);
+            lueSus_process.Properties.DataSource = dtSusProcess;
+            lueSus_process.Properties.ValueMember = "id";
+            lueSus_process.Properties.DisplayMember = "id";
+
             DataTable dtWeightUom = clsPublicOfCF01.GetDataTable(string.Format(@"SELECT contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "Weight_UOM"));
             for (int i = 0; i < dtWeightUom.Rows.Count; i++)
             {
@@ -405,6 +411,18 @@ namespace cf01.Forms
             txtDye_type.DataBindings.Add("EditValue", bds1, "dye_type");
             txtDye_method.DataBindings.Add("EditValue", bds1, "dye_method");
             txtMaterial_structure.DataBindings.Add("EditValue", bds1, "material_structure");
+            //20260616
+            lueSus_process.DataBindings.Add("EditValue", bds1, "sus_process");
+            txtCommo_animal.DataBindings.Add("Text", bds1, "commo_animal");
+            txtLeather_type.DataBindings.Add("Text", bds1, "leather_type");
+            txtCurrency_price.DataBindings.Add("Text", bds1, "currency_price");
+            cbeRaw_mat1_subprocess.DataBindings.Add("EditValue", bds1, "raw_mat1_subprocess");
+            cbeRaw_mat2_subprocess.DataBindings.Add("EditValue", bds1, "raw_mat2_subprocess");
+            cbeRaw_mat3_subprocess.DataBindings.Add("EditValue", bds1, "raw_mat3_subprocess");
+            cbeProd_coo1.DataBindings.Add("EditValue", bds1, "prod_coo1");
+            cbeProd_coo2.DataBindings.Add("EditValue", bds1, "prod_coo2");
+            txtProd_factory1.DataBindings.Add("Text", bds1, "prod_factory1");
+            txtProd_factory2.DataBindings.Add("Text", bds1, "prod_factory2");
 
         }
 
@@ -497,7 +515,7 @@ namespace cf01.Forms
             }
             bds1.EndEdit();                    
             bool save_flag = false;
-            const string sql_new =
+            const string sql_insert =
             @"INSERT INTO development_pvh(serial_no,division,handling_office,season,date,requested_by,supplier_ref_no,plm_material_code,pvh_submit_ref,supplier_name,
             factory_name,material_subtype,size,colour,finish,process,previous_submit_ref,sample_type,previous_submit_vr,weight,weight_base,weight_uom,obj_fbx,u3ma,raw_mat1_compostion,
             raw_mat1_percent,raw_mat1_l3,raw_mat1_l4,raw_mat1_l5,raw_mat2_compostion,raw_mat2_percent,raw_mat2_l3,raw_mat2_l4,raw_mat2_l5,raw_mat3_compostion,raw_mat3_percent,
@@ -508,7 +526,8 @@ namespace cf01.Forms
             cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,machine_washable,
             dry_cleanable,dry_clean_only,do_not_dry_clean,suitable_for_tumble_dry,suitable_for_swimwear,passes_metal_detection,complies_with_pvh,complies_with_cfr,quality_callouts,
             submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3,
-            dye_type,dye_method,material_structure) 
+            dye_type,dye_method,material_structure, sus_process,commo_animal,leather_type,currency_price,raw_mat1_subprocess,raw_mat2_subprocess,raw_mat3_subprocess,prod_coo1,prod_coo2,
+            prod_factory1,prod_factory2) 
             VALUES(@serial_no,@division,@handling_office,@season,@date,@requested_by,@supplier_ref_no,@plm_material_code,@pvh_submit_ref,@supplier_name,@factory_name,
             @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,@weight_base,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
             @raw_mat1_percent,@raw_mat1_l3,@raw_mat1_l4,@raw_mat1_l5,@raw_mat2_compostion,@raw_mat2_percent,@raw_mat2_l3,@raw_mat2_l4,@raw_mat2_l5,@raw_mat3_compostion,@raw_mat3_percent,
@@ -519,7 +538,8 @@ namespace cf01.Forms
             @cert4_mat_finish,@cert4_type,@cert4_type_other,@cert4_scope_no,@cert4_expiry_date,@cert4_scope_holder,@machine_washable,
             @dry_cleanable,@dry_clean_only,@do_not_dry_clean,@suitable_for_tumble_dry,@suitable_for_swimwear,@passes_metal_detection,@complies_with_pvh,@complies_with_cfr,@quality_callouts,
             @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3,
-            @dye_type,@dye_method,@material_structure)";
+            @dye_type,@dye_method,@material_structure,@sus_process,@commo_animal,@leather_type,@currency_price,@raw_mat1_subprocess,@raw_mat2_subprocess,@raw_mat3_subprocess,@prod_coo1,
+            @prod_coo2,@prod_factory1,@prod_factory2)";
             //rsl_certificate_type,rsl_certificate_expiry_date,
             //@rsl_certificate_type,CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,
             const string sql_update =
@@ -540,7 +560,9 @@ namespace cf01.Forms
             machine_washable=@machine_washable,dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
             passes_metal_detection=@passes_metal_detection,complies_with_pvh=@complies_with_pvh,complies_with_cfr=@complies_with_cfr,quality_callouts=@quality_callouts,submit1=@submit1,submit2=@submit2,submit3=@submit3,
             urgent_bulk_order=@urgent_bulk_order,for_bulk_feference=@for_bulk_feference,for_quality_approval=@for_quality_approval,color_already_approved=@color_already_approved,size_already_approved=@size_already_approved,
-            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method,material_structure=@material_structure
+            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method,material_structure=@material_structure,
+            sus_process=@sus_process,commo_animal=@commo_animal,leather_type=@leather_type, currency_price=@currency_price,raw_mat1_subprocess=@raw_mat1_subprocess,raw_mat2_subprocess=@raw_mat2_subprocess,
+            raw_mat3_subprocess=@raw_mat3_subprocess,prod_coo1=@prod_coo1,prod_coo2=@prod_coo2,prod_factory1=@prod_factory1,prod_factory2=@prod_factory2
             WHERE serial_no=@serial_no";
             // rsl_certificate_type=@rsl_certificate_type,rsl_certificate_expiry_date=CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END,
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -554,7 +576,7 @@ namespace cf01.Forms
                     myCommand.Parameters.Clear();
                     if (mState == "NEW")
                     {
-                        myCommand.CommandText = sql_new;
+                        myCommand.CommandText = sql_insert;
                         strSerial_no = clsTommyTest.GetSeqNo("development_pvh", "serial_no");
                         //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
                         if (txtPvh_submit_ref.Text != "")
@@ -702,7 +724,19 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@dye_type", txtDye_type.EditValue);
                     myCommand.Parameters.AddWithValue("@dye_method", txtDye_method.EditValue);
                     myCommand.Parameters.AddWithValue("@material_structure", txtMaterial_structure.EditValue);
-                    
+                    //added 2026/06/16 ---------
+                    myCommand.Parameters.AddWithValue("@sus_process", lueSus_process.Text);
+                    myCommand.Parameters.AddWithValue("@commo_animal", txtCommo_animal.Text);
+                    myCommand.Parameters.AddWithValue("@leather_type", txtLeather_type.Text);                    
+                    myCommand.Parameters.AddWithValue("@currency_price", clsApp.Return_Float_Value_4(txtCurrency_price.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat1_subprocess", cbeRaw_mat1_subprocess.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat2_subprocess", cbeRaw_mat2_subprocess.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat3_subprocess", cbeRaw_mat3_subprocess.Text);
+                    myCommand.Parameters.AddWithValue("@prod_coo1", cbeProd_coo1.Text);
+                    myCommand.Parameters.AddWithValue("@prod_coo2", cbeProd_coo2.Text);
+                    myCommand.Parameters.AddWithValue("@prod_factory1", txtProd_factory1.Text);
+                    myCommand.Parameters.AddWithValue("@prod_factory2", txtProd_factory2.Text);
+  
 
                     myCommand.ExecuteNonQuery();
                     myTrans.Commit(); //數據提交                    
@@ -1120,8 +1154,9 @@ namespace cf01.Forms
                 return;
             }
             string strsql = string.Format(
-                @"Select *,Isnull(raw_mat1_percent,0)+Isnull(raw_mat2_percent,0)+Isnull(raw_mat3_percent,0)+Isnull(raw_mat4_percent,0)
-                +Isnull(raw_mat5_percent,0) AS percent_total FROM dbo.development_pvh WHERE serial_no='{0}'", txtSerial_no.Text);
+            @"Select *,Isnull(raw_mat1_percent,0)+Isnull(raw_mat2_percent,0)+Isnull(raw_mat3_percent,0)+Isnull(raw_mat4_percent,0) +Isnull(raw_mat5_percent,0) AS percent_total 
+            FROM dbo.development_pvh 
+            WHERE serial_no='{0}'", txtSerial_no.Text);
             DataTable dtReport = clsPublicOfCF01.GetDataTable(strsql);
             using (xrDevelopmentPvh rpt = new xrDevelopmentPvh() { DataSource = dtReport })
             {
@@ -1257,19 +1292,19 @@ namespace cf01.Forms
 
         private void lueRaw_mat1_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3, lueRaw_mat1_l4);           
+            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3, lueRaw_mat1_l4,cbeRaw_mat1_subprocess);           
         }
 
         private void lueRaw_mat2_compostion_EditValueChanged(object sender, EventArgs e)
         {
             //clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
-            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3, lueRaw_mat2_l4);
+            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3, lueRaw_mat2_l4, cbeRaw_mat2_subprocess);
         }
 
         private void lueRaw_mat3_compostion_EditValueChanged(object sender, EventArgs e)
         {
             //clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
-            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3, lueRaw_mat3_l4);
+            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3, lueRaw_mat3_l4, cbeRaw_mat3_subprocess);
         }
 
         private void txtProcess_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

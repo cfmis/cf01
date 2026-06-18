@@ -62,10 +62,10 @@ namespace cf01.Reports
 
         private void lblPrice6_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price6").ToString() == "0.0000")
-                lblPrice6.Visible = false;
-            else
-                lblPrice6.Visible = true;
+            //if (GetCurrentColumnValue("price6").ToString() == "0.0000")
+            //    //lblPrice6.Visible = false;
+            //else
+            //   // lblPrice6.Visible = true;
         }
 
         private void lblPercent1_TextChanged(object sender, EventArgs e)
@@ -96,7 +96,13 @@ namespace cf01.Reports
             if (GetCurrentColumnValue("percent_total").ToString() == "0")
                 lblPercentTotal.Visible = false;
             else
+            {
                 lblPercentTotal.Visible = true;
+                decimal val = decimal.Parse(GetCurrentColumnValue("raw_mat1_percent").ToString());
+                val += decimal.Parse(GetCurrentColumnValue("raw_mat2_percent").ToString());
+                val += decimal.Parse(GetCurrentColumnValue("raw_mat3_percent").ToString());
+                xrlNeedtobe.Text = (val >= 100) ? "NEED TO BE 100%" : "";                
+            }
         }
 
         private void xrLabel64_TextChanged(object sender, EventArgs e)

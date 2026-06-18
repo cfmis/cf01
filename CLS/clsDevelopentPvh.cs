@@ -91,11 +91,13 @@ namespace cf01.CLS
             return dt;
         }
 
-        public static void SetCountry(DevExpress.XtraEditors.LookUpEdit objMat, DevExpress.XtraEditors.LookUpEdit objL3, DevExpress.XtraEditors.LookUpEdit objL4)
+        public static void SetCountry(DevExpress.XtraEditors.LookUpEdit objMat, DevExpress.XtraEditors.LookUpEdit objL3, DevExpress.XtraEditors.LookUpEdit objL4, DevExpress.XtraEditors.ComboBoxEdit objSub)
         {
             objL3.EditValue = objMat.GetColumnValue("name1").ToString();
             objL4.EditValue = objMat.GetColumnValue("name2").ToString();
-
+            string strMat = objMat.EditValue.ToString();
+            objSub.EditValue = (strMat != "") ? "Pre-Consumer" : "";                   
+            
             //    string strMatValue = "";
             //    string strCountry = "";
             //    strMatValue = objMat.EditValue.ToString();
