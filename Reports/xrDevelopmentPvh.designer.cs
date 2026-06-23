@@ -1429,7 +1429,7 @@
             this.xrLabel17.CanGrow = false;
             this.xrLabel17.Dpi = 254F;
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(490.1963F, 2254.54F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(183.9886F, 2236.019F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel17.SizeF = new System.Drawing.SizeF(298.0701F, 48.25977F);
@@ -1437,7 +1437,6 @@
             this.xrLabel17.StylePriority.UseTextAlignment = false;
             this.xrLabel17.Text = "[mo_id1]";
             this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel17.Visible = false;
             this.xrLabel17.WordWrap = false;
             // 
             // xrLabel38
@@ -1445,7 +1444,7 @@
             this.xrLabel38.CanGrow = false;
             this.xrLabel38.Dpi = 254F;
             this.xrLabel38.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel38.LocationFloat = new DevExpress.Utils.PointFloat(490.1963F, 2254.54F);
+            this.xrLabel38.LocationFloat = new DevExpress.Utils.PointFloat(813.0304F, 2236.019F);
             this.xrLabel38.Name = "xrLabel38";
             this.xrLabel38.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel38.SizeF = new System.Drawing.SizeF(298.0701F, 48.25952F);
@@ -1453,7 +1452,6 @@
             this.xrLabel38.StylePriority.UseTextAlignment = false;
             this.xrLabel38.Text = "[mo_id2]";
             this.xrLabel38.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel38.Visible = false;
             this.xrLabel38.WordWrap = false;
             // 
             // xrLabel53
@@ -1461,7 +1459,7 @@
             this.xrLabel53.CanGrow = false;
             this.xrLabel53.Dpi = 254F;
             this.xrLabel53.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel53.LocationFloat = new DevExpress.Utils.PointFloat(490.1963F, 2254.54F);
+            this.xrLabel53.LocationFloat = new DevExpress.Utils.PointFloat(1482.232F, 2236.019F);
             this.xrLabel53.Name = "xrLabel53";
             this.xrLabel53.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel53.SizeF = new System.Drawing.SizeF(298.0701F, 48.25977F);
@@ -1469,7 +1467,6 @@
             this.xrLabel53.StylePriority.UseTextAlignment = false;
             this.xrLabel53.Text = "[mo_id3]";
             this.xrLabel53.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel53.Visible = false;
             this.xrLabel53.WordWrap = false;
             // 
             // xrLine17
