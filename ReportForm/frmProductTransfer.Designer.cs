@@ -51,6 +51,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.select_flag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.row_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.transfer_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_mo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_item = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,6 +68,13 @@
             this.manual_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatetime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.Price = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.Unit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.Price_sec = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Unit_sec = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnit_sec = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.prd_dep = new DevExpress.XtraGrid.Columns.GridColumn();
             this.work_sort = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -81,6 +89,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNSAVEPRICE = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.cmbTransfer_flag = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -101,7 +111,8 @@
             this.lblOut_dept = new System.Windows.Forms.Label();
             this.lueWork_sort = new DevExpress.XtraEditors.LookUpEdit();
             this.lblIn_dept = new System.Windows.Forms.Label();
-            this.row_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkAll = new System.Windows.Forms.CheckBox();
+            this.qty_difference = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDate.CalendarTimeProperties)).BeginInit();
@@ -112,6 +123,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.colSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colUnit_sec)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -460,7 +474,10 @@
             this.colSec_qty,
             this.colDatetime,
             this.colDate,
-            this.colSelect});
+            this.colSelect,
+            this.colPrice,
+            this.colUnit,
+            this.colUnit_sec});
             this.gridControl1.Size = new System.Drawing.Size(1102, 391);
             this.gridControl1.TabIndex = 153;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -488,6 +505,11 @@
             this.transfer_weg,
             this.manual_date,
             this.crtim,
+            this.Price,
+            this.Unit,
+            this.Price_sec,
+            this.Unit_sec,
+            this.qty_difference,
             this.prd_dep,
             this.work_sort});
             this.gridView1.GridControl = this.gridControl1;
@@ -524,6 +546,29 @@
             this.colSelect.LookAndFeel.UseDefaultLookAndFeel = false;
             this.colSelect.Name = "colSelect";
             this.colSelect.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            // 
+            // row_no
+            // 
+            this.row_no.AppearanceCell.Options.UseTextOptions = true;
+            this.row_no.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.row_no.Caption = "序號";
+            this.row_no.FieldName = "row_no";
+            this.row_no.Name = "row_no";
+            this.row_no.OptionsColumn.AllowEdit = false;
+            this.row_no.OptionsColumn.AllowFocus = false;
+            this.row_no.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.AllowIncrementalSearch = false;
+            this.row_no.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.AllowMove = false;
+            this.row_no.OptionsColumn.AllowShowHide = false;
+            this.row_no.OptionsColumn.AllowSize = false;
+            this.row_no.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.row_no.OptionsColumn.ReadOnly = true;
+            this.row_no.OptionsFilter.AllowAutoFilter = false;
+            this.row_no.OptionsFilter.AllowFilter = false;
+            this.row_no.Visible = true;
+            this.row_no.VisibleIndex = 1;
+            this.row_no.Width = 40;
             // 
             // transfer_date
             // 
@@ -816,6 +861,113 @@
             this.colDatetime.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.colDatetime.Name = "colDatetime";
             // 
+            // Price
+            // 
+            this.Price.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Price.AppearanceCell.Options.UseBackColor = true;
+            this.Price.Caption = "單價";
+            this.Price.ColumnEdit = this.colPrice;
+            this.Price.FieldName = "Price";
+            this.Price.Name = "Price";
+            this.Price.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.Price.OptionsColumn.AllowIncrementalSearch = false;
+            this.Price.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.Price.OptionsColumn.AllowMove = false;
+            this.Price.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.Price.OptionsFilter.AllowAutoFilter = false;
+            this.Price.OptionsFilter.AllowFilter = false;
+            this.Price.Visible = true;
+            this.Price.VisibleIndex = 17;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoHeight = false;
+            this.colPrice.DisplayFormat.FormatString = "n3";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPrice.EditFormat.FormatString = "n3";
+            this.colPrice.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPrice.Mask.EditMask = "n3";
+            this.colPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colPrice.Name = "colPrice";
+            // 
+            // Unit
+            // 
+            this.Unit.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Unit.AppearanceCell.Options.UseBackColor = true;
+            this.Unit.Caption = "單位";
+            this.Unit.ColumnEdit = this.colUnit;
+            this.Unit.FieldName = "Unit";
+            this.Unit.Name = "Unit";
+            this.Unit.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit.OptionsColumn.AllowIncrementalSearch = false;
+            this.Unit.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit.OptionsColumn.AllowMove = false;
+            this.Unit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit.OptionsFilter.AllowAutoFilter = false;
+            this.Unit.OptionsFilter.AllowFilter = false;
+            this.Unit.Visible = true;
+            this.Unit.VisibleIndex = 18;
+            // 
+            // colUnit
+            // 
+            this.colUnit.AutoHeight = false;
+            this.colUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            this.colUnit.Name = "colUnit";
+            this.colUnit.NullText = "";
+            this.colUnit.PopupWidth = 30;
+            this.colUnit.ShowHeader = false;
+            // 
+            // Price_sec
+            // 
+            this.Price_sec.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Price_sec.AppearanceCell.Options.UseBackColor = true;
+            this.Price_sec.Caption = "重量單價";
+            this.Price_sec.ColumnEdit = this.colPrice;
+            this.Price_sec.FieldName = "Price_sec";
+            this.Price_sec.Name = "Price_sec";
+            this.Price_sec.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.Price_sec.OptionsColumn.AllowIncrementalSearch = false;
+            this.Price_sec.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.Price_sec.OptionsColumn.AllowMove = false;
+            this.Price_sec.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.Price_sec.OptionsFilter.AllowAutoFilter = false;
+            this.Price_sec.OptionsFilter.AllowFilter = false;
+            this.Price_sec.Visible = true;
+            this.Price_sec.VisibleIndex = 19;
+            // 
+            // Unit_sec
+            // 
+            this.Unit_sec.AppearanceCell.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Unit_sec.AppearanceCell.Options.UseBackColor = true;
+            this.Unit_sec.Caption = "重量單位";
+            this.Unit_sec.ColumnEdit = this.colUnit_sec;
+            this.Unit_sec.FieldName = "Unit_sec";
+            this.Unit_sec.Name = "Unit_sec";
+            this.Unit_sec.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit_sec.OptionsColumn.AllowIncrementalSearch = false;
+            this.Unit_sec.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit_sec.OptionsColumn.AllowMove = false;
+            this.Unit_sec.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.Unit_sec.OptionsFilter.AllowAutoFilter = false;
+            this.Unit_sec.OptionsFilter.AllowFilter = false;
+            this.Unit_sec.Visible = true;
+            this.Unit_sec.VisibleIndex = 20;
+            // 
+            // colUnit_sec
+            // 
+            this.colUnit_sec.AutoHeight = false;
+            this.colUnit_sec.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colUnit_sec.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            this.colUnit_sec.Name = "colUnit_sec";
+            this.colUnit_sec.NullText = "";
+            this.colUnit_sec.PopupWidth = 30;
+            this.colUnit_sec.ShowHeader = false;
+            // 
             // prd_dep
             // 
             this.prd_dep.Caption = "發貨部門";
@@ -850,7 +1002,9 @@
             this.BTNEXCEL,
             this.toolStripSeparator3,
             this.BTNSAVE,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.BTNSAVEPRICE,
+            this.toolStripSeparator5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -945,14 +1099,31 @@
             // 
             // toolStripSeparator2
             // 
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // BTNSAVEPRICE
+            // 
+            this.BTNSAVEPRICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVEPRICE.Image")));
+            this.BTNSAVEPRICE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNSAVEPRICE.Name = "BTNSAVEPRICE";
+            this.BTNSAVEPRICE.Size = new System.Drawing.Size(59, 35);
+            this.BTNSAVEPRICE.Text = "更新單價";
+            this.BTNSAVEPRICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSAVEPRICE.Click += new System.EventHandler(this.BTNSAVEPRICE_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.chkAll);
             this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.cmbTransfer_flag);
             this.panel1.Controls.Add(this.label6);
@@ -979,7 +1150,7 @@
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(717, 61);
+            this.radioGroup1.Location = new System.Drawing.Point(717, 82);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "匯總表"),
@@ -1212,28 +1383,24 @@
             this.lblIn_dept.Text = "工序類型";
             this.lblIn_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // row_no
+            // chkAll
             // 
-            this.row_no.AppearanceCell.Options.UseTextOptions = true;
-            this.row_no.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.row_no.Caption = "序號";
-            this.row_no.FieldName = "row_no";
-            this.row_no.Name = "row_no";
-            this.row_no.OptionsColumn.AllowEdit = false;
-            this.row_no.OptionsColumn.AllowFocus = false;
-            this.row_no.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.row_no.OptionsColumn.AllowIncrementalSearch = false;
-            this.row_no.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.row_no.OptionsColumn.AllowMove = false;
-            this.row_no.OptionsColumn.AllowShowHide = false;
-            this.row_no.OptionsColumn.AllowSize = false;
-            this.row_no.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.row_no.OptionsColumn.ReadOnly = true;
-            this.row_no.OptionsFilter.AllowAutoFilter = false;
-            this.row_no.OptionsFilter.AllowFilter = false;
-            this.row_no.Visible = true;
-            this.row_no.VisibleIndex = 1;
-            this.row_no.Width = 40;
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(717, 39);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(164, 16);
+            this.chkAll.TabIndex = 162;
+            this.chkAll.Text = "全部顯示(包括已收貨完成)";
+            this.chkAll.UseVisualStyleBackColor = true;
+            // 
+            // qty_difference
+            // 
+            this.qty_difference.Caption = "數量差額";
+            this.qty_difference.FieldName = "qty_difference";
+            this.qty_difference.Name = "qty_difference";
+            this.qty_difference.OptionsColumn.ReadOnly = true;
+            this.qty_difference.Visible = true;
+            this.qty_difference.VisibleIndex = 21;
             // 
             // frmProductTransfer
             // 
@@ -1256,6 +1423,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.colSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDatetime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colUnit_sec)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1351,5 +1521,16 @@
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraGrid.Columns.GridColumn manual_date;
         private DevExpress.XtraGrid.Columns.GridColumn row_no;
+        private DevExpress.XtraGrid.Columns.GridColumn Price;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn Unit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit colUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn Price_sec;
+        private DevExpress.XtraGrid.Columns.GridColumn Unit_sec;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit colUnit_sec;
+        private System.Windows.Forms.ToolStripButton BTNSAVEPRICE;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.CheckBox chkAll;
+        private DevExpress.XtraGrid.Columns.GridColumn qty_difference;
     }
 }

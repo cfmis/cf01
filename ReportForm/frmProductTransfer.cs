@@ -6,8 +6,6 @@
  * transfer_flag：0--發貨;1--收貨
 */
 
-
-
 using cf01.CLS;
 using cf01.Forms;
 using System;
@@ -64,67 +62,24 @@ namespace cf01.ReportForm
             gridView1.Columns["row_no"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             gridView1.Columns["transfer_date"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             gridView1.Columns["prd_mo"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+
+            strSql = string.Format("Select id From {0}cd_units Where within_code ='0000' AND kind ='05'ORDER BY id",DBUtility.remote_db);
+            DataTable dtUnit1 = clsPublicOfPad.GetDataTable(strSql);
+            colUnit.DataSource = dtUnit1;
+            colUnit.ValueMember = "id";
+            colUnit.DisplayMember = "id";
+            strSql = string.Format("Select id From {0}cd_units Where within_code ='0000' AND kind ='03'ORDER BY id", DBUtility.remote_db);
+            DataTable dtUnit2 = clsPublicOfPad.GetDataTable(strSql);
+            colUnit_sec.DataSource = dtUnit2;
+            colUnit_sec.ValueMember = "id";
+            colUnit_sec.DisplayMember = "id";
+
+
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
-        {    
-            string wipId = string.IsNullOrEmpty(txtWip_id.EditValue.ToString()) ? "" : txtWip_id.EditValue.ToString();
-            string prdItem = string.IsNullOrEmpty(txtPrd_item.Text) ? "" : txtPrd_item.Text;
-            string moId1 = txtPrd_mo1.Text, moId2 = txtPrd_mo2.Text;
-            string crTim1 = string.IsNullOrEmpty(txtCrtim1.Text) ? "": txtCrtim1.EditValue.ToString();                
-            string crTim2 = string.IsNullOrEmpty(txtCrtim2.Text) ? "" : txtCrtim2.EditValue.ToString();
-            string salesGroup = txtGroup.Text;
-            string transferFlagIndex = cmbTransfer_flag.SelectedIndex.ToString();
-            string workGroup = lueWork_sort.EditValue.ToString();
-            crTim1 = string.IsNullOrEmpty(crTim1) ? "": DateTime.Parse(crTim1).ToString("yyyy/MM/dd HH:mm") ;
-            crTim2 = string.IsNullOrEmpty(crTim2) ? "": DateTime.Parse(crTim2).ToString("yyyy/MM/dd HH:mm") ;
-
-            if (wipId == "" && prdItem == "" && moId1 == "" && moId2 == "" && crTim1 == "" && crTim2 == "" 
-                && salesGroup == "" && workGroup == "" && transferFlagIndex == "")
-            {
-                MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (transferFlagIndex == "2" || transferFlagIndex=="-1")
-            {
-                transferFlagIndex = ""; //代表全部
-            }
-            SqlParameter[] paras = new SqlParameter[]
-            {
-                new SqlParameter("@wipId", wipId),
-                new SqlParameter("@prdItem",prdItem),
-                new SqlParameter("@moId1", moId1),
-                new SqlParameter("@moId2", moId2),
-                new SqlParameter("@crTim1", crTim1),
-                new SqlParameter("@crTim2", crTim2),
-                new SqlParameter("@salesGroup", salesGroup),
-                new SqlParameter("@transferFlagIndex", transferFlagIndex),
-                new SqlParameter("@workGroup", workGroup)
-            };
-            //開始顯示進度
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
-            //**********
-            dtsOutIn = clsPublicOfPad.ExecuteProcedureReturnDataSet("usp_product_transfer_summary", paras,"");
-            //**********
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-            //結束顯示進度
-
-            if (radioGroup1.SelectedIndex == 0)
-            {
-                gridControl1.MainView = gridView2;//切換致匯總視圖
-                dtDetails = dtsOutIn.Tables[1];
-            }
-            else
-            {
-                gridControl1.MainView = gridView1;//切換致明細視圖
-                dtDetails = dtsOutIn.Tables[0];
-            }            
-            gridControl1.DataSource = dtDetails;
+        {
+            FindData();
         }
 
         private void txtCrtim1_Leave(object sender, EventArgs e)
@@ -193,11 +148,11 @@ namespace cf01.ReportForm
                 return;
             }
             gridView1.CloseEditor();
-            bool flagSelect = false;
+            bool flagSelect = false,flagOut= true,flagIn=true;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "flag_desc").ToString()== "發貨")
-                {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                {                    
                     flagSelect = true;
                     break;
                 }
@@ -207,6 +162,34 @@ namespace cf01.ReportForm
                 MessageBox.Show("請至少選中一條發貨記錄！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "flag_desc").ToString() != "發貨")                   
+                {
+                    MessageBox.Show($"第【{i.ToString()}】行收發類型是【收貨】，請返回選中收發類型是【發貨】的記錄進行收貨！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    flagOut = false;
+                    break;
+                }
+            }
+            if(!flagOut)
+            {
+                return;
+            }
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "flag_desc").ToString() == "發貨" && decimal.Parse(gridView1.GetRowCellValue(i, "qty_difference").ToString()) >= 0)
+                {
+                    MessageBox.Show($"第【{i.ToString()}】行，收貨已完成，不可以再重復收貨！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    flagIn = false;
+                    break;
+                }               
+            }
+            if (!flagIn)
+            {
+                return;
+            }            
+
             string flag_desc = "";
             string sql_i = "", prd_dep = "", prd_mo = "", prd_item = "", wip_id = "", to_dep = "", transfer_date = "", transfer_flag = "", Crusr = DBUtility._user_id, work_sort = "";
             int pack_num = 0;
@@ -216,7 +199,7 @@ namespace cf01.ReportForm
             {
                 sql_i = "";
                 flag_desc = gridView1.GetRowCellValue(i, "flag_desc").ToString();
-                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && flag_desc== "發貨")
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && flag_desc== "發貨" && decimal.Parse(gridView1.GetRowCellValue(i, "qty_difference").ToString())<0)
                 {
                     transfer_qty = decimal.Parse(gridView1.GetRowCellValue(i, "transfer_qty").ToString());
                     if (transfer_qty > 0)
@@ -264,6 +247,7 @@ namespace cf01.ReportForm
                         }
                     }
                     gridView1.CloseEditor();
+                    FindData();
                 }
                 else
                 {
@@ -271,6 +255,68 @@ namespace cf01.ReportForm
                 }
             }
         } //SAVE
+
+        private void FindData()
+        {
+            string wipId = string.IsNullOrEmpty(txtWip_id.EditValue.ToString()) ? "" : txtWip_id.EditValue.ToString();
+            string prdItem = string.IsNullOrEmpty(txtPrd_item.Text) ? "" : txtPrd_item.Text;
+            string moId1 = txtPrd_mo1.Text, moId2 = txtPrd_mo2.Text;
+            string crTim1 = string.IsNullOrEmpty(txtCrtim1.Text) ? "" : txtCrtim1.EditValue.ToString();
+            string crTim2 = string.IsNullOrEmpty(txtCrtim2.Text) ? "" : txtCrtim2.EditValue.ToString();
+            string salesGroup = txtGroup.Text;
+            string transferFlagIndex = cmbTransfer_flag.SelectedIndex.ToString();
+            string workGroup = lueWork_sort.EditValue.ToString();
+            crTim1 = string.IsNullOrEmpty(crTim1) ? "" : DateTime.Parse(crTim1).ToString("yyyy/MM/dd HH:mm");
+            crTim2 = string.IsNullOrEmpty(crTim2) ? "" : DateTime.Parse(crTim2).ToString("yyyy/MM/dd HH:mm");
+
+            if (wipId == "" && prdItem == "" && moId1 == "" && moId2 == "" && crTim1 == "" && crTim2 == ""
+                && salesGroup == "" && workGroup == "" && transferFlagIndex == "")
+            {
+                MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (transferFlagIndex == "2" || transferFlagIndex == "-1")
+            {
+                transferFlagIndex = ""; //代表全部
+            }
+            SqlParameter[] paras = new SqlParameter[]
+            {
+                new SqlParameter("@wipId", wipId),
+                new SqlParameter("@prdItem",prdItem),
+                new SqlParameter("@moId1", moId1),
+                new SqlParameter("@moId2", moId2),
+                new SqlParameter("@crTim1", crTim1),
+                new SqlParameter("@crTim2", crTim2),
+                new SqlParameter("@salesGroup", salesGroup),
+                new SqlParameter("@transferFlagIndex", transferFlagIndex),
+                new SqlParameter("@workGroup", workGroup),
+                new SqlParameter("@showAll", chkAll.Checked?"Y":"N")
+            };
+            //開始顯示進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //**********
+            dtsOutIn = clsPublicOfPad.ExecuteProcedureReturnDataSet("usp_product_transfer_summary_debug", paras, "");
+            //**********
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            //結束顯示進度
+
+            if (radioGroup1.SelectedIndex == 0)
+            {
+                gridControl1.MainView = gridView2;//切換致匯總視圖
+                dtDetails = dtsOutIn.Tables[1];
+            }
+            else
+            {
+                gridControl1.MainView = gridView1;//切換致明細視圖
+                dtDetails = dtsOutIn.Tables[0];
+            }
+            gridControl1.DataSource = dtDetails;
+        }
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -305,6 +351,121 @@ namespace cf01.ReportForm
             {
                 e.Appearance.ForeColor = Color.Black;
                 e.Appearance.BackColor = Color.LightYellow;// Color.YellowGreen;
+            }
+        }
+
+        private void BTNSAVEPRICE_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount == 0)
+            {
+                return;
+            }
+            gridView1.CloseEditor();
+            //bool flagSelect = false;
+            //for (int i = 0; i < gridView1.RowCount; i++)
+            //{
+            //    if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "flag_desc").ToString() == "發貨")
+            //    {
+            //        flagSelect = true;
+            //        break;
+            //    }
+            //}
+            //if (flagSelect == false)
+            //{
+            //    MessageBox.Show("請至少選中一條類型是發貨記錄！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            bool flagSelect = false, flagOut = true;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                {
+                    flagSelect = true;
+                    break;
+                }
+            }
+            if (flagSelect == false)
+            {
+                MessageBox.Show("請至少選中一條發貨記錄！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && gridView1.GetRowCellValue(i, "flag_desc").ToString() != "發貨")
+                {
+                    MessageBox.Show($"第【{i.ToString()}】行收發類型是【收貨】，請返回選中收發類型是【發貨】的記錄！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    flagOut = false;
+                    break;
+                }
+            }
+            if (!flagOut)
+            {
+                return;
+            }
+
+            string flag_desc = "";
+            string sql_i = "", prd_dep = "", prd_mo = "", prd_item = "", Unit = "", Unit_sec = "", transfer_date = "" ;            
+            float Price = 0, Price_sec = 0;
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                sql_i = "";
+                flag_desc = gridView1.GetRowCellValue(i, "flag_desc").ToString();
+                if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True" && flag_desc == "發貨")
+                {                    
+                    prd_dep = gridView1.GetRowCellValue(i, "wip_id").ToString();
+                    prd_mo = gridView1.GetRowCellValue(i, "prd_mo").ToString();
+                    prd_item = gridView1.GetRowCellValue(i, "prd_item").ToString();                    
+                    Price = clsApp.Return_Float_Value(gridView1.GetRowCellValue(i, "Price").ToString());
+                    Unit = gridView1.GetRowCellValue(i, "Unit").ToString();
+                    if(Unit =="")
+                    {
+                        Unit = "PCS";
+                    }
+                    if (Unit_sec == "")
+                    {
+                        Unit_sec = "KG";
+                    }
+                    Price_sec = clsApp.Return_Float_Value(gridView1.GetRowCellValue(i, "Price_sec").ToString());
+                    Unit_sec = gridView1.GetRowCellValue(i, "Unit_sec").ToString();                       
+                    if (!string.IsNullOrEmpty(transfer_date))
+                    {
+                        transfer_date = DateTime.Parse(transfer_date).Date.ToString("yyyy/MM/dd");
+                    }
+                    else
+                    {
+                        transfer_date = DateTime.Now.Date.ToString("yyyy/MM/dd");
+                    }
+                    sql_i = string.Format(
+                    @" UPDATE product_transfer_jx_details 
+                    SET Price='{3}',Unit='{4}',Price_sec='{5}',Unit_sec='{6}',amusr='{7}',amtim=getdate()
+                    WHERE Prd_dep='{0}' And Prd_mo='{1}' And Prd_item='{2}' And transfer_flag='0'",
+                    prd_dep, prd_mo, prd_item, Price, Unit, Price_sec, Unit_sec, DBUtility._user_id);
+                    sb.Append(sql_i);
+                }
+            }
+            sql_i = sb.ToString().Trim();
+            if (sql_i.Length > 0)
+            {
+                int result = clsPublicOfPad.ExecuteSqlUpdate(sql_i);
+                if (result > 0)
+                {
+                    MessageBox.Show("更新單價成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //清除打勾標識
+                    for (int i = 0; i < gridView1.RowCount; i++)
+                    {
+                        if (gridView1.GetRowCellValue(i, "select_flag").ToString() == "True")
+                        {
+                            gridView1.SetRowCellValue(i, "select_flag", false);
+                        }
+                    }
+                    gridView1.CloseEditor();
+                    FindData();
+                }
+                else
+                {
+                    MessageBox.Show($"更新單價失敗！\n\r{result}", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

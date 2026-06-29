@@ -483,6 +483,8 @@ namespace cf01.Forms
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "16";
             txtleadtime_bulk.Text = "28";
+            cbeProd_coo1.Text = "China";
+            txtProd_factory1.Text = "Ching Fung";
             txtSerial_no.Properties.ReadOnly = true;
             txtSerial_no.BackColor = Color.White;
             txtPvh_submit_ref.Properties.ReadOnly = true;
@@ -1092,7 +1094,13 @@ namespace cf01.Forms
             txtDye_type.EditValue = pdr.Cells["dye_type"].Value.ToString();
             txtDye_method.EditValue = pdr.Cells["dye_method"].Value.ToString();
             txtMaterial_structure.EditValue = pdr.Cells["material_structure"].Value.ToString();
-
+            cbeProd_coo1.EditValue = pdr.Cells["prod_coo1"].Value.ToString();
+            cbeProd_coo2.EditValue = pdr.Cells["prod_coo2"].Value.ToString();
+            txtProd_factory1.Text = pdr.Cells["prod_factory1"].Value.ToString();
+            txtProd_factory2.Text = pdr.Cells["prod_factory2"].Value.ToString();
+            cbeRaw_mat1_subprocess.EditValue = pdr.Cells["raw_mat1_subprocess"].Value.ToString();
+            cbeRaw_mat2_subprocess.EditValue = pdr.Cells["raw_mat2_subprocess"].Value.ToString();
+            cbeRaw_mat3_subprocess.EditValue = pdr.Cells["raw_mat3_subprocess"].Value.ToString();
             SetCheckBoxStatus(pdr);
         }
 
