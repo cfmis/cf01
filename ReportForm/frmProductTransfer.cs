@@ -300,7 +300,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
             //**********
-            dtsOutIn = clsPublicOfPad.ExecuteProcedureReturnDataSet("usp_product_transfer_summary_debug", paras, "");
+            dtsOutIn = clsPublicOfPad.ExecuteProcedureReturnDataSet("usp_product_transfer_summary", paras, "");
             //**********
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             //結束顯示進度
