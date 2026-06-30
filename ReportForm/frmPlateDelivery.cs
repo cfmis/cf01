@@ -72,6 +72,7 @@ namespace cf01.ReportForm
             dtImport.Columns.Add("mo_type", typeof(string)); //急/特急狀態
             dtImport.Columns.Add("wp_id", typeof(string)); //當前部門
             dtImport.Columns.Add("mo_type_sort", typeof(string)); //特急狀態排序
+            chkMo.Checked = false;
         }
 
         private void btnInport_Click(object sender, EventArgs e)
@@ -121,23 +122,22 @@ namespace cf01.ReportForm
             {
                 //2019-12-26取消舊代碼,因部分電腦上不支持此方法
                 //const String strsql_g = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [大貨單$]";
-                //const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";
-              
+                //const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";              
                 //2019-12-26更改為新的導入EXCEL方式   
-                OpenFileDialog openFileDialog1 = new OpenFileDialog
-                {
-                    Filter = "Execl files (*.xls)|*.xls",
-                    FilterIndex = 0,
-                    RestoreDirectory = true,
-                    Title = "導入匯總文件路徑",
-                    FileName = null
-                };
-                openFileDialog1.ShowDialog();
-                fileName = openFileDialog1.FileName;
+               
                 dtImport.Clear();
-
                 if (chkMo.Checked)
                 {
+                    OpenFileDialog openFileDialog1 = new OpenFileDialog
+                    {
+                        Filter = "Execl files (*.xls)|*.xls",
+                        FilterIndex = 0,
+                        RestoreDirectory = true,
+                        Title = "導入匯總文件路徑",
+                        FileName = null
+                    };
+                    openFileDialog1.ShowDialog();
+                    fileName = openFileDialog1.FileName;
                     if (fileName != "")
                     {
                         ExcelToDatable(fileName);

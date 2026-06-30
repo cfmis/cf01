@@ -148,6 +148,8 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.txtVendor_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.expired_day = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dep_id = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             this.contextMenu.SuspendLayout();
@@ -734,6 +736,7 @@
             this.qty_differ,
             this.sec_qty_differ,
             this.gridColumn41,
+            this.expired_day,
             this.remark,
             this.return_total,
             this.dept_reply,
@@ -743,7 +746,8 @@
             this.vendor_name,
             this.gridColumn38,
             this.gridColumn39,
-            this.gridColumn42});
+            this.gridColumn42,
+            this.dep_id});
             this.gridView1.GridControl = this.grdControl;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.IndicatorWidth = 40;
@@ -1544,6 +1548,20 @@
             this.label2.Text = "供應商";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // expired_day
+            // 
+            this.expired_day.Caption = "過期天數";
+            this.expired_day.FieldName = "expired_day";
+            this.expired_day.Name = "expired_day";
+            this.expired_day.Visible = true;
+            this.expired_day.VisibleIndex = 29;
+            // 
+            // dep_id
+            // 
+            this.dep_id.Caption = "發貨部門";
+            this.dep_id.FieldName = "dep_id";
+            this.dep_id.Name = "dep_id";
+            // 
             // frmPlateDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1707,5 +1725,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem cutMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn expired_day;
+        private DevExpress.XtraGrid.Columns.GridColumn dep_id;
     }
 }
