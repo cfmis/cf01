@@ -92,8 +92,8 @@ namespace cf01.Reports
             string wp_id = GetCurrentColumnValue("wp_id").ToString();
             string next_wp_id = GetCurrentColumnValue("next_wp_id").ToString();
             string wh = "";
-            if (wp_id.Substring(0, 1) == "8" || next_wp_id.Substring(0, 1) == "8")
-                wh = wp_id.Substring(0, 1) == "8"? wp_id: next_wp_id;                
+            if (next_wp_id.Substring(0, 1) == "8" || wp_id.Substring(0, 1) == "8")
+                wh = next_wp_id.Substring(0, 1) == "8"? next_wp_id : wp_id;                
             else
                 wh = "";
             if (wh == "")

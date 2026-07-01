@@ -568,6 +568,7 @@ namespace cf01.ReportForm
                     drow["spec"] = dtDelivery.Rows[i]["spec"].ToString();
                     drow["flag_hold"] = dtDelivery.Rows[i]["flag_hold"].ToString();
                     drow["shading_color"] = dtDelivery.Rows[i]["shading_color"].ToString();
+                    drow["wh_location"] = dtDelivery.Rows[i]["wh_location"].ToString(); //2026/07/01
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
                     {
@@ -642,6 +643,8 @@ namespace cf01.ReportForm
                                 drw["spec"] = dtDelivery.Rows[i]["spec"].ToString();
                                 drw["flag_hold"] = dtDelivery.Rows[i]["flag_hold"].ToString();
                                 drw["shading_color"] = dtDelivery.Rows[i]["shading_color"].ToString();
+                                drw["wh_location"] = dtDelivery.Rows[i]["wh_location"].ToString();
+
                                 dtReport.Rows.Add(drw);
                             }
                         }
@@ -761,6 +764,7 @@ namespace cf01.ReportForm
                             {
                                 drow = dtNewWork.NewRow();
                                 drow["report_name"] = dtCard.Rows[j]["report_name"].ToString();
+                                drow["wp_id"] = dtCard.Rows[j]["wp_id"].ToString(); //2026/07/01
                                 drow["mo_id"] = dtCard.Rows[j]["mo_id"].ToString();
                                 drow["ver"] = dtCard.Rows[j]["ver"].ToString();
                                 drow["get_color_sample_name"] = dtCard.Rows[j]["get_color_sample_name"].ToString();

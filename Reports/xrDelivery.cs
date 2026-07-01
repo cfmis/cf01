@@ -75,6 +75,19 @@ namespace cf01.Reports
             pnlQc.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString()) ? false : true;
             pnlHold.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("flag_hold").ToString().Trim()) ? false : true;
             pnlShadingColor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("shading_color").ToString().Trim()) ? false : true;
+
+            //2026/07/01 Allen Leung
+            string wp_id = GetCurrentColumnValue("out_dept").ToString();
+            string next_wp_id = GetCurrentColumnValue("in_dept").ToString();
+            string wh = "";
+            if (next_wp_id.Substring(0, 1) == "8" || wp_id.Substring(0, 1) == "8" )
+                wh = next_wp_id.Substring(0, 1) == "8" ? next_wp_id: wp_id ;
+            else
+                wh = "";
+            if (wh == "")
+                txtLocation.Text = "貨  架:";
+            else
+                txtLocation.Text = $"{wh}倉貨架:";
         }
     }
 }

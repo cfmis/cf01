@@ -208,7 +208,6 @@ namespace cf01.ReportForm
                 MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }           
-           
             gridView1.CloseEditor();
             DataTable dtReport = new DataTable();
             dtReport = dtWordCard.Clone();
@@ -252,7 +251,8 @@ namespace cf01.ReportForm
                     drow["sec_qty_total"] = dtWordCard.Rows[i]["sec_qty_total"];
                     drow["prints"] = dtWordCard.Rows[i]["prints"];
                     drow["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
-                    drow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
+                    //drow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
+                    drow["wh_location"] = dtWordCard.Rows[i]["wh_location"].ToString();
                     drow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
                     drow["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
                     drow["basic_unit"] = dtWordCard.Rows[i]["basic_unit"].ToString();
@@ -301,7 +301,8 @@ namespace cf01.ReportForm
                             drow1["sec_qty_total"] = dtWordCard.Rows[i]["sec_qty_total"];
                             drow1["prints"] = j+1; //處理本卡為第幾張
                             drow1["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
-                            drow1["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
+                            //drow1["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
+                            drow["wh_location"] = dtWordCard.Rows[i]["wh_location"].ToString();
                             drow1["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
                             drow1["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
                             drow1["basic_unit"] = dtWordCard.Rows[i]["basic_unit"].ToString();
