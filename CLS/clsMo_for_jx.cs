@@ -1019,6 +1019,11 @@ namespace cf01.CLS
             return dt;
         }
 
+        public static string GetItemLocation(string goods_id,string dept_id)
+        {
+            string result = clsConErp.ExecuteSqlReturnObject($"SELECT dbo.Fn_z_get_wh_location({goods_id}, {dept_id})");
+            return result;
+        }
 
         public static DataTable GenWorkerCard()
         {

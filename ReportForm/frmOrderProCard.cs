@@ -591,8 +591,11 @@ namespace cf01.ReportForm
                             dr["c_sec_qty_ok"] = clsUtility.FormatNullableInt32(txtC_sec_qty_ok.Text);
                             dr["net_weight"] = txtNet_weight.Text.Trim();
                             dr["page_num"] = i;
-                            dr["wh_location"] = txtWh_location.Text;                           
-
+                            dr["wh_location"] = txtWh_location.Text;
+                            if(dep.Substring(0,1) =="8" && txtNextDep.Text.Trim().Substring(0,1) !="8")
+                            {
+                                dr["wh_location"] = clsMo_for_jx.GetItemLocation(goods_id, dep);//2026/07/01
+                            }
                             if (!string.IsNullOrEmpty(txtCompDate.Text))                              
                             {
                                 dr["t_complete_date"] = Convert.ToDateTime(txtCompDate.Text).ToString("yyyy/MM/dd");

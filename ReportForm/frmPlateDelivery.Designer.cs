@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -398,13 +398,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdControl.ContextMenuStrip = this.contextMenu;
-            gridLevelNode1.LevelTemplate = this.gridView2;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.LevelTemplate = this.gridView3;
-            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.LevelTemplate = this.gridView2;
+            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.LevelTemplate = this.gridView3;
+            gridLevelNode4.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2});
+            gridLevelNode3,
+            gridLevelNode4});
             this.grdControl.Location = new System.Drawing.Point(4, 34);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
@@ -1270,7 +1270,6 @@
             // 
             // chkMo
             // 
-            this.chkMo.EditValue = true;
             this.chkMo.Location = new System.Drawing.Point(80, 3);
             this.chkMo.Name = "chkMo";
             this.chkMo.Properties.Caption = "包含頁數匯總資料";

@@ -86,5 +86,20 @@ namespace cf01.Reports
             pnlHold.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("flag_hold").ToString().Trim()) ? false : true;
             pnlShadingColor.Visible = string.IsNullOrEmpty(GetCurrentColumnValue("shading_color").ToString().Trim()) ? false : true;
         }
+
+        private void xrLabel1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string wp_id = GetCurrentColumnValue("wp_id").ToString();
+            string next_wp_id = GetCurrentColumnValue("next_wp_id").ToString();
+            string wh = "";
+            if (wp_id.Substring(0, 1) == "8" || next_wp_id.Substring(0, 1) == "8")
+                wh = wp_id.Substring(0, 1) == "8"? wp_id: next_wp_id;                
+            else
+                wh = "";
+            if (wh == "")
+                txtLocation.Text = "貨  架:";
+            else
+                txtLocation.Text = $"{wh}倉貨架:";
+        }
     }
 }
