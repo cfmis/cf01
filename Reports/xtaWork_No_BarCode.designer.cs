@@ -1714,11 +1714,11 @@
             // 
             this.txtLocation.CanGrow = false;
             this.txtLocation.Dpi = 254F;
-            this.txtLocation.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Bold);
+            this.txtLocation.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold);
             this.txtLocation.LocationFloat = new DevExpress.Utils.PointFloat(4.953343F, 506.5386F);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtLocation.SizeF = new System.Drawing.SizeF(149.5489F, 45.71991F);
+            this.txtLocation.SizeF = new System.Drawing.SizeF(161.5489F, 45.71991F);
             this.txtLocation.StylePriority.UseFont = false;
             this.txtLocation.StylePriority.UseTextAlignment = false;
             this.txtLocation.Text = "货架";
