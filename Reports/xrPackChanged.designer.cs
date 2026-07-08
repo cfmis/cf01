@@ -776,14 +776,14 @@
             // xrLine48
             // 
             this.xrLine48.Dpi = 254F;
-            this.xrLine48.LocationFloat = new DevExpress.Utils.PointFloat(940.4168F, 118.1942F);
+            this.xrLine48.LocationFloat = new DevExpress.Utils.PointFloat(940.4168F, 116.1942F);
             this.xrLine48.Name = "xrLine48";
             this.xrLine48.SizeF = new System.Drawing.SizeF(184.5206F, 5F);
             // 
             // xrLine47
             // 
             this.xrLine47.Dpi = 254F;
-            this.xrLine47.LocationFloat = new DevExpress.Utils.PointFloat(632.6671F, 118.1942F);
+            this.xrLine47.LocationFloat = new DevExpress.Utils.PointFloat(632.6671F, 116.1942F);
             this.xrLine47.Name = "xrLine47";
             this.xrLine47.SizeF = new System.Drawing.SizeF(210.5206F, 5F);
             // 
@@ -961,9 +961,9 @@
             // xrLine45
             // 
             this.xrLine45.Dpi = 254F;
-            this.xrLine45.LocationFloat = new DevExpress.Utils.PointFloat(44.24996F, 118.1942F);
+            this.xrLine45.LocationFloat = new DevExpress.Utils.PointFloat(44.24996F, 116.1942F);
             this.xrLine45.Name = "xrLine45";
-            this.xrLine45.SizeF = new System.Drawing.SizeF(322.4574F, 5F);
+            this.xrLine45.SizeF = new System.Drawing.SizeF(310.4574F, 5F);
             // 
             // xrLine23
             // 
