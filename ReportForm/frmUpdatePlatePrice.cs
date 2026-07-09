@@ -89,7 +89,7 @@ namespace cf01.ReportForm
                             sql_insert = string.Format(
                             @"Insert into jo_plate_price_update(vendor_id,vendor_name,quotation_id,cf_color,price,prod_type,plate_type,plate_process,price_unit,m_id) Values
                             ('{0}','{1}','{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}')",
-                            dtImport.Rows[i]["vendor_id"].ToString(), dtImport.Rows[i]["vendor_name"].ToString(), dtImport.Rows[i]["quotation_id"].ToString(),
+                            dtImport.Rows[i]["vendor_id"].ToString().Trim(), dtImport.Rows[i]["vendor_name"].ToString(), dtImport.Rows[i]["quotation_id"].ToString().Trim(),
                             dtImport.Rows[i]["cf_color"].ToString(), decPrice, dtImport.Rows[i]["prod_type"].ToString(), dtImport.Rows[i]["plate_type"].ToString(),
                             dtImport.Rows[i]["plate_process"].ToString(), dtImport.Rows[i]["price_unit"].ToString(), dtImport.Rows[i]["m_id"].ToString());
                             result = clsPublicOfCF01.ExecuteSqlUpdate(sql_insert);
