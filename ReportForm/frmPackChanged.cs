@@ -479,6 +479,7 @@ namespace cf01.ReportForm
         private void txtMO_Leave(object sender, EventArgs e)
         {
             ManualInputMo();
+            //SelectGoodsItem();//add 2026/07/09
         }
 
         private void ManualInputMo()
@@ -504,13 +505,14 @@ namespace cf01.ReportForm
 
                 string printBySet = "Y";
                 chkByMoPrintSet.Checked = true;
-
+               
                 //frmProgress wForm = new frmProgress();
                 //new Thread((ThreadStart)delegate
                 //{
                 //    wForm.TopMost = true;
                 //    wForm.ShowDialog();
                 //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
+                
                 Load_Data("Y", printBySet, "", txtID.Text, txtMO.Text, cmbItems.Text);
 
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
