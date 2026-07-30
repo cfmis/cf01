@@ -968,14 +968,23 @@ namespace cf01.CLS
             obj.Properties.DisplayMember = "id";
         }      
 
-        public static bool Check_Artwork(string strArtwork)
+        public static bool Check_Artwork(string strItem)
         {
             bool isExists = false;
-            string artwork = string.IsNullOrEmpty(strArtwork) ? "" : strArtwork;
-            string strSql = string.Format(@"SELECT '1' FROM {0}cd_pattern with(nolock) WHERE within_code='0000' AND id='{1}'", DBUtility.remote_db, artwork);            
-            System.Data.DataTable dt = new System.Data.DataTable();
-            dt = clsPublicOfCF01.GetDataTable(strSql);
-            isExists = (dt.Rows.Count > 0) ? true : false;
+            string item = string.IsNullOrEmpty(strItem) ? "" : strItem;
+            string strSql = string.Format(@"SELECT '1' FROM {0}cd_pattern with(nolock) WHERE within_code='0000' AND id='{1}'", DBUtility.remote_db, item); 
+            item = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
+            isExists = (item == "1") ? true : false;
+            return isExists;
+        }
+
+        public static bool CheckItem(string strItem)
+        {
+            bool isExists = false;
+            string item = string.IsNullOrEmpty(strItem) ? "" : strItem;
+            string strSql = string.Format(@"SELECT '1' FROM {0}it_goods with(nolock) WHERE within_code='0000' AND id='{1}' and state<>'2'", DBUtility.remote_db, item);           
+            item = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
+            isExists = (item =="1") ? true : false;
             return isExists;
         }
 
@@ -1126,7 +1135,7 @@ namespace cf01.CLS
         {
             string strsql =
             @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,convert(varchar(10),A.date,121) as date ,A.brand,A.brand_desc,
-            A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,A.number_enter,
+            A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cf_code18,A.cust_color,A.cf_color,A.number_enter,
             A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
             A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,A.pending,
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
@@ -1136,8 +1145,7 @@ namespace cf01.CLS
             A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new,
             A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,
             A.md_charge_vn,A.die_mould_usd_vn,A.usd_remark,A.hkd_remark
-            FROM dbo.quotation A with(nolock) 
-	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
+            FROM dbo.quotation A with(nolock),dbo.sy_user_group B with(nolock) 
             WHERE 1=0";
             DataTable dt = clsPublicOfCF01.GetDataTable(strsql);
             return dt;

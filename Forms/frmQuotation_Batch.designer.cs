@@ -270,6 +270,7 @@
             this.product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_code18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -617,6 +618,7 @@
             this.product_desc,
             this.cust_code,
             this.cf_code,
+            this.cf_code18,
             this.cust_color,
             this.cf_color,
             this.number_enter,
@@ -773,7 +775,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(97, 30);
+            this.BTNSAVESET.Size = new System.Drawing.Size(99, 30);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.Click += new System.EventHandler(this.BTNSAVESET_Click);
             // 
@@ -2314,6 +2316,13 @@
             this.cf_code.Name = "cf_code";
             this.cf_code.Width = 70;
             // 
+            // cf_code18
+            // 
+            this.cf_code18.DataPropertyName = "cf_code18";
+            this.cf_code18.HeaderText = "CF Code(18)";
+            this.cf_code18.Name = "cf_code18";
+            this.cf_code18.ReadOnly = true;
+            // 
             // cust_color
             // 
             this.cust_color.DataPropertyName = "cust_color";
@@ -3212,6 +3221,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn product_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_code18;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;

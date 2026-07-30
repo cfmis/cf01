@@ -372,6 +372,7 @@
             this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_code18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1115,6 +1116,7 @@
             this.plm_code,
             this.cust_code,
             this.cf_code,
+            this.cf_code18,
             this.cust_color,
             this.cf_color,
             this.number_enter,
@@ -3037,6 +3039,15 @@
             this.cf_code.ReadOnly = true;
             this.cf_code.Width = 70;
             // 
+            // cf_code18
+            // 
+            this.cf_code18.DataPropertyName = "cf_code18";
+            this.cf_code18.HeaderText = "CF Code18";
+            this.cf_code18.MaxInputLength = 18;
+            this.cf_code18.Name = "cf_code18";
+            this.cf_code18.ReadOnly = true;
+            this.cf_code18.Width = 120;
+            // 
             // cust_color
             // 
             this.cust_color.DataPropertyName = "cust_color";
@@ -4246,6 +4257,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_code18;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;

@@ -38,10 +38,10 @@ namespace cf01.Forms
         string del_id = "";
         string temp_state = "";
         string edit_state = ""; //新增或編輯的狀態      
-        string image_path = "";
-        bool flagSave;
+        string image_path = "";        
         string strArea = "";
-        string flagPDF = "";      
+        string flagPDF = "";
+        bool flagSave;
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
@@ -406,6 +406,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "product_desc", stu.product_desc);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cust_code", stu.cust_code);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_code", stu.cf_code);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_code18", stu.cf_code18);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cust_color", stu.cust_color);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_color", stu.cf_color);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_usd", stu.price_usd);
@@ -717,7 +718,7 @@ namespace cf01.Forms
                     @valid_date,@money_id,@tel,@fax,@email,@contact,@isusd,@ishkd,@isrmb,@isvn,@position,@address,@contact_cf,@tel_cf,@position_cf,@email_cf)";
             //新增明細表
             const string sql_detail_insert =
-                @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,cust_color,cf_color,
+                @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,cf_code18,cust_color,cf_color,
                     price_usd,price_hkd,price_rmb,moq,price_unit,remark,temp_code,ver,moq_desc,moq_unit,season,salesman,mwq,lead_time_min,lead_time_max,
                     lead_time_unit,md_charge,md_charge_cny,moq_for_test,number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,
                     ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_price_vnd,disc_hkd_ex_fty,actual_price,actual_price_type,die_mould_usd,
@@ -740,7 +741,7 @@ namespace cf01.Forms
             const string sql_detail_update =
                 @"UPDATE dbo.quotation_details 
 					SET brand=@brand,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,cust_code=@cust_code,
-                        cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,moq=@moq,
+                        cf_code=@cf_code,cf_code18=@cf_code18,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,moq=@moq,
                         price_unit=@price_unit,remark=@remark,temp_code=@temp_code,ver=@ver,moq_desc=@moq_desc,moq_unit=@moq_unit,season=@season,salesman=@salesman,
                         mwq=@mwq,lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,
                         moq_for_test=@moq_for_test,number_enter=@number_enter,hkd_ex_fty=@hkd_ex_fty,usd_ex_fty=@usd_ex_fty,sales_group=@sales_group,usd_dap=@usd_dap,
@@ -855,6 +856,7 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@product_desc", dtDetails.Rows[i]["product_desc"].ToString());
                                 myCommand.Parameters.AddWithValue("@cust_code", dtDetails.Rows[i]["cust_code"].ToString());
                                 myCommand.Parameters.AddWithValue("@cf_code", dtDetails.Rows[i]["cf_code"].ToString());
+                                myCommand.Parameters.AddWithValue("@cf_code18", dtDetails.Rows[i]["cf_code18"].ToString());
                                 myCommand.Parameters.AddWithValue("@cust_color", dtDetails.Rows[i]["cust_color"].ToString());
                                 myCommand.Parameters.AddWithValue("@cf_color", dtDetails.Rows[i]["cf_color"].ToString());
 
@@ -1445,6 +1447,7 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(intCurRow, "product_desc", drowAry[i]["product_desc"].ToString());
                 gridView1.SetRowCellValue(intCurRow, "cust_code", drowAry[i]["cust_code"].ToString());
                 gridView1.SetRowCellValue(intCurRow, "cf_code", drowAry[i]["cf_code"].ToString());
+                gridView1.SetRowCellValue(intCurRow, "cf_code18", drowAry[i]["cf_code18"].ToString());
                 gridView1.SetRowCellValue(intCurRow, "cust_color", drowAry[i]["cust_color"].ToString());
                 gridView1.SetRowCellValue(intCurRow, "cf_color", drowAry[i]["cf_color"].ToString());
                 gridView1.SetRowCellValue(intCurRow, "price_usd", drowAry[i]["price_usd"].ToString());

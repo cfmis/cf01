@@ -291,6 +291,7 @@ namespace cf01.Forms
             txtRemark_other.DataBindings.Add("Text", bds1, "remark_other"); 
             txtCust_code.DataBindings.Add("Text", bds1, "cust_code");
             txtCf_code.DataBindings.Add("Text", bds1, "cf_code");
+            txtCf_code18.DataBindings.Add("Text", bds1, "cf_code18");
             txtCust_color.DataBindings.Add("Text", bds1, "cust_color");
             txtCf_color.DataBindings.Add("Text", bds1, "cf_color"); 
             txtNumber_enter.DataBindings.Add("Text", bds1, "number_enter"); 
@@ -821,7 +822,7 @@ namespace cf01.Forms
             bool save_flag = false;
             const string sql_new =
             @"INSERT INTO quotation(sales_group,temp_code,date,brand,brand_desc,formula_id,season,season_desc,division,contact,material,size,product_desc,
-                    cust_code,cf_code,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq_below_over,moq,moq_desc,moq_unit,mwq,mwq_unit,
+                    cust_code,cf_code,cf_code18,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq_below_over,moq,moq_desc,moq_unit,mwq,mwq_unit,
                     lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,md_charge_unit,remark,remark_other,die_mould_usd,die_mould_cny,
                     account_code,valid_date,number_enter,hkd_ex_fty,date_req,aw,status,sample_request,needle_test,ver,crusr,crtim,comment,remark_pdd,mo_id,
                     polo_care,moq_for_test,plm_code,trim_color_code,test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
@@ -829,7 +830,7 @@ namespace cf01.Forms
                     labtest_prod_type,termremark,pending,remark_pdd_dg,ref_temp_code,price_vnd,disc_price_vnd, flag_vnd_date,flag_vnd,vnd_bp,price_vnd_usd,
                     price_vnd_grs,price_vnd_pcs,cf_color_id,material_type,product_type,md_charge_vn,die_mould_usd_vn,usd_remark,hkd_remark)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,
-                    @material,@size,@product_desc, @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,
+                    @material,@size,@product_desc, @cust_code,@cf_code,@cf_code18,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,
                     @moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,@lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,
                     @die_mould_usd,@die_mould_cny,@account_code,CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END,@number_enter,@hkd_ex_fty,@date_req,@aw,
                     @status,@sample_request, @needle_test,@ver,@user_id,getdate(),@comment,@remark_pdd,@mo_id,@polo_care,@moq_for_test,@plm_code,@trim_color_code,
@@ -842,7 +843,7 @@ namespace cf01.Forms
             @"UPDATE quotation 
             SET sales_group=@sales_group,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,
                 season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
-                cust_code=@cust_code,cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,
+                cust_code=@cust_code,cf_code=@cf_code,cf_code18=@cf_code18,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,
                 price_unit=@price_unit,salesman=@salesman,moq_below_over=@moq_below_over,moq=@moq,moq_desc=@moq_desc,moq_unit=@moq_unit,mwq=@mwq,mwq_unit=@mwq_unit,
                 lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,
                 md_charge_unit=@md_charge_unit,remark=@remark,remark_other=@remark_other,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,account_code=@account_code,
@@ -904,6 +905,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@remark_other", txtRemark_other.Text);
                     myCommand.Parameters.AddWithValue("@cust_code", txtCust_code.Text);
                     myCommand.Parameters.AddWithValue("@cf_code", txtCf_code.Text);
+                    myCommand.Parameters.AddWithValue("@cf_code18", txtCf_code18.Text);
                     myCommand.Parameters.AddWithValue("@cust_color", txtCust_color.Text);
                     myCommand.Parameters.AddWithValue("@cf_color", txtCf_color.Text);
                     myCommand.Parameters.AddWithValue("@price_usd", clsApp.Return_Float_Value(txtPrice_usd.Text));
@@ -1292,6 +1294,7 @@ namespace cf01.Forms
             txtRemark_other.Text = pdr.Cells["remark_other"].Value.ToString();
             txtCust_code.Text = pdr.Cells["cust_code"].Value.ToString();
             txtCf_code.Text = pdr.Cells["cf_code"].Value.ToString();
+            txtCf_code18.Text = pdr.Cells["cf_code18"].Value.ToString();
             txtCust_color.Text = pdr.Cells["cust_color"].Value.ToString();
             txtCf_color.Text = pdr.Cells["cf_color"].Value.ToString();
             txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
@@ -1868,10 +1871,7 @@ namespace cf01.Forms
         private void chkConvert_CheckedChanged(object sender, EventArgs e)
         {
             string strLang = "";
-            if (lange == "0")
-                strLang = "2";//英文
-            else
-                strLang = "0";//繁體
+            strLang = (lange == "0") ? "2" : "0";//2--英文;0--繁體            
             lange = strLang;
             clsTranslate oCtl = new clsTranslate(Name, Controls, strLang);
             oCtl.Translate();
@@ -2717,6 +2717,7 @@ namespace cf01.Forms
                         product_desc = dgvDetails.Rows[i].Cells["product_desc"].Value.ToString(),
                         cust_code = dgvDetails.Rows[i].Cells["cust_code"].Value.ToString(),
                         cf_code = dgvDetails.Rows[i].Cells["cf_code"].Value.ToString(),
+                        cf_code18 = dgvDetails.Rows[i].Cells["cf_code18"].Value.ToString(),
                         cust_color = dgvDetails.Rows[i].Cells["cust_color"].Value.ToString(),
                         cf_color = dgvDetails.Rows[i].Cells["cf_color"].Value.ToString(),
                         price_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_usd"].Value.ToString()),
@@ -3785,6 +3786,21 @@ namespace cf01.Forms
             dgvPriceDisc.Width = dgvSub.Width;
         }
 
+        private void txtCf_code18_Leave(object sender, EventArgs e)
+        {
+            if (editState != "" && txtCf_code18.Text != "")
+            {
+                if (!clsQuotation.CheckItem(txtCf_code18.Text))
+                {
+                    MessageBox.Show("CF18位貨品編碼不存在！", "提示信息");
+                    return;
+                }
+                if (txtCf_code.Text.Trim() == "")
+                {
+                    txtCf_code.Text = txtCf_code18.Text.Substring(4,7);
+                }
+            }
+        }
     }
     
 }

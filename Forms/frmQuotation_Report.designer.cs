@@ -407,6 +407,7 @@
             this.txtReportFormat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.cf_code18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sales_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -423,6 +424,7 @@
             this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_code_18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1184,7 +1186,8 @@
             this.cf_color_id,
             this.temp_code,
             this.material_type,
-            this.product_type});
+            this.product_type,
+            this.cf_code18});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -4084,6 +4087,7 @@
             this.plm_code,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
+            this.cf_code_18,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.number_enter,
@@ -4816,6 +4820,17 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "報表格式";
             // 
+            // cf_code18
+            // 
+            this.cf_code18.Caption = "CF Code(18)";
+            this.cf_code18.FieldName = "cf_code18";
+            this.cf_code18.Name = "cf_code18";
+            this.cf_code18.OptionsColumn.AllowMove = false;
+            this.cf_code18.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.cf_code18.OptionsColumn.ReadOnly = true;
+            this.cf_code18.OptionsFilter.AllowAutoFilter = false;
+            this.cf_code18.OptionsFilter.AllowFilter = false;
+            // 
             // flag_select
             // 
             this.flag_select.DataPropertyName = "flag_select";
@@ -4951,6 +4966,14 @@
             this.dataGridViewTextBoxColumn8.MaxInputLength = 60;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 70;
+            // 
+            // cf_code_18
+            // 
+            this.cf_code_18.DataPropertyName = "cf_code18";
+            this.cf_code_18.HeaderText = "CF Code(18)";
+            this.cf_code_18.MaxInputLength = 18;
+            this.cf_code_18.Name = "cf_code_18";
+            this.cf_code_18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -6252,6 +6275,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label34;
         private DevExpress.XtraEditors.TextEdit txtEmail_cf;
+        private DevExpress.XtraGrid.Columns.GridColumn cf_code18;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -6268,6 +6292,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_code_18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;

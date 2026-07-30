@@ -66,6 +66,7 @@ namespace cf01.MDL
         public string product_desc;
         public string cust_code;
         public string cf_code;
+        public string cf_code18;
         public string cust_color;
         public string cf_color;
         public float price_usd;
