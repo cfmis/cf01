@@ -1303,6 +1303,7 @@ namespace cf01.Forms
                 new SqlParameter("@cust_code",txtCust_code.Text),
                 new SqlParameter("@cust_color",txtCust_color.Text),
                 new SqlParameter("@cf_code",txtCf_code.Text),
+                new SqlParameter("@cf_code18",txtCf_code18.Text),
                 new SqlParameter("@cf_color",txtCf_color.Text),
                 new SqlParameter("@season",txtSeason.Text),
                 new SqlParameter("@temp_code",txtTemp_code.Text),
@@ -1334,7 +1335,7 @@ namespace cf01.Forms
             }).Start();
 
             //************************
-            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find", paras); //数据处理
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find_new", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 

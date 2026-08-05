@@ -95,6 +95,7 @@ namespace cf01.Forms
                 new SqlParameter("@cust_code",txtCust_code.Text),
                 new SqlParameter("@cust_color",txtCust_color.Text),
                 new SqlParameter("@cf_code",txtCf_code.Text),
+                new SqlParameter("@cf_code18",txtCf_code18.Text),
                 new SqlParameter("@cf_color",txtCf_color.Text),
                 new SqlParameter("@season",txtSeason.Text),
                 new SqlParameter("@temp_code",txtTemp_code.Text),
@@ -117,7 +118,7 @@ namespace cf01.Forms
                 new SqlParameter("@account_code",txtAccount_Code.Text),
                 new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
             };
-            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find",paras);           
+            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find_new",paras);           
             //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
 
             //------------ 
