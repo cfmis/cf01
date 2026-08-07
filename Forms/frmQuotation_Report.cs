@@ -723,7 +723,7 @@ namespace cf01.Forms
                     lead_time_unit,md_charge,md_charge_cny,moq_for_test,number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,
                     ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_price_vnd,disc_hkd_ex_fty,actual_price,actual_price_type,die_mould_usd,
                     die_mould_cny,rmb_remark,cust_artwork, price_vnd_usd,price_vnd,price_vnd_grs,price_vnd_pcs ,cf_color_id,material_type,product_type) 
-					VALUES (@id,@version,@seq_id,@brand,@division,@contact,@material,@size,@product_desc,@cust_code,@cf_code,@cust_color,@cf_color,
+					VALUES (@id,@version,@seq_id,@brand,@division,@contact,@material,@size,@product_desc,@cust_code,@cf_code,@cf_code18,@cust_color,@cf_color,
                     @price_usd,@price_hkd,@price_rmb,@moq,@price_unit,@remark,@temp_code,@ver,@moq_desc,@moq_unit,@season,@salesman,@mwq,@lead_time_min,
                     @lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@moq_for_test,@number_enter,@hkd_ex_fty,@usd_ex_fty,@sales_group,@usd_dap,
                     @usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,@discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_price_vnd,@disc_hkd_ex_fty,
