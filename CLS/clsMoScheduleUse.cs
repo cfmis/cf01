@@ -169,7 +169,8 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 34].Value = "5日前序號";
             worksheet.Cells[excelRow, 35].Value = "外發工序日期";
             worksheet.Cells[excelRow, 36].Value = "每碑數";
-            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
+            worksheet.Cells[excelRow, 37].Value = "安排機器";
+            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 30 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
                 prgStatus.Value = i;
@@ -237,6 +238,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 34].Value = drExcel["old_seq5"].ToString();
                 worksheet.Cells[excelRow, 35].Value = drExcel["transfer_date_out"].ToString();
                 worksheet.Cells[excelRow, 36].Value = drExcel["line_num"];
+                worksheet.Cells[excelRow, 37].Value = drExcel["prd_machine"];
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -330,7 +332,7 @@ namespace cf01.CLS
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
             colStr = $"AB1:AB{excelRow}"; // 动态计算行数
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
-            if (prd_dep == "102" || prd_dep == "122")
+            if (prd_dep == "102" || prd_dep == "122" || prd_dep == "103")
             {
                 colStr = $"P1:P{excelRow}"; // 动态计算行数
                 worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
@@ -356,7 +358,7 @@ namespace cf01.CLS
             worksheet.Column(34).Hidden = true;
             worksheet.Column(35).Hidden = true;
             worksheet.Column(36).Hidden = true;
-
+            worksheet.Column(37).Hidden = true;
             worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
             //if (prd_dep == "322" || prd_dep == "202")
             //{

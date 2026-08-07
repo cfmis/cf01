@@ -1143,7 +1143,7 @@ namespace cf01.Forms
             recipients = new string[] { "dgpp_1s@chingfung.com", "dg_pmc@chingfung.com", "cherry_tam@chingfung.com" }; // 直接赋新值
             SendMail("S", recipients);
 
-            recipients = new string[] { "dgpp_2v@chingfung.com", "dg_pmc@chingfung.com" }; // 直接赋新值
+            recipients = new string[] { "dgpp_2v@chingfung.com", "dg_pmc@chingfung.com","leavy_lai@chingfung.com" }; // 直接赋新值
             SendMail("V", recipients);
 
             recipients = new string[] { "dgpp_h&2y@chingfung.com", "dg_pmc@chingfung.com" }; // 直接赋新值
