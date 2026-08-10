@@ -37,12 +37,6 @@ namespace cf01.Forms
             lueFindDep.Properties.DisplayMember = "dep_cdesc";
         }
 
-        private void btnConf_Click(object sender, EventArgs e)
-        {
-            prd_group = lueDep.EditValue != null ? lueDep.EditValue.ToString().Trim() : "";
-            this.Close();
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,8 +57,8 @@ namespace cf01.Forms
             string prd_machine = txtPrdMachine.Text;
             string prd_mo = txtPrdMo.Text;
             string prd_worker = txtPrdWorker.Text;
-            int hour_run_num = txtRunNum.Text != "" ? Convert.ToInt32(txtRunNum.Text) : 0;
-            int line_num = txtLineNum.Text != "" ? Convert.ToInt32(txtLineNum.Text) : 0;
+            int hour_run_num = clsValidRule.ConvertStrToInt(txtRunNum.Text);
+            int line_num = clsValidRule.ConvertStrToInt(txtLineNum.Text);
             int hour_std_qty = txtStdQty.Text != "" ? Convert.ToInt32(txtStdQty.Text) : 0;
             string user_id = DBUtility._user_id;
             string now_date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
@@ -140,9 +134,8 @@ namespace cf01.Forms
         {
             int hour_run_num = 0;
             int line_num = 0;
-            int std_qty = 0;
-            hour_run_num = txtRunNum.Text != "" ? Convert.ToInt32(txtRunNum.Text) : 0;
-            line_num = txtLineNum.Text != "" ? Convert.ToInt32(txtLineNum.Text) : 0;
+            hour_run_num = clsValidRule.ConvertStrToInt(txtRunNum.Text);
+            line_num = clsValidRule.ConvertStrToInt(txtLineNum.Text);
             txtStdQty.Text = (hour_run_num * line_num).ToString();
         }
 

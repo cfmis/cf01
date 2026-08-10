@@ -93,11 +93,11 @@ namespace cf01.MM
             string prd_dep = lueDep.EditValue != null ? lueDep.EditValue.ToString().Trim() : "";
             string prd_item = txtPrdItem.Text;
             string mat_item = txtMatItem.Text;
-            decimal prd_weg = txtPrdWeg.Text != "" ? Convert.ToDecimal(txtPrdWeg.Text) : 0;
-            decimal waste_weg = txtWasteWeg.Text != "" ? Convert.ToDecimal(txtWasteWeg.Text) : 0;
-            decimal use_weg = txtUseWeg.Text != "" ? Convert.ToDecimal(txtUseWeg.Text) : 0;
-            decimal kg_qty_rate = txtKgQtyRate.Text != "" ? Convert.ToDecimal(txtKgQtyRate.Text) : 0;
-            decimal pcs_weg = txtPcsWeg.Text != "" ? Convert.ToDecimal(txtPcsWeg.Text) : 0;
+            decimal prd_weg = clsValidRule.ConvertStrToDecimal(txtPrdWeg.Text);
+            decimal waste_weg = clsValidRule.ConvertStrToDecimal(txtWasteWeg.Text);
+            decimal use_weg = clsValidRule.ConvertStrToDecimal(txtUseWeg.Text);
+            decimal kg_qty_rate = clsValidRule.ConvertStrToDecimal(txtKgQtyRate.Text);
+            decimal pcs_weg = clsValidRule.ConvertStrToDecimal(txtPcsWeg.Text);
             string user_id = DBUtility._user_id;
             string now_date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string strSql = "", strSql1 = "";
@@ -157,15 +157,15 @@ namespace cf01.MM
         }
         private void CountUseWeg()
         {
-            decimal prd_weg = txtPrdWeg.Text != "" ? Convert.ToDecimal(txtPrdWeg.Text) : 0;
-            decimal waste_weg = txtWasteWeg.Text != "" ? Convert.ToDecimal(txtWasteWeg.Text) : 0;
+            decimal prd_weg = clsValidRule.ConvertStrToDecimal(txtPrdWeg.Text);
+            decimal waste_weg = clsValidRule.ConvertStrToDecimal(txtWasteWeg.Text);
             txtUseWeg.Text = (prd_weg + waste_weg).ToString();
             
         }
 
         private void txtKgQtyRate_Leave(object sender, EventArgs e)
         {
-            decimal kg_qty_rate = txtKgQtyRate.Text != "" ? Convert.ToDecimal(txtKgQtyRate.Text) : 0;
+            decimal kg_qty_rate = clsValidRule.ConvertStrToDecimal(txtKgQtyRate.Text);
             txtPcsWeg.Text = kg_qty_rate != 0 ? Math.Round((1 / kg_qty_rate) * 1000, 4).ToString() : "";
         }
 
