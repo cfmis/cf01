@@ -1081,14 +1081,15 @@ namespace cf01.CLS
                     for (int r = 0; r < dt.Rows.Count; r++)//行
                     {
                         cur_row = rs + r;
+                        worksheet.Cells[cur_row, 1] = "'" + dt.Rows[r]["ctn"].ToString();
                         worksheet.Cells[cur_row, 2] = "'" + dt.Rows[r]["invoice_remark"];
                         worksheet.Cells[cur_row, 3] = "'" + dt.Rows[r]["customer_goods"];
                         worksheet.Cells[cur_row, 4] = dt.Rows[r]["customer_size"].ToString();
                         worksheet.Cells[cur_row, 5] = dt.Rows[r]["customer_color_id"].ToString();
                         worksheet.Cells[cur_row, 6] = dt.Rows[r]["order_qty"].ToString();
-                        worksheet.Cells[cur_row, 7] = dt.Rows[r]["unit_price_pcs"].ToString();
-                        worksheet.Cells[cur_row, 8] = dt.Rows[r]["total_sum"].ToString();
-                        worksheet.Cells[cur_row, 9] = dt.Rows[r]["tal_gw"].ToString();
+                        worksheet.Cells[cur_row, 7] = decimal.Parse(dt.Rows[r]["unit_price_pcs"].ToString()) > 0 ? dt.Rows[r]["unit_price_pcs"].ToString() : "";
+                        worksheet.Cells[cur_row, 8] = decimal.Parse(dt.Rows[r]["total_sum"].ToString()) > 0 ? dt.Rows[r]["total_sum"].ToString() : "";
+                        worksheet.Cells[cur_row, 9] = decimal.Parse(dt.Rows[r]["tal_gw"].ToString()) > 0 ? dt.Rows[r]["tal_gw"].ToString() : "";
                         worksheet.Cells[cur_row, 10] = dt.Rows[r]["packing_size"].ToString();
                         worksheet.Cells[cur_row, 12] = dt.Rows[r]["id"].ToString();
                         worksheet.Cells[cur_row, 14] = dt.Rows[r]["mo_id"].ToString();
@@ -1176,6 +1177,23 @@ namespace cf01.CLS
             int result = 0;
             string sql_u =string.Format(@"Update packing_mo_records Set upd_flag='1' WHERE prd_id={0}",prdId);
             result = clsPublicOfPad.ExecuteSqlUpdate(sql_u);
+            return result;
+        }
+
+        public static DataTable GetPackingList(string pk_id)
+        {
+            string strSql = string.Format(
+            @"Select pk_id,sequence_id,ctn,mo_id,customer_goods,customer_color_id,customer_size,
+		    invoice_remark,order_qty,Convert(Decimal(8,4),unit_price_pcs) as unit_price_pcs,Convert(Decimal(8,2),total_sum) as total_sum,ship_to,invoice_date,id,
+		    Convert(Decimal(8,2),tal_gw) AS tal_gw,packing_size,update_by,update_date,group_id,id_seq,id_key	
+            From so_invoice_packing_list Where pk_id='{0}' Order by id_key ", pk_id);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
+        public static string UpdatePackingList(string sql)
+        {
+            string result = clsPublicOfCF01.ExecuteSqlUpdate(sql);            
             return result;
         }
 

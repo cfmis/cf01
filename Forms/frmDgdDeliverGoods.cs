@@ -12,6 +12,8 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraReports.UI;
 using System.IO;
 using System.Threading;
+using System.Drawing;
+using System.Text;
 
 namespace cf01.Forms
 {
@@ -23,6 +25,7 @@ namespace cf01.Forms
         private DataTable dtDetails = new DataTable();
         private DataTable dtMoStore = new DataTable();
         private DataTable dtExcel = new DataTable();
+        DataTable dtPackingData = new DataTable();
         clsPublicOfGEO clsGEO = new clsPublicOfGEO();
         public static string query_id;
         public static string query_seq;
@@ -968,6 +971,7 @@ namespace cf01.Forms
             {
                 MessageBox.Show("沒有符合查找條件的數據!", "提示信息");
             }
+            dgvPackingList.Visible = false;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -1041,6 +1045,15 @@ namespace cf01.Forms
 
         private void btnPacking_Click(object sender, EventArgs e)
         {
+            if (dgvPackingList.Rows.Count == 0)
+            {
+                MessageBox.Show("請先生成Packing List數據!", "提示信息");
+                return;
+            }
+            clsDgdDeliverGoods.Export_to_PackingList(dtPackingData);
+            dgvPackingList.Visible = false;
+
+            /* cancel 20260813 allen
             string date1, date2;
             if (mktDate1.Text == "    /  /")
                 date1 = "";
@@ -1066,6 +1079,7 @@ namespace cf01.Forms
                 }
                 clsDgdDeliverGoods.Export_to_PackingList(dtPacking);
             }
+            */
         }
 
         private void dgvInvoice_SelectionChanged(object sender, EventArgs e)
@@ -1352,6 +1366,220 @@ namespace cf01.Forms
                 }
             } //end of if(frm.lstMo.Count > 0)
             frm.Dispose();
+        }
+
+        private void btnPkDataFind_Click(object sender, EventArgs e)
+        {
+            dgvPackingList.Visible = true;       
+            if (txtId1.Text == "" || txtId2.Text == "")
+            {
+                MessageBox.Show("裝箱單號不可為空!", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            txtId2.Text = txtId1.Text;
+            dtPackingData = clsDgdDeliverGoods.GetPackingList(txtId1.Text.Trim());
+            dgvPackingList.DataSource = dtPackingData;
+            bool flag = false; //是否要處理返回的數據
+            if (dtPackingData.Rows.Count == 0)
+            {
+                dtPackingData = clsDgdDeliverGoods.Get_Packing_Data(txtId1.Text, txtId2.Text, "", "", "", "");
+                flag = true;
+            }
+            if(dtPackingData.Rows.Count == 0)
+            {
+                return;
+            }
+            if (flag)
+            {
+                DataTable dtId = dtPackingData.DefaultView.ToTable(true, "id");
+                string temp_id = "", tmp_packing_size = "", curr_packing_size = "";
+                string tmp_mo_id = "", tmp_invoice_remark = "", tmp_customer_goods = "", tmp_customer_color_id = "", tmp_customer_size = "";
+                string cur_mo_id = "", cur_invoice_remark = "", cur_customer_goods = "", cur_customer_color_id = "", cur_customer_size = "";
+                decimal tmp_unit_price_pcs = 0, cur_unit_price_pcs = 0, cur_total_sum = 0, tmp_total_sum = 0;
+                int tmp_order_qty = 0, cur_order_qty = 0, groupId = 0;
+                for (int i = 0; i < dtId.Rows.Count; i++)
+                {
+                    groupId = i % 2;
+                    temp_id = dtId.Rows[i]["id"].ToString();
+                    for (int ii = 0; ii < dtPackingData.Rows.Count; ii++)
+                    {
+                        if (dtPackingData.Rows[ii]["id"].ToString() == temp_id)
+                        {
+                            dtPackingData.Rows[ii]["group_id"] = groupId.ToString();
+                            if (dtPackingData.Rows[ii]["id_seq"].ToString() == "1")
+                            {
+                                tmp_packing_size = string.IsNullOrEmpty(tmp_packing_size) ? "" : dtPackingData.Rows[ii]["packing_size"].ToString();
+                                tmp_mo_id = dtPackingData.Rows[ii]["mo_id"].ToString();
+                                tmp_invoice_remark = string.IsNullOrEmpty(dtPackingData.Rows[ii]["invoice_remark"].ToString()) ? "" : dtPackingData.Rows[ii]["invoice_remark"].ToString();
+                                tmp_customer_goods = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_goods"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_goods"].ToString();
+                                tmp_customer_color_id = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_color_id"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_color_id"].ToString();
+                                tmp_customer_size = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_size"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_size"].ToString();
+                                tmp_order_qty = int.Parse(dtPackingData.Rows[ii]["order_qty"].ToString());
+                                tmp_unit_price_pcs = decimal.Parse(dtPackingData.Rows[ii]["unit_price_pcs"].ToString());
+                                tmp_total_sum = decimal.Parse(dtPackingData.Rows[ii]["total_sum"].ToString());
+                            }
+                            else
+                            {
+                                dtPackingData.Rows[ii]["id"] = "";
+                                curr_packing_size = string.IsNullOrEmpty(dtPackingData.Rows[ii]["packing_size"].ToString()) ? "" : dtPackingData.Rows[ii]["packing_size"].ToString();
+                                if (curr_packing_size.Trim() == tmp_packing_size.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["packing_size"] = "";
+                                    dtPackingData.Rows[ii]["tal_gw"] = 0;
+                                }
+                                if (curr_packing_size.Trim() == "")
+                                {
+                                    dtPackingData.Rows[ii]["tal_gw"] = 0;
+                                }
+                                cur_mo_id = dtPackingData.Rows[ii]["mo_id"].ToString();
+                                cur_invoice_remark = string.IsNullOrEmpty(dtPackingData.Rows[ii]["invoice_remark"].ToString()) ? "" : dtPackingData.Rows[ii]["invoice_remark"].ToString();
+                                cur_customer_goods = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_goods"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_goods"].ToString();
+                                cur_customer_color_id = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_color_id"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_color_id"].ToString();
+                                cur_customer_size = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_size"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_size"].ToString();
+                                cur_order_qty = int.Parse(dtPackingData.Rows[ii]["order_qty"].ToString());
+                                cur_unit_price_pcs = decimal.Parse(dtPackingData.Rows[ii]["unit_price_pcs"].ToString());
+                                cur_total_sum = decimal.Parse(dtPackingData.Rows[ii]["total_sum"].ToString());
+                                if (cur_mo_id.Trim() == tmp_mo_id.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["mo_id"] = "";
+                                }
+                                if (cur_invoice_remark.Trim() == tmp_invoice_remark.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["invoice_remark"] = "";
+                                }
+                                if (cur_customer_goods.Trim() == tmp_customer_goods.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["customer_goods"] = "";
+                                }
+                                if (cur_customer_color_id.Trim() == tmp_customer_color_id.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["customer_color_id"] = "";
+                                }
+                                if (cur_customer_size.Trim() == tmp_customer_size.Trim())
+                                {
+                                    dtPackingData.Rows[ii]["customer_size"] = "";
+                                }
+                                if (cur_order_qty == tmp_order_qty)
+                                {
+                                    dtPackingData.Rows[ii]["order_qty"] = 0;
+                                }
+                                if (cur_unit_price_pcs == tmp_unit_price_pcs)
+                                {
+                                    dtPackingData.Rows[ii]["unit_price_pcs"] = 0;
+                                }
+                                if (cur_total_sum == tmp_total_sum)
+                                {
+                                    dtPackingData.Rows[ii]["total_sum"] = 0;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+            dtPackingData.AcceptChanges();
+            dgvPackingList.DataSource = dtPackingData;
+        }
+
+        private void dgvPackingList_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            // 忽略标题行或无效行
+            if (e.RowIndex < 0 || e.RowIndex >= dgvPackingList.Rows.Count)
+                return;
+
+            // 获取当前行
+            DataGridViewRow row = dgvPackingList.Rows[e.RowIndex];
+            if (row.Cells["group_id"].Value != null)
+            {
+                string status = row.Cells["group_id"].Value.ToString();
+
+                if (status == "0")
+                {
+                    // 设置整行的默认样式背景色
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Black;//.White; // 可选：调整文字颜色以确保证可读性
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightGray;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }               
+            }
+        }
+
+        private void btnPkDataSave_Click(object sender, EventArgs e)
+        {
+            if (dtPackingData.Rows.Count == 0)
+            {
+                MessageBox.Show("注意，請首先查找出Packing List數據!", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            string sql_u="";
+            StringBuilder sb = new StringBuilder("");
+            sb.Append(@" SET XACT_ABORT ON ");
+            sb.Append(@" BEGIN TRANSACTION ");
+            string user_id = DBUtility._user_id;
+            bool flag_update = false;
+            for (int i=0; i < dtPackingData.Rows.Count ; i++)
+            {
+                if (int.Parse(dtPackingData.Rows[i]["id_key"].ToString()) == 0)
+                {
+                    //新行
+                    sql_u = string.Format(
+                    @" INSERT INTO so_invoice_packing_list(pk_id,sequence_id,ctn,mo_id,customer_goods,customer_color_id,customer_size,invoice_remark,order_qty,unit_price_pcs,total_sum,ship_to,invoice_date,id,
+                    tal_gw,packing_size,update_by,update_date,group_id,id_seq) Values
+                    ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},{9},{10},'{11}','{12}','{13}',{14},'{15}','{16}',getdate(),'{17}',{18})",
+                    dtPackingData.Rows[i]["pk_id"].ToString(), dtPackingData.Rows[i]["sequence_id"].ToString(),
+                    dtPackingData.Rows[i]["ctn"].ToString(), dtPackingData.Rows[i]["mo_id"].ToString(),
+                    dtPackingData.Rows[i]["customer_goods"].ToString(), dtPackingData.Rows[i]["customer_color_id"].ToString(),
+                    dtPackingData.Rows[i]["customer_size"].ToString(), dtPackingData.Rows[i]["invoice_remark"].ToString(),
+                    dtPackingData.Rows[i]["order_qty"], dtPackingData.Rows[i]["unit_price_pcs"], dtPackingData.Rows[i]["total_sum"],
+                    dtPackingData.Rows[i]["ship_to"].ToString(), dtPackingData.Rows[i]["invoice_date"].ToString(),dtPackingData.Rows[i]["id"].ToString(),
+                    dtPackingData.Rows[i]["tal_gw"], dtPackingData.Rows[i]["packing_size"].ToString(), user_id,
+                    dtPackingData.Rows[i]["group_id"].ToString(), dtPackingData.Rows[i]["id_seq"]);
+                    flag_update = true;
+                }
+                else
+                {
+                    if (dtPackingData.Rows[i].RowState == DataRowState.Modified)
+                    {
+                        //行被修改
+                        sql_u = string.Format(
+                            @" Update so_invoice_packing_list 
+                            Set pk_id='{1}',sequence_id='{2}',ctn='{3}',mo_id='{4}',customer_goods='{5}',customer_color_id='{6}',customer_size='{7}',invoice_remark='{8}',
+                                order_qty={9},unit_price_pcs={10},total_sum={11},ship_to='{12}',invoice_date='{13}',id='{14}',
+                                tal_gw={15},packing_size='{16}',update_by='{17}',update_date=getdate(),group_id='{18}',id_seq={19}
+                            Where id_key={0}", int.Parse(dtPackingData.Rows[i]["id_key"].ToString()),
+                            dtPackingData.Rows[i]["pk_id"].ToString(), dtPackingData.Rows[i]["sequence_id"].ToString(),
+                            dtPackingData.Rows[i]["ctn"].ToString(), dtPackingData.Rows[i]["mo_id"].ToString(),
+                            dtPackingData.Rows[i]["customer_goods"].ToString(), dtPackingData.Rows[i]["customer_color_id"].ToString(),
+                            dtPackingData.Rows[i]["customer_size"].ToString(), dtPackingData.Rows[i]["invoice_remark"].ToString(),
+                            dtPackingData.Rows[i]["order_qty"], dtPackingData.Rows[i]["unit_price_pcs"], dtPackingData.Rows[i]["total_sum"],
+                            dtPackingData.Rows[i]["ship_to"].ToString(), dtPackingData.Rows[i]["invoice_date"].ToString(), dtPackingData.Rows[i]["id"].ToString(),
+                            dtPackingData.Rows[i]["tal_gw"], dtPackingData.Rows[i]["packing_size"].ToString(), user_id,
+                            dtPackingData.Rows[i]["group_id"].ToString(), dtPackingData.Rows[i]["id_seq"]);
+                        flag_update = true;
+                    }
+                }
+                sb.Append(sql_u);                
+            }
+            sb.Append(@" COMMIT TRANSACTION ");
+            string strSql = sb.ToString();
+            if (flag_update)
+            {
+                strSql = clsDgdDeliverGoods.UpdatePackingList(strSql);
+                if (strSql == "")
+                {
+                    MessageBox.Show("Packing List數據保存成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtPackingData = clsDgdDeliverGoods.GetPackingList(txtId1.Text.Trim());
+                    dgvPackingList.DataSource = dtPackingData;
+                }
+                else
+                {
+                    MessageBox.Show("Packing List數據保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }            
+            
         }
     }
 }

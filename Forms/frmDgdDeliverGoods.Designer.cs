@@ -164,7 +164,10 @@
             this.lueGoods_id = new DevExpress.XtraEditors.LookUpEdit();
             this.txtGoods_id = new DevExpress.XtraEditors.TextEdit();
             this.xtbPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.dgvPackingList = new System.Windows.Forms.DataGridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnPkDataSave = new System.Windows.Forms.Button();
+            this.btnPkDataFind = new System.Windows.Forms.Button();
             this.txtGroup = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnPacking = new System.Windows.Forms.Button();
@@ -223,6 +226,28 @@
             this.treams_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGrp1 = new DevExpress.XtraEditors.RadioGroup();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price_pcs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_sum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoice_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.group_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_Customer.Properties)).BeginInit();
@@ -280,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueGoods_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoods_id.Properties)).BeginInit();
             this.xtbPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroup.Properties)).BeginInit();
@@ -291,6 +317,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -1664,12 +1691,51 @@
             // 
             // xtbPage3
             // 
+            this.xtbPage3.Controls.Add(this.dgvPackingList);
             this.xtbPage3.Controls.Add(this.panelControl2);
             this.xtbPage3.Controls.Add(this.dgvExcel);
             this.xtbPage3.Controls.Add(this.dgvInvoice);
             this.xtbPage3.Name = "xtbPage3";
             this.xtbPage3.Size = new System.Drawing.Size(1302, 635);
             this.xtbPage3.Text = "匯出EXCEL";
+            // 
+            // dgvPackingList
+            // 
+            this.dgvPackingList.AllowUserToAddRows = false;
+            this.dgvPackingList.AllowUserToDeleteRows = false;
+            this.dgvPackingList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPackingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackingList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn12,
+            this.unit_price_pcs1,
+            this.total_sum1,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn13,
+            this.invoice_date1,
+            this.update_by,
+            this.update_date,
+            this.group_id,
+            this.id_seq,
+            this.id_key});
+            this.dgvPackingList.Location = new System.Drawing.Point(2, 112);
+            this.dgvPackingList.Name = "dgvPackingList";
+            this.dgvPackingList.RowTemplate.Height = 24;
+            this.dgvPackingList.Size = new System.Drawing.Size(1296, 524);
+            this.dgvPackingList.TabIndex = 34;
+            this.dgvPackingList.Visible = false;
+            this.dgvPackingList.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvPackingList_RowPrePaint);
             // 
             // panelControl2
             // 
@@ -1678,9 +1744,9 @@
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.LightGray;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl2.Controls.Add(this.groupBox1);
             this.panelControl2.Controls.Add(this.txtGroup);
             this.panelControl2.Controls.Add(this.labelControl6);
-            this.panelControl2.Controls.Add(this.btnPacking);
             this.panelControl2.Controls.Add(this.radGrp2);
             this.panelControl2.Controls.Add(this.btnInvoice);
             this.panelControl2.Controls.Add(this.labelControl4);
@@ -1701,11 +1767,37 @@
             this.panelControl2.Size = new System.Drawing.Size(1302, 109);
             this.panelControl2.TabIndex = 2;
             // 
+            // btnPkDataSave
+            // 
+            this.btnPkDataSave.Image = ((System.Drawing.Image)(resources.GetObject("btnPkDataSave.Image")));
+            this.btnPkDataSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPkDataSave.Location = new System.Drawing.Point(168, 20);
+            this.btnPkDataSave.Name = "btnPkDataSave";
+            this.btnPkDataSave.Size = new System.Drawing.Size(149, 39);
+            this.btnPkDataSave.TabIndex = 24;
+            this.btnPkDataSave.Text = "保存Packing List Data";
+            this.btnPkDataSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPkDataSave.UseVisualStyleBackColor = false;
+            this.btnPkDataSave.Click += new System.EventHandler(this.btnPkDataSave_Click);
+            // 
+            // btnPkDataFind
+            // 
+            this.btnPkDataFind.Image = global::cf01.Properties.Resources.find;
+            this.btnPkDataFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPkDataFind.Location = new System.Drawing.Point(9, 20);
+            this.btnPkDataFind.Name = "btnPkDataFind";
+            this.btnPkDataFind.Size = new System.Drawing.Size(153, 39);
+            this.btnPkDataFind.TabIndex = 23;
+            this.btnPkDataFind.Text = "查找Packing List Data";
+            this.btnPkDataFind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPkDataFind.UseVisualStyleBackColor = false;
+            this.btnPkDataFind.Click += new System.EventHandler(this.btnPkDataFind_Click);
+            // 
             // txtGroup
             // 
             this.txtGroup.EditValue = "C";
             this.txtGroup.EnterMoveNextControl = true;
-            this.txtGroup.Location = new System.Drawing.Point(407, 68);
+            this.txtGroup.Location = new System.Drawing.Point(365, 68);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtGroup.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1715,7 +1807,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(307, 72);
+            this.labelControl6.Location = new System.Drawing.Point(265, 72);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(90, 14);
             this.labelControl6.TabIndex = 22;
@@ -1726,18 +1818,18 @@
             this.btnPacking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnPacking.Image = global::cf01.Properties.Resources.Excel1;
             this.btnPacking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacking.Location = new System.Drawing.Point(1031, 16);
+            this.btnPacking.Location = new System.Drawing.Point(323, 20);
             this.btnPacking.Name = "btnPacking";
-            this.btnPacking.Size = new System.Drawing.Size(113, 39);
+            this.btnPacking.Size = new System.Drawing.Size(143, 39);
             this.btnPacking.TabIndex = 20;
-            this.btnPacking.Text = "Packing List";
+            this.btnPacking.Text = "匯出 Packing List";
             this.btnPacking.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPacking.UseVisualStyleBackColor = false;
             this.btnPacking.Click += new System.EventHandler(this.btnPacking_Click);
             // 
             // radGrp2
             // 
-            this.radGrp2.Location = new System.Drawing.Point(407, 38);
+            this.radGrp2.Location = new System.Drawing.Point(365, 38);
             this.radGrp2.Name = "radGrp2";
             this.radGrp2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "送 貨 單"),
@@ -1751,9 +1843,9 @@
             this.btnInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnInvoice.Image = global::cf01.Properties.Resources.Excel1;
             this.btnInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvoice.Location = new System.Drawing.Point(900, 16);
+            this.btnInvoice.Location = new System.Drawing.Point(833, 72);
             this.btnInvoice.Name = "btnInvoice";
-            this.btnInvoice.Size = new System.Drawing.Size(113, 39);
+            this.btnInvoice.Size = new System.Drawing.Size(105, 35);
             this.btnInvoice.TabIndex = 18;
             this.btnInvoice.Text = "匯出發票  ";
             this.btnInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1762,7 +1854,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(191, 41);
+            this.labelControl4.Location = new System.Drawing.Point(178, 41);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(8, 14);
             this.labelControl4.TabIndex = 17;
@@ -1770,7 +1862,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(191, 16);
+            this.labelControl3.Location = new System.Drawing.Point(178, 16);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(8, 14);
             this.labelControl3.TabIndex = 16;
@@ -1780,11 +1872,11 @@
             // 
             this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
             this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(765, 16);
+            this.btnExcel.Location = new System.Drawing.Point(702, 16);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(113, 39);
+            this.btnExcel.Size = new System.Drawing.Size(114, 39);
             this.btnExcel.TabIndex = 8;
-            this.btnExcel.Text = "匯出EXCEL";
+            this.btnExcel.Text = "匯出 EXCEL";
             this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -1793,9 +1885,9 @@
             // 
             this.btnSearch.Image = global::cf01.Properties.Resources.find;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(653, 16);
+            this.btnSearch.Location = new System.Drawing.Point(591, 16);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 39);
+            this.btnSearch.Size = new System.Drawing.Size(105, 39);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "查 找      ";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1805,7 +1897,7 @@
             // mktDate2
             // 
             this.mktDate2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.mktDate2.Location = new System.Drawing.Point(523, 12);
+            this.mktDate2.Location = new System.Drawing.Point(481, 12);
             this.mktDate2.Mask = "0000/00/00";
             this.mktDate2.Name = "mktDate2";
             this.mktDate2.PromptChar = ' ';
@@ -1816,7 +1908,7 @@
             // mktDate1
             // 
             this.mktDate1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.mktDate1.Location = new System.Drawing.Point(407, 12);
+            this.mktDate1.Location = new System.Drawing.Point(365, 12);
             this.mktDate1.Mask = "0000/00/00";
             this.mktDate1.Name = "mktDate1";
             this.mktDate1.PromptChar = ' ';
@@ -1829,7 +1921,7 @@
             // txtMo_id2
             // 
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(209, 38);
+            this.txtMo_id2.Location = new System.Drawing.Point(196, 38);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1840,7 +1932,7 @@
             // txtId2
             // 
             this.txtId2.EnterMoveNextControl = true;
-            this.txtId2.Location = new System.Drawing.Point(209, 12);
+            this.txtId2.Location = new System.Drawing.Point(196, 12);
             this.txtId2.Name = "txtId2";
             this.txtId2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1851,7 +1943,7 @@
             // txtMo_id1
             // 
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(85, 38);
+            this.txtMo_id1.Location = new System.Drawing.Point(72, 38);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1863,7 +1955,7 @@
             // txtId1
             // 
             this.txtId1.EnterMoveNextControl = true;
-            this.txtId1.Location = new System.Drawing.Point(85, 12);
+            this.txtId1.Location = new System.Drawing.Point(72, 12);
             this.txtId1.Name = "txtId1";
             this.txtId1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1874,7 +1966,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(27, 41);
+            this.labelControl1.Location = new System.Drawing.Point(14, 41);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 0;
@@ -1882,7 +1974,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(345, 15);
+            this.lblDate.Location = new System.Drawing.Point(310, 15);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(52, 14);
             this.lblDate.TabIndex = 0;
@@ -1890,7 +1982,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(27, 15);
+            this.labelControl2.Location = new System.Drawing.Point(14, 15);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(52, 14);
             this.labelControl2.TabIndex = 0;
@@ -1923,7 +2015,7 @@
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.ReadOnly = true;
             this.dgvExcel.RowTemplate.Height = 24;
-            this.dgvExcel.Size = new System.Drawing.Size(1295, 520);
+            this.dgvExcel.Size = new System.Drawing.Size(1295, 523);
             this.dgvExcel.TabIndex = 32;
             // 
             // id
@@ -2274,6 +2366,177 @@
             this.radGrp1.Size = new System.Drawing.Size(187, 28);
             this.radGrp1.TabIndex = 24;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "pk_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "單號";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "sequence_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "序號";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ctn";
+            this.dataGridViewTextBoxColumn6.HeaderText = "箱號";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "mo_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "頁數";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn8.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "customer_goods";
+            this.dataGridViewTextBoxColumn9.HeaderText = "客戶貨品編號";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "customer_color_id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "客戶顏色編號";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "customer_size";
+            this.dataGridViewTextBoxColumn11.HeaderText = "客戶尺碼";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "invoice_remark";
+            this.dataGridViewTextBoxColumn17.HeaderText = "發票備註";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "order_qty";
+            this.dataGridViewTextBoxColumn12.HeaderText = "訂單數量";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // unit_price_pcs1
+            // 
+            this.unit_price_pcs1.DataPropertyName = "unit_price_pcs";
+            this.unit_price_pcs1.HeaderText = "單價(PCS)";
+            this.unit_price_pcs1.Name = "unit_price_pcs1";
+            this.unit_price_pcs1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // total_sum1
+            // 
+            this.total_sum1.DataPropertyName = "total_sum";
+            this.total_sum1.HeaderText = "總金額";
+            this.total_sum1.Name = "total_sum1";
+            this.total_sum1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn16.HeaderText = "裝箱單號";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn16.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "tal_gw";
+            this.dataGridViewTextBoxColumn14.HeaderText = "重量";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "packing_size";
+            this.dataGridViewTextBoxColumn15.HeaderText = "紙箱規格";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ship_to";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Ship To";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // invoice_date1
+            // 
+            this.invoice_date1.DataPropertyName = "invoice_date";
+            this.invoice_date1.HeaderText = "發票日期";
+            this.invoice_date1.Name = "invoice_date1";
+            this.invoice_date1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "更改人";
+            this.update_by.Name = "update_by";
+            this.update_by.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.update_by.Visible = false;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "更改日期";
+            this.update_date.Name = "update_date";
+            this.update_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.update_date.Visible = false;
+            // 
+            // group_id
+            // 
+            this.group_id.DataPropertyName = "group_id";
+            this.group_id.HeaderText = "group_id";
+            this.group_id.Name = "group_id";
+            this.group_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.group_id.Visible = false;
+            // 
+            // id_seq
+            // 
+            this.id_seq.DataPropertyName = "id_seq";
+            this.id_seq.HeaderText = "id_seq";
+            this.id_seq.Name = "id_seq";
+            this.id_seq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id_seq.Visible = false;
+            // 
+            // id_key
+            // 
+            this.id_key.DataPropertyName = "id_key";
+            this.id_key.HeaderText = "id_key";
+            this.id_key.Name = "id_key";
+            this.id_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id_key.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Controls.Add(this.btnPkDataSave);
+            this.groupBox1.Controls.Add(this.btnPkDataFind);
+            this.groupBox1.Controls.Add(this.btnPacking);
+            this.groupBox1.Location = new System.Drawing.Point(824, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(474, 65);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Packing List";
+            // 
             // frmDgdDeliverGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2345,6 +2608,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueGoods_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoods_id.Properties)).EndInit();
             this.xtbPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -2357,6 +2621,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2557,5 +2822,30 @@
         private DevExpress.XtraEditors.TextEdit txtState;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnPkDataFind;
+        private System.Windows.Forms.Button btnPkDataSave;
+        private System.Windows.Forms.DataGridView dgvPackingList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_price_pcs1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_sum1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoice_date1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn update_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn group_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_seq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_key;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
