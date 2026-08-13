@@ -170,6 +170,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 35].Value = "外發工序日期";
             worksheet.Cells[excelRow, 36].Value = "每碑數";
             worksheet.Cells[excelRow, 37].Value = "安排機器";
+            worksheet.Cells[excelRow, 38].Value = "安排工號";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 30 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -239,6 +240,8 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 35].Value = drExcel["transfer_date_out"].ToString();
                 worksheet.Cells[excelRow, 36].Value = drExcel["line_num"];
                 worksheet.Cells[excelRow, 37].Value = drExcel["prd_machine"];
+                if (drExcel["prd_worker"].ToString().Length >= 10)
+                    worksheet.Cells[excelRow, 38].Value = "\'" + drExcel["prd_worker"].ToString().Substring(5, 5);
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -359,6 +362,7 @@ namespace cf01.CLS
             worksheet.Column(35).Hidden = true;
             worksheet.Column(36).Hidden = true;
             worksheet.Column(37).Hidden = true;
+            worksheet.Column(38).Hidden = true;
             worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
             //if (prd_dep == "322" || prd_dep == "202")
             //{
