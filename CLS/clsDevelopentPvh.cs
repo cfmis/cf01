@@ -95,9 +95,9 @@ namespace cf01.CLS
         {
             objL3.EditValue = objMat.GetColumnValue("name1").ToString();
             objL4.EditValue = objMat.GetColumnValue("name2").ToString();
-            string strMat = objMat.EditValue.ToString();
-            objSub.EditValue = (strMat != "") ? "Pre-Consumer" : "";                   
-            
+            //string strMat = objMat.EditValue.ToString(); //Cancel allen 20260818    
+            //objSub.EditValue = (strMat != "") ? "Pre-Consumer" : "";  //Cancel allen 20260818                
+
             //    string strMatValue = "";
             //    string strCountry = "";
             //    strMatValue = objMat.EditValue.ToString();
