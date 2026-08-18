@@ -871,7 +871,7 @@ namespace cf01.CLS
 
                     //寫入欄位標題                   
                     worksheet.Cells[8, 1] = "ORDER NO.";
-                    worksheet.Cells[8, 2] = "PO/ITEM";
+                    worksheet.Cells[8, 2] = "REQUEST NO";
                     worksheet.Cells[8, 3] = "GOODS DESERIPTION";
                     worksheet.Cells[8, 4] = "SIZE";
                     worksheet.Cells[8, 5] = "COLOR";
