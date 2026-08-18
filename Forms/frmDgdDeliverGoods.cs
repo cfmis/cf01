@@ -1394,9 +1394,9 @@ namespace cf01.Forms
                 DataTable dtId = dtPackingData.DefaultView.ToTable(true, "id");
                 string temp_id = "", tmp_packing_size = "", curr_packing_size = "";
                 string tmp_mo_id = "", tmp_invoice_remark = "", tmp_customer_goods = "", tmp_customer_color_id = "", tmp_customer_size = "";
-                string cur_mo_id = "", cur_invoice_remark = "", cur_customer_goods = "", cur_customer_color_id = "", cur_customer_size = "";
-                decimal tmp_unit_price_pcs = 0, cur_unit_price_pcs = 0, cur_total_sum = 0, tmp_total_sum = 0;
-                int tmp_order_qty = 0, cur_order_qty = 0, groupId = 0;
+                //string cur_mo_id = "", cur_invoice_remark = "", cur_customer_goods = "", cur_customer_color_id = "", cur_customer_size = "";
+                decimal tmp_unit_price_pcs = 0, tmp_total_sum = 0;  //, cur_unit_price_pcs = 0, cur_total_sum = 0
+                int tmp_order_qty = 0, groupId = 0;  // cur_order_qty = 0;
                 for (int i = 0; i < dtId.Rows.Count; i++)
                 {
                     groupId = i % 2;
@@ -1431,46 +1431,46 @@ namespace cf01.Forms
                                 {
                                     dtPackingData.Rows[ii]["tal_gw"] = 0;
                                 }
-                                cur_mo_id = dtPackingData.Rows[ii]["mo_id"].ToString();
-                                cur_invoice_remark = string.IsNullOrEmpty(dtPackingData.Rows[ii]["invoice_remark"].ToString()) ? "" : dtPackingData.Rows[ii]["invoice_remark"].ToString();
-                                cur_customer_goods = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_goods"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_goods"].ToString();
-                                cur_customer_color_id = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_color_id"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_color_id"].ToString();
-                                cur_customer_size = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_size"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_size"].ToString();
-                                cur_order_qty = int.Parse(dtPackingData.Rows[ii]["order_qty"].ToString());
-                                cur_unit_price_pcs = decimal.Parse(dtPackingData.Rows[ii]["unit_price_pcs"].ToString());
-                                cur_total_sum = decimal.Parse(dtPackingData.Rows[ii]["total_sum"].ToString());
-                                if (cur_mo_id.Trim() == tmp_mo_id.Trim())
-                                {
-                                    dtPackingData.Rows[ii]["mo_id"] = "";
-                                }
-                                if (cur_invoice_remark.Trim() == tmp_invoice_remark.Trim())
-                                {
-                                    dtPackingData.Rows[ii]["invoice_remark"] = "";
-                                }
-                                if (cur_customer_goods.Trim() == tmp_customer_goods.Trim())
-                                {
-                                    dtPackingData.Rows[ii]["customer_goods"] = "";
-                                }
-                                if (cur_customer_color_id.Trim() == tmp_customer_color_id.Trim())
-                                {
-                                    dtPackingData.Rows[ii]["customer_color_id"] = "";
-                                }
-                                if (cur_customer_size.Trim() == tmp_customer_size.Trim())
-                                {
-                                    dtPackingData.Rows[ii]["customer_size"] = "";
-                                }
-                                if (cur_order_qty == tmp_order_qty)
-                                {
-                                    dtPackingData.Rows[ii]["order_qty"] = 0;
-                                }
-                                if (cur_unit_price_pcs == tmp_unit_price_pcs)
-                                {
-                                    dtPackingData.Rows[ii]["unit_price_pcs"] = 0;
-                                }
-                                if (cur_total_sum == tmp_total_sum)
-                                {
-                                    dtPackingData.Rows[ii]["total_sum"] = 0;
-                                }
+                                //cur_mo_id = dtPackingData.Rows[ii]["mo_id"].ToString();
+                                //cur_invoice_remark = string.IsNullOrEmpty(dtPackingData.Rows[ii]["invoice_remark"].ToString()) ? "" : dtPackingData.Rows[ii]["invoice_remark"].ToString();
+                                //cur_customer_goods = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_goods"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_goods"].ToString();
+                                //cur_customer_color_id = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_color_id"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_color_id"].ToString();
+                                //cur_customer_size = string.IsNullOrEmpty(dtPackingData.Rows[ii]["customer_size"].ToString()) ? "" : dtPackingData.Rows[ii]["customer_size"].ToString();
+                                //cur_order_qty = int.Parse(dtPackingData.Rows[ii]["order_qty"].ToString());
+                                //cur_unit_price_pcs = decimal.Parse(dtPackingData.Rows[ii]["unit_price_pcs"].ToString());
+                                //cur_total_sum = decimal.Parse(dtPackingData.Rows[ii]["total_sum"].ToString());
+                                //if (cur_mo_id.Trim() == tmp_mo_id.Trim())
+                                //{
+                                //    dtPackingData.Rows[ii]["mo_id"] = "";
+                                //}
+                                //if (cur_invoice_remark.Trim() == tmp_invoice_remark.Trim())
+                                //{
+                                //    dtPackingData.Rows[ii]["invoice_remark"] = "";
+                                //}
+                                //if (cur_customer_goods.Trim() == tmp_customer_goods.Trim())
+                                //{
+                                //    dtPackingData.Rows[ii]["customer_goods"] = "";
+                                //}
+                                //if (cur_customer_color_id.Trim() == tmp_customer_color_id.Trim())
+                                //{
+                                //    dtPackingData.Rows[ii]["customer_color_id"] = "";
+                                //}
+                                //if (cur_customer_size.Trim() == tmp_customer_size.Trim())
+                                //{
+                                //    dtPackingData.Rows[ii]["customer_size"] = "";
+                                //}
+                                //if (cur_order_qty == tmp_order_qty)
+                                //{
+                                //    dtPackingData.Rows[ii]["order_qty"] = 0;
+                                //}
+                                //if (cur_unit_price_pcs == tmp_unit_price_pcs)
+                                //{
+                                //    dtPackingData.Rows[ii]["unit_price_pcs"] = 0;
+                                //}
+                                //if (cur_total_sum == tmp_total_sum)
+                                //{
+                                //    dtPackingData.Rows[ii]["total_sum"] = 0;
+                                //}
                             }
 
                         }
