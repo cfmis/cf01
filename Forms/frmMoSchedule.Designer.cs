@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -248,9 +248,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDep = new DevExpress.XtraEditors.TextEdit();
             this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPrdMo = new DevExpress.XtraEditors.TextEdit();
             this.lueDepGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.txtOver3Days = new DevExpress.XtraEditors.TextEdit();
             this.chkOver3Days = new DevExpress.XtraEditors.CheckEdit();
+            this.tblPrdMo = new System.Windows.Forms.Label();
             this.lblDepGroup = new System.Windows.Forms.Label();
             this.lblPrd_dept = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -286,8 +288,9 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.tblPrdMo = new System.Windows.Forms.Label();
-            this.txtPrdMo = new DevExpress.XtraEditors.TextEdit();
+            this.txtDateFrom = new DevExpress.XtraEditors.TextEdit();
+            this.txtDateTo = new DevExpress.XtraEditors.TextEdit();
+            this.lblNowDate = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -347,11 +350,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDepGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -610,13 +615,13 @@
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode4.RelationName = "Level1";
+            gridLevelNode5.RelationName = "Level2";
+            gridLevelNode6.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode4,
+            gridLevelNode5,
+            gridLevelNode6});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -1673,13 +1678,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode4.RelationName = "Level1";
-            gridLevelNode5.RelationName = "Level2";
-            gridLevelNode6.RelationName = "Level3";
+            gridLevelNode7.RelationName = "Level1";
+            gridLevelNode8.RelationName = "Level2";
+            gridLevelNode9.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4,
-            gridLevelNode5,
-            gridLevelNode6});
+            gridLevelNode7,
+            gridLevelNode8,
+            gridLevelNode9});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -2620,6 +2625,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtDateFrom);
+            this.panel1.Controls.Add(this.txtDateTo);
+            this.panel1.Controls.Add(this.lblNowDate);
             this.panel1.Controls.Add(this.txtDep);
             this.panel1.Controls.Add(this.btnShowMore);
             this.panel1.Controls.Add(this.txtPrdMo);
@@ -2662,6 +2670,15 @@
             this.btnShowMore.Text = ">>";
             this.btnShowMore.Click += new System.EventHandler(this.btnShowMore_Click);
             // 
+            // txtPrdMo
+            // 
+            this.txtPrdMo.Location = new System.Drawing.Point(478, 33);
+            this.txtPrdMo.Name = "txtPrdMo";
+            this.txtPrdMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPrdMo.Properties.MaxLength = 9;
+            this.txtPrdMo.Size = new System.Drawing.Size(121, 20);
+            this.txtPrdMo.TabIndex = 5;
+            // 
             // lueDepGroup
             // 
             this.lueDepGroup.EditValue = "";
@@ -2695,6 +2712,15 @@
             this.chkOver3Days.Properties.Caption = "只匯出超過此日期的制單:";
             this.chkOver3Days.Size = new System.Drawing.Size(181, 21);
             this.chkOver3Days.TabIndex = 17;
+            // 
+            // tblPrdMo
+            // 
+            this.tblPrdMo.AutoSize = true;
+            this.tblPrdMo.Location = new System.Drawing.Point(409, 34);
+            this.tblPrdMo.Name = "tblPrdMo";
+            this.tblPrdMo.Size = new System.Drawing.Size(67, 14);
+            this.tblPrdMo.TabIndex = 24;
+            this.tblPrdMo.Text = "制單編號:";
             // 
             // lblDepGroup
             // 
@@ -2956,23 +2982,33 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
-            // tblPrdMo
+            // txtDateFrom
             // 
-            this.tblPrdMo.AutoSize = true;
-            this.tblPrdMo.Location = new System.Drawing.Point(409, 34);
-            this.tblPrdMo.Name = "tblPrdMo";
-            this.tblPrdMo.Size = new System.Drawing.Size(67, 14);
-            this.tblPrdMo.TabIndex = 24;
-            this.tblPrdMo.Text = "制單編號:";
+            this.txtDateFrom.Location = new System.Drawing.Point(671, 31);
+            this.txtDateFrom.Name = "txtDateFrom";
+            this.txtDateFrom.Properties.Mask.EditMask = "9999/99/99";
+            this.txtDateFrom.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.txtDateFrom.Size = new System.Drawing.Size(121, 20);
+            this.txtDateFrom.TabIndex = 30;
+            this.txtDateFrom.Leave += new System.EventHandler(this.txtDateFrom_Leave);
             // 
-            // txtPrdMo
+            // txtDateTo
             // 
-            this.txtPrdMo.Location = new System.Drawing.Point(478, 33);
-            this.txtPrdMo.Name = "txtPrdMo";
-            this.txtPrdMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPrdMo.Properties.MaxLength = 9;
-            this.txtPrdMo.Size = new System.Drawing.Size(121, 20);
-            this.txtPrdMo.TabIndex = 5;
+            this.txtDateTo.Location = new System.Drawing.Point(816, 31);
+            this.txtDateTo.Name = "txtDateTo";
+            this.txtDateTo.Properties.Mask.EditMask = "9999/99/99";
+            this.txtDateTo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.txtDateTo.Size = new System.Drawing.Size(121, 20);
+            this.txtDateTo.TabIndex = 31;
+            // 
+            // lblNowDate
+            // 
+            this.lblNowDate.AutoSize = true;
+            this.lblNowDate.Location = new System.Drawing.Point(604, 35);
+            this.lblNowDate.Name = "lblNowDate";
+            this.lblNowDate.Size = new System.Drawing.Size(67, 14);
+            this.lblNowDate.TabIndex = 32;
+            this.lblNowDate.Text = "新增日期:";
             // 
             // frmMoSchedule
             // 
@@ -3051,11 +3087,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDepGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3314,5 +3352,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private DevExpress.XtraEditors.TextEdit txtPrdMo;
         private System.Windows.Forms.Label tblPrdMo;
+        private DevExpress.XtraEditors.TextEdit txtDateFrom;
+        private DevExpress.XtraEditors.TextEdit txtDateTo;
+        private System.Windows.Forms.Label lblNowDate;
     }
 }
