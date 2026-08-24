@@ -211,7 +211,7 @@ namespace cf01.ReportForm
                         next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
                         next_sequence_id.Text = dt.Rows[0]["sequence_id"].ToString(); //added 20260407 allen
                         //處理下下部門有大于一個流程情況
-                        string strNextWpId = "", spacing = "\n\r"; ;
+                        string strNextWpId = "", spacing = "\n\r";
                         for (int j=0;j< dt.Rows.Count;j++)
                         {
                             if (j == 0)

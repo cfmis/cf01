@@ -211,8 +211,15 @@ namespace cf01.ReportForm
             gridView1.CloseEditor();
             DataTable dtReport = new DataTable();
             dtReport = dtWordCard.Clone();
+            dtReport.Columns.Add("next_next_wp_id", typeof(string));
+            dtReport.Columns.Add("next_next_goods_id", typeof(string));
+            dtReport.Columns.Add("next_next_do_color", typeof(string));
+            
+
             int intBaseRate = 0, ii = 0;
-            DataRow drow = null, drow1 = null; 
+            DataRow drow = null, drow1 = null;
+            DataTable dt = new DataTable();
+            string strNextWpId = "", spacing = "\n\r";
 
             for (int i = 0; i < dtWordCard.Rows.Count; i++)
             {
@@ -267,6 +274,43 @@ namespace cf01.ReportForm
                     drow["qc_dept"] = dtWordCard.Rows[i]["qc_dept"];
                     drow["flag_hold"] = dtWordCard.Rows[i]["flag_hold"];
                     drow["shading_color"] = dtWordCard.Rows[i]["shading_color"];
+                    drow["arrive_date"] = dtWordCard.Rows[i]["arrive_date"];
+                    drow["barcode_next"] = dtWordCard.Rows[i]["barcode_next"];
+                    
+                    //***********************
+                    dt = clsMo_for_jx.Get_Next_Department_Flow(dtWordCard.Rows[i]["mo_id"].ToString(), dtWordCard.Rows[i]["goods_id"].ToString());
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        //next_goods_id.Text = dt.Rows[0]["goods_id"].ToString();
+                        //next_vendor_id.Text = dt.Rows[0]["vendor_id"].ToString();
+                        //next_do_color.Text = dt.Rows[0]["do_color"].ToString();
+                        //next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
+                        //next_sequence_id.Text = dt.Rows[0]["sequence_id"].ToString(); //added 20260407 allen
+                        //處理下下部門有大于一個流程情況   
+                        strNextWpId = "";
+                        for (int j = 0; j < dt.Rows.Count; j++)
+                        {
+                            if (j == 0)
+                            {
+                                strNextWpId += dt.Rows[j]["next_wp_id"].ToString() + "-" + dt.Rows[j]["next_dep_name"].ToString();
+                            }
+                            else
+                            {
+                                strNextWpId += spacing + dt.Rows[j]["next_wp_id"].ToString() + "-" + dt.Rows[j]["next_dep_name"].ToString();
+                            }
+                        }
+                        drow["next_next_wp_id"] = strNextWpId;
+                        drow["next_next_goods_id"] = dt.Rows[0]["next_next_goods_id"].ToString();
+                        drow["next_next_do_color"] = dt.Rows[0]["next_next_do_color"].ToString();
+                    }
+                    else
+                    {
+                        drow["next_next_wp_id"] = "";
+                        drow["next_next_goods_id"] = "";
+                        drow["next_next_do_color"] = "";
+                    }
+                    //*********************
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -316,7 +360,8 @@ namespace cf01.ReportForm
                             drow1["spec"] = dtWordCard.Rows[i]["spec"].ToString();
                             drow1["qc_dept"] = dtWordCard.Rows[i]["qc_dept"].ToString();
                             drow1["flag_hold"] = dtWordCard.Rows[i]["flag_hold"].ToString();
-                            drow1["shading_color"] = dtWordCard.Rows[i]["shading_color"].ToString();                            
+                            drow1["shading_color"] = dtWordCard.Rows[i]["shading_color"].ToString();
+                            drow1["arrive_date"] = dtWordCard.Rows[i]["arrive_date"];
                             dtReport.Rows.Add(drow1);
                         }
                     }

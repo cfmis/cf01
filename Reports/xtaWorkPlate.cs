@@ -65,5 +65,10 @@ namespace cf01.Reports
                 txtLocation.Text = $"{wh}倉貨架:";
 
         }
+
+        private void txtQc_dept_TextChanged(object sender, EventArgs e)
+        {
+            txtQc_dept.Visible = (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString().Trim())) ? false : true;
+        }
     }
 }
