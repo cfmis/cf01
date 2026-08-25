@@ -285,9 +285,16 @@ namespace cf01.Forms
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
             string prd_mo = txtPrdMo.Text.Trim();
+            string temp_date1 = txtDateFrom.Text.Trim();
+            string temp_date2 = txtDateTo.Text.Trim();
+            if (temp_date1 == "____/__/__")
+                temp_date1 = "";
+            if (temp_date2 == "____/__/__")
+                temp_date2 = "";
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
-            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status,prd_mo);
+            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine
+                , mo_status, user_id, cp_status, prd_mo, temp_date1, temp_date2);
             return dtSch;
         }
         /// /// 統計排期數量、未完成數量、制單需要的時間
@@ -1120,11 +1127,14 @@ namespace cf01.Forms
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
             string prd_mo = txtPrdMo.Text.Trim();
+            string temp_date1 = txtDateFrom.Text.Trim();
+            string temp_date2 = txtDateTo.Text.Trim();
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
             int sch_by_machine = 0;
             int rpt_type = 4;//只提取124-A的新加入的記錄
-            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status, prd_mo);
+            DataTable dtExcel = clsMoSchedule.LoadMoSchedule(rpt_type, prd_dep, prd_group, prd_machine, sch_by_machine
+                , mo_status, user_id, cp_status, prd_mo, temp_date1, temp_date2);
             string result = clsMoScheduleUse.ExpToExcel124(prd_dep, fileName, dtExcel, prgStatus);
             int aa = 0;
         }
@@ -1263,6 +1273,11 @@ namespace cf01.Forms
             sb.Append("<p></p>");
             
             return sb.ToString();
+        }
+
+        private void txtDateFrom_Leave(object sender, EventArgs e)
+        {
+            txtDateTo.Text = txtDateFrom.Text;
         }
 
         //////計算預生產開始、結束時間
