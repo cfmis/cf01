@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -101,6 +101,7 @@
             this.qty_differ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sec_qty_differ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.expired_day = new DevExpress.XtraGrid.Columns.GridColumn();
             this.remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.return_total = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dept_reply = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -111,6 +112,7 @@
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dep_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.btnInport = new System.Windows.Forms.ToolStripButton();
@@ -148,8 +150,6 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.txtVendor_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.expired_day = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dep_id = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             this.contextMenu.SuspendLayout();
@@ -398,13 +398,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdControl.ContextMenuStrip = this.contextMenu;
-            gridLevelNode3.LevelTemplate = this.gridView2;
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.LevelTemplate = this.gridView3;
-            gridLevelNode4.RelationName = "Level2";
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.LevelTemplate = this.gridView3;
+            gridLevelNode2.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3,
-            gridLevelNode4});
+            gridLevelNode1,
+            gridLevelNode2});
             this.grdControl.Location = new System.Drawing.Point(4, 34);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
@@ -1039,6 +1039,14 @@
             this.gridColumn41.Visible = true;
             this.gridColumn41.VisibleIndex = 28;
             // 
+            // expired_day
+            // 
+            this.expired_day.Caption = "過期天數";
+            this.expired_day.FieldName = "expired_day";
+            this.expired_day.Name = "expired_day";
+            this.expired_day.Visible = true;
+            this.expired_day.VisibleIndex = 29;
+            // 
             // remark
             // 
             this.remark.Caption = "備註";
@@ -1126,6 +1134,12 @@
             this.gridColumn42.FieldName = "id_return";
             this.gridColumn42.Name = "gridColumn42";
             // 
+            // dep_id
+            // 
+            this.dep_id.Caption = "發貨部門";
+            this.dep_id.FieldName = "dep_id";
+            this.dep_id.Name = "dep_id";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1194,11 +1208,13 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(54, 30);
             this.btnSave.Text = "保 存";
+            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator2
@@ -1546,20 +1562,6 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "供應商";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // expired_day
-            // 
-            this.expired_day.Caption = "過期天數";
-            this.expired_day.FieldName = "expired_day";
-            this.expired_day.Name = "expired_day";
-            this.expired_day.Visible = true;
-            this.expired_day.VisibleIndex = 29;
-            // 
-            // dep_id
-            // 
-            this.dep_id.Caption = "發貨部門";
-            this.dep_id.FieldName = "dep_id";
-            this.dep_id.Name = "dep_id";
             // 
             // frmPlateDelivery
             // 

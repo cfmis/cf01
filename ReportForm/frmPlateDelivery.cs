@@ -678,7 +678,7 @@ namespace cf01.ReportForm
                 return;
             }
             bool flagSave = false;
-            string sql_i ="", sql_u ="", user_id = DBUtility._user_id, p_id = "", temp_id = "";
+            string sql_i = "", sql_u = "", user_id = DBUtility._user_id, p_id = "", temp_id = "";
             sql_i =
             @"INSERT INTO dbo.mo_schedule_plate(p_id, vendor_id, id, mo_id, goods_id, remark_wet,update_by,update_date)
 			VALUES (@p_id, @vendor_id, @id, @mo_id, @goods_id, @remark_wet,@user_id,getdate())";

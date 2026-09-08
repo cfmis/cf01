@@ -413,6 +413,9 @@ namespace cf01.CLS
                         case "expired_day":
                             wSheet.Cells[1, 1 + i] = "過期天數";
                             break;
+                        case "arrive_date":
+                            wSheet.Cells[1, 1 + i] = "客要求日期";
+                            break;
                         default:
                             break;
                     }
@@ -460,7 +463,7 @@ namespace cf01.CLS
             }
             if (fileName != "")
             {
-                string vendor_id = "", vendor_name = "", title = "", sheet_name = "", fileNameNew = "";
+                string vendor_id = "", vendor_name = "", title = "", sheet_name = "", fileNameNew = "", contact = "";
                 string imgLogo = Environment.CurrentDirectory + @"\images\logo.bmp";                
                 for (int i = 0; i < dtVendor.Rows.Count; i++)
                 {
@@ -494,6 +497,17 @@ namespace cf01.CLS
                                 //dtNewExcel = dv.ToTable(); 
                             }
                             dtNewExcel = dv.ToTable();
+                            if (dtNewExcel.Rows.Count > 0)
+                            {
+                                contact = dtNewExcel.Rows[0]["dep_id"].ToString();
+                                contact = (dtNewExcel.Rows[0]["dep_id"].ToString() == "510") ? "陸林高" : "盧志豪";
+                                contact = "聯絡人: " + contact;
+                            }
+                            else
+                            {
+                                contact = "聯絡人: 盧志豪";
+                            }
+                                                      
                             var worksheet = package.Workbook.Worksheets.Add(sheet_name); //var worksheet,這里是只是一個引用地址，是指向package.Workbook.Worksheets
                             worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
                             worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
@@ -506,7 +520,7 @@ namespace cf01.CLS
                             worksheet.Cells["E2:F2"].Merge = true; // 合并 E2:F2
                             worksheet.Cells["E2"].Value = "公司 : 精豐";
                             worksheet.Cells["I2:J2"].Merge = true; // 合并 I2:J2
-                            worksheet.Cells["I2"].Value = "聯絡人: 盧志豪";
+                            worksheet.Cells["I2"].Value = contact;
                             worksheet.Cells["I2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // 水平居左
                             worksheet.Cells["L2:P2"].Merge = true; // 合并 L2:P2
                             worksheet.Cells["L2"].Value = System.DateTime.Now.ToString("yyyy.MM.dd");
@@ -617,11 +631,12 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 15].Value = "備註";
             worksheet.Cells[excelRow, 16].Value = "特急標識";
 
-            worksheet.Cells[excelRow, 17].Value = "1日前序號";//Q7
-            worksheet.Cells[excelRow, 18].Value = "2日前序號";//R7
-            worksheet.Cells[excelRow, 19].Value = "3日前序號";//S7
-            worksheet.Cells[excelRow, 20].Value = "4日前序號";//T7
-            worksheet.Cells[excelRow, 21].Value = "5日前序號";//U7
+            worksheet.Cells[excelRow, 17].Value = "客要求日期";//Q7
+            worksheet.Cells[excelRow, 18].Value = "1日前序號";//R7
+            worksheet.Cells[excelRow, 19].Value = "2日前序號";//S7
+            worksheet.Cells[excelRow, 20].Value = "3日前序號";//T7
+            worksheet.Cells[excelRow, 21].Value = "4日前序號";//U7
+            worksheet.Cells[excelRow, 22].Value = "5日前序號";//V7
 
             worksheet.Row(excelRow).Height = 42; // 设置第7行的高度为42
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
@@ -646,11 +661,12 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 15].Value = "";
                 worksheet.Cells[excelRow, 16].Value = drExcel["flag_mo"].ToString();
 
-                worksheet.Cells[excelRow, 17].Value = drExcel["old_seq1"].ToString();
-                worksheet.Cells[excelRow, 18].Value = drExcel["old_seq2"].ToString();
-                worksheet.Cells[excelRow, 19].Value = drExcel["old_seq3"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["old_seq4"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["old_seq5"].ToString();
+                worksheet.Cells[excelRow, 17].Value = drExcel["arrive_date"].ToString();
+                worksheet.Cells[excelRow, 18].Value = string.IsNullOrEmpty(drExcel["old_seq1"].ToString())? drExcel["schedule_seq"].ToString(): drExcel["old_seq1"].ToString();//2026/09/08
+                worksheet.Cells[excelRow, 19].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 22].Value = drExcel["old_seq5"].ToString();
                 /*
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
@@ -680,17 +696,18 @@ namespace cf01.CLS
             worksheet.Column(15).Width = 17;
             worksheet.Column(16).Width = 4.3;
 
-            worksheet.Column(17).Width = 8.5;
+            worksheet.Column(17).Width = 10;
             worksheet.Column(18).Width = 8.5;
             worksheet.Column(19).Width = 8.5;
             worksheet.Column(20).Width = 8.5;
             worksheet.Column(21).Width = 8.5;
-
+            worksheet.Column(22).Width = 8.5;
             worksheet.Column(17).Hidden = true;
             worksheet.Column(18).Hidden = true;
             worksheet.Column(19).Hidden = true;
             worksheet.Column(20).Hidden = true;
             worksheet.Column(21).Hidden = true;
+            worksheet.Column(22).Hidden = true;
             /*
             //Cells[excelRow, 13]
             // 设置动态范围
@@ -811,9 +828,10 @@ namespace cf01.CLS
                         worksheet.Cells[1, 27].Value = "部門回覆";
                         worksheet.Cells[1, 28].Value = "PMC回覆";
                         worksheet.Cells[1, 29].Value = "過期天數";
-                        worksheet.Cells["A1:AC1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                        worksheet.Cells["A1:AC1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                        worksheet.Cells["A1:AC1"].Style.Font.Bold = true; // 设置字体加粗
+                        worksheet.Cells[1, 30].Value = "客要求日期";
+                        worksheet.Cells["A1:AD1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells["A1:AD1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells["A1:AD1"].Style.Font.Bold = true; // 设置字体加粗
                         worksheet.Row(1).Height = 40;//设置行高度                                                                     
                        
                         progressbar1.Enabled = true;
@@ -865,6 +883,7 @@ namespace cf01.CLS
                             worksheet.Cells[excelRow, 27].Value = drExcel["dept_reply"].ToString(); 
                             worksheet.Cells[excelRow, 28].Value = drExcel["pmc_reply"].ToString();
                             worksheet.Cells[excelRow, 29].Value = drExcel["expired_day"].ToString();
+                            worksheet.Cells[excelRow, 30].Value = drExcel["arrive_date"].ToString();
                             if (isArt)
                             {
                                 worksheet.Row(excelRow).Height = 45; // 设置行高度为45
@@ -890,7 +909,7 @@ namespace cf01.CLS
                         if (rowEnd > 0)
                         {
                             rowEnd = rowEnd + 1;
-                            cellRange = "A1:AC1";
+                            cellRange = "A1:AD1";
                             worksheet.Cells[cellRange].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
                             cellRange = $"Q2:R{rowEnd}";
                             SetCellBackgroundColor(worksheet, cellRange, Color.FromArgb(210, 180, 140));//啡                            
@@ -904,7 +923,7 @@ namespace cf01.CLS
                             // 动态确定表格范围
                             //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
                             //string tableRange = $"A2:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
-                            cellRange = $"A1:AC{rowEnd}";
+                            cellRange = $"A1:AD{rowEnd}";
                             var tableCells = worksheet.Cells[cellRange];
                             // 为整个表格添加边框
                             tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
@@ -946,7 +965,8 @@ namespace cf01.CLS
                         worksheet.Column(27).Width = 6;
                         worksheet.Column(28).Width = 6;
                         worksheet.Column(29).Width = 4.5;
-                        cellRange = "A1:AC1";
+                        worksheet.Column(30).Width = 11;
+                        cellRange = "A1:AD1";
                         worksheet.Cells[cellRange].Style.Font.Size = 10; // 设置字体大小为10
                         worksheet.Cells[cellRange].Style.WrapText = true;//標題欄内容自动换行
                         
@@ -1171,6 +1191,7 @@ namespace cf01.CLS
             worksheet.Cells["AC1"].Value = "匯入標識";
             worksheet.Cells["AD1"].Value = "我廠要求日期";
             worksheet.Cells["AE1"].Value = "過期天數";
+            worksheet.Cells["AF1"].Value = "客要求日期";
             worksheet.Row(1).Height = 30; // 设置第1行的高度为30
             
             for (int i = 0; i < dtExcel.Rows.Count; i++)
@@ -1222,6 +1243,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 29].Value = drExcel["flag_mo"].ToString();//匯入標識
                 worksheet.Cells[excelRow, 30].Value = drExcel["t_complete_date"];//我廠要求日期
                 worksheet.Cells[excelRow, 31].Value = drExcel["expired_day"];//過期天數
+                worksheet.Cells[excelRow, 32].Value = drExcel["arrive_date"];//客要求日期
                 //设置過期整行背景为红色
                 //if (drExcel["flag_brg"].ToString() == "1")
                 //{                         
@@ -1258,7 +1280,9 @@ namespace cf01.CLS
             worksheet.Column(28).Width = 14;
             worksheet.Column(29).Width = 10;
             worksheet.Column(30).Width = 15;
-            worksheet.Column(31).Width = 10;           
+            worksheet.Column(31).Width = 10;
+            worksheet.Column(32).Width = 11;
+
             // 动态确定表格范围
             //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
             string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
