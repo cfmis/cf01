@@ -63,6 +63,7 @@
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.txtPrintHistory = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine51 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine50 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine49 = new DevExpress.XtraReports.UI.XRLine();
@@ -265,7 +266,6 @@
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
             this.txtBrand_id = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.txtPrintHistory = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -753,6 +753,21 @@
             this.GroupHeader1.HeightF = 922.238F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.RepeatEveryPage = true;
+            // 
+            // txtPrintHistory
+            // 
+            this.txtPrintHistory.CanGrow = false;
+            this.txtPrintHistory.Dpi = 254F;
+            this.txtPrintHistory.Font = new System.Drawing.Font("Arial", 8.5F);
+            this.txtPrintHistory.LocationFloat = new DevExpress.Utils.PointFloat(632.6671F, 61.26717F);
+            this.txtPrintHistory.Name = "txtPrintHistory";
+            this.txtPrintHistory.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtPrintHistory.SizeF = new System.Drawing.SizeF(504.2488F, 37.73283F);
+            this.txtPrintHistory.StylePriority.UseFont = false;
+            this.txtPrintHistory.StylePriority.UseTextAlignment = false;
+            this.txtPrintHistory.Text = "曾經列印日期/次數:";
+            this.txtPrintHistory.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtPrintHistory.WordWrap = false;
             // 
             // xrLine51
             // 
@@ -3416,21 +3431,6 @@
             this.GroupFooter2.HeightF = 0F;
             this.GroupFooter2.Level = 1;
             this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // txtPrintHistory
-            // 
-            this.txtPrintHistory.CanGrow = false;
-            this.txtPrintHistory.Dpi = 254F;
-            this.txtPrintHistory.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.txtPrintHistory.LocationFloat = new DevExpress.Utils.PointFloat(632.6671F, 61.26717F);
-            this.txtPrintHistory.Name = "txtPrintHistory";
-            this.txtPrintHistory.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtPrintHistory.SizeF = new System.Drawing.SizeF(504.2488F, 37.73283F);
-            this.txtPrintHistory.StylePriority.UseFont = false;
-            this.txtPrintHistory.StylePriority.UseTextAlignment = false;
-            this.txtPrintHistory.Text = "曾打印日期和次數:";
-            this.txtPrintHistory.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.txtPrintHistory.WordWrap = false;
             // 
             // xrPackChanged
             // 

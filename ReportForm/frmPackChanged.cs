@@ -269,6 +269,7 @@ namespace cf01.ReportForm
             dsPackChange.Tables[0].TableName = "pack_h";//master table            
             dsPackChange.Tables[1].TableName = "pack_d";//details table     
             dsPackChange.Tables[2].TableName = "temp_list";
+
             
             //處理Sales BOM,建立與主表的關聯
             dtDetails.Clear();
@@ -574,7 +575,7 @@ namespace cf01.ReportForm
             chkByMoPrintSet.Checked = false;
             if (txtMO.Text != "" && cmbItems.Text != "")
             {
-                Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);
+                Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);              
             }
             txtBarCode.Focus();
         }
@@ -612,6 +613,6 @@ namespace cf01.ReportForm
         {
             e.Row.HeaderCell.Value = string.Format("{0}", e.Row.Index + 1);
         }
-
+        
     }
 }

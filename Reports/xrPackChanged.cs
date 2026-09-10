@@ -1,7 +1,7 @@
 ﻿using System;
 using DevExpress.XtraReports.UI;
 using System.Data;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using cf01.CLS;
 
 namespace cf01.Reports
@@ -209,7 +209,7 @@ namespace cf01.Reports
                 DataTable dt = clsPublicOfCF01.GetDataTable(sql);
                 if (dt.Rows.Count > 0)
                 {
-                    strPrint = "曾列印日期和次數:" + DateTime.Parse(dt.Rows[0]["print_date_history"].ToString()).Date.ToString("yyyy/MM/dd") + " (" + dt.Rows[0]["print_count"].ToString() + ")";
+                    strPrint = "曾經列印日期/次數:" + DateTime.Parse(dt.Rows[0]["print_date_history"].ToString()).Date.ToString("yyyy/MM/dd") + " (" + dt.Rows[0]["print_count"].ToString() + ")";
                 }
                 else
                 {
