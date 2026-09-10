@@ -13,6 +13,7 @@ using cf01.Reports;
 using cf01.Forms;
 using System.Threading;
 using DevExpress.XtraReports.UI;
+//using DevExpress.XtraPrinting;
 
 namespace cf01.ReportForm
 {
@@ -291,6 +292,16 @@ namespace cf01.ReportForm
                 }
             }
             //dgvDetails.DataSource = dsPackChange.Tables["pack_h"];
+            //if (chkIsDisplayKey.Checked)
+            //{
+            //    DataView dv = new DataView(dsPackChange.Tables["temp_list"]);
+            //    dv.RowFilter = $"goods_id = '{strGoods_id}'";
+            //    dgvDetails.DataSource = dv;
+            //}
+            //else
+            //{
+            //    dgvDetails.DataSource = dsPackChange.Tables["temp_list"];
+            //}           
             dgvDetails.DataSource = dsPackChange.Tables["temp_list"];
             txtBarCode.Focus();
         }
@@ -306,6 +317,7 @@ namespace cf01.ReportForm
                     cmbItems.Items.Add(dt.Rows[i]["goods_id"].ToString());
                 }
                 cmbItems.Text = dt.Rows[0]["goods_id"].ToString(); //顯示主件
+                strGoods_id = dt.Rows[0]["goods_id"].ToString();//記錄主件
             }            
         }
 
@@ -359,14 +371,25 @@ namespace cf01.ReportForm
                         }
                     }
                     using (xrPackChanged mMyReport = new xrPackChanged(dsPackChange, dtDetails))
-                    {                        
-                        PrintCustom(mMyReport, print_type);
+                    {
+                        /*
+                        //strart 20260910
+                        ReportPrintTool printTool = new ReportPrintTool(mMyReport);
+                        //訂閱事件：當用戶點擊打印並真正送到打印機時觸發
+                        printTool.PrintingSystem.StartPrint += PrintingSystem_StartPrint;
+                        if(print_type=="p")
+                            printTool.Print();
+                        else
+                            printTool.ShowPreviewDialog();
+                        //end 20260910
+                        */
+                        PrintCustom(mMyReport, print_type);//cancel 20260910
                     }
                     //列印全檢標簽
                     if (dtFullCheck.Rows.Count > 0)
                     {
                         using (xrFullCheck mMyReport = new xrFullCheck() { DataSource = dtFullCheck })
-                        {
+                        {                            
                             PrintCustom(mMyReport, print_type);
                         }
                     }
@@ -390,6 +413,12 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show("沒有要列印的數據!", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void PrintingSystem_StartPrint(object sender, DevExpress.XtraPrinting.PrintDocumentEventArgs e)
+        {
+            MessageBox.Show("test報表已送到打印機！");
+            
         }
 
         private void PrintCustom(DevExpress.XtraReports.UI.XtraReport oReport,string print_type)

@@ -1,11 +1,15 @@
 ﻿using System;
 using DevExpress.XtraReports.UI;
 using System.Data;
+using System.Windows.Forms;
+using cf01.CLS;
 
 namespace cf01.Reports
 {
     public partial class xrPackChanged : DevExpress.XtraReports.UI.XtraReport
     {
+        string mo_id = "", mo_list = "";
+        string dbDgSql2 = DBUtility.dgcf_db;
         public xrPackChanged(DataSet dsPack,DataTable dtList)
         {
             InitializeComponent();
@@ -190,6 +194,61 @@ namespace cf01.Reports
             //else
             //    lblShippmark.Visible = false;
             //-- end
+        }
+
+        private void xrPackChanged_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string strPrint = "";
+            mo_id = GetCurrentColumnValue("mo_id").ToString();
+            mo_list = GetCurrentColumnValue("mo_list").ToString();
+            if (!string.IsNullOrEmpty(mo_list))
+            {
+                string sql = string.Format(
+                @"Select print_date_history,ABS(Datediff(Second, print_date_history, getdate())) As date_diff,print_count 
+                From {0}bs_mo_print_history Where mo_id='{1}'", dbDgSql2, mo_id);
+                DataTable dt = clsPublicOfCF01.GetDataTable(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    strPrint = "曾列印日期和次數:" + DateTime.Parse(dt.Rows[0]["print_date_history"].ToString()).Date.ToString("yyyy/MM/dd") + " (" + dt.Rows[0]["print_count"].ToString() + ")";
+                }
+                else
+                {
+                    strPrint = "";
+                }
+            }
+            txtPrintHistory.Text = strPrint;
+
+        }
+
+        private void xrPackChanged_PrintProgress(object sender, DevExpress.XtraPrinting.PrintProgressEventArgs e)
+        {
+            //按打印按鈕后列印內容送到印表機處理時才觸發此事件
+            if (!string.IsNullOrEmpty(mo_list))
+            {
+                string sql_u = "";
+                string sql_f = string.Format(
+                @"Select ABS(Datediff(Second, print_date_history, getdate())) As date_diff From {0}bs_mo_print_history Where mo_id='{1}'", dbDgSql2, mo_id);
+                DataTable dt = clsPublicOfCF01.GetDataTable(sql_f);
+                if (dt.Rows.Count > 0)
+                {
+                    //小于10秒當作重復列印不更新次數
+                    sql_u = "";
+                    if (Int32.Parse(dt.Rows[0]["date_diff"].ToString()) >= 10)
+                    {
+                        //更新打印次
+                        sql_u = string.Format(@"Update {0}bs_mo_print_history Set print_date_history=getdate() Where mo_id='{1}'", dbDgSql2, mo_id);                        
+                    }
+                }
+                else
+                {
+                    sql_u = string.Format(@"Insert Into {0}bs_mo_print_history(mo_id,print_date_history,print_count) Values('{1}',getdate(),1)", dbDgSql2, mo_id);
+                    
+                }
+                if (sql_u.Length > 0)
+                {
+                    clsPublicOfCF01.ExecuteSqlUpdate(sql_u);
+                }
+            }
         }
     }
 }

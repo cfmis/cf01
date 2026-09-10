@@ -32,6 +32,7 @@ namespace cf01
         //public static string pad_db_jx = "lnsql1.dgcf_pad.dbo.";//PAD用的數據庫 //CANCEL 2026/02/10
         public static string pad_db_jx = "dgcf_pad.dbo.";//PAD用的數據庫  // ADD 2026/02/10
         public static string pad_db1 = "dgsql2.dgcf_pad.dbo.";
+        public static string dgcf_db = "dgsql2.dgcf_db.dbo.";
         public static string get_query_id = "";
         public static string within_code = "0000";
         public static string imagePath = @"\\192.168.3.12\cf_artwork\Artwork\";
