@@ -25,6 +25,7 @@ namespace cf01.ReportForm
         DataTable dtFullCheck = new DataTable();
         DataTable dtMO = new DataTable();
         DataTable dtItems = new DataTable();
+        DataRow[] drwKey = null;
         string strMo, strSeq, id_type, strGoods_id;
        
 
@@ -97,11 +98,10 @@ namespace cf01.ReportForm
                         txtMO.Text = txtBarCode.Text.Trim();
                         chkByMo.Checked = false;
                         chkByCard.Checked = false;
-                        chkByMoPrintSet.Checked = true;
+                        chkByMoPrintSet.Checked = false;//2026/09/11更改前設置是true
                         ManualInputMo();
                         return;
                     }
-
                     bool isByMo = chkByMo.Checked;
                     if (chkByCard.Checked)//如果是按工序卡掃描，則當作按頁數逐個掃描看待，重設isByMo的值
                     {
@@ -206,7 +206,8 @@ namespace cf01.ReportForm
 	                    INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code And A.id=B.id And A.ver =B.ver
 	                    INNER JOIN so_order_bom C with(nolock) 
 	                        ON B.within_code=C.within_code and B.id=C.id And B.ver =C.ver And B.sequence_id =C.upper_sequence 
-                        WHERE A.within_code='0000' And A.state Not In('2','V') And B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", strMo);
+                        WHERE A.within_code='0000' And A.state Not In('2','V') And B.mo_id='{0}' 
+                        ORDER BY C.primary_key DESC,C.goods_id", strMo);
                         dtItems = clsConErp.GetDataTable(strSql_f3);
                         FillCombox(dtItems);
                         if (!chkIsDisplayKey.Checked)
@@ -269,7 +270,6 @@ namespace cf01.ReportForm
             dsPackChange.Tables[0].TableName = "pack_h";//master table            
             dsPackChange.Tables[1].TableName = "pack_d";//details table     
             dsPackChange.Tables[2].TableName = "temp_list";
-
             
             //處理Sales BOM,建立與主表的關聯
             dtDetails.Clear();
@@ -313,12 +313,20 @@ namespace cf01.ReportForm
             cmbItems.Items.Clear();
             if (dt.Rows.Count > 0)
             {
+                drwKey = dt.Select("primary_key='1'");
+                if (drwKey.Length > 0 && drwKey[0]["primary_key"].ToString() == "1")
+                {
+                    strGoods_id = drwKey[0]["goods_id"].ToString();// dt.Rows[0]["goods_id"].ToString();//記錄主件
+                }
+                else
+                    strGoods_id = "";
+                dt.Select();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     cmbItems.Items.Add(dt.Rows[i]["goods_id"].ToString());
                 }
-                cmbItems.Text = dt.Rows[0]["goods_id"].ToString(); //顯示主件
-                strGoods_id = dt.Rows[0]["goods_id"].ToString();//記錄主件
+                cmbItems.Text = dt.Rows[0]["goods_id"].ToString(); //默認顯示第1行
+                lblKey.Visible = (cmbItems.Text == strGoods_id) ? true : false;
             }            
         }
 
@@ -448,13 +456,6 @@ namespace cf01.ReportForm
             txtBarCode.Focus();
         }
 
-        private void chkByMoPrintSet_Click(object sender, EventArgs e)
-        {
-            chkByMo.Checked = false;
-            chkByCard.Checked = false;
-            txtBarCode.Focus();
-        }
-
         private void chByCard_Click(object sender, EventArgs e)
         {
             chkByMo.Checked = false;
@@ -464,7 +465,7 @@ namespace cf01.ReportForm
 
         private void chkIsDisplayKey_Click(object sender, EventArgs e)
         {
-            txtBarCode.Focus();
+            //txtBarCode.Focus();
         }
     
         private void txtID_Leave(object sender, EventArgs e)
@@ -524,7 +525,8 @@ namespace cf01.ReportForm
                 FROM so_order_manage A with(nolock) 
 	                INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id AND A.ver =B.ver
 	                INNER JOIN so_order_bom C with(nolock) ON B.within_code=C.within_code and B.id=C.id AND B.ver=C.ver AND B.sequence_id=C.upper_sequence 
-                WHERE B.within_code='0000' AND B.mo_id='{0}' AND A.state not in ('2','V') ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
+                WHERE B.within_code='0000' AND B.mo_id='{0}' AND A.state not in ('2','V') 
+                ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
                 DataTable dtItems = new DataTable();
                 dtItems = clsConErp.GetDataTable(strsql);
                 if (dtItems.Rows.Count == 0)
@@ -533,16 +535,17 @@ namespace cf01.ReportForm
                 }
                 FillCombox(dtItems);
 
-                string printBySet = "Y";
-                chkByMoPrintSet.Checked = true;
-               
+                
+                //chkByMoPrintSet.Checked = true;
                 //frmProgress wForm = new frmProgress();
                 //new Thread((ThreadStart)delegate
                 //{
                 //    wForm.TopMost = true;
                 //    wForm.ShowDialog();
                 //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
-                
+                string printBySet = "";//"Y"
+                printBySet = (chkByMoPrintSet.Checked) ? "Y" : "";                   
+
                 Load_Data("Y", printBySet, "", txtID.Text, txtMO.Text, cmbItems.Text);
 
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
@@ -550,8 +553,8 @@ namespace cf01.ReportForm
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
                 if (cmbReport.SelectedIndex == 1)
                 {
-                    SelectGoodsItem();
-                    chkIsDisplayKey.Checked = true;
+                    //SelectGoodsItem();
+                    //chkIsDisplayKey.Checked = true;
                 }
                
                 if (dsPackChange.Tables[0].Rows.Count > 0)
@@ -575,8 +578,10 @@ namespace cf01.ReportForm
             chkByMoPrintSet.Checked = false;
             if (txtMO.Text != "" && cmbItems.Text != "")
             {
-                Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);              
+                lblKey.Visible = (cmbItems.Text == strGoods_id) ? true : false;
+                Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);
             }
+            
             txtBarCode.Focus();
         }
 
@@ -593,6 +598,14 @@ namespace cf01.ReportForm
                 SendKeys.Send("{TAB}");
                 //等同于frm.SelectNextControl(frm.ActiveControl, true, true, true, true);
             }
+        }
+
+        private void chkByMoPrintSet_MouseUp(object sender, MouseEventArgs e)
+        {
+            chkByMo.Checked = false;
+            chkByCard.Checked = false;
+            txtBarCode.Focus();
+            ManualInputMo();
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)

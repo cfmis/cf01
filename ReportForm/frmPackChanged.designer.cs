@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.chkByCard = new System.Windows.Forms.CheckBox();
@@ -80,6 +80,7 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblKey = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -90,6 +91,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblKey);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.chkByCard);
             this.panel1.Controls.Add(this.chkByMoPrintSet);
@@ -144,7 +146,7 @@
             this.chkByMoPrintSet.TabIndex = 52;
             this.chkByMoPrintSet.Text = "手動輸入頁數套件列印";
             this.chkByMoPrintSet.UseVisualStyleBackColor = true;
-            this.chkByMoPrintSet.Click += new System.EventHandler(this.chkByMoPrintSet_Click);
+            this.chkByMoPrintSet.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkByMoPrintSet_MouseUp);
             // 
             // label1
             // 
@@ -186,14 +188,16 @@
             // 
             // chkIsDisplayKey
             // 
+            this.chkIsDisplayKey.Enabled = false;
             this.chkIsDisplayKey.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkIsDisplayKey.Location = new System.Drawing.Point(697, 188);
+            this.chkIsDisplayKey.Location = new System.Drawing.Point(694, 188);
             this.chkIsDisplayKey.Name = "chkIsDisplayKey";
             this.chkIsDisplayKey.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.chkIsDisplayKey.Size = new System.Drawing.Size(130, 27);
+            this.chkIsDisplayKey.Size = new System.Drawing.Size(133, 27);
             this.chkIsDisplayKey.TabIndex = 4;
             this.chkIsDisplayKey.Text = "默認顯示面件";
             this.chkIsDisplayKey.UseVisualStyleBackColor = true;
+            this.chkIsDisplayKey.Visible = false;
             this.chkIsDisplayKey.Click += new System.EventHandler(this.chkIsDisplayKey_Click);
             // 
             // label10
@@ -482,9 +486,9 @@
             // order_qty_pcs1
             // 
             this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle3;
             this.order_qty_pcs1.HeaderText = "訂單數";
             this.order_qty_pcs1.Name = "order_qty_pcs1";
             this.order_qty_pcs1.ReadOnly = true;
@@ -599,12 +603,23 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "order_qty";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblKey.Location = new System.Drawing.Point(833, 162);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(41, 20);
+            this.lblKey.TabIndex = 55;
+            this.lblKey.Text = "面件";
+            this.lblKey.Visible = false;
             // 
             // frmPackChanged
             // 
@@ -680,5 +695,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn do_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_qty_pcs1;
+        private System.Windows.Forms.Label lblKey;
     }
 }
