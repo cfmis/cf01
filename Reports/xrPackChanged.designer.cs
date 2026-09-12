@@ -869,7 +869,7 @@
             this.xrLabel80.SizeF = new System.Drawing.SizeF(151.4793F, 53.18944F);
             this.xrLabel80.StylePriority.UseFont = false;
             this.xrLabel80.StylePriority.UseTextAlignment = false;
-            this.xrLabel80.Text = "接單頁數:";
+            this.xrLabel80.Text = "分單頁數:";
             this.xrLabel80.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel34
@@ -926,7 +926,7 @@
             this.lblShippmark.CanGrow = false;
             this.lblShippmark.Dpi = 254F;
             this.lblShippmark.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShippmark.LocationFloat = new DevExpress.Utils.PointFloat(744.8333F, 18F);
+            this.lblShippmark.LocationFloat = new DevExpress.Utils.PointFloat(744.8333F, 19.368F);
             this.lblShippmark.Name = "lblShippmark";
             this.lblShippmark.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblShippmark.SizeF = new System.Drawing.SizeF(342.8746F, 41.89917F);
