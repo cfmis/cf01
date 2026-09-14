@@ -272,6 +272,7 @@
     <Compile Include="CLS\clsMouldPosition.cs" />
     <Compile Include="CLS\clsMouseSimulator.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
+    <Compile Include="CLS\clsOcImport.cs" />
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
@@ -356,6 +357,12 @@
     </Compile>
     <Compile Include="Forms\frmMoTask.Designer.cs">
       <DependentUpon>frmMoTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOcImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOcImport.Designer.cs">
+      <DependentUpon>frmOcImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmPlanCancel.cs">
       <SubType>Form</SubType>
@@ -3166,6 +3173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoTask.resx">
       <DependentUpon>frmMoTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOcImport.resx">
+      <DependentUpon>frmOcImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPlanCancel.resx">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>

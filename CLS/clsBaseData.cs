@@ -347,6 +347,38 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
+        public static DataTable LoadSeason()
+        {
+            string strSql = "Select Rtrim(id) AS id From cd_season " +
+                " Where id Like '%27%'" +
+                " Order By id ";
+            clsPublicOfGEO geoDB = new clsPublicOfGEO();
+            DataTable dtSeason = geoDB.ExecuteSqlReturnDataTable(strSql);
+            
+            DataRow dr = dtSeason.NewRow();
+            dr["id"] = "";
+            dtSeason.Rows.InsertAt(dr, 0);
+            return dtSeason;
+        }
 
+        public static string GetUserGroup()
+        {
+            string user_group = "";
+            string user_id = DBUtility._user_id;
+            string strSql = "Select user_group From tb_sy_user " +
+                " Where uname = '" + user_id + "'";
+            DataTable dtUser = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtUser.Rows.Count > 0)
+                user_group = dtUser.Rows[0]["user_group"].ToString();
+            return user_group;
+        }
+        public static DataTable GetOcType()
+        {
+            string strSql = "Select id,name From cd_zone" +
+            " Order By id ";
+            clsPublicOfGEO geoDB = new clsPublicOfGEO();
+            DataTable dtOcType = geoDB.ExecuteSqlReturnDataTable(strSql);
+            return dtOcType;
+        }
     }
 }
