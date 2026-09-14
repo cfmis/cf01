@@ -134,8 +134,10 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 12].Value = "未移交數量";
             worksheet.Cells[excelRow, 13].Value = "已生產數量";
             worksheet.Cells[excelRow, 14].Value = "下部門";
-            worksheet.Cells[excelRow, 15].Value = "部門复期";
-            worksheet.Cells[excelRow, 16].Value = "未生產數量";
+            worksheet.Cells[excelRow, 15].Value = "部門复期1";
+            worksheet.Cells[excelRow, 16].Value = "部門复期2";
+            worksheet.Cells[excelRow, 17].Value = "是否待料";
+            worksheet.Cells[excelRow, 18].Value = "未生產數量";
             //if (prd_dep == "102")
             //    worksheet.Cells[excelRow, 16].Value = "未生產數量";
             //else
@@ -145,32 +147,32 @@ namespace cf01.CLS
             //    else
             //        worksheet.Cells[excelRow, 16].Value = "每碑數";
             //}
-            worksheet.Cells[excelRow, 17].Value = "部門備註";
-            worksheet.Cells[excelRow, 18].Value = "PMC備註";
-            worksheet.Cells[excelRow, 19].Value = "狀態";
-            worksheet.Cells[excelRow, 20].Value = "已生產日期";
-            worksheet.Cells[excelRow, 21].Value = "訂單日期";
-            worksheet.Cells[excelRow, 22].Value = "要求回港日期";
-            worksheet.Cells[excelRow, 23].Value = "生產可用天數";
-            worksheet.Cells[excelRow, 24].Value = "距離回港天數";
-            worksheet.Cells[excelRow, 25].Value = "回港過期";
-            worksheet.Cells[excelRow, 26].Value = "客人要求交貨期";
+            worksheet.Cells[excelRow, 19].Value = "部門備註";
+            worksheet.Cells[excelRow, 20].Value = "PMC備註";
+            worksheet.Cells[excelRow, 21].Value = "狀態";
+            worksheet.Cells[excelRow, 22].Value = "已生產日期";
+            worksheet.Cells[excelRow, 23].Value = "訂單日期";
+            worksheet.Cells[excelRow, 24].Value = "要求回港日期";
+            worksheet.Cells[excelRow, 25].Value = "生產可用天數";
+            worksheet.Cells[excelRow, 26].Value = "距離回港天數";
+            worksheet.Cells[excelRow, 27].Value = "回港過期";
+            worksheet.Cells[excelRow, 28].Value = "客人要求交貨期";
             string group_tittle = dtNewExcel.Rows[0]["prd_group"].ToString().Trim();
             if (group_tittle == "102-C")
-                worksheet.Cells[excelRow, 27].Value = "回DG日期";
+                worksheet.Cells[excelRow, 29].Value = "回DG日期";
             else
-                worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
-            worksheet.Cells[excelRow, 28].Value = "每小時產量（包含校模）";
-            worksheet.Cells[excelRow, 29].Value = "生產需要時間";
-            worksheet.Cells[excelRow, 30].Value = "１日前序號";
-            worksheet.Cells[excelRow, 31].Value = "2日前序號";
-            worksheet.Cells[excelRow, 32].Value = "3日前序號";
-            worksheet.Cells[excelRow, 33].Value = "4日前序號";
-            worksheet.Cells[excelRow, 34].Value = "5日前序號";
-            worksheet.Cells[excelRow, 35].Value = "外發工序日期";
-            worksheet.Cells[excelRow, 36].Value = "每碑數";
-            worksheet.Cells[excelRow, 37].Value = "安排機器";
-            worksheet.Cells[excelRow, 38].Value = "安排工號";
+                worksheet.Cells[excelRow, 29].Value = "上部門來貨期";
+            worksheet.Cells[excelRow, 30].Value = "每小時產量（包含校模）";
+            worksheet.Cells[excelRow, 31].Value = "生產需要時間";
+            worksheet.Cells[excelRow, 32].Value = "１日前序號";
+            worksheet.Cells[excelRow, 33].Value = "2日前序號";
+            worksheet.Cells[excelRow, 34].Value = "3日前序號";
+            worksheet.Cells[excelRow, 35].Value = "4日前序號";
+            worksheet.Cells[excelRow, 36].Value = "5日前序號";
+            worksheet.Cells[excelRow, 37].Value = "外發工序日期";
+            worksheet.Cells[excelRow, 38].Value = "每碑數";
+            worksheet.Cells[excelRow, 39].Value = "安排機器";
+            worksheet.Cells[excelRow, 40].Value = "安排工號";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 30 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -198,7 +200,9 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 13].Value = drExcel["prd_qty"];
                 worksheet.Cells[excelRow, 14].Value = drExcel["next_wp_id"].ToString();
                 worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
-                worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
+                worksheet.Cells[excelRow, 16].Value = "";
+                worksheet.Cells[excelRow, 17].Value = "";
+                worksheet.Cells[excelRow, 18].Value = drExcel["not_prd_qty"];
                 //if (prd_dep == "102")
                 //    worksheet.Cells[excelRow, 16].Value = drExcel["not_prd_qty"];
                 //else
@@ -211,37 +215,37 @@ namespace cf01.CLS
                 //        worksheet.Cells[excelRow, 16].Value = drExcel["line_num"].ToString();//每碑數
                 //    }
                 //}
-                worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
+                worksheet.Cells[excelRow, 19].Value = drExcel["dep_remark"].ToString();
                 //if (prd_dep == "102")
                 //{
                 //    if (drExcel["transfer_date_jx"].ToString().Trim() != "")
                 //        worksheet.Cells[excelRow, 17].Value += "\r\n" + "To Jx:" + drExcel["transfer_date_jx"].ToString().Trim();
                 //}
-                worksheet.Cells[excelRow, 18].Value = drExcel["mo_remark"].ToString();
-                worksheet.Cells[excelRow, 19].Value = drExcel["status_cdesc"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["prd_date"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["order_date"].ToString();
-                worksheet.Cells[excelRow, 22].Value = drExcel["hk_req_date"].ToString();
-                worksheet.Cells[excelRow, 23].Value = drExcel["av_prd_days"].ToString();
-                worksheet.Cells[excelRow, 24].Value = drExcel["re_prd_days"].ToString();
-                worksheet.Cells[excelRow, 25].Value = drExcel["hk_period_flag"].ToString();
-                worksheet.Cells[excelRow, 26].Value = drExcel["cs_req_date"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["mo_remark"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["status_cdesc"].ToString();
+                worksheet.Cells[excelRow, 22].Value = drExcel["prd_date"].ToString();
+                worksheet.Cells[excelRow, 23].Value = drExcel["order_date"].ToString();
+                worksheet.Cells[excelRow, 24].Value = drExcel["hk_req_date"].ToString();
+                worksheet.Cells[excelRow, 25].Value = drExcel["av_prd_days"].ToString();
+                worksheet.Cells[excelRow, 26].Value = drExcel["re_prd_days"].ToString();
+                worksheet.Cells[excelRow, 27].Value = drExcel["hk_period_flag"].ToString();
+                worksheet.Cells[excelRow, 28].Value = drExcel["cs_req_date"].ToString();
                 if (group_tittle == "102-C")
-                    worksheet.Cells[excelRow, 27].Value = drExcel["rec_date_jx"].ToString();
+                    worksheet.Cells[excelRow, 29].Value = drExcel["rec_date_jx"].ToString();
                 else
-                    worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
-                worksheet.Cells[excelRow, 28].Value = drExcel["hour_std_qty"];
-                worksheet.Cells[excelRow, 29].Value = drExcel["need_prd_time"];
-                worksheet.Cells[excelRow, 30].Value = drExcel["old_seq1"].ToString();
-                worksheet.Cells[excelRow, 31].Value = drExcel["old_seq2"].ToString();
-                worksheet.Cells[excelRow, 32].Value = drExcel["old_seq3"].ToString();
-                worksheet.Cells[excelRow, 33].Value = drExcel["old_seq4"].ToString();
-                worksheet.Cells[excelRow, 34].Value = drExcel["old_seq5"].ToString();
-                worksheet.Cells[excelRow, 35].Value = drExcel["transfer_date_out"].ToString();
-                worksheet.Cells[excelRow, 36].Value = drExcel["line_num"];
-                worksheet.Cells[excelRow, 37].Value = drExcel["prd_machine"];
+                    worksheet.Cells[excelRow, 29].Value = drExcel["pre_tr_date"].ToString();
+                worksheet.Cells[excelRow, 30].Value = drExcel["hour_std_qty"];
+                worksheet.Cells[excelRow, 31].Value = drExcel["need_prd_time"];
+                worksheet.Cells[excelRow, 32].Value = drExcel["old_seq1"].ToString();
+                worksheet.Cells[excelRow, 33].Value = drExcel["old_seq2"].ToString();
+                worksheet.Cells[excelRow, 34].Value = drExcel["old_seq3"].ToString();
+                worksheet.Cells[excelRow, 35].Value = drExcel["old_seq4"].ToString();
+                worksheet.Cells[excelRow, 36].Value = drExcel["old_seq5"].ToString();
+                worksheet.Cells[excelRow, 37].Value = drExcel["transfer_date_out"].ToString();
+                worksheet.Cells[excelRow, 38].Value = drExcel["line_num"];
+                worksheet.Cells[excelRow, 39].Value = drExcel["prd_machine"];
                 if (drExcel["prd_worker"].ToString().Length >= 10)
-                    worksheet.Cells[excelRow, 38].Value = "\'" + drExcel["prd_worker"].ToString().Substring(5, 5);
+                    worksheet.Cells[excelRow, 40].Value = "\'" + drExcel["prd_worker"].ToString().Substring(5, 5);
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -313,9 +317,11 @@ namespace cf01.CLS
             worksheet.Column(13).Width = 7.5;
             worksheet.Column(14).Width = 5;
             worksheet.Column(15).Width = 9;
-            worksheet.Column(16).Width = 10;
-            worksheet.Column(17).Width = 7;
-            worksheet.Column(18).Width = 7;
+            worksheet.Column(16).Width = 9;
+            worksheet.Column(17).Width = 9;
+            worksheet.Column(18).Width = 10;
+            worksheet.Column(19).Width = 7;
+            worksheet.Column(20).Width = 7;
             //if(prd_dep=="322")
             //{
             //    worksheet.Column(6).Width = 18;
@@ -333,11 +339,11 @@ namespace cf01.CLS
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
             colStr = $"M1:M{excelRow}"; // 动态计算行数
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
-            colStr = $"AB1:AB{excelRow}"; // 动态计算行数
+            colStr = $"AD1:AD{excelRow}"; // 动态计算行数
             worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
             if (prd_dep == "102" || prd_dep == "122" || prd_dep == "103")
             {
-                colStr = $"P1:P{excelRow}"; // 动态计算行数
+                colStr = $"R1:R{excelRow}"; // 动态计算行数
                 worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
             }
             //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
@@ -345,8 +351,6 @@ namespace cf01.CLS
             // 设置某一列不可见
             // 隐藏一些列
             worksheet.Column(5).Hidden = true;
-            worksheet.Column(19).Hidden = true;
-            worksheet.Column(20).Hidden = true;
             worksheet.Column(21).Hidden = true;
             worksheet.Column(22).Hidden = true;
             worksheet.Column(23).Hidden = true;
@@ -363,6 +367,8 @@ namespace cf01.CLS
             worksheet.Column(36).Hidden = true;
             worksheet.Column(37).Hidden = true;
             worksheet.Column(38).Hidden = true;
+            worksheet.Column(39).Hidden = true;
+            worksheet.Column(40).Hidden = true;
             worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
             //if (prd_dep == "322" || prd_dep == "202")
             //{
