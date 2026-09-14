@@ -98,7 +98,7 @@ namespace cf01.ReportForm
                         txtMO.Text = txtBarCode.Text.Trim();
                         chkByMo.Checked = false;
                         chkByCard.Checked = false;
-                        chkByMoPrintSet.Checked = false;//2026/09/11更改前設置是true
+                        chkByMoPrintSet.Checked = true;//true默認顯示套件
                         ManualInputMo();
                         return;
                     }
@@ -291,18 +291,7 @@ namespace cf01.ReportForm
                     drow["department"] = dr["department"].ToString();
                     dtDetails.Rows.Add(drow);
                 }
-            }
-            //dgvDetails.DataSource = dsPackChange.Tables["pack_h"];
-            //if (chkIsDisplayKey.Checked)
-            //{
-            //    DataView dv = new DataView(dsPackChange.Tables["temp_list"]);
-            //    dv.RowFilter = $"goods_id = '{strGoods_id}'";
-            //    dgvDetails.DataSource = dv;
-            //}
-            //else
-            //{
-            //    dgvDetails.DataSource = dsPackChange.Tables["temp_list"];
-            //}           
+            }                 
             dgvDetails.DataSource = dsPackChange.Tables["temp_list"];
             txtBarCode.Focus();
         }
@@ -542,20 +531,19 @@ namespace cf01.ReportForm
                 //{
                 //    wForm.TopMost = true;
                 //    wForm.ShowDialog();
-                //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
-                string printBySet = "";//"Y"
-                printBySet = (chkByMoPrintSet.Checked) ? "Y" : "";                   
-
+                //}).Start(); //windows xp會列機，不支持此多線程動畫效果？                
+                chkByMoPrintSet.Checked = true;
+                string printBySet = "Y"; //默認面件配件都要顯示，都要列印               
                 Load_Data("Y", printBySet, "", txtID.Text, txtMO.Text, cmbItems.Text);
 
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
-                if (cmbReport.SelectedIndex == 1)
-                {
-                    //SelectGoodsItem();
-                    //chkIsDisplayKey.Checked = true;
-                }
+                //if (cmbReport.SelectedIndex == 1)
+                //{
+                //    //SelectGoodsItem();
+                //    //chkIsDisplayKey.Checked = true;
+                //}
                
                 if (dsPackChange.Tables[0].Rows.Count > 0)
                 {
@@ -605,7 +593,7 @@ namespace cf01.ReportForm
             chkByMo.Checked = false;
             chkByCard.Checked = false;
             txtBarCode.Focus();
-            ManualInputMo();
+            //ManualInputMo();
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)

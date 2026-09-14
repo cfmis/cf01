@@ -209,7 +209,7 @@ namespace cf01.Reports
                 DataTable dt = clsPublicOfCF01.GetDataTable(sql);
                 if (dt.Rows.Count > 0)
                 {
-                    strPrint = "曾經列印日期/次數:" + DateTime.Parse(dt.Rows[0]["print_date_history"].ToString()).Date.ToString("yyyy/MM/dd") + " (" + dt.Rows[0]["print_count"].ToString() + ")";
+                    strPrint = "初次日期/次數:" + DateTime.Parse(dt.Rows[0]["print_date_history"].ToString()).Date.ToString("yy/MM/dd") + " (" + dt.Rows[0]["print_count"].ToString() + ")";
                 }
                 else
                 {
