@@ -21,7 +21,6 @@ namespace cf01.Reports
             dsReprot.Tables.Add(dt);//建立關系用到的從表
            // dsReprot.Tables[2].TableName = "pack_list";   
             dsReprot.Tables[3].TableName = "pack_list";
-
             SetReportDataSource(dsReprot);
         }
 
