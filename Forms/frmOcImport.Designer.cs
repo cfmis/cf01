@@ -29,59 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcImport));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolstrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnImputExcel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnConfirm = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCustCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOcType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHkReqDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtDocId = new System.Windows.Forms.TextBox();
             this.txtOrderDate = new DevExpress.XtraEditors.TextEdit();
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.cmbSeason = new System.Windows.Forms.ComboBox();
             this.cmbOcType = new System.Windows.Forms.ComboBox();
             this.cmbMoDep = new System.Windows.Forms.ComboBox();
-            this.txtMoGroup = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCust = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,6 +55,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDateFind = new DevExpress.XtraEditors.TextEdit();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnShow = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,31 +99,72 @@
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnFind = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1.SuspendLayout();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCustCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMoDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMoGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOcType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHkReqDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbMoGroup = new System.Windows.Forms.ComboBox();
+            this.toolstrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFind.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // toolstrip1
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolstrip1.AutoSize = false;
+            this.toolstrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnExit,
             this.toolStripSeparator7,
             this.btnImputExcel,
             this.toolStripSeparator4,
             this.btnSave,
             this.toolStripSeparator3,
-            this.btnFind,
+            this.btnConfirm,
+            this.toolStripSeparator2,
+            this.btnShow,
             this.toolStripSeparator1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1103, 38);
-            this.toolStrip1.TabIndex = 9;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolstrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolstrip1.Name = "toolstrip1";
+            this.toolstrip1.Size = new System.Drawing.Size(1103, 38);
+            this.toolstrip1.TabIndex = 9;
+            this.toolstrip1.Text = "toolStrip1";
             // 
             // btnExit
             // 
@@ -203,6 +214,22 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.AutoSize = false;
+            this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
+            this.btnConfirm.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(65, 35);
+            this.btnConfirm.Text = "生成OC";
+            this.btnConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
@@ -247,253 +274,23 @@
             this.colOrderDate,
             this.colHkReqDate});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 127);
+            this.dgvDetails.Location = new System.Drawing.Point(0, 192);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1103, 527);
+            this.dgvDetails.Size = new System.Drawing.Size(1103, 462);
             this.dgvDetails.TabIndex = 10;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "season";
-            this.Column1.HeaderText = "SEASON";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "m_s";
-            this.Column2.HeaderText = "M/S";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "buyer";
-            this.Column3.HeaderText = "BUYER";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "cs_order";
-            this.Column4.HeaderText = "ORDER";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "item_code";
-            this.Column5.HeaderText = "ITEM CODE";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "item_name";
-            this.Column6.HeaderText = "ITEM NAME";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "color";
-            this.Column7.HeaderText = "COLOR";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "cancel";
-            this.Column8.HeaderText = "CANCEL";
-            this.Column8.Name = "Column8";
-            // 
-            // unit_price
-            // 
-            this.unit_price.DataPropertyName = "unit_price";
-            this.unit_price.HeaderText = "UNIT PRICE";
-            this.unit_price.Name = "unit_price";
-            // 
-            // unit
-            // 
-            this.unit.DataPropertyName = "curr";
-            this.unit.HeaderText = "CURR";
-            this.unit.Name = "unit";
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "qty";
-            this.Column11.HeaderText = "QTY";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "unit";
-            this.Column12.HeaderText = "UNIT";
-            this.Column12.Name = "Column12";
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "amt";
-            this.Column13.HeaderText = "AMT";
-            this.Column13.Name = "Column13";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "product_date";
-            this.Column9.HeaderText = "PRODUCT";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "po";
-            this.Column10.HeaderText = "PO";
-            this.Column10.Name = "Column10";
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "po_batch";
-            this.Column14.HeaderText = "PO Batch";
-            this.Column14.Name = "Column14";
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "po_date";
-            this.Column15.HeaderText = "PO Date";
-            this.Column15.Name = "Column15";
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "ship_to";
-            this.Column16.HeaderText = "SHIP TO";
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "delivery";
-            this.Column17.HeaderText = "DELIVERY";
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.DataPropertyName = "color_confirm";
-            this.Column18.HeaderText = "Color Confirm";
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.DataPropertyName = "rm_no";
-            this.Column19.HeaderText = "RM NO";
-            this.Column19.Name = "Column19";
-            // 
-            // Column20
-            // 
-            this.Column20.DataPropertyName = "revise_date";
-            this.Column20.HeaderText = "Revise Date";
-            this.Column20.Name = "Column20";
-            // 
-            // Column24
-            // 
-            this.Column24.DataPropertyName = "remarks";
-            this.Column24.HeaderText = "REMARKS";
-            this.Column24.Name = "Column24";
-            // 
-            // Column21
-            // 
-            this.Column21.DataPropertyName = "season1";
-            this.Column21.HeaderText = "SEASON1";
-            this.Column21.Name = "Column21";
-            // 
-            // Column22
-            // 
-            this.Column22.DataPropertyName = "division";
-            this.Column22.HeaderText = "DIVISION";
-            this.Column22.Name = "Column22";
-            // 
-            // Column23
-            // 
-            this.Column23.DataPropertyName = "order_purpose";
-            this.Column23.HeaderText = "RDER PURPOSE";
-            this.Column23.Name = "Column23";
-            // 
-            // Column25
-            // 
-            this.Column25.DataPropertyName = "size_name";
-            this.Column25.HeaderText = "Customer Size";
-            this.Column25.Name = "Column25";
-            // 
-            // Column26
-            // 
-            this.Column26.DataPropertyName = "table_head";
-            this.Column26.HeaderText = "Style";
-            this.Column26.Name = "Column26";
-            // 
-            // colCustCode
-            // 
-            this.colCustCode.DataPropertyName = "cust_code";
-            this.colCustCode.HeaderText = "客戶編號";
-            this.colCustCode.MaxInputLength = 8;
-            this.colCustCode.Name = "colCustCode";
-            // 
-            // colBrand
-            // 
-            this.colBrand.DataPropertyName = "brand_id";
-            this.colBrand.HeaderText = "牌子編號";
-            this.colBrand.MaxInputLength = 8;
-            this.colBrand.Name = "colBrand";
-            // 
-            // Column31
-            // 
-            this.Column31.DataPropertyName = "season_id";
-            this.Column31.HeaderText = "季度";
-            this.Column31.Name = "Column31";
-            // 
-            // colMoType
-            // 
-            this.colMoType.DataPropertyName = "mo_type";
-            this.colMoType.HeaderText = "制單類型";
-            this.colMoType.MaxInputLength = 1;
-            this.colMoType.Name = "colMoType";
-            // 
-            // colMoDep
-            // 
-            this.colMoDep.DataPropertyName = "mo_dep";
-            this.colMoDep.HeaderText = "所屬部門";
-            this.colMoDep.MaxInputLength = 1;
-            this.colMoDep.Name = "colMoDep";
-            // 
-            // colMoGroup
-            // 
-            this.colMoGroup.DataPropertyName = "mo_group";
-            this.colMoGroup.HeaderText = "組別";
-            this.colMoGroup.MaxInputLength = 1;
-            this.colMoGroup.Name = "colMoGroup";
-            // 
-            // Column27
-            // 
-            this.Column27.DataPropertyName = "oc_id";
-            this.Column27.HeaderText = "OC編號";
-            this.Column27.Name = "Column27";
-            // 
-            // colOcType
-            // 
-            this.colOcType.DataPropertyName = "oc_type";
-            this.colOcType.HeaderText = "OC類型";
-            this.colOcType.Name = "colOcType";
-            // 
-            // colOrderDate
-            // 
-            this.colOrderDate.DataPropertyName = "order_date";
-            this.colOrderDate.HeaderText = "接單日期";
-            this.colOrderDate.Name = "colOrderDate";
-            // 
-            // colHkReqDate
-            // 
-            this.colHkReqDate.DataPropertyName = "hk_req_date";
-            this.colHkReqDate.HeaderText = "要求回港日期";
-            this.colHkReqDate.Name = "colHkReqDate";
+            this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtDocId);
             this.panel1.Controls.Add(this.txtOrderDate);
             this.panel1.Controls.Add(this.lblOrderDate);
             this.panel1.Controls.Add(this.cmbSeason);
             this.panel1.Controls.Add(this.cmbOcType);
+            this.panel1.Controls.Add(this.cmbMoGroup);
             this.panel1.Controls.Add(this.cmbMoDep);
-            this.panel1.Controls.Add(this.txtMoGroup);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtCust);
             this.panel1.Controls.Add(this.label5);
@@ -508,6 +305,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1103, 89);
             this.panel1.TabIndex = 11;
+            // 
+            // txtDocId
+            // 
+            this.txtDocId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDocId.Location = new System.Drawing.Point(785, 23);
+            this.txtDocId.MaxLength = 20;
+            this.txtDocId.Name = "txtDocId";
+            this.txtDocId.Size = new System.Drawing.Size(166, 22);
+            this.txtDocId.TabIndex = 11;
             // 
             // txtOrderDate
             // 
@@ -550,20 +356,18 @@
             // 
             this.cmbMoDep.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmbMoDep.FormattingEnabled = true;
+            this.cmbMoDep.Items.AddRange(new object[] {
+            "",
+            "A",
+            "B",
+            "J",
+            "K",
+            "P"});
             this.cmbMoDep.Location = new System.Drawing.Point(455, 20);
             this.cmbMoDep.MaxLength = 1;
             this.cmbMoDep.Name = "cmbMoDep";
             this.cmbMoDep.Size = new System.Drawing.Size(44, 21);
             this.cmbMoDep.TabIndex = 2;
-            // 
-            // txtMoGroup
-            // 
-            this.txtMoGroup.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMoGroup.Location = new System.Drawing.Point(505, 19);
-            this.txtMoGroup.MaxLength = 1;
-            this.txtMoGroup.Name = "txtMoGroup";
-            this.txtMoGroup.Size = new System.Drawing.Size(44, 22);
-            this.txtMoGroup.TabIndex = 1;
             // 
             // label2
             // 
@@ -645,6 +449,63 @@
             this.label1.Size = new System.Drawing.Size(56, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "制單類型:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 12);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "接單日期:";
+            // 
+            // txtDateFind
+            // 
+            this.txtDateFind.Location = new System.Drawing.Point(95, 24);
+            this.txtDateFind.Name = "txtDateFind";
+            this.txtDateFind.Properties.Mask.EditMask = "9999/99/99";
+            this.txtDateFind.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.txtDateFind.Size = new System.Drawing.Size(96, 20);
+            this.txtDateFind.TabIndex = 9;
+            // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(233, 22);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 23);
+            this.btnFind.TabIndex = 12;
+            this.btnFind.Text = "查找(&F)";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnFind);
+            this.panel2.Controls.Add(this.txtDateFind);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 127);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1103, 65);
+            this.panel2.TabIndex = 12;
+            this.panel2.Visible = false;
+            // 
+            // btnShow
+            // 
+            this.btnShow.AutoSize = false;
+            this.btnShow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnShow.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.Image")));
+            this.btnShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(65, 35);
+            this.btnShow.Text = ">>";
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -879,20 +740,248 @@
             this.dataGridViewTextBoxColumn38.HeaderText = "要求回港日期";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             // 
-            // btnFind
+            // Column1
             // 
-            this.btnFind.AutoSize = false;
-            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(65, 35);
-            this.btnFind.Text = "查找(&F)";
-            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Column1.DataPropertyName = "season";
+            this.Column1.HeaderText = "SEASON";
+            this.Column1.Name = "Column1";
             // 
-            // toolStripSeparator1
+            // Column2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.Column2.DataPropertyName = "m_s";
+            this.Column2.HeaderText = "M/S";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "buyer";
+            this.Column3.HeaderText = "BUYER";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "cs_order";
+            this.Column4.HeaderText = "ORDER";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "item_code";
+            this.Column5.HeaderText = "ITEM CODE";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "item_name";
+            this.Column6.HeaderText = "ITEM NAME";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "color";
+            this.Column7.HeaderText = "COLOR";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "cancel";
+            this.Column8.HeaderText = "CANCEL";
+            this.Column8.Name = "Column8";
+            // 
+            // unit_price
+            // 
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.HeaderText = "UNIT PRICE";
+            this.unit_price.Name = "unit_price";
+            // 
+            // unit
+            // 
+            this.unit.DataPropertyName = "curr";
+            this.unit.HeaderText = "CURR";
+            this.unit.Name = "unit";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "qty";
+            this.Column11.HeaderText = "QTY";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "unit";
+            this.Column12.HeaderText = "UNIT";
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "amt";
+            this.Column13.HeaderText = "AMT";
+            this.Column13.Name = "Column13";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "product_date";
+            this.Column9.HeaderText = "PRODUCT";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "po";
+            this.Column10.HeaderText = "PO";
+            this.Column10.Name = "Column10";
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "po_batch";
+            this.Column14.HeaderText = "PO Batch";
+            this.Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "po_date";
+            this.Column15.HeaderText = "PO Date";
+            this.Column15.Name = "Column15";
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "ship_to";
+            this.Column16.HeaderText = "SHIP TO";
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "delivery";
+            this.Column17.HeaderText = "DELIVERY";
+            this.Column17.Name = "Column17";
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "color_confirm";
+            this.Column18.HeaderText = "Color Confirm";
+            this.Column18.Name = "Column18";
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "rm_no";
+            this.Column19.HeaderText = "RM NO";
+            this.Column19.Name = "Column19";
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "revise_date";
+            this.Column20.HeaderText = "Revise Date";
+            this.Column20.Name = "Column20";
+            // 
+            // Column24
+            // 
+            this.Column24.DataPropertyName = "remarks";
+            this.Column24.HeaderText = "REMARKS";
+            this.Column24.Name = "Column24";
+            // 
+            // Column21
+            // 
+            this.Column21.DataPropertyName = "season1";
+            this.Column21.HeaderText = "SEASON1";
+            this.Column21.Name = "Column21";
+            // 
+            // Column22
+            // 
+            this.Column22.DataPropertyName = "division";
+            this.Column22.HeaderText = "DIVISION";
+            this.Column22.Name = "Column22";
+            // 
+            // Column23
+            // 
+            this.Column23.DataPropertyName = "order_purpose";
+            this.Column23.HeaderText = "RDER PURPOSE";
+            this.Column23.Name = "Column23";
+            // 
+            // Column25
+            // 
+            this.Column25.DataPropertyName = "size_name";
+            this.Column25.HeaderText = "Customer Size";
+            this.Column25.Name = "Column25";
+            // 
+            // Column26
+            // 
+            this.Column26.DataPropertyName = "table_head";
+            this.Column26.HeaderText = "Style";
+            this.Column26.Name = "Column26";
+            // 
+            // colCustCode
+            // 
+            this.colCustCode.DataPropertyName = "cust_code";
+            this.colCustCode.HeaderText = "客戶編號";
+            this.colCustCode.MaxInputLength = 8;
+            this.colCustCode.Name = "colCustCode";
+            // 
+            // colBrand
+            // 
+            this.colBrand.DataPropertyName = "brand_id";
+            this.colBrand.HeaderText = "牌子編號";
+            this.colBrand.MaxInputLength = 8;
+            this.colBrand.Name = "colBrand";
+            // 
+            // Column31
+            // 
+            this.Column31.DataPropertyName = "season_id";
+            this.Column31.HeaderText = "季度";
+            this.Column31.Name = "Column31";
+            // 
+            // colMoType
+            // 
+            this.colMoType.DataPropertyName = "mo_type";
+            this.colMoType.HeaderText = "制單類型";
+            this.colMoType.MaxInputLength = 1;
+            this.colMoType.Name = "colMoType";
+            // 
+            // colMoDep
+            // 
+            this.colMoDep.DataPropertyName = "mo_dep";
+            this.colMoDep.HeaderText = "所屬部門";
+            this.colMoDep.MaxInputLength = 1;
+            this.colMoDep.Name = "colMoDep";
+            // 
+            // colMoGroup
+            // 
+            this.colMoGroup.DataPropertyName = "mo_group";
+            this.colMoGroup.HeaderText = "組別";
+            this.colMoGroup.MaxInputLength = 1;
+            this.colMoGroup.Name = "colMoGroup";
+            // 
+            // Column27
+            // 
+            this.Column27.DataPropertyName = "oc_id";
+            this.Column27.HeaderText = "OC編號";
+            this.Column27.Name = "Column27";
+            // 
+            // colOcType
+            // 
+            this.colOcType.DataPropertyName = "oc_type";
+            this.colOcType.HeaderText = "OC類型";
+            this.colOcType.Name = "colOcType";
+            // 
+            // colOrderDate
+            // 
+            this.colOrderDate.DataPropertyName = "order_date";
+            this.colOrderDate.HeaderText = "接單日期";
+            this.colOrderDate.Name = "colOrderDate";
+            // 
+            // colHkReqDate
+            // 
+            this.colHkReqDate.DataPropertyName = "hk_req_date";
+            this.colHkReqDate.HeaderText = "要求回港日期";
+            this.colHkReqDate.Name = "colHkReqDate";
+            // 
+            // cmbMoGroup
+            // 
+            this.cmbMoGroup.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbMoGroup.FormattingEnabled = true;
+            this.cmbMoGroup.Location = new System.Drawing.Point(505, 20);
+            this.cmbMoGroup.MaxLength = 1;
+            this.cmbMoGroup.Name = "cmbMoGroup";
+            this.cmbMoGroup.Size = new System.Drawing.Size(44, 21);
+            this.cmbMoGroup.TabIndex = 2;
             // 
             // frmOcImport
             // 
@@ -900,25 +989,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 654);
             this.Controls.Add(this.dgvDetails);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolstrip1);
             this.Name = "frmOcImport";
             this.Text = "frmOcImput";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOcImput_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolstrip1.ResumeLayout(false);
+            this.toolstrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFind.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolstrip1;
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton btnSave;
@@ -958,7 +1051,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbSeason;
         private System.Windows.Forms.ComboBox cmbMoDep;
-        private System.Windows.Forms.TextBox txtMoGroup;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMoType;
         private System.Windows.Forms.Label label1;
@@ -1018,7 +1110,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.ToolStripButton btnFind;
+        private System.Windows.Forms.ToolStripButton btnConfirm;
+        private System.Windows.Forms.TextBox txtDocId;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtDateFind;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripButton btnShow;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ComboBox cmbMoGroup;
     }
 }

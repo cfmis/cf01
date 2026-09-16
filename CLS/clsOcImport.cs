@@ -15,13 +15,29 @@ namespace cf01.CLS
         private static string within_code = DBUtility.within_code;
         private static string userid = DBUtility._user_id;
         private static string remote_db = DBUtility.remote_db;
-        public static DataTable GetOcData()
+        public static DataTable GetOcData(string select_flag, string doc_id,string find_date)
         {
             string strSql = "";
             string within_code = DBUtility.within_code;
             strSql += " Select *" +
                 " From so_oc_import a " +
-                " Where a.id=0";
+                " Where a.id>=0";
+            if (select_flag == "1")
+            {
+                strSql += " And a.doc_id='" + doc_id + "'";
+                strSql += " Order By a.id";
+            }
+            else if (select_flag == "2")
+            {
+                string import_time = System.DateTime.Now.ToString("yyyy/MM/dd");
+                strSql += " And a.import_time >='" + import_time + "' And a.import_flag='1' ";
+                strSql += " Order By a.import_time Desc,a.id";
+            }
+            else
+            {
+                strSql += " And a.order_date >='" + find_date + "'";
+                strSql += " Order By a.id";
+            }
             DataTable dtMo = clsPublicOfCF01.GetDataTable(strSql);
             return dtMo;
         }
@@ -97,6 +113,23 @@ namespace cf01.CLS
                 Result = clsPublicOfCF01.ExecuteNonQuery(strSql, paras, false);
             }
             return doc_id;
+        }
+
+
+        public static int GenOC()
+        {
+            string strSql = "";
+
+            strSql += @"dgerp5.cferp.dbo.z_import_oc";
+
+            SqlParameter[] paras = new SqlParameter[] {
+                new SqlParameter("@user_id",userid),
+            };
+
+            int Result = clsPublicOfCF01.ExecuteNonQuery(strSql, paras, true);
+            //DataTable dtOcUpdate = clsPublicOfCF01.ExecuteProcedureReturnTable(strSql, paras);
+            
+            return Result;
         }
 
     }
