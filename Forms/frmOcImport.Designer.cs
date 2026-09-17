@@ -61,6 +61,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnShow = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmbMoGroup = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +101,8 @@
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,11 +137,12 @@
             this.colMoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMoDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMoGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOcType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHkReqDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbMoGroup = new System.Windows.Forms.ComboBox();
             this.toolstrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -269,6 +274,8 @@
             this.colMoType,
             this.colMoDep,
             this.colMoGroup,
+            this.Column28,
+            this.Column29,
             this.Column27,
             this.colOcType,
             this.colOrderDate,
@@ -299,6 +306,7 @@
             this.panel1.Controls.Add(this.txtMoType);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 38);
@@ -309,8 +317,8 @@
             // txtDocId
             // 
             this.txtDocId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDocId.Location = new System.Drawing.Point(785, 23);
-            this.txtDocId.MaxLength = 20;
+            this.txtDocId.Location = new System.Drawing.Point(632, 19);
+            this.txtDocId.MaxLength = 50;
             this.txtDocId.Name = "txtDocId";
             this.txtDocId.Size = new System.Drawing.Size(166, 22);
             this.txtDocId.TabIndex = 11;
@@ -323,6 +331,7 @@
             this.txtOrderDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.txtOrderDate.Size = new System.Drawing.Size(96, 20);
             this.txtOrderDate.TabIndex = 9;
+            this.txtOrderDate.Leave += new System.EventHandler(this.txtOrderDate_Leave);
             // 
             // lblOrderDate
             // 
@@ -506,6 +515,25 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            // 
+            // cmbMoGroup
+            // 
+            this.cmbMoGroup.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbMoGroup.FormattingEnabled = true;
+            this.cmbMoGroup.Location = new System.Drawing.Point(505, 20);
+            this.cmbMoGroup.MaxLength = 1;
+            this.cmbMoGroup.Name = "cmbMoGroup";
+            this.cmbMoGroup.Size = new System.Drawing.Size(44, 21);
+            this.cmbMoGroup.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(570, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "文件編號:";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -740,6 +768,18 @@
             this.dataGridViewTextBoxColumn38.HeaderText = "要求回港日期";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "order_date";
+            this.dataGridViewTextBoxColumn39.HeaderText = "接單日期";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "hk_req_date";
+            this.dataGridViewTextBoxColumn40.HeaderText = "要求回港日期";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "season";
@@ -949,10 +989,23 @@
             this.colMoGroup.MaxInputLength = 1;
             this.colMoGroup.Name = "colMoGroup";
             // 
+            // Column28
+            // 
+            this.Column28.DataPropertyName = "doc_id";
+            this.Column28.HeaderText = "文件編號";
+            this.Column28.Name = "Column28";
+            this.Column28.Width = 120;
+            // 
+            // Column29
+            // 
+            this.Column29.DataPropertyName = "ref_oc_id";
+            this.Column29.HeaderText = "參考OC編號";
+            this.Column29.Name = "Column29";
+            // 
             // Column27
             // 
             this.Column27.DataPropertyName = "oc_id";
-            this.Column27.HeaderText = "OC編號";
+            this.Column27.HeaderText = "新OC編號";
             this.Column27.Name = "Column27";
             // 
             // colOcType
@@ -972,16 +1025,6 @@
             this.colHkReqDate.DataPropertyName = "hk_req_date";
             this.colHkReqDate.HeaderText = "要求回港日期";
             this.colHkReqDate.Name = "colHkReqDate";
-            // 
-            // cmbMoGroup
-            // 
-            this.cmbMoGroup.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cmbMoGroup.FormattingEnabled = true;
-            this.cmbMoGroup.Location = new System.Drawing.Point(505, 20);
-            this.cmbMoGroup.MaxLength = 1;
-            this.cmbMoGroup.Name = "cmbMoGroup";
-            this.cmbMoGroup.Size = new System.Drawing.Size(44, 21);
-            this.cmbMoGroup.TabIndex = 2;
             // 
             // frmOcImport
             // 
@@ -1069,6 +1112,20 @@
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.TextEdit txtOrderDate;
         private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.ToolStripButton btnConfirm;
+        private System.Windows.Forms.TextBox txtDocId;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtDateFind;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripButton btnShow;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ComboBox cmbMoGroup;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1103,22 +1160,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOcType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHkReqDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.ToolStripButton btnConfirm;
-        private System.Windows.Forms.TextBox txtDocId;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.Label label7;
-        private DevExpress.XtraEditors.TextEdit txtDateFind;
-        private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ToolStripButton btnShow;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ComboBox cmbMoGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
     }
 }

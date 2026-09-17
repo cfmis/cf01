@@ -302,7 +302,7 @@ namespace cf01.Forms
             cmbOcType.ValueMember = "id";
 
             txtMoType.Text = "G";
-            cmbMoDep.SelectedValue = "B";
+            cmbMoDep.Text = "B";
             cmbMoGroup.SelectedValue = clsBaseData.GetUserGroup();
             if (cmbMoGroup.SelectedValue.ToString() == "")
                 cmbMoGroup.SelectedValue = "L";
@@ -312,6 +312,7 @@ namespace cf01.Forms
                 txtBrand.Text = "MICH-05";
             }
             txtOrderDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
+            txtDateFind.Text = txtOrderDate.Text;
             cmbOcType.SelectedValue = "E";
 
         }
@@ -543,6 +544,11 @@ namespace cf01.Forms
                 panel2.Visible = false;
                 btnShow.Text = ">>";
             }
+        }
+
+        private void txtOrderDate_Leave(object sender, EventArgs e)
+        {
+            txtDateFind.Text = txtOrderDate.Text;
         }
     }
 }
