@@ -32,6 +32,8 @@ namespace cf01.CLS
             {
                 string import_time = System.DateTime.Now.ToString("yyyy/MM/dd");
                 strSql += " And a.import_time >='" + import_time + "' And a.import_flag='1' ";
+                if (doc_id != "")
+                    strSql += " And a.doc_id='" + doc_id + "'";
                 strSql += " Order By a.import_time Desc,a.id";
             }
             else
@@ -133,19 +135,16 @@ namespace cf01.CLS
             string cust_code = item_code;
             for (int i = 0; i < 2; i++)
             {
-                strSql1 = " SELECT TOP 1 aa.id,aa.sequence_id,aa.ver " +
-                    " FROM " + remote_db + "so_order_details aa " +
-                    " INNER JOIN ( " +
-                    " SELECT MAX(a.id) AS id " +
+                strSql1 = " SELECT TOP 1 b.id,b.ver,b.sequence_id,b.goods_id,b.customer_goods " +
                     " FROM " + remote_db + "so_order_manage a WITH(NOLOCK) " +
                     " INNER JOIN " + remote_db + "so_order_details b WITH(NOLOCK) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver" +
                     " WHERE b.within_code = '0000' " +
-                    " AND a.state <> '2' AND a.state <> 'V' AND a.state <> 'G' AND a.state <> '0' " +
-                    "  AND a.order_date >= '" + "2025/01/01" + "'";
+                    " AND a.state <> '2' AND a.state <> 'V' AND a.state <> 'G' AND a.state <> '0' ";
+                    //"  AND a.order_date >= '" + "2025/01/01" + "'";
                 strSql = strSql1 + "  AND b.customer_goods = '" + cust_code + "'";
                 if (mo_group != "")
                     strSql += "  AND b.mo_group = '" + mo_group + "'";
-                strSql += " ) bb ON aa.within_code = '0000' AND aa.id = bb.id ";
+                strSql += " Order By b.mo_type,a.order_date Desc ";
                 dtRefOc = clsPublicOfCF01.GetDataTable(strSql);
                 if (dtRefOc.Rows.Count > 0)
                     break;

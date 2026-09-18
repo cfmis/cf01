@@ -483,7 +483,6 @@ namespace cf01.Forms
                 return;
             if (!ValidConfirm())
                 return;
-            txtDocId.Text = "";
             progressBar_Cnt2 = 0;
             processBarWindows = new frmProcessBarWindows(0, Coun, "正在生成OC記錄，請稍候。。。");
 
