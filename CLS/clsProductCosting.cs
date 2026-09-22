@@ -511,19 +511,19 @@ namespace cf01.CLS
             strSql += " SELECT";
             if (sourceType == "SET")
                 strSql += " Top 1";
-            strSql += " a.id,Convert(Varchar(20),a.order_date,111) AS order_date,Convert(Decimal(18,4),d.exchange_rate) AS exchange_rate,a.m_id" +
+            strSql += " a.id,Convert(Varchar(20),a.order_date,111) AS order_date,Convert(Decimal(18,4),d.rate) AS exchange_rate,a.m_id" +
                        ",b.goods_id,b.mo_id,c.name AS goods_name,Convert(Decimal(18,0),b.order_qty) AS order_qty,b.unit_code,g.kind " +
                        ",Convert(Decimal(18,2),b.sec_qty) AS sec_qty,b.sec_unit,Convert(Decimal(18,2),b.price) AS price,b.p_unit AS PriceUnit" +
-                       ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,2),((b.price*d.exchange_rate)/f.rate)*1000) ELSE Convert(Decimal(18,2),(b.price*d.exchange_rate)) END AS PriceHkd" +
-                       ",CASE g.kind WHEN '05' THEN 0 ELSE Convert(Decimal(18,4),(b.price*d.exchange_rate)/1000) END AS price_g" +
-                       ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,4),(b.price*d.exchange_rate)/f.rate) ELSE 0 END AS price_pcs" +
+                       ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,2),((b.price*d.rate)/f.rate)*1000) ELSE Convert(Decimal(18,2),(b.price*d.rate)) END AS PriceHkd" +
+                       ",CASE g.kind WHEN '05' THEN 0 ELSE Convert(Decimal(18,4),(b.price*d.rate)/1000) END AS price_g" +
+                       ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,4),(b.price*d.rate)/f.rate) ELSE 0 END AS price_pcs" +
                        ",a.department_id,i.name AS DepCdesc,a.id AS receive_id";
             if (sourceType == "FIND")
                 strSql += ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit,h.ProductPriceQty AS StdProductPriceQty";
             strSql += " FROM " + remote_db + "po_buy_manage a " +
                         " INNER JOIN " + remote_db + "po_buy_details b ON a.within_code=b.within_code AND a.id=b.id" +
                         " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
-                        " INNER JOIN " + remote_db + "cd_exchange_rate d ON b.within_code=d.within_code AND a.m_id=d.id" +
+                        " INNER JOIN bs_curr_exchange d ON a.m_id COLLATE chinese_taiwan_stroke_CI_AS=d.curr_id" +
                         " INNER JOIN " + remote_db + "it_coding f ON b.within_code=f.within_code AND b.p_unit=f.unit_code" +
                         " INNER JOIN " + remote_db + "cd_units g ON b.within_code=g.within_code AND b.p_unit=g.id" +
                         " LEFT JOIN " + remote_db + "cd_department i ON a.within_code=i.within_code  AND a.department_id=i.id";
@@ -542,7 +542,7 @@ namespace cf01.CLS
             }
             if (materialName1 != "")
                 strSql += " AND c.name Like '" + "%" + materialName1 + "%'";
-            strSql += " AND d.state='0' ";
+            strSql += " AND d.use_type='QU' AND d.base_curr='HKD' ";
             strSql += " AND f.id='*' ";
             strSql += " Order By b.goods_id,a.order_date Desc,a.create_date Desc";
             DataTable dtPrice = clsPublicOfCF01.GetDataTable(strSql);
@@ -592,25 +592,46 @@ namespace cf01.CLS
         public static DataTable findPlatePrice(string productMo,string depId,string materialId, string materialName)
         {
             string materialName1 = materialName;
+            //string strSql = " SELECT a.id,Convert(Varchar(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
+            //            ",b.goods_id,b.mo_id,c.name AS goods_name,b.do_color,Convert(Decimal(18,0),b.prod_qty) AS prod_qty,b.goods_unit " +
+            //            ",Convert(Decimal(18,2),b.sec_qty) AS sec_qty,b.sec_unit,Convert(Decimal(18,2),b.price) AS price,b.p_unit" +
+            //            ",CASE b.sec_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(b.sec_qty/b.prod_qty)*1000) END AS pcs_weg" +
+            //            ",Convert(Decimal(18,2),b.sec_price) AS sec_price,b.sec_p_unit,Convert(Decimal(18,2),b.total_prices) AS total_prices" +
+            //            ",Convert(Decimal(18,2),b.mould_fee) AS mould_fee,Convert(Decimal(18,2),b.former_free) AS former_free" +
+            //            ",Convert(Decimal(18,4),b.sec_price*g.exchange_rate) AS price_kg,Convert(Decimal(18,4),(b.sec_price*g.exchange_rate)/1000) AS price_g" +
+            //            ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.exchange_rate) AS exchange_rate" +
+            //            ",f.money_id AS m_id,a.department_id,b.process_request" +
+            //            ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
+            //            ",Convert(Decimal(18,2),b.price*g.exchange_rate) AS QtyPriceHKD,Convert(Decimal(18,2),(b.sec_price*g.exchange_rate)) AS WegPriceHKD" +
+            //            " FROM " +remote_db+"op_outpro_out_mostly a " +
+            //            " INNER JOIN " + remote_db + "op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
+            //            " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+            //            " INNER JOIN " + remote_db + "it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
+            //            " INNER JOIN " + remote_db + "it_vendor f ON a.within_code=f.within_code AND a.vendor_id=f.id" +
+            //            " INNER JOIN " + remote_db + "cd_exchange_rate g ON f.within_code=g.within_code AND f.money_id=g.id" +
+            //            " LEFT JOIN mm_ProductPrice h ON b.goods_id COLLATE chinese_taiwan_stroke_CI_AS=h.ProductId" +
+            //            " WHERE b.within_code='" + within_code + "'";
+
             string strSql = " SELECT a.id,Convert(Varchar(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
                         ",b.goods_id,b.mo_id,c.name AS goods_name,b.do_color,Convert(Decimal(18,0),b.prod_qty) AS prod_qty,b.goods_unit " +
                         ",Convert(Decimal(18,2),b.sec_qty) AS sec_qty,b.sec_unit,Convert(Decimal(18,2),b.price) AS price,b.p_unit" +
                         ",CASE b.sec_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(b.sec_qty/b.prod_qty)*1000) END AS pcs_weg" +
                         ",Convert(Decimal(18,2),b.sec_price) AS sec_price,b.sec_p_unit,Convert(Decimal(18,2),b.total_prices) AS total_prices" +
                         ",Convert(Decimal(18,2),b.mould_fee) AS mould_fee,Convert(Decimal(18,2),b.former_free) AS former_free" +
-                        ",Convert(Decimal(18,4),b.sec_price*g.exchange_rate) AS price_kg,Convert(Decimal(18,4),(b.sec_price*g.exchange_rate)/1000) AS price_g" +
-                        ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.exchange_rate) AS exchange_rate" +
+                        ",Convert(Decimal(18,4),b.sec_price*g.rate) AS price_kg,Convert(Decimal(18,4),(b.sec_price*g.rate)/1000) AS price_g" +
+                        ",Convert(Decimal(18,4),(b.price*g.rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.rate) AS exchange_rate" +
                         ",f.money_id AS m_id,a.department_id,b.process_request" +
                         ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
-                        ",Convert(Decimal(18,2),b.price*g.exchange_rate) AS QtyPriceHKD,Convert(Decimal(18,2),(b.sec_price*g.exchange_rate)) AS WegPriceHKD" +
-                        " FROM " +remote_db+"op_outpro_out_mostly a " +
+                        ",Convert(Decimal(18,2),b.price*g.rate) AS QtyPriceHKD,Convert(Decimal(18,2),(b.sec_price*g.rate)) AS WegPriceHKD" +
+                        " FROM " + remote_db + "op_outpro_out_mostly a " +
                         " INNER JOIN " + remote_db + "op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
                         " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
                         " INNER JOIN " + remote_db + "it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
                         " INNER JOIN " + remote_db + "it_vendor f ON a.within_code=f.within_code AND a.vendor_id=f.id" +
-                        " INNER JOIN " + remote_db + "cd_exchange_rate g ON f.within_code=g.within_code AND f.money_id=g.id" +
+                        " INNER JOIN bs_curr_exchange g ON f.money_id COLLATE chinese_taiwan_stroke_CI_AS=g.curr_id" +
                         " LEFT JOIN mm_ProductPrice h ON b.goods_id COLLATE chinese_taiwan_stroke_CI_AS=h.ProductId" +
                         " WHERE b.within_code='" + within_code + "'";
+
             if (depId != "")
                 strSql += " AND a.department_id = '" + depId + "'";
             if (productMo != "")
@@ -629,7 +650,7 @@ namespace cf01.CLS
                 strSql += " AND c.name Like '" + "%" + materialName1 + "%'";
             strSql += " AND b.total_prices>0 ";
             strSql += " AND d.id='*' ";
-            strSql += " AND g.state='0' ";
+            strSql += " AND g.use_type='QU' And g.base_curr='HKD'";
             
             strSql += " Order By a.issue_date Desc,b.goods_id";
             //DataTable dt = clsPublicOfGEO.GetDataTable(strSql);

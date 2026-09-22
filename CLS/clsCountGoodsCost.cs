@@ -682,15 +682,25 @@ namespace cf01.CLS
             string strSql = "";
             if (recPrice == 1)
             {
+                //strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
+                //    ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id" +
+                //    ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
+                //    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+                //    ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+                //    ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
+                //    " From quotation_plate a" +
+                //    " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                //    " Where b.within_code='" + within_code + "' And b.state='0' ";
+
                 strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
                     ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id" +
-                    ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
+                    ",a.price,Convert(decimal(18, 4),a.price*b.rate) As QtyPriceHKD" +
                     ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
                     ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
                     ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
                     " From quotation_plate a" +
-                    " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
-                    " Where b.within_code='" + within_code + "' And b.state='0' ";
+                    " Left Join bs_curr_exchange b On a.m_id=b.curr_id" +
+                    " Where b.use_type='QU' And b.base_curr='HKD' ";
                 if (vendID != "")
                     strSql += " And a.vendor_id Like '%" + vendID + "%'";
                 if (plateType != "")
@@ -703,6 +713,18 @@ namespace cf01.CLS
             }
             else
             {
+                //strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
+                //    ",a.pm71dat As issue_date,b.pm73qtno As id" +
+                //    ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
+                //    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+                //    ",a.pm71type As prod_type,b.pm73pkind As plate_type,b.pm73ptype As plate_process,b.pm73punit As p_unit,b.pm73curr As m_id" +
+                //    ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
+                //    " From dgsql1.dg_data.dbo.pum71 a" +
+                //    " Inner Join dgsql1.dg_data.dbo.pum73 b On a.pm71id=b.pm73id " +
+                //    " Left Join " + remote_db + "cd_exchange_rate c On b.pm73curr=c.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                //    " Left Join " + remote_db + "it_vendor d On b.pm73vendid=d.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                //    " Where c.within_code='" + within_code + "' And c.state='0' ";
+
                 strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
                     ",a.pm71dat As issue_date,b.pm73qtno As id" +
                     ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
@@ -711,9 +733,9 @@ namespace cf01.CLS
                     ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
                     " From dgsql1.dg_data.dbo.pum71 a" +
                     " Inner Join dgsql1.dg_data.dbo.pum73 b On a.pm71id=b.pm73id " +
-                    " Left Join " + remote_db + "cd_exchange_rate c On b.pm73curr=c.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                    " Left Join bs_curr_exchange c On b.pm73curr=c.curr_id " +
                     " Left Join " + remote_db + "it_vendor d On b.pm73vendid=d.id COLLATE chinese_taiwan_stroke_CI_AS" +
-                    " Where c.within_code='" + within_code + "' And c.state='0' ";
+                    " Where c.use_type='" + "QU" + "' And c.base_curr='HKD' ";
                 if (vendID != "")
                     strSql += " And b.pm73vendid Like '%" + vendID + "%'";
                 if (plateType != "")
