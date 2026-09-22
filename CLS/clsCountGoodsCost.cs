@@ -727,7 +727,7 @@ namespace cf01.CLS
 
                 strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
                     ",a.pm71dat As issue_date,b.pm73qtno As id" +
-                    ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
+                    ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.rate) As QtyPriceHKD" +
                     ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
                     ",a.pm71type As prod_type,b.pm73pkind As plate_type,b.pm73ptype As plate_process,b.pm73punit As p_unit,b.pm73curr As m_id" +
                     ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
