@@ -150,13 +150,21 @@ namespace cf01.CLS
         /// <returns></returns>
         public static decimal GetMidRate(string Mid)
         {
-            string strSql = "Select exchange_rate From " + remote_db + "cd_exchange_rate " +
-                " Where within_code='" + within_code + "' And id='" + Mid + "' And state='0'";
+            string strSql = "Select rate From bs_curr_exchange " +
+                " Where use_type='" + "QU" + "' And curr_id='" + Mid + "' And base_curr='" + "HKD" + "'";
             decimal exchangeRate = 0;
-            DataTable dtExchangeRate = clsPublicOfGEO.GetDataTable(strSql);
+            DataTable dtExchangeRate = clsPublicOfCF01.GetDataTable(strSql);
             if (dtExchangeRate.Rows.Count > 0)
-                exchangeRate = clsValidRule.ConvertStrToDecimal(dtExchangeRate.Rows[0]["exchange_rate"].ToString());
+                exchangeRate = clsValidRule.ConvertStrToDecimal(dtExchangeRate.Rows[0]["rate"].ToString());
             return exchangeRate;
+
+            //string strSql = "Select exchange_rate From " + remote_db + "cd_exchange_rate " +
+            //    " Where within_code='" + within_code + "' And id='" + Mid + "' And state='0'";
+            //decimal exchangeRate = 0;
+            //DataTable dtExchangeRate = clsPublicOfGEO.GetDataTable(strSql);
+            //if (dtExchangeRate.Rows.Count > 0)
+            //    exchangeRate = clsValidRule.ConvertStrToDecimal(dtExchangeRate.Rows[0]["exchange_rate"].ToString());
+            //return exchangeRate;
         }
         //////提取單位轉換率
         public static float GetUnitRate(string unit_id)

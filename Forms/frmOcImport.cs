@@ -302,7 +302,7 @@ namespace cf01.Forms
             cmbOcType.ValueMember = "id";
 
             txtMoType.Text = "G";
-            cmbMoDep.SelectedValue = "B";
+            cmbMoDep.Text = "B";
             cmbMoGroup.SelectedValue = clsBaseData.GetUserGroup();
             if (cmbMoGroup.SelectedValue.ToString() == "")
                 cmbMoGroup.SelectedValue = "L";
@@ -312,6 +312,7 @@ namespace cf01.Forms
                 txtBrand.Text = "MICH-05";
             }
             txtOrderDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
+            txtDateFind.Text = txtOrderDate.Text;
             cmbOcType.SelectedValue = "E";
 
         }
@@ -482,7 +483,6 @@ namespace cf01.Forms
                 return;
             if (!ValidConfirm())
                 return;
-            txtDocId.Text = "";
             progressBar_Cnt2 = 0;
             processBarWindows = new frmProcessBarWindows(0, Coun, "正在生成OC記錄，請稍候。。。");
 
@@ -543,6 +543,11 @@ namespace cf01.Forms
                 panel2.Visible = false;
                 btnShow.Text = ">>";
             }
+        }
+
+        private void txtOrderDate_Leave(object sender, EventArgs e)
+        {
+            txtDateFind.Text = txtOrderDate.Text;
         }
     }
 }

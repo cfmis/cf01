@@ -14,7 +14,8 @@ namespace cf01.CLS
     {
         private static string within_code = DBUtility.within_code;
         private static string userid = DBUtility._user_id;
-        private static string remote_db = DBUtility.remote_db;
+        //private static string remote_db = DBUtility.remote_db;
+        private static string remote_db = "dgerp5.cferp.dbo.";
         public static DataTable GetOcData(string select_flag, string doc_id,string find_date)
         {
             string strSql = "";
@@ -31,12 +32,14 @@ namespace cf01.CLS
             {
                 string import_time = System.DateTime.Now.ToString("yyyy/MM/dd");
                 strSql += " And a.import_time >='" + import_time + "' And a.import_flag='1' ";
+                if (doc_id != "")
+                    strSql += " And a.doc_id='" + doc_id + "'";
                 strSql += " Order By a.import_time Desc,a.id";
             }
             else
             {
                 strSql += " And a.order_date >='" + find_date + "'";
-                strSql += " Order By a.id";
+                strSql += " Order By a.import_time Desc,a.id";
             }
             DataTable dtMo = clsPublicOfCF01.GetDataTable(strSql);
             return dtMo;
@@ -52,16 +55,22 @@ namespace cf01.CLS
             for (int i = 0; i < dtOc.Rows.Count; i++)
             {
                 DataRow drOc = dtOc.Rows[i];
+                DataTable dtRefOc = GetRefOc(drOc["item_code"].ToString().Trim(), drOc["mo_group"].ToString().Trim());
+                DataRow drRefOc = dtRefOc.Rows[0];
                 strSql = @"insert into so_oc_import (cust_code,cs_order,item_code, item_name,color,season
                 ,m_s,buyer,cancel,unit_price,curr,qty,unit,amt,product_date,po,po_batch,po_date
                 ,ship_to,delivery,color_confirm,rm_no,revise_date,remarks,season1,division,order_purpose
                 ,size_name,table_head,brand_id,season_id,mo_type,mo_dep,mo_group
-                ,oc_type,order_date,hk_req_date,state,import_flag,doc_id,create_user,create_time)
+                ,oc_type,order_date,hk_req_date,state,import_flag,doc_id
+                ,ref_oc_id,ref_oc_ver,ref_oc_seq
+                ,create_user,create_time)
                 Values(@cust_code,@cs_order,@item_code, @item_name,@color,@season
                 ,@m_s,@buyer,@cancel,@unit_price,@curr,@qty,@unit,@amt,@product_date,@po,@po_batch,@po_date
                 ,@ship_to,@delivery,@color_confirm,@rm_no,@revise_date,@remarks,@season1,@division,@order_purpose
                 ,@size_name,@table_head,@brand_id,@season_id,@mo_type,@mo_dep,@mo_group
-                ,@oc_type,@order_date,@hk_req_date,@state,@import_flag,@doc_id,@create_user,@create_time)";
+                ,@oc_type,@order_date,@hk_req_date,@state,@import_flag,@doc_id
+                ,@ref_oc_id,@ref_oc_ver,@ref_oc_seq
+                ,@create_user,@create_time)";
                 SqlParameter[] paras = new SqlParameter[]{
                         new SqlParameter("@cust_code",drOc["cust_code"].ToString().Trim()),
                         new SqlParameter("@cs_order",drOc["cs_order"].ToString().Trim()),
@@ -107,6 +116,10 @@ namespace cf01.CLS
                         new SqlParameter("@state","0"),
                         new SqlParameter("@import_flag","0"),
                         new SqlParameter("@doc_id",doc_id),
+
+                        new SqlParameter("@ref_oc_id",drRefOc["id"].ToString().Trim()),
+                        new SqlParameter("@ref_oc_ver",Convert.ToInt32(drRefOc["ver"])),
+                        new SqlParameter("@ref_oc_seq",drRefOc["sequence_id"].ToString().Trim()),
                         new SqlParameter("@create_user",user_id),
                         new SqlParameter("@create_time",create_time)
                     };
@@ -115,12 +128,37 @@ namespace cf01.CLS
             return doc_id;
         }
 
+        private static DataTable GetRefOc(string item_code,string mo_group)
+        {
+            DataTable dtRefOc = new DataTable();
+            string strSql = "", strSql1 = "";
+            string cust_code = item_code;
+            for (int i = 0; i < 2; i++)
+            {
+                strSql1 = " SELECT TOP 1 b.id,b.ver,b.sequence_id,b.goods_id,b.customer_goods " +
+                    " FROM " + remote_db + "so_order_manage a WITH(NOLOCK) " +
+                    " INNER JOIN " + remote_db + "so_order_details b WITH(NOLOCK) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver" +
+                    " WHERE b.within_code = '0000' " +
+                    " AND a.state <> '2' AND a.state <> 'V' AND a.state <> 'G' AND a.state <> '0' ";
+                    //"  AND a.order_date >= '" + "2025/01/01" + "'";
+                strSql = strSql1 + "  AND b.customer_goods = '" + cust_code + "'";
+                if (mo_group != "")
+                    strSql += "  AND b.mo_group = '" + mo_group + "'";
+                strSql += " Order By b.mo_type,a.order_date Desc ";
+                dtRefOc = clsPublicOfCF01.GetDataTable(strSql);
+                if (dtRefOc.Rows.Count > 0)
+                    break;
+                else
+                    cust_code = "7S000214-10653";
+            }
+            return dtRefOc;
+        }
 
         public static int GenOC()
         {
             string strSql = "";
 
-            strSql += @"dgerp5.cferp.dbo.z_import_oc";
+            strSql += remote_db + "z_import_oc";
 
             SqlParameter[] paras = new SqlParameter[] {
                 new SqlParameter("@user_id",userid),
