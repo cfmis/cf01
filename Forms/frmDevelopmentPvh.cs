@@ -478,7 +478,7 @@ namespace cf01.Forms
             //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);2022/04/20 Cancel
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
             //txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
-            lueFactory_name.EditValue = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
+            lueFactory_name.EditValue = "Dongguan Zhuolun Button Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "16";
