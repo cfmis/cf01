@@ -89,11 +89,25 @@ namespace cf01.CLS
         public static DataTable LoadMostlyData(string ID)
         {
             string strSql = "";
-            strSql = " Select id,type,transfer_date,state" +
-                ",transfers_state,update_count,create_date,create_by,update_date" +
-                ",update_by,origin,bill_type_no,group_no";
+            strSql = " Select id,type,Convert(Varchar(20),transfer_date,111) AS transfer_date,state" +
+                ",transfers_state,update_count,Convert(Varchar(20),create_date,120) AS create_date,create_by" +
+                ",Convert(Varchar(20),update_date,120) AS update_date,update_by" +
+                ",origin,bill_type_no,group_no,Convert(Varchar(20),check_date,120) AS check_date,check_by" +
+                " From st_transfer_mostly " +
+                " Where within_code='" + within_code + "' And id='" + ID + "'";
             DataTable dtMostly = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
             return dtMostly;
+        }
+        public static DataTable LoadGoodsData(string mo_id,string goods_id)
+        {
+            string strSql = "";
+            strSql = " Select a.goods_id,b.name AS goods_cname,(a.order_qty*c.rate) AS order_qty" +
+                " From so_order_details a " +
+                " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
+                " Left Join it_coding c On a.within_code=c.within_code And a.goods_unit=c.unit_code " +
+                " Where a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "' And a.goods_id='" + goods_id + "' And c.id='*'";
+            DataTable dtOc = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
+            return dtOc;
         }
     }
 }

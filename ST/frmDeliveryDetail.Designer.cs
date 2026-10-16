@@ -56,20 +56,32 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCreateDate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtUpdateUser = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtUpdateDate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCheckUser = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtCheckDate = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtBarCode = new System.Windows.Forms.TextBox();
+            this.lblBarcode = new System.Windows.Forms.Label();
+            this.txtmo_id = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtgoods_id = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtgoods_cname = new System.Windows.Forms.TextBox();
             this.toolstrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTransferDate.Properties)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolstrip1
@@ -101,6 +113,7 @@
             this.btnExit.Size = new System.Drawing.Size(65, 35);
             this.btnExit.Text = "退出(&X)";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // toolStripSeparator7
             // 
@@ -186,17 +199,17 @@
             // 
             this.xtraTabPage1.Appearance.PageClient.BackColor = System.Drawing.Color.DarkGray;
             this.xtraTabPage1.Appearance.PageClient.Options.UseBackColor = true;
-            this.xtraTabPage1.Controls.Add(this.textBox4);
-            this.xtraTabPage1.Controls.Add(this.textBox6);
+            this.xtraTabPage1.Controls.Add(this.txtUpdateDate);
+            this.xtraTabPage1.Controls.Add(this.txtCheckDate);
             this.xtraTabPage1.Controls.Add(this.txtCreateDate);
             this.xtraTabPage1.Controls.Add(this.label5);
             this.xtraTabPage1.Controls.Add(this.label9);
             this.xtraTabPage1.Controls.Add(this.label3);
-            this.xtraTabPage1.Controls.Add(this.textBox3);
+            this.xtraTabPage1.Controls.Add(this.txtUpdateUser);
             this.xtraTabPage1.Controls.Add(this.label4);
-            this.xtraTabPage1.Controls.Add(this.textBox7);
+            this.xtraTabPage1.Controls.Add(this.txtState);
             this.xtraTabPage1.Controls.Add(this.label10);
-            this.xtraTabPage1.Controls.Add(this.textBox5);
+            this.xtraTabPage1.Controls.Add(this.txtCheckUser);
             this.xtraTabPage1.Controls.Add(this.label7);
             this.xtraTabPage1.Controls.Add(this.txtCreateUser);
             this.xtraTabPage1.Controls.Add(this.label2);
@@ -220,6 +233,7 @@
             this.txtDocId.Name = "txtDocId";
             this.txtDocId.Size = new System.Drawing.Size(166, 22);
             this.txtDocId.TabIndex = 19;
+            this.txtDocId.Leave += new System.EventHandler(this.txtDocId_Leave);
             // 
             // txtTransferDate
             // 
@@ -294,6 +308,7 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.panelControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1149, 537);
             this.xtraTabPage2.Text = "      明細表      ";
@@ -341,13 +356,13 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "修改人:";
             // 
-            // textBox3
+            // txtUpdateUser
             // 
-            this.textBox3.Location = new System.Drawing.Point(528, 47);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(151, 22);
-            this.textBox3.TabIndex = 21;
+            this.txtUpdateUser.Location = new System.Drawing.Point(528, 47);
+            this.txtUpdateUser.Name = "txtUpdateUser";
+            this.txtUpdateUser.ReadOnly = true;
+            this.txtUpdateUser.Size = new System.Drawing.Size(151, 22);
+            this.txtUpdateUser.TabIndex = 21;
             // 
             // label5
             // 
@@ -358,13 +373,13 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "修改日期:";
             // 
-            // textBox4
+            // txtUpdateDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(750, 47);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(151, 22);
-            this.textBox4.TabIndex = 21;
+            this.txtUpdateDate.Location = new System.Drawing.Point(750, 47);
+            this.txtUpdateDate.Name = "txtUpdateDate";
+            this.txtUpdateDate.ReadOnly = true;
+            this.txtUpdateDate.Size = new System.Drawing.Size(151, 22);
+            this.txtUpdateDate.TabIndex = 21;
             // 
             // label7
             // 
@@ -375,13 +390,13 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "批準人:";
             // 
-            // textBox5
+            // txtCheckUser
             // 
-            this.textBox5.Location = new System.Drawing.Point(66, 80);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(166, 22);
-            this.textBox5.TabIndex = 21;
+            this.txtCheckUser.Location = new System.Drawing.Point(66, 80);
+            this.txtCheckUser.Name = "txtCheckUser";
+            this.txtCheckUser.ReadOnly = true;
+            this.txtCheckUser.Size = new System.Drawing.Size(166, 22);
+            this.txtCheckUser.TabIndex = 21;
             // 
             // label9
             // 
@@ -392,13 +407,13 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "批準日期:";
             // 
-            // textBox6
+            // txtCheckDate
             // 
-            this.textBox6.Location = new System.Drawing.Point(301, 80);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(151, 22);
-            this.textBox6.TabIndex = 21;
+            this.txtCheckDate.Location = new System.Drawing.Point(301, 80);
+            this.txtCheckDate.Name = "txtCheckDate";
+            this.txtCheckDate.ReadOnly = true;
+            this.txtCheckDate.Size = new System.Drawing.Size(151, 22);
+            this.txtCheckDate.TabIndex = 21;
             // 
             // label10
             // 
@@ -409,13 +424,104 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "狀態:";
             // 
-            // textBox7
+            // txtState
             // 
-            this.textBox7.Location = new System.Drawing.Point(528, 80);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(151, 22);
-            this.textBox7.TabIndex = 21;
+            this.txtState.Location = new System.Drawing.Point(528, 80);
+            this.txtState.Name = "txtState";
+            this.txtState.ReadOnly = true;
+            this.txtState.Size = new System.Drawing.Size(151, 22);
+            this.txtState.TabIndex = 21;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.txtgoods_cname);
+            this.panelControl1.Controls.Add(this.label13);
+            this.panelControl1.Controls.Add(this.txtgoods_id);
+            this.panelControl1.Controls.Add(this.label12);
+            this.panelControl1.Controls.Add(this.txtmo_id);
+            this.panelControl1.Controls.Add(this.label11);
+            this.panelControl1.Controls.Add(this.txtBarCode);
+            this.panelControl1.Controls.Add(this.lblBarcode);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1149, 221);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // txtBarCode
+            // 
+            this.txtBarCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtBarCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBarCode.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtBarCode.Location = new System.Drawing.Point(92, 5);
+            this.txtBarCode.Name = "txtBarCode";
+            this.txtBarCode.Size = new System.Drawing.Size(452, 27);
+            this.txtBarCode.TabIndex = 1;
+            this.txtBarCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarCode_KeyDown);
+            // 
+            // lblBarcode
+            // 
+            this.lblBarcode.AutoSize = true;
+            this.lblBarcode.Font = new System.Drawing.Font("新細明體", 12F);
+            this.lblBarcode.ForeColor = System.Drawing.Color.Red;
+            this.lblBarcode.Location = new System.Drawing.Point(42, 9);
+            this.lblBarcode.Name = "lblBarcode";
+            this.lblBarcode.Size = new System.Drawing.Size(44, 16);
+            this.lblBarcode.TabIndex = 2;
+            this.lblBarcode.Text = "條碼:";
+            // 
+            // txtmo_id
+            // 
+            this.txtmo_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtmo_id.Location = new System.Drawing.Point(118, 50);
+            this.txtmo_id.MaxLength = 9;
+            this.txtmo_id.Name = "txtmo_id";
+            this.txtmo_id.Size = new System.Drawing.Size(166, 22);
+            this.txtmo_id.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(53, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 14);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "制單編號:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(291, 56);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 14);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "產品編號:";
+            // 
+            // txtgoods_id
+            // 
+            this.txtgoods_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtgoods_id.Location = new System.Drawing.Point(356, 53);
+            this.txtgoods_id.MaxLength = 18;
+            this.txtgoods_id.Name = "txtgoods_id";
+            this.txtgoods_id.Size = new System.Drawing.Size(166, 22);
+            this.txtgoods_id.TabIndex = 21;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(539, 56);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 14);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "產品描述:";
+            // 
+            // txtgoods_cname
+            // 
+            this.txtgoods_cname.Location = new System.Drawing.Point(604, 53);
+            this.txtgoods_cname.MaxLength = 0;
+            this.txtgoods_cname.Name = "txtgoods_cname";
+            this.txtgoods_cname.Size = new System.Drawing.Size(302, 22);
+            this.txtgoods_cname.TabIndex = 21;
             // 
             // frmDeliveryDetail
             // 
@@ -435,6 +541,10 @@
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTransferDate.Properties)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -463,19 +573,28 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtUpdateDate;
+        private System.Windows.Forms.TextBox txtCheckDate;
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtUpdateUser;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCheckUser;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCreateUser;
         private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.TextBox txtBarCode;
+        private System.Windows.Forms.Label lblBarcode;
+        private System.Windows.Forms.TextBox txtgoods_cname;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtgoods_id;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtmo_id;
+        private System.Windows.Forms.Label label11;
     }
 }
