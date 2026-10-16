@@ -322,6 +322,12 @@
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
+    <Compile Include="Forms\frmCombinePart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCombinePart.Designer.cs">
+      <DependentUpon>frmCombinePart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmGoodsRelease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3156,6 +3162,9 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmCombinePart.resx">
+      <DependentUpon>frmCombinePart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmGoodsRelease.resx">
       <DependentUpon>frmGoodsRelease.cs</DependentUpon>
     </EmbeddedResource>
