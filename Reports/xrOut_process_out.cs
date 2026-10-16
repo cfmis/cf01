@@ -307,5 +307,11 @@ namespace cf01.Reports
                 }
             }           
         }
+
+        private void txtIsQc_TextChanged(object sender, EventArgs e)
+        {
+            string isQc = GetCurrentColumnValue("isQc").ToString();
+            lblQc.Visible = (isQc == "1") ? true : false;
+        }
     }
 }
