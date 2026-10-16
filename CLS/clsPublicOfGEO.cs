@@ -27,7 +27,7 @@ namespace cf01.CLS
                 if (localIp.Substring(0, 11) == "192.168.168")
                     strConn = DBUtility.conn_str_hkerp1;
                 else
-                if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19")
+                if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19" || localIp.Substring(0, 11) == "192.168.109")
                 {
                     strConn = DBUtility.conn_str_lnerp1;
                 }
