@@ -14,8 +14,8 @@ namespace cf01.CLS
     {
         private static string within_code = DBUtility.within_code;
         private static string userid = DBUtility._user_id;
-        //private static string remote_db = DBUtility.remote_db;
-        private static string remote_db = "dgerp5.cferp.dbo.";
+        private static string remote_db = DBUtility.remote_db;
+        //private static string remote_db = "dgerp5.cferp.dbo.";
         public static DataTable GetOcData(string select_flag, string doc_id,string find_date)
         {
             string strSql = "";

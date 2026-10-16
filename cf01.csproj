@@ -249,6 +249,7 @@
     <Compile Include="CLS\clsCustComplain.cs" />
     <Compile Include="CLS\clsCustomDelivery.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
+    <Compile Include="CLS\clsDeliveryDetail.cs" />
     <Compile Include="CLS\clsDeliveryPrepare.cs" />
     <Compile Include="CLS\clsDepWasteRate.cs" />
     <Compile Include="CLS\clsDevelopentPvh.cs" />
@@ -1587,6 +1588,7 @@
     <Compile Include="MDL\mdlCountGoodsCost.cs" />
     <Compile Include="MDL\mdlCustComplain.cs" />
     <Compile Include="MDL\mdlDebitCredit.cs" />
+    <Compile Include="MDL\mdlDeliveryDetail.cs" />
     <Compile Include="MDL\mdlMaterialType.cs" />
     <Compile Include="MDL\mdlMmCalculatePrice.cs" />
     <Compile Include="MDL\mdlMmCosting.cs" />
@@ -3156,6 +3158,12 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ST\frmDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ST\frmDeliveryDetail.Designer.cs">
+      <DependentUpon>frmDeliveryDetail.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\frmGoodsRelease.resx">
       <DependentUpon>frmGoodsRelease.cs</DependentUpon>
     </EmbeddedResource>
@@ -3869,6 +3877,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForm\PrintOptions.resx">
       <DependentUpon>PrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ST\frmDeliveryDetail.resx">
+      <DependentUpon>frmDeliveryDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="ReportForm\frmArtworkFind.resx">
