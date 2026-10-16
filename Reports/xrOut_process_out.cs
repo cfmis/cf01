@@ -9,7 +9,8 @@ namespace cf01.Reports
     public partial class xrOut_process_out : DevExpress.XtraReports.UI.XtraReport
     {
         public bool isShowPrice;
-        public bool isShowPlateRemark;       
+        public bool isShowPlateRemark;   
+            
         public xrOut_process_out(bool is_show_price,bool is_show_plate_remark)
         {
             InitializeComponent();
