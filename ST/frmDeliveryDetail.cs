@@ -14,14 +14,55 @@ namespace cf01.ST
     public partial class frmDeliveryDetail : Form
     {
         private int BarCodeMinLength = 10;
+        private DataTable dtTranDetails = new DataTable();
+        private DataTable dtTranDetailsPart = new DataTable();
+        private clsDataTableTextBoxBinder binder;
+
         public frmDeliveryDetail()
         {
             InitializeComponent();
+
+            // 订阅事件
+            clsGlobalScanner.BarcodeScanned += OnBarcodeScanned;
+
+            // 窗体激活时，设置为当前接收窗体
+            this.Activated += (s, e) => clsGlobalScanner.SetActiveForm(this);
+
+            // 窗体失去焦点时，清除（可选）
+            this.Deactivate += (s, e) =>
+            {
+                // 如果希望失去焦点就不再接收，取消下面注释
+                clsGlobalScanner.ClearActiveForm();
+            };
+
         }
+
+        private void OnBarcodeScanned(string barcode)
+        {
+            // 只有当这个窗体是 ActiveForm 时才会进来
+            //MessageBox.Show($"【Form1】收到扫码：{barcode}");
+            doBarCode(barcode);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            clsGlobalScanner.BarcodeScanned -= OnBarcodeScanned;
+
+            // 如果当前是自己，清除
+            if (clsGlobalScanner.ActiveForm == this)
+                clsGlobalScanner.ClearActiveForm();
+
+            base.OnFormClosing(e);
+        }
+
+
 
         private void frmDeliveryDetail_Load(object sender, EventArgs e)
         {
+            
+
             InitData();
+
         }
         private void InitData()
         {
@@ -35,6 +76,56 @@ namespace cf01.ST
             cmbMoGroup.DataSource = dtMoGroup;
             cmbMoGroup.DisplayMember = "group_id";
             cmbMoGroup.ValueMember = "group_id";
+
+            // 绑定到 DataGridView
+            gcTranDetails.DataSource = dtTranDetails;
+
+
+            // 建立映射字典（只有一组 TextBox）
+            var bindings = new Dictionary<TextBox, string>
+            {
+                { txtmo_id, "mo_id" },
+                { txtgoods_id, "goods_id" },
+                { txtunit, "unit" }
+            };
+
+            // 创建绑定器
+
+            binder = new clsDataTableTextBoxBinder(dtTranDetails, gvTranDetails, bindings);
+
+
+            //            // 绑定 GridView 行切换事件
+            //            gvTranDetails.FocusedRowChanged += (s, e) =>
+            //            {
+            //                if (e.FocusedRowHandle >= 0)
+            //                {
+            //                    DataRow row = gvTranDetails.GetDataRow(e.FocusedRowHandle);
+            //                    foreach (var kvp in bindings)
+            //                    {
+            //                        TextBox tb = kvp.Key;
+            //                        string columnName = kvp.Value;
+            //                        tb.Text = row[columnName]?.ToString();
+            //                    }
+            //                }
+            //            };
+
+            //            // TextBox → DataTable 更新
+            //            foreach (var kvp in bindings)
+            //            {
+            //                TextBox tb = kvp.Key;
+            //                string columnName = kvp.Value;
+
+            //                tb.TextChanged += (s, e) =>
+            //                {
+            //                    int rowHandle = gvTranDetails.FocusedRowHandle;
+            //                    if (rowHandle >= 0)
+            //                    {
+            //                        DataRow row = gvTranDetails.GetDataRow(rowHandle);
+            //                        row[columnName] = tb.Text;
+            //                    }
+            //                };
+            //            }
+
 
         }
 
@@ -83,7 +174,10 @@ namespace cf01.ST
         private void txtDocId_Leave(object sender, EventArgs e)
         {
             if (txtDocId.Text.ToString() != "")
+            {
                 LoadMostlyData();
+                LoadGoodsDetails();
+            }
         }
         private void LoadMostlyData()
         {
@@ -118,18 +212,19 @@ namespace cf01.ST
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtBarCode.Text.Trim().Length > BarCodeMinLength)
-                    doBarCode();
+                    doBarCode(txtBarCode.Text.Trim());
                 txtBarCode.Text = "";
             }
         }
-        private void doBarCode()
+        private void doBarCode(string org_barcode)
         {
             //掃描制單編號，物料編號
-            string barcode = "";
-            if (txtBarCode.Text.Trim().Length > 13)
-                barcode = txtBarCode.Text.Substring(0, 13);
-            else
-                barcode = txtBarCode.Text.Trim();
+            //string barcode = "";
+            //if (txtBarCode.Text.Trim().Length > 13)
+            //    barcode = txtBarCode.Text.Substring(0, 13);
+            //else
+            //    barcode = txtBarCode.Text.Trim();
+            string barcode = org_barcode.Length > 13 ? org_barcode.Substring(0, 13) : org_barcode;
             DataTable dtBarCode = clsPublicOfPad.BarCodeToItem(barcode);
             txtBarCode.Text = "";
             if (dtBarCode.Rows.Count > 0)
@@ -159,14 +254,127 @@ namespace cf01.ST
 
         private void LoadGoodsData()
         {
+            CleanTextPart();
             string mo_id = txtmo_id.Text;
             string goods_id=txtgoods_id.Text;
             DataTable dtOc = clsDeliveryDetail.LoadGoodsData(mo_id, goods_id);
-            if(dtOc.Rows.Count>0)
+            if (dtOc.Rows.Count > 0)
             {
                 DataRow drOc = dtOc.Rows[0];
                 txtgoods_cname.Text = drOc["goods_cname"].ToString();
             }
+
+        }
+        private void CleanTextPart()
+        {
+            //txtgoods_id.Text = "";
+            txtgoods_cname.Text = "";
+            txttran_qty.Text = "";
+            txtunit.Text = "";
+            txttran_weg.Text = "";
+            txtunit1.Text = "";
+            txtnwt.Text = "";
+            txtgwt.Text = "";
+            txtpack_num.Text = "";
+            txtbox_num.Text = "";
+        }
+        private void LoadGoodsDetails()
+        {
+            string ID = txtDocId.Text.Trim();
+            dtTranDetails = clsDeliveryDetail.LoadGoodsDetails(ID);
+            gcTranDetails.DataSource = dtTranDetails;
+        }
+
+        private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            LoadGoodsDetails();
+        }
+        private void FillTranDetails()
+        {
+
+        }
+
+        private void btnNewItem_Click(object sender, EventArgs e)
+        {
+            DataRow newRow = dtTranDetails.NewRow();
+            // 把新行加入 DataTable
+            dtTranDetails.Rows.Add(newRow);
+            //// 建立映射字典
+            //var bindings = new Dictionary<TextBox, string>
+            //{
+            //    { txtmo_id, "mo_id" },
+            //    { txtgoods_id, "goods_id" },
+            //    { txttran_qty, "transfer_amount" }
+            //};
+            //int bindRow = dtTranDetails.Rows.Count - 1;
+            //// 双向绑定
+            //BindTextBoxesTwoWay(dtTranDetails, bindRow, bindings);
+            //{ "BirthDate", DateTime.Now.ToString("yyyy/MM/dd") }
+            //    binder.AddNewRow(new Dictionary<string, object>
+            //{
+            //    { "mo_id", "" },
+            //    { "goods_id", "" },
+            //    { "unit", "" }
+            //});
+            //// 定位到新行
+            gvTranDetails.FocusedRowHandle = gvTranDetails.RowCount - 1;
+
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            //binder.DeleteCurrentRow();
+
+            int rowHandle = gvTranDetails.FocusedRowHandle;
+            DataRow row = gvTranDetails.GetDataRow(rowHandle);
+            dtTranDetails.Rows.Remove(row);
+
+            ///// <summary>
+            ///// 将一组 TextBox 双向绑定到 DataTable 的当前选中行
+            ///// </summary>
+            ///// <param name="dt">目标 DataTable</param>
+            ///// <param name="bindings">TextBox 与字段名的映射字典</param>
+            ///// <param name="dgv">可选的 DataGridView，用于行选择</param>
+            //public void BindTextBoxesToDataTableRow(DataTable dt, Dictionary<TextBox, string> bindings, DataGridView dgv = null)
+            //{
+            //    // 当 DataGridView 行选择变化时，刷新 TextBox 内容
+            //    if (dgv != null)
+            //    {
+            //        dgv.SelectionChanged += (s, e) =>
+            //        {
+            //            if (dgv.CurrentRow != null)
+            //            {
+            //                int rowIndex = dgv.CurrentRow.Index;
+            //                foreach (var kvp in bindings)
+            //                {
+            //                    TextBox tb = kvp.Key;
+            //                    string columnName = kvp.Value;
+            //                    tb.Text = dt.Rows[rowIndex][columnName]?.ToString();
+            //                }
+            //            }
+            //        };
+            //    }
+
+            //    // TextBox → DataTable
+            //    foreach (var kvp in bindings)
+            //    {
+            //        TextBox tb = kvp.Key;
+            //        string columnName = kvp.Value;
+
+            //        tb.TextChanged += (s, e) =>
+            //        {
+            //            int rowIndex = 0;
+            //            if (dgv != null && dgv.CurrentRow != null)
+            //                rowIndex = dgv.CurrentRow.Index;
+
+            //            if (rowIndex >= 0 && rowIndex < dt.Rows.Count)
+            //            {
+            //                dt.Rows[rowIndex][columnName] = tb.Text;
+            //            }
+            //        };
+            //    }
+            //}
+
         }
     }
 }

@@ -109,5 +109,16 @@ namespace cf01.CLS
             DataTable dtOc = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
             return dtOc;
         }
+        public static DataTable LoadGoodsDetails(string ID)
+        {
+            string strSql = "";
+            strSql = " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,a.transfer_amount,a.sec_qty" +
+                ",a.unit,a.sec_unit,a.package_num,a.position_first,a.nwt,a.gross_wt,a.location_id,a.lot_no" +
+                " From st_transfer_detail a " +
+                " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
+                " Where a.within_code='" + within_code + "' And a.mo_id='" + ID + "'";
+            DataTable dtTran = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
+            return dtTran;
+        }
     }
 }
