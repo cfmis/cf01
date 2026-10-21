@@ -98,7 +98,7 @@ namespace cf01.CLS
             DataTable dtMostly = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
             return dtMostly;
         }
-        public static DataTable LoadGoodsData(string mo_id,string goods_id)
+        public static DataSet LoadGoodsData(string mo_id,string goods_id)
         {
             string strSql = "";
             strSql = " Select a.goods_id,b.name AS goods_cname,(a.order_qty*c.rate) AS order_qty" +
@@ -106,19 +106,56 @@ namespace cf01.CLS
                 " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
                 " Left Join it_coding c On a.within_code=c.within_code And a.goods_unit=c.unit_code " +
                 " Where a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "' And a.goods_id='" + goods_id + "' And c.id='*'";
-            DataTable dtOc = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
-            return dtOc;
+            strSql += " Select a.within_code,a.mo_id,b.goods_id,c.name AS goods_cname" +
+                " Into #tb_bom01 "+
+                " From so_order_details a " +
+                " Inner Join so_order_bom b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver And a.sequence_id=b.upper_sequence " +
+                " Left Join it_goods c On b.within_code=c.within_code And b.goods_id=c.id " +
+                " Where a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "' And a.goods_id='" + goods_id + "'";
+            strSql += " Select b.location_id,b.goods_id,Sum(b.qty) AS st_qty,Sum(b.sec_qty) AS st_weg,Rtrim(Max(b.lot_no)) AS lot_no " +
+                " Into #tb_st01 " +
+                " From #tb_bom01 a " +
+                " Inner Join st_details_lot b On a.within_code=b.within_code And a.mo_id=b.mo_id And a.goods_id=b.goods_id" +
+                " Where b.location_id='601' And b.carton_code='601' And b.qty > 0 And b.sec_qty > 0 " +
+                " Group By b.location_id,b.goods_id ";
+            strSql += " Select a.*,b.st_qty,b.st_weg,b.lot_no" +
+                " From #tb_bom01 a " +
+                " Left Join #tb_st01 b On a.goods_id=b.goods_id ";
+            strSql += " Drop Table #tb_bom01 ";
+            strSql += " Drop Table #tb_st01 ";
+
+            //DataTable dtOc = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
+            DataSet dsOc = clsGeoCon.ExcuteSqlReturnDataSet(strSql,"");
+            //DataTable dtOc = dsOc.Tables[0];
+            return dsOc;
         }
-        public static DataTable LoadGoodsDetails(string ID)
+        public static DataSet LoadGoodsDetails(string ID)
         {
             string strSql = "";
             strSql = " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,a.transfer_amount,a.sec_qty" +
-                ",a.unit,a.sec_unit,a.package_num,a.position_first,a.nwt,a.gross_wt,a.location_id,a.lot_no" +
+                ",a.unit,a.sec_unit,a.package_num,a.position_first,a.nwt,a.gross_wt,a.location_id,a.lot_no,a.remark" +
                 " From st_transfer_detail a " +
                 " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
-                " Where a.within_code='" + within_code + "' And a.mo_id='" + ID + "'";
-            DataTable dtTran = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
-            return dtTran;
+                " Where a.within_code='" + within_code + "' And a.id='" + ID + "'";
+            strSql += " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,a.con_qty,a.sec_qty" +
+                ",a.unit_code AS goods_unit,a.sec_unit,a.location,a.lot_no,0 AS st_qty,0.00 AS st_weg" +
+                " From st_transfer_detail_part a " +
+                " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
+                " Where a.within_code='" + within_code + "' And a.id='" + ID + "'";
+            DataSet dsTran = clsGeoCon.ExcuteSqlReturnDataSet(strSql, "");
+            return dsTran;
         }
+        //public static DataTable LoadGoodsDetailsPart(string ID,string sequence_id)
+        //{
+        //    string strSql = "";
+        //    strSql = " Select a.id,b.sequence_id,b.mo_id,b.goods_id,c.name AS goods_cname,b.con_qty,b.sec_qty" +
+        //        ",a.unit AS goods_unit,b.sec_unit,b.location,b.lot_no,0 AS st_qty,0.00 AS st_weg" +
+        //        " From st_transfer_detail a " +
+        //        " Inner Join st_transfer_detail_part b On a.within_code=b.within_code And a.id=b.id And a.sequence_id=b.upper_sequence " +
+        //        " Left Join it_goods c On b.within_code=c.within_code And b.goods_id=c.id " +
+        //        " Where a.within_code='" + within_code + "' And a.id='" + ID + "' And a.sequence_id='" + sequence_id + "'";
+        //    DataTable dtTran = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
+        //    return dtTran;
+        //}
     }
 }

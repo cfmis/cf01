@@ -323,6 +323,12 @@
     <Compile Include="CLS\clsVendor.cs" />
     <Compile Include="CLS\clsZipperOrder.cs" />
     <Compile Include="CLS\ExpToExcel.cs" />
+    <Compile Include="CLS\IntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CLS\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
     <Compile Include="Forms\frmGoodsRelease.cs">
