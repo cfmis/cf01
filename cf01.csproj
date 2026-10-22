@@ -249,6 +249,7 @@
     <Compile Include="CLS\clsCountGoodsCost.cs" />
     <Compile Include="CLS\clsCustComplain.cs" />
     <Compile Include="CLS\clsCustomDelivery.cs" />
+    <Compile Include="CLS\clsDataTableTextBoxBinder.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
     <Compile Include="CLS\clsDeliveryPrepare.cs" />
     <Compile Include="CLS\clsDepWasteRate.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="CLS\clsGetAuthority.cs" />
     <Compile Include="CLS\clsGetDataForComboBox.cs" />
     <Compile Include="CLS\clsCustomer.cs" />
+    <Compile Include="CLS\clsGlobalScanner.cs" />
     <Compile Include="CLS\clsInsertPictureToExcel.cs" />
     <Compile Include="CLS\clsMaterialType.cs" />
     <Compile Include="CLS\clsMatMaster.cs" />
@@ -321,6 +323,12 @@
     <Compile Include="CLS\clsVendor.cs" />
     <Compile Include="CLS\clsZipperOrder.cs" />
     <Compile Include="CLS\ExpToExcel.cs" />
+    <Compile Include="CLS\IntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CLS\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
     <Compile Include="Forms\frmCombinePart.cs">
