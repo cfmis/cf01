@@ -1,4 +1,5 @@
 ﻿using cf01.CLS;
+using cf01.MDL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace cf01.Forms
         //string remote_db = DBUtility.remote_db;        
         clsPublicOfGEO clsErp = new clsPublicOfGEO();       
         DataSet dst = new DataSet();
-        //DataTable dtMaster = new DataTable();
+        DataTable dtTemp = new DataTable();
         //DataTable dtDetails1 = new DataTable();
         //DataTable dtDetails2 = new DataTable();        
 
@@ -28,35 +29,36 @@ namespace cf01.Forms
 
         private void frmCombinePart_Load(object sender, EventArgs e)
         {
-            //SetDataSource();
-            ////注册关键事件
+            //注册关键事件
             //dgvDetails1.CurrentCellDirtyStateChanged += dgvDetails1_CurrentCellDirtyStateChanged;
             //dgvDetails1.CellValueChanged += dgvDetails1_CellValueChanged;
 
             // 可选：设置多选模式，允许用户通过 Ctrl/Shift 多选，但这里我们主要靠 CheckBox 控制
             dgvDetails1.MultiSelect = true;
             dgvDetails1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
-        private void SetDataSource()
-        {
-            //dgvMaster.DataSource = dtMaster;
-            //dgvDetails1.DataSource = dtDetails1;
-            //dgvDetails2.DataSource = dtDetails2;
+            dgvTemp.DataSource = dtTemp;
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-            if(txtMo.Text.Trim() != "")
+            FindData();
+        }
+
+        private void FindData()
+        {
+            if (txtMo.Text.Trim() != "")
             {
                 SqlParameter[] paras = new SqlParameter[]
                 {
                     new SqlParameter("@mo_id",txtMo.Text.Trim())
                 };
                 dst = clsErp.ExecuteProcedureReturnDataSet("z_so_order_combine_data", paras, "");
-                //dtMaster = dst.Tables[0];
-                //dtDetails1 = dst.Tables[1];
-                //dtDetails2 = dst.Tables[2];
+                if (dtTemp.Columns.Count == 0)
+                {
+                    //剛new出來且沒有結構
+                    dtTemp = dst.Tables[1].Clone();
+                }
+             
                 //给数据集建立主外键关系
                 DataColumn parentColumn = dst.Tables[0].Columns["mo_key"];
                 DataColumn childColumn = dst.Tables[1].Columns["mo_key"];
@@ -78,10 +80,7 @@ namespace cf01.Forms
                 //绑定到 DataGridView
                 dgvMaster.DataSource = bsMaster;
                 dgvDetails1.DataSource = bsDetails;
-                //dgvMaster.DataSource = dst.Tables[0];
-                //dgvDetails1.DataSource = dst.Tables[1];
                 dgvDetails2.DataSource = dst.Tables[2];
-                //SetDataSource();
 
                 if (dst.Tables.Count == 0)
                 {
@@ -187,7 +186,6 @@ namespace cf01.Forms
             //設置主頁數被分配出去的庫存數量、重量
             dgvMaster.Rows[rowIndex].Cells["qty_select"].Value = select_order_qty_sum;
             dgvMaster.Rows[rowIndex].Cells["sec_qty_select"].Value = select_sec_qty_sum;
-
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -205,6 +203,122 @@ namespace cf01.Forms
         {
             decimal multiplier = (decimal)Math.Pow(10, decimals);
             return Math.Truncate(value * multiplier) / multiplier;
+        }
+
+        private void btnAddTemp_Click(object sender, EventArgs e)
+        {
+            if (dgvDetails1.Rows.Count == 0)
+            {
+                return;
+            }
+            if (dtTemp.Columns.Count == 0)
+            {
+                //空結構
+                MessageBox.Show("請首先輸入總單頁數拼查詢出數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            DataRow[] rws = dst.Tables[1].Select("flag_select=true");
+            if (rws.Length == 0)
+            {
+                MessageBox.Show("注意，至少要勾選一筆分單頁數的數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            for (int i = 0; i < dst.Tables[0].Rows.Count; i++)
+            {
+                if (int.Parse(dst.Tables[0].Rows[i]["qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["qty_select"].ToString()) ||
+                    int.Parse(dst.Tables[0].Rows[i]["sec_qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["sec_qty_select"].ToString()))
+                {
+                    MessageBox.Show($"注意，[{dst.Tables[0].Rows[i]["goods_id"].ToString()}]分配數量或重量已超過庫存的數量或重量！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgvMaster.Focus();
+                    return;
+                }
+            }
+
+            dst.Tables[1].Select();
+            for (int i = 0; i < dst.Tables[1].Rows.Count; i++)
+            {
+                if (dst.Tables[1].Rows[i]["flag_select"].ToString() == "True" && dst.Tables[1].Rows[i]["flag_add"].ToString() == "False")
+                {
+                    DataRow row = dst.Tables[1].Rows[i];
+                    row["flag_add"] = true;
+                    dtTemp.ImportRow(row);
+                }                
+            }
+            //排序
+            DataView dv = dtTemp.DefaultView;
+            dv.Sort = "goods_id ASC, mo_id ASC";
+            dtTemp = dv.ToTable();
+
+            dgvTemp.DataSource = dtTemp;         
+            rws = null;
+            tabControl1.SelectedIndex = 1;
+        }
+
+        private void btnItemDel_Click(object sender, EventArgs e)
+        {
+            if (dtTemp.Rows.Count == 0)
+            {
+                return;
+            }
+            int rowIndex = dgvTemp.CurrentRow.Index;
+            if (rowIndex < 0)
+            {
+                return;
+            }
+            for (int i = 0; i < dst.Tables[1].Rows.Count; i++)
+            {
+                if (dst.Tables[1].Rows[i]["n_mo_id"].ToString() == dtTemp.Rows[rowIndex]["n_mo_id"].ToString() && 
+                    dst.Tables[1].Rows[i]["mo_id"].ToString() == dtTemp.Rows[rowIndex]["mo_id"].ToString() &&
+                    dst.Tables[1].Rows[i]["goods_id"].ToString() == dtTemp.Rows[rowIndex]["goods_id"].ToString())
+                {
+                    dst.Tables[1].Rows[i]["flag_add"] = false;
+                    dst.Tables[1].Rows[i]["flag_select"] = false;
+                }
+            }
+            dtTemp.Rows.RemoveAt(rowIndex);
+        }
+
+        private void txtMo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                FindData();
+            }
+        }
+
+        private void dgvMaster_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvMaster.CurrentRow != null)
+            {
+                int order_qty_sum = 0 ;
+                decimal order_sec_qty_sum = 0;               
+                for (int i = 0; i < dgvDetails1.Rows.Count; i++)
+                {                   
+                    if (dgvDetails1.Rows[i].Cells["chkSelect"].Value.ToString() == "True")
+                    {
+                        order_qty_sum += Convert.ToInt32(Convert.ToDecimal(dgvDetails1.Rows[i].Cells["order_qty1"].Value));
+                        order_sec_qty_sum += Convert.ToDecimal(dgvDetails1.Rows[i].Cells["sec_qty_select1"].Value.ToString());                        
+                    }
+                }
+                txtSelect_order_qty.Text = order_qty_sum.ToString();
+                txtSelect_order_sec_qty.Text = order_sec_qty_sum.ToString();
+            }
+        }
+
+        private void BTNSAVE_Click(object sender, EventArgs e)
+        {
+            //mdlCompinePart mdlMostly = new mdlCompinePart();
+            if (dtTemp.Rows.Count == 0)
+            {
+                MessageBox.Show("請首先生成臨時數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            List<mdlCompinePartDetails> lst = new List<mdlCompinePartDetails>();
+            for (int i=0;i<dtTemp.Rows.Count;i++)
+            {
+                mdlCompinePartDetails mdlDetails = new mdlCompinePartDetails();
+                mdlDetails.mo_id = dtTemp.Rows[i]["mo_id"].ToString();
+            }
         }
     }
 }

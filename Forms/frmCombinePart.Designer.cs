@@ -29,42 +29,49 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCombinePart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle302 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle303 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle304 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle305 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle306 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle307 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle308 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle309 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle310 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle311 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle312 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle313 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle314 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle315 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle316 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle317 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle318 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle319 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle320 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle321 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle322 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle323 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle324 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle325 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle326 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle327 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle328 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle329 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle330 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle331 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle332 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle333 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle334 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle335 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle336 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle337 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle338 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle339 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle340 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle341 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle342 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle343 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle344 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,18 +79,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvMaster = new System.Windows.Forms.DataGridView();
-            this.txtMo = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvDetails1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dgvDetails2 = new System.Windows.Forms.DataGridView();
-            this.txtSelect_order_qty = new System.Windows.Forms.TextBox();
-            this.txtSelect_order_sec_qty = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,6 +110,14 @@
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSelect_order_sec_qty = new System.Windows.Forms.TextBox();
+            this.txtSelect_order_qty = new System.Windows.Forms.TextBox();
+            this.dgvDetails2 = new System.Windows.Forms.DataGridView();
             this.n_mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequence_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,15 +128,9 @@
             this.sec_qty_hk2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_st2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sec_qty_st2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_select = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_qty_select = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvDetails1 = new System.Windows.Forms.DataGridView();
             this.chkSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.n_mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,11 +145,47 @@
             this.sec_qty_st1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flag_add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mo_key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddTemp = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMo = new System.Windows.Forms.TextBox();
+            this.dgvMaster = new System.Windows.Forms.DataGridView();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_select = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty_select = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTemp = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnItemDel = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTemp)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -166,7 +199,7 @@
             this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(933, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(977, 38);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -210,179 +243,12 @@
             this.BTNSAVE.Size = new System.Drawing.Size(86, 35);
             this.BTNSAVE.Text = "生成調整單(&E)";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
-            // 
-            // dgvMaster
-            // 
-            this.dgvMaster.AllowUserToAddRows = false;
-            this.dgvMaster.AllowUserToDeleteRows = false;
-            this.dgvMaster.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mo_id,
-            this.goods_id,
-            this.goods_name,
-            this.order_qty,
-            this.qty,
-            this.sec_qty,
-            this.qty_select,
-            this.sec_qty_select,
-            this.mo_key});
-            this.dgvMaster.Location = new System.Drawing.Point(7, 86);
-            this.dgvMaster.Name = "dgvMaster";
-            this.dgvMaster.ReadOnly = true;
-            this.dgvMaster.RowHeadersWidth = 30;
-            this.dgvMaster.RowTemplate.Height = 24;
-            this.dgvMaster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaster.Size = new System.Drawing.Size(919, 147);
-            this.dgvMaster.TabIndex = 10;
-            // 
-            // txtMo
-            // 
-            this.txtMo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMo.Location = new System.Drawing.Point(84, 13);
-            this.txtMo.MaxLength = 9;
-            this.txtMo.Name = "txtMo";
-            this.txtMo.Size = new System.Drawing.Size(155, 22);
-            this.txtMo.TabIndex = 11;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtMo);
-            this.groupBox1.Location = new System.Drawing.Point(7, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(919, 42);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "總單頁數";
-            // 
-            // dgvDetails1
-            // 
-            this.dgvDetails1.AllowUserToAddRows = false;
-            this.dgvDetails1.AllowUserToDeleteRows = false;
-            this.dgvDetails1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDetails1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetails1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chkSelect,
-            this.n_mo_id1,
-            this.mo_id1,
-            this.sequence_id1,
-            this.goods_id1,
-            this.goods_name1,
-            this.order_qty1,
-            this.sec_qty_select1,
-            this.qty_hk1,
-            this.sec_qty_hk1,
-            this.qty_st1,
-            this.sec_qty_st1,
-            this.flag_add,
-            this.mo_key1});
-            this.dgvDetails1.Location = new System.Drawing.Point(7, 255);
-            this.dgvDetails1.Name = "dgvDetails1";
-            this.dgvDetails1.RowHeadersWidth = 30;
-            this.dgvDetails1.RowTemplate.Height = 24;
-            this.dgvDetails1.Size = new System.Drawing.Size(919, 271);
-            this.dgvDetails1.TabIndex = 13;
-            this.dgvDetails1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails1_CellValueChanged);
-            this.dgvDetails1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvDetails1_CurrentCellDirtyStateChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 239);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(209, 12);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "分單頁數：未錄入回港單或回港未完成";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 546);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 12);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "分單頁數：回港單且回港已完成";
-            // 
-            // dgvDetails2
-            // 
-            this.dgvDetails2.AllowUserToAddRows = false;
-            this.dgvDetails2.AllowUserToDeleteRows = false;
-            this.dgvDetails2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDetails2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetails2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.n_mo_id2,
-            this.mo_id2,
-            this.sequence_id2,
-            this.goods_id2,
-            this.goods_name2,
-            this.order_qty2,
-            this.qty_hk2,
-            this.sec_qty_hk2,
-            this.qty_st2,
-            this.sec_qty_st2});
-            this.dgvDetails2.Location = new System.Drawing.Point(7, 562);
-            this.dgvDetails2.Name = "dgvDetails2";
-            this.dgvDetails2.RowHeadersWidth = 30;
-            this.dgvDetails2.RowTemplate.Height = 24;
-            this.dgvDetails2.Size = new System.Drawing.Size(919, 147);
-            this.dgvDetails2.TabIndex = 16;
-            // 
-            // txtSelect_order_qty
-            // 
-            this.txtSelect_order_qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtSelect_order_qty.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtSelect_order_qty.Location = new System.Drawing.Point(576, 528);
-            this.txtSelect_order_qty.Name = "txtSelect_order_qty";
-            this.txtSelect_order_qty.ReadOnly = true;
-            this.txtSelect_order_qty.Size = new System.Drawing.Size(89, 23);
-            this.txtSelect_order_qty.TabIndex = 17;
-            // 
-            // txtSelect_order_sec_qty
-            // 
-            this.txtSelect_order_sec_qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtSelect_order_sec_qty.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtSelect_order_sec_qty.Location = new System.Drawing.Point(796, 528);
-            this.txtSelect_order_sec_qty.Name = "txtSelect_order_sec_qty";
-            this.txtSelect_order_sec_qty.ReadOnly = true;
-            this.txtSelect_order_sec_qty.Size = new System.Drawing.Size(89, 23);
-            this.txtSelect_order_sec_qty.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(447, 534);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 12);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "已選中等待分配總數量";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(670, 534);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 12);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "已選中等待分配總重量";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -414,9 +280,9 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "order_qty";
-            dataGridViewCellStyle18.Format = "N0";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle302.Format = "N0";
+            dataGridViewCellStyle302.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle302;
             this.dataGridViewTextBoxColumn4.HeaderText = "總訂單數量";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -426,9 +292,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "qty";
-            dataGridViewCellStyle19.Format = "N0";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle303.Format = "N0";
+            dataGridViewCellStyle303.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle303;
             this.dataGridViewTextBoxColumn5.HeaderText = "庫存數量";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -438,9 +304,9 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle20.Format = "N2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle304.Format = "N2";
+            dataGridViewCellStyle304.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle304;
             this.dataGridViewTextBoxColumn6.HeaderText = "庫存重量";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -450,8 +316,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "qty_select";
-            dataGridViewCellStyle21.Format = "N0";
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle305.Format = "N0";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle305;
             this.dataGridViewTextBoxColumn7.HeaderText = "已分配數量";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -461,8 +327,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "sec_qty_select";
-            dataGridViewCellStyle22.Format = "N2";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle306.Format = "N2";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle306;
             this.dataGridViewTextBoxColumn8.HeaderText = "已分配重量";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -524,9 +390,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "order_qty";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "N0";
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle307.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle307.Format = "N0";
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle307;
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數量";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -537,9 +403,9 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "qty_hk";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Format = "N0";
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle308.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle308.Format = "N0";
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle308;
             this.dataGridViewTextBoxColumn15.HeaderText = "回港單數量";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -549,9 +415,9 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "sec_qty_hk";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "N0";
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle309.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle309.Format = "N0";
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle309;
             this.dataGridViewTextBoxColumn16.HeaderText = "回港單重量";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
@@ -561,9 +427,9 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "qty_st";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Format = "N0";
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle310.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle310.Format = "N0";
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle310;
             this.dataGridViewTextBoxColumn17.HeaderText = "庫存數量";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -573,9 +439,9 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "sec_qty_st";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Format = "N2";
-            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle311.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle311.Format = "N2";
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle311;
             this.dataGridViewTextBoxColumn18.HeaderText = "庫存重量";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
@@ -585,9 +451,9 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "within_code";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle28.Format = "N0";
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle312.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle312.Format = "N0";
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle312;
             this.dataGridViewTextBoxColumn19.HeaderText = "within_code";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
@@ -598,9 +464,9 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "n_mo_id";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Format = "N2";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle313.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle313.Format = "N2";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle313;
             this.dataGridViewTextBoxColumn20.HeaderText = "總單頁數";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -653,9 +519,9 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "order_qty";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle30.Format = "N0";
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle314.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle314.Format = "N0";
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle314;
             this.dataGridViewTextBoxColumn25.HeaderText = "訂單數量";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -666,9 +532,9 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "qty_hk";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle31.Format = "N0";
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle315.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle315.Format = "N0";
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle315;
             this.dataGridViewTextBoxColumn26.HeaderText = "回港單數量";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
@@ -679,9 +545,9 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "sec_qty_hk";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle32.Format = "N0";
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle316.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle316.Format = "N0";
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle316;
             this.dataGridViewTextBoxColumn27.HeaderText = "回港單重量";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -691,9 +557,9 @@
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "qty_st";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle33.Format = "N0";
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle317.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle317.Format = "N0";
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle317;
             this.dataGridViewTextBoxColumn28.HeaderText = "庫存數量";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -703,9 +569,9 @@
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "sec_qty_st";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle34.Format = "N2";
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle318.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle318.Format = "N2";
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle318;
             this.dataGridViewTextBoxColumn29.HeaderText = "庫存重量";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
@@ -715,9 +581,9 @@
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "within_code";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle35.Format = "N0";
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle319.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle319.Format = "N0";
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle319;
             this.dataGridViewTextBoxColumn30.HeaderText = "within_code";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -728,14 +594,122 @@
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "sec_qty_st";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle36.Format = "N2";
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle320.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle320.Format = "N2";
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle320;
             this.dataGridViewTextBoxColumn31.HeaderText = "庫存重量";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
             this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn31.Width = 80;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 41);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(977, 718);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.txtSelect_order_sec_qty);
+            this.tabPage1.Controls.Add(this.txtSelect_order_qty);
+            this.tabPage1.Controls.Add(this.dgvDetails2);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.dgvDetails1);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.dgvMaster);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(969, 692);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "總單及分單資料";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.dgvTemp);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(969, 692);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "顯示臨時表";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(668, 505);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 12);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "已選中等待分配總重量";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(445, 505);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 12);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "已選中等待分配總數量";
+            // 
+            // txtSelect_order_sec_qty
+            // 
+            this.txtSelect_order_sec_qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtSelect_order_sec_qty.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtSelect_order_sec_qty.Location = new System.Drawing.Point(794, 499);
+            this.txtSelect_order_sec_qty.Name = "txtSelect_order_sec_qty";
+            this.txtSelect_order_sec_qty.ReadOnly = true;
+            this.txtSelect_order_sec_qty.Size = new System.Drawing.Size(89, 23);
+            this.txtSelect_order_sec_qty.TabIndex = 28;
+            // 
+            // txtSelect_order_qty
+            // 
+            this.txtSelect_order_qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtSelect_order_qty.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtSelect_order_qty.Location = new System.Drawing.Point(574, 499);
+            this.txtSelect_order_qty.Name = "txtSelect_order_qty";
+            this.txtSelect_order_qty.ReadOnly = true;
+            this.txtSelect_order_qty.Size = new System.Drawing.Size(89, 23);
+            this.txtSelect_order_qty.TabIndex = 27;
+            // 
+            // dgvDetails2
+            // 
+            this.dgvDetails2.AllowUserToAddRows = false;
+            this.dgvDetails2.AllowUserToDeleteRows = false;
+            this.dgvDetails2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetails2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.n_mo_id2,
+            this.mo_id2,
+            this.sequence_id2,
+            this.goods_id2,
+            this.goods_name2,
+            this.order_qty2,
+            this.qty_hk2,
+            this.sec_qty_hk2,
+            this.qty_st2,
+            this.sec_qty_st2});
+            this.dgvDetails2.Location = new System.Drawing.Point(5, 538);
+            this.dgvDetails2.Name = "dgvDetails2";
+            this.dgvDetails2.RowHeadersWidth = 30;
+            this.dgvDetails2.RowTemplate.Height = 24;
+            this.dgvDetails2.Size = new System.Drawing.Size(958, 140);
+            this.dgvDetails2.TabIndex = 26;
             // 
             // n_mo_id2
             // 
@@ -790,9 +764,9 @@
             // order_qty2
             // 
             this.order_qty2.DataPropertyName = "order_qty";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N0";
-            this.order_qty2.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle321.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle321.Format = "N0";
+            this.order_qty2.DefaultCellStyle = dataGridViewCellStyle321;
             this.order_qty2.HeaderText = "訂單數量";
             this.order_qty2.Name = "order_qty2";
             this.order_qty2.ReadOnly = true;
@@ -802,9 +776,9 @@
             // qty_hk2
             // 
             this.qty_hk2.DataPropertyName = "qty_hk";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            this.qty_hk2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle322.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle322.Format = "N2";
+            this.qty_hk2.DefaultCellStyle = dataGridViewCellStyle322;
             this.qty_hk2.HeaderText = "回港單數量";
             this.qty_hk2.Name = "qty_hk2";
             this.qty_hk2.ReadOnly = true;
@@ -814,9 +788,9 @@
             // sec_qty_hk2
             // 
             this.sec_qty_hk2.DataPropertyName = "sec_qty_hk";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N0";
-            this.sec_qty_hk2.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle323.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle323.Format = "N0";
+            this.sec_qty_hk2.DefaultCellStyle = dataGridViewCellStyle323;
             this.sec_qty_hk2.HeaderText = "回港單重量";
             this.sec_qty_hk2.Name = "sec_qty_hk2";
             this.sec_qty_hk2.ReadOnly = true;
@@ -826,9 +800,9 @@
             // qty_st2
             // 
             this.qty_st2.DataPropertyName = "qty_st";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N0";
-            this.qty_st2.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle324.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle324.Format = "N0";
+            this.qty_st2.DefaultCellStyle = dataGridViewCellStyle324;
             this.qty_st2.HeaderText = "庫存數量";
             this.qty_st2.Name = "qty_st2";
             this.qty_st2.ReadOnly = true;
@@ -838,123 +812,71 @@
             // sec_qty_st2
             // 
             this.sec_qty_st2.DataPropertyName = "sec_qty_st";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            this.sec_qty_st2.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle325.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle325.Format = "N2";
+            this.sec_qty_st2.DefaultCellStyle = dataGridViewCellStyle325;
             this.sec_qty_st2.HeaderText = "庫存重量";
             this.sec_qty_st2.Name = "sec_qty_st2";
             this.sec_qty_st2.ReadOnly = true;
             this.sec_qty_st2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.sec_qty_st2.Width = 80;
             // 
-            // mo_id
+            // label3
             // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "總單頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 80;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 522);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 12);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "分單頁數：回港單且回港已完成";
             // 
-            // goods_id
+            // label2
             // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編碼";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 160;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(209, 12);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "分單頁數：未錄入回港單或回港未完成";
             // 
-            // goods_name
+            // dgvDetails1
             // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_name.Width = 220;
-            // 
-            // order_qty
-            // 
-            this.order_qty.DataPropertyName = "order_qty";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.order_qty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.order_qty.HeaderText = "總訂單數量";
-            this.order_qty.Name = "order_qty";
-            this.order_qty.ReadOnly = true;
-            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.order_qty.Width = 90;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.qty.DefaultCellStyle = dataGridViewCellStyle2;
-            this.qty.HeaderText = "庫存數量";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.qty.Width = 90;
-            // 
-            // sec_qty
-            // 
-            this.sec_qty.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.sec_qty.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sec_qty.HeaderText = "庫存重量";
-            this.sec_qty.Name = "sec_qty";
-            this.sec_qty.ReadOnly = true;
-            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sec_qty.Width = 80;
-            // 
-            // qty_select
-            // 
-            this.qty_select.DataPropertyName = "qty_select";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Format = "N0";
-            this.qty_select.DefaultCellStyle = dataGridViewCellStyle4;
-            this.qty_select.HeaderText = "已分配數量";
-            this.qty_select.Name = "qty_select";
-            this.qty_select.ReadOnly = true;
-            this.qty_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.qty_select.Width = 90;
-            // 
-            // sec_qty_select
-            // 
-            this.sec_qty_select.DataPropertyName = "sec_qty_select";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.Format = "N2";
-            this.sec_qty_select.DefaultCellStyle = dataGridViewCellStyle5;
-            this.sec_qty_select.HeaderText = "已分配重量";
-            this.sec_qty_select.Name = "sec_qty_select";
-            this.sec_qty_select.ReadOnly = true;
-            this.sec_qty_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sec_qty_select.Width = 80;
-            // 
-            // mo_key
-            // 
-            this.mo_key.DataPropertyName = "mo_key";
-            this.mo_key.HeaderText = "mo_key";
-            this.mo_key.Name = "mo_key";
-            this.mo_key.ReadOnly = true;
-            this.mo_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_key.Visible = false;
+            this.dgvDetails1.AllowUserToAddRows = false;
+            this.dgvDetails1.AllowUserToDeleteRows = false;
+            this.dgvDetails1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetails1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chkSelect,
+            this.n_mo_id1,
+            this.mo_id1,
+            this.sequence_id1,
+            this.goods_id1,
+            this.goods_name1,
+            this.order_qty1,
+            this.sec_qty_select1,
+            this.qty_hk1,
+            this.sec_qty_hk1,
+            this.qty_st1,
+            this.sec_qty_st1,
+            this.flag_add,
+            this.mo_key1});
+            this.dgvDetails1.Location = new System.Drawing.Point(5, 223);
+            this.dgvDetails1.Name = "dgvDetails1";
+            this.dgvDetails1.RowHeadersWidth = 30;
+            this.dgvDetails1.RowTemplate.Height = 24;
+            this.dgvDetails1.Size = new System.Drawing.Size(958, 271);
+            this.dgvDetails1.TabIndex = 23;
+            this.dgvDetails1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails1_CellValueChanged);
+            this.dgvDetails1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvDetails1_CurrentCellDirtyStateChanged);
             // 
             // chkSelect
             // 
             this.chkSelect.DataPropertyName = "flag_select";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.NullValue = false;
-            this.chkSelect.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle326.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle326.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle326.NullValue = false;
+            this.chkSelect.DefaultCellStyle = dataGridViewCellStyle326;
             this.chkSelect.HeaderText = "選擇";
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Width = 60;
@@ -1012,9 +934,9 @@
             // order_qty1
             // 
             this.order_qty1.DataPropertyName = "order_qty";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N0";
-            this.order_qty1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle327.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle327.Format = "N0";
+            this.order_qty1.DefaultCellStyle = dataGridViewCellStyle327;
             this.order_qty1.HeaderText = "訂單數量";
             this.order_qty1.Name = "order_qty1";
             this.order_qty1.ReadOnly = true;
@@ -1024,11 +946,11 @@
             // sec_qty_select1
             // 
             this.sec_qty_select1.DataPropertyName = "sec_qty_select";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.sec_qty_select1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle328.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle328.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle328.Format = "N2";
+            dataGridViewCellStyle328.NullValue = null;
+            this.sec_qty_select1.DefaultCellStyle = dataGridViewCellStyle328;
             this.sec_qty_select1.HeaderText = "訂單重量";
             this.sec_qty_select1.Name = "sec_qty_select1";
             this.sec_qty_select1.ReadOnly = true;
@@ -1038,9 +960,9 @@
             // qty_hk1
             // 
             this.qty_hk1.DataPropertyName = "qty_hk";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N0";
-            this.qty_hk1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle329.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle329.Format = "N0";
+            this.qty_hk1.DefaultCellStyle = dataGridViewCellStyle329;
             this.qty_hk1.HeaderText = "回港單數量";
             this.qty_hk1.Name = "qty_hk1";
             this.qty_hk1.ReadOnly = true;
@@ -1050,9 +972,9 @@
             // sec_qty_hk1
             // 
             this.sec_qty_hk1.DataPropertyName = "sec_qty_hk";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            this.sec_qty_hk1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle330.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle330.Format = "N2";
+            this.sec_qty_hk1.DefaultCellStyle = dataGridViewCellStyle330;
             this.sec_qty_hk1.HeaderText = "回港單重量";
             this.sec_qty_hk1.Name = "sec_qty_hk1";
             this.sec_qty_hk1.ReadOnly = true;
@@ -1062,9 +984,9 @@
             // qty_st1
             // 
             this.qty_st1.DataPropertyName = "qty_st";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N0";
-            this.qty_st1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle331.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle331.Format = "N0";
+            this.qty_st1.DefaultCellStyle = dataGridViewCellStyle331;
             this.qty_st1.HeaderText = "庫存數量";
             this.qty_st1.Name = "qty_st1";
             this.qty_st1.ReadOnly = true;
@@ -1074,9 +996,9 @@
             // sec_qty_st1
             // 
             this.sec_qty_st1.DataPropertyName = "sec_qty_st";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            this.sec_qty_st1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle332.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle332.Format = "N2";
+            this.sec_qty_st1.DefaultCellStyle = dataGridViewCellStyle332;
             this.sec_qty_st1.HeaderText = "庫存重量";
             this.sec_qty_st1.Name = "sec_qty_st1";
             this.sec_qty_st1.ReadOnly = true;
@@ -1098,32 +1020,406 @@
             this.mo_key1.Name = "mo_key1";
             this.mo_key1.Visible = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnAddTemp);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtMo);
+            this.groupBox1.Location = new System.Drawing.Point(5, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(958, 47);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnAddTemp
+            // 
+            this.btnAddTemp.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTemp.Image")));
+            this.btnAddTemp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddTemp.Location = new System.Drawing.Point(583, 11);
+            this.btnAddTemp.Name = "btnAddTemp";
+            this.btnAddTemp.Size = new System.Drawing.Size(106, 31);
+            this.btnAddTemp.TabIndex = 13;
+            this.btnAddTemp.Text = "添加到臨時表";
+            this.btnAddTemp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddTemp.UseVisualStyleBackColor = true;
+            this.btnAddTemp.Click += new System.EventHandler(this.btnAddTemp_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "總單頁數";
+            // 
+            // txtMo
+            // 
+            this.txtMo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMo.Location = new System.Drawing.Point(84, 13);
+            this.txtMo.MaxLength = 9;
+            this.txtMo.Name = "txtMo";
+            this.txtMo.Size = new System.Drawing.Size(155, 22);
+            this.txtMo.TabIndex = 11;
+            this.txtMo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMo_KeyDown);
+            // 
+            // dgvMaster
+            // 
+            this.dgvMaster.AllowUserToAddRows = false;
+            this.dgvMaster.AllowUserToDeleteRows = false;
+            this.dgvMaster.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mo_id,
+            this.goods_id,
+            this.goods_name,
+            this.order_qty,
+            this.qty,
+            this.sec_qty,
+            this.qty_select,
+            this.sec_qty_select,
+            this.mo_key});
+            this.dgvMaster.Location = new System.Drawing.Point(5, 52);
+            this.dgvMaster.Name = "dgvMaster";
+            this.dgvMaster.ReadOnly = true;
+            this.dgvMaster.RowHeadersWidth = 30;
+            this.dgvMaster.RowTemplate.Height = 24;
+            this.dgvMaster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaster.Size = new System.Drawing.Size(958, 147);
+            this.dgvMaster.TabIndex = 21;
+            this.dgvMaster.SelectionChanged += new System.EventHandler(this.dgvMaster_SelectionChanged);
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "總單頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 80;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編碼";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_id.Width = 160;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 220;
+            // 
+            // order_qty
+            // 
+            this.order_qty.DataPropertyName = "order_qty";
+            dataGridViewCellStyle333.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle333.Format = "N0";
+            dataGridViewCellStyle333.NullValue = null;
+            this.order_qty.DefaultCellStyle = dataGridViewCellStyle333;
+            this.order_qty.HeaderText = "總訂單數量";
+            this.order_qty.Name = "order_qty";
+            this.order_qty.ReadOnly = true;
+            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.order_qty.Width = 90;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            dataGridViewCellStyle334.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle334.Format = "N0";
+            dataGridViewCellStyle334.NullValue = null;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle334;
+            this.qty.HeaderText = "庫存數量";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qty.Width = 90;
+            // 
+            // sec_qty
+            // 
+            this.sec_qty.DataPropertyName = "sec_qty";
+            dataGridViewCellStyle335.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle335.Format = "N2";
+            dataGridViewCellStyle335.NullValue = null;
+            this.sec_qty.DefaultCellStyle = dataGridViewCellStyle335;
+            this.sec_qty.HeaderText = "庫存重量";
+            this.sec_qty.Name = "sec_qty";
+            this.sec_qty.ReadOnly = true;
+            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sec_qty.Width = 80;
+            // 
+            // qty_select
+            // 
+            this.qty_select.DataPropertyName = "qty_select";
+            dataGridViewCellStyle336.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle336.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle336.Format = "N0";
+            this.qty_select.DefaultCellStyle = dataGridViewCellStyle336;
+            this.qty_select.HeaderText = "已分配數量";
+            this.qty_select.Name = "qty_select";
+            this.qty_select.ReadOnly = true;
+            this.qty_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qty_select.Width = 90;
+            // 
+            // sec_qty_select
+            // 
+            this.sec_qty_select.DataPropertyName = "sec_qty_select";
+            dataGridViewCellStyle337.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle337.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle337.Format = "N2";
+            this.sec_qty_select.DefaultCellStyle = dataGridViewCellStyle337;
+            this.sec_qty_select.HeaderText = "已分配重量";
+            this.sec_qty_select.Name = "sec_qty_select";
+            this.sec_qty_select.ReadOnly = true;
+            this.sec_qty_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sec_qty_select.Width = 80;
+            // 
+            // mo_key
+            // 
+            this.mo_key.DataPropertyName = "mo_key";
+            this.mo_key.HeaderText = "mo_key";
+            this.mo_key.Name = "mo_key";
+            this.mo_key.ReadOnly = true;
+            this.mo_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_key.Visible = false;
+            // 
+            // dgvTemp
+            // 
+            this.dgvTemp.AllowUserToAddRows = false;
+            this.dgvTemp.AllowUserToDeleteRows = false;
+            this.dgvTemp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTemp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn36,
+            this.dataGridViewTextBoxColumn37,
+            this.dataGridViewTextBoxColumn38,
+            this.dataGridViewTextBoxColumn39,
+            this.dataGridViewTextBoxColumn40,
+            this.dataGridViewTextBoxColumn41,
+            this.dataGridViewTextBoxColumn42,
+            this.dataGridViewCheckBoxColumn2,
+            this.dataGridViewTextBoxColumn43});
+            this.dgvTemp.Location = new System.Drawing.Point(5, 56);
+            this.dgvTemp.Name = "dgvTemp";
+            this.dgvTemp.RowHeadersWidth = 30;
+            this.dgvTemp.RowTemplate.Height = 24;
+            this.dgvTemp.Size = new System.Drawing.Size(958, 627);
+            this.dgvTemp.TabIndex = 24;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "flag_select";
+            dataGridViewCellStyle338.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle338.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle338.NullValue = false;
+            this.dataGridViewCheckBoxColumn1.DefaultCellStyle = dataGridViewCellStyle338;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "選擇";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "n_mo_id";
+            this.dataGridViewTextBoxColumn32.HeaderText = "總單頁數";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            this.dataGridViewTextBoxColumn32.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn32.Visible = false;
+            this.dataGridViewTextBoxColumn32.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "mo_id";
+            this.dataGridViewTextBoxColumn33.HeaderText = "分單頁數";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            this.dataGridViewTextBoxColumn33.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn33.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "sequence_id";
+            this.dataGridViewTextBoxColumn34.HeaderText = "序號";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn34.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "goods_id";
+            this.dataGridViewTextBoxColumn35.HeaderText = "貨品編碼";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            this.dataGridViewTextBoxColumn35.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn35.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "goods_name";
+            this.dataGridViewTextBoxColumn36.HeaderText = "貨品名稱";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            this.dataGridViewTextBoxColumn36.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn36.Width = 220;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "order_qty";
+            dataGridViewCellStyle339.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle339.Format = "N0";
+            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle339;
+            this.dataGridViewTextBoxColumn37.HeaderText = "訂單數量";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
+            this.dataGridViewTextBoxColumn37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn37.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "sec_qty_select";
+            dataGridViewCellStyle340.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle340.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle340.Format = "N2";
+            dataGridViewCellStyle340.NullValue = null;
+            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle340;
+            this.dataGridViewTextBoxColumn38.HeaderText = "訂單重量";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            this.dataGridViewTextBoxColumn38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn38.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "qty_hk";
+            dataGridViewCellStyle341.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle341.Format = "N0";
+            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle341;
+            this.dataGridViewTextBoxColumn39.HeaderText = "回港單數量";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            this.dataGridViewTextBoxColumn39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn39.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "sec_qty_hk";
+            dataGridViewCellStyle342.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle342.Format = "N2";
+            this.dataGridViewTextBoxColumn40.DefaultCellStyle = dataGridViewCellStyle342;
+            this.dataGridViewTextBoxColumn40.HeaderText = "回港單重量";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            this.dataGridViewTextBoxColumn40.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn40.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "qty_st";
+            dataGridViewCellStyle343.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle343.Format = "N0";
+            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle343;
+            this.dataGridViewTextBoxColumn41.HeaderText = "庫存數量";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.dataGridViewTextBoxColumn41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn41.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            this.dataGridViewTextBoxColumn42.DataPropertyName = "sec_qty_st";
+            dataGridViewCellStyle344.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle344.Format = "N2";
+            this.dataGridViewTextBoxColumn42.DefaultCellStyle = dataGridViewCellStyle344;
+            this.dataGridViewTextBoxColumn42.HeaderText = "庫存重量";
+            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dataGridViewTextBoxColumn42.ReadOnly = true;
+            this.dataGridViewTextBoxColumn42.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn42.Width = 70;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "flag_add";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "已分配狀態";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.DataPropertyName = "mo_key";
+            this.dataGridViewTextBoxColumn43.HeaderText = "mo_key";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnItemDel);
+            this.groupBox2.Location = new System.Drawing.Point(5, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(958, 47);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnItemDel
+            // 
+            this.btnItemDel.Image = ((System.Drawing.Image)(resources.GetObject("btnItemDel.Image")));
+            this.btnItemDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnItemDel.Location = new System.Drawing.Point(87, 12);
+            this.btnItemDel.Name = "btnItemDel";
+            this.btnItemDel.Size = new System.Drawing.Size(88, 29);
+            this.btnItemDel.TabIndex = 15;
+            this.btnItemDel.Text = "項目刪除";
+            this.btnItemDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnItemDel.UseVisualStyleBackColor = true;
+            this.btnItemDel.Click += new System.EventHandler(this.btnItemDel_Click);
+            // 
             // frmCombinePart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 721);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtSelect_order_sec_qty);
-            this.Controls.Add(this.txtSelect_order_qty);
-            this.Controls.Add(this.dgvDetails2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvDetails1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvMaster);
+            this.ClientSize = new System.Drawing.Size(977, 763);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmCombinePart";
             this.Text = "frmCombinePart";
             this.Load += new System.EventHandler(this.frmCombinePart_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTemp)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1138,14 +1434,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton BTNFIND;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.DataGridView dgvMaster;
-        private System.Windows.Forms.TextBox txtMo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDetails1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvDetails2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1176,6 +1464,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSelect_order_sec_qty;
+        private System.Windows.Forms.TextBox txtSelect_order_qty;
+        private System.Windows.Forms.DataGridView dgvDetails2;
         private System.Windows.Forms.DataGridViewTextBoxColumn n_mo_id2;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id2;
         private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id2;
@@ -1186,20 +1482,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_hk2;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_st2;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_st2;
-        private System.Windows.Forms.TextBox txtSelect_order_qty;
-        private System.Windows.Forms.TextBox txtSelect_order_sec_qty;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty_select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_key;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvDetails1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn n_mo_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
@@ -1214,5 +1499,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_st1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_add;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_key1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAddTemp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMo;
+        private System.Windows.Forms.DataGridView dgvMaster;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_key;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnItemDel;
+        private System.Windows.Forms.DataGridView dgvTemp;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
     }
 }

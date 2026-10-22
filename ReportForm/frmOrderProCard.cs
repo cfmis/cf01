@@ -130,6 +130,7 @@ namespace cf01.ReportForm
             txtQc_dept.Text = "";
             txtQc_name.Text = "";
             txtQc_qty.Text = "";
+            txtQc_dept_next.Text = "";
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (lueGoodsId.EditValue.ToString() == lsModel[i].sequence_id)
@@ -175,7 +176,8 @@ namespace cf01.ReportForm
                     {
                         txtQc_dept.Text = "";
                         txtQc_name.Text = "";
-                        txtQc_qty.Text = "";                       
+                        txtQc_qty.Text = "";
+                        txtQc_dept_next.Text = "";                      
                     }
                     getArtDetails();//獲取圖樣代號資料
 
@@ -210,6 +212,7 @@ namespace cf01.ReportForm
                         next_do_color.Text = dt.Rows[0]["do_color"].ToString();
                         next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
                         next_sequence_id.Text = dt.Rows[0]["sequence_id"].ToString(); //added 20260407 allen
+                        txtQc_dept_next.Text = dt.Rows[0]["qc_dept_next"].ToString();//allen 20261021
                         //處理下下部門有大于一個流程情況
                         string strNextWpId = "", spacing = "\n\r";
                         for (int j=0;j< dt.Rows.Count;j++)
@@ -240,6 +243,7 @@ namespace cf01.ReportForm
                         next_next_dep_name.Text = "";
                         next_next_goods_id.Text = "";
                         next_next_do_color.Text = "";
+                        txtQc_dept_next.Text = "";
                     }
                     break;
                 }
@@ -478,6 +482,7 @@ namespace cf01.ReportForm
                     int NumPage = 0;     //報表頁數
 
                     DataTable dtNewWork = new DataTable();
+                    //    qc_dept = dtRemark;//復制的內容
                     dtNewWork = dtRemark;//復制的內容
                     dtNewWork.Rows.Clear();//清除內容
                     dtNewWork.Columns.Add("report_name", typeof(string));
@@ -516,7 +521,7 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
                     dtNewWork.Columns.Add("qty_remaining", typeof(int));
-                    
+                    dtNewWork.Columns.Add("qc_dept_next", typeof(string));//20261021
 
                     //dtNewWork.Columns.Add("qc_test", typeof(string));
                     ////2024/03/12
@@ -647,6 +652,7 @@ namespace cf01.ReportForm
                             dr["spec"] = txtSpec.Text;
                             dr["flag_hold"] = txtFlag_hold.Text;
                             dr["shading_color"] = txtShading_color.Text;
+                            dr["qc_dept_next"] = txtQc_dept_next.Text; //20261021
 
                             dtNewWork.Rows.Add(dr);
                         }

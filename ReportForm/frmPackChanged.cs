@@ -24,6 +24,7 @@ namespace cf01.ReportForm
         DataTable dtDetails = new DataTable();
         DataTable dtFullCheck = new DataTable();
         DataTable dtMO = new DataTable();
+        DataTable dtCustomer = new DataTable();
         DataTable dtItems = new DataTable();
         DataRow[] drwKey = null;
         string strMo, strSeq, id_type, strGoods_id;
@@ -48,6 +49,7 @@ namespace cf01.ReportForm
             dtDetails.Columns.Add("name", typeof(string));
             dtDetails.Columns.Add("order_qty", typeof(int));
             dtDetails.Columns.Add("department", typeof(string));
+
             dtFullCheck.Columns.Add("id", typeof(string));
             dtFullCheck.Columns.Add("mo_id", typeof(string));
             dtFullCheck.Columns.Add("w_mo_id", typeof(string));
@@ -62,6 +64,26 @@ namespace cf01.ReportForm
             dtFullCheck.Columns.Add("f_goods_id", typeof(string));
             dtFullCheck.Columns.Add("f_goods_name", typeof(string));
             dtFullCheck.Columns.Add("qc_result", typeof(string));
+
+            //客人標簽特殊列印
+            dtCustomer.Columns.Add("goods_name_eng", typeof(string));
+            dtCustomer.Columns.Add("color_name_eng", typeof(string));
+            dtCustomer.Columns.Add("customer_name_eng", typeof(string));
+            dtCustomer.Columns.Add("contract_cid", typeof(string));
+            dtCustomer.Columns.Add("size_id", typeof(string));
+            dtCustomer.Columns.Add("customer_goods", typeof(string));
+            dtCustomer.Columns.Add("customer_goods_name", typeof(string));
+            dtCustomer.Columns.Add("table_head", typeof(string));
+            dtCustomer.Columns.Add("customer_color_id", typeof(string));
+            dtCustomer.Columns.Add("primary_key", typeof(string));
+            dtCustomer.Columns.Add("mo_id", typeof(string));
+            dtCustomer.Columns.Add("remark1", typeof(string));
+            dtCustomer.Columns.Add("barcode_mo", typeof(string));
+            dtCustomer.Columns.Add("qty", typeof(int));
+            dtCustomer.Columns.Add("picture_name", typeof(string));
+
+            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -294,6 +316,16 @@ namespace cf01.ReportForm
             }                 
             dgvDetails.DataSource = dsPackChange.Tables["temp_list"];
             txtBarCode.Focus();
+            if (dsPackChange.Tables[0].Rows.Count > 0)
+            {
+                if (dsPackChange.Tables[0].Rows[0]["it_customer"].ToString() == "DO-S0467")
+                {
+                    MessageBox.Show("請注意客戶編號：DO-S0467需額外列印面件、底件客人標籤","提示信息",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    txtQty.Text = dsPackChange.Tables[0].Rows[0]["order_qty1"].ToString(); 
+                }         
+                else
+                    txtQty.Text = "";
+            }
         }
 
         
@@ -396,7 +428,7 @@ namespace cf01.ReportForm
                 {                    
                     using (xrPackChanged_Cust mMyReport = new xrPackChanged_Cust(){DataSource = dsPackChange.Tables[0]})
                     {
-                        PrintCustom(mMyReport, print_type);                        
+                        PrintCustom(mMyReport, print_type);
                     }
                 }
                 if (cmbReport.Text == "成品標識卡")
@@ -594,6 +626,85 @@ namespace cf01.ReportForm
             chkByCard.Checked = false;
             txtBarCode.Focus();
             //ManualInputMo();
+        }
+
+        private void btnSpecial_Click(object sender, EventArgs e)
+        {
+            if(dsPackChange.Tables.Count==0)
+            {
+                return;
+            }
+            if (dsPackChange.Tables[0].Rows.Count == 0)
+            {
+                return;
+            }
+            dtCustomer.Clear();
+            int totalPage = 0,qty=0;
+            if(txtTotalPage.Text =="" || txtTotalPage.Text == "0")
+            {
+                totalPage = 1;
+            }
+            else
+            {
+                totalPage = Convert.ToInt32(txtTotalPage.Text);
+            }
+            if(txtQty.Text == ""|| txtQty.Text == "0")
+            {
+                qty = 0;
+            }
+            else
+            {
+                qty = Convert.ToInt32(txtQty.Text);
+            }
+            for(int i=0;i< dsPackChange.Tables[0].Rows.Count; i++)
+            {
+                for(int j=1;j<= totalPage; j++)
+                {
+                    DataRow drw = dtCustomer.NewRow();
+                    drw["goods_name_eng"] = dsPackChange.Tables[0].Rows[i]["goods_name_eng"].ToString();
+                    drw["color_name_eng"] = dsPackChange.Tables[0].Rows[i]["color_name_eng"].ToString();
+                    drw["customer_name_eng"] = dsPackChange.Tables[0].Rows[i]["customer_name_eng"].ToString();
+                    drw["contract_cid"] = dsPackChange.Tables[0].Rows[i]["contract_cid"].ToString();
+                    drw["size_id"] = dsPackChange.Tables[0].Rows[i]["size_id"].ToString();
+                    drw["customer_goods"] = dsPackChange.Tables[0].Rows[i]["customer_goods"].ToString();
+                    drw["customer_goods_name"] = dsPackChange.Tables[0].Rows[i]["customer_goods_name"].ToString();
+                    drw["table_head"] = dsPackChange.Tables[0].Rows[i]["table_head"].ToString();
+                    drw["customer_color_id"] = dsPackChange.Tables[0].Rows[i]["customer_color_id"].ToString();
+                    drw["primary_key"] = dsPackChange.Tables[0].Rows[i]["primary_key"].ToString();
+                    drw["mo_id"] = dsPackChange.Tables[0].Rows[i]["mo_id"].ToString();
+                    drw["remark1"] = dsPackChange.Tables[0].Rows[i]["remark1"].ToString();
+                    drw["barcode_mo"] = dsPackChange.Tables[0].Rows[i]["barcode_mo"].ToString();
+                    drw["qty"] = qty;
+                    drw["picture_name"] = dsPackChange.Tables[0].Rows[i]["picture_name"].ToString();
+                    dtCustomer.Rows.Add(drw);
+                }
+            }
+            
+            //"客人標簽"
+            using (xrPackChanged_Cust_en xr = new xrPackChanged_Cust_en() { DataSource = dtCustomer })
+            {
+                xr.CreateDocument();
+                xr.PrintingSystem.ShowMarginsWarning = false;
+                xr.ShowPreviewDialog();
+            }
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 允許數字 (0-9) 以及倒退鍵 (BackSpace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // 阻止該字元輸入
+            }
+        }
+
+        private void txtTotalPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 允許數字 (0-9) 以及倒退鍵 (BackSpace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // 阻止該字元輸入
+            }
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xrPackChanged_Cust));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.lblPrimary = new DevExpress.XtraReports.UI.XRLabel();
             this.txtIs_company_logo = new DevExpress.XtraReports.UI.XRLabel();
             this.txtAnalysis_codes_1 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtPrint_eng_text = new DevExpress.XtraReports.UI.XRLabel();
@@ -92,7 +93,6 @@
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.lblPrimary = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -161,6 +161,21 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // lblPrimary
+            // 
+            this.lblPrimary.CanGrow = false;
+            this.lblPrimary.Dpi = 254F;
+            this.lblPrimary.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPrimary.LocationFloat = new DevExpress.Utils.PointFloat(847.8743F, 491.3542F);
+            this.lblPrimary.Name = "lblPrimary";
+            this.lblPrimary.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblPrimary.SizeF = new System.Drawing.SizeF(236.084F, 58.42004F);
+            this.lblPrimary.StylePriority.UseFont = false;
+            this.lblPrimary.StylePriority.UseTextAlignment = false;
+            this.lblPrimary.Text = "[primary_key]";
+            this.lblPrimary.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblPrimary.WordWrap = false;
             // 
             // txtIs_company_logo
             // 
@@ -488,7 +503,7 @@
             // 
             this.lblSize_en.Dpi = 254F;
             this.lblSize_en.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.lblSize_en.LocationFloat = new DevExpress.Utils.PointFloat(653.271F, 381.1458F);
+            this.lblSize_en.LocationFloat = new DevExpress.Utils.PointFloat(653.271F, 386.1458F);
             this.lblSize_en.Name = "lblSize_en";
             this.lblSize_en.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblSize_en.SizeF = new System.Drawing.SizeF(91.1875F, 39.89917F);
@@ -710,7 +725,7 @@
             // 
             this.lblSize.Dpi = 254F;
             this.lblSize.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.lblSize.LocationFloat = new DevExpress.Utils.PointFloat(653.271F, 381.1458F);
+            this.lblSize.LocationFloat = new DevExpress.Utils.PointFloat(653.271F, 386.1458F);
             this.lblSize.Name = "lblSize";
             this.lblSize.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblSize.SizeF = new System.Drawing.SizeF(91.1875F, 39.89917F);
@@ -968,21 +983,6 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // lblPrimary
-            // 
-            this.lblPrimary.CanGrow = false;
-            this.lblPrimary.Dpi = 254F;
-            this.lblPrimary.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPrimary.LocationFloat = new DevExpress.Utils.PointFloat(847.8743F, 491.3542F);
-            this.lblPrimary.Name = "lblPrimary";
-            this.lblPrimary.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblPrimary.SizeF = new System.Drawing.SizeF(236.084F, 58.42004F);
-            this.lblPrimary.StylePriority.UseFont = false;
-            this.lblPrimary.StylePriority.UseTextAlignment = false;
-            this.lblPrimary.Text = "[primary_key]";
-            this.lblPrimary.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.lblPrimary.WordWrap = false;
-            // 
             // xrPackChanged_Cust
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -998,7 +998,7 @@
             this.PaperName = "11x8";
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 31.75F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
