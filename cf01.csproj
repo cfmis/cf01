@@ -242,6 +242,7 @@
     <Compile Include="CLS\clsBs_Unit.cs" />
     <Compile Include="CLS\clsButtonWork.cs" />
     <Compile Include="CLS\clsColorPlateQuotation.cs" />
+    <Compile Include="CLS\clsCombinePart.cs" />
     <Compile Include="CLS\clsCommonUse.cs" />
     <Compile Include="CLS\clsControlInfoHelper.cs" />
     <Compile Include="CLS\clsCostAlloy.cs" />
@@ -1589,6 +1590,7 @@
       <DependentUpon>frmProcessBarWindows.cs</DependentUpon>
     </Compile>
     <Compile Include="MDL\mdlColorPlateQuotation.cs" />
+    <Compile Include="MDL\mdlCompinePart.cs" />
     <Compile Include="MDL\mdlCostAlloy.cs" />
     <Compile Include="MDL\mdlCountGoodsCost.cs" />
     <Compile Include="MDL\mdlCustComplain.cs" />
@@ -2729,6 +2731,12 @@
     </Compile>
     <Compile Include="Reports\xrPackChanged_CustA4.designer.cs">
       <DependentUpon>xrPackChanged_CustA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrPackChanged_Cust_en.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrPackChanged_Cust_en.designer.cs">
+      <DependentUpon>xrPackChanged_Cust_en.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrPackChanged_st.cs">
       <SubType>Component</SubType>
@@ -4388,6 +4396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrPackChanged_CustA4.resx">
       <DependentUpon>xrPackChanged_CustA4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrPackChanged_Cust_en.resx">
+      <DependentUpon>xrPackChanged_Cust_en.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrPackChanged_st.resx">
       <DependentUpon>xrPackChanged_st.cs</DependentUpon>
