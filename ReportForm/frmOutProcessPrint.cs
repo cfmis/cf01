@@ -434,25 +434,25 @@ namespace cf01.ReportForm
                                 if (dtNextDep.Rows.Count > 0)
                                 {
                                     DataRow drNextDep = dtNextDep.Rows[0];
-                                    dr["next_wp_id"] = drNextDep["next_wp_id"];
-                                    dr["next_dep_name"] = drNextDep["next_dep_name"];
-                                    dr["next_goods_id"] = drNextDep["next_goods_id"];
-                                    dr["next_do_color"] = drNextDep["next_do_color"];
-                                    dr["next_vendor_id"] = drNextDep["next_vendor_id"];
-                                    dr["next_goods_name"] = drNextDep["next_goods_name"];
+                                    dr["next_wp_id"] = drNextDep["wp_id"]; //交下部門編號
+                                    dr["next_dep_name"] = drNextDep["next_dep_name"]; //交下部門名稱
+                                    dr["next_goods_id"] = drNextDep["next_goods_id"];  //交下部門貨品編號
+                                    dr["next_goods_name"] = drNextDep["next_goods_name"];//交下部門貨品描述
+                                    dr["next_do_color"] = drNextDep["next_do_color"]; //交下部門貨品編號
+                                    dr["next_vendor_id"] = drNextDep["vendor_id"];  //交下部門貨品編號申請的電鍍廠
                                     dr["barcode_next"] = drNextDep["barcode_next"];
-                                    dr["qc_dept_next"] = drNextDep["qc_dept_next"].ToString();
-                                    //處理下下部門有大于一個流程情況
+                                    dr["qc_dept_next"] = drNextDep["qc_dept_next"].ToString(); //交下部門貨品編號是否有QC
+                                    //處理交下下部門有大于一個流程情況
                                     string strNextWpId = "", spacing = "\n\r";
                                     for (int ii = 0; ii < dtNextDep.Rows.Count; ii++)
                                     {
                                         if (ii == 0)
                                         {
-                                            strNextWpId += dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_dep_name"].ToString();
+                                            strNextWpId += dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_next_dep_name"].ToString();
                                         }
                                         else
                                         {
-                                            strNextWpId += spacing + dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_dep_name"].ToString();
+                                            strNextWpId += spacing + dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_next_dep_name"].ToString();
                                         }
                                     }
                                     dr["next_next_wp_id"] = strNextWpId;
