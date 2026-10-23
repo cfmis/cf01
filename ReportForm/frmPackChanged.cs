@@ -530,8 +530,7 @@ namespace cf01.ReportForm
 
         private void txtMO_Leave(object sender, EventArgs e)
         {
-            ManualInputMo();
-            //SelectGoodsItem();//add 2026/07/09
+           // ManualInputMo();            
         }
 
         private void ManualInputMo()
@@ -555,7 +554,6 @@ namespace cf01.ReportForm
                     return;
                 }
                 FillCombox(dtItems);
-
                 
                 //chkByMoPrintSet.Checked = true;
                 //frmProgress wForm = new frmProgress();
@@ -607,17 +605,25 @@ namespace cf01.ReportForm
 
         private void frmPackChanged_Activated(object sender, EventArgs e)
         {
-            txtBarCode.Focus();
+           // txtBarCode.Focus();
         }
 
         private void txtMO_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //按回車跳到下一控件                
-            if (e.KeyChar == 13 || (txtMO.TextLength - txtMO.SelectionLength) == txtMO.MaxLength - 1)
-            {               
-                SendKeys.Send("{TAB}");
-                //等同于frm.SelectNextControl(frm.ActiveControl, true, true, true, true);
+            if (e.KeyChar == 13 )
+            {
+                if (txtMO.Text.Trim().Length == 9)
+                {
+                    ManualInputMo();
+                }
             }
+
+            ////按回車跳到下一控件                
+            //if (e.KeyChar == 13 || (txtMO.TextLength - txtMO.SelectionLength) == txtMO.MaxLength - 1)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    ManualInputMo();
+            //}
         }
 
         private void chkByMoPrintSet_MouseUp(object sender, MouseEventArgs e)
