@@ -320,7 +320,7 @@ namespace cf01.ReportForm
             {
                 if (dsPackChange.Tables[0].Rows[0]["it_customer"].ToString() == "DO-S0467")
                 {
-                    MessageBox.Show("請注意客戶編號：DO-S0467需額外列印面件、底件客人標籤","提示信息",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("注意客戶編號【DO-S0467】需額外列印面件、底件客人標籤!","提示信息",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     txtQty.Text = dsPackChange.Tables[0].Rows[0]["order_qty1"].ToString(); 
                 }         
                 else
@@ -598,14 +598,13 @@ namespace cf01.ReportForm
             {
                 lblKey.Visible = (cmbItems.Text == strGoods_id) ? true : false;
                 Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);
-            }
-            
+            }            
             txtBarCode.Focus();
         }
 
         private void frmPackChanged_Activated(object sender, EventArgs e)
         {
-           // txtBarCode.Focus();
+           txtBarCode.Focus();
         }
 
         private void txtMO_KeyPress(object sender, KeyPressEventArgs e)
@@ -617,7 +616,6 @@ namespace cf01.ReportForm
                     ManualInputMo();
                 }
             }
-
             ////按回車跳到下一控件                
             //if (e.KeyChar == 13 || (txtMO.TextLength - txtMO.SelectionLength) == txtMO.MaxLength - 1)
             //{
