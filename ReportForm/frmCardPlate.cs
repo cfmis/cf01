@@ -211,9 +211,16 @@ namespace cf01.ReportForm
             gridView1.CloseEditor();
             DataTable dtReport = new DataTable();
             dtReport = dtWordCard.Clone();
+            dtReport.Columns.Add("qc_dept_next", typeof(string));
+            dtReport.Columns.Add("next_goods_id", typeof(string));
+            dtReport.Columns.Add("next_goods_name", typeof(string));
+            dtReport.Columns.Add("next_do_color", typeof(string));
+            dtReport.Columns.Add("next_vendor_id", typeof(string));
+
             dtReport.Columns.Add("next_next_wp_id", typeof(string));
             dtReport.Columns.Add("next_next_goods_id", typeof(string));
             dtReport.Columns.Add("next_next_do_color", typeof(string));
+
             
 
             int intBaseRate = 0, ii = 0;
@@ -240,14 +247,12 @@ namespace cf01.ReportForm
                     drow["product_qty"] = dtWordCard.Rows[i]["product_qty"];
                     drow["sec_qty"] = dtWordCard.Rows[i]["sec_qty"];
                     drow["name_color_sample"] = dtWordCard.Rows[i]["name_color_sample"].ToString();
-                    drow["brand_id"] = dtWordCard.Rows[i]["brand_id"].ToString();
-                    //drow["rmk"] = dtWordCard.Rows[i]["rmk"].ToString();
+                    drow["brand_id"] = dtWordCard.Rows[i]["brand_id"].ToString();                   
                     drow["plate_remark"] = dtWordCard.Rows[i]["plate_remark"].ToString();
                     drow["production_remark"] = dtWordCard.Rows[i]["production_remark"].ToString();
                     drow["remark"] = dtWordCard.Rows[i]["remark"].ToString();
                     drow["name_color"] = dtWordCard.Rows[i]["name_color"].ToString();
-                    drow["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();
-                    //drow["rate"] = dtWordCard.Rows[i]["rate"];
+                    drow["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();                   
                     drow["mo_barcode"] = dtWordCard.Rows[i]["mo_barcode"].ToString();
                     drow["next_wp_id"] = dtWordCard.Rows[i]["next_wp_id"].ToString();
                     drow["name_next_dept"] = dtWordCard.Rows[i]["name_next_dept"].ToString();
@@ -258,7 +263,6 @@ namespace cf01.ReportForm
                     drow["sec_qty_total"] = dtWordCard.Rows[i]["sec_qty_total"];
                     drow["prints"] = dtWordCard.Rows[i]["prints"];
                     drow["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
-                    //drow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
                     drow["wh_location"] = dtWordCard.Rows[i]["wh_location"].ToString();
                     drow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
                     drow["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
@@ -271,7 +275,9 @@ namespace cf01.ReportForm
                     drow["dept_remark"] = dtWordCard.Rows[i]["dept_remark"];
                     drow["count_return"] = dtWordCard.Rows[i]["count_return"];
                     drow["spec"] = dtWordCard.Rows[i]["spec"];
-                    drow["qc_dept"] = dtWordCard.Rows[i]["qc_dept"];
+                    drow["qc_dept"] = dtWordCard.Rows[i]["qc_dept"].ToString();
+                    drow["qc_name"] = dtWordCard.Rows[i]["qc_name"].ToString();
+                    drow["qc_qty"] = dtWordCard.Rows[i]["qc_qty"];
                     drow["flag_hold"] = dtWordCard.Rows[i]["flag_hold"];
                     drow["shading_color"] = dtWordCard.Rows[i]["shading_color"];
                     drow["arrive_date"] = dtWordCard.Rows[i]["arrive_date"];
@@ -279,14 +285,14 @@ namespace cf01.ReportForm
                     
                     //***********************
                     dt = clsMo_for_jx.Get_Next_Department_Flow(dtWordCard.Rows[i]["mo_id"].ToString(), dtWordCard.Rows[i]["goods_id"].ToString());
-
                     if (dt.Rows.Count > 0)
                     {
-                        //next_goods_id.Text = dt.Rows[0]["goods_id"].ToString();
-                        //next_vendor_id.Text = dt.Rows[0]["vendor_id"].ToString();
-                        //next_do_color.Text = dt.Rows[0]["do_color"].ToString();
-                        //next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
-                        //next_sequence_id.Text = dt.Rows[0]["sequence_id"].ToString(); //added 20260407 allen
+                        drow["qc_dept_next"] = dt.Rows[0]["qc_dept_next"].ToString();
+                        drow["next_goods_id"] = dt.Rows[0]["goods_id"].ToString();
+                        drow["next_goods_name"] = dt.Rows[0]["next_goods_name"].ToString();
+                        drow["next_do_color"] = dt.Rows[0]["do_color"].ToString();
+                        drow["next_vendor_id"] = dt.Rows[0]["vendor_id"].ToString();
+
                         //處理下下部門有大于一個流程情況   
                         strNextWpId = "";
                         for (int j = 0; j < dt.Rows.Count; j++)
@@ -306,6 +312,12 @@ namespace cf01.ReportForm
                     }
                     else
                     {
+                        drow["qc_dept_next"] = "";
+                        drow["next_goods_id"] = "";
+                        drow["next_goods_name"] = "";
+                        drow["next_do_color"] = "";
+                        drow["next_vendor_id"] = "";
+
                         drow["next_next_wp_id"] = "";
                         drow["next_next_goods_id"] = "";
                         drow["next_next_do_color"] = "";
@@ -362,6 +374,16 @@ namespace cf01.ReportForm
                             drow1["flag_hold"] = dtWordCard.Rows[i]["flag_hold"].ToString();
                             drow1["shading_color"] = dtWordCard.Rows[i]["shading_color"].ToString();
                             drow1["arrive_date"] = dtWordCard.Rows[i]["arrive_date"];
+
+                            drow1["qc_dept_next"] = drow["qc_dept_next"];
+                            drow1["next_goods_id"] = drow["next_goods_id"];
+                            drow1["next_goods_name"] = drow["next_goods_name"];
+                            drow1["next_do_color"] = drow["next_do_color"];
+                            drow1["next_vendor_id"] = drow["next_vendor_id"];
+                            drow1["next_next_wp_id"] = drow["next_next_wp_id"];
+                            drow1["next_next_goods_id"] = drow["next_next_goods_id"];
+                            drow1["next_next_do_color"] = drow["next_next_do_color"];
+
                             dtReport.Rows.Add(drow1);
                         }
                     }

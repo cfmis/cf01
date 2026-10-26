@@ -67,16 +67,7 @@ namespace cf01.ReportForm
                  INNER JOIN op_outpro_out_displace b with(nolock) ON a.within_code=b.within_code AND a.id=b.id
                  INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id 
                  INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id
-                 WHERE a.within_code='0000' ");
-            //strSql += " Select a.id,Convert(VARCHAR(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
-            //    ",a.department_id,d.name AS DepCdesc,b.sequence_id,b.mo_id,b.goods_id,c.name AS goods_cname,b.do_color" +
-            //    ",b.prod_qty,b.goods_unit" +
-            //    ",b.sec_qty,b.sec_unit,b.package_num,Convert(VARCHAR(20),b.t_complete_date,111) AS RequestReturnDate" +
-            //    " FROM op_outpro_out_mostly a" +
-            //    " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
-            //    " INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
-            //    " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +                
-            //    " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";         
+                 WHERE a.within_code='0000' ");                  
             if (txtID1.Text != "")
                 sb.Append(string.Format(" AND a.id>='{0}'", txtID1.Text ));
             if (txtID2.Text != "")
@@ -284,7 +275,6 @@ namespace cf01.ReportForm
             {
                 if ((bool)dgvDetails.Rows[j].Cells["colSelectFlag"].EditedFormattedValue)
                 {
-                    //DataGridViewRow dgr = dgvDetails.Rows[j];
                     dgr = dgvDetails.Rows[j];
                     Remark = "";
                     Request_date = dgr.Cells["colRequestReturnDate"].Value.ToString().Trim();
@@ -294,6 +284,20 @@ namespace cf01.ReportForm
                     if (dep != "" && mo_id != "" && item != "")
                     {                        
                         dtWk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
+                        //20261021
+                        dtWk.Columns.Add("next_goods_id", typeof(string));
+                        dtWk.Columns.Add("next_do_color", typeof(string));
+                        dtWk.Columns.Add("next_next_wp_id", typeof(string));
+                        dtWk.Columns.Add("next_vendor_id", typeof(string));
+                        dtWk.Columns.Add("next_goods_name", typeof(string));
+                        dtWk.Columns.Add("next_next_dep_name", typeof(string));
+                        dtWk.Columns.Add("prod_date", typeof(string));
+                        
+                        dtWk.Columns.Add("next_next_goods_id", typeof(string));
+                        dtWk.Columns.Add("next_next_do_color", typeof(string));                       
+                        dtWk.Columns.Add("qc_dept_next", typeof(string));
+                        //20261021
+
                         dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
                         dtPosition = clsMo_for_jx.GetPosition(item);
                         dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
@@ -344,9 +348,12 @@ namespace cf01.ReportForm
                                 dr["ver"] = clsUtility.FormatNullableInt32(drDtWk["ver"]);
                                 dr["sequence_id"] = drDtWk["sequence_id"].ToString();
                                 dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
-                                dr["production_remark"] = drDtWk["production_remark"].ToString();                               
+                                dr["production_remark"] = drDtWk["production_remark"].ToString();
                                 dr["remark"] = drDtWk["remark"].ToString();
                                 dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
+
+                               // dr["name_next_dept"] = drDtWk["name_next_dept"].ToString();
+
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
                                 dr["order_qty"] = clsUtility.NumberConvert(order_qty);
                                 dr["order_unit"] = order_unit;
@@ -356,9 +363,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;                                
-                                //string next_dep_id = "aaa";// dgr.Cells["next_wp_id"].Value.ToString().Trim();
-                                //DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
+                                dr["plate_remark"] = plate_remark;
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
                                 dr["brand_id"] = drDtWk["brand_id"].ToString();
                                 dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
@@ -372,22 +377,12 @@ namespace cf01.ReportForm
                                 dr["request_date"] = Request_date;
                                 dr["color_name"] = drDtWk["color_name"].ToString();
                                 dr["do_color"] = drDtWk["do_color"].ToString();
-                                //if (dtPlate_Remark.Rows.Count > 0)
-                                //{
-                                //    dr["plate_remark"] = dtPlate_Remark.Rows[0]["plate_remark"];
-                                //}
-
+                                
                                 if (dtArt.Rows.Count > 0)
                                 {
                                 dr["art_id"] = dtArt.Rows[0]["art_id"].ToString();
                                 dr["picture_name"] = dtArt.Rows[0]["picture_name"].ToString();
-                                }
-
-                                //if (dtColor.Rows.Count > 0)
-                                //{
-                                //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
-                                //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
-                                //}
+                                }                             
 
                                 if (dtPosition.Rows.Count > 0)
                                 {
@@ -439,29 +434,44 @@ namespace cf01.ReportForm
                                 if (dtNextDep.Rows.Count > 0)
                                 {
                                     DataRow drNextDep = dtNextDep.Rows[0];
-                                    dr["next_wp_id"] = drNextDep["next_wp_id"];
-                                    dr["next_dep_name"] = drNextDep["next_dep_name"];
-                                    dr["next_goods_id"] = drNextDep["next_goods_id"];
-                                    dr["next_do_color"] = drNextDep["next_do_color"];
-                                    dr["next_vendor_id"] = drNextDep["next_vendor_id"];
-                                    dr["next_goods_name"] = drNextDep["next_goods_name"];
+                                    dr["next_wp_id"] = drNextDep["wp_id"]; //交下部門編號
+                                    dr["next_dep_name"] = drNextDep["next_dep_name"]; //交下部門名稱
+                                    dr["next_goods_id"] = drNextDep["next_goods_id"];  //交下部門貨品編號
+                                    dr["next_goods_name"] = drNextDep["next_goods_name"];//交下部門貨品描述
+                                    dr["next_do_color"] = drNextDep["next_do_color"]; //交下部門貨品編號
+                                    dr["next_vendor_id"] = drNextDep["vendor_id"];  //交下部門貨品編號申請的電鍍廠
                                     dr["barcode_next"] = drNextDep["barcode_next"];
-                                }
-                                dr["next_next_wp_id"] = "";// dgr.Cells["next_next_wp_id"].Value.ToString();
-                                dr["next_next_dep_name"] = "";// dgr.Cells["next_next_dep_name"].Value.ToString();
+                                    dr["qc_dept_next"] = drNextDep["qc_dept_next"].ToString(); //交下部門貨品編號是否有QC
+                                    //處理交下下部門有大于一個流程情況
+                                    string strNextWpId = "", spacing = "\n\r";
+                                    for (int ii = 0; ii < dtNextDep.Rows.Count; ii++)
+                                    {
+                                        if (ii == 0)
+                                        {
+                                            strNextWpId += dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_next_dep_name"].ToString();
+                                        }
+                                        else
+                                        {
+                                            strNextWpId += spacing + dtNextDep.Rows[ii]["next_wp_id"].ToString() + "-" + dtNextDep.Rows[ii]["next_next_dep_name"].ToString();
+                                        }
+                                    }
+                                    dr["next_next_wp_id"] = strNextWpId;
+                                    dr["next_next_goods_id"] = drNextDep["next_next_goods_id"];
+                                    dr["next_next_do_color"] = drNextDep["next_next_do_color"];
+                                }                                
                                 dr["prod_date"] = "";
-
-                                //next_next_goods_id,next_next_do_color 這部分暫沒有實現,參考frmOderProCard中的代碼
 
                                 //--start 2024/3/14 add qc info allen
                                 dr["qc_dept"] = drDtWk["qc_dept"].ToString();
                                 dr["qc_name"] = drDtWk["qc_name"].ToString();
                                 dr["qc_qty"] = drDtWk["qc_qty"].ToString();
+                                
                                 if (drDtWk["next_wp_id"].ToString() == "702" || drDtWk["next_wp_id"].ToString() == "722")
                                 {
                                     dr["qc_dept"] = "";
                                     dr["qc_name"] = "";
                                     dr["qc_qty"] = "";
+                                    dr["qc_dept_next"] = "";
                                 }
                                 //--end 2024/3/14 add qc info allen
                                 dr["qc_test"] = drDtWk["qc_test"].ToString();

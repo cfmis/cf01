@@ -116,11 +116,14 @@
             this.lblSec_qty_total = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblQc = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtIsQc = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtIsQc,
             this.txtFlagHang,
             this.txtMiniCons,
             this.txtSeq,
@@ -149,7 +152,8 @@
             this.txtfl_by,
             this.txtMo_id2,
             this.lblActual_prod_qty,
-            this.txtMo_id3});
+            this.txtMo_id3,
+            this.lblQc});
             this.Detail.Dpi = 254F;
             this.Detail.HeightF = 213.4673F;
             this.Detail.Name = "Detail";
@@ -177,10 +181,10 @@
             this.txtMiniCons.CanGrow = false;
             this.txtMiniCons.Dpi = 254F;
             this.txtMiniCons.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMiniCons.LocationFloat = new DevExpress.Utils.PointFloat(68.40002F, 44.18F);
+            this.txtMiniCons.LocationFloat = new DevExpress.Utils.PointFloat(68.40002F, 47.18F);
             this.txtMiniCons.Name = "txtMiniCons";
             this.txtMiniCons.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtMiniCons.SizeF = new System.Drawing.SizeF(159.1048F, 44.17999F);
+            this.txtMiniCons.SizeF = new System.Drawing.SizeF(159.1048F, 40.17999F);
             this.txtMiniCons.StylePriority.UseFont = false;
             this.txtMiniCons.StylePriority.UseTextAlignment = false;
             this.txtMiniCons.Text = "最低消費";
@@ -222,7 +226,7 @@
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(693.4844F, 116.18F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(697.4844F, 120.18F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
             this.xrLabel9.Text = "[goods_name]";
@@ -249,7 +253,7 @@
             this.next_wp_id.CanGrow = false;
             this.next_wp_id.Dpi = 254F;
             this.next_wp_id.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(75.4F, 93.17996F);
+            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(75.4F, 92.17996F);
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.next_wp_id.SizeF = new System.Drawing.SizeF(144.1048F, 44.61164F);
@@ -596,10 +600,10 @@
             // 
             this.txtfl_by.CanGrow = false;
             this.txtfl_by.Dpi = 254F;
-            this.txtfl_by.LocationFloat = new DevExpress.Utils.PointFloat(102.2415F, 138.4882F);
+            this.txtfl_by.LocationFloat = new DevExpress.Utils.PointFloat(22.1009F, 96.7915F);
             this.txtfl_by.Name = "txtfl_by";
             this.txtfl_by.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtfl_by.SizeF = new System.Drawing.SizeF(84.38824F, 41.97919F);
+            this.txtfl_by.SizeF = new System.Drawing.SizeF(50.87872F, 41.97919F);
             this.txtfl_by.Text = "[fl_by]";
             this.txtfl_by.Visible = false;
             this.txtfl_by.WordWrap = false;
@@ -1329,6 +1333,45 @@
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ReportHeader_BeforePrint);
             // 
+            // lblQc
+            // 
+            this.lblQc.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.lblQc.BorderWidth = 2F;
+            this.lblQc.CanGrow = false;
+            this.lblQc.Dpi = 254F;
+            this.lblQc.Font = new System.Drawing.Font("SimSun", 14F, System.Drawing.FontStyle.Bold);
+            this.lblQc.LocationFloat = new DevExpress.Utils.PointFloat(236.8041F, 35.48813F);
+            this.lblQc.Name = "lblQc";
+            this.lblQc.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblQc.SizeF = new System.Drawing.SizeF(87.19585F, 51.78851F);
+            this.lblQc.StylePriority.UseBorders = false;
+            this.lblQc.StylePriority.UseBorderWidth = false;
+            this.lblQc.StylePriority.UseFont = false;
+            this.lblQc.StylePriority.UseTextAlignment = false;
+            this.lblQc.Text = "QC";
+            this.lblQc.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblQc.Visible = false;
+            this.lblQc.WordWrap = false;
+            // 
+            // txtIsQc
+            // 
+            this.txtIsQc.CanGrow = false;
+            this.txtIsQc.Dpi = 254F;
+            this.txtIsQc.Font = new System.Drawing.Font("SimSun", 10F);
+            this.txtIsQc.LocationFloat = new DevExpress.Utils.PointFloat(58.33753F, 150.8972F);
+            this.txtIsQc.Name = "txtIsQc";
+            this.txtIsQc.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtIsQc.SizeF = new System.Drawing.SizeF(128.2922F, 37.57018F);
+            this.txtIsQc.StylePriority.UseFont = false;
+            this.txtIsQc.StylePriority.UseTextAlignment = false;
+            this.txtIsQc.Text = "[isQc]";
+            this.txtIsQc.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.txtIsQc.Visible = false;
+            this.txtIsQc.WordWrap = false;
+            this.txtIsQc.TextChanged += new System.EventHandler(this.txtIsQc_TextChanged);
+            // 
             // xrOut_process_out
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1440,5 +1483,7 @@
         private DevExpress.XtraReports.UI.XRLabel txtFlagHang;
         private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel25;
+        private DevExpress.XtraReports.UI.XRLabel lblQc;
+        private DevExpress.XtraReports.UI.XRLabel txtIsQc;
     }
 }

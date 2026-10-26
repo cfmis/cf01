@@ -1000,22 +1000,30 @@ namespace cf01.CLS
 
         public static DataTable getNextDepItem(string mo_id,string wp_id,string goods_id)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format(
-            @"Select aa.wp_id,aa.goods_id,aa.next_wp_id,dd.name AS next_dep_name,bb.goods_id AS next_goods_id,bb.sequence_id,
-            dbo.StrToCode128B(aa.mo_id + Right(CONVERT(varchar(3),(100+aa.ver)),2) + substring(bb.sequence_id,3,2)) AS barcode_next,
-            mm.name AS next_goods_name,mm.do_color AS next_do_color,aa.vendor_id AS next_vendor_id
-            FROM (SELECT a.within_code,a.id,a.ver,a.mo_id,b.sequence_id,b.wp_id,b.next_wp_id,b.goods_id,b.vendor_id 
-                  FROM jo_bill_mostly a with(nolock)
-                  INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
-                  WHERE a.within_code='{0}' AND a.mo_id='{1}' AND b.wp_id='{2}' AND b.goods_id='{3}'
-                 ) aa 
-             INNER JOIN jo_bill_goods_details bb ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver AND aa.next_wp_id=bb.wp_id
-             INNER JOIN jo_bill_materiel_details cc ON bb.within_code=cc.within_code AND bb.id=cc.id AND bb.ver=cc.ver AND bb.sequence_id=cc.upper_sequence AND aa.goods_id=cc.materiel_id
-             INNER JOIN it_goods mm ON bb.within_code=mm.within_code AND bb.goods_id=mm.id
-             LEFT JOIN cd_department dd ON bb.within_code=dd.within_code AND bb.next_wp_id=dd.id", 
-            within_code, mo_id,wp_id,goods_id));
-            DataTable dt = clsConErp.GetDataTable(sb.ToString());
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append(string.Format(
+            //@"Select aa.wp_id,aa.goods_id,aa.next_wp_id,dd.name AS next_dep_name,bb.goods_id AS next_goods_id,bb.sequence_id,
+            //dbo.StrToCode128B(aa.mo_id + Right(CONVERT(varchar(3),(100+aa.ver)),2) + substring(bb.sequence_id,3,2)) AS barcode_next,
+            //mm.name AS next_goods_name,mm.do_color AS next_do_color,aa.vendor_id AS next_vendor_id
+            //FROM (SELECT a.within_code,a.id,a.ver,a.mo_id,b.sequence_id,b.wp_id,b.next_wp_id,b.goods_id,b.vendor_id 
+            //      FROM jo_bill_mostly a with(nolock)
+            //      INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+            //      WHERE a.within_code='{0}' AND a.mo_id='{1}' AND b.wp_id='{2}' AND b.goods_id='{3}'
+            //     ) aa 
+            // INNER JOIN jo_bill_goods_details bb ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver AND aa.next_wp_id=bb.wp_id
+            // INNER JOIN jo_bill_materiel_details cc ON bb.within_code=cc.within_code AND bb.id=cc.id AND bb.ver=cc.ver AND bb.sequence_id=cc.upper_sequence AND aa.goods_id=cc.materiel_id
+            // INNER JOIN it_goods mm ON bb.within_code=mm.within_code AND bb.goods_id=mm.id
+            // LEFT JOIN cd_department dd ON bb.within_code=dd.within_code AND bb.next_wp_id=dd.id", 
+            //within_code, mo_id,wp_id,goods_id));
+            //DataTable dt = clsConErp.GetDataTable(sb.ToString());
+            SqlParameter[] paras = new SqlParameter[] {
+               new SqlParameter("@mo_id",mo_id),
+               new SqlParameter("@goods_id",goods_id),
+               new SqlParameter("@wp_id",wp_id),
+            };
+            //DataTable dtProcess = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_get_next_dept_flow", paras); //old code 2024/03/14 Cancel 
+            DataTable dt = clsConErp.ExecuteProcedureReturnTable("z_get_next_dept_flow_op", paras); //2024/03/14 ADD
+            
             return dt;
         }
 
@@ -1165,6 +1173,7 @@ namespace cf01.CLS
             dtCard.Columns.Add("spec", typeof(string));
             dtCard.Columns.Add("flag_hold", typeof(string));
             dtCard.Columns.Add("shading_color", typeof(string));
+            dtCard.Columns.Add("qc_dept_next", typeof(string));
             return dtCard;
         }
     }
