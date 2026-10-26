@@ -101,7 +101,7 @@ namespace cf01.CLS
         public static DataSet LoadGoodsData(string mo_id,string goods_id)
         {
             string strSql = "";
-            strSql = " Select a.goods_id,b.name AS goods_cname,(a.order_qty*c.rate) AS order_qty" +
+            strSql = " Select a.goods_id,b.name AS goods_cname,Convert(Int,(a.order_qty*c.rate)) AS order_qty" +
                 " From so_order_details a " +
                 " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
                 " Left Join it_coding c On a.within_code=c.within_code And a.goods_unit=c.unit_code " +
@@ -132,17 +132,24 @@ namespace cf01.CLS
         public static DataSet LoadGoodsDetails(string ID)
         {
             string strSql = "";
-            strSql = " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,a.transfer_amount,a.sec_qty" +
-                ",a.unit,a.sec_unit,a.package_num,a.position_first,a.nwt,a.gross_wt,a.location_id,a.lot_no,a.remark" +
+            strSql = " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,Convert(INT,a.transfer_amount) AS transfer_amount,a.sec_qty" +
+                ",a.unit,a.sec_unit,a.package_num,a.position_first,a.nwt,a.gross_wt,a.location_id,a.lot_no,a.remark,a.state" +
                 " From st_transfer_detail a " +
                 " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
                 " Where a.within_code='" + within_code + "' And a.id='" + ID + "'";
-            strSql += " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,a.con_qty,a.sec_qty" +
-                ",a.unit_code AS goods_unit,a.sec_unit,a.location,a.lot_no,0 AS st_qty,0.00 AS st_weg" +
+            strSql += " Select a.id,a.sequence_id,a.mo_id,a.goods_id,b.name AS goods_cname,Convert(INT,a.con_qty) AS con_qty,a.sec_qty" +
+                ",a.unit_code AS goods_unit,a.sec_unit,a.location,Rtrim(a.lot_no) AS lot_no,0 AS st_qty,0.00 AS st_weg" +
                 " From st_transfer_detail_part a " +
                 " Left Join it_goods b On a.within_code=b.within_code And a.goods_id=b.id " +
                 " Where a.within_code='" + within_code + "' And a.id='" + ID + "'";
             DataSet dsTran = clsGeoCon.ExcuteSqlReturnDataSet(strSql, "");
+            if(dsTran.Tables[0].Rows.Count>0)
+            {
+                foreach (DataRow r in dsTran.Tables[0].Rows)
+                {
+                    r["state"] = "0";
+                }
+            }
             return dsTran;
         }
         //public static DataTable LoadGoodsDetailsPart(string ID,string sequence_id)

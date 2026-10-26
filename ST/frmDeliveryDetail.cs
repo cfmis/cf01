@@ -14,6 +14,7 @@ namespace cf01.ST
     public partial class frmDeliveryDetail : Form
     {
         private int BarCodeMinLength = 10;
+        private DataTable dtMostly = new DataTable();
         private DataTable dtTranDetails = new DataTable();
         private DataTable dtTranDetailsPart = new DataTable();
         private clsDataTableTextBoxBinder binder;
@@ -156,7 +157,8 @@ namespace cf01.ST
                 {txtgwt,"gross_wt" },
                 {txtpack_num,"package_num" },
                 {txtbox_num,"position_first" },
-                {txtremark,"remark" }
+                {txtremark,"remark" },
+                {txtedit_state,"state" }
             };
 
             // 创建绑定器
@@ -169,6 +171,8 @@ namespace cf01.ST
         {
             if (xtraTabControl1.SelectedTabPageIndex == 0)
                 SaveMostly();
+            else
+                SaveDetails();
 
         }
         private void SaveMostly()
@@ -217,12 +221,12 @@ namespace cf01.ST
         }
         private void LoadMostlyData()
         {
-            DataTable dtMostly = clsDeliveryDetail.LoadMostlyData(txtDocId.Text);
-            FillMostlyData(dtMostly);
+            dtMostly = clsDeliveryDetail.LoadMostlyData(txtDocId.Text);
+            FillMostlyData();
         }
-        private void FillMostlyData(DataTable dtMostly)
+        private void FillMostlyData()
         {
-            if(dtMostly.Rows.Count>0)
+            if (dtMostly.Rows.Count > 0)
             {
                 DataRow drMostly = dtMostly.Rows[0];
                 txtDocId.Text = drMostly["id"].ToString();
@@ -236,8 +240,69 @@ namespace cf01.ST
                 txtCheckUser.Text = drMostly["check_by"].ToString();
                 txtState.Text = drMostly["state"].ToString();
             }
+            else
+                CleanMostlyValue();
         }
-
+        private void CleanMostlyValue()
+        {
+            txtDocId.Text = "";
+            cmbIdType.Text = "";
+            cmbMoGroup.Text = "";
+            txtCreateDate.Text = "";
+            txtCreateUser.Text = "";
+            txtUpdateDate.Text = "";
+            txtUpdateUser.Text = "";
+            txtCheckDate.Text = "";
+            txtCheckUser.Text = "";
+            txtState.Text = "";
+        }
+        private void SaveDetails()
+        {
+            foreach (DataRow r in dtTranDetails.Rows)
+            {
+                if(r["state"].ToString().Trim() == "1")
+                {
+                    SaveDetailsProcess(r);
+                }
+            }
+        }
+        private void SaveDetailsProcess(DataRow r)
+        {
+            mdlDeliveryDetails objDetails = new mdlDeliveryDetails();
+            objDetails.ID = r["id"].ToString().Trim();
+            objDetails.sequence_id = r["sequence_id"].ToString().Trim();
+            objDetails.mo_id = r["mo_id"].ToString().Trim();
+            objDetails.goods_id = r["goods_id"].ToString().Trim();
+            objDetails.transfer_amount = Convert.ToInt32(r["transfer_amount"]);
+            objDetails.sec_qty = Convert.ToDecimal(r["sec_qty"]);
+            objDetails.nwt = Convert.ToDecimal(r["nwt"]);
+            objDetails.gross_wt = Convert.ToDecimal(r["gross_wt"]);
+            objDetails.unit = r["unit"].ToString().Trim();
+            objDetails.sec_unit = r["sec_unit"].ToString().Trim();
+            objDetails.package_num = r["package_num"].ToString().Trim();
+            objDetails.position_first = r["position_first"].ToString().Trim();
+            objDetails.location_id = r["location_id"].ToString().Trim();
+            objDetails.lot_no = r["lot_no"].ToString().Trim();
+            objDetails.remark = r["remark"].ToString().Trim();
+            objDetails.state = r["state"].ToString().Trim();
+            List<mdlDeliveryDetailsPart> lsPart = new List<mdlDeliveryDetailsPart>();
+            DataRow[] drParts = dtTranDetailsPart.Select("mo_id = '" + objDetails.mo_id + "'");
+            foreach (DataRow drPart in drParts)
+            {
+                mdlDeliveryDetailsPart objPart = new mdlDeliveryDetailsPart();
+                objPart.ID = objDetails.ID;
+                objPart.upper_sequence = objDetails.sequence_id;
+                objPart.sequence_id = drPart["sequence_id"].ToString().Trim();
+                objPart.mo_id = drPart["mo_id"].ToString().Trim();
+                objPart.goods_id = drPart["goods_id"].ToString().Trim();
+                objPart.unit_code = drPart["goods_unit"].ToString().Trim();
+                objPart.sec_unit = drPart["sec_unit"].ToString().Trim();
+                objPart.location = drPart["location"].ToString().Trim();
+                objPart.lot_no = drPart["lot_no"].ToString().Trim();
+                objPart.con_qty = Convert.ToDecimal(drPart["con_qty"]);
+                objPart.sec_qty = Convert.ToDecimal(drPart["sec_qty"]);
+            }
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -260,6 +325,12 @@ namespace cf01.ST
             //    barcode = txtBarCode.Text.Substring(0, 13);
             //else
             //    barcode = txtBarCode.Text.Trim();
+            if (dtMostly.Rows.Count == 0)
+            {
+                MessageBox.Show("主表記錄不存在!");
+                xtraTabControl1.SelectedTabPageIndex = 0;
+                return;
+            }
             string barcode = org_barcode.Length > 13 ? org_barcode.Substring(0, 13) : org_barcode;
             DataTable dtBarCode = clsPublicOfPad.BarCodeToItem(barcode);
             txtBarCode.Text = "";
@@ -268,9 +339,22 @@ namespace cf01.ST
                 string barcode_type = dtBarCode.Rows[0]["barcode_type"].ToString();
                 if (barcode_type == "2")//從生產計劃中提取的條形碼
                 {
-                    txtgoods_id.Text = dtBarCode.Rows[0]["goods_id"].ToString();
-                    txtmo_id.Text = dtBarCode.Rows[0]["mo_id"].ToString();
-                    LoadGoodsData();
+                    string mo_id = dtBarCode.Rows[0]["mo_id"].ToString();
+                    string goods_id = dtBarCode.Rows[0]["goods_id"].ToString();
+                    if (!CheckExistMo(mo_id, goods_id))
+                    {
+                        if (CheckAddNewFlag())
+                            AddNewItem();
+
+                        txtmo_id.Text = mo_id;
+                        txtgoods_id.Text = goods_id;
+                        InsertGoodsData();
+                    }
+                    else
+                    {
+                        txtBarCode.Focus();
+                        return;
+                    }
                 }
                 else
                 {
@@ -285,9 +369,28 @@ namespace cf01.ST
                 }
 
             }
+            txtnwt.Focus();
+        }
+        private bool CheckAddNewFlag()
+        {
+            bool new_flag = false;
+            if (dtTranDetails.Rows.Count==0 || dtTranDetails.Rows[dtTranDetails.Rows.Count - 1]["mo_id"].ToString() != "")
+                new_flag = true;
+            return new_flag;
+        }
+        private bool CheckExistMo(string mo_id,string goods_id)
+        {
+            bool exists = dtTranDetails.Select("mo_id = '" + mo_id + "' And goods_id='" + goods_id + "'").Length > 0;
+            if (exists)
+            {
+                // 存在时执行逻辑
+                MessageBox.Show("不能重複加入制單編號!");
+            }
+            return exists;
+
         }
 
-        private void LoadGoodsData()
+        private void InsertGoodsData()
         {
             CleanTextPart();
             string mo_id = txtmo_id.Text;
@@ -297,6 +400,9 @@ namespace cf01.ST
             {
                 DataRow drOc = dsOc.Tables[0].Rows[0];
                 txtgoods_cname.Text = drOc["goods_cname"].ToString();
+                txttran_qty.Text = drOc["order_qty"].ToString();
+                txtunit.Text = "PCS";
+                txtunit1.Text = "KG";
             }
             if (dsOc.Tables[1].Rows.Count > 0)
             {
@@ -317,13 +423,18 @@ namespace cf01.ST
                 }
             }
             ShowTranDetailsPart(mo_id);
-
+            CountTranWeg();
         }
         private void ShowTranDetailsPart(string mo_id)
         {
-            DataView dv = new DataView(dtTranDetailsPart);
-            dv.RowFilter = "mo_id='" + mo_id + "'";   // 过滤条件
-            gcTranDetailsPart.DataSource = dv;
+            if (dtTranDetailsPart.Rows.Count > 0)
+            {
+                DataView dv = new DataView(dtTranDetailsPart);
+                dv.RowFilter = "mo_id='" + mo_id + "'";   // 过滤条件
+                gcTranDetailsPart.DataSource = dv;
+            }
+            else
+                gcTranDetailsPart.DataSource = dtTranDetailsPart;
         }
         private void CleanTextPart()
         {
@@ -345,11 +456,15 @@ namespace cf01.ST
             DataSet dsTran=clsDeliveryDetail.LoadGoodsDetails(ID);
             dtTranDetails = dsTran.Tables[0];
             gcTranDetails.DataSource = dtTranDetails;
+            dtTranDetailsPart= dsTran.Tables[1];
+            if (dtTranDetails.Rows.Count > 0)
+                ShowTranDetailsPart(dtTranDetails.Rows[0]["mo_id"].ToString());
         }
 
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
-            LoadGoodsDetails();
+            if (xtraTabControl1.SelectedTabPageIndex == 1)
+                LoadGoodsDetails();
         }
         private void FillTranDetails()
         {
@@ -358,13 +473,17 @@ namespace cf01.ST
 
         private void btnNewItem_Click(object sender, EventArgs e)
         {
+            AddNewItem();
+        }
+        private void AddNewItem()
+        {
             DataRow newRow = dtTranDetails.NewRow();
-            newRow["unit"] = "PCS";
-            newRow["sec_unit"] = "KG";
+            //newRow["unit"] = "PCS";
+            //newRow["sec_unit"] = "KG";
             // 把新行加入 DataTable
             dtTranDetails.Rows.Add(newRow);
             gvTranDetails.FocusedRowHandle = gvTranDetails.RowCount - 1;
-            txttran_qty.Focus();
+            txtBarCode.Focus();
 
             //binder.AddNewRow(new Dictionary<string, object>
             //{
@@ -390,10 +509,16 @@ namespace cf01.ST
         {
             int rowIndex = gvTranDetails.FocusedRowHandle;
             string mo_id = dtTranDetails.Rows[rowIndex]["mo_id"].ToString();
+            //txtedit_state.Text = "0";
             ShowTranDetailsPart(mo_id);
         }
 
         private void txttran_qty_Leave(object sender, EventArgs e)
+        {
+            CountTranWeg();
+
+        }
+        private void CountTranWeg()
         {
             if (txttran_qty.Text.ToString() == "")
                 return;
@@ -418,17 +543,80 @@ namespace cf01.ST
 
             }
             txttran_weg.Text = tot_weg.ToString();
-
         }
 
-        private void txttran_qty_KeyDown(object sender, KeyEventArgs e)
+        private void btnImputExcel_Click(object sender, EventArgs e)
         {
-            HandleEnterKey((TextBox)sender, e);
+            CleanMostlyValue();
         }
 
-        private void txtnwt_KeyDown(object sender, KeyEventArgs e)
+        private void txttran_qty_TextChanged(object sender, EventArgs e)
         {
-            HandleEnterKey((TextBox)sender, e);
+            SetEditFlag();
         }
+        private void SetEditFlag()
+        {
+            txtedit_state.Text = "1";
+        }
+
+        private void txtmo_id_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtgoods_id_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtnwt_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtgwt_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txttran_weg_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtpack_num_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtbox_num_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtunit_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtunit1_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        private void txtremark_TextChanged(object sender, EventArgs e)
+        {
+            SetEditFlag();
+        }
+
+        //private void txttran_qty_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    HandleEnterKey((TextBox)sender, e);
+        //}
+
+        //private void txtnwt_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    HandleEnterKey((TextBox)sender, e);
+        //}
     }
 }

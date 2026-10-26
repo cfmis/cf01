@@ -322,6 +322,9 @@
     <Compile Include="CLS\clsValidRule.cs" />
     <Compile Include="CLS\clsVendor.cs" />
     <Compile Include="CLS\clsZipperOrder.cs" />
+    <Compile Include="CLS\EnterNextTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="CLS\IntegerTextBox.cs">
       <SubType>Component</SubType>
