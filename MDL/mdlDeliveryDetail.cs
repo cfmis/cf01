@@ -22,6 +22,7 @@ namespace cf01.MDL
         public string sequence_id;
         public string mo_id;
         public string goods_id;
+        public string goods_name;
         public decimal transfer_amount;
         public decimal sec_qty;
         public decimal nwt;
@@ -42,6 +43,7 @@ namespace cf01.MDL
         public string sequence_id;
         public string mo_id;
         public string goods_id;
+        public string goods_name;
         public decimal con_qty;
         public decimal sec_qty;
         public string unit_code;

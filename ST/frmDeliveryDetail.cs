@@ -270,7 +270,7 @@ namespace cf01.ST
         private void SaveDetailsProcess(DataRow r)
         {
             mdlDeliveryDetails objDetails = new mdlDeliveryDetails();
-            objDetails.ID = r["id"].ToString().Trim();
+            objDetails.ID = txtDocId.Text.Trim();
             objDetails.sequence_id = r["sequence_id"].ToString().Trim();
             objDetails.mo_id = r["mo_id"].ToString().Trim();
             objDetails.goods_id = r["goods_id"].ToString().Trim();
@@ -302,7 +302,9 @@ namespace cf01.ST
                 objPart.lot_no = drPart["lot_no"].ToString().Trim();
                 objPart.con_qty = Convert.ToDecimal(drPart["con_qty"]);
                 objPart.sec_qty = Convert.ToDecimal(drPart["sec_qty"]);
+                lsPart.Add(objPart);
             }
+            string Result = clsDeliveryDetail.SaveDetails(objDetails, lsPart);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {

@@ -164,5 +164,65 @@ namespace cf01.CLS
         //    DataTable dtTran = clsGeoCon.ExecuteSqlReturnDataTable(strSql);
         //    return dtTran;
         //}
+
+        public static string SaveDetails(mdlDeliveryDetails objDetails, List<mdlDeliveryDetailsPart> lsPart)
+        {
+            int Result = 0;
+            string strSql = "", strSql1 = "";
+            string sequence_id = "";
+            if (objDetails.sequence_id == "")
+                sequence_id = GenSeq("st_transfer_detail", objDetails.ID);
+            strSql1 += @"INSERT st_transfer_detail 
+                    (within_code,id,sequence_id,goods_id,goods_name,base_unit,unit,rate,inventory_qty,transfer_amount
+                    ,location_id,carton_code,lot_no,average_cost,state,remark,transfers_state,account_weight,sec_unit
+                    ,sec_qty,so_no,so_sequence_id,contract_cid,transfer_out_id,transfer_out_sequence_id,mo_id
+                    ,nwt,gross_wt,package_num,tran_id,tran_sequence_id,shipment_suit,position_first,shelf
+                    ,inventory_sec_qty,servername,move_location_id,move_carton_code)
+                    VALUES 
+                    ('{0}','{1}')";
+            strSql= string.Format(strSql1
+                    , within_code, objDetails.ID);
+            string upper_sequence = sequence_id;
+            for (int i = 0; i < lsPart.Count; i++)
+            {
+                var objPart = lsPart[i];
+                sequence_id = objPart.sequence_id;
+                if (sequence_id == "")
+                {
+                    if (i == 0)
+                        sequence_id = GenSeq("st_transfer_detail_part", objDetails.ID);
+                    else
+                        sequence_id = GenSeqPart(sequence_id);
+                }
+                strSql1 += @"INSERT st_transfer_detail_part 
+                    (within_code,id,upper_sequence,sequence_id,goods_id,goods_name,jo_qty,c_qty,con_qty,unit_code,remark
+                    ,sec_unit,sec_qty,mo_id,signfor,location,carton_code,bom_qty,wastage_percent,base_qty,lot_no
+                    ,mrp_id,obligate_qty,state,inventory_qty,inventory_sec_qty,servername)
+                    VALUES 
+                    ('{0}','{1}','{2}','{3}')";
+                strSql += string.Format(strSql1
+                        , within_code, objDetails.ID, upper_sequence, sequence_id, objPart.goods_id, objPart.goods_name);
+            }
+            return "";
+        }
+        private static string GenSeq(string tb_name, string ID)
+        {
+            string seq_id = "";
+            string strSql = "";
+            strSql = " Select Max(sequence_id) AS sequence_id From " + remote_db + tb_name +
+                " Where within_code='" + within_code + "' And id='" + ID + "'";
+            DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows.Count > 0 && dtSeq.Rows[0]["sequence_id"].ToString() != "")
+                seq_id = (Convert.ToInt32(dtSeq.Rows[0]["sequence_id"].ToString().Substring(0, 4)) + 1).ToString().PadLeft(4, '0') + "h";
+            else
+                seq_id = "0001h";
+            return seq_id;
+        }
+        private static string GenSeqPart(string sequence_id)
+        {
+            string seq_id = "";
+            seq_id = (Convert.ToInt32(sequence_id.Substring(0, 4)) + 1).ToString().PadLeft(4, '0') + "h";
+            return seq_id;
+        }
     }
 }
