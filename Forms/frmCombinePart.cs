@@ -387,7 +387,7 @@ namespace cf01.Forms
                 result = clsCombinePart.Approve(mdlMostly, DBUtility._user_id, "1", "C");
                 if (result.Substring(0, 2) == "00")
                 {
-                    MessageBox.Show($"【{result}】批準成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"【{txtHand_id.Text}】批準成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 FindData();
