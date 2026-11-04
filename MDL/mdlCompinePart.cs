@@ -21,7 +21,7 @@ namespace cf01.MDL
         public string origin; //1
         public string bill_type_no; //'01'
         public string servername; //'hkserver.cferp.dbo'
-        public string turn_type; //'D'
+        public string turn_type; //'C'
     }
 
     public class mdlCompinePartDetails
@@ -29,6 +29,7 @@ namespace cf01.MDL
         public string id;
         public string sequence_id;
         public string goods_id;
+        public string goods_name;
         public string base_unit; //'PCS'
         public string unit; //'PCS'
         public decimal rate; //1.00
@@ -40,7 +41,7 @@ namespace cf01.MDL
         public string inventory_receipt;
         public string ir_code;
         public string ir_lot_no;
-        public string average_cost; //0
+        public decimal average_cost; //0
         public string state; //0
         public string transfers_state; //0
         public decimal ib_weight; //0.00

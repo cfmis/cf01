@@ -223,8 +223,15 @@ namespace cf01.Forms
                 MessageBox.Show("注意，至少要勾選一筆分單頁數的數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
             for (int i = 0; i < dst.Tables[0].Rows.Count; i++)
             {
+                if (int.Parse(dst.Tables[0].Rows[i]["cnt"].ToString()) > 1)
+                {
+                    MessageBox.Show($"注意，[{dst.Tables[0].Rows[i]["goods_id"].ToString()}]庫存有多個批號,請用GEO系統轉批號功能將多個批號轉到一個批號中！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgvMaster.Focus();
+                    return;
+                }
                 if (int.Parse(dst.Tables[0].Rows[i]["qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["qty_select"].ToString()) ||
                     int.Parse(dst.Tables[0].Rows[i]["sec_qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["sec_qty_select"].ToString()))
                 {
@@ -307,17 +314,78 @@ namespace cf01.Forms
 
         private void BTNSAVE_Click(object sender, EventArgs e)
         {
-            //mdlCompinePart mdlMostly = new mdlCompinePart();
             if (dtTemp.Rows.Count == 0)
             {
-                MessageBox.Show("請首先生成臨時數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("請首先按添加按鈕生成臨時數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            List<mdlCompinePartDetails> lst = new List<mdlCompinePartDetails>();
+            mdlCompinePart mdlMostly = new mdlCompinePart();
+            mdlMostly.id = "";
+            mdlMostly.inventory_date = clsUtility.GetCurrentDateTime().Substring(0,10);
+            mdlMostly.ii_location = ""; //轉批號D:.ii_location = "601"
+            mdlMostly.state = "0";
+            mdlMostly.transfers_state = "0";
+            mdlMostly.update_count = "1";
+            mdlMostly.create_by = DBUtility._user_id;
+            mdlMostly.create_date = clsUtility.GetCurrentDateTime();
+            mdlMostly.update_by = mdlMostly.create_by;
+            mdlMostly.update_date = mdlMostly.create_date;
+            mdlMostly.department_id = "601"; //轉批號DD:.department_id = ""
+            mdlMostly.origin = "1";
+            mdlMostly.bill_type_no = "01";
+            mdlMostly.servername = "hkserver.cferp.dbo";
+            mdlMostly.turn_type = "C";  //轉批號DD:.turn_type = "D"
+
+
+            int index = 0;
+            List<mdlCompinePartDetails> lstDetails = new List<mdlCompinePartDetails>();
             for (int i=0;i<dtTemp.Rows.Count;i++)
             {
+                index += 1;
                 mdlCompinePartDetails mdlDetails = new mdlCompinePartDetails();
-                mdlDetails.mo_id = dtTemp.Rows[i]["mo_id"].ToString();
+                mdlDetails.id = "";
+                mdlDetails.sequence_id = clsPublic.GetSequenceID(index); //序號  "0001h";
+                mdlDetails.goods_id = dtTemp.Rows[i]["goods_id"].ToString();
+                mdlDetails.base_unit = "PCS";
+                mdlDetails.unit = "PCS";
+                mdlDetails.rate = 1;
+                mdlDetails.ib_qty = 0; //轉批號DD:.ib_qty = decimal.Parse(dtTemp.Rows[i]["order_qty"].ToString());
+                mdlDetails.i_amount = decimal.Parse(dtTemp.Rows[i]["order_qty"].ToString());//D:i_amount = decimal.Parse(dtTemp.Rows[i]["sec_qty_select"].ToString());
+                mdlDetails.mo_id = dtTemp.Rows[i]["mo_id"].ToString();  //分單頁數
+                mdlDetails.obligate_mo_id = dtTemp.Rows[i]["n_mo_id"].ToString(); //主單頁數
+                mdlDetails.inventory_issuance = "601";
+                mdlDetails.ii_code = "601";
+                mdlDetails.ii_lot_no = dtTemp.Rows[i]["lot_no"].ToString();
+                mdlDetails.inventory_receipt = "601";
+                mdlDetails.ir_code = "601";
+                mdlDetails.ir_lot_no = dtTemp.Rows[i]["lot_no"].ToString(); ;
+                mdlDetails.average_cost = 0; 
+                mdlDetails.state = "0";
+                mdlDetails.transfers_state = "0";
+                mdlDetails.ib_weight= 0; //轉批號DD:ib_weight= decimal.Parse(dtTemp.Rows[i]["sec_qty_select"].ToString());
+                mdlDetails.i_weight = decimal.Parse(dtTemp.Rows[i]["sec_qty_select"].ToString()); ;//轉批號DD:.i_weight = mdlDetails.ib_weight;
+                mdlDetails.only_detail = "1";
+                mdlDetails.goods_id_new = ""; //轉批號DD:.goods_id_new = mdlDetails.goods_id;
+                mdlDetails.goods_name_new = ""; //轉批號DD:.goods_name_new = dtTemp.Rows[i]["goods_name"].ToString();
+                mdlDetails.sec_unit = ""; //轉批號DD:.sec_unit = "KG";
+                lstDetails.Add(mdlDetails);
+            }
+
+            string result = clsCombinePart.Save(mdlMostly, lstDetails);
+            if (result != "")
+            {
+                MessageBox.Show($"生成R單轉正單【{result}】操作成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //執行自動批準功能
+                mdlMostly.id = result;
+                result =  clsCombinePart.Approve(mdlMostly, DBUtility._user_id, "1", "C");
+                if(result.Substring(0,2) == "00")
+                {
+                    MessageBox.Show($"【{result}】批準成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("生成R單轉正單操作失敗！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
