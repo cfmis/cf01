@@ -7,6 +7,16 @@ public class IntegerTextBox : TextBox
     public bool AllowNegative { get; set; } = false;
     public bool AllowZero { get; set; } = true;
 
+    /// <summary>
+    /// 是否启用默认“回车跳下一个”行为
+    /// </summary>
+    public bool EnableEnterAsTab { get; set; } = true;
+
+    /// <summary>
+    /// 当按下回车时触发的自定义事件（可选）
+    /// </summary>
+    public event EventHandler EnterKeyPressed;
+
     private string GetPattern()
     {
         if (AllowNegative)
@@ -58,6 +68,27 @@ public class IntegerTextBox : TextBox
 
                 this.Text = filtered;
                 this.SelectionStart = this.Text.Length;
+            }
+        }
+    }
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.KeyCode == Keys.Enter)
+        {
+            e.SuppressKeyPress = true;
+
+            if (EnterKeyPressed != null)
+            {
+                // 如果用户绑定了事件，就执行事件
+                EnterKeyPressed(this, EventArgs.Empty);
+            }
+            else if (EnableEnterAsTab)
+            {
+                // 默认行为：跳到下一个控件
+                this.Parent.SelectNextControl(this, true, true, true, true);
             }
         }
     }

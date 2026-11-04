@@ -139,6 +139,14 @@
             this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtedit_state = new EnterNextTextBox();
+            this.txtgoods_cname = new EnterNextTextBox();
+            this.txtremark = new EnterNextTextBox();
+            this.txtunit1 = new EnterNextTextBox();
+            this.txtunit = new EnterNextTextBox();
+            this.txtbox_num = new EnterNextTextBox();
+            this.txtgoods_id = new EnterNextTextBox();
+            this.txtmo_id = new EnterNextTextBox();
             this.txtpack_num = new IntegerTextBox();
             this.txttran_qty = new IntegerTextBox();
             this.txtgwt = new NumericTextBox();
@@ -147,8 +155,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtgoods_id = new System.Windows.Forms.TextBox();
-            this.txtmo_id = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -157,11 +163,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtunit1 = new System.Windows.Forms.TextBox();
-            this.txtremark = new System.Windows.Forms.TextBox();
-            this.txtunit = new System.Windows.Forms.TextBox();
-            this.txtbox_num = new System.Windows.Forms.TextBox();
-            this.txtgoods_cname = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBarCode = new System.Windows.Forms.TextBox();
             this.lblBarcode = new System.Windows.Forms.Label();
@@ -266,6 +267,7 @@
             this.btnImputExcel.Size = new System.Drawing.Size(60, 35);
             this.btnImputExcel.Text = "新單";
             this.btnImputExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnImputExcel.Click += new System.EventHandler(this.btnImputExcel_Click);
             // 
             // toolStripSeparator4
             // 
@@ -599,7 +601,7 @@
             gridLevelNode1,
             gridLevelNode2,
             gridLevelNode3});
-            this.gcTranDetails.Location = new System.Drawing.Point(0, 131);
+            this.gcTranDetails.Location = new System.Drawing.Point(0, 125);
             this.gcTranDetails.MainView = this.gvTranDetails;
             this.gcTranDetails.Name = "gcTranDetails";
             this.gcTranDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -622,7 +624,7 @@
             this.luePrdGroup,
             this.repositoryItemTextEdit11,
             this.btnPrdItemFind});
-            this.gcTranDetails.Size = new System.Drawing.Size(1393, 314);
+            this.gcTranDetails.Size = new System.Drawing.Size(1393, 320);
             this.gcTranDetails.TabIndex = 38;
             this.gcTranDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvTranDetails});
@@ -709,7 +711,7 @@
             this.gcltran_qty.Name = "gcltran_qty";
             this.gcltran_qty.Visible = true;
             this.gcltran_qty.VisibleIndex = 4;
-            this.gcltran_qty.Width = 84;
+            this.gcltran_qty.Width = 90;
             // 
             // gclunit
             // 
@@ -730,7 +732,6 @@
             this.gcltran_weg.Name = "gcltran_weg";
             this.gcltran_weg.Visible = true;
             this.gcltran_weg.VisibleIndex = 6;
-            this.gcltran_weg.Width = 68;
             // 
             // gclsec_unit
             // 
@@ -1061,8 +1062,6 @@
             this.gridColumn12.FieldName = "con_qty";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.ReadOnly = true;
-            this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "pl_qty", "{0:#,##0}")});
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 3;
             this.gridColumn12.Width = 85;
@@ -1077,7 +1076,7 @@
             this.gridColumn13.FieldName = "sec_qty";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "schedule_qty", "{0:#,##0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "sec_qty", "{0:#,##0.00}")});
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 4;
             this.gridColumn13.Width = 83;
@@ -1280,6 +1279,14 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtedit_state);
+            this.panelControl1.Controls.Add(this.txtgoods_cname);
+            this.panelControl1.Controls.Add(this.txtremark);
+            this.panelControl1.Controls.Add(this.txtunit1);
+            this.panelControl1.Controls.Add(this.txtunit);
+            this.panelControl1.Controls.Add(this.txtbox_num);
+            this.panelControl1.Controls.Add(this.txtgoods_id);
+            this.panelControl1.Controls.Add(this.txtmo_id);
             this.panelControl1.Controls.Add(this.txtpack_num);
             this.panelControl1.Controls.Add(this.txttran_qty);
             this.panelControl1.Controls.Add(this.txtgwt);
@@ -1288,8 +1295,6 @@
             this.panelControl1.Controls.Add(this.label14);
             this.panelControl1.Controls.Add(this.label12);
             this.panelControl1.Controls.Add(this.label11);
-            this.panelControl1.Controls.Add(this.txtgoods_id);
-            this.panelControl1.Controls.Add(this.txtmo_id);
             this.panelControl1.Controls.Add(this.label22);
             this.panelControl1.Controls.Add(this.label20);
             this.panelControl1.Controls.Add(this.label17);
@@ -1298,71 +1303,153 @@
             this.panelControl1.Controls.Add(this.label16);
             this.panelControl1.Controls.Add(this.label19);
             this.panelControl1.Controls.Add(this.label18);
-            this.panelControl1.Controls.Add(this.txtunit1);
-            this.panelControl1.Controls.Add(this.txtremark);
-            this.panelControl1.Controls.Add(this.txtunit);
-            this.panelControl1.Controls.Add(this.txtbox_num);
-            this.panelControl1.Controls.Add(this.txtgoods_cname);
             this.panelControl1.Controls.Add(this.label13);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1393, 131);
+            this.panelControl1.Size = new System.Drawing.Size(1393, 125);
             this.panelControl1.TabIndex = 0;
             this.panelControl1.Tag = "";
+            // 
+            // txtedit_state
+            // 
+            this.txtedit_state.AutoUpperCase = true;
+            this.txtedit_state.EnableEnterAsTab = true;
+            this.txtedit_state.Location = new System.Drawing.Point(963, 36);
+            this.txtedit_state.Name = "txtedit_state";
+            this.txtedit_state.Size = new System.Drawing.Size(100, 22);
+            this.txtedit_state.TabIndex = 26;
+            // 
+            // txtgoods_cname
+            // 
+            this.txtgoods_cname.AutoUpperCase = true;
+            this.txtgoods_cname.EnableEnterAsTab = true;
+            this.txtgoods_cname.Location = new System.Drawing.Point(583, 8);
+            this.txtgoods_cname.Name = "txtgoods_cname";
+            this.txtgoods_cname.ReadOnly = true;
+            this.txtgoods_cname.Size = new System.Drawing.Size(340, 22);
+            this.txtgoods_cname.TabIndex = 24;
+            // 
+            // txtremark
+            // 
+            this.txtremark.AutoUpperCase = true;
+            this.txtremark.EnableEnterAsTab = true;
+            this.txtremark.Location = new System.Drawing.Point(92, 92);
+            this.txtremark.Name = "txtremark";
+            this.txtremark.Size = new System.Drawing.Size(409, 22);
+            this.txtremark.TabIndex = 9;
+            this.txtremark.TextChanged += new System.EventHandler(this.txtremark_TextChanged);
+            // 
+            // txtunit1
+            // 
+            this.txtunit1.AutoUpperCase = true;
+            this.txtunit1.EnableEnterAsTab = true;
+            this.txtunit1.Location = new System.Drawing.Point(793, 64);
+            this.txtunit1.Name = "txtunit1";
+            this.txtunit1.Size = new System.Drawing.Size(130, 22);
+            this.txtunit1.TabIndex = 8;
+            this.txtunit1.TextChanged += new System.EventHandler(this.txtunit1_TextChanged);
+            // 
+            // txtunit
+            // 
+            this.txtunit.AutoUpperCase = true;
+            this.txtunit.EnableEnterAsTab = true;
+            this.txtunit.Location = new System.Drawing.Point(583, 64);
+            this.txtunit.Name = "txtunit";
+            this.txtunit.Size = new System.Drawing.Size(130, 22);
+            this.txtunit.TabIndex = 7;
+            this.txtunit.TextChanged += new System.EventHandler(this.txtunit_TextChanged);
+            // 
+            // txtbox_num
+            // 
+            this.txtbox_num.AutoUpperCase = true;
+            this.txtbox_num.EnableEnterAsTab = true;
+            this.txtbox_num.Location = new System.Drawing.Point(335, 64);
+            this.txtbox_num.Name = "txtbox_num";
+            this.txtbox_num.Size = new System.Drawing.Size(166, 22);
+            this.txtbox_num.TabIndex = 6;
+            this.txtbox_num.TextChanged += new System.EventHandler(this.txtbox_num_TextChanged);
+            // 
+            // txtgoods_id
+            // 
+            this.txtgoods_id.AutoUpperCase = true;
+            this.txtgoods_id.EnableEnterAsTab = true;
+            this.txtgoods_id.Location = new System.Drawing.Point(335, 8);
+            this.txtgoods_id.Name = "txtgoods_id";
+            this.txtgoods_id.Size = new System.Drawing.Size(166, 22);
+            this.txtgoods_id.TabIndex = 1;
+            this.txtgoods_id.TextChanged += new System.EventHandler(this.txtgoods_id_TextChanged);
+            // 
+            // txtmo_id
+            // 
+            this.txtmo_id.AutoUpperCase = true;
+            this.txtmo_id.EnableEnterAsTab = true;
+            this.txtmo_id.Location = new System.Drawing.Point(92, 8);
+            this.txtmo_id.Name = "txtmo_id";
+            this.txtmo_id.Size = new System.Drawing.Size(166, 22);
+            this.txtmo_id.TabIndex = 0;
+            this.txtmo_id.TextChanged += new System.EventHandler(this.txtmo_id_TextChanged);
             // 
             // txtpack_num
             // 
             this.txtpack_num.AllowNegative = false;
             this.txtpack_num.AllowZero = true;
-            this.txtpack_num.Location = new System.Drawing.Point(92, 66);
+            this.txtpack_num.EnableEnterAsTab = true;
+            this.txtpack_num.Location = new System.Drawing.Point(92, 64);
             this.txtpack_num.Name = "txtpack_num";
             this.txtpack_num.Size = new System.Drawing.Size(166, 22);
             this.txtpack_num.TabIndex = 5;
+            this.txtpack_num.TextChanged += new System.EventHandler(this.txtpack_num_TextChanged);
             // 
             // txttran_qty
             // 
             this.txttran_qty.AllowNegative = false;
             this.txttran_qty.AllowZero = true;
-            this.txttran_qty.Location = new System.Drawing.Point(92, 38);
+            this.txttran_qty.EnableEnterAsTab = true;
+            this.txttran_qty.Location = new System.Drawing.Point(92, 36);
             this.txttran_qty.Name = "txttran_qty";
             this.txttran_qty.Size = new System.Drawing.Size(166, 22);
             this.txttran_qty.TabIndex = 2;
-            this.txttran_qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttran_qty_KeyDown);
+            this.txttran_qty.TextChanged += new System.EventHandler(this.txttran_qty_TextChanged);
             this.txttran_qty.Leave += new System.EventHandler(this.txttran_qty_Leave);
             // 
             // txtgwt
             // 
             this.txtgwt.AllowDecimal = true;
             this.txtgwt.AllowNegative = false;
-            this.txtgwt.Location = new System.Drawing.Point(583, 38);
+            this.txtgwt.EnableEnterAsTab = true;
+            this.txtgwt.Location = new System.Drawing.Point(583, 36);
             this.txtgwt.Name = "txtgwt";
             this.txtgwt.Size = new System.Drawing.Size(130, 22);
             this.txtgwt.TabIndex = 4;
+            this.txtgwt.TextChanged += new System.EventHandler(this.txtgwt_TextChanged);
             // 
             // txtnwt
             // 
             this.txtnwt.AllowDecimal = true;
             this.txtnwt.AllowNegative = false;
-            this.txtnwt.Location = new System.Drawing.Point(335, 38);
+            this.txtnwt.EnableEnterAsTab = true;
+            this.txtnwt.Location = new System.Drawing.Point(335, 36);
             this.txtnwt.Name = "txtnwt";
             this.txtnwt.Size = new System.Drawing.Size(166, 22);
             this.txtnwt.TabIndex = 3;
-            this.txtnwt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnwt_KeyDown);
+            this.txtnwt.TextChanged += new System.EventHandler(this.txtnwt_TextChanged);
             // 
             // txttran_weg
             // 
             this.txttran_weg.AllowDecimal = true;
             this.txttran_weg.AllowNegative = false;
-            this.txttran_weg.Location = new System.Drawing.Point(793, 38);
+            this.txttran_weg.EnableEnterAsTab = true;
+            this.txttran_weg.Location = new System.Drawing.Point(793, 36);
             this.txttran_weg.Name = "txttran_weg";
             this.txttran_weg.Size = new System.Drawing.Size(130, 22);
-            this.txttran_weg.TabIndex = 8;
+            this.txttran_weg.TabIndex = 10;
+            this.txttran_weg.TextChanged += new System.EventHandler(this.txttran_weg_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 41);
+            this.label14.Location = new System.Drawing.Point(27, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 14);
             this.label14.TabIndex = 23;
@@ -1386,28 +1473,10 @@
             this.label11.TabIndex = 20;
             this.label11.Text = "制單編號:";
             // 
-            // txtgoods_id
-            // 
-            this.txtgoods_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtgoods_id.Location = new System.Drawing.Point(335, 11);
-            this.txtgoods_id.MaxLength = 18;
-            this.txtgoods_id.Name = "txtgoods_id";
-            this.txtgoods_id.Size = new System.Drawing.Size(166, 22);
-            this.txtgoods_id.TabIndex = 1;
-            // 
-            // txtmo_id
-            // 
-            this.txtmo_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtmo_id.Location = new System.Drawing.Point(92, 11);
-            this.txtmo_id.MaxLength = 9;
-            this.txtmo_id.Name = "txtmo_id";
-            this.txtmo_id.Size = new System.Drawing.Size(166, 22);
-            this.txtmo_id.TabIndex = 0;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(51, 97);
+            this.label22.Location = new System.Drawing.Point(51, 95);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(35, 14);
             this.label22.TabIndex = 23;
@@ -1416,7 +1485,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(518, 69);
+            this.label20.Location = new System.Drawing.Point(518, 67);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(59, 14);
             this.label20.TabIndex = 23;
@@ -1425,7 +1494,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(542, 41);
+            this.label17.Location = new System.Drawing.Point(542, 39);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(35, 14);
             this.label17.TabIndex = 23;
@@ -1434,7 +1503,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(727, 69);
+            this.label21.Location = new System.Drawing.Point(727, 67);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(59, 14);
             this.label21.TabIndex = 23;
@@ -1443,7 +1512,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(751, 41);
+            this.label15.Location = new System.Drawing.Point(751, 39);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(35, 14);
             this.label15.TabIndex = 23;
@@ -1452,7 +1521,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(294, 41);
+            this.label16.Location = new System.Drawing.Point(294, 39);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 14);
             this.label16.TabIndex = 23;
@@ -1461,7 +1530,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(297, 69);
+            this.label19.Location = new System.Drawing.Point(297, 67);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(35, 14);
             this.label19.TabIndex = 23;
@@ -1470,47 +1539,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(51, 69);
+            this.label18.Location = new System.Drawing.Point(51, 67);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(35, 14);
             this.label18.TabIndex = 23;
             this.label18.Text = "包數:";
-            // 
-            // txtunit1
-            // 
-            this.txtunit1.Location = new System.Drawing.Point(793, 66);
-            this.txtunit1.Name = "txtunit1";
-            this.txtunit1.Size = new System.Drawing.Size(130, 22);
-            this.txtunit1.TabIndex = 10;
-            // 
-            // txtremark
-            // 
-            this.txtremark.Location = new System.Drawing.Point(92, 94);
-            this.txtremark.Name = "txtremark";
-            this.txtremark.Size = new System.Drawing.Size(409, 22);
-            this.txtremark.TabIndex = 7;
-            // 
-            // txtunit
-            // 
-            this.txtunit.Location = new System.Drawing.Point(583, 66);
-            this.txtunit.Name = "txtunit";
-            this.txtunit.Size = new System.Drawing.Size(130, 22);
-            this.txtunit.TabIndex = 9;
-            // 
-            // txtbox_num
-            // 
-            this.txtbox_num.Location = new System.Drawing.Point(335, 66);
-            this.txtbox_num.Name = "txtbox_num";
-            this.txtbox_num.Size = new System.Drawing.Size(166, 22);
-            this.txtbox_num.TabIndex = 6;
-            // 
-            // txtgoods_cname
-            // 
-            this.txtgoods_cname.Location = new System.Drawing.Point(583, 11);
-            this.txtgoods_cname.MaxLength = 0;
-            this.txtgoods_cname.Name = "txtgoods_cname";
-            this.txtgoods_cname.Size = new System.Drawing.Size(340, 22);
-            this.txtgoods_cname.TabIndex = 21;
             // 
             // label13
             // 
@@ -1659,11 +1692,8 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.TextBox txtBarCode;
         private System.Windows.Forms.Label lblBarcode;
-        private System.Windows.Forms.TextBox txtgoods_cname;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtgoods_id;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtmo_id;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
@@ -1671,9 +1701,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtunit1;
-        private System.Windows.Forms.TextBox txtunit;
-        private System.Windows.Forms.TextBox txtbox_num;
         private DevExpress.XtraGrid.GridControl gcTranDetails;
         private DevExpress.XtraGrid.Views.Grid.GridView gvTranDetails;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit11;
@@ -1748,7 +1775,14 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtremark;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private EnterNextTextBox txtmo_id;
+        private EnterNextTextBox txtgoods_cname;
+        private EnterNextTextBox txtremark;
+        private EnterNextTextBox txtunit1;
+        private EnterNextTextBox txtunit;
+        private EnterNextTextBox txtbox_num;
+        private EnterNextTextBox txtgoods_id;
+        private EnterNextTextBox txtedit_state;
     }
 }
