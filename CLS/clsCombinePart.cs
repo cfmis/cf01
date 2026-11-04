@@ -18,23 +18,24 @@ namespace cf01.CLS
 
         public static string GetMaxID(string year_month)
         {
-            string result = string.Empty, bill_code = string.Empty;
-            string strSql = string.Format(@"Select pkey,bill_code From sys_bill_max_separate WHERE within_code='0000' AND bill_id='ST09' AND year_month='{1}'", year_month); //ST11
+            string result = string.Empty, bill_code = string.Empty, strPrefix = "D";
+            string strSql = string.Format(@"Select pkey,bill_code From sys_bill_max_separate WHERE within_code='0000' AND bill_id='ST09' AND year_month='{0}'", year_month); //ST11
             DataTable dtBillMax = clsErp.GetDataTable(strSql);
             if (dtBillMax.Rows.Count > 0)
             {
-                bill_code = "DAC" + year_month + (int.Parse(dtBillMax.Rows[0]["bill_code"].ToString().Trim().Substring(6, 4)) + 1).ToString().PadLeft(4, '0'); //ST09:AC26020004;//ST11:AD26100008
+                bill_code = "AC" + year_month + (int.Parse(dtBillMax.Rows[0]["bill_code"].ToString().Trim().Substring(6, 4)) + 1).ToString().PadLeft(4, '0'); //ST09:AC26020004;//ST11:AD26100008
                 int p_key = int.Parse(dtBillMax.Rows[0]["pkey"].ToString());
                 strSql = string.Format(@"Update sys_bill_max_separate With(rowlock) SET bill_code='{0}' WHERE pkey={1}", bill_code, p_key);
             }
             else
             {
-                bill_code = "DAC" + year_month + "0001";
+                bill_code = "AC" + year_month + "0001";
                 strSql = string.Format(
                 @"INSERT INTO sys_bill_max_separate(within_code,bill_id,year_month,bill_code,bill_text1,bill_text2,bill_text3,bill_text4,bill_text5) Values
                 ('0000', 'ST09', '{0}', '{1}', '', '', '', '', '')", year_month, bill_code);
             }
             result = (clsErp.ExecuteSqlUpdate(strSql) < 0) ? "-1" : bill_code;
+            result = strPrefix + result;
             return result;
         }
 
@@ -51,10 +52,11 @@ namespace cf01.CLS
             mdlHead.id = maxId;
             
             sql_i = string.Format(
-               @" INSERT INTO st_inventory_mostly(within_code,id,inventory_date,ii_location,state,transfers_state,update_count,create_by,create_date,update_by,update_date,department_id,origin,bill_type_no,servername,turn_type)
+               @" INSERT INTO st_inventory_mostly(within_code,id,inventory_date,ii_location,state,transfers_state,update_count,create_by,create_date,
+                                                    update_by, update_date, department_id, origin,bill_type_no,servername,turn_type)
                Values('0000','{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',   '{8}','{9}','{10}','{11}','{12}','{13}','{14}' )",
                mdlHead.id,mdlHead.inventory_date,mdlHead.ii_location,mdlHead.state,mdlHead.transfers_state,mdlHead.update_count,mdlHead.create_by,mdlHead.create_date,
-               mdlHead.bill_type_no,mdlHead.servername,mdlHead.turn_type,mdlHead.update_by,mdlHead.update_date,mdlHead.department_id,mdlHead.origin);
+               mdlHead.update_by,mdlHead.update_date,mdlHead.department_id,mdlHead.origin,mdlHead.bill_type_no,mdlHead.servername,mdlHead.turn_type);
             sb.Append(sql_i);
             sql_i = "";
             foreach (mdlCompinePartDetails dr in lstDetails)
@@ -62,9 +64,9 @@ namespace cf01.CLS
                 dr.id = maxId;
                 sql_i = string.Format(
                 @" INSERT INTO st_i_subordination
-                (id,sequence_id,goods_id,goods_name,base_unit,unit,rate,ib_qty,i_amount,inventory_issuance,ii_code,ii_lot_no,inventory_receipt,ir_code,ir_lot_no,
+                (within_code,id,sequence_id,goods_id,goods_name,base_unit,unit,rate,ib_qty,i_amount,inventory_issuance,ii_code,ii_lot_no,inventory_receipt,ir_code,ir_lot_no,
                 average_cost,state,transfers_state,ib_weight,i_weight,mo_id,obligate_mo_id,only_detail,goods_id_new,goods_name_new,sec_unit) 
-                Values ('0000','{0}','{1}','{2}','{3}','{4}','{5}',{6},{7},{8},'{9}','{10}',  '{11}','{12}''{13}','{14}',{15},'{16}','{17}',
+                Values ('0000','{0}','{1}','{2}','{3}','{4}','{5}',{6},{7},{8},'{9}','{10}',  '{11}','{12}','{13}','{14}',{15},'{16}','{17}',
                 {18},{19},'{20}','{21}','{22}','{23}','{24}','{25}')",
                 dr.id,dr.sequence_id,dr.goods_id,dr.goods_name,dr.base_unit,dr.unit,dr.rate,dr.ib_qty,dr.i_amount,dr.inventory_issuance,dr.ii_code,
                 dr.ii_lot_no,dr.inventory_receipt,dr.ir_code,dr.ir_lot_no,dr.average_cost,dr.state,dr.transfers_state,

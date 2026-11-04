@@ -126,12 +126,13 @@ namespace cf01.Forms
             }
             int rowIndex, order_qty_sum = 0, st_qty_sum = 0, select_order_qty = 0, select_order_qty_sum = 0;
             decimal st_sec_qty_sum = 0, select_sec_qty = 0, select_sec_qty_sum = 0;
+            string lot_no = "";
             //總單頁數信息                    
             rowIndex = dgvMaster.CurrentRow.Index;
             order_qty_sum = Convert.ToInt32(dgvMaster.Rows[rowIndex].Cells["order_qty"].Value);
             st_qty_sum = Convert.ToInt32(dgvMaster.Rows[rowIndex].Cells["qty"].Value);
             st_sec_qty_sum = decimal.Parse(dgvMaster.Rows[rowIndex].Cells["sec_qty"].Value.ToString());
-
+            lot_no = dgvMaster.Rows[rowIndex].Cells["lot_no"].Value.ToString();
 
 
             //分單勾選中的當前行
@@ -173,6 +174,7 @@ namespace cf01.Forms
                     select_order_qty_sum = Convert.ToInt32(txtSelect_order_qty.Text) + select_order_qty;
                     select_sec_qty_sum = Convert.ToDecimal(txtSelect_order_sec_qty.Text) + select_sec_qty;
                 }
+                row.Cells["lot_no1"].Value = lot_no;
             }
             else
             {
@@ -231,9 +233,10 @@ namespace cf01.Forms
                     MessageBox.Show($"注意，[{dst.Tables[0].Rows[i]["goods_id"].ToString()}]庫存有多個批號,請用GEO系統轉批號功能將多個批號轉到一個批號中！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     dgvMaster.Focus();
                     return;
-                }
-                if (int.Parse(dst.Tables[0].Rows[i]["qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["qty_select"].ToString()) ||
-                    int.Parse(dst.Tables[0].Rows[i]["sec_qty"].ToString()) < int.Parse(dst.Tables[0].Rows[i]["sec_qty_select"].ToString()))
+                }                
+                if (Convert.ToInt32(decimal.Parse(dst.Tables[0].Rows[i]["qty"].ToString())) < int.Parse(dst.Tables[0].Rows[i]["qty_select"].ToString()) || 
+                    decimal.Parse(dst.Tables[0].Rows[i]["sec_qty"].ToString()) < decimal.Parse(dst.Tables[0].Rows[i]["sec_qty_select"].ToString())
+                    )
                 {
                     MessageBox.Show($"注意，[{dst.Tables[0].Rows[i]["goods_id"].ToString()}]分配數量或重量已超過庫存的數量或重量！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     dgvMaster.Focus();
@@ -374,14 +377,20 @@ namespace cf01.Forms
             string result = clsCombinePart.Save(mdlMostly, lstDetails);
             if (result != "")
             {
+                dtTemp.Clear();
+                dgvTemp.DataSource = dtTemp;
                 MessageBox.Show($"生成R單轉正單【{result}】操作成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHand_id.Text = result;
+
                 //執行自動批準功能
                 mdlMostly.id = result;
-                result =  clsCombinePart.Approve(mdlMostly, DBUtility._user_id, "1", "C");
-                if(result.Substring(0,2) == "00")
+                result = clsCombinePart.Approve(mdlMostly, DBUtility._user_id, "1", "C");
+                if (result.Substring(0, 2) == "00")
                 {
                     MessageBox.Show($"【{result}】批準成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+                FindData();
             }
             else
             {
