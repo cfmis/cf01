@@ -16,8 +16,7 @@ namespace cf01.Forms
     {      
         clsPublicOfGEO clsErp = new clsPublicOfGEO();       
         DataSet dst = new DataSet();
-        DataTable dtTemp = new DataTable();          
-
+        DataTable dtTemp = new DataTable();  
 
         public frmCombinePart()
         {
