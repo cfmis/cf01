@@ -77,6 +77,7 @@ namespace cf01.Forms
                 dgvMaster.DataSource = bsMaster;
                 dgvDetails1.DataSource = bsDetails;
                 dgvDetails2.DataSource = dst.Tables[2];
+                dgvDetails3.DataSource = dst.Tables[3];
 
                 if (dst.Tables.Count == 0)
                 {
