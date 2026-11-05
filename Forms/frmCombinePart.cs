@@ -13,13 +13,10 @@ using System.Windows.Forms;
 namespace cf01.Forms
 {
     public partial class frmCombinePart : Form
-    {
-        //string remote_db = DBUtility.remote_db;        
+    {      
         clsPublicOfGEO clsErp = new clsPublicOfGEO();       
         DataSet dst = new DataSet();
-        DataTable dtTemp = new DataTable();
-        //DataTable dtDetails1 = new DataTable();
-        //DataTable dtDetails2 = new DataTable();        
+        DataTable dtTemp = new DataTable();          
 
 
         public frmCombinePart()
