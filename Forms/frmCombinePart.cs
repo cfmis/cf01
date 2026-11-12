@@ -222,10 +222,11 @@ namespace cf01.Forms
                 MessageBox.Show("注意，至少要勾選一筆分單頁數的數據！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
+            string strCount = string.Empty;
             for (int i = 0; i < dst.Tables[0].Rows.Count; i++)
             {
-                if (int.Parse(dst.Tables[0].Rows[i]["cnt"].ToString()) > 1)
+                strCount = string.IsNullOrEmpty(dst.Tables[0].Rows[i]["cnt"].ToString()) ? "0" : dst.Tables[0].Rows[i]["cnt"].ToString();
+                if (int.Parse(strCount) > 1)
                 {
                     MessageBox.Show($"注意，[{dst.Tables[0].Rows[i]["goods_id"].ToString()}]庫存有多個批號,請用GEO系統轉批號功能將多個批號轉到一個批號中！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     dgvMaster.Focus();
