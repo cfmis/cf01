@@ -165,24 +165,44 @@ namespace cf01.CLS
         //    return dtTran;
         //}
 
-        public static string SaveDetails(mdlDeliveryDetails objDetails, List<mdlDeliveryDetailsPart> lsPart)
+        public static int SaveDetails(mdlDeliveryDetails objDetails, List<mdlDeliveryDetailsPart> lsPart)
         {
             int Result = 0;
             string strSql = "", strSql1 = "";
-            string sequence_id = "";
-            if (objDetails.sequence_id == "")
+            string ID = objDetails.ID, sequence_id = objDetails.sequence_id;
+            string state = "0", transfers_state = "0";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            if (sequence_id == "")
                 sequence_id = GenSeq("st_transfer_detail", objDetails.ID);
-            strSql1 += @"INSERT st_transfer_detail 
+            if (!CheckExistSeq(ID, sequence_id, ""))
+                strSql1 += @"INSERT st_transfer_detail 
                     (within_code,id,sequence_id,goods_id,goods_name,base_unit,unit,rate,inventory_qty,transfer_amount
-                    ,location_id,carton_code,lot_no,average_cost,state,remark,transfers_state,account_weight,sec_unit
-                    ,sec_qty,so_no,so_sequence_id,contract_cid,transfer_out_id,transfer_out_sequence_id,mo_id
-                    ,nwt,gross_wt,package_num,tran_id,tran_sequence_id,shipment_suit,position_first,shelf
-                    ,inventory_sec_qty,servername,move_location_id,move_carton_code)
-                    VALUES 
-                    ('{0}','{1}')";
-            strSql= string.Format(strSql1
-                    , within_code, objDetails.ID);
+                    ,location_id,carton_code,lot_no,state,remark,transfers_state,account_weight,sec_unit
+                    ,sec_qty,mo_id,nwt,gross_wt,package_num,shipment_suit,position_first
+                    ,inventory_sec_qty,move_location_id,move_carton_code)
+                    VALUES (
+                    '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'
+                    ,'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}'
+                    ,'{18}','{19}','{20}','{21}','{22}','{23}','{24}'
+                    ,'{25}','{26}','{27}'
+                    )";
+            else
+                strSql1 += @"UPDATE st_transfer_detail SET
+                    (goods_id='{3}',goods_name='{4}',base_unit='{5}',unit='{6}',rate='{7}',inventory_qty='{8}',transfer_amount='{9}'
+                    ,location_id='{10}',carton_code='{11}',lot_no='{12}',state='{13}',remark='{14}',transfers_state='{15}',account_weight='{16}',sec_unit='{17}'
+                    ,sec_qty='{18}',mo_id='{19}',nwt='{20}',gross_wt='{21}',package_num='{22}',shipment_suit='{23}',position_first='{24}'
+                    ,inventory_sec_qty='{25}',move_location_id='{26}',move_carton_code='{27}'
+                    WHERE within_code='{0}' AND id='{1}' AND sequence_id='{2}'
+                    ";
+            strSql += string.Format(strSql1
+                    , within_code, ID, sequence_id, objDetails.goods_id, objDetails.goods_name, objDetails.unit, objDetails.unit, 1, objDetails.inventory_qty, objDetails.transfer_amount
+                    , objDetails.location_id, objDetails.location_id, objDetails.lot_no, state, objDetails.remark, transfers_state, 0, objDetails.sec_unit
+                    , objDetails.sec_qty, objDetails.mo_id, objDetails.nwt, objDetails.gross_wt, objDetails.package_num, objDetails.shipment_suit, objDetails.position_first
+                    , objDetails.inventory_sec_qty, objDetails.move_location_id, objDetails.move_location_id
+                    );
             string upper_sequence = sequence_id;
+            string start_seq = "";
             for (int i = 0; i < lsPart.Count; i++)
             {
                 var objPart = lsPart[i];
@@ -190,20 +210,36 @@ namespace cf01.CLS
                 if (sequence_id == "")
                 {
                     if (i == 0)
-                        sequence_id = GenSeq("st_transfer_detail_part", objDetails.ID);
+                        start_seq = GenSeq("st_transfer_detail_part", objDetails.ID);
                     else
-                        sequence_id = GenSeqPart(sequence_id);
+                        start_seq = (Convert.ToInt32(start_seq.Substring(0, 4)) + 1).ToString().PadLeft(4, '0') + "h";
+                    sequence_id = start_seq;
                 }
-                strSql1 += @"INSERT st_transfer_detail_part 
-                    (within_code,id,upper_sequence,sequence_id,goods_id,goods_name,jo_qty,c_qty,con_qty,unit_code,remark
-                    ,sec_unit,sec_qty,mo_id,signfor,location,carton_code,bom_qty,wastage_percent,base_qty,lot_no
-                    ,mrp_id,obligate_qty,state,inventory_qty,inventory_sec_qty,servername)
-                    VALUES 
-                    ('{0}','{1}','{2}','{3}')";
+                if (!CheckExistSeq(ID, upper_sequence, sequence_id))
+                    strSql1 = @"INSERT  st_transfer_detail_part " +
+                        " (within_code,id,upper_sequence,sequence_id,goods_id,jo_qty,c_qty,con_qty,unit_code" +
+                        ",sec_unit,sec_qty,mo_id,location,carton_code,bom_qty,lot_no" +
+                        ",inventory_qty,inventory_sec_qty)" +
+                        " VALUES ( " +
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}' " +
+                        ",'{9}','{10}','{11}','{12}','{13}','{14}','{15}' " +
+                        " ,'{16}','{17}' " +
+                        " )";
+                else
+                    strSql1 = @"UPDATE st_transfer_detail_part SET
+                        goods_id='{4}',jo_qty='{5}',c_qty='{6}',con_qty='{7}',unit_code='{8}'
+                        ,sec_unit='{9}',sec_qty='{10}',mo_id='{11}',location='{12}',carton_code='{13}',bom_qty='{14}',lot_no='{15}'
+                        ,inventory_qty='{16}',inventory_sec_qty='{17}'
+                        WHERE within_code='{0}',id='{1}',upper_sequence='{2}',sequence_id='{3}' ";
                 strSql += string.Format(strSql1
-                        , within_code, objDetails.ID, upper_sequence, sequence_id, objPart.goods_id, objPart.goods_name);
+                        , within_code, objDetails.ID, upper_sequence, sequence_id, objPart.goods_id, 0, 0, objPart.con_qty, objPart.unit_code
+                        , objPart.sec_unit, objPart.sec_qty, objPart.mo_id, objPart.location, objPart.location, 1, objPart.lot_no
+                        , objPart.inventory_qty, objPart.inventory_sec_qty
+                        );
             }
-            return "";
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            Result= clsGeoCon.ExecuteSqlUpdate(strSql);
+            return Result;
         }
         private static string GenSeq(string tb_name, string ID)
         {
@@ -218,11 +254,22 @@ namespace cf01.CLS
                 seq_id = "0001h";
             return seq_id;
         }
-        private static string GenSeqPart(string sequence_id)
+        private static bool CheckExistSeq(string ID,string upper_sequence,string sequence_id)
         {
-            string seq_id = "";
-            seq_id = (Convert.ToInt32(sequence_id.Substring(0, 4)) + 1).ToString().PadLeft(4, '0') + "h";
-            return seq_id;
+            bool exist_flag = false;
+            string strSql = "";
+            string tb_name = "st_transfer_detail";
+            if (sequence_id=="")
+                tb_name = "st_transfer_detail_part";
+            strSql = " Select sequence_id From " + remote_db + tb_name +
+                " Where within_code='" + within_code + "' And id='" + ID + "' And sequence_id='" + upper_sequence + "'";
+            if (sequence_id != "")
+                strSql += " And sequence_id='" + sequence_id + "'";
+            DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows.Count > 0)
+                exist_flag = true;
+            return exist_flag;
         }
+
     }
 }

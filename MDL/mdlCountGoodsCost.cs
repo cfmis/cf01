@@ -84,6 +84,9 @@ namespace cf01.MDL
         public float MatUse { get; set; }
         public float MatPrice { get; set; }
         public string MatPriceUnit { get; set; }
+        public float OffsetRate { get; set; }
+        public float OffsetCost { get; set; }
+        public float MatCostBef { get; set; }
         public float MatCost { get; set; }
         public string Curr { get; set; }
     }

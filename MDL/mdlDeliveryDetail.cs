@@ -29,12 +29,16 @@ namespace cf01.MDL
         public decimal gross_wt;
         public string unit;
         public string sec_unit;
-        public string package_num;
+        public int package_num;
         public string position_first;
         public string location_id;
         public string lot_no;
         public string remark;
         public string state;
+        public decimal inventory_qty;
+        public decimal inventory_sec_qty;
+        public string shipment_suit;
+        public string move_location_id;
     }
     public class mdlDeliveryDetailsPart
     {
@@ -50,5 +54,7 @@ namespace cf01.MDL
         public string sec_unit;
         public string location;
         public string lot_no;
+        public decimal inventory_qty;
+        public decimal inventory_sec_qty;
     }
 }

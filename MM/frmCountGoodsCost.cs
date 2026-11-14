@@ -45,8 +45,9 @@ namespace cf01.MM
         public static string getVendName = ""; 
         public static string getQuoDate = "";
         public static string getQuoID = "";
-        string factAddWasteRate = "";
-        string compProfitRate = "";
+        string factAddWasteRate = "";//工廠利潤30
+        string compProfitRate = "";//公司利潤15
+        private string plateWasteRate = "";//電鍍損耗1
         frmProcessBarWindows processBarWindows;
         int progressBar_Cnt2 = 0;
         int Coun = 100;
@@ -294,6 +295,7 @@ namespace cf01.MM
             compProfitRate = dtProfit.Rows[0]["product_qty"].ToString();
             txtFactAddWasteRate.Text = factAddWasteRate;//工廠附加損耗率
             txtCompProfitRate.Text = compProfitRate;//////公司利潤率
+            plateWasteRate = dtProfit.Rows[0]["waste_rate"].ToString();//電鍍損耗率;
             //////組別
             //////外發加工的部門
             lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
@@ -589,7 +591,7 @@ namespace cf01.MM
             Row["PrdDep"] = "501";
             Row["ProcessUnit"] = "PCS";
             Row["WegUnit"] = "KG";
-            Row["WasteRate"] = "1.1";
+            Row["WasteRate"] = plateWasteRate;
             Row["PSeq"] = Seq;
             dtPlate.Rows.Add(Row);
 
@@ -624,6 +626,7 @@ namespace cf01.MM
             float wasteRate = 0;
             double matWaste = 0;
             double matUse = 0;
+            double offsetRate = 0;
             DataRow dr = dtMat.Rows[rowIndex];
             string matType = "";
             string matCode = dr["MatCode"].ToString().Trim();
@@ -642,6 +645,8 @@ namespace cf01.MM
                     matWeg = Math.Round(clsValidRule.ConvertStrToSingle(drMatType["use_weg"].ToString()), 2);
                     dr["MatWeg"] = matWeg;
                     dr["MatPrice"] = Math.Round(clsValidRule.ConvertStrToSingle(drMatType["cost_price"].ToString()), 2);
+                    offsetRate = clsValidRule.ConvertStrToSingle(drMatType["offset_rate"].ToString());
+                    dr["OffsetRate"] = offsetRate;
                     dr["Curr"] = "HKD";
                     if (matType == "M")//如果是原料，自動計算原料用料
                     {
@@ -655,6 +660,7 @@ namespace cf01.MM
                         dr["MatWaste"] = 0;
                         dr["MatUse"] = matWeg;
                         dr["MatPriceUnit"] = "PCS";
+                        dr["OffsetRate"] = 0;
                     }
                     CountMatCost();
                 }
@@ -676,7 +682,7 @@ namespace cf01.MM
                 }
                 CountMatCost();
             }
-            if (fname == "MatWaste" || fname == "MatUse" || fname == "MatPrice" || fname== "MatPriceUnit" || fname == "Curr")
+            if (fname == "MatWaste" || fname == "MatUse" || fname == "MatPrice" || fname== "MatPriceUnit" || fname == "Curr" || fname == "OffsetRate" || fname == "OffsetCost")
             {
                 CountMatCost();
             }
@@ -692,12 +698,15 @@ namespace cf01.MM
                 //string val = gvMatDetails.GetFocusedRowCellValue("MatCode").ToString();
                 decimal matWeg = clsValidRule.ConvertStrToDecimal(Row["MatWeg"].ToString());
                 decimal matWaste = clsValidRule.ConvertStrToDecimal(Row["MatWaste"].ToString());
+                decimal offsetRate = clsValidRule.ConvertStrToDecimal(Row["OffsetRate"].ToString());
                 decimal matPrice = clsValidRule.ConvertStrToDecimal(Row["MatPrice"].ToString());
                 string matPriceUnit = Row["MatPriceUnit"].ToString();
                 decimal matUse = Math.Round(matWeg + matWaste, 4);
                 string Curr = Row["Curr"].ToString();
                 decimal currRate = 1;
                 decimal unitRate = 1;
+                decimal offsetCost = 0;
+                decimal matCostBef = 0;
                 decimal matCost = 0;
                 if (Curr != "HKD")
                     currRate = clsBaseData.GetMidRate(Curr);
@@ -706,13 +715,20 @@ namespace cf01.MM
                 
                 Row["MatUse"] = matUse;
                 if (matPriceUnit == "KG")
-                    matCost = Math.Round(matUse * matPrice * currRate, 4);
+                {
+                    //廢料抵沖金額
+                    offsetCost = Math.Round((matWaste * matPrice * currRate) * (offsetRate / 100), 4);
+                    matCostBef = Math.Round(matUse * matPrice * currRate, 4);//原料成本抵沖前
+                    matCost = matCostBef - offsetCost;//原料成本=用料成本 - 廢料抵沖
+                }
                 else
                 {
                     decimal wasteRate = clsValidRule.ConvertStrToDecimal(Row["WasteRate"].ToString()) / 100;
                     decimal baseQtyRate1 = (decimal)baseQtyRate;
                     matCost = Math.Round((matPrice / unitRate) * baseQtyRate1 * currRate * (1 + wasteRate), 4);
                 }
+                Row["offsetCost"] = offsetCost;
+                Row["MatCostBef"] = matCostBef;
                 Row["MatCost"] = matCost;
                 string Seq = Row["Seq"].ToString().Trim();
                 FillPlateWeg(Seq, matWeg);
@@ -985,14 +1001,14 @@ namespace cf01.MM
                     //Row["PrdDep"] = "501";
                     //Row["ProcessUnit"] = "PCS";
                     //Row["WegUnit"] = "KG";
-                    //Row["WasteRate"] = "1.1";
+                    //Row["WasteRate"] = plateWasteRate;
                     ////dtMat.Rows[0]["MatPriceUnit"] = "KG";
                     DataRow Row = dtPlate.NewRow();
                     Row["Seq"] = GenSeqNo(gvGoodsPlate, "Seq");
                     Row["PrdDep"] = "501";
                     Row["ProcessUnit"] = "PCS";
                     Row["WegUnit"] = "KG";
-                    Row["WasteRate"] = "1.1";
+                    Row["WasteRate"] = plateWasteRate;
                     Row["PSeq"] = matSeq;
                     dtPlate.Rows.Add(Row);
                 }
@@ -1197,7 +1213,10 @@ namespace cf01.MM
                     mdlGoodsMat.MatUse = clsValidRule.ConvertStrToSingle(dr["MatUse"].ToString());
                     mdlGoodsMat.MatPrice = clsValidRule.ConvertStrToSingle(dr["MatPrice"].ToString());
                     mdlGoodsMat.MatPriceUnit = dr["MatPriceUnit"].ToString();
+                    mdlGoodsMat.OffsetRate = clsValidRule.ConvertStrToSingle(dr["OffsetRate"].ToString());
+                    mdlGoodsMat.OffsetCost = clsValidRule.ConvertStrToSingle(dr["OffsetCost"].ToString());
                     mdlGoodsMat.Curr = dr["Curr"].ToString();
+                    mdlGoodsMat.MatCostBef = clsValidRule.ConvertStrToSingle(dr["MatCostBef"].ToString());
                     mdlGoodsMat.MatCost = matCost;
                     lsGoodsMat.Add(mdlGoodsMat);
                 }
@@ -1397,7 +1416,7 @@ namespace cf01.MM
             Row["PrdDep"] = "501";
             Row["ProcessUnit"] = "PCS";
             Row["WegUnit"] = "KG";
-            Row["WasteRate"] = "1.1";
+            Row["WasteRate"] = plateWasteRate;
             Row["PSeq"] = gvMatDetails.GetFocusedDataRow()["Seq"].ToString();
             Row["ProcessWeg"] = gvMatDetails.GetFocusedDataRow()["MatWeg"].ToString();
             dtPlate.Rows.Add(Row);
