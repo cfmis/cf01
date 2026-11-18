@@ -1,7 +1,6 @@
 ﻿using System;
 using DevExpress.XtraReports.UI;
 using System.Data;
-//using System.Windows.Forms;
 using cf01.CLS;
 
 namespace cf01.Reports

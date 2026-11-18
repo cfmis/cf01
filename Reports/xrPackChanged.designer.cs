@@ -805,20 +805,20 @@
             this.xrPanel4.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel81});
             this.xrPanel4.Dpi = 254F;
-            this.xrPanel4.LocationFloat = new DevExpress.Utils.PointFloat(112.2082F, 271.4859F);
+            this.xrPanel4.LocationFloat = new DevExpress.Utils.PointFloat(106.2082F, 271.4859F);
             this.xrPanel4.Name = "xrPanel4";
-            this.xrPanel4.SizeF = new System.Drawing.SizeF(1019.708F, 91.7981F);
+            this.xrPanel4.SizeF = new System.Drawing.SizeF(1027.646F, 91.79807F);
             // 
             // xrLabel81
             // 
             this.xrLabel81.CanShrink = true;
             this.xrLabel81.Dpi = 254F;
             this.xrLabel81.Font = new System.Drawing.Font("Arial", 7F);
-            this.xrLabel81.LocationFloat = new DevExpress.Utils.PointFloat(2.313957F, 1.413376F);
+            this.xrLabel81.LocationFloat = new DevExpress.Utils.PointFloat(2.31395F, 1.413391F);
             this.xrLabel81.Multiline = true;
             this.xrLabel81.Name = "xrLabel81";
             this.xrLabel81.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel81.SizeF = new System.Drawing.SizeF(1012.852F, 88.96672F);
+            this.xrLabel81.SizeF = new System.Drawing.SizeF(1021.978F, 88.96671F);
             this.xrLabel81.StylePriority.UseFont = false;
             this.xrLabel81.StylePriority.UseTextAlignment = false;
             this.xrLabel81.Text = "[mo_list]";
@@ -832,7 +832,7 @@
             this.xrLabel80.Multiline = true;
             this.xrLabel80.Name = "xrLabel80";
             this.xrLabel80.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel80.SizeF = new System.Drawing.SizeF(84.97752F, 88.38184F);
+            this.xrLabel80.SizeF = new System.Drawing.SizeF(73.97752F, 88.38184F);
             this.xrLabel80.StylePriority.UseFont = false;
             this.xrLabel80.StylePriority.UseTextAlignment = false;
             this.xrLabel80.Text = "全套分單頁數:";
@@ -959,14 +959,14 @@
             // 
             this.xrLabel27.Dpi = 254F;
             this.xrLabel27.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(36.00002F, 141.585F);
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(36.00002F, 146.585F);
             this.xrLabel27.Multiline = true;
             this.xrLabel27.Name = "xrLabel27";
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel27.SizeF = new System.Drawing.SizeF(84.39358F, 101.6092F);
+            this.xrLabel27.SizeF = new System.Drawing.SizeF(73.39359F, 101.6092F);
             this.xrLabel27.StylePriority.UseFont = false;
             this.xrLabel27.StylePriority.UseTextAlignment = false;
-            this.xrLabel27.Text = "配件分單頁數:";
+            this.xrLabel27.Text = "配件分單頁數";
             this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLine20
@@ -1632,20 +1632,20 @@
             this.xrPanel1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.txtMerge_mo});
             this.xrPanel1.Dpi = 254F;
-            this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(112.2492F, 140.4858F);
+            this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(104.2492F, 140.4858F);
             this.xrPanel1.Name = "xrPanel1";
-            this.xrPanel1.SizeF = new System.Drawing.SizeF(1019.751F, 129.3125F);
+            this.xrPanel1.SizeF = new System.Drawing.SizeF(1029.605F, 129.3125F);
             // 
             // txtMerge_mo
             // 
             this.txtMerge_mo.CanShrink = true;
             this.txtMerge_mo.Dpi = 254F;
             this.txtMerge_mo.Font = new System.Drawing.Font("Arial", 7F);
-            this.txtMerge_mo.LocationFloat = new DevExpress.Utils.PointFloat(2.520798F, 1.371674F);
+            this.txtMerge_mo.LocationFloat = new DevExpress.Utils.PointFloat(0.520798F, 1.371674F);
             this.txtMerge_mo.Multiline = true;
             this.txtMerge_mo.Name = "txtMerge_mo";
             this.txtMerge_mo.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtMerge_mo.SizeF = new System.Drawing.SizeF(1012.825F, 126.6267F);
+            this.txtMerge_mo.SizeF = new System.Drawing.SizeF(1025.825F, 126.6267F);
             this.txtMerge_mo.StylePriority.UseFont = false;
             this.txtMerge_mo.StylePriority.UseTextAlignment = false;
             this.txtMerge_mo.Text = "[merge_mo]";
