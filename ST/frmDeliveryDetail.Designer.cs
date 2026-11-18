@@ -88,7 +88,8 @@
             this.gclpack_num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclbox_num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcllot_no = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcllocation_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclremark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -119,6 +120,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -646,7 +648,8 @@
             this.gclpack_num,
             this.gclbox_num,
             this.gcllot_no,
-            this.gridColumn6});
+            this.gcllocation_id,
+            this.gclremark});
             this.gvTranDetails.FooterPanelHeight = 30;
             this.gvTranDetails.GridControl = this.gcTranDetails;
             this.gvTranDetails.IndicatorWidth = 40;
@@ -786,16 +789,24 @@
             this.gcllot_no.FieldName = "lot_no";
             this.gcllot_no.Name = "gcllot_no";
             this.gcllot_no.Visible = true;
-            this.gcllot_no.VisibleIndex = 12;
+            this.gcllot_no.VisibleIndex = 13;
             this.gcllot_no.Width = 111;
             // 
-            // gridColumn6
+            // gcllocation_id
             // 
-            this.gridColumn6.Caption = "備註";
-            this.gridColumn6.FieldName = "remark";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 13;
+            this.gcllocation_id.Caption = "倉庫";
+            this.gcllocation_id.FieldName = "location_id";
+            this.gcllocation_id.Name = "gcllocation_id";
+            this.gcllocation_id.Visible = true;
+            this.gcllocation_id.VisibleIndex = 12;
+            // 
+            // gclremark
+            // 
+            this.gclremark.Caption = "備註";
+            this.gclremark.FieldName = "remark";
+            this.gclremark.Name = "gclremark";
+            this.gclremark.Visible = true;
+            this.gclremark.VisibleIndex = 14;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -1008,7 +1019,8 @@
             this.gridColumn2,
             this.gridColumn1,
             this.gridColumn3,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn6});
             this.gvTranDetailsPart.FooterPanelHeight = 30;
             this.gvTranDetailsPart.GridControl = this.gcTranDetailsPart;
             this.gvTranDetailsPart.IndicatorWidth = 40;
@@ -1115,6 +1127,14 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 8;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "倉庫";
+            this.gridColumn6.FieldName = "location";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 9;
             // 
             // repositoryItemLookUpEdit5
             // 
@@ -1775,7 +1795,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gclremark;
         private EnterNextTextBox txtmo_id;
         private EnterNextTextBox txtgoods_cname;
         private EnterNextTextBox txtremark;
@@ -1784,5 +1804,7 @@
         private EnterNextTextBox txtbox_num;
         private EnterNextTextBox txtgoods_id;
         private EnterNextTextBox txtedit_state;
+        private DevExpress.XtraGrid.Columns.GridColumn gcllocation_id;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

@@ -187,7 +187,7 @@ namespace cf01.CLS
         public static DataTable LoadProcessType(string prdDep, string processID)
         {
             string strSql = @" SELECT rtrim(process_id) As process_id,rtrim(process_name) As process_name" +
-                ",cost_price,cost_price As PriceHKD,product_qty,use_weg,waste_rate" +
+                ",cost_price,cost_price As PriceHKD,product_qty,use_weg,waste_rate,offset_rate" +
                 " FROM jo_dept_product_cost " +
                 " Where dept_id>='' ";
             if (prdDep != "")

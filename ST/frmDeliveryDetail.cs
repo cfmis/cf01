@@ -270,22 +270,44 @@ namespace cf01.ST
         private void SaveDetailsProcess(DataRow r)
         {
             mdlDeliveryDetails objDetails = new mdlDeliveryDetails();
+            string goods_id = r["goods_id"].ToString().Trim();
             objDetails.ID = txtDocId.Text.Trim();
             objDetails.sequence_id = r["sequence_id"].ToString().Trim();
             objDetails.mo_id = r["mo_id"].ToString().Trim();
-            objDetails.goods_id = r["goods_id"].ToString().Trim();
+            objDetails.goods_id = goods_id;
             objDetails.transfer_amount = Convert.ToInt32(r["transfer_amount"]);
             objDetails.sec_qty = Convert.ToDecimal(r["sec_qty"]);
             objDetails.nwt = Convert.ToDecimal(r["nwt"]);
             objDetails.gross_wt = Convert.ToDecimal(r["gross_wt"]);
             objDetails.unit = r["unit"].ToString().Trim();
             objDetails.sec_unit = r["sec_unit"].ToString().Trim();
-            objDetails.package_num = r["package_num"].ToString().Trim();
+            objDetails.package_num = r["package_num"].ToString() != "" ? Convert.ToInt32(r["package_num"].ToString()) : 0;
             objDetails.position_first = r["position_first"].ToString().Trim();
             objDetails.location_id = r["location_id"].ToString().Trim();
             objDetails.lot_no = r["lot_no"].ToString().Trim();
             objDetails.remark = r["remark"].ToString().Trim();
-            objDetails.state = r["state"].ToString().Trim();
+            objDetails.state = "0";
+            objDetails.inventory_qty = 0;
+            objDetails.inventory_sec_qty = 0;
+            string doc_type = objDetails.ID.Substring(0, 2);
+            if (goods_id.Substring(0,2)=="F0")
+            {
+                objDetails.shipment_suit = "1";
+                objDetails.location_id = "801";
+                if(doc_type=="VN")
+                    objDetails.location_id = "T00";
+                else if (doc_type == "LN")
+                    objDetails.location_id = "D00";
+                else if (doc_type == "JN")
+                    objDetails.location_id = "JX0";
+            }
+            else
+            {
+                objDetails.shipment_suit = "0";
+                objDetails.location_id = "601";
+            }
+
+            objDetails.move_location_id = "801";
             List<mdlDeliveryDetailsPart> lsPart = new List<mdlDeliveryDetailsPart>();
             DataRow[] drParts = dtTranDetailsPart.Select("mo_id = '" + objDetails.mo_id + "'");
             foreach (DataRow drPart in drParts)
@@ -304,7 +326,7 @@ namespace cf01.ST
                 objPart.sec_qty = Convert.ToDecimal(drPart["sec_qty"]);
                 lsPart.Add(objPart);
             }
-            string Result = clsDeliveryDetail.SaveDetails(objDetails, lsPart);
+            int Result = clsDeliveryDetail.SaveDetails(objDetails, lsPart);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {

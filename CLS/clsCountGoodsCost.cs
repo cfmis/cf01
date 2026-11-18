@@ -446,7 +446,8 @@ namespace cf01.CLS
         public static DataTable LoadProductCostMat(int upperSN)
         {
             string strSql = "";
-            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Curr,Seq As NewSeq " +
+            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit" +
+                ",OffsetRate,OffsetCost,MatCostBef,MatCost,Curr,Seq As NewSeq " +
                 " From mm_product_cost_mat " +
                 " Where upperSN='" + upperSN + "' And Status <>'D' ";
             //if (Seq != "")
@@ -477,24 +478,25 @@ namespace cf01.CLS
                 //{
                 //    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + i).ToString().PadLeft(3, '0');
                 //}
-                if (!CheckExistSeq("mm_product_cost_mat", upperSN, seq,""))
+                if (!CheckExistSeq("mm_product_cost_mat", upperSN, seq, ""))
                 {
                     strUpd = @" Insert Into mm_product_cost_mat " +
-                        " ( upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Curr"+
-                        ",CreateUser,CreateTime,AmendUser,AmendTime" +
+                        " ( upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,OffsetRate,OffsetCost" +
+                        ",MatCostBef,MatCost,Curr,CreateUser,CreateTime,AmendUser,AmendTime" +
                         " )" +
                         " Values ( " +
-                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}'" +
-                        ",'{12}',GETDATE(),'{12}',GETDATE() )";
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
+                        ",'{14}','{15}',GETDATE(),'{15}',GETDATE() )";
                 }
                 else
                     strUpd = @" Update mm_product_cost_mat Set MatCode='{2}',MatName='{3}',MatWeg='{4}',WasteRate='{5}',MatWaste='{6}'" +
-                        ",MatUse='{7}',MatPrice='{8}'" +
-                        ",MatPriceUnit='{9}',MatCost='{10}',Curr='{11}',AmendUser='{12}',AmendTime=GETDATE() " +
+                        ",MatUse='{7}',MatPrice='{8}',MatPriceUnit='{9}',OffsetRate='{10}',OffsetCost='{11}'" +
+                        ",MatCostBef='{12}',MatCost='{13}',Curr='{14}',AmendUser='{15}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, mdlGoodsMat.MatCode, mdlGoodsMat.MatName, mdlGoodsMat.MatWeg, mdlGoodsMat.WasteRate, mdlGoodsMat.MatWaste
-                        , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.MatCost, mdlGoodsMat.Curr, userid);
+                        , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.OffsetRate, mdlGoodsMat.OffsetCost
+                        , mdlGoodsMat.MatCostBef, mdlGoodsMat.MatCost, mdlGoodsMat.Curr, userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
