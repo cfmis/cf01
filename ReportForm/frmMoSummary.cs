@@ -213,7 +213,9 @@ namespace cf01.ReportForm
                 wSheet.Cells[excelRow, 33].Value = "顏色做法";
                 wSheet.Cells[excelRow, 34].Value = "過期天數";
                 wSheet.Cells[excelRow, 35].Value = "PMC要求交貨期";
-                int maxCol = 35;
+                wSheet.Cells[excelRow, 36].Value = "返電備註";
+                wSheet.Cells[excelRow, 37].Value = "返電次數";
+                int maxCol = 37;
                 wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20点   pass_dep_cdesc
                 excelRow++;
                 for (int i = 0; i < dtExcel.Rows.Count; i++)
@@ -269,6 +271,8 @@ namespace cf01.ReportForm
                     wSheet.Cells[excelRow, 34].Value = period_day;
                     
                     wSheet.Cells[excelRow, 35].Value = dr["pmc_req_hk_date"].ToString();
+                    wSheet.Cells[excelRow, 36].Value = dr["rt_plate_remark"].ToString();
+                    wSheet.Cells[excelRow, 37].Value = dr["rt_plate_date"].ToString();
                     wSheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
 
                     //if (period_day > 0)
@@ -321,6 +325,8 @@ namespace cf01.ReportForm
                 wSheet.Column(33).Width = 28;
                 wSheet.Column(34).Width = 8;
                 wSheet.Column(35).Width = 16;
+                wSheet.Column(36).Width = 16;
+                wSheet.Column(37).Width = 16;
                 // 设置动态范围
                 string colStr = $"E1:E{excelRow}"; // 动态计算行数
                 wSheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式

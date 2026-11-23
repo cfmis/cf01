@@ -846,6 +846,7 @@ namespace cf01.Forms
             fileName = GetExcelFileName(fileName);
             if (fileName == "")
                 return;
+            
             //frmProgress wForm = new frmProgress();
             //new Thread((ThreadStart)delegate
             //{
