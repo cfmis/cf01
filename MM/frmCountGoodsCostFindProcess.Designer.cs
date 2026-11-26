@@ -30,14 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCountGoodsCostFindProcess));
             this.dgvDetails1 = new System.Windows.Forms.DataGridView();
-            this.colPrdDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProcessID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProcessName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceHKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBaseQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtProcessName = new DevExpress.XtraEditors.TextEdit();
             this.lblDepId = new DevExpress.XtraEditors.LabelControl();
@@ -50,6 +42,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.colPrdDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProcessID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProcessName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceHKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBaseQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -68,8 +68,8 @@
             this.colPrdDep,
             this.colProcessID,
             this.colProcessName,
-            this.colPrice,
             this.colPriceHKD,
+            this.colPrice,
             this.colBaseQty,
             this.colPriceUnit,
             this.Column5});
@@ -82,69 +82,6 @@
             this.dgvDetails1.Size = new System.Drawing.Size(1075, 509);
             this.dgvDetails1.TabIndex = 1;
             this.dgvDetails1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails1_CellDoubleClick);
-            // 
-            // colPrdDep
-            // 
-            this.colPrdDep.DataPropertyName = "dept_id";
-            this.colPrdDep.HeaderText = "部門編號";
-            this.colPrdDep.Name = "colPrdDep";
-            this.colPrdDep.ReadOnly = true;
-            this.colPrdDep.Width = 80;
-            // 
-            // colProcessID
-            // 
-            this.colProcessID.DataPropertyName = "process_id";
-            this.colProcessID.HeaderText = "工序編號";
-            this.colProcessID.Name = "colProcessID";
-            this.colProcessID.ReadOnly = true;
-            this.colProcessID.Width = 80;
-            // 
-            // colProcessName
-            // 
-            this.colProcessName.DataPropertyName = "process_name";
-            this.colProcessName.HeaderText = "工序描述";
-            this.colProcessName.Name = "colProcessName";
-            this.colProcessName.ReadOnly = true;
-            this.colProcessName.Width = 160;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "cost_price";
-            this.colPrice.HeaderText = "單價";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 80;
-            // 
-            // colPriceHKD
-            // 
-            this.colPriceHKD.DataPropertyName = "PriceHKD";
-            this.colPriceHKD.HeaderText = "單價(HKD)";
-            this.colPriceHKD.Name = "colPriceHKD";
-            this.colPriceHKD.ReadOnly = true;
-            // 
-            // colBaseQty
-            // 
-            this.colBaseQty.DataPropertyName = "product_qty";
-            this.colBaseQty.HeaderText = "基數";
-            this.colBaseQty.Name = "colBaseQty";
-            this.colBaseQty.ReadOnly = true;
-            this.colBaseQty.Width = 80;
-            // 
-            // colPriceUnit
-            // 
-            this.colPriceUnit.DataPropertyName = "cost_unit";
-            this.colPriceUnit.HeaderText = "單位";
-            this.colPriceUnit.Name = "colPriceUnit";
-            this.colPriceUnit.ReadOnly = true;
-            this.colPriceUnit.Width = 60;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "remark";
-            this.Column5.HeaderText = "備註";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 200;
             // 
             // panelControl2
             // 
@@ -254,6 +191,69 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
+            // colPrdDep
+            // 
+            this.colPrdDep.DataPropertyName = "dept_id";
+            this.colPrdDep.HeaderText = "部門編號";
+            this.colPrdDep.Name = "colPrdDep";
+            this.colPrdDep.ReadOnly = true;
+            this.colPrdDep.Width = 80;
+            // 
+            // colProcessID
+            // 
+            this.colProcessID.DataPropertyName = "process_id";
+            this.colProcessID.HeaderText = "工序編號";
+            this.colProcessID.Name = "colProcessID";
+            this.colProcessID.ReadOnly = true;
+            this.colProcessID.Width = 80;
+            // 
+            // colProcessName
+            // 
+            this.colProcessName.DataPropertyName = "process_name";
+            this.colProcessName.HeaderText = "工序描述";
+            this.colProcessName.Name = "colProcessName";
+            this.colProcessName.ReadOnly = true;
+            this.colProcessName.Width = 160;
+            // 
+            // colPriceHKD
+            // 
+            this.colPriceHKD.DataPropertyName = "PriceHKD";
+            this.colPriceHKD.HeaderText = "單價(HKD)";
+            this.colPriceHKD.Name = "colPriceHKD";
+            this.colPriceHKD.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "cost_price";
+            this.colPrice.HeaderText = "單價(RMB)";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 80;
+            // 
+            // colBaseQty
+            // 
+            this.colBaseQty.DataPropertyName = "product_qty";
+            this.colBaseQty.HeaderText = "基數";
+            this.colBaseQty.Name = "colBaseQty";
+            this.colBaseQty.ReadOnly = true;
+            this.colBaseQty.Width = 80;
+            // 
+            // colPriceUnit
+            // 
+            this.colPriceUnit.DataPropertyName = "cost_unit";
+            this.colPriceUnit.HeaderText = "單位";
+            this.colPriceUnit.Name = "colPriceUnit";
+            this.colPriceUnit.ReadOnly = true;
+            this.colPriceUnit.Width = 60;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "remark";
+            this.Column5.HeaderText = "備註";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 200;
+            // 
             // frmCountGoodsCostFindProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -296,8 +296,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrdDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProcessID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProcessName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceHKD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBaseQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;

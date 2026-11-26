@@ -124,7 +124,7 @@ namespace cf01.CLS
         public static DataTable LoadProductProcess(string dep_id,string processID,string processName)
         {
             string strSql = "Select dept_id,rtrim(a.process_id) As process_id,rtrim(a.process_name) As process_name" +
-                ",a.cost_price,a.cost_price AS PriceHKD" +
+                ",a.cost_price,a.price_hkd AS PriceHKD" +
                 ",a.product_qty,a.cost_unit,rtrim(a.remark) AS remark" +
                 " From jo_dept_product_cost a " +
                 " Where a.dept_id='" + dep_id + "'";
@@ -135,12 +135,12 @@ namespace cf01.CLS
             strSql += " And a.quo_flag='Y' ";
             strSql += " Order By a.process_id";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
-
-            decimal exchangeRate = GetMidRate("RMB");
-            for (int i=0;i<dt.Rows.Count;i++)
-            {
-                dt.Rows[i]["PriceHKD"] = Math.Round(clsValidRule.ConvertStrToDecimal(dt.Rows[i]["cost_price"].ToString()) * exchangeRate, 4);
-            }
+            //////2026/11/26日港幣不用浮動轉換率，採用固定1.17
+            //decimal exchangeRate = GetMidRate("RMB");
+            //for (int i=0;i<dt.Rows.Count;i++)
+            //{
+            //    dt.Rows[i]["PriceHKD"] = Math.Round(clsValidRule.ConvertStrToDecimal(dt.Rows[i]["cost_price"].ToString()) * exchangeRate, 4);
+            //}
             return dt;
         }
         /// <summary>

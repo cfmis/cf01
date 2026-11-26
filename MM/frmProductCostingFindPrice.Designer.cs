@@ -118,12 +118,12 @@
             this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
             this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.chkRec = new System.Windows.Forms.CheckBox();
             this.chkJx = new System.Windows.Forms.CheckBox();
             this.cmbPlateType = new System.Windows.Forms.ComboBox();
             this.cmbPlateProcess = new System.Windows.Forms.ComboBox();
             this.lblDepId = new DevExpress.XtraEditors.LabelControl();
             this.txtDepId = new DevExpress.XtraEditors.TextEdit();
-            this.chkRec = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcFind)).BeginInit();
             this.xtcFind.SuspendLayout();
@@ -943,6 +943,18 @@
             this.panelControl2.Size = new System.Drawing.Size(993, 74);
             this.panelControl2.TabIndex = 2;
             // 
+            // chkRec
+            // 
+            this.chkRec.AutoSize = true;
+            this.chkRec.Checked = true;
+            this.chkRec.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRec.Location = new System.Drawing.Point(268, 50);
+            this.chkRec.Name = "chkRec";
+            this.chkRec.Size = new System.Drawing.Size(110, 18);
+            this.chkRec.TabIndex = 5;
+            this.chkRec.Text = "顯示推薦的單價";
+            this.chkRec.UseVisualStyleBackColor = true;
+            // 
             // chkJx
             // 
             this.chkJx.AutoSize = true;
@@ -961,7 +973,8 @@
             "",
             "無叻",
             "含叻",
-            "環保色"});
+            "環保色",
+            "工序"});
             this.cmbPlateType.Location = new System.Drawing.Point(744, 15);
             this.cmbPlateType.Name = "cmbPlateType";
             this.cmbPlateType.Size = new System.Drawing.Size(121, 22);
@@ -996,18 +1009,6 @@
             this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDepId.Size = new System.Drawing.Size(177, 20);
             this.txtDepId.TabIndex = 1;
-            // 
-            // chkRec
-            // 
-            this.chkRec.AutoSize = true;
-            this.chkRec.Checked = true;
-            this.chkRec.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRec.Location = new System.Drawing.Point(268, 50);
-            this.chkRec.Name = "chkRec";
-            this.chkRec.Size = new System.Drawing.Size(110, 18);
-            this.chkRec.TabIndex = 5;
-            this.chkRec.Text = "顯示推薦的單價";
-            this.chkRec.UseVisualStyleBackColor = true;
             // 
             // frmProductCostingFindPrice
             // 
