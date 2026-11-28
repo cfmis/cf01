@@ -94,8 +94,7 @@ namespace cf01.MM
             string recNumber = "";
             recNumber = this.cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
             DataTable dtOc1 = clsOrderHistory.LoadOcData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
-                , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
-                , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
+                , moGroup, txtSales.Text, txtGoodsID.Text, txtPo.Text, txtCustItem.Text, txtCust.Text
                 , txtBrand.Text, txtSeason.Text
                 , recNumber);
             LoadOcDataDetails("ZZZZZZZZZ");//填充各種控件
@@ -108,16 +107,17 @@ namespace cf01.MM
         }
         private DataTable LoadWipData()
         {
-            string moGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString() : "";
-            string recNumber = "";
-            recNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
-            DataTable dtWip = clsOrderHistory.LoadWipData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
-                , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
-                , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
-                , txtBrand.Text, txtSeason.Text
-                , recNumber);
-            LoadWipDataDetails("ZZZZZZZZZ");
-            LoadWipMatData("ZZZZZZZZZ", "ZZZZ");
+            //string moGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString() : "";
+            //string recNumber = "";
+            //recNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
+            //DataTable dtWip = clsOrderHistory.LoadWipData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
+            //    , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
+            //    , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
+            //    , txtBrand.Text, txtSeason.Text
+            //    , recNumber);
+            //LoadWipDataDetails("ZZZZZZZZZ");
+            //LoadWipMatData("ZZZZZZZZZ", "ZZZZ");
+            DataTable dtWip = new DataTable();
             return dtWip;
         }
         private void LoadWipDataDetails(string mo_id)
@@ -269,8 +269,7 @@ namespace cf01.MM
             var dt = txtDateFrom.Text;
             recNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
             DataTable dtOc = clsOrderHistory.LoadOcData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
-                , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
-                , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
+                , moGroup, txtSales.Text, txtGoodsID.Text, txtPo.Text, txtCustItem.Text, txtCust.Text
                 , txtBrand.Text, txtSeason.Text
                 , recNumber);
             dgvOc.DataSource = dtOc;

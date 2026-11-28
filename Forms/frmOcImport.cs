@@ -11,6 +11,7 @@ using OfficeOpenXml;
 using cf01.CLS;
 using System.Text.RegularExpressions;
 using System.Threading;
+using cf01.MM;
 
 namespace cf01.Forms
 {
@@ -21,6 +22,7 @@ namespace cf01.Forms
         int progressBar_Cnt2 = 0;
         int Coun = 100;
         int pausCnt = 20;
+        private frmOrderHistory frmOrderHistory;
 
         public frmOcImport()
         {
@@ -548,6 +550,16 @@ namespace cf01.Forms
         private void txtOrderDate_Leave(object sender, EventArgs e)
         {
             txtDateFind.Text = txtOrderDate.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (frmOrderHistory == null)
+            {
+                frmOrderHistory = new frmOrderHistory();
+            }
+
+            frmOrderHistory.ShowDialog();
         }
     }
 }

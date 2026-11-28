@@ -13,15 +13,17 @@ namespace cf01.CLS
         private static string within_code = DBUtility.within_code;
         private static clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
         public static DataTable LoadOcData(string mo_id,string date_from,string date_to,string mo_group,string sel_id
-            ,string goods_id,string goods_name,string po_no,string mat_code,string prd_type,string art_code,string size_id,string clr_id
-            ,string cust_item,string cust_color,string cust_code,string brand_id,string season
+            ,string goods_id,string po_no,string cust_item,string cust_code,string brand_id,string season
             ,string recNumber)
         {
             string strSql = "";
             string wh_str = "", wh_str1 = "";
             string sl_str = "";
             string jo_str = "";
-            strSql += " Select aa.* From ( ";
+            strSql += " Select ";
+            if (recNumber != "")
+                strSql += " Top " + recNumber;
+            strSql += " aa.* From ( ";
             sl_str += " Select ";
             if (recNumber != "")
                 sl_str += " Top " + recNumber;
@@ -36,10 +38,15 @@ namespace cf01.CLS
                 " Inner Join so_order_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver " +
                 " Left Join it_customer e On a.within_code=e.within_code And a.it_customer=e.id";
             wh_str = " Where a.within_code='" + within_code + "' And a.state<>'2' And a.state<>'V' And b.state<>'2' And b.state<>'V' ";
-            if (date_from != "" && date_to !="")
+            if (date_from != "" && date_to != "")
             {
                 string date_to1 = Convert.ToDateTime(date_to).AddDays(1).ToString("yyyy/MM/dd");
                 wh_str += " And a.order_date >= '" + date_from + "' And a.order_date < '" + date_to1 + "'";
+            }
+            else
+            {
+                string date_to1 = System.DateTime.Now.AddDays(-180).ToString("yyyy/MM/dd");
+                wh_str += " And a.order_date >= '" + date_to1 + "'";
             }
             if (cust_code != "")
                 wh_str += " And a.it_customer = '" + cust_code + "'";
@@ -50,23 +57,19 @@ namespace cf01.CLS
             if (mo_id != "")
                 wh_str += " And b.mo_id = '" + mo_id + "'";
             if (goods_id != "")
-                wh_str1 += " And b.goods_id Like '%" + goods_id + "%'";
-            if (goods_name != "")
-                wh_str1 += " And b.goods_name Like '%" + goods_name + "%'";
+                wh_str1 += " And ( b.goods_id Like '%" + goods_id + "%'" + " Or b.goods_name Like '%" + goods_id + "%'" + " )";
             if (mo_group != "")
                 wh_str += " And b.mo_group = '" + mo_group + "'";
 
             if (brand_id != "")
                 wh_str += " And b.brand_id = '" + brand_id + "'";
             if (cust_item != "")
-                wh_str += " And b.customer_goods Like '%" + cust_item + "%'";
-            if (cust_color != "")
-                wh_str += " And b.customer_color_id Like '%" + cust_code + "%'";
+                wh_str += " And b.customer_goods Like '%" + cust_item + "%'" + " Or b.customer_color_id Like '%" + cust_code + "%'" + " )";
             if (season != "")
                 wh_str += " And a.season = '" + season + "'";
             strSql += sl_str + jo_str + wh_str + wh_str1;
 
-            if (goods_id != "" || goods_name != "")
+            if (goods_id != "")
             {
                 sl_str = "";
                 wh_str1 = "";
@@ -75,28 +78,16 @@ namespace cf01.CLS
                 if (recNumber != "")
                     sl_str += " Top " + recNumber;
                 sl_str += " ' ' As MFlag" + ",b.mo_id,Convert(Varchar(50),a.order_date,111) AS order_date" +
-                ",c.sequence_id,c.goods_id,d.name As goods_name,Convert(int,b.order_qty) As order_qty,b.goods_unit" +
-                ",Convert(decimal(18,2),b.unit_price) As unit_price" +
-                ",b.p_unit,a.m_id,b.total_sum,c.primary_key " +
-                ",a.it_customer,e.name As cust_cname,a.contract_id,b.brand_id" +
-                ",b.add_remark,b.plate_remark,b.customer_goods,b.customer_color_id,a.seller_id" +
-                ",Convert(Varchar(10),b.arrive_date,111) AS arrive_date,a.season";
+                    ",c.sequence_id,c.goods_id,d.name As goods_name,Convert(int,b.order_qty) As order_qty,b.goods_unit" +
+                    ",Convert(decimal(18,2),b.unit_price) As unit_price" +
+                    ",b.p_unit,a.m_id,b.total_sum,c.primary_key " +
+                    ",a.it_customer,e.name As cust_cname,a.contract_id,b.brand_id" +
+                    ",b.add_remark,b.plate_remark,b.customer_goods,b.customer_color_id,a.seller_id" +
+                    ",Convert(Varchar(10),b.arrive_date,111) AS arrive_date,a.season";
                 jo_str += " Inner Join so_order_bom c On b.within_code=c.within_code And b.id=c.id And b.ver=c.ver And b.sequence_id=c.upper_sequence ";
                 jo_str += " Inner Join it_goods d On c.within_code=d.within_code And c.goods_id=d.id ";
-                if (goods_name != "")
-                    wh_str1 += " And d.name Like '%" + goods_name + "%'";
                 if (goods_id != "")
-                    wh_str1 += " And c.goods_id Like '%" + goods_id + "%'";
-                if (mat_code != "")
-                    wh_str1 += " And d.datum = '" + mat_code + "'";
-                if (prd_type != "")
-                    wh_str1 += " And d.base_class = '" + prd_type + "'";
-                if (art_code != "")
-                    wh_str1 += " And d.blueprint_id = '" + art_code + "'";
-                if (size_id != "")
-                    wh_str1 += " And d.size_id = '" + size_id + "'";
-                if (clr_id != "")
-                    wh_str1 += " And d.color = '" + clr_id + "'";
+                    wh_str1 += " And ( c.goods_id Like '%" + goods_id + "%'"+ " Or d.name Like '%" + goods_id + "%'"+" )";
                 strSql += sl_str + jo_str + wh_str + wh_str1;
             }
             strSql += " ) aa ";

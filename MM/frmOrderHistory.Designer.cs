@@ -48,11 +48,8 @@
             this.txtMoID = new DevExpress.XtraEditors.TextEdit();
             this.lblProductMo = new DevExpress.XtraEditors.LabelControl();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtCustColor = new DevExpress.XtraEditors.TextEdit();
             this.txtCustItem = new DevExpress.XtraEditors.TextEdit();
-            this.txtGoodsName = new DevExpress.XtraEditors.TextEdit();
             this.txtGoodsID = new DevExpress.XtraEditors.TextEdit();
-            this.lblCustColor = new DevExpress.XtraEditors.LabelControl();
             this.lblGoodsName = new DevExpress.XtraEditors.LabelControl();
             this.lblCustItem = new DevExpress.XtraEditors.LabelControl();
             this.lblGoodsID = new DevExpress.XtraEditors.LabelControl();
@@ -61,19 +58,9 @@
             this.txtBrand = new DevExpress.XtraEditors.TextEdit();
             this.txtCust = new DevExpress.XtraEditors.TextEdit();
             this.lblSeason = new DevExpress.XtraEditors.LabelControl();
-            this.txtClr = new DevExpress.XtraEditors.TextEdit();
             this.lblBrand = new DevExpress.XtraEditors.LabelControl();
             this.lblPo = new DevExpress.XtraEditors.LabelControl();
             this.lblCust = new DevExpress.XtraEditors.LabelControl();
-            this.txtSize = new DevExpress.XtraEditors.TextEdit();
-            this.lblClr = new DevExpress.XtraEditors.LabelControl();
-            this.txtArt = new DevExpress.XtraEditors.TextEdit();
-            this.lblSize = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPrdType = new DevExpress.XtraEditors.TextEdit();
-            this.lblPrdType = new DevExpress.XtraEditors.LabelControl();
-            this.txtMat = new DevExpress.XtraEditors.TextEdit();
-            this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.xtc1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtp1 = new DevExpress.XtraTab.XtraTabPage();
             this.dgvOcDetails = new System.Windows.Forms.DataGridView();
@@ -152,6 +139,7 @@
             this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.btnAddCost1 = new DevExpress.XtraEditors.SimpleButton();
             this.dgvMatData = new System.Windows.Forms.DataGridView();
             this.colMatGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMatGoods_cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,7 +150,7 @@
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.btnAddCost1 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -173,19 +161,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustItem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGoodsName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoodsID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClr.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtc1)).BeginInit();
             this.xtc1.SuspendLayout();
             this.xtp1.SuspendLayout();
@@ -338,9 +319,9 @@
             // 
             this.lblDate.Location = new System.Drawing.Point(234, 12);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(64, 14);
+            this.lblDate.Size = new System.Drawing.Size(52, 14);
             this.lblDate.TabIndex = 27;
-            this.lblDate.Text = "計劃單日期:";
+            this.lblDate.Text = "訂單日期:";
             // 
             // txtDateTo
             // 
@@ -395,7 +376,7 @@
             // btnSearch
             // 
             this.btnSearch.Enabled = false;
-            this.btnSearch.Location = new System.Drawing.Point(1057, 37);
+            this.btnSearch.Location = new System.Drawing.Point(1244, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 38;
@@ -404,28 +385,15 @@
             this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtCustColor
-            // 
-            this.txtCustColor.Location = new System.Drawing.Point(304, 55);
-            this.txtCustColor.Name = "txtCustColor";
-            this.txtCustColor.Properties.ReadOnly = true;
-            this.txtCustColor.Size = new System.Drawing.Size(126, 20);
-            this.txtCustColor.TabIndex = 1;
-            // 
             // txtCustItem
             // 
-            this.txtCustItem.Location = new System.Drawing.Point(92, 55);
+            this.txtCustItem.Location = new System.Drawing.Point(92, 29);
             this.txtCustItem.Name = "txtCustItem";
+            this.txtCustItem.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtCustItem.Properties.Appearance.Options.UseBackColor = true;
             this.txtCustItem.Properties.ReadOnly = true;
-            this.txtCustItem.Size = new System.Drawing.Size(126, 20);
+            this.txtCustItem.Size = new System.Drawing.Size(338, 20);
             this.txtCustItem.TabIndex = 1;
-            // 
-            // txtGoodsName
-            // 
-            this.txtGoodsName.Location = new System.Drawing.Point(494, 5);
-            this.txtGoodsName.Name = "txtGoodsName";
-            this.txtGoodsName.Size = new System.Drawing.Size(318, 20);
-            this.txtGoodsName.TabIndex = 1;
             // 
             // txtGoodsID
             // 
@@ -434,29 +402,21 @@
             this.txtGoodsID.Size = new System.Drawing.Size(338, 20);
             this.txtGoodsID.TabIndex = 1;
             // 
-            // lblCustColor
-            // 
-            this.lblCustColor.Location = new System.Drawing.Point(222, 58);
-            this.lblCustColor.Name = "lblCustColor";
-            this.lblCustColor.Size = new System.Drawing.Size(76, 14);
-            this.lblCustColor.TabIndex = 0;
-            this.lblCustColor.Text = "客人產品顏色:";
-            // 
             // lblGoodsName
             // 
             this.lblGoodsName.Location = new System.Drawing.Point(436, 8);
             this.lblGoodsName.Name = "lblGoodsName";
-            this.lblGoodsName.Size = new System.Drawing.Size(52, 14);
+            this.lblGoodsName.Size = new System.Drawing.Size(145, 14);
             this.lblGoodsName.TabIndex = 0;
-            this.lblGoodsName.Text = "產品編號:";
+            this.lblGoodsName.Text = "(產品描述/顏色/圖樣/尺寸)";
             // 
             // lblCustItem
             // 
-            this.lblCustItem.Location = new System.Drawing.Point(10, 58);
+            this.lblCustItem.Location = new System.Drawing.Point(34, 34);
             this.lblCustItem.Name = "lblCustItem";
-            this.lblCustItem.Size = new System.Drawing.Size(76, 14);
+            this.lblCustItem.Size = new System.Drawing.Size(52, 14);
             this.lblCustItem.TabIndex = 0;
-            this.lblCustItem.Text = "客人產品編號:";
+            this.lblCustItem.Text = "客人產品:";
             // 
             // lblGoodsID
             // 
@@ -464,11 +424,11 @@
             this.lblGoodsID.Name = "lblGoodsID";
             this.lblGoodsID.Size = new System.Drawing.Size(52, 14);
             this.lblGoodsID.TabIndex = 0;
-            this.lblGoodsID.Text = "產品編號:";
+            this.lblGoodsID.Text = "產品描述:";
             // 
             // txtPo
             // 
-            this.txtPo.Location = new System.Drawing.Point(877, 5);
+            this.txtPo.Location = new System.Drawing.Point(911, 3);
             this.txtPo.Name = "txtPo";
             this.txtPo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPo.Size = new System.Drawing.Size(126, 20);
@@ -476,7 +436,7 @@
             // 
             // txtSeason
             // 
-            this.txtSeason.Location = new System.Drawing.Point(877, 55);
+            this.txtSeason.Location = new System.Drawing.Point(911, 27);
             this.txtSeason.Name = "txtSeason";
             this.txtSeason.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSeason.Size = new System.Drawing.Size(126, 20);
@@ -484,7 +444,7 @@
             // 
             // txtBrand
             // 
-            this.txtBrand.Location = new System.Drawing.Point(686, 55);
+            this.txtBrand.Location = new System.Drawing.Point(686, 32);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBrand.Size = new System.Drawing.Size(126, 20);
@@ -492,7 +452,7 @@
             // 
             // txtCust
             // 
-            this.txtCust.Location = new System.Drawing.Point(494, 55);
+            this.txtCust.Location = new System.Drawing.Point(686, 6);
             this.txtCust.Name = "txtCust";
             this.txtCust.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCust.Size = new System.Drawing.Size(126, 20);
@@ -500,24 +460,15 @@
             // 
             // lblSeason
             // 
-            this.lblSeason.Location = new System.Drawing.Point(843, 58);
+            this.lblSeason.Location = new System.Drawing.Point(877, 30);
             this.lblSeason.Name = "lblSeason";
             this.lblSeason.Size = new System.Drawing.Size(28, 14);
             this.lblSeason.TabIndex = 13;
             this.lblSeason.Text = "季度:";
             // 
-            // txtClr
-            // 
-            this.txtClr.Location = new System.Drawing.Point(877, 30);
-            this.txtClr.Name = "txtClr";
-            this.txtClr.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClr.Properties.MaxLength = 4;
-            this.txtClr.Size = new System.Drawing.Size(126, 20);
-            this.txtClr.TabIndex = 11;
-            // 
             // lblBrand
             // 
-            this.lblBrand.Location = new System.Drawing.Point(628, 58);
+            this.lblBrand.Location = new System.Drawing.Point(628, 32);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(52, 14);
             this.lblBrand.TabIndex = 13;
@@ -525,7 +476,7 @@
             // 
             // lblPo
             // 
-            this.lblPo.Location = new System.Drawing.Point(827, 8);
+            this.lblPo.Location = new System.Drawing.Point(861, 6);
             this.lblPo.Name = "lblPo";
             this.lblPo.Size = new System.Drawing.Size(44, 14);
             this.lblPo.TabIndex = 13;
@@ -533,95 +484,19 @@
             // 
             // lblCust
             // 
-            this.lblCust.Location = new System.Drawing.Point(436, 58);
+            this.lblCust.Location = new System.Drawing.Point(628, 9);
             this.lblCust.Name = "lblCust";
             this.lblCust.Size = new System.Drawing.Size(52, 14);
             this.lblCust.TabIndex = 13;
             this.lblCust.Text = "客戶編號:";
             // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(686, 30);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSize.Properties.MaxLength = 3;
-            this.txtSize.Size = new System.Drawing.Size(126, 20);
-            this.txtSize.TabIndex = 9;
-            // 
-            // lblClr
-            // 
-            this.lblClr.Location = new System.Drawing.Point(819, 33);
-            this.lblClr.Name = "lblClr";
-            this.lblClr.Size = new System.Drawing.Size(52, 14);
-            this.lblClr.TabIndex = 13;
-            this.lblClr.Text = "顏色代號:";
-            // 
-            // txtArt
-            // 
-            this.txtArt.Location = new System.Drawing.Point(494, 30);
-            this.txtArt.Name = "txtArt";
-            this.txtArt.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtArt.Properties.MaxLength = 7;
-            this.txtArt.Size = new System.Drawing.Size(126, 20);
-            this.txtArt.TabIndex = 5;
-            // 
-            // lblSize
-            // 
-            this.lblSize.Location = new System.Drawing.Point(628, 33);
-            this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(52, 14);
-            this.lblSize.TabIndex = 12;
-            this.lblSize.Text = "尺寸代號:";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(436, 33);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 14);
-            this.labelControl1.TabIndex = 16;
-            this.labelControl1.Text = "圖樣代號:";
-            // 
-            // txtPrdType
-            // 
-            this.txtPrdType.Location = new System.Drawing.Point(304, 30);
-            this.txtPrdType.Name = "txtPrdType";
-            this.txtPrdType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPrdType.Properties.MaxLength = 2;
-            this.txtPrdType.Size = new System.Drawing.Size(126, 20);
-            this.txtPrdType.TabIndex = 7;
-            // 
-            // lblPrdType
-            // 
-            this.lblPrdType.Location = new System.Drawing.Point(246, 33);
-            this.lblPrdType.Name = "lblPrdType";
-            this.lblPrdType.Size = new System.Drawing.Size(52, 14);
-            this.lblPrdType.TabIndex = 14;
-            this.lblPrdType.Text = "產品類型:";
-            // 
-            // txtMat
-            // 
-            this.txtMat.Location = new System.Drawing.Point(92, 30);
-            this.txtMat.Name = "txtMat";
-            this.txtMat.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMat.Properties.MaxLength = 2;
-            this.txtMat.Size = new System.Drawing.Size(126, 20);
-            this.txtMat.TabIndex = 3;
-            // 
-            // lblMat
-            // 
-            this.lblMat.Location = new System.Drawing.Point(34, 33);
-            this.lblMat.Name = "lblMat";
-            this.lblMat.Size = new System.Drawing.Size(52, 14);
-            this.lblMat.TabIndex = 15;
-            this.lblMat.Text = "物料種類:";
-            // 
             // xtc1
             // 
             this.xtc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtc1.Location = new System.Drawing.Point(0, 167);
+            this.xtc1.Location = new System.Drawing.Point(0, 131);
             this.xtc1.Name = "xtc1";
             this.xtc1.SelectedTabPage = this.xtp1;
-            this.xtc1.Size = new System.Drawing.Size(1356, 735);
+            this.xtc1.Size = new System.Drawing.Size(1356, 771);
             this.xtc1.TabIndex = 4;
             this.xtc1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtp1,
@@ -633,7 +508,7 @@
             this.xtp1.Controls.Add(this.panelControl2);
             this.xtp1.Controls.Add(this.dgvOc);
             this.xtp1.Name = "xtp1";
-            this.xtp1.Size = new System.Drawing.Size(1350, 706);
+            this.xtp1.Size = new System.Drawing.Size(1350, 742);
             this.xtp1.Text = "訂單記錄";
             // 
             // dgvOcDetails
@@ -664,7 +539,7 @@
             this.dgvOcDetails.RowHeadersWidth = 30;
             this.dgvOcDetails.RowTemplate.Height = 24;
             this.dgvOcDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvOcDetails.Size = new System.Drawing.Size(1350, 230);
+            this.dgvOcDetails.Size = new System.Drawing.Size(1350, 266);
             this.dgvOcDetails.TabIndex = 3;
             // 
             // colSelectFlagOc
@@ -1264,6 +1139,14 @@
             this.panelControl5.Size = new System.Drawing.Size(1350, 32);
             this.panelControl5.TabIndex = 5;
             // 
+            // btnAddCost1
+            // 
+            this.btnAddCost1.Location = new System.Drawing.Point(33, 5);
+            this.btnAddCost1.Name = "btnAddCost1";
+            this.btnAddCost1.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCost1.TabIndex = 0;
+            this.btnAddCost1.Text = "加到報價單";
+            // 
             // dgvMatData
             // 
             this.dgvMatData.AllowUserToAddRows = false;
@@ -1343,27 +1226,15 @@
             // 
             this.panelControl4.Controls.Add(this.btnSearch);
             this.panelControl4.Controls.Add(this.txtPo);
-            this.panelControl4.Controls.Add(this.lblMat);
-            this.panelControl4.Controls.Add(this.txtMat);
-            this.panelControl4.Controls.Add(this.lblPrdType);
-            this.panelControl4.Controls.Add(this.txtPrdType);
-            this.panelControl4.Controls.Add(this.txtCustColor);
-            this.panelControl4.Controls.Add(this.labelControl1);
             this.panelControl4.Controls.Add(this.txtCustItem);
-            this.panelControl4.Controls.Add(this.lblSize);
-            this.panelControl4.Controls.Add(this.txtGoodsName);
-            this.panelControl4.Controls.Add(this.txtArt);
             this.panelControl4.Controls.Add(this.txtGoodsID);
-            this.panelControl4.Controls.Add(this.lblClr);
-            this.panelControl4.Controls.Add(this.lblCustColor);
-            this.panelControl4.Controls.Add(this.txtSize);
+            this.panelControl4.Controls.Add(this.labelControl2);
             this.panelControl4.Controls.Add(this.lblGoodsName);
             this.panelControl4.Controls.Add(this.lblCust);
             this.panelControl4.Controls.Add(this.lblCustItem);
             this.panelControl4.Controls.Add(this.lblPo);
             this.panelControl4.Controls.Add(this.lblBrand);
             this.panelControl4.Controls.Add(this.lblGoodsID);
-            this.panelControl4.Controls.Add(this.txtClr);
             this.panelControl4.Controls.Add(this.lblSeason);
             this.panelControl4.Controls.Add(this.txtCust);
             this.panelControl4.Controls.Add(this.txtBrand);
@@ -1371,16 +1242,16 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 73);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1356, 94);
+            this.panelControl4.Size = new System.Drawing.Size(1356, 58);
             this.panelControl4.TabIndex = 5;
             // 
-            // btnAddCost1
+            // labelControl2
             // 
-            this.btnAddCost1.Location = new System.Drawing.Point(33, 5);
-            this.btnAddCost1.Name = "btnAddCost1";
-            this.btnAddCost1.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCost1.TabIndex = 0;
-            this.btnAddCost1.Text = "加到報價單";
+            this.labelControl2.Location = new System.Drawing.Point(436, 32);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(87, 14);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "(客人產品/顏色)";
             // 
             // frmOrderHistory
             // 
@@ -1407,19 +1278,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustItem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGoodsName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoodsID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClr.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtc1)).EndInit();
             this.xtc1.ResumeLayout(false);
             this.xtp1.ResumeLayout(false);
@@ -1457,27 +1321,14 @@
         private DevExpress.XtraEditors.LabelControl lblDate;
         private DevExpress.XtraEditors.DateEdit txtDateTo;
         private DevExpress.XtraEditors.DateEdit txtDateFrom;
-        private DevExpress.XtraEditors.TextEdit txtClr;
-        private DevExpress.XtraEditors.TextEdit txtSize;
-        private DevExpress.XtraEditors.LabelControl lblClr;
-        private DevExpress.XtraEditors.TextEdit txtArt;
-        private DevExpress.XtraEditors.LabelControl lblSize;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtPrdType;
-        private DevExpress.XtraEditors.LabelControl lblPrdType;
-        private DevExpress.XtraEditors.TextEdit txtMat;
-        private DevExpress.XtraEditors.LabelControl lblMat;
         private DevExpress.XtraEditors.TextEdit txtMoID;
         private DevExpress.XtraEditors.LabelControl lblProductMo;
-        private DevExpress.XtraEditors.TextEdit txtGoodsName;
         private DevExpress.XtraEditors.TextEdit txtGoodsID;
         private DevExpress.XtraEditors.LabelControl lblGoodsName;
         private DevExpress.XtraEditors.LabelControl lblGoodsID;
         private DevExpress.XtraEditors.TextEdit txtPo;
         private DevExpress.XtraEditors.LabelControl lblPo;
-        private DevExpress.XtraEditors.TextEdit txtCustColor;
         private DevExpress.XtraEditors.TextEdit txtCustItem;
-        private DevExpress.XtraEditors.LabelControl lblCustColor;
         private DevExpress.XtraEditors.LabelControl lblCustItem;
         private DevExpress.XtraEditors.TextEdit txtBrand;
         private DevExpress.XtraEditors.TextEdit txtCust;
@@ -1577,5 +1428,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private DevExpress.XtraEditors.SimpleButton btnAddCost1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }
